@@ -54,9 +54,9 @@
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
-<body>
+    <body>
 
-    <header class="navbar-fixed">
+        <header class="navbar-fixed">
     <nav id="headNav" class="bg-color nav-transparent">
         <div id="navContainer" class="nav-wrapper container">
             <div class="brand-logo">
@@ -299,7 +299,7 @@
     </nav>
 
 </header>
-    <div class="bg-cover pd-header about-cover">
+            <div class="bg-cover pd-header about-cover">
     <div class="container">
     <div class="row">
     <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
@@ -328,7 +328,7 @@
 
     // 
     var random = Math.round(Math.random() * (11 - 1) + 1);
-    console.log(random);
+    // console.log(random);
     $('.bg-cover').css('background-image', 'url(/medias/banner/' + random + '.jpg)');
 </script>
     </div>
@@ -422,7 +422,7 @@
 </main>
 
 
-    <footer class="page-footer bg-color">
+                <footer class="page-footer bg-color">
     <div class="container row center-align">
         <div class="col s12 m8 l8 copy-right">
             &copy; 2019-2020 Wenjie. 版权所有
@@ -542,7 +542,7 @@
     siteTime();
 </script>
 
-    <!-- 搜索遮罩框 -->
+                    <!-- 搜索遮罩框 -->
 <div id="searchModal" class="modal">
     <div class="modal-content">
         <div class="search-header">
@@ -560,7 +560,7 @@ $(function () {
     searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
 });
 </script>
-    <!-- 回到顶部按钮 -->
+                        <!-- 回到顶部按钮 -->
 <div id="backTop" class="top-scroll">
     <a class="btn-floating btn-large waves-effect waves-light" href="#!">
         <i class="fa fa-angle-up"></i>
@@ -568,17 +568,24 @@ $(function () {
 </div>
 
 
-    <script src="/libs/materialize/materialize.min.js"></script>
-    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
-    <script src="/libs/aos/aos.js"></script>
-    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
-    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
-    <script src="/js/matery.js"></script>
+                            <script src="/libs/materialize/materialize.min.js"></script>
+                            <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+                            <script src="/libs/aos/aos.js"></script>
+                            <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+                            <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+                            <script src="/js/matery.js"></script>
 
-    <script type="text/javascript"> var OriginTitile = document.title, st; document.addEventListener("visibilitychange", function () { document.hidden ? (document.title = "Σ(っ °Д °;)っ喔哟，崩溃啦！", clearTimeout(st)) : (document.title = "φ(゜▽゜*)♪咦，又好了！", st = setTimeout(function () { document.title = OriginTitile }, 3e3)) })
-    </script>
+                            <script type="text/javascript">
+                                var OriginTitile = document.title,
+                                    st;
+                                document.addEventListener("visibilitychange", function() {
+                                    document.hidden ? (document.title = "(っ °Д °;)喔哟，崩溃啦！", clearTimeout(st)) : (document.title = "(゜▽゜*)咦，又好了！", st = setTimeout(function() {
+                                        document.title = OriginTitile
+                                    }, 3e3))
+                                })
+                            </script>
 
-    <!-- Global site tag (gtag.js) - Google Analytics -->
+                            <!-- Global site tag (gtag.js) - Google Analytics -->
 
 <script async src="https://www.googletagmanager.com/gtag/js?id="></script>
 <script>
@@ -593,17 +600,17 @@ $(function () {
 
 
 
-    
-    <script src="/libs/others/clicklove.js"></script>
-    
+                                
+                                    <script src="/libs/others/clicklove.js"></script>
+                                    
 
-    
-    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
-    
+                                                    
+                                                        <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+                                                        
 
-    <!-- 雪花特效 -->
-    
+                                                            <!-- 雪花特效 -->
+                                                            
 
-</body>
+    </body>
 
 </html>

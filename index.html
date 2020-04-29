@@ -54,9 +54,9 @@
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
-<body>
+    <body>
 
-    <header class="navbar-fixed">
+        <header class="navbar-fixed">
     <nav id="headNav" class="bg-color nav-transparent">
         <div id="navContainer" class="nav-wrapper container">
             <div class="brand-logo">
@@ -299,7 +299,7 @@
     </nav>
 
 </header>
-    
+            
 <style>
     .carousel-control {
         width: 45px;
@@ -310,31 +310,32 @@
         cursor: pointer;
         z-index: 100;
     }
-
+    
     #prev-cover {
         position: absolute;
         top: 48%;
         left: 8px;
     }
-
+    
     #next-cover {
         position: absolute;
         top: 48%;
-        right: 8px;;
+        right: 8px;
+        ;
     }
-
+    
     #prev-cover i {
         margin-right: 3px;
     }
-
+    
     #next-cover i {
         margin-left: 3px;
     }
-
+    
     .carousel-control:hover {
-        background-color:rgba(0, 0, 0, .4);
+        background-color: rgba(0, 0, 0, .4);
     }
-
+    
     .carousel-control i {
         color: #fff;
         font-size: 2.4rem;
@@ -343,12 +344,12 @@
 
 
 
-<div class="carousel carousel-slider center index-cover" data-indicators="true" style="margin-top: -64px;">
-    
+    <div class="carousel carousel-slider center index-cover" data-indicators="true" style="margin-top: -64px;">
+        
 
-    <div class="carousel-item red white-text bg-cover about-cover">
-        <div class="container">
-            <div class="row">
+                <div class="carousel-item red white-text bg-cover about-cover">
+                    <div class="container">
+                        <div class="row">
     <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
         <div class="brand">
             <div class="title center-align">
@@ -375,22 +376,24 @@
 
     // 
     var random = Math.round(Math.random() * (11 - 1) + 1);
-    console.log(random);
+    // console.log(random);
     $('.bg-cover').css('background-image', 'url(/medias/banner/' + random + '.jpg)');
 </script>
 
-            <div class="cover-btns">
-                <a href="#indexCard" class="waves-effect waves-light btn">
-                    <i class="fa fa-angle-double-down"></i>开始阅读
-                </a>
+                            <div class="cover-btns">
+                                <a href="#indexCard" class="waves-effect waves-light btn">
+                                    <i class="fa fa-angle-double-down"></i>
+                                    开始阅读
+                                </a>
 
-                
-                <a href="https://github.com/skyfaker" class="waves-effect waves-light btn" target="_blank">
+                                
+                                    <a href="https://github.com/skyfaker" class="waves-effect waves-light btn" target="_blank">
                     <i class="fa fa-github-alt"></i>Github
                 </a>
-                
-            </div>
-            <div class="cover-social-link">
+                                    
+                            </div>
+                            <div class="cover-social-link">
+                                
     <a href="https://github.com/skyfaker" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
         <i class="fa fa-github"></i>
     </a>
@@ -412,54 +415,43 @@
     <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
         <i class="fa fa-rss"></i>
     </a>
-</div>
-        </div>
+
+                            </div>
+                    </div>
+                </div>
+
+                
     </div>
 
-    
-</div>
+    <script>
+        $(function() {
+            let coverSlider = $('.carousel');
+            coverSlider.carousel({
+                duration: Number('200'),
+                fullWidth: true,
+                indicators: 'true' === 'true'
+            });
 
-<script>
-$(function () {
-    let coverSlider = $('.carousel');
-    coverSlider.carousel({
-        duration: Number('200'),
-        fullWidth: true,
-        indicators: 'true' === 'true'
-    });
+            let carouselIntervalId;
+            
 
-    let carouselIntervalId;
-    
-    // Loop to call the next cover article picture.
-    let autoCarousel = function() {
-        carouselIntervalId = setInterval(function () {
-            coverSlider.carousel('next');
-        }, 5000);
-    };
-    autoCarousel();
-    
+            let restartPlay = function() {
+                
+            };
 
-    let restartPlay = function () {
-        
-        clearInterval(carouselIntervalId);
-        autoCarousel();
-        
-    };
-
-    
-    // prev and next cover post.
-    $('#prev-cover').click(function () {
-        coverSlider.carousel('prev');
-        restartPlay();
-    });
-    $('#next-cover').click(function () {
-        coverSlider.carousel('next');
-        restartPlay();
-    });
-    
-});
-</script>
-
+            
+            // prev and next cover post.
+            $('#prev-cover').click(function() {
+                coverSlider.carousel('prev');
+                restartPlay();
+            });
+            $('#next-cover').click(function() {
+                coverSlider.carousel('next');
+                restartPlay();
+            });
+            
+        });
+    </script>
 
 
 <main class="content">
@@ -582,7 +574,7 @@ $(function () {
 </main>
 
 
-    <footer class="page-footer bg-color">
+                <footer class="page-footer bg-color">
     <div class="container row center-align">
         <div class="col s12 m8 l8 copy-right">
             &copy; 2019-2020 Wenjie. 版权所有
@@ -702,7 +694,7 @@ $(function () {
     siteTime();
 </script>
 
-    <!-- 搜索遮罩框 -->
+                    <!-- 搜索遮罩框 -->
 <div id="searchModal" class="modal">
     <div class="modal-content">
         <div class="search-header">
@@ -720,7 +712,7 @@ $(function () {
     searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
 });
 </script>
-    <!-- 回到顶部按钮 -->
+                        <!-- 回到顶部按钮 -->
 <div id="backTop" class="top-scroll">
     <a class="btn-floating btn-large waves-effect waves-light" href="#!">
         <i class="fa fa-angle-up"></i>
@@ -728,17 +720,24 @@ $(function () {
 </div>
 
 
-    <script src="/libs/materialize/materialize.min.js"></script>
-    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
-    <script src="/libs/aos/aos.js"></script>
-    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
-    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
-    <script src="/js/matery.js"></script>
+                            <script src="/libs/materialize/materialize.min.js"></script>
+                            <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+                            <script src="/libs/aos/aos.js"></script>
+                            <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+                            <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+                            <script src="/js/matery.js"></script>
 
-    <script type="text/javascript"> var OriginTitile = document.title, st; document.addEventListener("visibilitychange", function () { document.hidden ? (document.title = "Σ(っ °Д °;)っ喔哟，崩溃啦！", clearTimeout(st)) : (document.title = "φ(゜▽゜*)♪咦，又好了！", st = setTimeout(function () { document.title = OriginTitile }, 3e3)) })
-    </script>
+                            <script type="text/javascript">
+                                var OriginTitile = document.title,
+                                    st;
+                                document.addEventListener("visibilitychange", function() {
+                                    document.hidden ? (document.title = "(っ °Д °;)喔哟，崩溃啦！", clearTimeout(st)) : (document.title = "(゜▽゜*)咦，又好了！", st = setTimeout(function() {
+                                        document.title = OriginTitile
+                                    }, 3e3))
+                                })
+                            </script>
 
-    <!-- Global site tag (gtag.js) - Google Analytics -->
+                            <!-- Global site tag (gtag.js) - Google Analytics -->
 
 <script async src="https://www.googletagmanager.com/gtag/js?id="></script>
 <script>
@@ -753,17 +752,17 @@ $(function () {
 
 
 
-    
-    <script src="/libs/others/clicklove.js"></script>
-    
+                                
+                                    <script src="/libs/others/clicklove.js"></script>
+                                    
 
-    
-    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
-    
+                                                    
+                                                        <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+                                                        
 
-    <!-- 雪花特效 -->
-    
+                                                            <!-- 雪花特效 -->
+                                                            
 
-</body>
+    </body>
 
 </html>
