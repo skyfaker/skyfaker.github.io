@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://skyfaker.github.io/2019/02/16/autoencoder/</loc>
+    
+    <lastmod>2020-04-29T10:14:01.906Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://skyfaker.github.io/2019/02/16/how-to-run-a-vue/</loc>
+    
+    <lastmod>2020-04-29T10:08:42.467Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://skyfaker.github.io/2019/02/16/sort-algorithms/</loc>
+    
+    <lastmod>2020-04-29T10:07:51.846Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://skyfaker.github.io/404.html</loc>
     
     <lastmod>2020-04-29T04:10:58.742Z</lastmod>
@@ -40,13 +61,6 @@
     <loc>https://skyfaker.github.io/about/index.html</loc>
     
     <lastmod>2020-04-29T04:09:23.532Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://skyfaker.github.io/2019/02/16/sort-algorithms/</loc>
-    
-    <lastmod>2020-04-29T04:08:53.513Z</lastmod>
     
   </url>
   
