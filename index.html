@@ -432,6 +432,30 @@
 
                         
                             
+                                <div class="carousel-item amber white-text carousel-post bg-cover" style="background-image: url('/medias/featureimages/23.jpg');">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col s10 offset-s1">
+                                                <div class="title center-align">
+                                                    十大经典排序算法整理汇总（附代码）
+                                                </div>
+                                                <div class="description center-align">
+                                                    
+                                                        本文整理并总结了十大经典的排序算法（冒泡排序、选择排序、插入排序、快速排序、归并排序、希尔排序、计数排序、基数排序、桶排序、堆排序）的时间复杂度、空间复杂度等性质。
+                                                            
+                                                </div>
+                                                <div class="cover-btns">
+                                                    <a href="/2019/02/16/sort-algorithms/" class="waves-effect waves-light btn" target="_blank">
+                                                        <i class="icon fa fa-eye fa-fw"></i>
+                                                        阅读更多
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            
                                 <div class="carousel-item amber white-text carousel-post bg-cover" style="background-image: url('/medias/featureimages/3.jpg');">
                                     <div class="container">
                                         <div class="row">
@@ -479,30 +503,6 @@
                                     </div>
                                 </div>
                                 
-                            
-                                <div class="carousel-item amber white-text carousel-post bg-cover" style="background-image: url('/medias/featureimages/23.jpg');">
-                                    <div class="container">
-                                        <div class="row">
-                                            <div class="col s10 offset-s1">
-                                                <div class="title center-align">
-                                                    十大经典排序算法整理汇总（附代码）
-                                                </div>
-                                                <div class="description center-align">
-                                                    
-                                                        本文整理并总结了十大经典的排序算法（冒泡排序、选择排序、插入排序、快速排序、归并排序、希尔排序、计数排序、基数排序、桶排序、堆排序）的时间复杂度、空间复杂度等性质。
-                                                            
-                                                </div>
-                                                <div class="cover-btns">
-                                                    <a href="/2019/02/16/sort-algorithms/" class="waves-effect waves-light btn" target="_blank">
-                                                        <i class="icon fa fa-eye fa-fw"></i>
-                                                        阅读更多
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                
                                     
     </div>
 
@@ -510,15 +510,26 @@
         $(function() {
             let coverSlider = $('.carousel');
             coverSlider.carousel({
-                duration: Number('200'),
+                duration: Number('300'),
                 fullWidth: true,
                 indicators: 'true' === 'true'
             });
 
             let carouselIntervalId;
             
+            // Loop to call the next cover article picture.
+            let autoCarousel = function() {
+                carouselIntervalId = setInterval(function() {
+                    coverSlider.carousel('next');
+                }, 10000);
+            };
+            autoCarousel();
+            
 
             let restartPlay = function() {
+                
+                clearInterval(carouselIntervalId);
+                autoCarousel();
                 
             };
 
@@ -564,6 +575,27 @@
     
     
     <div class="col s12" >
+        <div class="post-card" style="background-image: url('/medias/featureimages/23.jpg')">
+            <div class="post-body">
+                <div class="post-categories">
+                    
+                    <a href="/categories/编程算法/" class="category" target="_blank">编程算法</a>
+                    
+                </div>
+                <a href="/2019/02/16/sort-algorithms/" target="_blank">
+                    <h3 class="post-title">十大经典排序算法整理汇总（附代码）</h3>
+                </a>
+                <p class="post-description">本文整理并总结了十大经典的排序算法（冒泡排序、选择排序、插入排序、快速排序、归并排序、希尔排序、计数排序、基数排序、桶排序、堆排序）的时间复杂度、空间复杂度等性质。</p>
+                <a href="/2019/02/16/sort-algorithms/" target="_blank"
+                        class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #FF5E3A 0%, #FF2A68 100%)">
+                    <i class="icon fa fa-eye fa-fw"></i>阅读更多
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="col s12 m6" data-aos="zoom-in-up">
         <div class="post-card" style="background-image: url('/medias/featureimages/3.jpg')">
             <div class="post-body">
                 <div class="post-categories">
@@ -576,7 +608,7 @@
                 </a>
                 <p class="post-description">自编码器（Autoencoder，AE），是一种利用反向传播算法使得输出值等于输入值的神经网络，它先将输入压缩成潜在空间表征，然后通过这种表征来重构输出。是一种简单却非常奇妙的神经网络结构。</p>
                 <a href="/2019/04/16/autoencoder/" target="_blank"
-                        class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #FF5E3A 0%, #FF2A68 100%)">
+                        class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #EF4DB6 0%, #C643FC 100%)">
                     <i class="icon fa fa-eye fa-fw"></i>阅读更多
                 </a>
             </div>
@@ -597,27 +629,6 @@
                 </a>
                 <p class="post-description">一开始刚接手项目内的vue.js，或者在GitHub上找到vue.js的开源项目，会发现不知如何运行这个项目。通过查阅网上教程，成功搭建好项目环境，同时对前段工程化有了朦朦胧胧的认知，因此将环境搭建过程分享给大家。</p>
                 <a href="/2019/03/16/how-to-run-a-vue/" target="_blank"
-                        class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #EF4DB6 0%, #C643FC 100%)">
-                    <i class="icon fa fa-eye fa-fw"></i>阅读更多
-                </a>
-            </div>
-        </div>
-    </div>
-    
-    
-    <div class="col s12 m6" data-aos="zoom-in-up">
-        <div class="post-card" style="background-image: url('/medias/featureimages/23.jpg')">
-            <div class="post-body">
-                <div class="post-categories">
-                    
-                    <a href="/categories/编程算法/" class="category" target="_blank">编程算法</a>
-                    
-                </div>
-                <a href="/2019/02/16/sort-algorithms/" target="_blank">
-                    <h3 class="post-title">十大经典排序算法整理汇总（附代码）</h3>
-                </a>
-                <p class="post-description">本文整理并总结了十大经典的排序算法（冒泡排序、选择排序、插入排序、快速排序、归并排序、希尔排序、计数排序、基数排序、桶排序、堆排序）的时间复杂度、空间复杂度等性质。</p>
-                <a href="/2019/02/16/sort-algorithms/" target="_blank"
                         class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #1AD6FD 0%, #1D62F0 100%)">
                     <i class="icon fa fa-eye fa-fw"></i>阅读更多
                 </a>
