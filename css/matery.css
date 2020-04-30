@@ -484,10 +484,22 @@ header .go-back i {
     height: 40vh !important;
 }
 
+
+/* 以msak为变换方式：45度蓝紫色渐变，0s为不启用 */
+
 .bg-cover:after {
-    -webkit-animation: rainbow 0s infinite;
-    animation: rainbow 0s infinite;
+    -webkit-animation: mask 0s infinite;
+    animation: mask 0s infinite;
 }
+
+
+/* 以rainbow为变换方式：45度蓝紫色渐变，0s为不启用 */
+
+
+/* .bg-cover:after {
+    -webkit-animation: rainbow 60s infinite;
+    animation: rainbow 60s infinite;
+} */
 
 .bg-cover:before,
 .bg-cover:after {
@@ -524,6 +536,26 @@ header .go-back i {
 
 .bg-cover .post-title {
     font-size: 1.9rem;
+}
+
+@-webkit-keyframes mask {
+    0%,
+    100% {
+        background: rgba(156, 39, 176, 0.75);
+        background: linear-gradient(45deg, rgba(156, 39, 176, 0.75) 0%, rgba(156, 39, 176, 0.6) 100%);
+        background: -moz-linear-gradient(135deg, rgba(156, 39, 176, 0.75) 0%, rgba(156, 39, 176, 0.60) 100%);
+        background: -webkit-linear-gradient(135deg, rgba(156, 39, 176, 0.75) 0%, rgba(156, 39, 176, 0.60) 100%);
+    }
+}
+
+@keyframes mask {
+    0%,
+    100% {
+        background: rgba(156, 39, 176, 0.75);
+        background: linear-gradient(45deg, rgba(156, 39, 176, 0.75) 0%, rgba(156, 39, 176, 0.65) 100%);
+        background: -moz-linear-gradient(135deg, rgba(156, 39, 176, 0.75) 0%, rgba(156, 39, 176, 0.65) 100%);
+        background: -webkit-linear-gradient(135deg, rgba(156, 39, 176, 0.75) 0%, rgba(156, 39, 176, 0.65) 100%);
+    }
 }
 
 @-webkit-keyframes rainbow {
