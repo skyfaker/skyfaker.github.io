@@ -17,7 +17,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>关于 | SKYFAKER</title>
-    <link rel="icon" type="image/jpeg" href="/logo.jpg">
+    <link rel="icon" type="image/png" href="/logo.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
@@ -508,7 +508,7 @@
         },
         xAxis: {
             type: 'category',
-            data: ["2019-04","2019-05","2019-06","2019-07","2019-08","2019-09","2019-10","2019-11","2019-12","2020-01","2020-02","2020-03","2020-04"]
+            data: ["2019-05","2019-06","2019-07","2019-08","2019-09","2019-10","2019-11","2019-12","2020-01","2020-02","2020-03","2020-04","2020-05"]
         },
         yAxis: {
             type: 'value',
@@ -518,7 +518,7 @@
                 name: '文章篇数',
                 type: 'line',
                 color: ['#6772e5'],
-                data: [1,0,0,0,0,0,0,0,0,0,0,0,0],
+                data: [0,0,0,0,0,0,0,0,0,0,0,0,0],
                 markPoint: {
                     symbolSize: 45,
                     color: ['#fa755a','#3ecf8e','#82d3f4'],
@@ -560,7 +560,7 @@
                 type: 'pie',
                 radius: '50%',
                 color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
-                data: [{"name":"深度学习","value":1},{"name":"前端","value":1},{"name":"编程算法","value":1}],
+                data: [{"name":"编程算法","value":1},{"name":"深度学习","value":1},{"name":"前端","value":1}],
                 itemStyle: {
                     emphasis: {
                         shadowBlur: 10,
@@ -584,7 +584,7 @@
         xAxis: [
             {
                 type: 'category',
-                data: ["自编码器（AutoEncoder）","神经网络","全连接神经网络","Vue","Node.js","leetcode","算法"]
+                data: ["leetcode","算法","自编码器（AutoEncoder）","神经网络","全连接神经网络","Vue","Node.js"]
             }
         ],
         yAxis: [
@@ -768,6 +768,18 @@
         <div class="tag-chips center-align">
             
             
+            <a href="/tags/leetcode/" target="_blank">
+                <span class="chip center-align waves-effect waves-light chip-default">leetcode</span>
+            </a>
+            
+            
+            
+            <a href="/tags/算法/" target="_blank">
+                <span class="chip center-align waves-effect waves-light chip-default">算法</span>
+            </a>
+            
+            
+            
             <a href="/tags/自编码器（AutoEncoder）/" target="_blank">
                 <span class="chip center-align waves-effect waves-light chip-default">自编码器（AutoEncoder）</span>
             </a>
@@ -790,18 +802,6 @@
             
             <a href="/tags/Node-js/" target="_blank">
                 <span class="chip center-align waves-effect waves-light chip-default">Node.js</span>
-            </a>
-            
-            
-            
-            <a href="/tags/leetcode/" target="_blank">
-                <span class="chip center-align waves-effect waves-light chip-default">leetcode</span>
-            </a>
-            
-            
-            
-            <a href="/tags/算法/" target="_blank">
-                <span class="chip center-align waves-effect waves-light chip-default">算法</span>
             </a>
             
             
