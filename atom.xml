@@ -5,9 +5,9 @@
   <subtitle>Hello，world.</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="https://skyfaker.github.io/"/>
-  <updated>2020-04-30T08:38:43.125Z</updated>
-  <id>https://skyfaker.github.io/</id>
+  <link href="https://www.skyfaker.cc/"/>
+  <updated>2020-05-20T07:30:24.053Z</updated>
+  <id>https://www.skyfaker.cc/</id>
   
   <author>
     <name>文杰</name>
@@ -18,10 +18,10 @@
   
   <entry>
     <title>神经网络——自编码器（Autoencoder）</title>
-    <link href="https://skyfaker.github.io/2019/04/16/autoencoder/"/>
-    <id>https://skyfaker.github.io/2019/04/16/autoencoder/</id>
+    <link href="https://www.skyfaker.cc/2019/04/16/autoencoder/"/>
+    <id>https://www.skyfaker.cc/2019/04/16/autoencoder/</id>
     <published>2019-04-16T07:09:23.000Z</published>
-    <updated>2020-04-30T08:38:43.125Z</updated>
+    <updated>2020-05-20T07:30:24.053Z</updated>
     
     <summary type="html">
     
@@ -35,21 +35,21 @@
     
     </summary>
     
-      <category term="深度学习" scheme="https://skyfaker.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+      <category term="深度学习" scheme="https://www.skyfaker.cc/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
     
-      <category term="自编码器（AutoEncoder）" scheme="https://skyfaker.github.io/tags/%E8%87%AA%E7%BC%96%E7%A0%81%E5%99%A8%EF%BC%88AutoEncoder%EF%BC%89/"/>
+      <category term="自编码器（AutoEncoder）" scheme="https://www.skyfaker.cc/tags/%E8%87%AA%E7%BC%96%E7%A0%81%E5%99%A8%EF%BC%88AutoEncoder%EF%BC%89/"/>
     
-      <category term="神经网络" scheme="https://skyfaker.github.io/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
+      <category term="神经网络" scheme="https://www.skyfaker.cc/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
     
-      <category term="全连接神经网络" scheme="https://skyfaker.github.io/tags/%E5%85%A8%E8%BF%9E%E6%8E%A5%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
+      <category term="全连接神经网络" scheme="https://www.skyfaker.cc/tags/%E5%85%A8%E8%BF%9E%E6%8E%A5%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
     
   </entry>
   
   <entry>
     <title>Vue初见——如何运行一个Vue项目</title>
-    <link href="https://skyfaker.github.io/2019/03/16/how-to-run-a-vue/"/>
-    <id>https://skyfaker.github.io/2019/03/16/how-to-run-a-vue/</id>
+    <link href="https://www.skyfaker.cc/2019/03/16/how-to-run-a-vue/"/>
+    <id>https://www.skyfaker.cc/2019/03/16/how-to-run-a-vue/</id>
     <published>2019-03-16T07:09:23.000Z</published>
     <updated>2020-04-30T08:39:16.354Z</updated>
     
@@ -65,19 +65,19 @@
     
     </summary>
     
-      <category term="前端" scheme="https://skyfaker.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+      <category term="前端" scheme="https://www.skyfaker.cc/categories/%E5%89%8D%E7%AB%AF/"/>
     
     
-      <category term="Vue" scheme="https://skyfaker.github.io/tags/Vue/"/>
+      <category term="Vue" scheme="https://www.skyfaker.cc/tags/Vue/"/>
     
-      <category term="Node.js" scheme="https://skyfaker.github.io/tags/Node-js/"/>
+      <category term="Node.js" scheme="https://www.skyfaker.cc/tags/Node-js/"/>
     
   </entry>
   
   <entry>
     <title>十大经典排序算法整理汇总（附代码）</title>
-    <link href="https://skyfaker.github.io/2019/02/16/sort-algorithms/"/>
-    <id>https://skyfaker.github.io/2019/02/16/sort-algorithms/</id>
+    <link href="https://www.skyfaker.cc/2019/02/16/sort-algorithms/"/>
+    <id>https://www.skyfaker.cc/2019/02/16/sort-algorithms/</id>
     <published>2019-02-16T07:09:23.000Z</published>
     <updated>2020-04-30T08:39:43.172Z</updated>
     
@@ -93,12 +93,12 @@
     
     </summary>
     
-      <category term="编程算法" scheme="https://skyfaker.github.io/categories/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95/"/>
+      <category term="编程算法" scheme="https://www.skyfaker.cc/categories/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95/"/>
     
     
-      <category term="leetcode" scheme="https://skyfaker.github.io/tags/leetcode/"/>
+      <category term="leetcode" scheme="https://www.skyfaker.cc/tags/leetcode/"/>
     
-      <category term="算法" scheme="https://skyfaker.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+      <category term="算法" scheme="https://www.skyfaker.cc/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   

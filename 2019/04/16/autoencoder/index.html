@@ -229,7 +229,7 @@
         
         <li><div class="divider"></div></li>
         <li>
-            <a href="https://github.com/godweiyang/hexo-matery-modified" class="waves-effect waves-light" target="_blank">
+            <a href="/" class="waves-effect waves-light" target="_blank">
                 <i class="fa fa-github-square fa-fw"></i>Fork Me
             </a>
         </li>
@@ -285,7 +285,7 @@
     }
 </style>
 
-<a href="https://github.com/godweiyang/hexo-matery-modified" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+<a href="/" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
    data-tooltip="Fork Me" data-position="left" data-delay="50">
     <svg viewBox="0 0 250 250" aria-hidden="true">
         <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
@@ -303,7 +303,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -509,10 +509,10 @@
 <p>利用上述的方法，就达到了降维的作用。而当隐藏表达的维度降至三维或者二维时，就可以实现数据的可视化。</p>
 <p>自编码器通过数据自动学习。这意味着在特定类型的输入中，自编码器可以表现出良好的结果，并且不需要任何新的结构，只需适当的训练数据即可。这种结构单一、无需标签的网络使用起来异常简单，并且常常会有不错的表现，所以使用地很广泛。</p>
 <p>下面，看个例子，mnist数据集的二维可视化：</p>
-<p><img src="%E5%8F%AF%E8%A7%86%E5%8C%96.png" alt="img"></p>
+<p><img src="2d.png" alt="二维可视化效果"></p>
 <p>上图就是mnist数据集经过降维至二维后的可视化效果图。不同颜色的点代表不同的数字。</p>
 <p>同样的，我们也可以降维到三维，形成空间可视化图：</p>
-<p><img src="%E4%B8%89%E7%BB%B4%E5%8F%AF%E8%A7%86%E5%8C%96.png" alt="img"></p>
+<p><img src="3d.png" alt="二位可视化效果"></p>
 <p>不过，它也不是没有缺点，首先，自编码器是数据相关的，是在给定的一组数据上进行训练的，因此它将得到与所用训练集数据相似的压缩结果，在这样的数据上表现优异，但就其通用性来说，效果并不好。比如在图像压缩领域，效果比不上JPEG这样的通用压缩技术。</p>
 <h3 id="3-常见的自编码器与代码示例"><a href="#3-常见的自编码器与代码示例" class="headerlink" title="3. 常见的自编码器与代码示例"></a>3. 常见的自编码器与代码示例</h3><h4 id="3-1-简单自编码器和深度自编码器"><a href="#3-1-简单自编码器和深度自编码器" class="headerlink" title="3.1 简单自编码器和深度自编码器"></a>3.1 简单自编码器和深度自编码器</h4><pre><code>from keras.layers import Input, Dense
 from keras.models import Model
@@ -635,7 +635,7 @@ encoder = Model(input=x, output=h)</code></pre><p>在的隐藏层中，我们添
                                 <div class="card-image">
                                     
                                             
-                                                <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="神经网络——自编码器（Autoencoder）">
+                                                <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="神经网络——自编码器（Autoencoder）">
                                                 
                                                     <span class="card-title">神经网络——自编码器（Autoencoder）</span>
                                 </div>
@@ -693,7 +693,7 @@ encoder = Model(input=x, output=h)</code></pre><p>在的隐藏层中，我们添
                                         <div class="card-image">
                                             
                                                     
-                                                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="Vue初见——如何运行一个Vue项目">
+                                                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="Vue初见——如何运行一个Vue项目">
                                                         
                                                             <span class="card-title">Vue初见——如何运行一个Vue项目</span>
                                         </div>
