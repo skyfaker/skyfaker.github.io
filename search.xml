@@ -20,11 +20,11 @@
       
         <tags>
             
-            <tag> Python </tag>
-            
             <tag> 可视化 </tag>
             
             <tag> matplotlib </tag>
+            
+            <tag> Python </tag>
             
         </tags>
       
@@ -49,13 +49,13 @@
       
         <tags>
             
+            <tag> Python </tag>
+            
             <tag> 自编码器（AutoEncoder） </tag>
             
             <tag> 神经网络 </tag>
             
             <tag> 全连接神经网络 </tag>
-            
-            <tag> Python </tag>
             
         </tags>
       

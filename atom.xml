@@ -38,11 +38,11 @@
       <category term="工具方法" scheme="https://www.skyfaker.cc/categories/%E5%B7%A5%E5%85%B7%E6%96%B9%E6%B3%95/"/>
     
     
-      <category term="Python" scheme="https://www.skyfaker.cc/tags/Python/"/>
-    
       <category term="可视化" scheme="https://www.skyfaker.cc/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
     
       <category term="matplotlib" scheme="https://www.skyfaker.cc/tags/matplotlib/"/>
+    
+      <category term="Python" scheme="https://www.skyfaker.cc/tags/Python/"/>
     
   </entry>
   
@@ -68,13 +68,13 @@
       <category term="深度学习" scheme="https://www.skyfaker.cc/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
     
+      <category term="Python" scheme="https://www.skyfaker.cc/tags/Python/"/>
+    
       <category term="自编码器（AutoEncoder）" scheme="https://www.skyfaker.cc/tags/%E8%87%AA%E7%BC%96%E7%A0%81%E5%99%A8%EF%BC%88AutoEncoder%EF%BC%89/"/>
     
       <category term="神经网络" scheme="https://www.skyfaker.cc/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
     
       <category term="全连接神经网络" scheme="https://www.skyfaker.cc/tags/%E5%85%A8%E8%BF%9E%E6%8E%A5%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
-    
-      <category term="Python" scheme="https://www.skyfaker.cc/tags/Python/"/>
     
   </entry>
   
