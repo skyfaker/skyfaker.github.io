@@ -426,16 +426,16 @@
                     
                     <div class="article-tag">
                         
+                        <a href="/tags/Python/" target="_blank">
+                            <span class="chip bg-color">Python</span>
+                        </a>
+                        
                         <a href="/tags/可视化/" target="_blank">
                             <span class="chip bg-color">可视化</span>
                         </a>
                         
                         <a href="/tags/matplotlib/" target="_blank">
                             <span class="chip bg-color">matplotlib</span>
-                        </a>
-                        
-                        <a href="/tags/Python/" target="_blank">
-                            <span class="chip bg-color">Python</span>
                         </a>
                         
                     </div>
@@ -521,14 +521,14 @@ plt<span class="token punctuation">.</span>show<span class="token punctuation">(
 <p>x_test的初始shape为（10000， 784），10000表示10000张图，784为每张图片的像素点数目（28*28）。经过编码器压缩之后<code>encoder.predict()</code> 变成了（10000，2）</p>
 <p>再利用matplotlib的散点图绘制出只有二个特征的特征向量。</p>
 <p>具体效果如图：</p>
-<p><img src="2D.png" alt="二维的可视化效果"></p>
+<p><img src="2d.png" alt="二维的可视化效果"></p>
 <p>同样的，我们在把特征压缩到三维的时候，可以画出一个三维的散点图。绘制过程稍有点不同。</p>
 <pre><code># predict &amp; plotting
 encoded_imgs = encoder3D.predict(x_test)
 plt.figure(figsize= (12,9))
 ax1 = plt.axes(projection=&#39;3d&#39;)
 ax1.scatter3D(encoded_imgs[:, 0], encoded_imgs[:, 1],encoded_imgs[:, 2], c=y_test)
-plt.show()</code></pre><p><img src="3D.png" alt="二维的可视化效果"></p>
+plt.show()</code></pre><p><img src="3d.png" alt="二维的可视化效果"></p>
 <ul>
 <li>下面介绍一下散点图的用法</li>
 </ul>
@@ -652,16 +652,16 @@ plt.show()</code></pre><p><img src="3D.png" alt="二维的可视化效果"></p>
                             
                                 <div class="card-action article-tags">
                                     
+                                        <a href="/tags/Python/" target="_blank">
+                                            <span class="chip bg-color">Python</span>
+                                        </a>
+                                        
                                         <a href="/tags/可视化/" target="_blank">
                                             <span class="chip bg-color">可视化</span>
                                         </a>
                                         
                                         <a href="/tags/matplotlib/" target="_blank">
                                             <span class="chip bg-color">matplotlib</span>
-                                        </a>
-                                        
-                                        <a href="/tags/Python/" target="_blank">
-                                            <span class="chip bg-color">Python</span>
                                         </a>
                                         
                                 </div>
@@ -709,10 +709,6 @@ plt.show()</code></pre><p><img src="3D.png" alt="二维的可视化效果"></p>
                                     
                                         <div class="card-action article-tags">
                                             
-                                                <a href="/tags/Python/" target="_blank">
-                                                    <span class="chip bg-color">Python</span>
-                                                </a>
-                                                
                                                 <a href="/tags/自编码器（AutoEncoder）/" target="_blank">
                                                     <span class="chip bg-color">自编码器（AutoEncoder）</span>
                                                 </a>
@@ -723,6 +719,10 @@ plt.show()</code></pre><p><img src="3D.png" alt="二维的可视化效果"></p>
                                                 
                                                 <a href="/tags/全连接神经网络/" target="_blank">
                                                     <span class="chip bg-color">全连接神经网络</span>
+                                                </a>
+                                                
+                                                <a href="/tags/Python/" target="_blank">
+                                                    <span class="chip bg-color">Python</span>
                                                 </a>
                                                 
                                         </div>
