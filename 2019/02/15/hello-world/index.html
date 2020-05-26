@@ -4,15 +4,13 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="Matplotlib 可视化, 深度学习 | 数据挖掘">
+    <meta name="keywords" content="New Blog, 深度学习 | 数据挖掘">
     <meta name="baidu-site-verification" content="fmlEuI34ir">
     <meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48">
     <meta name="360-site-verification" content="b7c11a830ef90fd1464ad6206bb7b6e7">
-    <meta name="description" content="matplotlib绘制散点图上一篇文章，我们通过自编码器，将高维的特征压缩至二维和三维，这样就可以实现可视化效果。
-
-前排提醒：本文中代码为部分关键代码，全部代码请移步该项目的GitHub：Autoencoder实现降维与可视化
-
-# 压">
+    <meta name="description" content="前言之前也用过hexo框架生成的博客，当时部署在了国内的coding上面，速度会稳定一些，只是要在你的博客上给coding打个广告。
+GitHub没有这个限制，but访问的时候，可能会遇到图片加载慢的问题。
+其实如果有备案好的域名，也可以直">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -20,7 +18,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Matplotlib 可视化 | SKYFAKER</title>
+    <title>New Blog | SKYFAKER</title>
     <link rel="icon" type="image/png" href="/logo.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -307,13 +305,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/24.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        Matplotlib 可视化
+                        New Blog
                     </div>
                 </div>
             </div>
@@ -426,16 +424,8 @@
                     
                     <div class="article-tag">
                         
-                        <a href="/tags/可视化/" target="_blank">
-                            <span class="chip bg-color">可视化</span>
-                        </a>
-                        
-                        <a href="/tags/matplotlib/" target="_blank">
-                            <span class="chip bg-color">matplotlib</span>
-                        </a>
-                        
-                        <a href="/tags/Python/" target="_blank">
-                            <span class="chip bg-color">Python</span>
+                        <a href="/tags/博客/" target="_blank">
+                            <span class="chip bg-color">博客</span>
                         </a>
                         
                     </div>
@@ -446,8 +436,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                        <a href="/categories/工具方法/" class="post-category" target="_blank">
-                            工具方法
+                        <a href="/categories/随便写写/" class="post-category" target="_blank">
+                            随便写写
                         </a>
                         
                     </div>
@@ -458,7 +448,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-05-20
+                    2019-02-15
                 </div>
 
                 <div class="post-author info-break-policy">
@@ -472,14 +462,14 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    484
+                    203
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    1 分
                 </div>
                 
                 
@@ -495,49 +485,12 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="matplotlib绘制散点图"><a href="#matplotlib绘制散点图" class="headerlink" title="matplotlib绘制散点图"></a>matplotlib绘制散点图</h2><p>上一篇文章，我们通过自编码器，将高维的特征压缩至二维和三维，这样就可以实现可视化效果。</p>
-<ul>
-<li>前排提醒：本文中代码为部分关键代码，全部代码请移步该项目的GitHub：<a href="https://github.com/skyfaker/Autoencoder" target="_blank" rel="noopener">Autoencoder实现降维与可视化</a></li>
-</ul>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 压缩特征维度至2维</span>
-encoding_dim <span class="token operator">=</span> <span class="token number">3</span>
-
-<span class="token comment" spellcheck="true"># this is our input placeholder</span>
-input_img <span class="token operator">=</span> Input<span class="token punctuation">(</span>shape<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">784</span><span class="token punctuation">,</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-
-<span class="token comment" spellcheck="true"># 编码层</span>
-encoded <span class="token operator">=</span> Dense<span class="token punctuation">(</span><span class="token number">128</span><span class="token punctuation">,</span> activation<span class="token operator">=</span><span class="token string">'relu'</span><span class="token punctuation">)</span><span class="token punctuation">(</span>input_img<span class="token punctuation">)</span>
-encoded <span class="token operator">=</span> Dense<span class="token punctuation">(</span><span class="token number">64</span><span class="token punctuation">,</span> activation<span class="token operator">=</span><span class="token string">'relu'</span><span class="token punctuation">)</span><span class="token punctuation">(</span>encoded<span class="token punctuation">)</span>
-encoded <span class="token operator">=</span> Dense<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> activation<span class="token operator">=</span><span class="token string">'relu'</span><span class="token punctuation">)</span><span class="token punctuation">(</span>encoded<span class="token punctuation">)</span>
-encoder_output <span class="token operator">=</span> Dense<span class="token punctuation">(</span>encoding_dim<span class="token punctuation">)</span><span class="token punctuation">(</span>encoded<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>如上面的代码，我们利用全连接神经网络实现了降维，降至二维。</p>
-<p>我们训练好自编码器模型后，从中获取编码模型，接下来我们会用这个编码模型对测试数据进行编码。</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># predict &amp; plotting</span>
-encoded_imgs <span class="token operator">=</span> encoder<span class="token punctuation">.</span>predict<span class="token punctuation">(</span>x_test<span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>figure<span class="token punctuation">(</span>figsize<span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 设置窗口大小</span>
-plt<span class="token punctuation">.</span>scatter<span class="token punctuation">(</span>encoded_imgs<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> encoded_imgs<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> c<span class="token operator">=</span>y_test<span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 绘制散点图</span>
-plt<span class="token punctuation">.</span>colorbar<span class="token punctuation">(</span><span class="token punctuation">)</span> 
-plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>x_test的初始shape为（10000， 784），10000表示10000张图，784为每张图片的像素点数目（28*28）。经过编码器压缩之后<code>encoder.predict()</code> 变成了（10000，2）</p>
-<p>再利用matplotlib的散点图绘制出只有二个特征的特征向量。</p>
-<p>具体效果如图：</p>
-<p><img src="2d.png" alt="二维的可视化效果"></p>
-<p>可以看出，自编码器的降维效果也是不错的。</p>
-<p>同样的，我们在把特征压缩到三维的时候，可以画出一个三维的散点图。绘制过程稍有点不同。</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># predict &amp; plotting</span>
-encoded_imgs <span class="token operator">=</span> encoder3D<span class="token punctuation">.</span>predict<span class="token punctuation">(</span>x_test<span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>figure<span class="token punctuation">(</span>figsize<span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-ax1 <span class="token operator">=</span> plt<span class="token punctuation">.</span>axes<span class="token punctuation">(</span>projection<span class="token operator">=</span><span class="token string">'3d'</span><span class="token punctuation">)</span>
-ax1<span class="token punctuation">.</span>scatter3D<span class="token punctuation">(</span>encoded_imgs<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> encoded_imgs<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span>encoded_imgs<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> c<span class="token operator">=</span>y_test<span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><img src="3d.png" alt="二维的可视化效果"></p>
-<ul>
-<li>下面记录一下散点图的用法</li>
-</ul>
-<p>文档地址：<a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.scatter.html#matplotlib.pyplot.scatter" target="_blank" rel="noopener">scatter文档</a></p>
-<pre class="line-numbers language-python"><code class="language-python">matplotlib<span class="token punctuation">.</span>pyplot<span class="token punctuation">.</span>scatter<span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> s<span class="token operator">=</span>None<span class="token punctuation">,</span> c<span class="token operator">=</span>None<span class="token punctuation">,</span> marker<span class="token operator">=</span>None<span class="token punctuation">,</span> cmap<span class="token operator">=</span>None<span class="token punctuation">,</span> norm<span class="token operator">=</span>None<span class="token punctuation">,</span> vmin<span class="token operator">=</span>None<span class="token punctuation">,</span> vmax<span class="token operator">=</span>None<span class="token punctuation">,</span> alpha<span class="token operator">=</span>None<span class="token punctuation">,</span> linewidths<span class="token operator">=</span>None<span class="token punctuation">,</span> verts<span class="token operator">=</span><span class="token operator">&lt;</span>deprecated parameter<span class="token operator">></span><span class="token punctuation">,</span> edgecolors<span class="token operator">=</span>None<span class="token punctuation">,</span> \<span class="token operator">*</span><span class="token punctuation">,</span> plotnonfinite<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span> data<span class="token operator">=</span>None<span class="token punctuation">,</span> \<span class="token operator">*</span>\<span class="token operator">*</span>kwargs<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<pre class="line-numbers language-python"><code class="language-python">scatter<span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> 点的大小<span class="token punctuation">,</span> 颜色，标记<span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 这是最主要的几个用法</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>点的形状属性由marker控制，默认为。， c 控制点的颜色， norm 控制亮度</p>
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>之前也用过hexo框架生成的博客，当时部署在了国内的coding上面，速度会稳定一些，只是要在你的博客上给coding打个广告。</p>
+<p>GitHub没有这个限制，but访问的时候，可能会遇到图片加载慢的问题。</p>
+<p>其实如果有备案好的域名，也可以直接把静态文件放在七牛云、腾讯上面，还可以获得CDN加速的效果，免费的流量应该也够用。可惜我懒得备案，反正现在博客访问的人也不多，等到以后内容多了，可能又要搬家了吧，maybe。</p>
+<p>放在GitHub上的静态文件，也有一些trick可以加速访问。这个放在TODO里面，以后研究一下吧。</p>
+<p>That’s all！</p>
+<p>Hello world again！</p>
 
             </div>
             <hr />
@@ -572,9 +525,9 @@ plt<span class="token punctuation">.</span>show<span class="token punctuation">(
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《Matplotlib 可视化》
+                    《New Blog》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/05/20/matplotlib-hui-zhi-san-dian-tu/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/02/15/hello-world/" property="cc:attributionName"
                rel="cc:attributionURL">
                 文杰
             </a> 采用
@@ -614,117 +567,109 @@ plt<span class="token punctuation">.</span>show<span class="token punctuation">(
     <article id="prenext-posts" class="prev-next articles">
         <div class="row article-row">
             
-                    <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
-                        <div class="article-badge left-badge text-color">
-                            <i class="fa fa-dot-circle-o"></i>&nbsp;
-                            本篇
-                        </div>
-                        <div class="card">
-                            <a href="/2019/05/20/matplotlib-hui-zhi-san-dian-tu/">
-                                <div class="card-image">
-                                    
+                <div class="article col s12 m6" data-aos="fade-up">
+                    <div class="article-badge left-badge text-color">
+                        <i class="fa fa-chevron-left"></i>&nbsp;
+                        上一篇
+                    </div>
+                    <div class="card">
+                        <a href="/2019/02/16/sort-algorithms/">
+                            <div class="card-image">
+                                
+                                        
+                                            <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="十大经典排序算法整理汇总（附代码）">
                                             
-                                                <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="Matplotlib 可视化">
-                                                
-                                                    <span class="card-title">Matplotlib 可视化</span>
-                                </div>
-                            </a>
-                            <div class="card-content article-content">
-                                <div class="summary block-with-text">
-                                    
-                                        上一篇文章：“神经网络——自编码器”中，在使用自编码器压缩特征至二维和三维后，利用matplotlib绘制了降维后的可视化特征图。本文记录一下绘制方法和matplotlib的一些基础方法。
-                                            
-                                </div>
-                                <div class="publish-info">
-                                    <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-20
-                            </span>
-                                    <span class="publish-author">
+                                                <span class="card-title">十大经典排序算法整理汇总（附代码）</span>
+                            </div>
+                        </a>
+                        <div class="card-content article-content">
+                            <div class="summary block-with-text">
+                                
+                                    本文整理并总结了十大经典的排序算法（冒泡排序、选择排序、插入排序、快速排序、归并排序、希尔排序、计数排序、基数排序、桶排序、堆排序）的时间复杂度、空间复杂度等性质。
+                                        
+                            </div>
+                            <div class="publish-info">
+                                <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-02-16
+                        </span>
+                                <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/工具方法/" class="post-category" target="_blank">
-                                    工具方法
+                            <a href="/categories/编程算法/" class="post-category" target="_blank">
+                                    编程算法
                                 </a>
                             
                             
                         </span>
-                                </div>
                             </div>
-
-                            
-                                <div class="card-action article-tags">
+                        </div>
+                        
+                            <div class="card-action article-tags">
+                                
+                                    <a href="/tags/leetcode/" target="_blank">
+                                        <span class="chip bg-color">leetcode</span>
+                                    </a>
                                     
-                                        <a href="/tags/可视化/" target="_blank">
-                                            <span class="chip bg-color">可视化</span>
+                                    <a href="/tags/算法/" target="_blank">
+                                        <span class="chip bg-color">算法</span>
+                                    </a>
+                                    
+                            </div>
+                            
+                    </div>
+                </div>
+                
+                        
+                                <div class="article col s12 m6" data-aos="fade-up">
+                                    <div class="article-badge right-badge text-color">
+                                        本篇&nbsp;<i class="fa fa-dot-circle-o"></i>
+                                    </div>
+                                    <div class="card">
+                                        <a href="/2019/02/15/hello-world/">
+                                            <div class="card-image">
+                                                
+                                                        
+                                                            <img src="/medias/featureimages/24.jpg" class="responsive-img" alt="New Blog">
+                                                            
+                                                                <span class="card-title">New Blog</span>
+                                            </div>
                                         </a>
+                                        <div class="card-content article-content">
+                                            <div class="summary block-with-text">
+                                                
+                                                    博客搬家啦，服务器到期了。思来想去还是直接放在github page上面吧，静态博客放在服务器上面只是大材小用了（其实是没钱续费服务器了:)）。
+                                                        
+                                            </div>
+                                            <div class="publish-info">
+                                                <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-02-15
+                            </span>
+                                                <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/随便写写/" class="post-category" target="_blank">
+                                    随便写写
+                                </a>
+                            
+                            
+                        </span>
+                                            </div>
+                                        </div>
+
                                         
-                                        <a href="/tags/matplotlib/" target="_blank">
-                                            <span class="chip bg-color">matplotlib</span>
-                                        </a>
-                                        
-                                        <a href="/tags/Python/" target="_blank">
-                                            <span class="chip bg-color">Python</span>
-                                        </a>
-                                        
+                                            <div class="card-action article-tags">
+                                                
+                                                    <a href="/tags/博客/" target="_blank">
+                                                        <span class="chip bg-color">博客</span>
+                                                    </a>
+                                                    
+                                            </div>
+                                            
+                                    </div>
                                 </div>
                                 
-                        </div>
-                    </div>
-                    
-                        
-                            <div class="article col s12 m6" data-aos="fade-up">
-                                <div class="article-badge right-badge text-color">
-                                    下一篇&nbsp;<i class="fa fa-chevron-right"></i>
-                                </div>
-                                <div class="card">
-                                    <a href="/2019/04/16/autoencoder/">
-                                        <div class="card-image">
-                                            
-                                                    
-                                                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="神经网络——自编码器（Autoencoder）">
-                                                        
-                                                            <span class="card-title">神经网络——自编码器（Autoencoder）</span>
-                                        </div>
-                                    </a>
-                                    <div class="card-content article-content">
-                                        <div class="summary block-with-text">
-                                            
-                                                自编码器（Autoencoder，AE），是一种利用反向传播算法使得输出值等于输入值的神经网络，它先将输入压缩成潜在空间表征，然后通过这种表征来重构输出。是一种简单却非常奇妙的神经网络结构。
-                                                    
-                                        </div>
-                                        <div class="publish-info">
-                                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-16
-                            </span>
-                                            <span class="publish-author">
-                            
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/深度学习/" class="post-category" target="_blank">
-                                    深度学习
-                                </a>
-                            
-                            
-                        </span>
-                                        </div>
-                                    </div>
-                                    
-                                        <div class="card-action article-tags">
-                                            
-                                                <a href="/tags/AutoEncoder/" target="_blank">
-                                                    <span class="chip bg-color">AutoEncoder</span>
-                                                </a>
-                                                
-                                                <a href="/tags/全连接神经网络/" target="_blank">
-                                                    <span class="chip bg-color">全连接神经网络</span>
-                                                </a>
-                                                
-                                        </div>
-                                        
-                                </div>
-                            </div>
-                            
         </div>
     </article>
 </div>
@@ -865,6 +810,25 @@ plt<span class="token punctuation">.</span>show<span class="token punctuation">(
     
 
 </main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+<!-- 代码语言 -->
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+<!-- 代码块复制 -->
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+<script type="text/javascript" src="/libs/codeBlock/clipboard.min.js"></script>
+<!-- 代码块收缩 -->
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script> 
+<!-- 代码块折行 -->
+<style type="text/css">code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }</style>
 
 
                 <footer class="page-footer bg-color">

@@ -38,11 +38,11 @@
       <category term="工具方法" scheme="https://www.skyfaker.cc/categories/%E5%B7%A5%E5%85%B7%E6%96%B9%E6%B3%95/"/>
     
     
-      <category term="Python" scheme="https://www.skyfaker.cc/tags/Python/"/>
-    
       <category term="可视化" scheme="https://www.skyfaker.cc/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
     
       <category term="matplotlib" scheme="https://www.skyfaker.cc/tags/matplotlib/"/>
+    
+      <category term="Python" scheme="https://www.skyfaker.cc/tags/Python/"/>
     
   </entry>
   
@@ -51,7 +51,7 @@
     <link href="https://www.skyfaker.cc/2019/04/16/autoencoder/"/>
     <id>https://www.skyfaker.cc/2019/04/16/autoencoder/</id>
     <published>2019-04-16T07:09:23.000Z</published>
-    <updated>2020-05-20T08:12:23.740Z</updated>
+    <updated>2020-05-26T07:15:44.447Z</updated>
     
     <summary type="html">
     
@@ -68,13 +68,9 @@
       <category term="深度学习" scheme="https://www.skyfaker.cc/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
     
-      <category term="自编码器（AutoEncoder）" scheme="https://www.skyfaker.cc/tags/%E8%87%AA%E7%BC%96%E7%A0%81%E5%99%A8%EF%BC%88AutoEncoder%EF%BC%89/"/>
-    
-      <category term="神经网络" scheme="https://www.skyfaker.cc/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
+      <category term="AutoEncoder" scheme="https://www.skyfaker.cc/tags/AutoEncoder/"/>
     
       <category term="全连接神经网络" scheme="https://www.skyfaker.cc/tags/%E5%85%A8%E8%BF%9E%E6%8E%A5%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
-    
-      <category term="Python" scheme="https://www.skyfaker.cc/tags/Python/"/>
     
   </entry>
   
@@ -107,6 +103,32 @@
   </entry>
   
   <entry>
+    <title>每周一道编程题——二维数组的查找</title>
+    <link href="https://www.skyfaker.cc/2019/02/20/er-wei-shu-zu-zhong-de-cha-zhao/"/>
+    <id>https://www.skyfaker.cc/2019/02/20/er-wei-shu-zu-zhong-de-cha-zhao/</id>
+    <published>2019-02-20T07:09:23.000Z</published>
+    <updated>2020-05-26T09:41:07.530Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="编程" scheme="https://www.skyfaker.cc/categories/%E7%BC%96%E7%A8%8B/"/>
+    
+    
+      <category term="剑指offer" scheme="https://www.skyfaker.cc/tags/%E5%89%91%E6%8C%87offer/"/>
+    
+  </entry>
+  
+  <entry>
     <title>十大经典排序算法整理汇总（附代码）</title>
     <link href="https://www.skyfaker.cc/2019/02/16/sort-algorithms/"/>
     <id>https://www.skyfaker.cc/2019/02/16/sort-algorithms/</id>
@@ -131,6 +153,32 @@
       <category term="leetcode" scheme="https://www.skyfaker.cc/tags/leetcode/"/>
     
       <category term="算法" scheme="https://www.skyfaker.cc/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>New Blog</title>
+    <link href="https://www.skyfaker.cc/2019/02/15/hello-world/"/>
+    <id>https://www.skyfaker.cc/2019/02/15/hello-world/</id>
+    <published>2019-02-15T07:09:23.000Z</published>
+    <updated>2020-05-26T07:18:12.405Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="随便写写" scheme="https://www.skyfaker.cc/categories/%E9%9A%8F%E4%BE%BF%E5%86%99%E5%86%99/"/>
+    
+    
+      <category term="博客" scheme="https://www.skyfaker.cc/tags/%E5%8D%9A%E5%AE%A2/"/>
     
   </entry>
   

@@ -20,11 +20,11 @@
       
         <tags>
             
-            <tag> Python </tag>
-            
             <tag> 可视化 </tag>
             
             <tag> matplotlib </tag>
+            
+            <tag> Python </tag>
             
         </tags>
       
@@ -49,13 +49,9 @@
       
         <tags>
             
-            <tag> 自编码器（AutoEncoder） </tag>
-            
-            <tag> 神经网络 </tag>
+            <tag> AutoEncoder </tag>
             
             <tag> 全连接神经网络 </tag>
-            
-            <tag> Python </tag>
             
         </tags>
       
@@ -91,6 +87,31 @@
     
     
     <entry>
+      <title>每周一道编程题——二维数组的查找</title>
+      <link href="/2019/02/20/er-wei-shu-zu-zhong-de-cha-zhao/"/>
+      <url>/2019/02/20/er-wei-shu-zu-zhong-de-cha-zhao/</url>
+      
+        <content type="html"><![CDATA[<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>在一个二维数组中（每个一维数组的长度相同），每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。</p><h2 id="解法思路"><a href="#解法思路" class="headerlink" title="解法思路"></a>解法思路</h2><p>这种题目思路不难，最直接的想法只需要挨个遍历即可。这个方法的问题在于，时间复杂度比较高。</p><p>为了加快搜索速度，就需要用到题目中给的额外信息：<em>“每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序”</em> 。</p><p>我们会尝试着画出这个数组的矩阵形式，以下图为例：</p><p><img src="matrix.png" alt="矩阵A"></p><p>当我们对目标数进行查找的时候会有三种情况：</p><ul><li>当前数比目标数大，则目标数在当前数的左上角</li><li>当前数比目标数小，则目标数在当前数的右下角</li><li>当前数等于目标数，搜索结束</li></ul><p>所以我们对遍历的起点做了一点改变，我们不再是逐行再逐列搜索，而是从左下角（或者右上角）作为起点。</p><p>比如，设要搜索的整数为m，数组A的大小为n*n，我们从左下角开始，m先和左下角的<code>A[n-1][0]</code>做比较，如果m&gt;<code>A[n-1][0]</code>, 则m已经大于第一列的任何数，只需要右移一位，再和<code>A[n-1][1]</code>比较；如果m&lt;<code>A[n-1][0]</code>, 则m已经小于最后一行的任何数，只需要上移一位，再和<code>A[n-2][0]</code>比较。依次迭代，即可找到该整数，当没法上移或者右移且没有找到该数，则说明这个数不在二维数组中。</p><p><img src="matrix2.png" alt="查找过程"></p><p>以上面的矩阵A为例，设要查找的数为2.5，则查找过程如上图。</p><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># -*- coding:utf-8 -*-</span><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>    <span class="token comment" spellcheck="true"># array 二维列表</span>    <span class="token keyword">def</span> <span class="token function">Find</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> target<span class="token punctuation">,</span> array<span class="token punctuation">)</span><span class="token punctuation">:</span>        <span class="token comment" spellcheck="true"># write code here</span>        i <span class="token operator">=</span> <span class="token number">0</span>        j <span class="token operator">=</span> len<span class="token punctuation">(</span>array<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span>         row <span class="token operator">=</span> len<span class="token punctuation">(</span>array<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">#获取矩阵的shape</span>        flag <span class="token operator">=</span> <span class="token boolean">False</span>        <span class="token keyword">while</span> i<span class="token operator">&lt;</span>row <span class="token operator">and</span> j<span class="token operator">>=</span><span class="token number">0</span><span class="token punctuation">:</span>            <span class="token keyword">if</span> target<span class="token operator">></span>array<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">:</span>                i<span class="token operator">+=</span><span class="token number">1</span>            <span class="token keyword">elif</span> target<span class="token operator">&lt;</span>array<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">:</span>                j<span class="token operator">-=</span><span class="token number">1</span>            <span class="token keyword">elif</span> target <span class="token operator">==</span> array<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">:</span>                flag <span class="token operator">=</span> <span class="token boolean">True</span>                <span class="token keyword">break</span>        <span class="token keyword">return</span> flag<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 编程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 剑指offer </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>十大经典排序算法整理汇总（附代码）</title>
       <link href="/2019/02/16/sort-algorithms/"/>
       <url>/2019/02/16/sort-algorithms/</url>
@@ -110,6 +131,31 @@
             <tag> leetcode </tag>
             
             <tag> 算法 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>New Blog</title>
+      <link href="/2019/02/15/hello-world/"/>
+      <url>/2019/02/15/hello-world/</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>之前也用过hexo框架生成的博客，当时部署在了国内的coding上面，速度会稳定一些，只是要在你的博客上给coding打个广告。</p><p>GitHub没有这个限制，but访问的时候，可能会遇到图片加载慢的问题。</p><p>其实如果有备案好的域名，也可以直接把静态文件放在七牛云、腾讯上面，还可以获得CDN加速的效果，免费的流量应该也够用。可惜我懒得备案，反正现在博客访问的人也不多，等到以后内容多了，可能又要搬家了吧，maybe。</p><p>放在GitHub上的静态文件，也有一些trick可以加速访问。这个放在TODO里面，以后研究一下吧。</p><p>That’s all！</p><p>Hello world again！</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 随便写写 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 博客 </tag>
             
         </tags>
       

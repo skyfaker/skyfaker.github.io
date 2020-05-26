@@ -4,15 +4,12 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="Matplotlib 可视化, 深度学习 | 数据挖掘">
+    <meta name="keywords" content="每周一道编程题——二维数组的查找, 深度学习 | 数据挖掘">
     <meta name="baidu-site-verification" content="fmlEuI34ir">
     <meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48">
     <meta name="360-site-verification" content="b7c11a830ef90fd1464ad6206bb7b6e7">
-    <meta name="description" content="matplotlib绘制散点图上一篇文章，我们通过自编码器，将高维的特征压缩至二维和三维，这样就可以实现可视化效果。
-
-前排提醒：本文中代码为部分关键代码，全部代码请移步该项目的GitHub：Autoencoder实现降维与可视化
-
-# 压">
+    <meta name="description" content="题目描述在一个二维数组中（每个一维数组的长度相同），每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。
+解法思路这种题目思路不难，最直接的想法">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -20,7 +17,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Matplotlib 可视化 | SKYFAKER</title>
+    <title>每周一道编程题——二维数组的查找 | SKYFAKER</title>
     <link rel="icon" type="image/png" href="/logo.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -307,13 +304,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/24.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        Matplotlib 可视化
+                        每周一道编程题——二维数组的查找
                     </div>
                 </div>
             </div>
@@ -426,16 +423,8 @@
                     
                     <div class="article-tag">
                         
-                        <a href="/tags/可视化/" target="_blank">
-                            <span class="chip bg-color">可视化</span>
-                        </a>
-                        
-                        <a href="/tags/matplotlib/" target="_blank">
-                            <span class="chip bg-color">matplotlib</span>
-                        </a>
-                        
-                        <a href="/tags/Python/" target="_blank">
-                            <span class="chip bg-color">Python</span>
+                        <a href="/tags/剑指offer/" target="_blank">
+                            <span class="chip bg-color">剑指offer</span>
                         </a>
                         
                     </div>
@@ -446,8 +435,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                        <a href="/categories/工具方法/" class="post-category" target="_blank">
-                            工具方法
+                        <a href="/categories/编程/" class="post-category" target="_blank">
+                            编程
                         </a>
                         
                     </div>
@@ -458,7 +447,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-05-20
+                    2019-02-20
                 </div>
 
                 <div class="post-author info-break-policy">
@@ -472,7 +461,7 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    484
+                    578
                 </div>
                 
 
@@ -495,49 +484,39 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="matplotlib绘制散点图"><a href="#matplotlib绘制散点图" class="headerlink" title="matplotlib绘制散点图"></a>matplotlib绘制散点图</h2><p>上一篇文章，我们通过自编码器，将高维的特征压缩至二维和三维，这样就可以实现可视化效果。</p>
+                <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>在一个二维数组中（每个一维数组的长度相同），每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。</p>
+<h2 id="解法思路"><a href="#解法思路" class="headerlink" title="解法思路"></a>解法思路</h2><p>这种题目思路不难，最直接的想法只需要挨个遍历即可。这个方法的问题在于，时间复杂度比较高。</p>
+<p>为了加快搜索速度，就需要用到题目中给的额外信息：<em>“每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序”</em> 。</p>
+<p>我们会尝试着画出这个数组的矩阵形式，以下图为例：</p>
+<p><img src="matrix.png" alt="矩阵A"></p>
+<p>当我们对目标数进行查找的时候会有三种情况：</p>
 <ul>
-<li>前排提醒：本文中代码为部分关键代码，全部代码请移步该项目的GitHub：<a href="https://github.com/skyfaker/Autoencoder" target="_blank" rel="noopener">Autoencoder实现降维与可视化</a></li>
+<li>当前数比目标数大，则目标数在当前数的左上角</li>
+<li>当前数比目标数小，则目标数在当前数的右下角</li>
+<li>当前数等于目标数，搜索结束</li>
 </ul>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 压缩特征维度至2维</span>
-encoding_dim <span class="token operator">=</span> <span class="token number">3</span>
-
-<span class="token comment" spellcheck="true"># this is our input placeholder</span>
-input_img <span class="token operator">=</span> Input<span class="token punctuation">(</span>shape<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">784</span><span class="token punctuation">,</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-
-<span class="token comment" spellcheck="true"># 编码层</span>
-encoded <span class="token operator">=</span> Dense<span class="token punctuation">(</span><span class="token number">128</span><span class="token punctuation">,</span> activation<span class="token operator">=</span><span class="token string">'relu'</span><span class="token punctuation">)</span><span class="token punctuation">(</span>input_img<span class="token punctuation">)</span>
-encoded <span class="token operator">=</span> Dense<span class="token punctuation">(</span><span class="token number">64</span><span class="token punctuation">,</span> activation<span class="token operator">=</span><span class="token string">'relu'</span><span class="token punctuation">)</span><span class="token punctuation">(</span>encoded<span class="token punctuation">)</span>
-encoded <span class="token operator">=</span> Dense<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> activation<span class="token operator">=</span><span class="token string">'relu'</span><span class="token punctuation">)</span><span class="token punctuation">(</span>encoded<span class="token punctuation">)</span>
-encoder_output <span class="token operator">=</span> Dense<span class="token punctuation">(</span>encoding_dim<span class="token punctuation">)</span><span class="token punctuation">(</span>encoded<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>如上面的代码，我们利用全连接神经网络实现了降维，降至二维。</p>
-<p>我们训练好自编码器模型后，从中获取编码模型，接下来我们会用这个编码模型对测试数据进行编码。</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># predict &amp; plotting</span>
-encoded_imgs <span class="token operator">=</span> encoder<span class="token punctuation">.</span>predict<span class="token punctuation">(</span>x_test<span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>figure<span class="token punctuation">(</span>figsize<span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 设置窗口大小</span>
-plt<span class="token punctuation">.</span>scatter<span class="token punctuation">(</span>encoded_imgs<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> encoded_imgs<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> c<span class="token operator">=</span>y_test<span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 绘制散点图</span>
-plt<span class="token punctuation">.</span>colorbar<span class="token punctuation">(</span><span class="token punctuation">)</span> 
-plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>x_test的初始shape为（10000， 784），10000表示10000张图，784为每张图片的像素点数目（28*28）。经过编码器压缩之后<code>encoder.predict()</code> 变成了（10000，2）</p>
-<p>再利用matplotlib的散点图绘制出只有二个特征的特征向量。</p>
-<p>具体效果如图：</p>
-<p><img src="2d.png" alt="二维的可视化效果"></p>
-<p>可以看出，自编码器的降维效果也是不错的。</p>
-<p>同样的，我们在把特征压缩到三维的时候，可以画出一个三维的散点图。绘制过程稍有点不同。</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># predict &amp; plotting</span>
-encoded_imgs <span class="token operator">=</span> encoder3D<span class="token punctuation">.</span>predict<span class="token punctuation">(</span>x_test<span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>figure<span class="token punctuation">(</span>figsize<span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-ax1 <span class="token operator">=</span> plt<span class="token punctuation">.</span>axes<span class="token punctuation">(</span>projection<span class="token operator">=</span><span class="token string">'3d'</span><span class="token punctuation">)</span>
-ax1<span class="token punctuation">.</span>scatter3D<span class="token punctuation">(</span>encoded_imgs<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> encoded_imgs<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span>encoded_imgs<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> c<span class="token operator">=</span>y_test<span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><img src="3d.png" alt="二维的可视化效果"></p>
-<ul>
-<li>下面记录一下散点图的用法</li>
-</ul>
-<p>文档地址：<a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.scatter.html#matplotlib.pyplot.scatter" target="_blank" rel="noopener">scatter文档</a></p>
-<pre class="line-numbers language-python"><code class="language-python">matplotlib<span class="token punctuation">.</span>pyplot<span class="token punctuation">.</span>scatter<span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> s<span class="token operator">=</span>None<span class="token punctuation">,</span> c<span class="token operator">=</span>None<span class="token punctuation">,</span> marker<span class="token operator">=</span>None<span class="token punctuation">,</span> cmap<span class="token operator">=</span>None<span class="token punctuation">,</span> norm<span class="token operator">=</span>None<span class="token punctuation">,</span> vmin<span class="token operator">=</span>None<span class="token punctuation">,</span> vmax<span class="token operator">=</span>None<span class="token punctuation">,</span> alpha<span class="token operator">=</span>None<span class="token punctuation">,</span> linewidths<span class="token operator">=</span>None<span class="token punctuation">,</span> verts<span class="token operator">=</span><span class="token operator">&lt;</span>deprecated parameter<span class="token operator">></span><span class="token punctuation">,</span> edgecolors<span class="token operator">=</span>None<span class="token punctuation">,</span> \<span class="token operator">*</span><span class="token punctuation">,</span> plotnonfinite<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span> data<span class="token operator">=</span>None<span class="token punctuation">,</span> \<span class="token operator">*</span>\<span class="token operator">*</span>kwargs<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<pre class="line-numbers language-python"><code class="language-python">scatter<span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> 点的大小<span class="token punctuation">,</span> 颜色，标记<span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 这是最主要的几个用法</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>点的形状属性由marker控制，默认为。， c 控制点的颜色， norm 控制亮度</p>
+<p>所以我们对遍历的起点做了一点改变，我们不再是逐行再逐列搜索，而是从左下角（或者右上角）作为起点。</p>
+<p>比如，设要搜索的整数为m，数组A的大小为n*n，我们从左下角开始，m先和左下角的<code>A[n-1][0]</code>做比较，如果m&gt;<code>A[n-1][0]</code>, 则m已经大于第一列的任何数，只需要右移一位，再和<code>A[n-1][1]</code>比较；如果m&lt;<code>A[n-1][0]</code>, 则m已经小于最后一行的任何数，只需要上移一位，再和<code>A[n-2][0]</code>比较。依次迭代，即可找到该整数，当没法上移或者右移且没有找到该数，则说明这个数不在二维数组中。</p>
+<p><img src="matrix2.png" alt="查找过程"></p>
+<p>以上面的矩阵A为例，设要查找的数为2.5，则查找过程如上图。</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># -*- coding:utf-8 -*-</span>
+<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true"># array 二维列表</span>
+    <span class="token keyword">def</span> <span class="token function">Find</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> target<span class="token punctuation">,</span> array<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true"># write code here</span>
+        i <span class="token operator">=</span> <span class="token number">0</span>
+        j <span class="token operator">=</span> len<span class="token punctuation">(</span>array<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span> 
+        row <span class="token operator">=</span> len<span class="token punctuation">(</span>array<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">#获取矩阵的shape</span>
+        flag <span class="token operator">=</span> <span class="token boolean">False</span>
+        <span class="token keyword">while</span> i<span class="token operator">&lt;</span>row <span class="token operator">and</span> j<span class="token operator">>=</span><span class="token number">0</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> target<span class="token operator">></span>array<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">:</span>
+                i<span class="token operator">+=</span><span class="token number">1</span>
+            <span class="token keyword">elif</span> target<span class="token operator">&lt;</span>array<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">:</span>
+                j<span class="token operator">-=</span><span class="token number">1</span>
+            <span class="token keyword">elif</span> target <span class="token operator">==</span> array<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">:</span>
+                flag <span class="token operator">=</span> <span class="token boolean">True</span>
+                <span class="token keyword">break</span>
+        <span class="token keyword">return</span> flag<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr />
@@ -572,9 +551,9 @@ plt<span class="token punctuation">.</span>show<span class="token punctuation">(
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《Matplotlib 可视化》
+                    《每周一道编程题——二维数组的查找》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/05/20/matplotlib-hui-zhi-san-dian-tu/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/02/20/er-wei-shu-zu-zhong-de-cha-zhao/" property="cc:attributionName"
                rel="cc:attributionURL">
                 文杰
             </a> 采用
@@ -614,95 +593,90 @@ plt<span class="token punctuation">.</span>show<span class="token punctuation">(
     <article id="prenext-posts" class="prev-next articles">
         <div class="row article-row">
             
-                    <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
-                        <div class="article-badge left-badge text-color">
-                            <i class="fa fa-dot-circle-o"></i>&nbsp;
-                            本篇
-                        </div>
-                        <div class="card">
-                            <a href="/2019/05/20/matplotlib-hui-zhi-san-dian-tu/">
-                                <div class="card-image">
-                                    
+                <div class="article col s12 m6" data-aos="fade-up">
+                    <div class="article-badge left-badge text-color">
+                        <i class="fa fa-chevron-left"></i>&nbsp;
+                        上一篇
+                    </div>
+                    <div class="card">
+                        <a href="/2019/03/16/how-to-run-a-vue/">
+                            <div class="card-image">
+                                
+                                        
+                                            <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="Vue初见——如何运行一个Vue项目">
                                             
-                                                <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="Matplotlib 可视化">
-                                                
-                                                    <span class="card-title">Matplotlib 可视化</span>
-                                </div>
-                            </a>
-                            <div class="card-content article-content">
-                                <div class="summary block-with-text">
-                                    
-                                        上一篇文章：“神经网络——自编码器”中，在使用自编码器压缩特征至二维和三维后，利用matplotlib绘制了降维后的可视化特征图。本文记录一下绘制方法和matplotlib的一些基础方法。
-                                            
-                                </div>
-                                <div class="publish-info">
-                                    <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-20
-                            </span>
-                                    <span class="publish-author">
+                                                <span class="card-title">Vue初见——如何运行一个Vue项目</span>
+                            </div>
+                        </a>
+                        <div class="card-content article-content">
+                            <div class="summary block-with-text">
+                                
+                                    一开始刚接手项目内的vue.js，或者在GitHub上找到vue.js的开源项目，会发现不知如何运行这个项目。通过查阅网上教程，成功搭建好项目环境，同时对前段工程化有了朦朦胧胧的认知，因此将环境搭建过程分享给大家。
+                                        
+                            </div>
+                            <div class="publish-info">
+                                <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-16
+                        </span>
+                                <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/工具方法/" class="post-category" target="_blank">
-                                    工具方法
+                            <a href="/categories/前端/" class="post-category" target="_blank">
+                                    前端
                                 </a>
                             
                             
                         </span>
-                                </div>
                             </div>
-
-                            
-                                <div class="card-action article-tags">
-                                    
-                                        <a href="/tags/可视化/" target="_blank">
-                                            <span class="chip bg-color">可视化</span>
-                                        </a>
-                                        
-                                        <a href="/tags/matplotlib/" target="_blank">
-                                            <span class="chip bg-color">matplotlib</span>
-                                        </a>
-                                        
-                                        <a href="/tags/Python/" target="_blank">
-                                            <span class="chip bg-color">Python</span>
-                                        </a>
-                                        
-                                </div>
-                                
                         </div>
+                        
+                            <div class="card-action article-tags">
+                                
+                                    <a href="/tags/Vue/" target="_blank">
+                                        <span class="chip bg-color">Vue</span>
+                                    </a>
+                                    
+                                    <a href="/tags/Node-js/" target="_blank">
+                                        <span class="chip bg-color">Node.js</span>
+                                    </a>
+                                    
+                            </div>
+                            
                     </div>
-                    
+                </div>
+                
                         
                             <div class="article col s12 m6" data-aos="fade-up">
                                 <div class="article-badge right-badge text-color">
                                     下一篇&nbsp;<i class="fa fa-chevron-right"></i>
                                 </div>
                                 <div class="card">
-                                    <a href="/2019/04/16/autoencoder/">
+                                    <a href="/2019/02/16/sort-algorithms/">
                                         <div class="card-image">
                                             
                                                     
-                                                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="神经网络——自编码器（Autoencoder）">
+                                                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="十大经典排序算法整理汇总（附代码）">
                                                         
-                                                            <span class="card-title">神经网络——自编码器（Autoencoder）</span>
+                                                            <span class="card-title">十大经典排序算法整理汇总（附代码）</span>
                                         </div>
                                     </a>
                                     <div class="card-content article-content">
                                         <div class="summary block-with-text">
                                             
-                                                自编码器（Autoencoder，AE），是一种利用反向传播算法使得输出值等于输入值的神经网络，它先将输入压缩成潜在空间表征，然后通过这种表征来重构输出。是一种简单却非常奇妙的神经网络结构。
+                                                本文整理并总结了十大经典的排序算法（冒泡排序、选择排序、插入排序、快速排序、归并排序、希尔排序、计数排序、基数排序、桶排序、堆排序）的时间复杂度、空间复杂度等性质。
                                                     
                                         </div>
                                         <div class="publish-info">
                                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-16
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-02-16
                             </span>
                                             <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/深度学习/" class="post-category" target="_blank">
-                                    深度学习
+                            <a href="/categories/编程算法/" class="post-category" target="_blank">
+                                    编程算法
                                 </a>
                             
                             
@@ -712,12 +686,12 @@ plt<span class="token punctuation">.</span>show<span class="token punctuation">(
                                     
                                         <div class="card-action article-tags">
                                             
-                                                <a href="/tags/AutoEncoder/" target="_blank">
-                                                    <span class="chip bg-color">AutoEncoder</span>
+                                                <a href="/tags/leetcode/" target="_blank">
+                                                    <span class="chip bg-color">leetcode</span>
                                                 </a>
                                                 
-                                                <a href="/tags/全连接神经网络/" target="_blank">
-                                                    <span class="chip bg-color">全连接神经网络</span>
+                                                <a href="/tags/算法/" target="_blank">
+                                                    <span class="chip bg-color">算法</span>
                                                 </a>
                                                 
                                         </div>
@@ -865,6 +839,25 @@ plt<span class="token punctuation">.</span>show<span class="token punctuation">(
     
 
 </main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+<!-- 代码语言 -->
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+<!-- 代码块复制 -->
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+<script type="text/javascript" src="/libs/codeBlock/clipboard.min.js"></script>
+<!-- 代码块收缩 -->
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script> 
+<!-- 代码块折行 -->
+<style type="text/css">code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }</style>
 
 
                 <footer class="page-footer bg-color">
