@@ -307,7 +307,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -472,14 +472,14 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    469
+                    484
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
                 
@@ -522,18 +522,21 @@ plt<span class="token punctuation">.</span>show<span class="token punctuation">(
 <p>再利用matplotlib的散点图绘制出只有二个特征的特征向量。</p>
 <p>具体效果如图：</p>
 <p><img src="2d.png" alt="二维的可视化效果"></p>
+<p>可以看出，自编码器的降维效果也是不错的。</p>
 <p>同样的，我们在把特征压缩到三维的时候，可以画出一个三维的散点图。绘制过程稍有点不同。</p>
-<pre><code># predict &amp; plotting
-encoded_imgs = encoder3D.predict(x_test)
-plt.figure(figsize= (12,9))
-ax1 = plt.axes(projection=&#39;3d&#39;)
-ax1.scatter3D(encoded_imgs[:, 0], encoded_imgs[:, 1],encoded_imgs[:, 2], c=y_test)
-plt.show()</code></pre><p><img src="3d.png" alt="二维的可视化效果"></p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># predict &amp; plotting</span>
+encoded_imgs <span class="token operator">=</span> encoder3D<span class="token punctuation">.</span>predict<span class="token punctuation">(</span>x_test<span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>figure<span class="token punctuation">(</span>figsize<span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+ax1 <span class="token operator">=</span> plt<span class="token punctuation">.</span>axes<span class="token punctuation">(</span>projection<span class="token operator">=</span><span class="token string">'3d'</span><span class="token punctuation">)</span>
+ax1<span class="token punctuation">.</span>scatter3D<span class="token punctuation">(</span>encoded_imgs<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> encoded_imgs<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span>encoded_imgs<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> c<span class="token operator">=</span>y_test<span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="3d.png" alt="二维的可视化效果"></p>
 <ul>
-<li>下面介绍一下散点图的用法</li>
+<li>下面记录一下散点图的用法</li>
 </ul>
 <p>文档地址：<a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.scatter.html#matplotlib.pyplot.scatter" target="_blank" rel="noopener">scatter文档</a></p>
-<pre><code>matplotlib.pyplot.scatter(x, y, s=None, c=None, marker=None, cmap=None, norm=None, vmin=None, vmax=None, alpha=None, linewidths=None, verts=&lt;deprecated parameter&gt;, edgecolors=None, \*, plotnonfinite=False, data=None, \*\*kwargs)</code></pre><pre class="line-numbers language-python"><code class="language-python">scatter<span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> 点的大小<span class="token punctuation">,</span> 颜色，标记<span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 这是最主要的几个用法</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-python"><code class="language-python">matplotlib<span class="token punctuation">.</span>pyplot<span class="token punctuation">.</span>scatter<span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> s<span class="token operator">=</span>None<span class="token punctuation">,</span> c<span class="token operator">=</span>None<span class="token punctuation">,</span> marker<span class="token operator">=</span>None<span class="token punctuation">,</span> cmap<span class="token operator">=</span>None<span class="token punctuation">,</span> norm<span class="token operator">=</span>None<span class="token punctuation">,</span> vmin<span class="token operator">=</span>None<span class="token punctuation">,</span> vmax<span class="token operator">=</span>None<span class="token punctuation">,</span> alpha<span class="token operator">=</span>None<span class="token punctuation">,</span> linewidths<span class="token operator">=</span>None<span class="token punctuation">,</span> verts<span class="token operator">=</span><span class="token operator">&lt;</span>deprecated parameter<span class="token operator">></span><span class="token punctuation">,</span> edgecolors<span class="token operator">=</span>None<span class="token punctuation">,</span> \<span class="token operator">*</span><span class="token punctuation">,</span> plotnonfinite<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span> data<span class="token operator">=</span>None<span class="token punctuation">,</span> \<span class="token operator">*</span>\<span class="token operator">*</span>kwargs<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-python"><code class="language-python">scatter<span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> 点的大小<span class="token punctuation">,</span> 颜色，标记<span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 这是最主要的几个用法</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>点的形状属性由marker控制，默认为。， c 控制点的颜色， norm 控制亮度</p>
 
             </div>
@@ -621,7 +624,7 @@ plt.show()</code></pre><p><img src="3d.png" alt="二维的可视化效果"></p>
                                 <div class="card-image">
                                     
                                             
-                                                <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="Matplotlib 可视化">
+                                                <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="Matplotlib 可视化">
                                                 
                                                     <span class="card-title">Matplotlib 可视化</span>
                                 </div>
@@ -679,7 +682,7 @@ plt.show()</code></pre><p><img src="3d.png" alt="二维的可视化效果"></p>
                                         <div class="card-image">
                                             
                                                     
-                                                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="神经网络——自编码器（Autoencoder）">
+                                                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="神经网络——自编码器（Autoencoder）">
                                                         
                                                             <span class="card-title">神经网络——自编码器（Autoencoder）</span>
                                         </div>
