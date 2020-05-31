@@ -107,7 +107,7 @@
     <link href="https://www.skyfaker.cc/2019/02/24/cong-wei-dao-tou-da-yin-lian-biao/"/>
     <id>https://www.skyfaker.cc/2019/02/24/cong-wei-dao-tou-da-yin-lian-biao/</id>
     <published>2019-02-24T07:09:23.000Z</published>
-    <updated>2020-05-31T04:02:56.974Z</updated>
+    <updated>2020-05-31T04:09:09.136Z</updated>
     
     <summary type="html">
     
@@ -115,7 +115,9 @@
       
         
         
-          &lt;p&gt;*前言：题目顺序 不严格按照剑指offer的题目顺序，有些过于简单的，涉及不到算法的，不适合用Python解决的题目，不会被记录。 &lt;/p&gt;
+          &lt;ul&gt;
+&lt;li&gt;前言：题目顺序 不严格按照剑指offer的题目顺序，有些过于简单的，涉及不到算法的，不适合用Python解决的题目，不会被记录。 &lt;/li&gt;
+&lt;/ul&gt;
 &lt;h2 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot;
         
       
