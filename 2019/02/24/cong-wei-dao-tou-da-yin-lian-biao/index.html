@@ -4,12 +4,13 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="Vue初见——如何运行一个Vue项目, 深度学习 | 数据挖掘">
+    <meta name="keywords" content="每周一道编程题——反向打印链表, 深度学习 | 数据挖掘">
     <meta name="baidu-site-verification" content="fmlEuI34ir">
     <meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48">
     <meta name="360-site-verification" content="b7c11a830ef90fd1464ad6206bb7b6e7">
-    <meta name="description" content="如何运行一个Vue项目一开始刚接手项目内的vue.js，或者在GitHub上找到vue.js的开源项目，会发现不知如何运行这个项目。通过查阅网上教程，成功搭建好项目环境，同时对前段工程化有了朦朦胧胧的认知，因此将环境搭建过程分享给大家。
-1">
+    <meta name="description" content="*前言：题目顺序 不严格按照剑指offer的题目顺序，有些过于简单的，涉及不到算法的，不适合用Python解决的题目，不会被记录。 
+题目描述输入一个链表，按链表从尾到头的顺序返回一个ArrayList。
+题目分析本题目中的链表，特指的是单">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +18,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Vue初见——如何运行一个Vue项目 | SKYFAKER</title>
+    <title>每周一道编程题——反向打印链表 | SKYFAKER</title>
     <link rel="icon" type="image/png" href="/logo.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -304,13 +305,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/24.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        Vue初见——如何运行一个Vue项目
+                        每周一道编程题——反向打印链表
                     </div>
                 </div>
             </div>
@@ -423,12 +424,12 @@
                     
                     <div class="article-tag">
                         
-                        <a href="/tags/Vue/" target="_blank">
-                            <span class="chip bg-color">Vue</span>
+                        <a href="/tags/剑指offer/" target="_blank">
+                            <span class="chip bg-color">剑指offer</span>
                         </a>
                         
-                        <a href="/tags/Node-js/" target="_blank">
-                            <span class="chip bg-color">Node.js</span>
+                        <a href="/tags/算法/" target="_blank">
+                            <span class="chip bg-color">算法</span>
                         </a>
                         
                     </div>
@@ -439,8 +440,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                        <a href="/categories/前端/" class="post-category" target="_blank">
-                            前端
+                        <a href="/categories/编程算法/" class="post-category" target="_blank">
+                            编程算法
                         </a>
                         
                     </div>
@@ -451,7 +452,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-03-16
+                    2019-02-24
                 </div>
 
                 <div class="post-author info-break-policy">
@@ -465,14 +466,14 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    480
+                    826
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
                 
@@ -488,27 +489,41 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="如何运行一个Vue项目"><a href="#如何运行一个Vue项目" class="headerlink" title="如何运行一个Vue项目"></a>如何运行一个Vue项目</h1><p>一开始刚接手项目内的vue.js，或者在GitHub上找到vue.js的开源项目，会发现不知如何运行这个项目。通过查阅网上教程，成功搭建好项目环境，同时对前段工程化有了朦朦胧胧的认知，因此将环境搭建过程分享给大家。</p>
-<h2 id="1-环境安装"><a href="#1-环境安装" class="headerlink" title="1. 环境安装"></a>1. 环境安装</h2><p>首先，列出来我们需要的东西：</p>
-<pre><code>node.js环境（npm包管理器）
-vue-cli 脚手架构建工具
-cnpm  npm的淘宝镜像</code></pre><h3 id="安装node-js"><a href="#安装node-js" class="headerlink" title="安装node.js"></a>安装node.js</h3><p>从node.js官网下载并安装node，安装过程很简单，一路“下一步”就可以了（傻瓜式安装）。<br>安装完成之后，打开命令行工具，输入 <code>node -v</code>，如下图，如果出现相应的版本号，则说明安装成功。</p>
-<p><img src="image-20200216144352886.png" alt="image-20200216144352886"></p>
-<p>npm包管理器直接集成在node中的，所以，不需要额外安装，输入 <code>npm -v</code>就会如下图所示，显示出npm的版本信息。</p>
-<p><img src="image-20200216144500107.png" alt="image-20200216144500107"></p>
-<p>由于有些npm有些资源被屏蔽或者是国外资源的原因，经常会导致用npm安装依赖包的时候非常慢，甚至会失败，所有我还需要npm的国内镜像—cnpm。</p>
-<h3 id="安装cnpm"><a href="#安装cnpm" class="headerlink" title="安装cnpm"></a>安装cnpm</h3><p>在命令行中输入 <code>npm install -g cnpm --registry=http://registry.npm.taobao.org</code>，然后等待，安装完成。</p>
-<h3 id="安装webpack（可选）"><a href="#安装webpack（可选）" class="headerlink" title="安装webpack（可选）"></a>安装webpack（可选）</h3><p><em>webpack</em> 是一个现代 JavaScript 应用程序的<em>静态模块打包器(module bundler)</em>。</p>
-<p><code>npm install webpack -g</code></p>
-<h3 id="安装vue-cli脚手架构建工具"><a href="#安装vue-cli脚手架构建工具" class="headerlink" title="安装vue-cli脚手架构建工具"></a>安装vue-cli脚手架构建工具</h3><p>在命令行中运行命令 <code>cnpm install -g vue-cli</code> ，然后等待安装完成。(这里使用cnpm来替代npm，以加快速度)</p>
-<h2 id="2-运行项目"><a href="#2-运行项目" class="headerlink" title="2. 运行项目"></a>2. 运行项目</h2><h3 id="从项目的根目录打开cmd"><a href="#从项目的根目录打开cmd" class="headerlink" title="从项目的根目录打开cmd"></a>从项目的根目录打开cmd</h3><p><img src="image-20200216145451354.png" alt="image-20200216145451354"></p>
-<p><img src="image-20200216145519142.png" alt="image-20200216145519142"></p>
-<h3 id="进入项目之后安装依赖"><a href="#进入项目之后安装依赖" class="headerlink" title="进入项目之后安装依赖"></a>进入项目之后安装依赖</h3><p><code>npm install</code>安装项目依赖</p>
-<p>安装完成之后项目里面多了一个文件夹</p>
-<p><img src="image-20200216145948586.png" alt="image-20200216145948586"></p>
-<p>然后运行<code>npm run dev</code></p>
-<p><img src="image-20200216151319536.png" alt="image-20200216151319536"></p>
-<p>复制地址到浏览器就可以打开了。</p>
+                <p>*前言：题目顺序 不严格按照剑指offer的题目顺序，有些过于简单的，涉及不到算法的，不适合用Python解决的题目，不会被记录。 </p>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>输入一个链表，按链表从尾到头的顺序返回一个ArrayList。</p>
+<h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>本题目中的链表，特指的是单链表。</p>
+<h4 id="单链表定义"><a href="#单链表定义" class="headerlink" title="单链表定义"></a>单链表定义</h4><p>线性表的链式存储结构的特点是用一组<strong>任意</strong>的存储单元存储线性表中的数据元素，这组存储单元可以存放在内存中未被占用的<strong>任意位置</strong>。</p>
+<p><img src="%E5%8D%95%E9%93%BE%E8%A1%A8.png" alt="单链表结构图，来源于维基百科"></p>
+<p><strong>数据域</strong>：存储数据元素信息的域，<strong>指针域</strong>：存储直接后继位置的域。指针域中存储的信息成为指针或链。</p>
+<p>链表相比于顺序表，最大特点是某一个节点不仅保存当前节点的数据，还通过指针指示了上一个或者下一个节点的地址（单链表仅指向下一个节点）。</p>
+<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>但是因为链表中的元素在内存中是随机存储，并不像顺序表的顺序存储，所以链表不支持随机存取的方式，只能通过指针域的指针决定下一个搜索位置。</p>
+<p>因此，对于单链表来说，按照链表顺序读取的方式，只支持从头结点（或者附加头结点）挨个读取到尾节点，想要逆向读取，需要用到 <strong>递归</strong> 的方法。</p>
+<p>具体流程为：从头结点依次读取节点，如果节点的指针域不为空，即存在后继节点，则将该节点压入递归栈中，直到遇到没有后继节点的尾节点，将尾节点的数据域存入ArrayList中，在依次将栈中的节点弹出，并将弹出节点的数据域追加在ArrayList。</p>
+<p>过程比较简单，就不画图演示了。</p>
+<h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><p>逐个遍历节点，并且压入栈的时间复杂度为 $O(n)$ 。</p>
+<p>弹出栈并且追加到ArrayList中的时间复杂度也为$O(n)$。</p>
+<p>所以，总的时间复杂度为$O(n)$。</p>
+<p>空间复杂度，因为需要用到递归栈来存储递归过程中的节点，故空间复杂度为$O(n)$。</p>
+<h4 id="双向循环链表"><a href="#双向循环链表" class="headerlink" title="双向循环链表"></a>双向循环链表</h4><p><img src="%E5%8F%8C%E5%90%91%E5%BE%AA%E7%8E%AF%E9%93%BE%E8%A1%A8%E8%8A%82%E7%82%B9.png" alt="双向循环链表节点图"></p>
+<p><img src="%E5%8F%8C%E5%90%91%E5%BE%AA%E7%8E%AF%E9%93%BE%E8%A1%A8.png" alt="双向循环链表结构图"></p>
+<p>如果是双向循环链表的话，每个节点不仅指示下一个节点的地址，还指示了上一个节点的地址，则可以从尾节点反向依次查找，并且由于是循环链表，可以直接从头结点找到尾节点，而不需要把链表轮询一遍。</p>
+<p>则时间复杂度为$O(n)$，空间复杂度为$O(1)$。查找的空间复杂大大降低，不过由于每个节点多了一个指针域，需要消耗更多的存储空间。</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># -*- coding:utf-8 -*-</span>
+<span class="token comment" spellcheck="true"># 单链表节点的类定义</span>
+<span class="token comment" spellcheck="true"># class ListNode:</span>
+<span class="token comment" spellcheck="true">#     def __init__(self, x):</span>
+<span class="token comment" spellcheck="true">#         self.val = x  # 数据域</span>
+<span class="token comment" spellcheck="true">#         self.next = None  # 指针域</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true"># 返回从尾部到头部的列表值序列，例如[1,2,3]</span>
+    <span class="token keyword">def</span> <span class="token function">printListFromTailToHead</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> listNode<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true"># write code here</span>
+        <span class="token keyword">if</span> listNode <span class="token keyword">is</span> None<span class="token punctuation">:</span>
+            <span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+        <span class="token comment" spellcheck="true"># 递归运算，返回值用到了Python的特性，列表的+操作为将2个列表拼接在一起。</span>
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>printListFromTailToHead<span class="token punctuation">(</span>listNode<span class="token punctuation">.</span>next<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token punctuation">[</span>listNode<span class="token punctuation">.</span>val<span class="token punctuation">]</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr />
@@ -543,9 +558,9 @@ cnpm  npm的淘宝镜像</code></pre><h3 id="安装node-js"><a href="#安装node
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《Vue初见——如何运行一个Vue项目》
+                    《每周一道编程题——反向打印链表》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/03/16/how-to-run-a-vue/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/02/24/cong-wei-dao-tou-da-yin-lian-biao/" property="cc:attributionName"
                rel="cc:attributionURL">
                 文杰
             </a> 采用
@@ -591,31 +606,31 @@ cnpm  npm的淘宝镜像</code></pre><h3 id="安装node-js"><a href="#安装node
                         上一篇
                     </div>
                     <div class="card">
-                        <a href="/2019/04/16/autoencoder/">
+                        <a href="/2019/03/16/how-to-run-a-vue/">
                             <div class="card-image">
                                 
                                         
-                                            <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="神经网络——自编码器（Autoencoder）">
+                                            <img src="/medias/featureimages/24.jpg" class="responsive-img" alt="Vue初见——如何运行一个Vue项目">
                                             
-                                                <span class="card-title">神经网络——自编码器（Autoencoder）</span>
+                                                <span class="card-title">Vue初见——如何运行一个Vue项目</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    自编码器（Autoencoder，AE），是一种利用反向传播算法使得输出值等于输入值的神经网络，它先将输入压缩成潜在空间表征，然后通过这种表征来重构输出。是一种简单却非常奇妙的神经网络结构。
+                                    一开始刚接手项目内的vue.js，或者在GitHub上找到vue.js的开源项目，会发现不知如何运行这个项目。通过查阅网上教程，成功搭建好项目环境，同时对前段工程化有了朦朦胧胧的认知，因此将环境搭建过程分享给大家。
                                         
                             </div>
                             <div class="publish-info">
                                 <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-16
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-16
                         </span>
                                 <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/深度学习/" class="post-category" target="_blank">
-                                    深度学习
+                            <a href="/categories/前端/" class="post-category" target="_blank">
+                                    前端
                                 </a>
                             
                             
@@ -625,12 +640,12 @@ cnpm  npm的淘宝镜像</code></pre><h3 id="安装node-js"><a href="#安装node
                         
                             <div class="card-action article-tags">
                                 
-                                    <a href="/tags/AutoEncoder/" target="_blank">
-                                        <span class="chip bg-color">AutoEncoder</span>
+                                    <a href="/tags/Vue/" target="_blank">
+                                        <span class="chip bg-color">Vue</span>
                                     </a>
                                     
-                                    <a href="/tags/全连接神经网络/" target="_blank">
-                                        <span class="chip bg-color">全连接神经网络</span>
+                                    <a href="/tags/Node-js/" target="_blank">
+                                        <span class="chip bg-color">Node.js</span>
                                     </a>
                                     
                             </div>
@@ -644,24 +659,24 @@ cnpm  npm的淘宝镜像</code></pre><h3 id="安装node-js"><a href="#安装node
                                     下一篇&nbsp;<i class="fa fa-chevron-right"></i>
                                 </div>
                                 <div class="card">
-                                    <a href="/2019/02/24/cong-wei-dao-tou-da-yin-lian-biao/">
+                                    <a href="/2019/02/17/er-wei-shu-zu-zhong-de-cha-zhao/">
                                         <div class="card-image">
                                             
                                                     
-                                                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="每周一道编程题——反向打印链表">
+                                                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="每周一道编程题——二维数组的查找">
                                                         
-                                                            <span class="card-title">每周一道编程题——反向打印链表</span>
+                                                            <span class="card-title">每周一道编程题——二维数组的查找</span>
                                         </div>
                                     </a>
                                     <div class="card-content article-content">
                                         <div class="summary block-with-text">
                                             
-                                                编程题：输入一个链表，按链表从尾到头的顺序返回一个ArrayList。
+                                                编程题：二维数组的查找。数组的每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。
                                                     
                                         </div>
                                         <div class="publish-info">
                                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-02-24
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-02-17
                             </span>
                                             <span class="publish-author">
                             

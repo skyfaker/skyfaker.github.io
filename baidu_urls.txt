@@ -1,6 +1,7 @@
 https://www.skyfaker.cc/2019/05/20/matplotlib-hui-zhi-san-dian-tu/
 https://www.skyfaker.cc/2019/04/16/autoencoder/
 https://www.skyfaker.cc/2019/03/16/how-to-run-a-vue/
-https://www.skyfaker.cc/2019/02/20/er-wei-shu-zu-zhong-de-cha-zhao/
+https://www.skyfaker.cc/2019/02/24/cong-wei-dao-tou-da-yin-lian-biao/
+https://www.skyfaker.cc/2019/02/17/er-wei-shu-zu-zhong-de-cha-zhao/
 https://www.skyfaker.cc/2019/02/16/sort-algorithms/
 https://www.skyfaker.cc/2019/02/15/hello-world/

@@ -103,11 +103,40 @@
   </entry>
   
   <entry>
+    <title>每周一道编程题——反向打印链表</title>
+    <link href="https://www.skyfaker.cc/2019/02/24/cong-wei-dao-tou-da-yin-lian-biao/"/>
+    <id>https://www.skyfaker.cc/2019/02/24/cong-wei-dao-tou-da-yin-lian-biao/</id>
+    <published>2019-02-24T07:09:23.000Z</published>
+    <updated>2020-05-31T04:02:56.974Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;*前言：题目顺序 不严格按照剑指offer的题目顺序，有些过于简单的，涉及不到算法的，不适合用Python解决的题目，不会被记录。 &lt;/p&gt;
+&lt;h2 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="编程算法" scheme="https://www.skyfaker.cc/categories/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="剑指offer" scheme="https://www.skyfaker.cc/tags/%E5%89%91%E6%8C%87offer/"/>
+    
+      <category term="算法" scheme="https://www.skyfaker.cc/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
     <title>每周一道编程题——二维数组的查找</title>
-    <link href="https://www.skyfaker.cc/2019/02/20/er-wei-shu-zu-zhong-de-cha-zhao/"/>
-    <id>https://www.skyfaker.cc/2019/02/20/er-wei-shu-zu-zhong-de-cha-zhao/</id>
-    <published>2019-02-20T07:09:23.000Z</published>
-    <updated>2020-05-26T10:10:35.957Z</updated>
+    <link href="https://www.skyfaker.cc/2019/02/17/er-wei-shu-zu-zhong-de-cha-zhao/"/>
+    <id>https://www.skyfaker.cc/2019/02/17/er-wei-shu-zu-zhong-de-cha-zhao/</id>
+    <published>2019-02-17T07:09:23.000Z</published>
+    <updated>2020-05-31T03:04:53.662Z</updated>
     
     <summary type="html">
     
@@ -121,10 +150,12 @@
     
     </summary>
     
-      <category term="编程" scheme="https://www.skyfaker.cc/categories/%E7%BC%96%E7%A8%8B/"/>
+      <category term="编程算法" scheme="https://www.skyfaker.cc/categories/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95/"/>
     
     
       <category term="剑指offer" scheme="https://www.skyfaker.cc/tags/%E5%89%91%E6%8C%87offer/"/>
+    
+      <category term="算法" scheme="https://www.skyfaker.cc/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
