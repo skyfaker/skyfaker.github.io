@@ -1,3 +1,4 @@
+https://www.skyfaker.cc/2019/06/07/sort-algorithms-with-python/
 https://www.skyfaker.cc/2019/05/20/matplotlib-hui-zhi-san-dian-tu/
 https://www.skyfaker.cc/2019/04/16/autoencoder/
 https://www.skyfaker.cc/2019/03/16/how-to-run-a-vue/

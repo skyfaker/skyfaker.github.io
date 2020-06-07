@@ -4,12 +4,13 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="Vue初见——如何运行一个Vue项目, 深度学习 | 数据挖掘">
+    <meta name="keywords" content="常见排序算法实现与比较——Python版, 深度学习 | 数据挖掘">
     <meta name="baidu-site-verification" content="fmlEuI34ir">
     <meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48">
     <meta name="360-site-verification" content="b7c11a830ef90fd1464ad6206bb7b6e7">
-    <meta name="description" content="如何运行一个Vue项目一开始刚接手项目内的vue.js，或者在GitHub上找到vue.js的开源项目，会发现不知如何运行这个项目。通过查阅网上教程，成功搭建好项目环境，同时对前段工程化有了朦朦胧胧的认知，因此将环境搭建过程分享给大家。
-1">
+    <meta name="description" content="前言本文用Python实现列几种排序算法（冒泡排序、选择排序、插入排序、二分插入排序、快速排序、优化快速排序，并比较了他们在随机数组上的排序效率。
+本文并不会详细讲解每种排序算法的原理。
+性质汇总|   算法  |   最好  |  最坏 ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +18,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Vue初见——如何运行一个Vue项目 | SKYFAKER</title>
+    <title>常见排序算法实现与比较——Python版 | SKYFAKER</title>
     <link rel="icon" type="image/png" href="/logo.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -304,13 +305,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/24.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        Vue初见——如何运行一个Vue项目
+                        常见排序算法实现与比较——Python版
                     </div>
                 </div>
             </div>
@@ -423,12 +424,12 @@
                     
                     <div class="article-tag">
                         
-                        <a href="/tags/Vue/" target="_blank">
-                            <span class="chip bg-color">Vue</span>
+                        <a href="/tags/Python/" target="_blank">
+                            <span class="chip bg-color">Python</span>
                         </a>
                         
-                        <a href="/tags/Node-js/" target="_blank">
-                            <span class="chip bg-color">Node.js</span>
+                        <a href="/tags/算法/" target="_blank">
+                            <span class="chip bg-color">算法</span>
                         </a>
                         
                     </div>
@@ -439,8 +440,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                        <a href="/categories/前端/" class="post-category" target="_blank">
-                            前端
+                        <a href="/categories/编程算法/" class="post-category" target="_blank">
+                            编程算法
                         </a>
                         
                     </div>
@@ -451,7 +452,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-03-16
+                    2019-06-07
                 </div>
 
                 <div class="post-author info-break-policy">
@@ -465,14 +466,14 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    480
+                    1.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    6 分
                 </div>
                 
                 
@@ -488,27 +489,150 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="如何运行一个Vue项目"><a href="#如何运行一个Vue项目" class="headerlink" title="如何运行一个Vue项目"></a>如何运行一个Vue项目</h1><p>一开始刚接手项目内的vue.js，或者在GitHub上找到vue.js的开源项目，会发现不知如何运行这个项目。通过查阅网上教程，成功搭建好项目环境，同时对前段工程化有了朦朦胧胧的认知，因此将环境搭建过程分享给大家。</p>
-<h2 id="1-环境安装"><a href="#1-环境安装" class="headerlink" title="1. 环境安装"></a>1. 环境安装</h2><p>首先，列出来我们需要的东西：</p>
-<pre><code>node.js环境（npm包管理器）
-vue-cli 脚手架构建工具
-cnpm  npm的淘宝镜像</code></pre><h3 id="安装node-js"><a href="#安装node-js" class="headerlink" title="安装node.js"></a>安装node.js</h3><p>从node.js官网下载并安装node，安装过程很简单，一路“下一步”就可以了（傻瓜式安装）。<br>安装完成之后，打开命令行工具，输入 <code>node -v</code>，如下图，如果出现相应的版本号，则说明安装成功。</p>
-<p><img src="image-20200216144352886.png" alt="image-20200216144352886"></p>
-<p>npm包管理器直接集成在node中的，所以，不需要额外安装，输入 <code>npm -v</code>就会如下图所示，显示出npm的版本信息。</p>
-<p><img src="image-20200216144500107.png" alt="image-20200216144500107"></p>
-<p>由于有些npm有些资源被屏蔽或者是国外资源的原因，经常会导致用npm安装依赖包的时候非常慢，甚至会失败，所有我还需要npm的国内镜像—cnpm。</p>
-<h3 id="安装cnpm"><a href="#安装cnpm" class="headerlink" title="安装cnpm"></a>安装cnpm</h3><p>在命令行中输入 <code>npm install -g cnpm --registry=http://registry.npm.taobao.org</code>，然后等待，安装完成。</p>
-<h3 id="安装webpack（可选）"><a href="#安装webpack（可选）" class="headerlink" title="安装webpack（可选）"></a>安装webpack（可选）</h3><p><em>webpack</em> 是一个现代 JavaScript 应用程序的<em>静态模块打包器(module bundler)</em>。</p>
-<p><code>npm install webpack -g</code></p>
-<h3 id="安装vue-cli脚手架构建工具"><a href="#安装vue-cli脚手架构建工具" class="headerlink" title="安装vue-cli脚手架构建工具"></a>安装vue-cli脚手架构建工具</h3><p>在命令行中运行命令 <code>cnpm install -g vue-cli</code> ，然后等待安装完成。(这里使用cnpm来替代npm，以加快速度)</p>
-<h2 id="2-运行项目"><a href="#2-运行项目" class="headerlink" title="2. 运行项目"></a>2. 运行项目</h2><h3 id="从项目的根目录打开cmd"><a href="#从项目的根目录打开cmd" class="headerlink" title="从项目的根目录打开cmd"></a>从项目的根目录打开cmd</h3><p><img src="image-20200216145451354.png" alt="image-20200216145451354"></p>
-<p><img src="image-20200216145519142.png" alt="image-20200216145519142"></p>
-<h3 id="进入项目之后安装依赖"><a href="#进入项目之后安装依赖" class="headerlink" title="进入项目之后安装依赖"></a>进入项目之后安装依赖</h3><p><code>npm install</code>安装项目依赖</p>
-<p>安装完成之后项目里面多了一个文件夹</p>
-<p><img src="image-20200216145948586.png" alt="image-20200216145948586"></p>
-<p>然后运行<code>npm run dev</code></p>
-<p><img src="image-20200216151319536.png" alt="image-20200216151319536"></p>
-<p>复制地址到浏览器就可以打开了。</p>
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本文用Python实现列几种排序算法（冒泡排序、选择排序、插入排序、二分插入排序、快速排序、优化快速排序，并比较了他们在随机数组上的排序效率。</p>
+<p><strong>本文并不会详细讲解每种排序算法的原理</strong>。</p>
+<h2 id="性质汇总"><a href="#性质汇总" class="headerlink" title="性质汇总"></a>性质汇总</h2><p>|   算法  |   最好  |  最坏   |  平均   |  空间   |  稳定性   |<br>| — | — | — | — | — | :—: | :—: |<br>|  冒泡排序   |  $O(n)$   |   $O(n^2)$  |  $O(n^2)$   |  $O(1)$   | $\checkmark$  |<br>|   选择排序  |  $O(n^2)$  |   $O(n^2)$  |  $O(n^2)$   |  $O(1)$   | $\times$  |<br>|   插入排序  |  $O(n)$   |   $O(n^2)$  |  $O(n^2)$   |  $O(1)$   | $\checkmark$  |<br>| 折半插入排序  |  $O(n\log n)$   |   $O(n\log n)$  |  $O(n\log n)$   |  $O(1)$   |$\checkmark$  |<br>|  快速排序   |  $O(n\log n)$   |  $O(n^2)$   |  $O(n\log n)$   |  $O(\log n)$~$O(n)$   |  $\times$   |</p>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><ul>
+<li>本次几个算法均没有返回值，直接对原数组进行操作。</li>
+</ul>
+<h3 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h3><pre class="line-numbers language-cpp"><code class="language-cpp">from time import time
+import numpy as np
+
+def <span class="token function">timer</span><span class="token punctuation">(</span>fc<span class="token punctuation">)</span><span class="token operator">:</span>
+    def <span class="token function">f</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token operator">:</span>
+        before <span class="token operator">=</span> <span class="token function">time</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token function">fc</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+        <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"time: "</span><span class="token punctuation">,</span><span class="token function">time</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-</span>before<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> f
+
+# 冒泡排序
+@timer
+def <span class="token function">bubble_sort</span><span class="token punctuation">(</span>ls<span class="token punctuation">)</span><span class="token operator">:</span>
+    <span class="token macro property"># assert type(ls) == list, "参数类型不为List"</span>
+    j <span class="token operator">=</span> <span class="token function">len</span><span class="token punctuation">(</span>ls<span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span>
+    <span class="token keyword">while</span> j<span class="token operator">></span><span class="token number">0</span><span class="token operator">:</span>
+        flag <span class="token operator">=</span> True # 如果某一次遍历过程没有发生元素交换，则已经有序，后续不需要再执行了
+        <span class="token keyword">for</span> i in <span class="token function">range</span><span class="token punctuation">(</span>j<span class="token punctuation">)</span><span class="token operator">:</span>
+            <span class="token keyword">if</span> ls<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">></span>ls<span class="token punctuation">[</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">:</span>
+                flag <span class="token operator">=</span> False
+                ls<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> ls<span class="token punctuation">[</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> ls<span class="token punctuation">[</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> ls<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+        <span class="token keyword">if</span> flag<span class="token operator">:</span><span class="token keyword">return</span>
+        j<span class="token operator">-</span><span class="token operator">=</span><span class="token number">1</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>1-9行，实现了一个装饰器，用来给算法计时。</p>
+<p>11-23行，实现了一个冒泡排序算法，并稍微做了一点优化，一旦每一轮遍历没有改变元素顺序，则表示数组已经有序，后续的循环不需要再执行了。</p>
+<h3 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h3><pre><code># 选择排序
+@timer
+def choose_sort(ls):
+    for i in range(len(ls)):
+        tmp = ls[i]
+        pos = i
+        for j in range(i+1, len(ls)):
+            if ls[j]&lt;tmp:
+                pos = j
+                tmp = ls[j]
+        if i!=pos:
+            ls[i], ls[pos] = ls[pos], ls[i]</code></pre><p>选择排序的思路也很简单，虽然时间复杂度和冒泡排序一样为$O（n^2）$,但是随机情况下，速度大约比冒泡快一倍。</p>
+<h3 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h3><pre><code># 插入排序，在近似有序的数组上表现最优
+@timer
+def insert_sort(ls):
+    for i in range(1, len(ls)):
+        if ls[i]&lt;ls[i-1]:
+            tmp = ls[i]
+            j = i-1
+            while j&gt;=0 and tmp &lt; ls[j]:
+                ls[j+1] = ls[j]
+                j-=1
+            ls[j+1] = tmp</code></pre><p>插入排序类似于人打扑克牌时对牌进行的排序。速度上比冒泡略快，比选择排序略慢。</p>
+<p>在近似有序的数组上，插入排序的表现是最好的。</p>
+<h3 id="折半插入排序"><a href="#折半插入排序" class="headerlink" title="折半插入排序"></a>折半插入排序</h3><pre><code># 二分插入排序
+@timer
+def binary_insert_sort(ls):
+    for i in range(1, len(ls)):
+        tmp = ls[i]
+        low = 0 
+        high = i-1
+
+        while low &lt;= high:
+            middle = int((low + high) / 2)
+            if tmp &gt; ls[middle]:
+                low = middle+1
+            else:
+                high = middle-1
+        for j in range(i, low, -1):
+            ls[j] = ls[j-1]
+        ls[low] = tmp</code></pre><p>折半插入排序也叫二分插入排序，使用二分法来寻找插入的位置。在随机情况和最差情况下，表现比普通插入排序好得多，但在近似有序的数组上，表现不如普通插入排序。</p>
+<h3 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h3><pre><code># 快速排序, 为了使用装饰器，多做了一层封装
+@timer
+def quick_sort(ls):
+    def partition(low, high):
+        pos = low
+        tmp = ls[low]
+        for i in range(low+1, high+1):
+            if ls[i] &lt; tmp:
+                pos+=1
+                if pos!=i:
+                    ls[pos], ls[i] = ls[i], ls[pos]
+        ls[pos], ls[low] = ls[low], ls[pos] 
+        return pos
+
+    def sort(left, right):
+        if left &lt; right:
+            pos = partition(left, right)
+            sort(left, pos-1)
+            sort(pos+1,right)
+
+    sort(0, len(ls)-1)</code></pre><p>快速排序无愧于它的名字，数据量大的时候效率很高，在大多数计算机上，快速排序表现得都比其他几个排序方法要好。</p>
+<p>但是，我们也得清楚快速排序的缺点。</p>
+<ol>
+<li>快速排序是一个递归算法，需要借助递归栈存储每一层递归调用的指针和参数。所以需要$O(logn)$—$O(n)$ 的空间复杂度。</li>
+<li>快速排序的趟数取决于的递归树的深度。倘若每次快排都可以把数组划分为2个大小相同的数组，递归树的深度可以达到最小$O(logn)$，而对于有序数组，递归树退化为单枝树，递归树的深度达到 $O(n)$，排序时速度退化到简单排序的水平。不仅需要大量的存储空间，还会有“爆栈”的风险。</li>
+<li>数据量小的时候，不适用与快速排序，可以选插入排序。研究表明，数组长度为5—25的时候，使用插入排序要比快速排序至少快10%。</li>
+</ol>
+<h3 id="优化后的快速排序"><a href="#优化后的快速排序" class="headerlink" title="优化后的快速排序"></a>优化后的快速排序</h3><pre><code># 插入排序优化后的快速排序，解决快排在小数据量的排序效率低下问题
+@timer
+def quick_sort_insert(ls):
+    # 插入排序
+    def insert_sort(low, high):
+        for i in range(low+1, high):
+            if ls[i] &lt; ls[i-1]:
+                tmp = ls[i]
+                j = i-1
+                while j&gt;=0 and tmp &lt; ls[j]:
+                    ls[j+1] = ls[j]
+                    j-=1
+                ls[j+1] = tmp
+
+    def partition(low, high):
+        pos = low
+        tmp = ls[low]
+        for i in range(low+1, high+1):
+            if ls[i] &lt; tmp:
+                pos+=1
+                if pos!=i:
+                    ls[pos], ls[i] = ls[i], ls[pos]
+        ls[pos], ls[low] = ls[low], ls[pos] 
+        return pos
+
+    def sort(left, right):
+        if left &lt; right-20:
+            pos = partition(left, right)
+            sort(left, pos-1)
+            sort(pos+1,right)
+        else:
+            insert_sort(left, right+1)
+
+    sort(0, len(ls)-1)</code></pre><p>当数组或者子数组的长度在20以下，使用直接插入排序代替快速排序。另外，我们也可以从数组中随机选择一个数作为基准，而不是总是使用数组的第一个元素作为基准，这样可以避免在近似有序情况下，快速排序的退化问题。</p>
+<h2 id="性能比较"><a href="#性能比较" class="headerlink" title="性能比较"></a>性能比较</h2><p>测试方法，随机生成一个长度为1W的数组</p>
+<pre><code># 利用numpy，从0到5W生成一个长度1W的数组
+ls = np.random.randint(0,50000,10000)</code></pre><p>比较上述几种排序方法的运行时间：</p>
+<pre><code>冒泡排序：31.1s
+选择排序：15.5s
+插入排序：22.6s
+折半插入排序：11.8s
+快速排序：0.221s
+插入排序优化后的快速排序：0.177s
+</code></pre><p>By the way, python自带的list.sort()也是原地排序，对上述数组的排序时间为：0.000996s,比优化后的快速排序还要快百倍，这么快也有可能是因为这个内置方法是用C语言写出来的。</p>
+<p>list.sort()使用的排序方法为Timsort算法，速度非常快，缺点是空间复杂度为 $O(n)$ ，比较耗费内存。</p>
 
             </div>
             <hr />
@@ -543,9 +667,9 @@ cnpm  npm的淘宝镜像</code></pre><h3 id="安装node-js"><a href="#安装node
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《Vue初见——如何运行一个Vue项目》
+                    《常见排序算法实现与比较——Python版》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/03/16/how-to-run-a-vue/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/06/07/sort-algorithms-with-python/" property="cc:attributionName"
                rel="cc:attributionURL">
                 文杰
             </a> 采用
@@ -585,85 +709,32 @@ cnpm  npm的淘宝镜像</code></pre><h3 id="安装node-js"><a href="#安装node
     <article id="prenext-posts" class="prev-next articles">
         <div class="row article-row">
             
-                <div class="article col s12 m6" data-aos="fade-up">
-                    <div class="article-badge left-badge text-color">
-                        <i class="fa fa-chevron-left"></i>&nbsp;
-                        上一篇
-                    </div>
-                    <div class="card">
-                        <a href="/2019/04/16/autoencoder/">
-                            <div class="card-image">
-                                
-                                        
-                                            <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="神经网络——自编码器（Autoencoder）">
-                                            
-                                                <span class="card-title">神经网络——自编码器（Autoencoder）</span>
-                            </div>
-                        </a>
-                        <div class="card-content article-content">
-                            <div class="summary block-with-text">
-                                
-                                    自编码器（Autoencoder，AE），是一种利用反向传播算法使得输出值等于输入值的神经网络，它先将输入压缩成潜在空间表征，然后通过这种表征来重构输出。是一种简单却非常奇妙的神经网络结构。
-                                        
-                            </div>
-                            <div class="publish-info">
-                                <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-16
-                        </span>
-                                <span class="publish-author">
-                            
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/深度学习/" class="post-category" target="_blank">
-                                    深度学习
-                                </a>
-                            
-                            
-                        </span>
-                            </div>
+                    <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+                        <div class="article-badge left-badge text-color">
+                            <i class="fa fa-dot-circle-o"></i>&nbsp;
+                            本篇
                         </div>
-                        
-                            <div class="card-action article-tags">
-                                
-                                    <a href="/tags/AutoEncoder/" target="_blank">
-                                        <span class="chip bg-color">AutoEncoder</span>
-                                    </a>
+                        <div class="card">
+                            <a href="/2019/06/07/sort-algorithms-with-python/">
+                                <div class="card-image">
                                     
-                                    <a href="/tags/全连接神经网络/" target="_blank">
-                                        <span class="chip bg-color">全连接神经网络</span>
-                                    </a>
-                                    
-                            </div>
-                            
-                    </div>
-                </div>
-                
-                        
-                            <div class="article col s12 m6" data-aos="fade-up">
-                                <div class="article-badge right-badge text-color">
-                                    下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+                                            
+                                                <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="常见排序算法实现与比较——Python版">
+                                                
+                                                    <span class="card-title">常见排序算法实现与比较——Python版</span>
                                 </div>
-                                <div class="card">
-                                    <a href="/2019/02/24/cong-wei-dao-tou-da-yin-lian-biao/">
-                                        <div class="card-image">
+                            </a>
+                            <div class="card-content article-content">
+                                <div class="summary block-with-text">
+                                    
+                                        本文用Python实现列几种排序算法（冒泡排序、选择排序、插入排序、二分插入排序、快速排序、优化快速排序，并比较了他们在随机数组上的排序效率。
                                             
-                                                    
-                                                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="每周一道编程题——反向打印链表">
-                                                        
-                                                            <span class="card-title">每周一道编程题——反向打印链表</span>
-                                        </div>
-                                    </a>
-                                    <div class="card-content article-content">
-                                        <div class="summary block-with-text">
-                                            
-                                                编程题：输入一个链表，按链表从尾到头的顺序返回一个ArrayList。
-                                                    
-                                        </div>
-                                        <div class="publish-info">
-                                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-02-24
+                                </div>
+                                <div class="publish-info">
+                                    <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-07
                             </span>
-                                            <span class="publish-author">
+                                    <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
@@ -673,17 +744,75 @@ cnpm  npm的淘宝镜像</code></pre><h3 id="安装node-js"><a href="#安装node
                             
                             
                         </span>
+                                </div>
+                            </div>
+
+                            
+                                <div class="card-action article-tags">
+                                    
+                                        <a href="/tags/Python/" target="_blank">
+                                            <span class="chip bg-color">Python</span>
+                                        </a>
+                                        
+                                        <a href="/tags/算法/" target="_blank">
+                                            <span class="chip bg-color">算法</span>
+                                        </a>
+                                        
+                                </div>
+                                
+                        </div>
+                    </div>
+                    
+                        
+                            <div class="article col s12 m6" data-aos="fade-up">
+                                <div class="article-badge right-badge text-color">
+                                    下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+                                </div>
+                                <div class="card">
+                                    <a href="/2019/05/20/matplotlib-hui-zhi-san-dian-tu/">
+                                        <div class="card-image">
+                                            
+                                                    
+                                                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="Matplotlib 可视化">
+                                                        
+                                                            <span class="card-title">Matplotlib 可视化</span>
+                                        </div>
+                                    </a>
+                                    <div class="card-content article-content">
+                                        <div class="summary block-with-text">
+                                            
+                                                上一篇文章：“神经网络——自编码器”中，在使用自编码器压缩特征至二维和三维后，利用matplotlib绘制了降维后的可视化特征图。本文记录一下绘制方法和matplotlib的一些基础方法。
+                                                    
+                                        </div>
+                                        <div class="publish-info">
+                                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-20
+                            </span>
+                                            <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/工具方法/" class="post-category" target="_blank">
+                                    工具方法
+                                </a>
+                            
+                            
+                        </span>
                                         </div>
                                     </div>
                                     
                                         <div class="card-action article-tags">
                                             
-                                                <a href="/tags/算法/" target="_blank">
-                                                    <span class="chip bg-color">算法</span>
+                                                <a href="/tags/可视化/" target="_blank">
+                                                    <span class="chip bg-color">可视化</span>
                                                 </a>
                                                 
-                                                <a href="/tags/剑指offer/" target="_blank">
-                                                    <span class="chip bg-color">剑指offer</span>
+                                                <a href="/tags/matplotlib/" target="_blank">
+                                                    <span class="chip bg-color">matplotlib</span>
+                                                </a>
+                                                
+                                                <a href="/tags/Python/" target="_blank">
+                                                    <span class="chip bg-color">Python</span>
                                                 </a>
                                                 
                                         </div>
