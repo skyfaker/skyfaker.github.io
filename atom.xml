@@ -38,9 +38,9 @@
       <category term="编程算法" scheme="https://www.skyfaker.cc/categories/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95/"/>
     
     
-      <category term="算法" scheme="https://www.skyfaker.cc/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="Python" scheme="https://www.skyfaker.cc/tags/Python/"/>
+    
+      <category term="算法" scheme="https://www.skyfaker.cc/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
@@ -66,11 +66,11 @@
       <category term="工具方法" scheme="https://www.skyfaker.cc/categories/%E5%B7%A5%E5%85%B7%E6%96%B9%E6%B3%95/"/>
     
     
+      <category term="Python" scheme="https://www.skyfaker.cc/tags/Python/"/>
+    
       <category term="可视化" scheme="https://www.skyfaker.cc/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
     
       <category term="matplotlib" scheme="https://www.skyfaker.cc/tags/matplotlib/"/>
-    
-      <category term="Python" scheme="https://www.skyfaker.cc/tags/Python/"/>
     
   </entry>
   
@@ -131,6 +131,35 @@
   </entry>
   
   <entry>
+    <title>每周一道编程题——两个栈实现队列</title>
+    <link href="https://www.skyfaker.cc/2019/03/10/yong-liang-ge-zhan-lai-shi-xian-yi-ge-dui-lie.md-yong-liang-ge-zhan-shi-xian-dui-lie/"/>
+    <id>https://www.skyfaker.cc/2019/03/10/yong-liang-ge-zhan-lai-shi-xian-yi-ge-dui-lie.md-yong-liang-ge-zhan-shi-xian-dui-lie/</id>
+    <published>2019-03-10T08:40:23.000Z</published>
+    <updated>2020-06-13T08:40:52.191Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot; title=&quot;题目描述&quot;&gt;&lt;/a&gt;题目描述&lt;/h2&gt;&lt;p&gt;用两个栈来实现一个队列，完成队列的Push和Pop操作。 队列中的元素为int类型。&lt;/p&gt;
+&lt;h2
+        
+      
+    
+    </summary>
+    
+      <category term="编程算法" scheme="https://www.skyfaker.cc/categories/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="算法" scheme="https://www.skyfaker.cc/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="剑指offer" scheme="https://www.skyfaker.cc/tags/%E5%89%91%E6%8C%87offer/"/>
+    
+  </entry>
+  
+  <entry>
     <title>每周一道编程题——重建二叉树</title>
     <link href="https://www.skyfaker.cc/2019/03/03/chong-jian-er-cha-shu/"/>
     <id>https://www.skyfaker.cc/2019/03/03/chong-jian-er-cha-shu/</id>
@@ -163,7 +192,7 @@
     <link href="https://www.skyfaker.cc/2019/02/24/cong-wei-dao-tou-da-yin-lian-biao/"/>
     <id>https://www.skyfaker.cc/2019/02/24/cong-wei-dao-tou-da-yin-lian-biao/</id>
     <published>2019-02-24T07:09:23.000Z</published>
-    <updated>2020-05-31T04:09:09.136Z</updated>
+    <updated>2020-06-13T08:01:52.663Z</updated>
     
     <summary type="html">
     
@@ -239,9 +268,9 @@
       <category term="编程算法" scheme="https://www.skyfaker.cc/categories/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95/"/>
     
     
-      <category term="leetcode" scheme="https://www.skyfaker.cc/tags/leetcode/"/>
-    
       <category term="算法" scheme="https://www.skyfaker.cc/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="leetcode" scheme="https://www.skyfaker.cc/tags/leetcode/"/>
     
   </entry>
   

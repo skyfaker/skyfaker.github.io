@@ -4,15 +4,15 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="每周一道编程题——反向打印链表, 深度学习 | 数据挖掘">
+    <meta name="keywords" content="每周一道编程题——两个栈实现队列, 深度学习 | 数据挖掘">
     <meta name="baidu-site-verification" content="fmlEuI34ir">
     <meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48">
     <meta name="360-site-verification" content="b7c11a830ef90fd1464ad6206bb7b6e7">
-    <meta name="description" content="
-前言：题目顺序 不严格按照剑指offer的题目顺序，有些过于简单的，涉及不到算法的，不适合用Python解决的题目，不会被记录。 
-
-题目描述输入一个链表，按链表从尾到头的顺序返回一个ArrayList。
-题目分析本题目中的链表，特指的是">
+    <meta name="description" content="题目描述用两个栈来实现一个队列，完成队列的Push和Pop操作。 队列中的元素为int类型。
+题目分析栈的特点是先进后出，队列为先进先出。
+队列的功能只有2个，队尾进，队首出。
+队尾进：这一功能和栈一致。
+队首出：队列中第一个出队元素，在栈">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -20,7 +20,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>每周一道编程题——反向打印链表 | SKYFAKER</title>
+    <title>每周一道编程题——两个栈实现队列 | SKYFAKER</title>
     <link rel="icon" type="image/png" href="/logo.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -307,13 +307,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        每周一道编程题——反向打印链表
+                        每周一道编程题——两个栈实现队列
                     </div>
                 </div>
             </div>
@@ -454,7 +454,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-02-24
+                    2019-03-10
                 </div>
 
                 <div class="post-author info-break-policy">
@@ -468,14 +468,14 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    826
+                    424
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    1 分
                 </div>
                 
                 
@@ -491,43 +491,37 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <ul>
-<li>前言：题目顺序 不严格按照剑指offer的题目顺序，有些过于简单的，涉及不到算法的，不适合用Python解决的题目，不会被记录。 </li>
-</ul>
-<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>输入一个链表，按链表从尾到头的顺序返回一个ArrayList。</p>
-<h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>本题目中的链表，特指的是单链表。</p>
-<h4 id="单链表定义"><a href="#单链表定义" class="headerlink" title="单链表定义"></a>单链表定义</h4><p>线性表的链式存储结构的特点是用一组<strong>任意</strong>的存储单元存储线性表中的数据元素，这组存储单元可以存放在内存中未被占用的<strong>任意位置</strong>。</p>
-<p><img src="%E5%8D%95%E9%93%BE%E8%A1%A8.png" alt="单链表结构图，来源于维基百科"></p>
-<p><strong>数据域</strong>：存储数据元素信息的域，<strong>指针域</strong>：存储直接后继位置的域。指针域中存储的信息成为指针或链。</p>
-<p>链表相比于顺序表，最大特点是某一个节点不仅保存当前节点的数据，还通过指针指示了上一个或者下一个节点的地址（单链表仅指向下一个节点）。</p>
-<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>但是因为链表中的元素在内存中是随机存储，并不像顺序表的顺序存储，所以链表不支持随机存取的方式，只能通过指针域的指针决定下一个搜索位置。</p>
-<p>因此，对于单链表来说，按照链表顺序读取的方式，只支持从头结点（或者附加头结点）挨个读取到尾节点，想要逆向读取，需要用到 <strong>递归</strong> 的方法。</p>
-<p>具体流程为：从头结点依次读取节点，如果节点的指针域不为空，即存在后继节点，则将该节点压入递归栈中，直到遇到没有后继节点的尾节点，将尾节点的数据域存入ArrayList中，在依次将栈中的节点弹出，并将弹出节点的数据域追加在ArrayList。</p>
-<p>过程比较简单，就不画图演示了。</p>
-<h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><p>逐个遍历节点，并且压入栈的时间复杂度为 $O(n)$ 。</p>
-<p>弹出栈并且追加到ArrayList中的时间复杂度也为$O(n)$。</p>
-<p>所以，总的时间复杂度为$O(n)$。</p>
-<p>空间复杂度，因为需要用到递归栈来存储递归过程中的节点，故空间复杂度为$O(n)$。</p>
-<h4 id="双向循环链表"><a href="#双向循环链表" class="headerlink" title="双向循环链表"></a>双向循环链表</h4><p><img src="%E5%8F%8C%E5%90%91%E5%BE%AA%E7%8E%AF%E9%93%BE%E8%A1%A8%E8%8A%82%E7%82%B9.png" alt="双向循环链表节点图"></p>
-<p><img src="%E5%8F%8C%E5%90%91%E5%BE%AA%E7%8E%AF%E9%93%BE%E8%A1%A8.png" alt="双向循环链表结构图"></p>
-<p>如果是双向循环链表的话，每个节点不仅指示下一个节点的地址，还指示了上一个节点的地址，则可以从尾节点反向依次查找，并且由于是循环链表，可以直接从头结点找到尾节点，而不需要把链表轮询一遍。</p>
-<p>则时间复杂度为$O(n)$，空间复杂度为$O(1)$。查找的空间复杂大大降低，不过由于每个节点多了一个指针域，需要消耗更多的存储空间。</p>
+                <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>用两个栈来实现一个队列，完成队列的Push和Pop操作。 队列中的元素为int类型。</p>
+<h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>栈的特点是先进后出，队列为先进先出。</p>
+<p>队列的功能只有2个，队尾进，队首出。</p>
+<p>队尾进：这一功能和栈一致。</p>
+<p>队首出：队列中第一个出队元素，在栈中为栈底元素。在栈中，要想取到栈底元素，必须所有元素出栈。而这些元素，只需要输出最后一个，其他的仍然需要保存。所以，我们可以把一个栈的元素依次取出，存入另一个栈。</p>
+<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>两个栈A，B，A用来接收入队的元素，B用来模拟出队的操作。</p>
+<p>入队时，元素压入栈A，出队时，从栈B的栈顶弹出，如果B中没有元素，则依次取出A的元素压入栈B，再模拟出队操作。</p>
+<p>比如：栈A = [1,2,3,4]，栈B = [ ]。</p>
+<p>模拟入队操作时，元素直接压入栈A。</p>
+<p>模拟出队操作，则需要取出第一个元素1，这时，需要把栈A中元素转到栈B。</p>
+<p>栈A = [ ]，栈B = [ 4, 3, 2, 1]。然后再取出栈B的最后一个元素1。</p>
+<p>下一次出队操作，再次从栈B取出栈顶元素。如果栈B为空，则将栈A所有的元素取出，压入栈B，再执行栈B的弹出栈顶操作。</p>
 <h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># -*- coding:utf-8 -*-</span>
-<span class="token comment" spellcheck="true"># 单链表节点的类定义</span>
-<span class="token comment" spellcheck="true"># class ListNode:</span>
-<span class="token comment" spellcheck="true">#     def __init__(self, x):</span>
-<span class="token comment" spellcheck="true">#         self.val = x  # 数据域</span>
-<span class="token comment" spellcheck="true">#         self.next = None  # 指针域</span>
-
 <span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token comment" spellcheck="true"># 返回从尾部到头部的列表值序列，例如[1,2,3]</span>
-    <span class="token keyword">def</span> <span class="token function">printListFromTailToHead</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> listNode<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>stack_a <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+        self<span class="token punctuation">.</span>stack_b <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    <span class="token keyword">def</span> <span class="token function">push</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> node<span class="token punctuation">)</span><span class="token punctuation">:</span>
         <span class="token comment" spellcheck="true"># write code here</span>
-        <span class="token keyword">if</span> listNode <span class="token keyword">is</span> None<span class="token punctuation">:</span>
-            <span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-        <span class="token comment" spellcheck="true"># 递归运算，返回值用到了Python的特性，列表的+操作为将2个列表拼接在一起。</span>
-        <span class="token keyword">return</span> self<span class="token punctuation">.</span>printListFromTailToHead<span class="token punctuation">(</span>listNode<span class="token punctuation">.</span>next<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token punctuation">[</span>listNode<span class="token punctuation">.</span>val<span class="token punctuation">]</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+        self<span class="token punctuation">.</span>stack_a<span class="token punctuation">.</span>append<span class="token punctuation">(</span>node<span class="token punctuation">)</span>
+    <span class="token keyword">def</span> <span class="token function">pop</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true"># return xx</span>
+        <span class="token keyword">if</span> self<span class="token punctuation">.</span>stack_b <span class="token operator">==</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> self<span class="token punctuation">.</span>stack_a <span class="token operator">==</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">:</span><span class="token keyword">return</span>
+            self<span class="token punctuation">.</span>stack_b <span class="token operator">=</span> list<span class="token punctuation">(</span>reversed<span class="token punctuation">(</span>self<span class="token punctuation">.</span>stack_a<span class="token punctuation">)</span><span class="token punctuation">)</span>
+            self<span class="token punctuation">.</span>stack_a <span class="token operator">=</span> <span class="token punctuation">[</span>
+
+            <span class="token punctuation">]</span>
+            <span class="token keyword">return</span> self<span class="token punctuation">.</span>stack_b<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            <span class="token keyword">return</span> self<span class="token punctuation">.</span>stack_b<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr />
@@ -562,9 +556,9 @@
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《每周一道编程题——反向打印链表》
+                    《每周一道编程题——两个栈实现队列》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/02/24/cong-wei-dao-tou-da-yin-lian-biao/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/03/10/yong-liang-ge-zhan-lai-shi-xian-yi-ge-dui-lie.md-yong-liang-ge-zhan-shi-xian-dui-lie/" property="cc:attributionName"
                rel="cc:attributionURL">
                 文杰
             </a> 采用
@@ -610,31 +604,31 @@
                         上一篇
                     </div>
                     <div class="card">
-                        <a href="/2019/03/03/chong-jian-er-cha-shu/">
+                        <a href="/2019/03/16/how-to-run-a-vue/">
                             <div class="card-image">
                                 
                                         
-                                            <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="每周一道编程题——重建二叉树">
+                                            <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="Vue初见——如何运行一个Vue项目">
                                             
-                                                <span class="card-title">每周一道编程题——重建二叉树</span>
+                                                <span class="card-title">Vue初见——如何运行一个Vue项目</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    编程题：输入某二叉树的前序遍历和中序遍历的结果，请重建出该二叉树。假设输入的前序遍历和中序遍历的结果中都不含重复的数字。例如输入前序遍历序列{1,2,4,7,3,5,6,8}和中序遍历序列{4,7,2,1,5,3,8,6}，则重建二叉树并返回。
+                                    一开始刚接手项目内的vue.js，或者在GitHub上找到vue.js的开源项目，会发现不知如何运行这个项目。通过查阅网上教程，成功搭建好项目环境，同时对前段工程化有了朦朦胧胧的认知，因此将环境搭建过程分享给大家。
                                         
                             </div>
                             <div class="publish-info">
                                 <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-03
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-16
                         </span>
                                 <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/编程算法/" class="post-category" target="_blank">
-                                    编程算法
+                            <a href="/categories/前端/" class="post-category" target="_blank">
+                                    前端
                                 </a>
                             
                             
@@ -644,12 +638,12 @@
                         
                             <div class="card-action article-tags">
                                 
-                                    <a href="/tags/算法/" target="_blank">
-                                        <span class="chip bg-color">算法</span>
+                                    <a href="/tags/Vue/" target="_blank">
+                                        <span class="chip bg-color">Vue</span>
                                     </a>
                                     
-                                    <a href="/tags/剑指offer/" target="_blank">
-                                        <span class="chip bg-color">剑指offer</span>
+                                    <a href="/tags/Node-js/" target="_blank">
+                                        <span class="chip bg-color">Node.js</span>
                                     </a>
                                     
                             </div>
@@ -663,24 +657,24 @@
                                     下一篇&nbsp;<i class="fa fa-chevron-right"></i>
                                 </div>
                                 <div class="card">
-                                    <a href="/2019/02/17/er-wei-shu-zu-zhong-de-cha-zhao/">
+                                    <a href="/2019/03/03/chong-jian-er-cha-shu/">
                                         <div class="card-image">
                                             
                                                     
-                                                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="每周一道编程题——二维数组的查找">
+                                                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="每周一道编程题——重建二叉树">
                                                         
-                                                            <span class="card-title">每周一道编程题——二维数组的查找</span>
+                                                            <span class="card-title">每周一道编程题——重建二叉树</span>
                                         </div>
                                     </a>
                                     <div class="card-content article-content">
                                         <div class="summary block-with-text">
                                             
-                                                编程题：二维数组的查找。数组的每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。
+                                                编程题：输入某二叉树的前序遍历和中序遍历的结果，请重建出该二叉树。假设输入的前序遍历和中序遍历的结果中都不含重复的数字。例如输入前序遍历序列{1,2,4,7,3,5,6,8}和中序遍历序列{4,7,2,1,5,3,8,6}，则重建二叉树并返回。
                                                     
                                         </div>
                                         <div class="publish-info">
                                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-02-17
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-03
                             </span>
                                             <span class="publish-author">
                             
