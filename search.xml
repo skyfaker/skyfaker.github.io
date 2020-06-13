@@ -20,9 +20,9 @@
       
         <tags>
             
-            <tag> Python </tag>
-            
             <tag> 算法 </tag>
+            
+            <tag> Python </tag>
             
         </tags>
       
@@ -114,6 +114,33 @@
     
     
     <entry>
+      <title>每周一道编程题——重建二叉树</title>
+      <link href="/2019/03/03/chong-jian-er-cha-shu/"/>
+      <url>/2019/03/03/chong-jian-er-cha-shu/</url>
+      
+        <content type="html"><![CDATA[<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>输入某二叉树的前序遍历和中序遍历的结果，请重建出该二叉树。假设输入的前序遍历和中序遍历的结果中都不含重复的数字。例如输入前序遍历序列{1,2,4,7,3,5,6,8}和中序遍历序列{4,7,2,1,5,3,8,6}，则重建二叉树并返回。</p><h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>根据二叉树的前序遍历和中序遍历重建二叉树，或者计算后序遍历是二叉树的基础操作。</p><p>前序遍历是指先根节点，再左右子节点；中序遍历是指先左子节点，再根节点，最后右子节点；后续遍历是指先左右子节点，再根节点。</p><p>前序遍历和中序遍历可以唯一确定一棵二叉树，所以后序遍历的结果是唯一的。</p><p>一般遇到这样的问题，首选 <strong>递归</strong> 的方法。</p><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>由于前序遍历是先根节点，后子节点，中序遍历为先左后跟。所以结合二者，对于前序遍历的结果，第一位必然是树的根，并且根据这个根，我们可以在中序遍历中找到左子树（根前面的元素）。</p><p>例如题目中的前序遍历序列{1,2,4,7,3,5,6,8}和中序遍历序列{4,7,2,1,5,3,8,6}。</p><p>可知，前序遍历第一位为1，则1为树根，而在中序中1前面的都是左子树，所以左子树为4，7，2.</p><p>那么，我们就可以把前序和中序遍历划分为根，左子树，右子树。</p><p>前序：｛1 |2，4，7 | 3，5，6，8｝，中序：｛4，7，2 | 1 |5，3，8，6｝</p><p>接下来，只需要使用递归的方法，对左右子树做同样的操作，就可以重建二叉树了。</p><p>实际上，题目中的二叉树长这样：</p><p><img src="%E4%BA%8C%E5%8F%89%E6%A0%91.png" alt></p><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># -*- coding:utf-8 -*-</span><span class="token comment" spellcheck="true"># class TreeNode:</span><span class="token comment" spellcheck="true">#     def __init__(self, x):</span><span class="token comment" spellcheck="true">#         self.val = x</span><span class="token comment" spellcheck="true">#         self.left = None</span><span class="token comment" spellcheck="true">#         self.right = None</span><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>    <span class="token comment" spellcheck="true"># 返回构造的TreeNode根节点</span>    <span class="token keyword">def</span> <span class="token function">reConstructBinaryTree</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> pre<span class="token punctuation">,</span> tin<span class="token punctuation">)</span><span class="token punctuation">:</span>        <span class="token comment" spellcheck="true"># write code here</span>        <span class="token comment" spellcheck="true"># 终止递归的条件</span>        <span class="token keyword">if</span> len<span class="token punctuation">(</span>pre<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span> <span class="token keyword">return</span>         <span class="token comment" spellcheck="true"># 根节点为前序遍历的第一个节点</span>        root <span class="token operator">=</span> TreeNode<span class="token punctuation">(</span>pre<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>        <span class="token comment" spellcheck="true"># 因为不含重复的数字，所以可以直接使用列表的index方法</span>        <span class="token comment" spellcheck="true"># 这里需要注意对于原前序和中序列表的截取</span>        root<span class="token punctuation">.</span>left <span class="token operator">=</span> self<span class="token punctuation">.</span>reConstructBinaryTree<span class="token punctuation">(</span>pre<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span>tin<span class="token punctuation">.</span>index<span class="token punctuation">(</span>pre<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> tin<span class="token punctuation">[</span><span class="token punctuation">:</span>tin<span class="token punctuation">.</span>index<span class="token punctuation">(</span>pre<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span>        root<span class="token punctuation">.</span>right <span class="token operator">=</span> self<span class="token punctuation">.</span>reConstructBinaryTree<span class="token punctuation">(</span>pre<span class="token punctuation">[</span>tin<span class="token punctuation">.</span>index<span class="token punctuation">(</span>pre<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">,</span> tin<span class="token punctuation">[</span>tin<span class="token punctuation">.</span>index<span class="token punctuation">(</span>pre<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">)</span>        <span class="token keyword">return</span> root<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 编程算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 算法 </tag>
+            
+            <tag> 剑指offer </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>每周一道编程题——反向打印链表</title>
       <link href="/2019/02/24/cong-wei-dao-tou-da-yin-lian-biao/"/>
       <url>/2019/02/24/cong-wei-dao-tou-da-yin-lian-biao/</url>
@@ -184,9 +211,9 @@
       
         <tags>
             
-            <tag> 算法 </tag>
-            
             <tag> leetcode </tag>
+            
+            <tag> 算法 </tag>
             
         </tags>
       
