@@ -4,13 +4,14 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="New Blog, 深度学习 | 数据挖掘">
+    <meta name="keywords" content="三元组损失模型, 深度学习 | 数据挖掘">
     <meta name="baidu-site-verification" content="fmlEuI34ir">
     <meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48">
     <meta name="360-site-verification" content="b7c11a830ef90fd1464ad6206bb7b6e7">
-    <meta name="description" content="前言之前也用过hexo框架生成的博客，当时部署在了国内的coding上面，速度会稳定一些，只是要在你的博客上给coding打个广告。
-GitHub没有这个限制，but访问的时候，可能会遇到图片加载慢的问题。
-其实如果有备案好的域名，也可以直">
+    <meta name="description" content="
+论文素材提供：珍珍
+
+三元组损失概述三元组损失（Triplet loss）函数是当前应用较为广泛的一种损失函数，最早由Google研究团队在论文《FaceNet：A Unified Embedding for Face Recogniti">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +19,7 @@ GitHub没有这个限制，but访问的时候，可能会遇到图片加载慢�
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>New Blog | SKYFAKER</title>
+    <title>三元组损失模型 | SKYFAKER</title>
     <link rel="icon" type="image/png" href="/logo.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -305,13 +306,13 @@ GitHub没有这个限制，but访问的时候，可能会遇到图片加载慢�
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        New Blog
+                        三元组损失模型
                     </div>
                 </div>
             </div>
@@ -424,8 +425,12 @@ GitHub没有这个限制，but访问的时候，可能会遇到图片加载慢�
                     
                     <div class="article-tag">
                         
-                        <a href="/tags/博客/" target="_blank">
-                            <span class="chip bg-color">博客</span>
+                        <a href="/tags/图像分类/" target="_blank">
+                            <span class="chip bg-color">图像分类</span>
+                        </a>
+                        
+                        <a href="/tags/三元组损失/" target="_blank">
+                            <span class="chip bg-color">三元组损失</span>
                         </a>
                         
                     </div>
@@ -436,8 +441,8 @@ GitHub没有这个限制，but访问的时候，可能会遇到图片加载慢�
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                        <a href="/categories/随便写写/" class="post-category" target="_blank">
-                            随便写写
+                        <a href="/categories/深度学习/" class="post-category" target="_blank">
+                            深度学习
                         </a>
                         
                     </div>
@@ -448,7 +453,7 @@ GitHub没有这个限制，but访问的时候，可能会遇到图片加载慢�
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-02-15
+                    2019-06-22
                 </div>
 
                 <div class="post-author info-break-policy">
@@ -462,14 +467,14 @@ GitHub没有这个限制，but访问的时候，可能会遇到图片加载慢�
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    203
+                    3.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    12 分
                 </div>
                 
                 
@@ -485,13 +490,52 @@ GitHub没有这个限制，but访问的时候，可能会遇到图片加载慢�
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>之前也用过hexo框架生成的博客，当时部署在了国内的coding上面，速度会稳定一些，只是要在你的博客上给coding打个广告。</p>
-<p>GitHub没有这个限制，but访问的时候，可能会遇到图片加载慢的问题。</p>
-<p>其实如果有备案好的域名，也可以直接把静态文件放在七牛云、腾讯上面，还可以获得CDN加速的效果，免费的流量应该也够用。可惜我懒得备案，反正现在博客访问的人也不多，等到以后内容多了，可能又要搬家了吧，maybe。</p>
-<p>放在GitHub上的静态文件，也有一些trick可以加速访问。这个放在TODO里面，以后研究一下吧。</p>
-<p>That’s all！</p>
-<p>Hello world again！</p>
-
+                <ul>
+<li><h5 id="论文素材提供：珍珍"><a href="#论文素材提供：珍珍" class="headerlink" title="论文素材提供：珍珍"></a>论文素材提供：珍珍</h5></li>
+</ul>
+<h2 id="三元组损失概述"><a href="#三元组损失概述" class="headerlink" title="三元组损失概述"></a>三元组损失概述</h2><p>三元组损失（Triplet loss）函数是当前应用较为广泛的一种损失函数，最早由Google研究团队在论文《FaceNet：A Unified Embedding for Face Recognition》所提出，常用在人脸识别任务中。目的是做到非同类极相似样本的区分，比如说兄弟二人的区分。</p>
+<p>所以，Triplet loss的优势在于细节区分，即当两个输入相似时，Triplet loss能够更好地对细节进行建模，相当于加入了两个输入差异性差异的度量，学习到输入的更好表示，从而在上述两个任务中有出色的表现。</p>
+<p><img src="tripletloss.png" alt="Triplet loss优化过程"><br>如上图所示，三元组图片输入到具有相同权重的特征提取网络。得到的特征向量再经过运算得到三元组损失（TripletLoss）。</p>
+<h3 id="基本思想"><a href="#基本思想" class="headerlink" title="基本思想"></a>基本思想</h3><p>它的基本思想是：对于设定的三元组(Anchor, Positive, Negative) （Anchor和Positive为同类的不同样本，Anchor与Negative为异类样本），Triplet loss试图学习到一个特征空间，使得在该空间中相同类别的基准样本（Anchor）与 正样本（Positive）距离更近，不同类别的 Anchor 与负样本（Negative）距离更远。其思想与图像识别任务的目标很契合，即给定训练图集和测试图集，判断两张图片是否属于同一类标签。<br><img src="%E4%BC%98%E5%8C%96%E8%BF%87%E7%A8%8B.png" alt="三元组优化思路"></p>
+<h4 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h4><p>相比其他分类损失函数，Triplet loss通常能在训练中学习到更好的细微的特征feature，更特别的是Triplet loss能够根据模型训练的需要设定一定的阈值。<br>带Triplet loss的网络结构在进行训练的时候一般都会设置一个阈值margin，设计者可以通过改变margin的值来控制正负样本的距离。同时通过设定指定的阈值，可以在特征进行归一化后，用来判断是否为同一个标签。</p>
+<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><p>虽然Triplet loss很有效，但也有缺点：三元组的选取导致数据的分布并不一定均匀，所以在模型训练过程表现很不稳定，而且收敛慢，需要根据结果不断调节参数，而且Triplet loss比分类损失更容易过拟合。</p>
+<p>Triplet loss本质上是属于度量学习（Metric Learning）的范围，其借鉴了度量学习中的经典大间隔最近邻（Large Margin Nearest Neighbors，LMNN）算法。以Triplet loss为训练准则的深度神经网络模型既兼顾了度量学习的朴素性，又拥有神经网络优秀的非线性建模能力，能够在极大程度上简化并且控制模型训练过程。</p>
+<h3 id="理论推导"><a href="#理论推导" class="headerlink" title="理论推导"></a>理论推导</h3><p>Triplet loss 由一个三元组&lt;a, p, n&gt;构成，需要三张图片作为输入，如上图所示，其中a: anchor 表示基准样本，p: positive 表示与anchor相同类别但不同的正样本，n: negative 表示与基准样本不同类别的负样本。利用生成的每个triplet，模型就能够创建出对应的positive pair &lt;a, p&gt;和negative pair &lt;a, n&gt;。</p>
+<p>Triplet loss的目的是，在一定的距离（margin）上，将positive pair和negative pair分开,通过优化保证嵌入空间（Embedding Space）中类别相同的样本点之间距离足够近，而类别不同的样本点间距离足够远，即基准样本与负样本的距离要远远大于基准样本与正样本间的距离。</p>
+<p>在这里设样本为 $x$，$f(x)$为映射函数，则Triplet loss的思想用欧氏距离形式化表示为：</p>
+<p>$$L = max \lbrace d(a, p)-d(a, n) + margin,\quad 0 \rbrace$$<br>对于阈值margin的设置需要注意选择合适大小的值，理论上来说，较大的margin能够增强模型对不同类样本的区分度，但是如果在训练初期就将margin设置得比较大，则可能会增加模型训练的难度，进而出现网络不收敛的情况。在模型训练初期先使用一个较小的值对网络进行初始化训练，之后再根据测试的结果对margin的值进行适当的增大或缩小，这样可以在保证网络收敛的同时让模型也能拥有一个较好的性能。<br>设整个训练集的大小为N，则每个triplet的输入&lt;a, p, n&gt;，对应的Triplet loss形式化表示就可以写作：</p>
+<p>$$ \frac{1}{N} { \sum_i^N[|f(x_i^a) - f(x_i^p)|^2 - |f(x_i^a) - f(x_i^n)|^2 + \alpha]_+}$$</p>
+<p>式中$|f(x_i^a) - f(x_i^p)|^2$表示的是2-范数的平方，其作用是计算欧几里得空间的长度或者向量的模，具体的展开形式为：$$ |\ast|^2 = |v_k|^2$$<br>$v_k$表示的是向量，该式常用于机器学习的正则化中。<br>式中$ [\ast]+ $为合页损失（Hing loss）函数，展开形式为：<br>$$ [\ast]_+ = \begin{cases} 0,  \text {$n$ &lt;= 0} \ n,  \text{$n$ &gt;0} \end{cases} $$<br>若式子 小于 0,则说明此时的triplet满足损失值的要求，不同类别样本间的距离要远远大于相同类别样本间的距离，由于这样的triplet对神经网络的反向传播和参数更新没有提供帮助，因此将其损失值置为 0。至此我们可以看出，其实Triplet loss的整体优化目标就是一个最小化损失值的问题。</p>
+<h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><p>在图像任务中，Triplet loss经常用作样本点在欧氏空间上的距离向量表示，它可以极大地提升深度特征的判别能力。为了使训练更加迅速有效，需要注意设计好训练策略，只选择合适的triplet进行训练，因为一个数据集的triplet组合非常多，全部进行训练的话会大大降低效率。</p>
+<p>基于我们对Triplet loss的定义，一般而言，会将triplet分为三类，如图所示：</p>
+<p><img src="class.png" alt="三类基准样本、正样本和负样本之间的距离关系"></p>
+<p>1、easy triplets （简单）: 指在未经过训练的情况下，Triplet loss值已经为0的三元组，此时网络不需要训练学习就满足损失函数的要求。简单的用欧式距离表示为：$d(a, n)$&gt;$d(a, p)$+ margin；</p>
+<p>2、semi-hard triplets（一般三元组）: 指负样本与基准样本间的距离大于正样本与基准样本间的距离，但Triplet loss值还没有达到0，此时网络通过恰当的学习可以不断降低损失值。简单的用欧式距离表示为：$d(a, p)$&lt;$d(a, n)$ &lt;$d(a, p)$+margin；</p>
+<p>3、hard triplets（困难）: 指负样本与基准样本间的距离小于正样本与基准样本间的距离，这是网络最难学习的样本组，此时的损失值会出现较大的震荡。简单的用欧式距离表示为：$d(a, n)$ &lt;$d(a, p)$。</p>
+<p>由于简单三元组的损失值为0，如果训练网络只能学习到简单的triplets，会导致网络的泛化能力受到限制，网络没有学习到任何特征，对训练任务并没有帮助。因此当一个训练批次中包含大量的easy triplets时，会导致训练网络的收敛速度大大降低。</p>
+<p>  而一般三元组非常适合网络的前期训练，能够帮助训练网络的收敛，并且同时可以得到大量比较有效的统计信息。</p>
+<p>  困难三元组则在网络训练后期起到很好的学习作用，能够帮助提升网络的性能。让网络学习一些很难的样本特征，可以大大提高训练网络的分类能力，尤其是对难以判断的样本的判别能力。</p>
+<p>  因此，在网络的训练中，我们需要注意结合一般三元组和困难三元组，充分利用两者进行训练学习不仅能够加快网络的收敛，同时可以在很大程度上提升网络模型的识别性能。</p>
+<p>  基于Triplet loss的神经网络模型可以很好的对细节进行区分，尤其是在图像分类任务中，当两个输入很相似的时候，Triplet loss对这两个差异性较小的输入向量可以学习到更好的表示，从而在分类任务中表现出色。</p>
+<p>但Triplet loss有一个缺点是，当数据集比较大时，训练的triplet数量也会随之变得十分庞大，此时会造成训练任务变得很艰难。而且如果采用随机选取三元组的训练策略，有可能很多次模型从训练集中挑选的三张图片，恰好是比较简单的三元组，计算出的损失值会很不稳定，从而导致模型很难学习到图片的主要特征。因此我们在使用Triplet loss函数时，要注意选取的训练集不宜过大，还要设计好训练策略来选择恰当的triplet。</p>
+<h3 id="三元组选取策略"><a href="#三元组选取策略" class="headerlink" title="三元组选取策略"></a>三元组选取策略</h3><p>许多类似的人脸识别、匹配工作都是在大数据集上实现的，这就要求对数据的高效利用。然而大多数样本在训练中后期不再有梯度贡献，例如含有margin的损失函数（triplet loss、softpn(pnnet中的损失函数，改进于triplet loss)），多数样本很容易满足于这个margin，此时损失函数中的loss不再发生变化，导致训练停滞阻塞。在极多identities（类别极多）的数据集中不能足够有效的挖掘困难样本，这就容易陷入局部极小，无法继续更新。</p>
+<p>所以如何有效的进行困难样本挖掘（OHEM）成为了关键，困难样本应该包括同类（匹配样本）中距离较大的和非同类（非匹配样本）中距离较小的样本。</p>
+<p>$$ \frac{1}{N} { \sum_i^N[|f(x_i^a) - f(x_i^p)|^2 - |f(x_i^a) - f(x_i^n)|^2 + \alpha]_+}$$</p>
+<p>对于上述的公式，实际上并没有体现困难挖掘，随机选取的样本并不能保证是困难样本，恰恰相反，这样选取的三元组实际上大部分为简单样本。</p>
+<p>并且在大量图片样本下使用triplet loss也并非容易，如何有效的在large-scale情况下高效优化？使用triplet会发现数据量激增，可组合的三元组变多，如果要遍历所有组合是不现实的，或者极其低效。主要有两种方法，一是将triplet loss转为softmax loss（<strong>triplet net一文中，将triplet loss结合了softmax的输出与mse</strong>），另一种是OHNM或batch OHNM。但是第二种挖掘样本的方法都是直接考虑<strong>在所有的样本空间来sample一个batch</strong>，如果这个batch中有不满足margin的就认为是困难样本。然而这样做并不能保证采样时正好选取了很多很<strong>相似</strong>的样本，而且（a,p,n）图像组一经选取就已经固定，不会再有其他的组合，所以效率较低。所以作者认为<strong>寻找相似的个体（类别）是提高triplet net的核心关键</strong>。</p>
+<p>　　对于含有10个个体（人）的人脸数据，难以区分的肯定是那些长的很像的个体（比如甲与乙）。之前的困难挖掘是首先在这些打散的<strong>整体空间</strong>中<strong>随机</strong>设置（a,p,n）三元组然后成批去训练，分错的作为困难样本。这就使得你这些三元组都已经<strong>固定</strong>了，困难样本不一定是真的困难，除非运气好使得三元组中有很多甲、乙中的样本。而作者提出的想法是首先对于所有样本进行聚类，观察哪些样本比较接近，（甲和乙长得像肯定聚类结果很接近），那么我就在聚好类的<strong>子空间</strong>中选取(a,p)二元组组成batch，n在这个batch中来选取，那么这个负样本n就会是真正的困难样本。</p>
+<h3 id="1-随机选取"><a href="#1-随机选取" class="headerlink" title="1.随机选取"></a>1.随机选取</h3><p>T代表全体样本空间，所以这里的三元组都是<strong>直接从总体样本中</strong>选择的，这也是我们大多数人的做法。</p>
+<p><img src="%E9%9A%8F%E6%9C%BA%E9%80%89%E5%8F%96.png" alt="img"></p>
+<p>看上面这个图示，红色为anchor，浅绿色为positive，天蓝色为negative，深蓝色为hard negative。</p>
+<p>这个方法中所有的匹配对和negative都是在<strong>整体样本</strong>中选取。可见，大多数negative是远离positive匹配对的，尽管训练的时候negative也会被分到一个batch中，但是真正困难的negative很难被选择到。</p>
+<p><strong>总结：在打散的整体样本空间随机选择三元组，并不是最好的选择方式，只是最方便而已。</strong></p>
+<h3 id="2-Triplet-with-Batch-OHNM"><a href="#2-Triplet-with-Batch-OHNM" class="headerlink" title="2.Triplet with Batch OHNM"></a>2.Triplet with Batch OHNM</h3><p><img src="batchOHEM.png" alt="img"></p>
+<p>这个方法是为了在一个batch中尽可能挖掘困难样本，这时negative并非在<strong>整体样本</strong>中选取而是在一个batch中选择。就是说我只在全体样本中选匹配对，然后训练时在batch中再选择negative来训练。<strong>这就相当于缩小了搜索范围</strong>。从全局搜索变成了局部搜索，所以搜到的困难样本可能性更大。</p>
+<p><img src="batchOHEM%E8%BF%87%E7%A8%8B.png" alt="img"></p>
+<p>首先是<strong>匹配对组成batch</strong>经过网络得到距离后，根据距离判断相似度，再组成<strong>三元组batch</strong>，输入到损失函数来优化。</p>
+<p>有一点值得注意是选择不要直接选择与匹配对<strong>最近距离</strong>的negative作为困难样本，这一组对应的是难以训练困难样本，可能会导致poor training，应该选择比较近邻的样本。 通俗来说，就是特别相似的三张图反而无法训练，因为它们本来就模糊属于一个类，这样反而造成一种“错误标记”的训练样本，让模型原本训练得比较稳定的权重大幅度改变，反而不利于准确训练。</p>
+<p><strong>总结：在打散的整体样本空间随机选择二元组，在计算损失时再组成三元组。</strong></p>
+<h3 id="未完待续"><a href="#未完待续" class="headerlink" title="未完待续"></a>未完待续</h3>
             </div>
             <hr />
 
@@ -525,9 +569,9 @@ GitHub没有这个限制，but访问的时候，可能会遇到图片加载慢�
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《New Blog》
+                    《三元组损失模型》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/02/15/hello-world/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/06/22/san-yuan-zu-sun-shi-mo-xing/" property="cc:attributionName"
                rel="cc:attributionURL">
                 文杰
             </a> 采用
@@ -573,24 +617,24 @@ GitHub没有这个限制，but访问的时候，可能会遇到图片加载慢�
                         上一篇
                     </div>
                     <div class="card">
-                        <a href="/2019/02/16/sort-algorithms/">
+                        <a href="/2019/07/07/sort-algorithms-with-python/">
                             <div class="card-image">
                                 
                                         
-                                            <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="十大经典排序算法整理汇总（附代码）">
+                                            <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="常见排序算法实现与比较——Python版">
                                             
-                                                <span class="card-title">十大经典排序算法整理汇总（附代码）</span>
+                                                <span class="card-title">常见排序算法实现与比较——Python版</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    本文整理并总结了十大经典的排序算法（冒泡排序、选择排序、插入排序、快速排序、归并排序、希尔排序、计数排序、基数排序、桶排序、堆排序）的时间复杂度、空间复杂度等性质。
+                                    本文用Python实现列几种排序算法（冒泡排序、选择排序、插入排序、二分插入排序、快速排序、优化快速排序，并比较了他们在随机数组上的排序效率。
                                         
                             </div>
                             <div class="publish-info">
                                 <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-02-16
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-07-07
                         </span>
                                 <span class="publish-author">
                             
@@ -607,12 +651,12 @@ GitHub没有这个限制，but访问的时候，可能会遇到图片加载慢�
                         
                             <div class="card-action article-tags">
                                 
-                                    <a href="/tags/算法/" target="_blank">
-                                        <span class="chip bg-color">算法</span>
+                                    <a href="/tags/Python/" target="_blank">
+                                        <span class="chip bg-color">Python</span>
                                     </a>
                                     
-                                    <a href="/tags/leetcode/" target="_blank">
-                                        <span class="chip bg-color">leetcode</span>
+                                    <a href="/tags/算法/" target="_blank">
+                                        <span class="chip bg-color">算法</span>
                                     </a>
                                     
                             </div>
@@ -621,55 +665,62 @@ GitHub没有这个限制，but访问的时候，可能会遇到图片加载慢�
                 </div>
                 
                         
-                                <div class="article col s12 m6" data-aos="fade-up">
-                                    <div class="article-badge right-badge text-color">
-                                        本篇&nbsp;<i class="fa fa-dot-circle-o"></i>
-                                    </div>
-                                    <div class="card">
-                                        <a href="/2019/02/15/hello-world/">
-                                            <div class="card-image">
-                                                
+                            <div class="article col s12 m6" data-aos="fade-up">
+                                <div class="article-badge right-badge text-color">
+                                    下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+                                </div>
+                                <div class="card">
+                                    <a href="/2019/05/20/matplotlib-hui-zhi-san-dian-tu/">
+                                        <div class="card-image">
+                                            
+                                                    
+                                                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Matplotlib 可视化">
                                                         
-                                                            <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="New Blog">
-                                                            
-                                                                <span class="card-title">New Blog</span>
-                                            </div>
-                                        </a>
-                                        <div class="card-content article-content">
-                                            <div class="summary block-with-text">
-                                                
-                                                    博客搬家啦，服务器到期了。思来想去还是直接放在github page上面吧，静态博客放在服务器上面真是大材小用了（其实是没钱续费服务器了:)）。
-                                                        
-                                            </div>
-                                            <div class="publish-info">
-                                                <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-02-15
+                                                            <span class="card-title">Matplotlib 可视化</span>
+                                        </div>
+                                    </a>
+                                    <div class="card-content article-content">
+                                        <div class="summary block-with-text">
+                                            
+                                                上一篇文章：“神经网络——自编码器”中，在使用自编码器压缩特征至二维和三维后，利用matplotlib绘制了降维后的可视化特征图。本文记录一下绘制方法和matplotlib的一些基础方法。
+                                                    
+                                        </div>
+                                        <div class="publish-info">
+                                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-20
                             </span>
-                                                <span class="publish-author">
+                                            <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/随便写写/" class="post-category" target="_blank">
-                                    随便写写
+                            <a href="/categories/工具方法/" class="post-category" target="_blank">
+                                    工具方法
                                 </a>
                             
                             
                         </span>
-                                            </div>
                                         </div>
-
-                                        
-                                            <div class="card-action article-tags">
-                                                
-                                                    <a href="/tags/博客/" target="_blank">
-                                                        <span class="chip bg-color">博客</span>
-                                                    </a>
-                                                    
-                                            </div>
-                                            
                                     </div>
+                                    
+                                        <div class="card-action article-tags">
+                                            
+                                                <a href="/tags/可视化/" target="_blank">
+                                                    <span class="chip bg-color">可视化</span>
+                                                </a>
+                                                
+                                                <a href="/tags/matplotlib/" target="_blank">
+                                                    <span class="chip bg-color">matplotlib</span>
+                                                </a>
+                                                
+                                                <a href="/tags/Python/" target="_blank">
+                                                    <span class="chip bg-color">Python</span>
+                                                </a>
+                                                
+                                        </div>
+                                        
                                 </div>
-                                
+                            </div>
+                            
         </div>
     </article>
 </div>
