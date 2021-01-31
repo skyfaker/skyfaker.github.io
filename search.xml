@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>git 简明教程与命令</title>
+      <link href="/2020/01/30/git-jian-ming-jiao-cheng-yu-ming-ling/"/>
+      <url>/2020/01/30/git-jian-ming-jiao-cheng-yu-ming-ling/</url>
+      
+        <content type="html"><![CDATA[<h2 id="git-简明教程与命令"><a href="#git-简明教程与命令" class="headerlink" title="git 简明教程与命令"></a>git 简明教程与命令</h2><h3 id="1-What-is-git"><a href="#1-What-is-git" class="headerlink" title="1. What is git"></a>1. What is git</h3><p>Git是目前世界上最先进的分布式版本控制系统，可以极大便利我们的项目管理与文件版本管理。</p><p>git的架构如下图所示：</p><p><img src="git%E6%9E%B6%E6%9E%84%E5%9B%BE.png" alt="git架构图"></p><p>从架构图可以看出，git整体分为4部分。</p><p>从左向右看：</p><ol><li>本地仓库，也就是图中的workspace，顾名思义，这是我们的工作区，即操作文件的地方，</li><li>index，这其实是在.git文件夹下的一个子文件夹，内部存储了 <code>git add</code>后的文件，被称为stage，可以称之为暂存区，</li><li>repository，也就是本地的git仓库，一般称为版本库，</li><li>remote，远程仓库，比如著名的github，或者自己搭建的git服务器等。</li></ol><h4 id="1-1-本地仓库"><a href="#1-1-本地仓库" class="headerlink" title="1.1 本地仓库"></a>1.1 本地仓库</h4><p>本地的部分为左边三部分：工作区，暂存区和版本库。（也有人将暂存区和版本库合称为版本库，个人还是倾向于分开）。 </p><h4 id="1-1-1-版本保存"><a href="#1-1-1-版本保存" class="headerlink" title="1.1.1 版本保存"></a>1.1.1 版本保存</h4><p><strong>版本保存指的是将修改后的工作区保存至暂存区，再保存至版本库。</strong></p><p>当我们编辑修改好代码之后，首先要执行 <code>git add</code> 命令，这一步将会把我们的修改保存到暂存区。执行完这一步之后，我们修改后的代码就相当于有了一个副本，已经可以做到回退了。</p><p>但是，这个副本目前还是处于暂存区，要真正持久化保存需要执行 <code>git commit -m &#39;your commit comment&#39;</code>，这样，修改后的内容就会作为一个新的版本保存到仓库的当前分支。并且<strong>只有加入到暂存区之后才能被保存到版本库。</strong></p><p>由上述可以看出，保存新版本的过程为：修改后的文件通过 <code>git add</code> 提交到暂存区，再通过  <code>git commit</code>提交到版本库持久化保存。</p><p>在三部分中，<strong>每个部分的版本为workspace &gt;= stage &gt;= repository</strong>，因此我们更新版本也是按照这个顺序。</p><p>如下图所示：（蓝色表示已存为版本库，绿色表示处于暂存区还没有存为版本库，红色表示修改后还没有存入暂存区）</p><p><img src="1.png" alt="初始状态"></p><p>上图的A、B、C、D、E表示不同的文件状态。</p><p>首先，我们在工作区修改了文件，会处于上图的working状态，工作区中的文件是最新的版本，其中A，B，C都已经 <code>git add</code>  和 <code>git commit</code>，即这些步骤已经存在了版本库中。D执行了 <code>git add</code> 但还没有执行 <code>git commit</code>，即只存在了暂存区还没有存入版本库。而E还没有执行 <code>git add</code>，即最新的改动尚未被git所跟踪 。</p><h4 id="1-1-2-版本回退"><a href="#1-1-2-版本回退" class="headerlink" title="1.1.2 版本回退"></a>1.1.2 版本回退</h4><p><strong>版本回退指的是从暂存区或者版本库回退先前的版本到工作区。</strong></p><p>版本回退一般使用 <code>git checkout</code> 、<code>git reset</code> 、<code>git revert</code>命令。</p><h5 id="git-checkout"><a href="#git-checkout" class="headerlink" title="git checkout"></a>git checkout</h5><p>在<code>Git</code>里面，<code>checkout</code>用于切换分支或者恢复工作树的文件。checkout命令实际上是用来改变HEAD的指向。不会对版本库中节点做改变。</p><p>使用方式如下：</p><pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">git</span> checkout <span class="token punctuation">[</span><span class="token operator">&lt;</span>tree-ish<span class="token operator">></span><span class="token punctuation">]</span> <span class="token punctuation">[</span>--<span class="token punctuation">]</span> <span class="token operator">&lt;</span>pathspec<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>这个命令很灵活，既可以带一个<code>commit</code>号，又可以带着一个路径。可以用来恢复分支，恢复单个文件或者恢复整个文件夹。当你想要丢弃某个文件的改动的时候，一般使用这个命令。</p><p>对于上图的初始状态，（假设工作区文件为test.txt）我们执行 <code>git checkout --test.txt</code> 就可以将状态E删除，把文件恢复到最近一次 <code>git add</code> 或者 <code>git commit</code> 状态（这取决于HEAD的指向， <code>git add</code> 之后HEAD指向暂存区，否则指向最近的版本库。），如下图所示：</p><p><img src="2.png" alt="after checkout"></p><p>执行完上述命令，工作区变成了和暂存区一样的状态。</p><p>又或者，你想要让工作区回到指定的C状态或者B状态（穿越回过去），可以使用 <code>git checkout &lt;B commitId&gt; -- test.txt</code> 就可以让暂存区和工作区都回到B状态，如下图所示：</p><p><img src="3.png" alt></p><p>此时，工作区、暂存区和版本库都变成了同样的状态，并且，这个命令不会影响工作区和暂存区的其他文件。</p><p>可以用 <code>git diff</code> 和 <code>git diff --cached</code> 分别比较工作区与暂存区、暂存区与版本库的状态，可以发现对于test.txt文件，均不会有区别。</p><p>如果，执行完之后你又后悔了，想回到C的状态，可以使用 <code>git log</code> 查看C的commitID（关闭窗口再打开也还在），然后使用 <code>git checkout &lt;C commitId&gt; -- test.txt</code> 就可以回到C状态（从过去穿越回未来）。不过要注意的是，这个命令会使用版本库覆盖暂存区，所以没有被追踪的E状态和暂存区中的D状态会丢失。所以建议使用这个命令回到过去状态之前，把目前的暂存区提交到版本库。</p><h5 id="git-reset"><a href="#git-reset" class="headerlink" title="git reset"></a>git reset</h5><p>这个命令是git里面少有的会删除版本库节点的命令，要小心使用。</p><p><code>git reset</code> 的命令使用方法如下：</p><pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">git</span> reset <span class="token punctuation">[</span> –soft <span class="token operator">|</span> –mixed <span class="token operator">|</span> –hard<span class="token punctuation">]</span> <span class="token operator">&lt;</span>commitID<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p><code>git reset &lt;commitID&gt;</code> 的意思就是 把HEAD移到commitID，但是同时它也会改变某些commit</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>三元组损失模型</title>
       <link href="/2019/08/22/san-yuan-zu-sun-shi-mo-xing/"/>
       <url>/2019/08/22/san-yuan-zu-sun-shi-mo-xing/</url>
@@ -47,9 +60,9 @@
       
         <tags>
             
-            <tag> Python </tag>
-            
             <tag> 算法 </tag>
+            
+            <tag> Python </tag>
             
         </tags>
       

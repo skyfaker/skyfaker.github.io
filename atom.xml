@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.skyfaker.cc/"/>
-  <updated>2020-06-24T04:30:19.881Z</updated>
+  <updated>2021-01-31T11:48:41.248Z</updated>
   <id>https://www.skyfaker.cc/</id>
   
   <author>
@@ -17,11 +17,33 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>git 简明教程与命令</title>
+    <link href="https://www.skyfaker.cc/2020/01/30/git-jian-ming-jiao-cheng-yu-ming-ling/"/>
+    <id>https://www.skyfaker.cc/2020/01/30/git-jian-ming-jiao-cheng-yu-ming-ling/</id>
+    <published>2020-01-30T06:38:39.000Z</published>
+    <updated>2021-01-31T11:48:41.248Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;git-简明教程与命令&quot;&gt;&lt;a href=&quot;#git-简明教程与命令&quot; class=&quot;headerlink&quot; title=&quot;git 简明教程与命令&quot;&gt;&lt;/a&gt;git 简明教程与命令&lt;/h2&gt;&lt;h3 id=&quot;1-What-is-git&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>三元组损失模型</title>
     <link href="https://www.skyfaker.cc/2019/08/22/san-yuan-zu-sun-shi-mo-xing/"/>
     <id>https://www.skyfaker.cc/2019/08/22/san-yuan-zu-sun-shi-mo-xing/</id>
     <published>2019-08-22T07:09:23.000Z</published>
-    <updated>2020-06-24T04:30:19.881Z</updated>
+    <updated>2020-06-24T04:30:20.000Z</updated>
     
     <summary type="html">
     
@@ -52,7 +74,7 @@
     <link href="https://www.skyfaker.cc/2019/07/07/sort-algorithms-with-python/"/>
     <id>https://www.skyfaker.cc/2019/07/07/sort-algorithms-with-python/</id>
     <published>2019-07-07T07:09:23.000Z</published>
-    <updated>2020-06-29T07:42:29.267Z</updated>
+    <updated>2021-01-30T06:43:23.333Z</updated>
     
     <summary type="html">
     
@@ -69,9 +91,9 @@
       <category term="编程算法" scheme="https://www.skyfaker.cc/categories/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95/"/>
     
     
-      <category term="Python" scheme="https://www.skyfaker.cc/tags/Python/"/>
-    
       <category term="算法" scheme="https://www.skyfaker.cc/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="Python" scheme="https://www.skyfaker.cc/tags/Python/"/>
     
   </entry>
   
@@ -80,7 +102,7 @@
     <link href="https://www.skyfaker.cc/2019/05/20/matplotlib-hui-zhi-san-dian-tu/"/>
     <id>https://www.skyfaker.cc/2019/05/20/matplotlib-hui-zhi-san-dian-tu/</id>
     <published>2019-05-20T08:03:48.000Z</published>
-    <updated>2020-05-26T06:51:49.027Z</updated>
+    <updated>2020-05-26T06:51:50.000Z</updated>
     
     <summary type="html">
     
@@ -110,7 +132,7 @@
     <link href="https://www.skyfaker.cc/2019/04/16/autoencoder/"/>
     <id>https://www.skyfaker.cc/2019/04/16/autoencoder/</id>
     <published>2019-04-16T07:09:23.000Z</published>
-    <updated>2020-05-26T07:15:44.447Z</updated>
+    <updated>2020-05-26T07:15:46.000Z</updated>
     
     <summary type="html">
     
@@ -138,7 +160,7 @@
     <link href="https://www.skyfaker.cc/2019/03/16/how-to-run-a-vue/"/>
     <id>https://www.skyfaker.cc/2019/03/16/how-to-run-a-vue/</id>
     <published>2019-03-16T07:09:23.000Z</published>
-    <updated>2020-06-22T08:29:10.123Z</updated>
+    <updated>2020-06-22T08:29:12.000Z</updated>
     
     <summary type="html">
     
@@ -166,7 +188,7 @@
     <link href="https://www.skyfaker.cc/2019/03/10/yong-liang-ge-zhan-lai-shi-xian-yi-ge-dui-lie.md-yong-liang-ge-zhan-shi-xian-dui-lie/"/>
     <id>https://www.skyfaker.cc/2019/03/10/yong-liang-ge-zhan-lai-shi-xian-yi-ge-dui-lie.md-yong-liang-ge-zhan-shi-xian-dui-lie/</id>
     <published>2019-03-10T08:40:23.000Z</published>
-    <updated>2020-06-13T08:44:47.454Z</updated>
+    <updated>2020-06-13T08:44:48.000Z</updated>
     
     <summary type="html">
     
@@ -195,7 +217,7 @@
     <link href="https://www.skyfaker.cc/2019/03/03/chong-jian-er-cha-shu/"/>
     <id>https://www.skyfaker.cc/2019/03/03/chong-jian-er-cha-shu/</id>
     <published>2019-03-03T07:09:23.000Z</published>
-    <updated>2020-06-13T07:41:06.320Z</updated>
+    <updated>2020-06-13T07:41:08.000Z</updated>
     
     <summary type="html">
     
@@ -223,7 +245,7 @@
     <link href="https://www.skyfaker.cc/2019/02/24/cong-wei-dao-tou-da-yin-lian-biao/"/>
     <id>https://www.skyfaker.cc/2019/02/24/cong-wei-dao-tou-da-yin-lian-biao/</id>
     <published>2019-02-24T07:09:23.000Z</published>
-    <updated>2020-06-13T08:01:52.663Z</updated>
+    <updated>2020-06-13T08:01:54.000Z</updated>
     
     <summary type="html">
     
@@ -254,7 +276,7 @@
     <link href="https://www.skyfaker.cc/2019/02/17/er-wei-shu-zu-zhong-de-cha-zhao/"/>
     <id>https://www.skyfaker.cc/2019/02/17/er-wei-shu-zu-zhong-de-cha-zhao/</id>
     <published>2019-02-17T07:09:23.000Z</published>
-    <updated>2020-05-31T03:04:53.662Z</updated>
+    <updated>2020-05-31T03:04:54.000Z</updated>
     
     <summary type="html">
     
@@ -282,7 +304,7 @@
     <link href="https://www.skyfaker.cc/2019/02/16/sort-algorithms/"/>
     <id>https://www.skyfaker.cc/2019/02/16/sort-algorithms/</id>
     <published>2019-02-16T07:09:23.000Z</published>
-    <updated>2020-05-26T06:53:55.460Z</updated>
+    <updated>2020-05-26T06:53:56.000Z</updated>
     
     <summary type="html">
     
@@ -310,7 +332,7 @@
     <link href="https://www.skyfaker.cc/2019/02/15/hello-world/"/>
     <id>https://www.skyfaker.cc/2019/02/15/hello-world/</id>
     <published>2019-02-15T07:09:23.000Z</published>
-    <updated>2020-05-26T09:47:00.759Z</updated>
+    <updated>2020-05-26T09:47:02.000Z</updated>
     
     <summary type="html">
     
