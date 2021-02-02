@@ -309,7 +309,7 @@ git的架构如下图所示：
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -466,14 +466,14 @@ git的架构如下图所示：
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.4k
+                    1.8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    6 分
                 </div>
                 
                 
@@ -516,6 +516,9 @@ git的架构如下图所示：
 <p>使用方式如下：</p>
 <pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">git</span> checkout <span class="token punctuation">[</span><span class="token operator">&lt;</span>tree-ish<span class="token operator">></span><span class="token punctuation">]</span> <span class="token punctuation">[</span>--<span class="token punctuation">]</span> <span class="token operator">&lt;</span>pathspec<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>这个命令很灵活，既可以带一个<code>commit</code>号，又可以带着一个路径。可以用来恢复分支，恢复单个文件或者恢复整个文件夹。当你想要丢弃某个文件的改动的时候，一般使用这个命令。</p>
+<ol>
+<li><strong>恢复文件</strong></li>
+</ol>
 <p>对于上图的初始状态，（假设工作区文件为test.txt）我们执行 <code>git checkout --test.txt</code> 就可以将状态E删除，把文件恢复到最近一次 <code>git add</code> 或者 <code>git commit</code> 状态（这取决于HEAD的指向， <code>git add</code> 之后HEAD指向暂存区，否则指向最近的版本库。），如下图所示：</p>
 <p><img src="2.png" alt="after checkout"></p>
 <p>执行完上述命令，工作区变成了和暂存区一样的状态。</p>
@@ -524,11 +527,41 @@ git的架构如下图所示：
 <p>此时，工作区、暂存区和版本库都变成了同样的状态，并且，这个命令不会影响工作区和暂存区的其他文件。</p>
 <p>可以用 <code>git diff</code> 和 <code>git diff --cached</code> 分别比较工作区与暂存区、暂存区与版本库的状态，可以发现对于test.txt文件，均不会有区别。</p>
 <p>如果，执行完之后你又后悔了，想回到C的状态，可以使用 <code>git log</code> 查看C的commitID（关闭窗口再打开也还在），然后使用 <code>git checkout &lt;C commitId&gt; -- test.txt</code> 就可以回到C状态（从过去穿越回未来）。不过要注意的是，这个命令会使用版本库覆盖暂存区，所以没有被追踪的E状态和暂存区中的D状态会丢失。所以建议使用这个命令回到过去状态之前，把目前的暂存区提交到版本库。</p>
+<ol start="2">
+<li><strong>恢复状态</strong></li>
+</ol>
+<p><strong>TODO</strong></p>
 <h5 id="git-reset"><a href="#git-reset" class="headerlink" title="git reset"></a>git reset</h5><p>这个命令是git里面少有的会删除版本库节点的命令，要小心使用。</p>
 <p><code>git reset</code> 的命令使用方法如下：</p>
 <pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">git</span> reset <span class="token punctuation">[</span> –soft <span class="token operator">|</span> –mixed <span class="token operator">|</span> –hard<span class="token punctuation">]</span> <span class="token operator">&lt;</span>commitID<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p><code>git reset &lt;commitID&gt;</code> 的意思就是 把HEAD移到commitID，但是同时它也会改变某些commit</p>
-
+<p><code>git reset &lt;commitID&gt;</code> 的意思就是把HEAD所处的分支指向commitID，但是同时它也会改变某些commit。</p>
+<p><code>git reset</code> 命令比较特殊的一点是有三个可选参数：soft, mixed, hard</p>
+<pre><code>soft就是只动repo
+mixed就是动repo还有staging(这个是默认参数)
+hard就是动repo还有staging还有working</code></pre><p>同样以上面的图示举例：</p>
+<p>假设现在处于初始状态：</p>
+<p><img src="1.png" alt></p>
+<ol>
+<li>执行 <code>git reset --soft &lt;B commit&gt;</code> 命令之后，版本库回到了B状态，而暂存区和工作区的状态不变，实际结果如下图：</li>
+</ol>
+<p><img src="4.png" alt></p>
+<p>需要注意的是，此时C状态的commit会被删除，也就是一旦回到了过去，未来的节点就会被删除，当然，实际上使用 <code>git reflog</code> 仍然是可以找到C的commit，然后借助C的commit Id回到C状态的。</p>
+<ol start="2">
+<li>对于初始状态，执行 <code>git reset --mixed &lt;B commit&gt;</code> 之后，版本库和暂存区都回到了B状态：</li>
+</ol>
+<p><img src="5.png" alt></p>
+<p>注意，虽然这时候你仍然可以回到C状态，但是暂存区中的D状态是会丢失的。</p>
+<ol start="3">
+<li>对于初始状态，执行 <code>git reset --hard &lt;B commit&gt;</code> 之后，版本库、暂存区、工作区全部都回到了B状态：</li>
+</ol>
+<p><img src="3.png" alt></p>
+<p>这看起来和<code>git checkout &lt;B commitId&gt;</code> 效果一样，实际上有很大的不同。下面举个例子：</p>
+<p><img src="6.png" alt></p>
+<p>左边为初始状态，右上为执行reset命令，右下为执行checkout命令。</p>
+<p>checkout命令只是将HEAD指针指向指定的commit，并不会对commit进行操作，而reset是将HEAD连同所对应的分支指向新的commit。</p>
+<p>大概区别就是一个是切换状态，一个是重置状态。</p>
+<p>需要特别注意的是，处于远程仓库的分支<strong>严格禁止</strong>使用 <code>git reset</code> 命令，因为有些人会以远程仓库的版本作为开发的基础，使用reset命令会破坏这些基础，造成某些意想不到的问题。</p>
+<h5 id="git-revert"><a href="#git-revert" class="headerlink" title="git revert"></a>git revert</h5>
             </div>
             <hr />
 
@@ -614,7 +647,7 @@ git的架构如下图所示：
                                 <div class="card-image">
                                     
                                             
-                                                <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="git 简明教程与命令">
+                                                <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="git 简明教程与命令">
                                                 
                                                     <span class="card-title">git 简明教程与命令</span>
                                 </div>
@@ -664,7 +697,7 @@ git的架构如下图所示：
                                         <div class="card-image">
                                             
                                                     
-                                                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="三元组损失模型">
+                                                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="三元组损失模型">
                                                         
                                                             <span class="card-title">三元组损失模型</span>
                                         </div>
@@ -875,7 +908,7 @@ git的架构如下图所示：
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">14.9k</span>
+                <span class="white-color">15.3k</span>
                 
 
                     <br>
