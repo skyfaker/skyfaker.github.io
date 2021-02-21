@@ -8,13 +8,14 @@
     <meta name="baidu-site-verification" content="fmlEuI34ir">
     <meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48">
     <meta name="360-site-verification" content="b7c11a830ef90fd1464ad6206bb7b6e7">
-    <meta name="description" content="git 简明教程与命令1. What is gitGit是目前世界上最先进的分布式版本控制系统，可以极大便利我们的项目管理与文件版本管理。
+    <meta name="description" content="git 简明教程与命令What is gitGit是目前世界上最先进的分布式版本控制系统，可以极大便利我们的项目管理与文件版本管理。
 git的架构如下图所示：
+
 
 从架构图可以看出，git整体分为4部分。
 从左向右看：
 
-本地仓库，也就">
+本地仓库，也就是图">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -309,7 +310,7 @@ git的架构如下图所示：
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -466,14 +467,14 @@ git的架构如下图所示：
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.8k
+                    2.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    6 分
+                    10 分
                 </div>
                 
                 
@@ -489,9 +490,10 @@ git的架构如下图所示：
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="git-简明教程与命令"><a href="#git-简明教程与命令" class="headerlink" title="git 简明教程与命令"></a>git 简明教程与命令</h2><h3 id="1-What-is-git"><a href="#1-What-is-git" class="headerlink" title="1. What is git"></a>1. What is git</h3><p>Git是目前世界上最先进的分布式版本控制系统，可以极大便利我们的项目管理与文件版本管理。</p>
+                <h2 id="git-简明教程与命令"><a href="#git-简明教程与命令" class="headerlink" title="git 简明教程与命令"></a>git 简明教程与命令</h2><h3 id="What-is-git"><a href="#What-is-git" class="headerlink" title="What is git"></a>What is git</h3><p>Git是目前世界上最先进的分布式版本控制系统，可以极大便利我们的项目管理与文件版本管理。</p>
 <p>git的架构如下图所示：</p>
-<p><img src="git%E6%9E%B6%E6%9E%84%E5%9B%BE.png" alt="git架构图"></p>
+<img src="git架构图.png" alt="git架构图" style="zoom:50%;">
+
 <p>从架构图可以看出，git整体分为4部分。</p>
 <p>从左向右看：</p>
 <ol>
@@ -500,68 +502,123 @@ git的架构如下图所示：
 <li>repository，也就是本地的git仓库，一般称为版本库，</li>
 <li>remote，远程仓库，比如著名的github，或者自己搭建的git服务器等。</li>
 </ol>
-<h4 id="1-1-本地仓库"><a href="#1-1-本地仓库" class="headerlink" title="1.1 本地仓库"></a>1.1 本地仓库</h4><p>本地的部分为左边三部分：工作区，暂存区和版本库。（也有人将暂存区和版本库合称为版本库，个人还是倾向于分开）。 </p>
-<h4 id="1-1-1-版本保存"><a href="#1-1-1-版本保存" class="headerlink" title="1.1.1 版本保存"></a>1.1.1 版本保存</h4><p><strong>版本保存指的是将修改后的工作区保存至暂存区，再保存至版本库。</strong></p>
+<h3 id="1-本地仓库"><a href="#1-本地仓库" class="headerlink" title="1. 本地仓库"></a>1. 本地仓库</h3><p>本地的部分为左边三部分：工作区，暂存区和版本库。（也有人将暂存区和版本库合称为版本库，个人还是倾向于分开）。 </p>
+<h4 id="1-1-版本保存"><a href="#1-1-版本保存" class="headerlink" title="1.1 版本保存"></a>1.1 版本保存</h4><p><strong>版本保存指的是将修改后的工作区保存至暂存区，再保存至版本库。</strong></p>
 <p>当我们编辑修改好代码之后，首先要执行 <code>git add</code> 命令，这一步将会把我们的修改保存到暂存区。执行完这一步之后，我们修改后的代码就相当于有了一个副本，已经可以做到回退了。</p>
-<p>但是，这个副本目前还是处于暂存区，要真正持久化保存需要执行 <code>git commit -m &#39;your commit comment&#39;</code>，这样，修改后的内容就会作为一个新的版本保存到仓库的当前分支。并且<strong>只有加入到暂存区之后才能被保存到版本库。</strong></p>
+<p>但是，这个副本目前还是处于暂存区，要真正持久化保存需要执行 <code>git commit -m &#39;your commit comment&#39;</code>，这样，修改后的内容就会作为一个新的版本（<strong>官方称为提交对象</strong>）保存到仓库的当前分支。并且<strong>只有加入到暂存区之后才能被保存到版本库。</strong></p>
 <p>由上述可以看出，保存新版本的过程为：修改后的文件通过 <code>git add</code> 提交到暂存区，再通过  <code>git commit</code>提交到版本库持久化保存。</p>
-<p>在三部分中，<strong>每个部分的版本为workspace &gt;= stage &gt;= repository</strong>，因此我们更新版本也是按照这个顺序。</p>
 <p>如下图所示：（蓝色表示已存为版本库，绿色表示处于暂存区还没有存为版本库，红色表示修改后还没有存入暂存区）</p>
-<p><img src="1.png" alt="初始状态"></p>
+<img src="1.png" alt="初始状态" style="zoom:75%;">
+
 <p>上图的A、B、C、D、E表示不同的文件状态。</p>
 <p>首先，我们在工作区修改了文件，会处于上图的working状态，工作区中的文件是最新的版本，其中A，B，C都已经 <code>git add</code>  和 <code>git commit</code>，即这些步骤已经存在了版本库中。D执行了 <code>git add</code> 但还没有执行 <code>git commit</code>，即只存在了暂存区还没有存入版本库。而E还没有执行 <code>git add</code>，即最新的改动尚未被git所跟踪 。</p>
-<h4 id="1-1-2-版本回退"><a href="#1-1-2-版本回退" class="headerlink" title="1.1.2 版本回退"></a>1.1.2 版本回退</h4><p><strong>版本回退指的是从暂存区或者版本库回退先前的版本到工作区。</strong></p>
-<p>版本回退一般使用 <code>git checkout</code> 、<code>git reset</code> 、<code>git revert</code>命令。</p>
-<h5 id="git-checkout"><a href="#git-checkout" class="headerlink" title="git checkout"></a>git checkout</h5><p>在<code>Git</code>里面，<code>checkout</code>用于切换分支或者恢复工作树的文件。checkout命令实际上是用来改变HEAD的指向。不会对版本库中节点做改变。</p>
+<h4 id="1-2-版本回退"><a href="#1-2-版本回退" class="headerlink" title="1.2 版本回退"></a>1.2 版本回退</h4><p><strong>版本回退指的是从暂存区或者版本库回退先前的版本到工作区。</strong></p>
+<p>版本回退一般使用 <code>git checkout</code> 、<code>git reset</code> 和<code>git revert</code>命令。</p>
+<h5 id="git-checkout"><a href="#git-checkout" class="headerlink" title="git checkout"></a>git checkout</h5><p>在<code>Git</code>里面，<code>checkout</code>用于切换分支或者恢复工作树的文件。checkout命令实际上是用来改变HEAD的指向。不会对版本库中节点做改变。 </p>
 <p>使用方式如下：</p>
 <pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">git</span> checkout <span class="token punctuation">[</span><span class="token operator">&lt;</span>tree-ish<span class="token operator">></span><span class="token punctuation">]</span> <span class="token punctuation">[</span>--<span class="token punctuation">]</span> <span class="token operator">&lt;</span>pathspec<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>这个命令很灵活，既可以带一个<code>commit</code>号，又可以带着一个路径。可以用来恢复分支，恢复单个文件或者恢复整个文件夹。当你想要丢弃某个文件的改动的时候，一般使用这个命令。</p>
+<p>这个命令很灵活，既可以带一个<code>commit</code>号，又可以带着一个路径。可以用来恢复分支，恢复单个文件或者恢复整个文件夹。</p>
+<p>当你想要丢弃某个文件的改动的时候，一般使用这个命令。</p>
 <ol>
-<li><strong>恢复文件</strong></li>
+<li><h6 id="恢复文件"><a href="#恢复文件" class="headerlink" title="恢复文件"></a><strong>恢复文件</strong></h6></li>
 </ol>
-<p>对于上图的初始状态，（假设工作区文件为test.txt）我们执行 <code>git checkout --test.txt</code> 就可以将状态E删除，把文件恢复到最近一次 <code>git add</code> 或者 <code>git commit</code> 状态（这取决于HEAD的指向， <code>git add</code> 之后HEAD指向暂存区，否则指向最近的版本库。），如下图所示：</p>
-<p><img src="2.png" alt="after checkout"></p>
+<p>对于上图的初始状态，（假设工作区文件为test.txt）我们执行 <code>git checkout --test.txt</code> 就可以将状态E删除，把文件恢复到最近一次 <code>git add</code> 或者 <code>git commit</code> 状态，如下图所示：</p>
+<img src="2.png" alt="after checkout" style="zoom:75%;">
+
 <p>执行完上述命令，工作区变成了和暂存区一样的状态。</p>
 <p>又或者，你想要让工作区回到指定的C状态或者B状态（穿越回过去），可以使用 <code>git checkout &lt;B commitId&gt; -- test.txt</code> 就可以让暂存区和工作区都回到B状态，如下图所示：</p>
-<p><img src="3.png" alt></p>
-<p>此时，工作区、暂存区和版本库都变成了同样的状态，并且，这个命令不会影响工作区和暂存区的其他文件。</p>
-<p>可以用 <code>git diff</code> 和 <code>git diff --cached</code> 分别比较工作区与暂存区、暂存区与版本库的状态，可以发现对于test.txt文件，均不会有区别。</p>
-<p>如果，执行完之后你又后悔了，想回到C的状态，可以使用 <code>git log</code> 查看C的commitID（关闭窗口再打开也还在），然后使用 <code>git checkout &lt;C commitId&gt; -- test.txt</code> 就可以回到C状态（从过去穿越回未来）。不过要注意的是，这个命令会使用版本库覆盖暂存区，所以没有被追踪的E状态和暂存区中的D状态会丢失。所以建议使用这个命令回到过去状态之前，把目前的暂存区提交到版本库。</p>
+<img src="3.png" alt="after checkout B" style="zoom:75%;">
+
+<p>此时，工作区、暂存区都变成了同样的B状态，并且，这个命令不会影响到其他文件。更很神奇的是，版本库的commit节点不会发生任何变化，也就是说，<code>git checkout &lt;B commitId&gt; -- test.txt</code> 命令只是让<strong>test.txt文件</strong>在<strong>工作区和暂存区</strong>回到了B节点的状态，对于版本库不会有变化。</p>
+<p>可以用 <code>git diff</code> 和 <code>git diff --cached</code> 分别比较工作区与暂存区、暂存区与版本库的状态。</p>
+<p>不过要注意的是，这个命令会使用版本库覆盖暂存区，所以没有被追踪的E状态和暂存区中的D状态会丢失。所以建议使用这个命令回到过去状态之前，把目前的暂存区提交到版本库。</p>
+<p>如果，执行完之后你又后悔了，想回到C的状态，可以使用 <code>git log</code> 查看C的commitID（关闭窗口再打开也还在），然后使用 <code>git checkout &lt;C commitId&gt; -- test.txt</code> 就可以回到C状态。</p>
 <ol start="2">
-<li><strong>恢复状态</strong></li>
+<li><h6 id="恢复提交对象"><a href="#恢复提交对象" class="headerlink" title="恢复提交对象"></a><strong>恢复提交对象</strong></h6></li>
 </ol>
-<p><strong>TODO</strong></p>
+<p>当然，<code>git checkout &lt;B commitId&gt;</code> 这种去掉文件名的形式也是可以的，实现的效果为恢复所有的文件到B状态。</p>
+<p>使用后会显示一段提示，如下图：</p>
+<img src="checkout_status.png" alt="初始状态" style="zoom:50%;">
+
+<p>这里的 <code>detached Head</code> 被翻译为游离指针，接下来的操作都是在这个指针所指向的节点上，如果你在这时对文件做出了更改，那么可能在你想要回到之前的分支时会遭到阻拦。</p>
+<p>比如，上图是从master分支checkout过来的，在文件改变之后想要checkout回到master时，可能回不去了，这时，就可以像上述建议一样把这个修改后的节点通过 <code>git branch -c &lt;new-Branch-Name&gt;</code> 来生成一个新的分支，之后再合并这个分支到master中。</p>
+<p>以上的表现形式看来，<code>git checkout</code> 像是平行时空，可以在不同不互相干扰的平行时空之间切换。因为这个命令主要是用来切换分支，具体用法如下。</p>
+<ol start="3">
+<li><h6 id="切换分支"><a href="#切换分支" class="headerlink" title="切换分支"></a><strong>切换分支</strong></h6></li>
+</ol>
+<p>很简单的命令<code>git checkout &lt;branchName&gt;</code> 就可以切换到对应的分支。</p>
+<p>在那之前，你可以用<code>git branch</code> 命令查看你有哪些分支。</p>
+<p>Git 的分支，其实本质上仅仅是指向提交对象的可变指针。</p>
+<p>执行 <code>git branch testing</code> 之后：</p>
+<img src="two-branches.png" alt="新建testing分支" style="zoom:60%">
+
+<p>这会在当前所在的提交对象上创建一个指针，需要注意的是，这个命令只是新建分支，并不会切换到这个新建的分支上。</p>
+<p>git中有一个名为 <code>HEAD</code> 的特殊指针，用来指示当前处于哪个分支，当前我们仍然在master分支上。</p>
+<img src="head-to-master.png" alt style="zoom:60%">
+
+<p>所以上述命令执行完之后，完整的指针如上图。</p>
+<p>使用<code>git checkout testing</code> 就可以切换到testing分支上了。</p>
+<img src="head-to-testing.png" alt style="zoom:60%">
+
+
+
 <h5 id="git-reset"><a href="#git-reset" class="headerlink" title="git reset"></a>git reset</h5><p>这个命令是git里面少有的会删除版本库节点的命令，要小心使用。</p>
 <p><code>git reset</code> 的命令使用方法如下：</p>
-<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">git</span> reset <span class="token punctuation">[</span> –soft <span class="token operator">|</span> –mixed <span class="token operator">|</span> –hard<span class="token punctuation">]</span> <span class="token operator">&lt;</span>commitID<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">git</span> reset <span class="token punctuation">[</span> –-soft <span class="token operator">|</span> –-mixed <span class="token operator">|</span> –-hard<span class="token punctuation">]</span> <span class="token operator">&lt;</span>commitID<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><code>git reset &lt;commitID&gt;</code> 的意思就是把HEAD所处的分支指向commitID，但是同时它也会改变某些commit。</p>
 <p><code>git reset</code> 命令比较特殊的一点是有三个可选参数：soft, mixed, hard</p>
 <pre><code>soft就是只动repo
 mixed就是动repo还有staging(这个是默认参数)
 hard就是动repo还有staging还有working</code></pre><p>同样以上面的图示举例：</p>
 <p>假设现在处于初始状态：</p>
-<p><img src="1.png" alt></p>
+<img src="1.png" style="zoom:75%;">
+
 <ol>
 <li>执行 <code>git reset --soft &lt;B commit&gt;</code> 命令之后，版本库回到了B状态，而暂存区和工作区的状态不变，实际结果如下图：</li>
 </ol>
-<p><img src="4.png" alt></p>
+<img src="4.png" style="zoom:75%;">
+
 <p>需要注意的是，此时C状态的commit会被删除，也就是一旦回到了过去，未来的节点就会被删除，当然，实际上使用 <code>git reflog</code> 仍然是可以找到C的commit，然后借助C的commit Id回到C状态的。</p>
 <ol start="2">
 <li>对于初始状态，执行 <code>git reset --mixed &lt;B commit&gt;</code> 之后，版本库和暂存区都回到了B状态：</li>
 </ol>
-<p><img src="5.png" alt></p>
+<img src="5.png" style="zoom:75%;">
+
 <p>注意，虽然这时候你仍然可以回到C状态，但是暂存区中的D状态是会丢失的。</p>
 <ol start="3">
-<li>对于初始状态，执行 <code>git reset --hard &lt;B commit&gt;</code> 之后，版本库、暂存区、工作区全部都回到了B状态：</li>
+<li>对于初始状态，执行 <code>git reset --hard &lt;B commit&gt;</code> 之后，版本库、暂存区、工作区全部都回到了B状态（PS: 版本库中的C状态实际上也是可以找回来的，只是执行reset命令之后不再显示出来。）：</li>
 </ol>
-<p><img src="3.png" alt></p>
-<p>这看起来和<code>git checkout &lt;B commitId&gt;</code> 效果一样，实际上有很大的不同。下面举个例子：</p>
-<p><img src="6.png" alt></p>
+<img src="6.png" style="zoom:75%;">
+
+
+
+<p>这看起来和<code>git checkout &lt;B commitId&gt;</code> 效果一样，实际上有很大的不同。举个例子：</p>
+<p><img src="checkout_reset.png" alt></p>
 <p>左边为初始状态，右上为执行reset命令，右下为执行checkout命令。</p>
-<p>checkout命令只是将HEAD指针指向指定的commit，并不会对commit进行操作，而reset是将HEAD连同所对应的分支指向新的commit。</p>
-<p>大概区别就是一个是切换状态，一个是重置状态。</p>
+<p>checkout命令只是将Head指针指向另外一个分支的分支指针，并不会对commit对象进行操作，而reset是将HEAD连同所对应的分支指向新的commit。</p>
+<p>大概区别就是一个是切换到平行时空，一个是使当前时空变成和平行时空一样的状态。</p>
 <p>需要特别注意的是，处于远程仓库的分支<strong>严格禁止</strong>使用 <code>git reset</code> 命令，因为有些人会以远程仓库的版本作为开发的基础，使用reset命令会破坏这些基础，造成某些意想不到的问题。</p>
-<h5 id="git-revert"><a href="#git-revert" class="headerlink" title="git revert"></a>git revert</h5>
+<h5 id="git-revert"><a href="#git-revert" class="headerlink" title="git revert"></a>git revert</h5><p>现在基本上推荐使用 <code>git revert</code> 替换 <code>git reset</code>。</p>
+<p>那么他们的区别在哪里呢？</p>
+<img src="reset.png" alt="reset" style="zoom:38%;">
+
+<p>很明显， <code>reset</code> 之后回退到之前的状态。该状态之后的节点丢弃了。</p>
+<img src="revert.png" alt="revert" style="zoom:38%;">
+
+<p><code>revert</code> 命令通过新建一个commit来撤销一次commit所做的修改，是一种安全的方式，并没有修改commit history。</p>
+<h3 id="远程仓库"><a href="#远程仓库" class="headerlink" title="远程仓库"></a>远程仓库</h3><p>远程仓库是指托管在因特网或其他网络中的你的项目的版本库。git的精髓就在于，有一个网站，管理众多远程仓库，他就是git hub。</p>
+<p>正如我们在第一张图git架构图中看到的，本地的版本库还可以推送到远程仓库，这样，就可以协作开发一个项目。</p>
+<p>如果想查看你已经配置的远程仓库服务器，可以运行 <code>git remote</code> 命令。 它会列出你指定的每一个远程服务器的简写。 </p>
+<h4 id="添加远程仓库"><a href="#添加远程仓库" class="headerlink" title="添加远程仓库"></a>添加远程仓库</h4><p>运行 <code>git remote add &lt;shortname&gt; &lt;url&gt;</code> 添加一个新的远程 Git 仓库，同时指定一个方便使用的简写：这样你可以在命令行中使用你所设置的 <code>shortname</code> 来代替整个 URL。</p>
+<p>比如，现在我们添加一个GitHub中的仓库，并把它命名为origin:</p>
+<img src="./gitadd.png" alt="添加远程仓库" style="zoom:45%">
+
+<p>原本，本地这个文件夹没有任何远程仓库，在我们使用  <code>git remote add &lt;shortname&gt; &lt;url&gt;</code> 命令之后，就添加了一个名为origin的远程仓库。现在，这个远程仓库中的master分支就可以用 <code>origin/master</code> 表示。</p>
+<h4 id="PUSH代码到远程仓库"><a href="#PUSH代码到远程仓库" class="headerlink" title="PUSH代码到远程仓库"></a>PUSH代码到远程仓库</h4><p>上面，我们已经关联了一个远程仓库，并且命名为origin。</p>
+<p>把本地库的内容推送到远程，用<code>git push</code>命令，实际上是把当前分支<code>master</code>推送到远程。使用 <code>-u</code>参数，会把本地的<code>master</code>分支和远程的<code>master</code>分支关联起来，在以后的推送或者拉取时就可以简化命令。</p>
+<p>之后，就可以通过 <code>git push origin master</code> 推送到远程了。</p>
+<p><code>git push origin 分支名 --force</code>可以强制使用本地仓库覆盖远程仓库。</p>
+
             </div>
             <hr />
 
@@ -647,7 +704,7 @@ hard就是动repo还有staging还有working</code></pre><p>同样以上面的图
                                 <div class="card-image">
                                     
                                             
-                                                <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="git 简明教程与命令">
+                                                <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="git 简明教程与命令">
                                                 
                                                     <span class="card-title">git 简明教程与命令</span>
                                 </div>
@@ -697,7 +754,7 @@ hard就是动repo还有staging还有working</code></pre><p>同样以上面的图
                                         <div class="card-image">
                                             
                                                     
-                                                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="三元组损失模型">
+                                                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="三元组损失模型">
                                                         
                                                             <span class="card-title">三元组损失模型</span>
                                         </div>
@@ -908,7 +965,7 @@ hard就是动repo还有staging还有working</code></pre><p>同样以上面的图
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">15.3k</span>
+                <span class="white-color">16.4k</span>
                 
 
                     <br>

@@ -306,7 +306,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -519,11 +519,11 @@
 <p>  困难三元组则在网络训练后期起到很好的学习作用，能够帮助提升网络的性能。让网络学习一些很难的样本特征，可以大大提高训练网络的分类能力，尤其是对难以判断的样本的判别能力。</p>
 <p>  因此，在网络的训练中，我们需要注意结合一般三元组和困难三元组，充分利用两者进行训练学习不仅能够加快网络的收敛，同时可以在很大程度上提升网络模型的识别性能。</p>
 <p>但Triplet loss有一个缺点是，当数据集比较大时，训练的triplet数量也会随之变得十分庞大，此时会造成训练任务变得很艰难。而且如果采用随机选取三元组的训练策略，有可能很多次模型从训练集中挑选的三张图片，恰好是比较简单的三元组，计算出的损失值会很不稳定，从而导致模型很难学习到图片的主要特征。因此我们在使用Triplet loss函数时，要注意选取的训练集不宜过大，还要<strong>设计好训练策略</strong>来选择恰当的triplet。</p>
-<h3 id="三元组选取策略"><a href="#三元组选取策略" class="headerlink" title="三元组选取策略"></a>三元组选取策略</h3><p>许多类似的人脸识别、匹配工作都是在大数据集上实现的，这就要求对数据的高效利用。然而大多数样本在训练中后期不再有梯度贡献，例如含有margin的损失函数（triplet loss、softpn(pnnet中的损失函数，改进于triplet loss)），多数样本很容易满足于这个margin，此时损失函数中的loss不再发生变化，导致训练停滞阻塞。在极多identities（类别极多）的数据集中不能足够有效的挖掘困难样本，这就容易陷入局部极小，无法继续更新。</p>
+<h3 id="三元组选取策略"><a href="#三元组选取策略" class="headerlink" title="三元组选取策略"></a>三元组选取策略</h3><p>许多类似的人脸识别、匹配工作都是在大数据集上实现的，这就要求对数据的高效利用。然而大多数样本在训练中后期不再有梯度贡献，例如含有margin的损失函数（triplet loss、softpn等），多数样本很容易满足于这个margin，此时损失函数中的loss不再发生变化，导致训练停滞阻塞。在极多identities（类别极多）的数据集中不能足够有效的挖掘困难样本，这就容易陷入局部极小，无法继续更新。</p>
 <p>所以如何有效的进行困难样本挖掘（OHEM）成为了关键，困难样本应该包括同类（匹配样本）中距离较大的和非同类（非匹配样本）中距离较小的样本。</p>
 <p><strong>$$ \frac{1}{N} { \sum_i^N[|f(x_i^a) - f(x_i^p)|^2 - |f(x_i^a) - f(x_i^n)|^2 + \alpha]_+}$$</strong></p>
 <p>对于上述的公式，实际上并没有体现困难挖掘，所以随机选取的样本并不能保证是困难样本，恰恰相反，这样选取的三元组实际上大部分为简单样本。</p>
-<p>并且在大量图片样本下使用triplet loss也并非容易，如何有效的在large-scale情况下高效优化？使用triplet会发现数据量激增，可组合的三元组变多，如果要遍历所有组合是不现实的，或者极其低效。</p>
+<p>并且在大量图片样本下使用triplet loss也并非容易，如何有效的在large-scale情况下高效优化？使用triplet会发现数据量激增，可组合的三元组变多，如果要遍历所有组合是不现实的，或者极其低效 。</p>
 <p>主要有两种方法，一是将triplet loss转为softmax loss（<strong>triplet net一文中，将triplet loss结合了softmax的输出与mse</strong>），另一种是<strong>batch OHNM</strong>。</p>
 <p>直接考虑<strong>在所有的样本空间来sample一个batch</strong>，如果这个batch中有不满足margin的就认为是困难样本。然而这样做并不能保证采样时正好选取了很多很<strong>相似</strong>的样本，而且（a,p,n）图像组一经选取就已经固定，不会再有其他的组合，所以效率较低。所以寻找相似的个体（类别）是提高triplet net的核心关键。</p>
 <p>对于含有10个个体（人）的人脸数据，难以区分的肯定是那些长的很像的个体（比如甲与乙为兄弟二人）。之前的困难挖掘是首先在这些打散的<strong>整体空间</strong>中<strong>随机</strong>设置（a,p,n）三元组然后成批去训练，分错的作为困难样本。这就使得你这些三元组都已经<strong>固定</strong>了，困难样本不一定是真的困难，除非运气好使得三元组中有很多甲、乙中的样本。所以一个想法是首先对于所有样本进行聚类，观察哪些样本比较接近，（甲和乙长得像肯定聚类结果很接近），那么我就在聚好类的<strong>子空间</strong>中选取(a,p)二元组组成batch，n在这个batch中来选取，那么这个负样本n就会是真正的困难样本。</p>
@@ -632,7 +632,7 @@
                             <div class="card-image">
                                 
                                         
-                                            <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="git 简明教程与命令">
+                                            <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="git 简明教程与命令">
                                             
                                                 <span class="card-title">git 简明教程与命令</span>
                             </div>
@@ -681,7 +681,7 @@
                                         <div class="card-image">
                                             
                                                     
-                                                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="常见排序算法实现与比较——Python版">
+                                                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="常见排序算法实现与比较——Python版">
                                                         
                                                             <span class="card-title">常见排序算法实现与比较——Python版</span>
                                         </div>
@@ -892,7 +892,7 @@
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">15.3k</span>
+                <span class="white-color">16.4k</span>
                 
 
                     <br>
