@@ -609,8 +609,8 @@ public:
             return NULL;
         }
         ListNode* tail = head;
-        for(int i=1; i<k; i++){
-            tail = tail->next;
+        for(int i=1; i < k; i++){
+            tail = tail -> next;
             if(!tail){
                 return head;
             }
