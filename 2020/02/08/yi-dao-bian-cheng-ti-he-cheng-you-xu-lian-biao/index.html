@@ -4,15 +4,14 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="一道编程题——判断链表是否有环, 深度学习 | 数据挖掘">
+    <meta name="keywords" content="一道编程题——合成有序链表, 深度学习 | 数据挖掘">
     <meta name="baidu-site-verification" content="fmlEuI34ir">
     <meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48">
     <meta name="360-site-verification" content="b7c11a830ef90fd1464ad6206bb7b6e7">
-    <meta name="description" content="题目描述判断给定的一个链表中是否有环。如果有环则返回true，否则返回false。需要给出空间复杂度为O(1)的解法。
-题目分析这一题困难之处在于解法的空间复杂度需要满足O(1)。
-
-
-上图就是链表存在环的情况，画这个图的目的是表明，有环就">
+    <meta name="description" content="题目描述与分析将两个有序的链表合并为一个新链表，要求新的链表是通过拼接两个链表的节点来生成的，且合并后新链表依然有序。
+这一题和反转链表一样，属于链表的基础操作之一。
+同样有递归和迭代两种方式实现。
+代码实现递归首先找出两个链表（链表1和链">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -20,7 +19,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>一道编程题——判断链表是否有环 | SKYFAKER</title>
+    <title>一道编程题——合成有序链表 | SKYFAKER</title>
     <link rel="icon" type="image/png" href="/logo.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -313,7 +312,7 @@
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        一道编程题——判断链表是否有环
+                        一道编程题——合成有序链表
                     </div>
                 </div>
             </div>
@@ -450,7 +449,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-12-11
+                    2020-02-08
                 </div>
 
                 <div class="post-author info-break-policy">
@@ -464,14 +463,14 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    518
+                    702
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    3 分
                 </div>
                 
                 
@@ -487,60 +486,133 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>判断给定的一个链表中是否有环。如果有环则返回true，否则返回false。需要给出空间复杂度为O(1)的解法。</p>
-<h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>这一题困难之处在于解法的空间复杂度需要满足O(1)。</p>
-<img src="./1.png" style="zoom:50%">
-
-<p>上图就是链表存在环的情况，画这个图的目的是表明，有环就2种情况，一是开始不是环，后面部分组成环。二是整个链表就是一个循环单链表。不会存在开始有环而链表尾不属于环的情况。</p>
-<p>而单链表有环的本质是链表中存在链表节点出现了2次。</p>
-<p>最简单的解法，是遍历链表，将链表的节点元素加入到一个哈希表中，哈希表发生冲突则表明有2个节点重复，即为有环。对于python来说，可以把链表元素加入到集合（ <code>set</code> ）中，判断是否重复出现。</p>
-<p>当然，这种解法的空间复杂度为 <code>O(n)</code>，不满足题目要求。</p>
-<h3 id="快慢指针"><a href="#快慢指针" class="headerlink" title="快慢指针"></a>快慢指针</h3><p>在来链表操作中，如果需要满足空间复杂度为 <code>O（1）</code> ，则常用到快慢指针，比如一个指针快而一个指针慢，或者一个指针先走一个后走。</p>
-<p>本地设置2个指针，一个慢指针每次遍历一个节点，另外一个快指针每次遍历2个节点，如果存在环，则快指针先进入环，等到慢指针进入环后，快指针将与慢指针相遇。</p>
-<h4 id="python"><a href="#python" class="headerlink" title="python"></a>python</h4><pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 思路比较简单，不再注释，详细见上述介绍</span>
-<span class="token comment" spellcheck="true"># class ListNode:</span>
-<span class="token comment" spellcheck="true">#     def __init__(self, x):</span>
-<span class="token comment" spellcheck="true">#         self.val = x</span>
-<span class="token comment" spellcheck="true">#         self.next = None</span>
-
+                <h2 id="题目描述与分析"><a href="#题目描述与分析" class="headerlink" title="题目描述与分析"></a>题目描述与分析</h2><p>将两个有序的链表合并为一个新链表，要求新的链表是通过拼接两个链表的节点来生成的，且合并后新链表依然有序。</p>
+<p>这一题和反转链表一样，属于链表的基础操作之一。</p>
+<p>同样有递归和迭代两种方式实现。</p>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><h3 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h3><p>首先找出两个链表（链表1和链表2）头节点中较小的一个（假设为链表1），作为新链表的头节点，然后递归链表1头节点的后一个节点和链表2.</p>
+<h4 id="python实现"><a href="#python实现" class="headerlink" title="python实现"></a>python实现</h4><pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 递归</span>
 <span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">hasCycle</span><span class="token punctuation">(</span>self <span class="token punctuation">,</span> head <span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">mergeTwoLists</span><span class="token punctuation">(</span>self <span class="token punctuation">,</span> l1 <span class="token punctuation">,</span> l2 <span class="token punctuation">)</span><span class="token punctuation">:</span>
         <span class="token comment" spellcheck="true"># write code here</span>
-        <span class="token keyword">if</span> <span class="token operator">not</span> head<span class="token punctuation">:</span>
-            <span class="token keyword">return</span> <span class="token boolean">False</span>
-        slow_p <span class="token operator">=</span> fast_p <span class="token operator">=</span> head
-        <span class="token keyword">while</span><span class="token punctuation">(</span>fast_p <span class="token operator">and</span> fast_p<span class="token punctuation">.</span>next<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            fast_p <span class="token operator">=</span> fast_p<span class="token punctuation">.</span>next<span class="token punctuation">.</span>next
-            slow_p <span class="token operator">=</span> slow_p<span class="token punctuation">.</span>next
-            <span class="token keyword">if</span> fast_p <span class="token operator">==</span> slow_p<span class="token punctuation">:</span>
-                <span class="token keyword">return</span> <span class="token boolean">True</span>
-        <span class="token keyword">return</span> <span class="token boolean">False</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="c"><a href="#c" class="headerlink" title="c++"></a>c++</h4><pre class="line-numbers language-c++"><code class="language-c++">/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode(int x) : val(x), next(NULL) {}
- * };
- */
+        <span class="token comment" spellcheck="true"># 存在空链表，直接返回另一个</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">not</span> l1 <span class="token operator">or</span> <span class="token operator">not</span> l2<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            root <span class="token operator">=</span> l1 <span class="token keyword">if</span> <span class="token operator">not</span> l2 <span class="token keyword">else</span> l2
+            <span class="token keyword">return</span> root
+        <span class="token comment" spellcheck="true"># 链表1小，递归链表1后一个节点和链表2.</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>l1<span class="token punctuation">.</span>val <span class="token operator">&lt;=</span> l2<span class="token punctuation">.</span>val<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            root <span class="token operator">=</span> l1
+            root<span class="token punctuation">.</span>next <span class="token operator">=</span> self<span class="token punctuation">.</span>mergeTwoLists<span class="token punctuation">(</span>l1<span class="token punctuation">.</span>next<span class="token punctuation">,</span> l2<span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true"># 反之，递归链表1和链表2的后一个节点</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            root <span class="token operator">=</span> l2
+            root<span class="token punctuation">.</span>next <span class="token operator">=</span> self<span class="token punctuation">.</span>mergeTwoLists<span class="token punctuation">(</span>l1<span class="token punctuation">,</span> l2<span class="token punctuation">.</span>next<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> root<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="C-实现"><a href="#C-实现" class="headerlink" title="C++实现"></a>C++实现</h4><pre class="line-numbers language-c++"><code class="language-c++">// 递归
 class Solution {
 public:
-    bool hasCycle(ListNode *head) {
-        if(!head) {
-            return false;
+    /**
+     * 
+     * @param l1 ListNode类 
+     * @param l2 ListNode类 
+     * @return ListNode类
+     */
+    ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
+        // write code here
+        ListNode* root;
+        // 存在空链表，则返回另一个链表
+        if(l1 == NULL or l2 == NULL){
+            root = (l1 == NULL) ? l2 : l1; 
+            return root;
+        } 
+        // l1小，则新节点为l1，并递归l1的下一个节点和l2
+        if(l1-> val <= l2->val){
+            root = l1;
+            root->next = mergeTwoLists(l1->next, l2);
         }
-        ListNode* slow_p = head;
-        ListNode* fast_p = head;
-        while(fast_p && fast_p->next){
-            fast_p = fast_p->next->next;
-            slow_p = slow_p->next;
-            if(fast_p == slow_p){
-                return true;
-            }
+        // l2小，则新节点为l2，并递归l1和l2的下一个节点
+        else{
+            root = l2;
+            root->next = mergeTwoLists(l1, l2->next);
         }
-        return false;
+        return root;
     }
-};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="迭代"><a href="#迭代" class="headerlink" title="迭代"></a>迭代</h3><p>依次遍历两个链表，小的加入到新链表。</p>
+<h4 id="python实现-1"><a href="#python实现-1" class="headerlink" title="python实现"></a>python实现</h4><pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 迭代</span>
+<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">mergeTwoLists</span><span class="token punctuation">(</span>self <span class="token punctuation">,</span> l1 <span class="token punctuation">,</span> l2 <span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true"># write code here</span>
+        <span class="token comment" spellcheck="true"># 存在空链表</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">not</span> l1 <span class="token operator">or</span> <span class="token operator">not</span> l2<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            root <span class="token operator">=</span> l1 <span class="token keyword">if</span> <span class="token operator">not</span> l2 <span class="token keyword">else</span> l2
+            <span class="token keyword">return</span> root
+
+        <span class="token comment" spellcheck="true"># 设置root指针指向l1,l2中较小的节点</span>
+        <span class="token keyword">if</span> l1<span class="token punctuation">.</span>val<span class="token operator">&lt;=</span>l2<span class="token punctuation">.</span>val<span class="token punctuation">:</span>
+            a<span class="token punctuation">,</span> b <span class="token operator">=</span> l1<span class="token punctuation">.</span>next<span class="token punctuation">,</span> l2
+            root <span class="token operator">=</span> l1
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            a<span class="token punctuation">,</span> b <span class="token operator">=</span> l1<span class="token punctuation">,</span> l2<span class="token punctuation">.</span>next
+            root <span class="token operator">=</span> l2
+
+        curr <span class="token operator">=</span> root
+        <span class="token comment" spellcheck="true"># 遍历节点，小的加到新链表后面</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span>a <span class="token operator">and</span> b<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> a<span class="token punctuation">.</span>val<span class="token operator">&lt;=</span>b<span class="token punctuation">.</span>val<span class="token punctuation">:</span>
+                curr<span class="token punctuation">.</span>next <span class="token operator">=</span> a
+
+                a <span class="token operator">=</span> a<span class="token punctuation">.</span>next
+            <span class="token keyword">else</span><span class="token punctuation">:</span>
+                curr<span class="token punctuation">.</span>next <span class="token operator">=</span> b
+                b <span class="token operator">=</span> b<span class="token punctuation">.</span>next
+            curr <span class="token operator">=</span> curr<span class="token punctuation">.</span>next
+        <span class="token comment" spellcheck="true"># 没有遍历完的链表直接接到后面</span>
+        curr<span class="token punctuation">.</span>next <span class="token operator">=</span> a <span class="token keyword">if</span> a <span class="token keyword">else</span> b
+        <span class="token keyword">return</span> root<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="C-实现-1"><a href="#C-实现-1" class="headerlink" title="C++实现"></a>C++实现</h4><pre class="line-numbers language-c++"><code class="language-c++">// 迭代
+class Solution {
+public:
+    /**
+     * 
+     * @param l1 ListNode类 
+     * @param l2 ListNode类 
+     * @return ListNode类
+     */
+    ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
+        // write code here
+        ListNode* root;
+        // 存在空链表，则返回另一个链表
+        if(l1 == NULL or l2 == NULL){
+            root = (l1 == NULL) ? l2 : l1; 
+            return root;
+        } 
+        // 新链表的头节点指向两个链表中较小的一个
+        if(l1->val <= l2->val){
+            root = l1;
+            l1 = l1->next;
+        }
+        else{
+            root = l2;
+            l2 = l2->next;
+        }
+        // 迭代，依次比较剩余两个链表的头节点大小，小的加入到新链表
+        ListNode *tmp = root;
+        while(l1!=NULL && l2!=NULL){
+            if(l1->val <= l2->val){
+                tmp->next = l1;
+                l1 = l1->next;
+            }
+            else{
+                tmp->next = l2;
+                l2 = l2->next;
+            }
+            tmp = tmp->next;
+        }
+        // 其中一个链表迭代结束，则另一个的剩余部分直接接到后面
+        tmp->next = (l1!=NULL) ? l1 : l2;
+        return root;
+    }
+};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr />
@@ -575,9 +647,9 @@ public:
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《一道编程题——判断链表是否有环》
+                    《一道编程题——合成有序链表》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/12/11/yi-dao-bian-cheng-ti-pan-duan-lian-biao-shi-fou-you-huan/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2020/02/08/yi-dao-bian-cheng-ti-he-cheng-you-xu-lian-biao/" property="cc:attributionName"
                rel="cc:attributionURL">
                 文杰
             </a> 采用
@@ -617,32 +689,32 @@ public:
     <article id="prenext-posts" class="prev-next articles">
         <div class="row article-row">
             
-                <div class="article col s12 m6" data-aos="fade-up">
-                    <div class="article-badge left-badge text-color">
-                        <i class="fa fa-chevron-left"></i>&nbsp;
-                        上一篇
-                    </div>
-                    <div class="card">
-                        <a href="/2019/12/28/yi-dao-bian-cheng-ti-pan-duan-er-cha-shu-shi-fou-dui-cheng/">
-                            <div class="card-image">
-                                
-                                        
-                                            <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="一道编程题——判断二叉树是否对称">
+                    <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+                        <div class="article-badge left-badge text-color">
+                            <i class="fa fa-dot-circle-o"></i>&nbsp;
+                            本篇
+                        </div>
+                        <div class="card">
+                            <a href="/2020/02/08/yi-dao-bian-cheng-ti-he-cheng-you-xu-lian-biao/">
+                                <div class="card-image">
+                                    
                                             
-                                                <span class="card-title">一道编程题——判断二叉树是否对称</span>
-                            </div>
-                        </a>
-                        <div class="card-content article-content">
-                            <div class="summary block-with-text">
-                                
-                                    给定一棵二叉树，判断它是否是自身的镜像（即：二叉树是否为轴对称）。这种题目是判断左右子树是否相等的变式。
-                                        
-                            </div>
-                            <div class="publish-info">
-                                <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-12-28
-                        </span>
-                                <span class="publish-author">
+                                                <img src="/medias/featureimages/26.jpg" class="responsive-img" alt="一道编程题——合成有序链表">
+                                                
+                                                    <span class="card-title">一道编程题——合成有序链表</span>
+                                </div>
+                            </a>
+                            <div class="card-content article-content">
+                                <div class="summary block-with-text">
+                                    
+                                        将两个有序的链表合并为一个新链表，要求新的链表是通过拼接两个链表的节点来生成的，且合并后新链表依然有序。
+                                            
+                                </div>
+                                <div class="publish-info">
+                                    <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-02-08
+                            </span>
+                                    <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
@@ -652,51 +724,52 @@ public:
                             
                             
                         </span>
+                                </div>
                             </div>
-                        </div>
-                        
-                            <div class="card-action article-tags">
-                                
-                                    <a href="/tags/编程算法/" target="_blank">
-                                        <span class="chip bg-color">编程算法</span>
-                                    </a>
-                                    
-                            </div>
+
                             
+                                <div class="card-action article-tags">
+                                    
+                                        <a href="/tags/编程算法/" target="_blank">
+                                            <span class="chip bg-color">编程算法</span>
+                                        </a>
+                                        
+                                </div>
+                                
+                        </div>
                     </div>
-                </div>
-                
+                    
                         
                             <div class="article col s12 m6" data-aos="fade-up">
                                 <div class="article-badge right-badge text-color">
                                     下一篇&nbsp;<i class="fa fa-chevron-right"></i>
                                 </div>
                                 <div class="card">
-                                    <a href="/2019/10/26/yi-dao-bian-cheng-ti-an-zu-fan-zhuan-lian-biao/">
+                                    <a href="/2020/01/30/git-jian-ming-jiao-cheng-yu-ming-ling/">
                                         <div class="card-image">
                                             
                                                     
-                                                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="一道编程题——按组翻转链表">
+                                                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="git 简明教程与命令">
                                                         
-                                                            <span class="card-title">一道编程题——按组翻转链表</span>
+                                                            <span class="card-title">git 简明教程与命令</span>
                                         </div>
                                     </a>
                                     <div class="card-content article-content">
                                         <div class="summary block-with-text">
                                             
-                                                编程题：将给出的链表中的节点每 k 个一组翻转，返回翻转后的链表，如果链表中的节点数不是 k 的倍数，将最后剩下的节点保持原样。
+                                                Git是目前世界上最先进的分布式版本控制系统，可以极大便利我们的项目管理与文件版本管理。本文记录了常用git命令，并对git的使用原理做一些简明的教程。
                                                     
                                         </div>
                                         <div class="publish-info">
                                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-26
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-01-30
                             </span>
                                             <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/算法/" class="post-category" target="_blank">
-                                    算法
+                            <a href="/categories/工具方法/" class="post-category" target="_blank">
+                                    工具方法
                                 </a>
                             
                             
@@ -706,8 +779,8 @@ public:
                                     
                                         <div class="card-action article-tags">
                                             
-                                                <a href="/tags/编程算法/" target="_blank">
-                                                    <span class="chip bg-color">编程算法</span>
+                                                <a href="/tags/git/" target="_blank">
+                                                    <span class="chip bg-color">git</span>
                                                 </a>
                                                 
                                         </div>

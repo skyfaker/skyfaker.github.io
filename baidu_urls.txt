@@ -1,3 +1,4 @@
+https://www.skyfaker.cc/2020/02/08/yi-dao-bian-cheng-ti-he-cheng-you-xu-lian-biao/
 https://www.skyfaker.cc/2020/01/30/git-jian-ming-jiao-cheng-yu-ming-ling/
 https://www.skyfaker.cc/2019/12/28/yi-dao-bian-cheng-ti-pan-duan-er-cha-shu-shi-fou-dui-cheng/
 https://www.skyfaker.cc/2019/12/11/yi-dao-bian-cheng-ti-pan-duan-lian-biao-shi-fou-you-huan/
@@ -7,9 +8,9 @@ https://www.skyfaker.cc/2019/07/07/sort-algorithms-with-python/
 https://www.skyfaker.cc/2019/05/20/matplotlib-hui-zhi-san-dian-tu/
 https://www.skyfaker.cc/2019/04/16/autoencoder/
 https://www.skyfaker.cc/2019/03/16/how-to-run-a-vue/
-https://www.skyfaker.cc/2019/03/10/yong-liang-ge-zhan-shi-xian-dui-lie/
-https://www.skyfaker.cc/2019/03/03/chong-jian-er-cha-shu/
-https://www.skyfaker.cc/2019/02/24/cong-wei-dao-tou-da-yin-lian-biao/
-https://www.skyfaker.cc/2019/02/17/er-wei-shu-zu-zhong-de-cha-zhao/
+https://www.skyfaker.cc/2019/03/10/yi-dao-bian-cheng-ti-yong-liang-ge-zhan-shi-xian-dui-lie/
+https://www.skyfaker.cc/2019/03/03/yi-dao-bian-cheng-ti-chong-jian-er-cha-shu/
+https://www.skyfaker.cc/2019/02/24/yi-dao-bian-cheng-ti-fan-xiang-da-yin-lian-biao/
+https://www.skyfaker.cc/2019/02/17/yi-dao-bian-cheng-ti-er-wei-shu-zu-zhong-de-cha-zhao/
 https://www.skyfaker.cc/2019/02/16/sort-algorithms/
 https://www.skyfaker.cc/2019/02/15/hello-world/
