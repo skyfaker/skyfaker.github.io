@@ -4,14 +4,14 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="一道编程题——按组翻转链表, 深度学习 | 数据挖掘">
+    <meta name="keywords" content="一道编程题——合并K个有序链表, 深度学习 | 数据挖掘">
     <meta name="baidu-site-verification" content="fmlEuI34ir">
     <meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48">
     <meta name="360-site-verification" content="b7c11a830ef90fd1464ad6206bb7b6e7">
-    <meta name="description" content="题目描述将给出的链表中的节点每 k个一组翻转，返回翻转后的链表如果链表中的节点数不是  k 的倍数，将最后剩下的节点保持原样你不能更改节点中的值，只能更改节点本身。
-例如：
-给定的链表是1→2→3→4→5 
-对于 k=2, 你应该返回 2→">
+    <meta name="description" content="题目描述与分析合并 k 个已排序的链表并将其作为一个已排序的链表返回。这与之前遇到的合并两个有序链表为同类型的题目。
+这里提供两种方法：
+
+很显然，合并多个有序链表是合并两个有序链表的拓展情况，因此，可以用合并两个链表的方法，依次两两合并，">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -19,7 +19,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>一道编程题——按组翻转链表 | SKYFAKER</title>
+    <title>一道编程题——合并K个有序链表 | SKYFAKER</title>
     <link rel="icon" type="image/png" href="/logo.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -306,13 +306,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        一道编程题——按组翻转链表
+                        一道编程题——合并K个有序链表
                     </div>
                 </div>
             </div>
@@ -437,8 +437,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                        <a href="/categories/算法/" class="post-category" target="_blank">
-                            算法
+                        <a href="/categories/分类/" class="post-category" target="_blank">
+                            分类
                         </a>
                         
                     </div>
@@ -449,7 +449,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-10-26
+                    2020-03-24
                 </div>
 
                 <div class="post-author info-break-policy">
@@ -463,14 +463,14 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.2k
+                    631
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    2 分
                 </div>
                 
                 
@@ -486,155 +486,65 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>将给出的链表中的节点每 <strong><code>k</code></strong>个一组翻转，返回翻转后的链表<br>如果链表中的节点数不是  <strong><code>k</code></strong> 的倍数，将最后剩下的节点保持原样<br>你不能更改节点中的值，只能更改节点本身。</p>
-<p>例如：</p>
-<p>给定的链表是1→2→3→4→5 </p>
-<p>对于 k=2, 你应该返回 2→1→4→3→5</p>
-<p>对于 k=3, 你应该返回 3→2→1→4→5</p>
-<h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>这一题难就难在k个一组，并且多余的部分不翻转。</p>
-<p>针对于上述的问题，我们需要逐段翻转，翻转之后在正确地连接起来，而剩余部分不翻转。</p>
-<h3 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h3><p>使用递归方法解决，会比循环容易理解一些。通过递归的返回值将每一段的翻转链表连接起来。</p>
-<p>通过设置类成员变量决定递归次数，保证剩余部分不会被翻转。</p>
-<h3 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h3><p>设置一个长度为 <code>k</code> 的栈，逐个出栈就可以实现翻转，如果栈未满而链表已空则这一段链表不翻转。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><h3 id="python代码"><a href="#python代码" class="headerlink" title="python代码"></a>python代码</h3><h4 id="递归实现"><a href="#递归实现" class="headerlink" title="递归实现"></a>递归实现</h4><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">reverseKGroup</span><span class="token punctuation">(</span>self <span class="token punctuation">,</span> head <span class="token punctuation">,</span> k <span class="token punctuation">)</span><span class="token punctuation">:</span>
-        length <span class="token operator">=</span> <span class="token number">0</span>
-        curr <span class="token operator">=</span> head
-        <span class="token keyword">while</span> curr<span class="token punctuation">:</span>
-            length<span class="token operator">+=</span><span class="token number">1</span>
-            curr <span class="token operator">=</span> curr<span class="token punctuation">.</span>next
-        <span class="token comment" spellcheck="true"># 建立类成员变量，用来控制递归次数，把链表每k个作为一组（剩余的不分组），每组单独翻转，通过递归使新的组连接在一起</span>
-        self<span class="token punctuation">.</span>num <span class="token operator">=</span> length<span class="token operator">//</span>k
-        <span class="token comment" spellcheck="true"># 调用递归函数</span>
-        root <span class="token operator">=</span> self<span class="token punctuation">.</span>reverseChain<span class="token punctuation">(</span>head<span class="token punctuation">,</span> k<span class="token punctuation">)</span>
-        <span class="token keyword">return</span> root
+                <h2 id="题目描述与分析"><a href="#题目描述与分析" class="headerlink" title="题目描述与分析"></a>题目描述与分析</h2><p>合并 k 个已排序的链表并将其作为一个已排序的链表返回。这与之前遇到的合并两个有序链表为同类型的题目。</p>
+<p>这里提供两种方法：</p>
+<ol>
+<li>很显然，合并多个有序链表是合并两个有序链表的拓展情况，因此，可以用合并两个链表的方法，依次两两合并，使得链表最终为1。合并过程类似归并排序的归并过程。</li>
+<li>设置一个大小为K的最小堆，堆中的节点为K个链表的头节点，每次取出最小值（堆顶），然后将这个最小值的下一个节点加入链表（如果有的话），直到堆为空。</li>
+</ol>
+<p>一般数据结构堆的实现方式采用优先队列，队列中的元素有一个优先值，每次pop元素的时候，会取出优先值最小的元素。加入新元素的时候也会重新排序。</p>
+<p>优先队列中元素排列顺序采用堆的层次遍历，由于堆中的父节点均小于子节点，这在优先队列中的表现形式为第一个元素（堆顶）小于第二个元素（左子）和第三个元素（右子）。第K个元素小于第2K和第2K+1个元素。（这里指的是第几个元素，由于很多编程语言中队列首元素从0开始，左右孩子节点计算起来略有不同）</p>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><h3 id="python实现"><a href="#python实现" class="headerlink" title="python实现"></a>python实现</h3><h4 id="归并"><a href="#归并" class="headerlink" title="归并"></a>归并</h4><pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 迭代，两两合并</span>
+<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">mergeKLists</span><span class="token punctuation">(</span>self <span class="token punctuation">,</span> lists <span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true"># write code here</span>
+        <span class="token keyword">if</span> <span class="token operator">not</span> lists<span class="token punctuation">:</span><span class="token keyword">return</span> None
+        <span class="token comment" spellcheck="true"># 每次取队首两个链表合并，合并之后加入到队尾</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span>len<span class="token punctuation">(</span>lists<span class="token punctuation">)</span><span class="token operator">></span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            first_link <span class="token operator">=</span> lists<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+            second_link <span class="token operator">=</span> lists<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+            merged_link <span class="token operator">=</span> self<span class="token punctuation">.</span>merge<span class="token punctuation">(</span>first_link<span class="token punctuation">,</span> second_link<span class="token punctuation">)</span>
+            <span class="token comment" spellcheck="true"># 返回值不是None则加入到队尾</span>
+            <span class="token keyword">if</span> merged_link<span class="token punctuation">:</span>
+                lists<span class="token punctuation">.</span>append<span class="token punctuation">(</span>merged_link<span class="token punctuation">)</span>
+        <span class="token keyword">if</span> <span class="token operator">not</span> lists<span class="token punctuation">:</span><span class="token keyword">return</span> None
+        <span class="token keyword">return</span> lists<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
 
-
-    <span class="token keyword">def</span> <span class="token function">reverseChain</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> head<span class="token punctuation">,</span> k<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token comment" spellcheck="true"># 递归结束</span>
-        <span class="token keyword">if</span> <span class="token operator">not</span> head<span class="token punctuation">:</span> 
+    <span class="token comment" spellcheck="true"># 两两链表合并</span>
+    <span class="token keyword">def</span> <span class="token function">merge</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> link1<span class="token punctuation">,</span> link2<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">not</span> link1<span class="token punctuation">)</span> <span class="token operator">and</span> <span class="token punctuation">(</span><span class="token operator">not</span> link2<span class="token punctuation">)</span><span class="token punctuation">:</span>
             <span class="token keyword">return</span> None
-        <span class="token comment" spellcheck="true"># 递归次数达到组数</span>
-        <span class="token keyword">if</span> self<span class="token punctuation">.</span>num <span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">:</span>
-            <span class="token keyword">return</span> head
-        self<span class="token punctuation">.</span>num <span class="token operator">-=</span><span class="token number">1</span> 
-        <span class="token comment" spellcheck="true"># 翻转链表</span>
-        p<span class="token punctuation">,</span> c <span class="token operator">=</span> head<span class="token punctuation">,</span> head<span class="token punctuation">.</span>next
-        i <span class="token operator">=</span> <span class="token number">1</span>
-        <span class="token keyword">while</span><span class="token punctuation">(</span>i<span class="token operator">!=</span>k <span class="token operator">and</span> c<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            i<span class="token operator">+=</span><span class="token number">1</span>
-            q <span class="token operator">=</span> c<span class="token punctuation">.</span>next
-            c<span class="token punctuation">.</span>next <span class="token operator">=</span> p 
-            p <span class="token operator">=</span> c 
-            c <span class="token operator">=</span> q 
-            <span class="token keyword">if</span> q<span class="token punctuation">:</span>
-                q <span class="token operator">=</span> q<span class="token punctuation">.</span>next
-        <span class="token comment" spellcheck="true"># 递归，原链表的head节点变成新链表的尾节点，尾节点指向递归返回节点</span>
-        head<span class="token punctuation">.</span>next <span class="token operator">=</span> self<span class="token punctuation">.</span>reverseChain<span class="token punctuation">(</span>c<span class="token punctuation">,</span> k<span class="token punctuation">)</span>
-        <span class="token keyword">return</span> p <span class="token comment" spellcheck="true"># 递归函数返回反转之后的链表首节点</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>上述代码，首先遍历链表，计算长度，之后根据长度和k计算出需要翻转的段数，使用一个类成员变量控制类中的递归函数的递归次数。之后就可以调用递归函数了。</p>
-<p>递归函数的过程为，遍历链表，每k个节点翻转一次，返回这一段链表反转之后的首节点。而原链表的首节点变成了新链表的尾节点，让这个尾节点指向递归返回值即可。</p>
-<p>举个例子：原链表1-&gt;2-&gt;3-&gt;4-&gt;5, k=2, 那么翻转后的链表应该是2-&gt;1-&gt;4-&gt;3-&gt;5</p>
-<p>首先，获取链表长度5，5//2=2即为需要划分的段数，剩余部分不处理。接下来，开始处理链表，此时未处理的链表头节点为1，从1开始取长度为2的链表进行翻转，此时翻转后的链表头节点为2，尾节点为1。递归函数返回节点2，而原链表的头节点即翻转后的尾节点1指向后续链表的递归返回值。</p>
-<img src="./1.png" alt="第一次递归过程" style="zoom:40%">
-
-<p>第一次递归后，原始链表变成上述链表，之后继续递归即可。</p>
-<p>或者，也可以不使用类成员变量。在遍历链表的过程中确定需要翻转的范围，不满足长度则不翻转。</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution2</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">reverseKGroup</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> head<span class="token punctuation">,</span> k<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">if</span> <span class="token operator">not</span> head<span class="token punctuation">:</span>
+        root <span class="token operator">=</span> ListNode<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+        tmp <span class="token operator">=</span> root
+        <span class="token keyword">while</span><span class="token punctuation">(</span>link1 <span class="token operator">and</span> link2<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> link1<span class="token punctuation">.</span>val <span class="token operator">&lt;=</span>link2<span class="token punctuation">.</span>val<span class="token punctuation">:</span>
+                tmp<span class="token punctuation">.</span>next <span class="token operator">=</span> link1
+                link1 <span class="token operator">=</span> link1<span class="token punctuation">.</span>next
+            <span class="token keyword">else</span><span class="token punctuation">:</span>
+                tmp<span class="token punctuation">.</span>next <span class="token operator">=</span> link2
+                link2 <span class="token operator">=</span> link2<span class="token punctuation">.</span>next
+            tmp <span class="token operator">=</span> tmp<span class="token punctuation">.</span>next
+        tmp<span class="token punctuation">.</span>next <span class="token operator">=</span> link1 <span class="token keyword">if</span> link1 <span class="token keyword">else</span> link2
+        <span class="token keyword">return</span> root<span class="token punctuation">.</span>next<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="有序数组"><a href="#有序数组" class="headerlink" title="有序数组"></a>有序数组</h4><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">mergeKLists</span><span class="token punctuation">(</span>self <span class="token punctuation">,</span> lists <span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true"># write code here</span>
+        queue <span class="token operator">=</span> <span class="token punctuation">[</span>link <span class="token keyword">for</span> link <span class="token keyword">in</span> lists <span class="token keyword">if</span> link<span class="token punctuation">]</span>
+        <span class="token keyword">if</span> <span class="token operator">not</span> queue<span class="token punctuation">:</span>
             <span class="token keyword">return</span> None
-        curr <span class="token operator">=</span> head
-        <span class="token comment" spellcheck="true"># 找出长度为k的一段链表</span>
-        <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>k<span class="token number">-1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-            curr <span class="token operator">=</span> curr<span class="token punctuation">.</span>next
-            <span class="token comment" spellcheck="true"># 剩余部分不够k个，直接返回不翻转</span>
-            <span class="token keyword">if</span> <span class="token operator">not</span> curr<span class="token punctuation">:</span>
-                <span class="token keyword">return</span> head
-        <span class="token comment" spellcheck="true"># tmp为剩余一段链表的头节点</span>
-        tmp <span class="token operator">=</span> curr<span class="token punctuation">.</span>next
-        <span class="token comment" spellcheck="true"># new_head为翻转后的头节点</span>
-        new_head <span class="token operator">=</span> self<span class="token punctuation">.</span>reverse<span class="token punctuation">(</span>head<span class="token punctuation">,</span> curr<span class="token punctuation">)</span>
-        <span class="token comment" spellcheck="true"># head变成了翻转后的尾节点，则尾节点指向递归后的返回值</span>
-        head<span class="token punctuation">.</span>next <span class="token operator">=</span> self<span class="token punctuation">.</span>reverseKGroup<span class="token punctuation">(</span>tmp<span class="token punctuation">,</span> k<span class="token punctuation">)</span>
-        <span class="token comment" spellcheck="true"># 递归返回值为翻转后的头节点</span>
-        <span class="token keyword">return</span> new_head
-
-    <span class="token keyword">def</span> <span class="token function">reverse</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> head<span class="token punctuation">,</span> tail<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        p<span class="token punctuation">,</span> c <span class="token operator">=</span> head<span class="token punctuation">,</span> head<span class="token punctuation">.</span>next
-        <span class="token keyword">while</span><span class="token punctuation">(</span>p<span class="token operator">!=</span>tail<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            q <span class="token operator">=</span> c<span class="token punctuation">.</span>next
-            c<span class="token punctuation">.</span>next <span class="token operator">=</span> p
-            p <span class="token operator">=</span> c
-            c <span class="token operator">=</span> q
-        <span class="token keyword">return</span> p<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>可以使用以下测试代码，测试翻转结果：</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">ListNode</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> x<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        self<span class="token punctuation">.</span>val <span class="token operator">=</span> x
-        self<span class="token punctuation">.</span>next <span class="token operator">=</span> None
-
-<span class="token comment" spellcheck="true"># 测试</span>
-a <span class="token operator">=</span> ListNode<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
-b <span class="token operator">=</span> ListNode<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
-c <span class="token operator">=</span> ListNode<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span>
-d <span class="token operator">=</span> ListNode<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span>
-
-a<span class="token punctuation">.</span>next <span class="token operator">=</span> b
-b<span class="token punctuation">.</span>next <span class="token operator">=</span> c
-c<span class="token punctuation">.</span>next <span class="token operator">=</span> d
-
-
-s <span class="token operator">=</span> Solution2<span class="token punctuation">(</span><span class="token punctuation">)</span>
-
-new_root <span class="token operator">=</span> s<span class="token punctuation">.</span>reverseKGroup<span class="token punctuation">(</span>a<span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span>
-
-<span class="token keyword">while</span> new_root<span class="token punctuation">:</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span>new_root<span class="token punctuation">.</span>val<span class="token punctuation">,</span> end<span class="token operator">=</span><span class="token string">''</span><span class="token punctuation">)</span>
-    <span class="token keyword">if</span> new_root<span class="token punctuation">.</span>next<span class="token punctuation">:</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">' -> '</span><span class="token punctuation">,</span> end<span class="token operator">=</span><span class="token string">''</span><span class="token punctuation">)</span>
-    new_root <span class="token operator">=</span> new_root<span class="token punctuation">.</span>next<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="C-代码"><a href="#C-代码" class="headerlink" title="C++代码"></a>C++代码</h3><pre class="line-numbers language-c++"><code class="language-c++">class Solution {
-public:
-    /**
-     * 
-     * @param head ListNode类 
-     * @param k int整型 
-     * @return ListNode类
-     */
-    ListNode* reverseKGroup(ListNode* head, int k) {
-        // write code here
-        if(!head){
-            return NULL;
-        }
-        ListNode* tail = head;
-        for(int i=1; i < k; i++){
-            tail = tail -> next;
-            if(!tail){
-                return head;
-            }
-        }
-        ListNode* next_chain = tail->next;
-        ListNode* reversed_head = reverseChain(head, tail);
-        head->next = reverseKGroup(next_chain, k);
-        return reversed_head;
-    }
-
-    ListNode* reverseChain(ListNode* head, ListNode* tail){
-        ListNode* p = head;
-        ListNode* c = head->next;
-        ListNode* q;
-        while(p!=tail){
-            q = c->next;
-            c->next = p;
-            p = c;
-            c = q;
-        }
-        return p;
-    }
-};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>c++代码的思想与python第二种方法的思想一致，详细见python代码的注释，不再赘述。</p>
+        <span class="token comment" spellcheck="true"># 这里用有序数组替代了最小堆</span>
+        queue<span class="token punctuation">.</span>sort<span class="token punctuation">(</span>key<span class="token operator">=</span><span class="token keyword">lambda</span> x<span class="token punctuation">:</span>x<span class="token punctuation">.</span>val<span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true"># 建立一个虚拟首节点</span>
+        root <span class="token operator">=</span> ListNode<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+        tmp <span class="token operator">=</span> root
+        <span class="token keyword">while</span> queue<span class="token punctuation">:</span>
+            <span class="token comment" spellcheck="true"># 取最小值，加入到有序链表</span>
+            tmp<span class="token punctuation">.</span>next <span class="token operator">=</span> queue<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+            tmp <span class="token operator">=</span> tmp<span class="token punctuation">.</span>next
+            <span class="token keyword">if</span> tmp<span class="token punctuation">.</span>next<span class="token punctuation">:</span>
+                queue<span class="token punctuation">.</span>append<span class="token punctuation">(</span>tmp<span class="token punctuation">.</span>next<span class="token punctuation">)</span>
+                queue<span class="token punctuation">.</span>sort<span class="token punctuation">(</span>key<span class="token operator">=</span><span class="token keyword">lambda</span> x<span class="token punctuation">:</span>x<span class="token punctuation">.</span>val<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> root<span class="token punctuation">.</span>next<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr />
@@ -669,9 +579,9 @@ public:
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《一道编程题——按组翻转链表》
+                    《一道编程题——合并K个有序链表》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/10/26/yi-dao-bian-cheng-ti-an-zu-fan-zhuan-lian-biao/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2020/03/24/yi-dao-bian-cheng-ti-he-bing-k-ge-you-xu-lian-biao/" property="cc:attributionName"
                rel="cc:attributionURL">
                 文杰
             </a> 采用
@@ -711,32 +621,82 @@ public:
     <article id="prenext-posts" class="prev-next articles">
         <div class="row article-row">
             
-                <div class="article col s12 m6" data-aos="fade-up">
-                    <div class="article-badge left-badge text-color">
-                        <i class="fa fa-chevron-left"></i>&nbsp;
-                        上一篇
-                    </div>
-                    <div class="card">
-                        <a href="/2019/12/11/yi-dao-bian-cheng-ti-pan-duan-lian-biao-shi-fou-you-huan/">
-                            <div class="card-image">
-                                
-                                        
-                                            <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="一道编程题——判断链表是否有环">
+                    <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+                        <div class="article-badge left-badge text-color">
+                            <i class="fa fa-dot-circle-o"></i>&nbsp;
+                            本篇
+                        </div>
+                        <div class="card">
+                            <a href="/2020/03/24/yi-dao-bian-cheng-ti-he-bing-k-ge-you-xu-lian-biao/">
+                                <div class="card-image">
+                                    
                                             
-                                                <span class="card-title">一道编程题——判断链表是否有环</span>
-                            </div>
-                        </a>
-                        <div class="card-content article-content">
-                            <div class="summary block-with-text">
-                                
-                                    判断给定的一个链表中是否有环。如果有环则返回true，否则返回false。需要给出空间复杂度为O(1)的解法。
-                                        
-                            </div>
-                            <div class="publish-info">
-                                <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-12-11
+                                                <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="一道编程题——合并K个有序链表">
+                                                
+                                                    <span class="card-title">一道编程题——合并K个有序链表</span>
+                                </div>
+                            </a>
+                            <div class="card-content article-content">
+                                <div class="summary block-with-text">
+                                    
+                                        合并 k 个已排序的链表并将其作为一个已排序的链表返回。这与之前遇到的合并两个有序链表为同类型的题目。
+                                            
+                                </div>
+                                <div class="publish-info">
+                                    <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-24
+                            </span>
+                                    <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/分类/" class="post-category" target="_blank">
+                                    分类
+                                </a>
+                            
+                            
                         </span>
-                                <span class="publish-author">
+                                </div>
+                            </div>
+
+                            
+                                <div class="card-action article-tags">
+                                    
+                                        <a href="/tags/编程算法/" target="_blank">
+                                            <span class="chip bg-color">编程算法</span>
+                                        </a>
+                                        
+                                </div>
+                                
+                        </div>
+                    </div>
+                    
+                        
+                            <div class="article col s12 m6" data-aos="fade-up">
+                                <div class="article-badge right-badge text-color">
+                                    下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+                                </div>
+                                <div class="card">
+                                    <a href="/2020/03/02/yi-dao-bian-cheng-ti-xun-zhao-huan-de-ru-kou-jie-dian/">
+                                        <div class="card-image">
+                                            
+                                                    
+                                                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="一道编程题——寻找环的入口节点">
+                                                        
+                                                            <span class="card-title">一道编程题——寻找环的入口节点</span>
+                                        </div>
+                                    </a>
+                                    <div class="card-content article-content">
+                                        <div class="summary block-with-text">
+                                            
+                                                对于一个给定的链表，返回链表中环的入口节点，如果没有环，则返回null，给出一个不利用额外空间的解法。
+                                                    
+                                        </div>
+                                        <div class="publish-info">
+                                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-02
+                            </span>
+                                            <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
@@ -746,66 +706,13 @@ public:
                             
                             
                         </span>
-                            </div>
-                        </div>
-                        
-                            <div class="card-action article-tags">
-                                
-                                    <a href="/tags/编程算法/" target="_blank">
-                                        <span class="chip bg-color">编程算法</span>
-                                    </a>
-                                    
-                            </div>
-                            
-                    </div>
-                </div>
-                
-                        
-                            <div class="article col s12 m6" data-aos="fade-up">
-                                <div class="article-badge right-badge text-color">
-                                    下一篇&nbsp;<i class="fa fa-chevron-right"></i>
-                                </div>
-                                <div class="card">
-                                    <a href="/2019/08/22/san-yuan-zu-sun-shi-mo-xing/">
-                                        <div class="card-image">
-                                            
-                                                    
-                                                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="三元组损失模型">
-                                                        
-                                                            <span class="card-title">三元组损失模型</span>
-                                        </div>
-                                    </a>
-                                    <div class="card-content article-content">
-                                        <div class="summary block-with-text">
-                                            
-                                                三元组损失（Triplet loss）函数是当前应用较为广泛的一种损失函数，最早由Google研究团队在论文《FaceNet：A Unified Embedding for Face Recognition》所提出，常用在人脸识别任务中。目的是做到非同类极相似样本的区分。
-                                                    
-                                        </div>
-                                        <div class="publish-info">
-                                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-22
-                            </span>
-                                            <span class="publish-author">
-                            
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/深度学习/" class="post-category" target="_blank">
-                                    深度学习
-                                </a>
-                            
-                            
-                        </span>
                                         </div>
                                     </div>
                                     
                                         <div class="card-action article-tags">
                                             
-                                                <a href="/tags/图像分类/" target="_blank">
-                                                    <span class="chip bg-color">图像分类</span>
-                                                </a>
-                                                
-                                                <a href="/tags/三元组损失/" target="_blank">
-                                                    <span class="chip bg-color">三元组损失</span>
+                                                <a href="/tags/编程算法/" target="_blank">
+                                                    <span class="chip bg-color">编程算法</span>
                                                 </a>
                                                 
                                         </div>
