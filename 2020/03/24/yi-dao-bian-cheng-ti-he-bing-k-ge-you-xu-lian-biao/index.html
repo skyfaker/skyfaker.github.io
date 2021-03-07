@@ -463,7 +463,7 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    814
+                    849
                 </div>
                 
 
@@ -545,70 +545,70 @@
                 queue<span class="token punctuation">.</span>append<span class="token punctuation">(</span>tmp<span class="token punctuation">.</span>next<span class="token punctuation">)</span>
                 queue<span class="token punctuation">.</span>sort<span class="token punctuation">(</span>key<span class="token operator">=</span><span class="token keyword">lambda</span> x<span class="token punctuation">:</span>x<span class="token punctuation">.</span>val<span class="token punctuation">)</span>
         <span class="token keyword">return</span> root<span class="token punctuation">.</span>next<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="C-实现"><a href="#C-实现" class="headerlink" title="C++实现"></a>C++实现</h3><h4 id="归并-1"><a href="#归并-1" class="headerlink" title="归并"></a>归并</h4><pre class="line-numbers language-c++"><code class="language-c++">class Solution {
-public:
-    ListNode *mergeKLists(vector<ListNode *> &lists) {
-        if(lists.size() == 0) return nullptr;
-        ListNode* root = lists[0];
-        for(int i=1; i < lists.size();i++){
-            root = merge(root, lists[i]);
-        }
-        return root;
-    }
-    // 合并两个有序链表，返回新链表的头节点 
-    ListNode* merge(ListNode* l1, ListNode* l2){
-        if(l1==NULL)return l2;
-        if(l2==NULL)return l1;
-        ListNode* root = new ListNode(0);
-        ListNode* tmp = root;
-        while(l1!=NULL && l2!=NULL){
-            if(l1 -> val <= l2 -> val){
-                tmp -> next = l1;
-                l1 = l1 -> next;
-            }
-            else{
-                tmp -> next = l2;
-                l2 = l2 -> next;
-            }
-            tmp = tmp->next;
-        }
-        if(l1!=NULL) tmp -> next = l1;
-        else tmp -> next = l2;
-        return root -> next;
-    }
-};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h4><pre class="line-numbers language-c++"><code class="language-c++">class Solution {
-public:
-    ListNode *mergeKLists(vector<ListNode *> &lists) {
-        ListNode L(0);
-        ListNode *p = &L;
-        vector<ListNode *> v;
+<h3 id="C-实现"><a href="#C-实现" class="headerlink" title="C++实现"></a>C++实现</h3><h4 id="归并-1"><a href="#归并-1" class="headerlink" title="归并"></a>归并</h4><pre class="line-numbers language-c"><code class="language-c">class Solution <span class="token punctuation">{</span>
+public<span class="token punctuation">:</span>
+    ListNode <span class="token operator">*</span><span class="token function">mergeKLists</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span>ListNode <span class="token operator">*</span><span class="token operator">></span> <span class="token operator">&amp;</span>lists<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>lists<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">return</span> nullptr<span class="token punctuation">;</span>
+        ListNode<span class="token operator">*</span> root <span class="token operator">=</span> lists<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> lists<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            root <span class="token operator">=</span> <span class="token function">merge</span><span class="token punctuation">(</span>root<span class="token punctuation">,</span> lists<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> root<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">// 合并两个有序链表，返回新链表的头节点 </span>
+    ListNode<span class="token operator">*</span> <span class="token function">merge</span><span class="token punctuation">(</span>ListNode<span class="token operator">*</span> l1<span class="token punctuation">,</span> ListNode<span class="token operator">*</span> l2<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>l1<span class="token operator">==</span><span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token keyword">return</span> l2<span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>l2<span class="token operator">==</span><span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token keyword">return</span> l1<span class="token punctuation">;</span>
+        ListNode<span class="token operator">*</span> root <span class="token operator">=</span> new <span class="token function">ListNode</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        ListNode<span class="token operator">*</span> tmp <span class="token operator">=</span> root<span class="token punctuation">;</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span>l1<span class="token operator">!=</span><span class="token constant">NULL</span> <span class="token operator">&amp;&amp;</span> l2<span class="token operator">!=</span><span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>l1 <span class="token operator">-></span> val <span class="token operator">&lt;=</span> l2 <span class="token operator">-></span> val<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                tmp <span class="token operator">-></span> next <span class="token operator">=</span> l1<span class="token punctuation">;</span>
+                l1 <span class="token operator">=</span> l1 <span class="token operator">-></span> next<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">else</span><span class="token punctuation">{</span>
+                tmp <span class="token operator">-></span> next <span class="token operator">=</span> l2<span class="token punctuation">;</span>
+                l2 <span class="token operator">=</span> l2 <span class="token operator">-></span> next<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            tmp <span class="token operator">=</span> tmp<span class="token operator">-></span>next<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>l1<span class="token operator">!=</span><span class="token constant">NULL</span><span class="token punctuation">)</span> tmp <span class="token operator">-></span> next <span class="token operator">=</span> l1<span class="token punctuation">;</span>
+        <span class="token keyword">else</span> tmp <span class="token operator">-></span> next <span class="token operator">=</span> l2<span class="token punctuation">;</span>
+        <span class="token keyword">return</span> root <span class="token operator">-></span> next<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h4><pre class="line-numbers language-c"><code class="language-c">class Solution <span class="token punctuation">{</span>
+public<span class="token punctuation">:</span>
+    ListNode <span class="token operator">*</span><span class="token function">mergeKLists</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span>ListNode <span class="token operator">*</span><span class="token operator">></span> <span class="token operator">&amp;</span>lists<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        ListNode <span class="token function">L</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        ListNode <span class="token operator">*</span>p <span class="token operator">=</span> <span class="token operator">&amp;</span>L<span class="token punctuation">;</span>
+        vector<span class="token operator">&lt;</span>ListNode <span class="token operator">*</span><span class="token operator">></span> v<span class="token punctuation">;</span>
 
-        int n = lists.size();
-        for(int i=0;i<n;i++)
-            if(lists[i] != NULL)
-                v.push_back(lists[i]);
+        <span class="token keyword">int</span> n <span class="token operator">=</span> lists<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>lists<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">!=</span> <span class="token constant">NULL</span><span class="token punctuation">)</span>
+                v<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>lists<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        make_heap(v.begin(),v.end(),cmp);
-        while(v.size())
-        {
-            p -> next = v.front();
-            pop_heap(v.begin(),v.end(),cmp);
-            v.pop_back();
-            p = p -> next;
-            if(p -> next)
-            {
-                v.push_back(p -> next);
-                push_heap(v.begin(),v.end(),cmp);
-            }
-        }
-        return L.next;
-    }
-    static bool cmp(ListNode *L1,ListNode *L2)
-    {
-        return L1 -> val > L2 -> val;
-    }
-};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+        <span class="token function">make_heap</span><span class="token punctuation">(</span>v<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>v<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>cmp<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span>v<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            p <span class="token operator">-></span> next <span class="token operator">=</span> v<span class="token punctuation">.</span><span class="token function">front</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token function">pop_heap</span><span class="token punctuation">(</span>v<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>v<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>cmp<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            v<span class="token punctuation">.</span><span class="token function">pop_back</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            p <span class="token operator">=</span> p <span class="token operator">-></span> next<span class="token punctuation">;</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>p <span class="token operator">-></span> next<span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                v<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>p <span class="token operator">-></span> next<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token function">push_heap</span><span class="token punctuation">(</span>v<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>v<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>cmp<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> L<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">static</span> bool <span class="token function">cmp</span><span class="token punctuation">(</span>ListNode <span class="token operator">*</span>L1<span class="token punctuation">,</span>ListNode <span class="token operator">*</span>L2<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> L1 <span class="token operator">-></span> val <span class="token operator">></span> L2 <span class="token operator">-></span> val<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr />
