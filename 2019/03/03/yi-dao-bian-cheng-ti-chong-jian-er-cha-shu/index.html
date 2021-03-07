@@ -460,7 +460,7 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    805
+                    814
                 </div>
                 
 
@@ -515,42 +515,42 @@
         root<span class="token punctuation">.</span>left <span class="token operator">=</span> self<span class="token punctuation">.</span>reConstructBinaryTree<span class="token punctuation">(</span>pre<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span>tin<span class="token punctuation">.</span>index<span class="token punctuation">(</span>pre<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> tin<span class="token punctuation">[</span><span class="token punctuation">:</span>tin<span class="token punctuation">.</span>index<span class="token punctuation">(</span>pre<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
         root<span class="token punctuation">.</span>right <span class="token operator">=</span> self<span class="token punctuation">.</span>reConstructBinaryTree<span class="token punctuation">(</span>pre<span class="token punctuation">[</span>tin<span class="token punctuation">.</span>index<span class="token punctuation">(</span>pre<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">,</span> tin<span class="token punctuation">[</span>tin<span class="token punctuation">.</span>index<span class="token punctuation">(</span>pre<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
         <span class="token keyword">return</span> root<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="C-实现"><a href="#C-实现" class="headerlink" title="C++实现"></a>C++实现</h3><pre class="line-numbers language-c++"><code class="language-c++">class Solution {
-public:
-    TreeNode* reConstructBinaryTree(vector<int> pre,vector<int> vin) {
-        int p_size = pre.size();
-        if (p_size ==0)
-            return NULL;
-        vector<int> pre_left, pre_right, vin_left, vin_right;
-        int val = pre[0];
-        TreeNode* root = new TreeNode(val);
-        // 寻找根节点在中序遍历中的位置
-        int p =0;
-        for(p; p < p_size; p++){
-            if(vin[p] == val)
-                break;
-        }
-        // 根据根节点在中序遍历中的位置，分为左子树和右子树
-        for(int i=0; i < p_size; i++){
-            if(i < p){ 
-                //左子树
-                // 前序遍历的第一个元素是根节点，后面是左子树和右子树，所以从1开始
-                pre_left.push_back(pre[i+1]);
-                vin_left.push_back(vin[i]);
-            }
-            else if(i > p){ 
-                //右子树
-                pre_right.push_back(pre[i]);
-                vin_right.push_back(vin[i]);
-            }
-        }
-        // 递归左右子树
-        root->left = reConstructBinaryTree(pre_left, vin_left);
-        root->right = reConstructBinaryTree(pre_right, vin_right);
+<h3 id="C-实现"><a href="#C-实现" class="headerlink" title="C++实现"></a>C++实现</h3><pre class="line-numbers language-c"><code class="language-c">class Solution <span class="token punctuation">{</span>
+public<span class="token punctuation">:</span>
+    TreeNode<span class="token operator">*</span> <span class="token function">reConstructBinaryTree</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> pre<span class="token punctuation">,</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> vin<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> p_size <span class="token operator">=</span> pre<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>p_size <span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">)</span>
+            <span class="token keyword">return</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+        vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> pre_left<span class="token punctuation">,</span> pre_right<span class="token punctuation">,</span> vin_left<span class="token punctuation">,</span> vin_right<span class="token punctuation">;</span>
+        <span class="token keyword">int</span> val <span class="token operator">=</span> pre<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        TreeNode<span class="token operator">*</span> root <span class="token operator">=</span> new <span class="token function">TreeNode</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">// 寻找根节点在中序遍历中的位置</span>
+        <span class="token keyword">int</span> p <span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span>p<span class="token punctuation">;</span> p <span class="token operator">&lt;</span> p_size<span class="token punctuation">;</span> p<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>vin<span class="token punctuation">[</span>p<span class="token punctuation">]</span> <span class="token operator">==</span> val<span class="token punctuation">)</span>
+                <span class="token keyword">break</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token comment" spellcheck="true">// 根据根节点在中序遍历中的位置，分为左子树和右子树</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> p_size<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>i <span class="token operator">&lt;</span> p<span class="token punctuation">)</span><span class="token punctuation">{</span> 
+                <span class="token comment" spellcheck="true">//左子树</span>
+                <span class="token comment" spellcheck="true">// 前序遍历的第一个元素是根节点，后面是左子树和右子树，所以从1开始</span>
+                pre_left<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>pre<span class="token punctuation">[</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                vin_left<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>vin<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>i <span class="token operator">></span> p<span class="token punctuation">)</span><span class="token punctuation">{</span> 
+                <span class="token comment" spellcheck="true">//右子树</span>
+                pre_right<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>pre<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                vin_right<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>vin<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token comment" spellcheck="true">// 递归左右子树</span>
+        root<span class="token operator">-></span>left <span class="token operator">=</span> <span class="token function">reConstructBinaryTree</span><span class="token punctuation">(</span>pre_left<span class="token punctuation">,</span> vin_left<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        root<span class="token operator">-></span>right <span class="token operator">=</span> <span class="token function">reConstructBinaryTree</span><span class="token punctuation">(</span>pre_right<span class="token punctuation">,</span> vin_right<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        return root;
-    }
-};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+        <span class="token keyword">return</span> root<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr />

@@ -464,7 +464,7 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    518
+                    520
                 </div>
                 
 
@@ -515,32 +515,32 @@
             <span class="token keyword">if</span> fast_p <span class="token operator">==</span> slow_p<span class="token punctuation">:</span>
                 <span class="token keyword">return</span> <span class="token boolean">True</span>
         <span class="token keyword">return</span> <span class="token boolean">False</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="c"><a href="#c" class="headerlink" title="c++"></a>c++</h4><pre class="line-numbers language-c++"><code class="language-c++">/**
+<h4 id="c"><a href="#c" class="headerlink" title="c++"></a>c++</h4><pre class="line-numbers language-c"><code class="language-c"><span class="token comment" spellcheck="true">/**
  * Definition for singly-linked list.
  * struct ListNode {
  *     int val;
  *     ListNode *next;
  *     ListNode(int x) : val(x), next(NULL) {}
  * };
- */
-class Solution {
-public:
-    bool hasCycle(ListNode *head) {
-        if(!head) {
-            return false;
-        }
-        ListNode* slow_p = head;
-        ListNode* fast_p = head;
-        while(fast_p && fast_p->next){
-            fast_p = fast_p->next->next;
-            slow_p = slow_p->next;
-            if(fast_p == slow_p){
-                return true;
-            }
-        }
-        return false;
-    }
-};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+ */</span>
+class Solution <span class="token punctuation">{</span>
+public<span class="token punctuation">:</span>
+    bool <span class="token function">hasCycle</span><span class="token punctuation">(</span>ListNode <span class="token operator">*</span>head<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>head<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> false<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        ListNode<span class="token operator">*</span> slow_p <span class="token operator">=</span> head<span class="token punctuation">;</span>
+        ListNode<span class="token operator">*</span> fast_p <span class="token operator">=</span> head<span class="token punctuation">;</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span>fast_p <span class="token operator">&amp;&amp;</span> fast_p<span class="token operator">-></span>next<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            fast_p <span class="token operator">=</span> fast_p<span class="token operator">-></span>next<span class="token operator">-></span>next<span class="token punctuation">;</span>
+            slow_p <span class="token operator">=</span> slow_p<span class="token operator">-></span>next<span class="token punctuation">;</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>fast_p <span class="token operator">==</span> slow_p<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token keyword">return</span> true<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> false<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr />

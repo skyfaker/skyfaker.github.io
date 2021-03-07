@@ -463,7 +463,7 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    702
+                    710
                 </div>
                 
 
@@ -507,36 +507,36 @@
             root <span class="token operator">=</span> l2
             root<span class="token punctuation">.</span>next <span class="token operator">=</span> self<span class="token punctuation">.</span>mergeTwoLists<span class="token punctuation">(</span>l1<span class="token punctuation">,</span> l2<span class="token punctuation">.</span>next<span class="token punctuation">)</span>
         <span class="token keyword">return</span> root<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="C-实现"><a href="#C-实现" class="headerlink" title="C++实现"></a>C++实现</h4><pre class="line-numbers language-c++"><code class="language-c++">// 递归
-class Solution {
-public:
-    /**
+<h4 id="C-实现"><a href="#C-实现" class="headerlink" title="C++实现"></a>C++实现</h4><pre class="line-numbers language-c"><code class="language-c"><span class="token comment" spellcheck="true">// 递归</span>
+class Solution <span class="token punctuation">{</span>
+public<span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true">/**
      * 
      * @param l1 ListNode类 
      * @param l2 ListNode类 
      * @return ListNode类
-     */
-    ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
-        // write code here
-        ListNode* root;
-        // 存在空链表，则返回另一个链表
-        if(l1 == NULL or l2 == NULL){
-            root = (l1 == NULL) ? l2 : l1; 
-            return root;
-        } 
-        // l1小，则新节点为l1，并递归l1的下一个节点和l2
-        if(l1-> val <= l2->val){
-            root = l1;
-            root->next = mergeTwoLists(l1->next, l2);
-        }
-        // l2小，则新节点为l2，并递归l1和l2的下一个节点
-        else{
-            root = l2;
-            root->next = mergeTwoLists(l1, l2->next);
-        }
-        return root;
-    }
-};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+     */</span>
+    ListNode<span class="token operator">*</span> <span class="token function">mergeTwoLists</span><span class="token punctuation">(</span>ListNode<span class="token operator">*</span> l1<span class="token punctuation">,</span> ListNode<span class="token operator">*</span> l2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// write code here</span>
+        ListNode<span class="token operator">*</span> root<span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">// 存在空链表，则返回另一个链表</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>l1 <span class="token operator">==</span> <span class="token constant">NULL</span> or l2 <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            root <span class="token operator">=</span> <span class="token punctuation">(</span>l1 <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span> <span class="token operator">?</span> l2 <span class="token punctuation">:</span> l1<span class="token punctuation">;</span> 
+            <span class="token keyword">return</span> root<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> 
+        <span class="token comment" spellcheck="true">// l1小，则新节点为l1，并递归l1的下一个节点和l2</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>l1<span class="token operator">-></span> val <span class="token operator">&lt;=</span> l2<span class="token operator">-></span>val<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            root <span class="token operator">=</span> l1<span class="token punctuation">;</span>
+            root<span class="token operator">-></span>next <span class="token operator">=</span> <span class="token function">mergeTwoLists</span><span class="token punctuation">(</span>l1<span class="token operator">-></span>next<span class="token punctuation">,</span> l2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token comment" spellcheck="true">// l2小，则新节点为l2，并递归l1和l2的下一个节点</span>
+        <span class="token keyword">else</span><span class="token punctuation">{</span>
+            root <span class="token operator">=</span> l2<span class="token punctuation">;</span>
+            root<span class="token operator">-></span>next <span class="token operator">=</span> <span class="token function">mergeTwoLists</span><span class="token punctuation">(</span>l1<span class="token punctuation">,</span> l2<span class="token operator">-></span>next<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> root<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="迭代"><a href="#迭代" class="headerlink" title="迭代"></a>迭代</h3><p>依次遍历两个链表，小的加入到新链表。</p>
 <h4 id="python实现-1"><a href="#python实现-1" class="headerlink" title="python实现"></a>python实现</h4><pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 迭代</span>
 <span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
@@ -569,50 +569,50 @@ public:
         <span class="token comment" spellcheck="true"># 没有遍历完的链表直接接到后面</span>
         curr<span class="token punctuation">.</span>next <span class="token operator">=</span> a <span class="token keyword">if</span> a <span class="token keyword">else</span> b
         <span class="token keyword">return</span> root<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="C-实现-1"><a href="#C-实现-1" class="headerlink" title="C++实现"></a>C++实现</h4><pre class="line-numbers language-c++"><code class="language-c++">// 迭代
-class Solution {
-public:
-    /**
+<h4 id="C-实现-1"><a href="#C-实现-1" class="headerlink" title="C++实现"></a>C++实现</h4><pre class="line-numbers language-c"><code class="language-c"><span class="token comment" spellcheck="true">// 迭代</span>
+class Solution <span class="token punctuation">{</span>
+public<span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true">/**
      * 
      * @param l1 ListNode类 
      * @param l2 ListNode类 
      * @return ListNode类
-     */
-    ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
-        // write code here
-        ListNode* root;
-        // 存在空链表，则返回另一个链表
-        if(l1 == NULL or l2 == NULL){
-            root = (l1 == NULL) ? l2 : l1; 
-            return root;
-        } 
-        // 新链表的头节点指向两个链表中较小的一个
-        if(l1->val <= l2->val){
-            root = l1;
-            l1 = l1->next;
-        }
-        else{
-            root = l2;
-            l2 = l2->next;
-        }
-        // 迭代，依次比较剩余两个链表的头节点大小，小的加入到新链表
-        ListNode *tmp = root;
-        while(l1!=NULL && l2!=NULL){
-            if(l1->val <= l2->val){
-                tmp->next = l1;
-                l1 = l1->next;
-            }
-            else{
-                tmp->next = l2;
-                l2 = l2->next;
-            }
-            tmp = tmp->next;
-        }
-        // 其中一个链表迭代结束，则另一个的剩余部分直接接到后面
-        tmp->next = (l1!=NULL) ? l1 : l2;
-        return root;
-    }
-};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+     */</span>
+    ListNode<span class="token operator">*</span> <span class="token function">mergeTwoLists</span><span class="token punctuation">(</span>ListNode<span class="token operator">*</span> l1<span class="token punctuation">,</span> ListNode<span class="token operator">*</span> l2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// write code here</span>
+        ListNode<span class="token operator">*</span> root<span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">// 存在空链表，则返回另一个链表</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>l1 <span class="token operator">==</span> <span class="token constant">NULL</span> or l2 <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            root <span class="token operator">=</span> <span class="token punctuation">(</span>l1 <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span> <span class="token operator">?</span> l2 <span class="token punctuation">:</span> l1<span class="token punctuation">;</span> 
+            <span class="token keyword">return</span> root<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> 
+        <span class="token comment" spellcheck="true">// 新链表的头节点指向两个链表中较小的一个</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>l1<span class="token operator">-></span>val <span class="token operator">&lt;=</span> l2<span class="token operator">-></span>val<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            root <span class="token operator">=</span> l1<span class="token punctuation">;</span>
+            l1 <span class="token operator">=</span> l1<span class="token operator">-></span>next<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">else</span><span class="token punctuation">{</span>
+            root <span class="token operator">=</span> l2<span class="token punctuation">;</span>
+            l2 <span class="token operator">=</span> l2<span class="token operator">-></span>next<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token comment" spellcheck="true">// 迭代，依次比较剩余两个链表的头节点大小，小的加入到新链表</span>
+        ListNode <span class="token operator">*</span>tmp <span class="token operator">=</span> root<span class="token punctuation">;</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span>l1<span class="token operator">!=</span><span class="token constant">NULL</span> <span class="token operator">&amp;&amp;</span> l2<span class="token operator">!=</span><span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>l1<span class="token operator">-></span>val <span class="token operator">&lt;=</span> l2<span class="token operator">-></span>val<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                tmp<span class="token operator">-></span>next <span class="token operator">=</span> l1<span class="token punctuation">;</span>
+                l1 <span class="token operator">=</span> l1<span class="token operator">-></span>next<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">else</span><span class="token punctuation">{</span>
+                tmp<span class="token operator">-></span>next <span class="token operator">=</span> l2<span class="token punctuation">;</span>
+                l2 <span class="token operator">=</span> l2<span class="token operator">-></span>next<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            tmp <span class="token operator">=</span> tmp<span class="token operator">-></span>next<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token comment" spellcheck="true">// 其中一个链表迭代结束，则另一个的剩余部分直接接到后面</span>
+        tmp<span class="token operator">-></span>next <span class="token operator">=</span> <span class="token punctuation">(</span>l1<span class="token operator">!=</span><span class="token constant">NULL</span><span class="token punctuation">)</span> <span class="token operator">?</span> l1 <span class="token punctuation">:</span> l2<span class="token punctuation">;</span>
+        <span class="token keyword">return</span> root<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr />

@@ -465,7 +465,7 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    636
+                    640
                 </div>
                 
 
@@ -518,29 +518,29 @@
         <span class="token comment" spellcheck="true"># 继续递归</span>
         <span class="token keyword">else</span><span class="token punctuation">:</span>
             <span class="token keyword">return</span> self<span class="token punctuation">.</span>checkout<span class="token punctuation">(</span>root1<span class="token punctuation">.</span>left<span class="token punctuation">,</span> root2<span class="token punctuation">.</span>right<span class="token punctuation">)</span> <span class="token operator">and</span> self<span class="token punctuation">.</span>checkout<span class="token punctuation">(</span>root1<span class="token punctuation">.</span>right<span class="token punctuation">,</span> root2<span class="token punctuation">.</span>left<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="C-实现"><a href="#C-实现" class="headerlink" title="C++实现"></a>C++实现</h4><pre class="line-numbers language-c++"><code class="language-c++">// 递归
-class Solution {
-public:
-    /**
+<h4 id="C-实现"><a href="#C-实现" class="headerlink" title="C++实现"></a>C++实现</h4><pre class="line-numbers language-c"><code class="language-c"><span class="token comment" spellcheck="true">// 递归</span>
+class Solution <span class="token punctuation">{</span>
+public<span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true">/**
      * 
      * @param root TreeNode类 
      * @return bool布尔型
-     */
-    bool isSymmetric(TreeNode* root) {
-        // write code here
-        if(!root){
-            return true;
-        }
-        return check(root, root);
-    }
+     */</span>
+    bool <span class="token function">isSymmetric</span><span class="token punctuation">(</span>TreeNode<span class="token operator">*</span> root<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// write code here</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>root<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">return</span> true<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> <span class="token function">check</span><span class="token punctuation">(</span>root<span class="token punctuation">,</span> root<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    bool check(TreeNode* root1, TreeNode* root2){
-        if(!root1 && !root2) return true;
-        else if(!root1 || !root2) return false;
-        else if(root1->val != root2->val) return false;
-        return check(root1->left, root2->right) && check(root1->right, root2->left);
-    }
-};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    bool <span class="token function">check</span><span class="token punctuation">(</span>TreeNode<span class="token operator">*</span> root1<span class="token punctuation">,</span> TreeNode<span class="token operator">*</span> root2<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>root1 <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span>root2<span class="token punctuation">)</span> <span class="token keyword">return</span> true<span class="token punctuation">;</span>
+        <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>root1 <span class="token operator">||</span> <span class="token operator">!</span>root2<span class="token punctuation">)</span> <span class="token keyword">return</span> false<span class="token punctuation">;</span>
+        <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>root1<span class="token operator">-></span>val <span class="token operator">!=</span> root2<span class="token operator">-></span>val<span class="token punctuation">)</span> <span class="token keyword">return</span> false<span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token function">check</span><span class="token punctuation">(</span>root1<span class="token operator">-></span>left<span class="token punctuation">,</span> root2<span class="token operator">-></span>right<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token function">check</span><span class="token punctuation">(</span>root1<span class="token operator">-></span>right<span class="token punctuation">,</span> root2<span class="token operator">-></span>left<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="迭代："><a href="#迭代：" class="headerlink" title="迭代："></a>迭代：</h3><p>类似于BFS，逐层遍历节点入栈（或者队列），只不过入栈的顺序与层次遍历不太一样。</p>
 <p>栈中元素为：<code>[左子树，右子树] -&gt;  [左子树的左子树，右子树的右子树，左子树的右子树，右子树的左子树]</code></p>
 <p>这样，只要比较栈中的成对的两个元素，直到栈为空。</p>

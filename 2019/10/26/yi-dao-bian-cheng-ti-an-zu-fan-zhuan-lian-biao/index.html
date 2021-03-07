@@ -595,45 +595,45 @@ new_root <span class="token operator">=</span> s<span class="token punctuation">
     <span class="token keyword">if</span> new_root<span class="token punctuation">.</span>next<span class="token punctuation">:</span>
         <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">' -> '</span><span class="token punctuation">,</span> end<span class="token operator">=</span><span class="token string">''</span><span class="token punctuation">)</span>
     new_root <span class="token operator">=</span> new_root<span class="token punctuation">.</span>next<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="C-代码"><a href="#C-代码" class="headerlink" title="C++代码"></a>C++代码</h3><pre class="line-numbers language-c++"><code class="language-c++">class Solution {
-public:
-    /**
+<h3 id="C-实现"><a href="#C-实现" class="headerlink" title="C++实现"></a>C++实现</h3><pre class="line-numbers language-c"><code class="language-c">class Solution <span class="token punctuation">{</span>
+public<span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true">/**
      * 
      * @param head ListNode类 
      * @param k int整型 
      * @return ListNode类
-     */
-    ListNode* reverseKGroup(ListNode* head, int k) {
-        // write code here
-        if(!head){
-            return NULL;
-        }
-        ListNode* tail = head;
-        for(int i=1; i < k; i++){
-            tail = tail -> next;
-            if(!tail){
-                return head;
-            }
-        }
-        ListNode* next_chain = tail->next;
-        ListNode* reversed_head = reverseChain(head, tail);
-        head->next = reverseKGroup(next_chain, k);
-        return reversed_head;
-    }
+     */</span>
+    ListNode<span class="token operator">*</span> <span class="token function">reverseKGroup</span><span class="token punctuation">(</span>ListNode<span class="token operator">*</span> head<span class="token punctuation">,</span> <span class="token keyword">int</span> k<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// write code here</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>head<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        ListNode<span class="token operator">*</span> tail <span class="token operator">=</span> head<span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> k<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            tail <span class="token operator">=</span> tail <span class="token operator">-></span> next<span class="token punctuation">;</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>tail<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token keyword">return</span> head<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        ListNode<span class="token operator">*</span> next_chain <span class="token operator">=</span> tail<span class="token operator">-></span>next<span class="token punctuation">;</span>
+        ListNode<span class="token operator">*</span> reversed_head <span class="token operator">=</span> <span class="token function">reverseChain</span><span class="token punctuation">(</span>head<span class="token punctuation">,</span> tail<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        head<span class="token operator">-></span>next <span class="token operator">=</span> <span class="token function">reverseKGroup</span><span class="token punctuation">(</span>next_chain<span class="token punctuation">,</span> k<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> reversed_head<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    ListNode* reverseChain(ListNode* head, ListNode* tail){
-        ListNode* p = head;
-        ListNode* c = head->next;
-        ListNode* q;
-        while(p!=tail){
-            q = c->next;
-            c->next = p;
-            p = c;
-            c = q;
-        }
-        return p;
-    }
-};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    ListNode<span class="token operator">*</span> <span class="token function">reverseChain</span><span class="token punctuation">(</span>ListNode<span class="token operator">*</span> head<span class="token punctuation">,</span> ListNode<span class="token operator">*</span> tail<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        ListNode<span class="token operator">*</span> p <span class="token operator">=</span> head<span class="token punctuation">;</span>
+        ListNode<span class="token operator">*</span> c <span class="token operator">=</span> head<span class="token operator">-></span>next<span class="token punctuation">;</span>
+        ListNode<span class="token operator">*</span> q<span class="token punctuation">;</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span>p<span class="token operator">!=</span>tail<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            q <span class="token operator">=</span> c<span class="token operator">-></span>next<span class="token punctuation">;</span>
+            c<span class="token operator">-></span>next <span class="token operator">=</span> p<span class="token punctuation">;</span>
+            p <span class="token operator">=</span> c<span class="token punctuation">;</span>
+            c <span class="token operator">=</span> q<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> p<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>c++代码的思想与python第二种方法的思想一致，详细见python代码的注释，不再赘述。</p>
 
             </div>

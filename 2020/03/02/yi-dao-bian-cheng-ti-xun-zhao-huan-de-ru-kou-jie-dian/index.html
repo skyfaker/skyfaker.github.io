@@ -464,7 +464,7 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    665
+                    667
                 </div>
                 
 
@@ -524,34 +524,34 @@
             <span class="token keyword">if</span> s<span class="token operator">==</span>f<span class="token punctuation">:</span>
                 <span class="token keyword">return</span> s
         <span class="token keyword">return</span> None<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="C-实现"><a href="#C-实现" class="headerlink" title="C++实现"></a>C++实现</h3><pre class="line-numbers language-c++"><code class="language-c++">class Solution {
-public:
-    ListNode *detectCycle(ListNode *head) {
-        if(head==NULL) return NULL;
-        // 判断是否存在环
-        ListNode *node = find_circle(head);
-        if(node==NULL) return NULL;
-        // 设置一个从头节点开始的慢指针，两个慢指针再次相遇时即为换的入口
-        ListNode *s = head;
-        while(s!=node){
-            s = s->next;
-            node = node->next;
-        }
-        return node;
-    }
+<h3 id="C-实现"><a href="#C-实现" class="headerlink" title="C++实现"></a>C++实现</h3><pre class="line-numbers language-c"><code class="language-c">class Solution <span class="token punctuation">{</span>
+public<span class="token punctuation">:</span>
+    ListNode <span class="token operator">*</span><span class="token function">detectCycle</span><span class="token punctuation">(</span>ListNode <span class="token operator">*</span>head<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>head<span class="token operator">==</span><span class="token constant">NULL</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">// 判断是否存在环</span>
+        ListNode <span class="token operator">*</span>node <span class="token operator">=</span> <span class="token function">find_circle</span><span class="token punctuation">(</span>head<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>node<span class="token operator">==</span><span class="token constant">NULL</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">// 设置一个从头节点开始的慢指针，两个慢指针再次相遇时即为换的入口</span>
+        ListNode <span class="token operator">*</span>s <span class="token operator">=</span> head<span class="token punctuation">;</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span>s<span class="token operator">!=</span>node<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            s <span class="token operator">=</span> s<span class="token operator">-></span>next<span class="token punctuation">;</span>
+            node <span class="token operator">=</span> node<span class="token operator">-></span>next<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> node<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    // 判断是否存在环，存在则返回快慢指针相遇的节点
-    ListNode *find_circle(ListNode *head){
-        ListNode * s = head;
-        ListNode * f = head;
-        while(f!=NULL && f->next!=NULL){
-            s = s->next;
-            f = f->next->next;
-            if(s==f) return s;
-        }
-        return NULL;
-    }
-};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <span class="token comment" spellcheck="true">// 判断是否存在环，存在则返回快慢指针相遇的节点</span>
+    ListNode <span class="token operator">*</span><span class="token function">find_circle</span><span class="token punctuation">(</span>ListNode <span class="token operator">*</span>head<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        ListNode <span class="token operator">*</span> s <span class="token operator">=</span> head<span class="token punctuation">;</span>
+        ListNode <span class="token operator">*</span> f <span class="token operator">=</span> head<span class="token punctuation">;</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span>f<span class="token operator">!=</span><span class="token constant">NULL</span> <span class="token operator">&amp;&amp;</span> f<span class="token operator">-></span>next<span class="token operator">!=</span><span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            s <span class="token operator">=</span> s<span class="token operator">-></span>next<span class="token punctuation">;</span>
+            f <span class="token operator">=</span> f<span class="token operator">-></span>next<span class="token operator">-></span>next<span class="token punctuation">;</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>s<span class="token operator">==</span>f<span class="token punctuation">)</span> <span class="token keyword">return</span> s<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr />
