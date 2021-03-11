@@ -307,7 +307,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -464,14 +464,14 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    427
+                    568
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
                 
@@ -508,7 +508,7 @@
         tmp <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
         self<span class="token punctuation">.</span>findPath<span class="token punctuation">(</span>root<span class="token punctuation">,</span> sum<span class="token punctuation">,</span> tmp<span class="token punctuation">)</span>
         <span class="token keyword">return</span> self<span class="token punctuation">.</span>re
-
+    <span class="token comment" spellcheck="true"># python函数传参形参为数组时传的是引用</span>
     <span class="token keyword">def</span> <span class="token function">findPath</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> root<span class="token punctuation">,</span> sum<span class="token punctuation">,</span> tmp<span class="token punctuation">)</span><span class="token punctuation">:</span>
         <span class="token comment" spellcheck="true"># 递归终止条件：节点为空</span>
         <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">not</span> root<span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token keyword">return</span> None
@@ -522,6 +522,33 @@
         self<span class="token punctuation">.</span>findPath<span class="token punctuation">(</span>root<span class="token punctuation">.</span>right<span class="token punctuation">,</span> sum<span class="token operator">-</span>root<span class="token punctuation">.</span>val<span class="token punctuation">,</span> tmp<span class="token punctuation">)</span>
         <span class="token comment" spellcheck="true"># 出递归，删去末尾节点，以便递归另外一个方向</span>
         tmp<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="C-实现"><a href="#C-实现" class="headerlink" title="C++实现"></a>C++实现</h3><h4 id="DFS-递归-1"><a href="#DFS-递归-1" class="headerlink" title="DFS/递归"></a>DFS/递归</h4><pre class="line-numbers language-c"><code class="language-c">class Solution <span class="token punctuation">{</span>
+public<span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true">/**
+     * 
+     * @param root TreeNode类 
+     * @param sum int整型 
+     * @return int整型vector&lt;vector&lt;>>
+     */</span>
+    vector<span class="token operator">&lt;</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> <span class="token operator">></span> <span class="token function">pathSum</span><span class="token punctuation">(</span>TreeNode<span class="token operator">*</span> root<span class="token punctuation">,</span> <span class="token keyword">int</span> sum<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// write code here</span>
+        vector<span class="token operator">&lt;</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">>></span> result<span class="token punctuation">;</span>
+        vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> tmp<span class="token punctuation">;</span>
+        <span class="token function">findPath</span><span class="token punctuation">(</span>root<span class="token punctuation">,</span>sum<span class="token punctuation">,</span> result<span class="token punctuation">,</span> tmp<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> result<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">void</span> <span class="token function">findPath</span><span class="token punctuation">(</span>TreeNode<span class="token operator">*</span> root<span class="token punctuation">,</span> <span class="token keyword">int</span> sum<span class="token punctuation">,</span> vector<span class="token operator">&lt;</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">>></span> <span class="token operator">&amp;</span>re<span class="token punctuation">,</span> vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> tmp<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>root <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token keyword">return</span> <span class="token punctuation">;</span>
+        tmp<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>root<span class="token operator">-></span>val<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>root<span class="token operator">-></span>left <span class="token operator">==</span> <span class="token constant">NULL</span> <span class="token operator">&amp;&amp;</span> root<span class="token operator">-></span>right <span class="token operator">==</span><span class="token constant">NULL</span> <span class="token operator">&amp;&amp;</span> sum <span class="token operator">==</span> root<span class="token operator">-></span>val<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            re<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>tmp<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token function">findPath</span><span class="token punctuation">(</span>root<span class="token operator">-></span>left<span class="token punctuation">,</span> sum<span class="token operator">-</span>root<span class="token operator">-></span>val<span class="token punctuation">,</span> re<span class="token punctuation">,</span> tmp<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">findPath</span><span class="token punctuation">(</span>root<span class="token operator">-></span>right<span class="token punctuation">,</span> sum<span class="token operator">-</span>root<span class="token operator">-></span>val<span class="token punctuation">,</span> re<span class="token punctuation">,</span> tmp<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//tmp.pop_back(); // tmp数组传引用的话需要pop_back()</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr />
@@ -608,7 +635,7 @@
                                 <div class="card-image">
                                     
                                             
-                                                <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="一道编程题——二叉树路径和为指定值">
+                                                <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="一道编程题——二叉树路径和为指定值">
                                                 
                                                     <span class="card-title">一道编程题——二叉树路径和为指定值</span>
                                 </div>
@@ -658,7 +685,7 @@
                                         <div class="card-image">
                                             
                                                     
-                                                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="一道编程题——反转链表">
+                                                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="一道编程题——反转链表">
                                                         
                                                             <span class="card-title">一道编程题——反转链表</span>
                                         </div>
@@ -865,7 +892,7 @@
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">21.9k</span>
+                <span class="white-color">22.1k</span>
                 
 
                     <br>
