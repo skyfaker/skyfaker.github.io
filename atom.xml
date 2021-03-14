@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.skyfaker.cc/"/>
-  <updated>2021-03-13T09:39:39.142Z</updated>
+  <updated>2021-03-14T15:34:30.518Z</updated>
   <id>https://www.skyfaker.cc/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>一道编程题——删除倒数第k个节点</title>
+    <link href="https://www.skyfaker.cc/2020/05/24/yi-dao-bian-cheng-ti-shan-chu-dao-shu-di-k-ge-jie-dian/"/>
+    <id>https://www.skyfaker.cc/2020/05/24/yi-dao-bian-cheng-ti-shan-chu-dao-shu-di-k-ge-jie-dian/</id>
+    <published>2020-05-24T15:14:05.000Z</published>
+    <updated>2021-03-14T15:34:30.518Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="算法" scheme="https://www.skyfaker.cc/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="编程算法" scheme="https://www.skyfaker.cc/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
     <title>一道编程题——二叉树路径和为指定值</title>
-    <link href="https://www.skyfaker.cc/2021/03/08/yi-dao-bian-cheng-ti-er-cha-shu-lu-jing-he-wei-zhi-ding-zhi/"/>
-    <id>https://www.skyfaker.cc/2021/03/08/yi-dao-bian-cheng-ti-er-cha-shu-lu-jing-he-wei-zhi-ding-zhi/</id>
-    <published>2021-03-08T15:49:14.000Z</published>
-    <updated>2021-03-13T09:39:39.142Z</updated>
+    <link href="https://www.skyfaker.cc/2020/05/08/yi-dao-bian-cheng-ti-er-cha-shu-lu-jing-he-wei-zhi-ding-zhi/"/>
+    <id>https://www.skyfaker.cc/2020/05/08/yi-dao-bian-cheng-ti-er-cha-shu-lu-jing-he-wei-zhi-ding-zhi/</id>
+    <published>2020-05-08T15:49:14.000Z</published>
+    <updated>2021-03-14T15:16:50.786Z</updated>
     
     <summary type="html">
     
@@ -527,32 +553,6 @@
       <category term="leetcode" scheme="https://www.skyfaker.cc/tags/leetcode/"/>
     
       <category term="算法" scheme="https://www.skyfaker.cc/tags/%E7%AE%97%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>New Blog</title>
-    <link href="https://www.skyfaker.cc/2019/02/15/hello-world/"/>
-    <id>https://www.skyfaker.cc/2019/02/15/hello-world/</id>
-    <published>2019-02-15T07:09:23.000Z</published>
-    <updated>2020-05-26T09:47:02.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="随便写写" scheme="https://www.skyfaker.cc/categories/%E9%9A%8F%E4%BE%BF%E5%86%99%E5%86%99/"/>
-    
-    
-      <category term="博客" scheme="https://www.skyfaker.cc/tags/%E5%8D%9A%E5%AE%A2/"/>
     
   </entry>
   
