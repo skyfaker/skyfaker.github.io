@@ -487,29 +487,27 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="图像分类"><a href="#图像分类" class="headerlink" title="图像分类"></a>图像分类</h2><h3 id="二值图"><a href="#二值图" class="headerlink" title="二值图"></a>二值图</h3><p>解释：二值图像是指仅仅包括黑色和白色两种颜色的图像，计算机将白色像素点处理为“1”，黑色像素点处理为“0”</p>
-<img src="二值图.png" alt="二值图" style="zoom:60%;">
+<img src="二值图.png" alt="二值图" style="zoom:40%;">
 
 <h3 id="灰度图"><a href="#灰度图" class="headerlink" title="灰度图"></a>灰度图</h3><p>计算机会将灰度处理为256个灰度级，用数值区间[0，255]来表示。其中，数值“255”表示为纯白色，数值“0”表示为纯黑色，其余数值表示从纯白到纯黑的数值。</p>
 <img src="灰度图.png" alt="灰度图" style="zoom:40%;">
 
 <p>我们常看到的图片都是8位图片，即图片有$2^8 = 256$个灰度级，图片位数越高，灰度级也就越大，图片的细腻程度也会越高。一般来说8位的图片，人眼一般看不出灰度变化，而低于8位，则图片灰度变化时会产生明显的分界面。</p>
 <h3 id="彩色图"><a href="#彩色图" class="headerlink" title="彩色图"></a>彩色图</h3><p>前面的二值图和灰度图，图片深度为1，而我们平时看见最多的为RGB彩色图，它的深度为3。</p>
-<img src="彩色.png" style="zoom:20%;">
+<img src="彩色.png" style="zoom:15%;">
 
 <p>上面的图片就是彩色点，每一个点都表示一种颜色，而这个颜色是由三种颜色R、G、B混合而成的。依次，我们看到的彩色图片的每一个像素点，都是由三种颜色组成的，我们也可以把这三种颜色分离出来。如下图：</p>
-<img src="./彩图.png" alt="三通道分离" style="zoom:72%;">
+<img src="./彩图.png" alt="三通道分离" style="zoom:50%;">
 
 <h2 id="空间变换"><a href="#空间变换" class="headerlink" title="空间变换"></a>空间变换</h2><p>由于每一个像素点都有自己的空间位置，并且图片就是由像素点表现出来的，那么我们可以通过改变像素点的位置来使得图片产生相应的变换，这就是图片空间变换。</p>
-<p>空间变换对应矩阵的仿射变换，是指一个坐标通过函数变换的新的坐标位置。<br>从数学上来讲， 就是一个向量空间进行一次线形变换并加上平移向量， 从而变换到另外一个向量空间的过程。<br>向量空间m : $m=(x,y)$<br>向量空间n : $n=(x′,y′)$<br>向量空间从m到n的变换 $n=A∗m+b$<br>    即:<br>$$\begin{cases}<br>x’ = A_{00} * x + A_{01} * y + b_0\<br>x’ = A_{00} * x + A_{01} * y + b_0\<br>\end{cases}<br>$$</p>
-<p>将上述的A和b组合在一起就组成了仿射矩阵M：</p>
-<p>$$M = \begin{bmatrix}<br>{A_{00}}&amp;{A_{01}}&amp;{b_{0}}\<br>{A_{10}}&amp;{A_{11}}&amp;{b_{1}}\<br>\end{bmatrix}$$</p>
+<p>空间变换对应矩阵的仿射变换，是指一个坐标通过函数变换的新的坐标位置。<br>从数学上来讲， 就是一个向量空间进行一次线形变换并加上平移向量， 从而变换到另外一个向量空间的过程。<br>向量空间m : $m=(x,y)$<br>向量空间n : $n=(x′,y′)$<br>向量空间从m到n的变换 $n=A∗m+b$<br>    即:<br>$$<br>\begin{cases}<br>x’ = A_{00} * x + A_{01} * y + b_0\\<br>x’ = A_{00} * x + A_{01} * y + b_0\\<br>\end{cases}<br>$$<br>将上述的A和b组合在一起就组成了仿射矩阵M：<br>$$<br>M = \begin{bmatrix}<br>{A_{00}}&amp;{A_{01}}&amp;{b_{0}}\\<br>{A_{10}}&amp;{A_{11}}&amp;{b_{1}}\\<br>\end{bmatrix}<br>$$</p>
 <h3 id="平移变换"><a href="#平移变换" class="headerlink" title="平移变换"></a>平移变换</h3><p>平移变换是最简单的空间变换，目标物体的每一个像素点的相对位置不变，绝对位置发生相同的变化。</p>
 <p>平移之后的坐标可以表示为：</p>
-<p>$$\begin{bmatrix}{x’}\{y’}\end{bmatrix} =\begin{bmatrix}{1}&amp;{0}\{0}&amp;{1}\end{bmatrix}  \begin{bmatrix}{b_1}\{b_2}\end{bmatrix} =\gg \begin{cases} x’ = x + b_1 \ y’ = y + b_2 \end{cases}$$</p>
+<p>$$<br>\begin{bmatrix}<br>{x’}\\{y’}\end{bmatrix} =\begin{bmatrix}{1}&amp;{0}\\{0}&amp;{1}\end{bmatrix}  \begin{bmatrix}{b_1}\\{b_2}\end{bmatrix} =\gg \begin{cases} x’ = x + b_1 \\ y’ = y + b_2<br>\end{cases}<br>$$</p>
 <h3 id="缩放矩阵"><a href="#缩放矩阵" class="headerlink" title="缩放矩阵"></a>缩放矩阵</h3><p>将图片横坐标放大（或缩小）$S_x$倍，纵坐标放大（或缩小）$S_y$倍，变换矩阵和逆矩阵分别为：</p>
-<p>$M = \begin{bmatrix} {S_x}&amp;{0}&amp;{0}\{0}&amp;{S_y}&amp;{0} \end{bmatrix} \ M^{-1} = \begin{bmatrix} {\frac{1}{S_x}}&amp;{0}&amp;{0}\{0}&amp;{\frac{1}{S_y}}&amp;{0} \end{bmatrix} $</p>
+<p>$$<br>M = \begin{bmatrix} {S_x}&amp;{0}&amp;{0}\\{0}&amp;{S_y}&amp;{0} \end{bmatrix} \\ M^{-1} = \begin{bmatrix} {\frac{1}{S_x}}&amp;{0}&amp;{0}\\{0}&amp;{\frac{1}{S_y}}&amp;{0} \end{bmatrix}<br>$$</p>
 <h3 id="旋转变换"><a href="#旋转变换" class="headerlink" title="旋转变换"></a>旋转变换</h3><p>图像绕原点逆时针旋转$\alpha$角，其变换矩阵及逆矩阵（顺时针旋转）为：</p>
-<p>$M = \begin{bmatrix} {cos\alpha}&amp;{sin\alpha}&amp;{0}\{-sin\alpha}&amp;{cos\alpha}&amp;{0} \end{bmatrix} \ M^{-1} = \begin{bmatrix} {cos(-\alpha)}&amp;{sin(-\alpha)}&amp;{0}\{-sin(-\alpha)}&amp;{cos(-\alpha)}&amp;{0} \end{bmatrix} $</p>
+<p>$$<br>M = \begin{bmatrix} {cos\alpha}&amp;{sin\alpha}&amp;{0}\\{-sin\alpha}&amp;{cos\alpha}&amp;{0} \end{bmatrix} \\ M^{-1} = \begin{bmatrix} {cos(-\alpha)}&amp;{sin(-\alpha)}&amp;{0}\\{-sin(-\alpha)}&amp;{cos(-\alpha)}&amp;{0} \end{bmatrix}<br>$$</p>
 <h2 id="形态学变换"><a href="#形态学变换" class="headerlink" title="形态学变换"></a>形态学变换</h2><p>数学形态学（Mathematical morphology） 是一门建立在格论和拓扑学基础之上的图像分析学科，是数学形态学图像处理的基本理论。其基本的运算包括：腐蚀和膨胀、开运算和闭运算、骨架抽取、击中击不中变换、形态学梯度、Top-hat变换、颗粒分析等。</p>
 <p>主要的作用有<strong>形态学滤波、连通域分割、连通域拼接、提取图像轮廓、突出图像亮斑或者暗斑等。</strong></p>
 <h3 id="腐蚀（erode）"><a href="#腐蚀（erode）" class="headerlink" title="腐蚀（erode）"></a>腐蚀（erode）</h3><p>腐蚀在于消除一些孤立点, 消除一些边界点. 使边界向内收缩. 我们可以用腐蚀来消除无意义的小点。</p>
