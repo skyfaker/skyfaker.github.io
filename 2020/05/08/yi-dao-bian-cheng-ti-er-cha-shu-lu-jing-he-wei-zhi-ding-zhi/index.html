@@ -10,9 +10,8 @@
     <meta name="360-site-verification" content="b7c11a830ef90fd1464ad6206bb7b6e7">
     <meta name="description" content="题目描述给定一个二叉树和一个值 sum，请找出所有的根节点到叶子节点的节点值之和等于 sum 的路径。返回一个二维数组，数组中保存路径上节点的值。
 
-
 返回结果：[[5,4,11,2], [5,8,9]]
-题目分析本题涉及二叉树的遍历，需要">
+题目分析本题涉及二叉树的遍历，需要注">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -464,7 +463,7 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    637
+                    614
                 </div>
                 
 
@@ -488,40 +487,40 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个二叉树和一个值 <code>sum</code>，请找出所有的根节点到叶子节点的节点值之和等于 <code>sum</code> 的路径。返回一个二维数组，数组中保存路径上节点的值。</p>
-<img src="1.png" style="zoom:60%;">
-
+<p><img src="1.png" style="zoom:60%;"></p>
 <p>返回结果：[[5,4,11,2], [5,8,9]]</p>
 <h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>本题涉及二叉树的遍历，需要注意的是题目中所需要的路径为根节点到叶子节点，所以即使路径和已经为 <code>sum</code> ，也是不符合题目要求的路径。</p>
 <p>二叉树的遍历既可以使用 <code>DFS</code> 也可以用  <code>BFS</code> 。<code>DFS</code> 的话需要使用递归，终止递归的条件为节点不存在，在递归的过程中，如果遇到节点为叶子节点并且路径和为所给定的值，则将这个路径保存下来，所以我们需要两个数组，一个数组用来暂存每一个遍历的路径，另外一个用来保存满足条件的路径。</p>
-<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><h3 id="python实现"><a href="#python实现" class="headerlink" title="python实现"></a>python实现</h3><h4 id="DFS-递归"><a href="#DFS-递归" class="headerlink" title="DFS/递归"></a>DFS/递归</h4><pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># class TreeNode:</span>
-<span class="token comment" spellcheck="true">#     def __init__(self, x):</span>
-<span class="token comment" spellcheck="true">#         self.val = x</span>
-<span class="token comment" spellcheck="true">#         self.left = None</span>
-<span class="token comment" spellcheck="true">#         self.right = None</span>
-<span class="token keyword">import</span> copy
-<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        self<span class="token punctuation">.</span>re <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><h3 id="python实现"><a href="#python实现" class="headerlink" title="python实现"></a>python实现</h3><h4 id="DFS-递归"><a href="#DFS-递归" class="headerlink" title="DFS/递归"></a>DFS/递归</h4><pre class="line-numbers language-lang-python"><code class="language-lang-python"># class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+import copy
+class Solution:
+    def __init__(self):
+        self.re = []
 
-    <span class="token keyword">def</span> <span class="token function">pathSum</span><span class="token punctuation">(</span>self <span class="token punctuation">,</span> root <span class="token punctuation">,</span> sum <span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token comment" spellcheck="true"># write code here</span>
-        tmp <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-        self<span class="token punctuation">.</span>findPath<span class="token punctuation">(</span>root<span class="token punctuation">,</span> sum<span class="token punctuation">,</span> tmp<span class="token punctuation">)</span>
-        <span class="token keyword">return</span> self<span class="token punctuation">.</span>re
-    <span class="token comment" spellcheck="true"># python函数传参形参为数组时传的是引用</span>
-    <span class="token keyword">def</span> <span class="token function">findPath</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> root<span class="token punctuation">,</span> sum<span class="token punctuation">,</span> tmp<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token comment" spellcheck="true"># 递归终止条件：节点为空</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">not</span> root<span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token keyword">return</span> None
-        <span class="token comment" spellcheck="true"># 节点存在则加入到路径中</span>
-        tmp<span class="token punctuation">.</span>append<span class="token punctuation">(</span>root<span class="token punctuation">.</span>val<span class="token punctuation">)</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">not</span> root<span class="token punctuation">.</span>left <span class="token operator">and</span> <span class="token operator">not</span> root<span class="token punctuation">.</span>right <span class="token operator">and</span> sum<span class="token operator">==</span>root<span class="token punctuation">.</span>val<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            <span class="token comment" spellcheck="true"># 这里需要用到深拷贝，否则tmp数组被加入到re中之后，仍然会被改变</span>
-            self<span class="token punctuation">.</span>re<span class="token punctuation">.</span>append<span class="token punctuation">(</span>copy<span class="token punctuation">.</span>deepcopy<span class="token punctuation">(</span>tmp<span class="token punctuation">)</span><span class="token punctuation">)</span>
-        <span class="token comment" spellcheck="true"># 递归左右子树</span>
-        self<span class="token punctuation">.</span>findPath<span class="token punctuation">(</span>root<span class="token punctuation">.</span>left<span class="token punctuation">,</span> sum<span class="token operator">-</span>root<span class="token punctuation">.</span>val<span class="token punctuation">,</span> tmp<span class="token punctuation">)</span>
-        self<span class="token punctuation">.</span>findPath<span class="token punctuation">(</span>root<span class="token punctuation">.</span>right<span class="token punctuation">,</span> sum<span class="token operator">-</span>root<span class="token punctuation">.</span>val<span class="token punctuation">,</span> tmp<span class="token punctuation">)</span>
-        <span class="token comment" spellcheck="true"># 出递归，删去末尾节点，以便递归另外一个方向</span>
-        tmp<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    def pathSum(self , root , sum ):
+        # write code here
+        tmp = []
+        self.findPath(root, sum, tmp)
+        return self.re
+    # python函数传参形参为数组时传的是引用
+    def findPath(self, root, sum, tmp):
+        # 递归终止条件：节点为空
+        if(not root):return None
+        # 节点存在则加入到路径中
+        tmp.append(root.val)
+        if(not root.left and not root.right and sum==root.val):
+            # 这里需要用到深拷贝，否则tmp数组被加入到re中之后，仍然会被改变
+            self.re.append(copy.deepcopy(tmp))
+        # 递归左右子树
+        self.findPath(root.left, sum-root.val, tmp)
+        self.findPath(root.right, sum-root.val, tmp)
+        # 出递归，删去末尾节点，以便递归另外一个方向
+        tmp.pop()
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="BFS"><a href="#BFS" class="headerlink" title="BFS"></a>BFS</h4><pre><code># BFS
 class Solution2:
     def pathSum(self , root , ssum ):
@@ -538,33 +537,35 @@ class Solution2:
                 tmp.append([node.left, path+[node.left.val]])
             if node.right:
                 tmp.append([node.right, path+[node.right.val]])
-        return re</code></pre><h3 id="C-实现"><a href="#C-实现" class="headerlink" title="C++实现"></a>C++实现</h3><h4 id="DFS-递归-1"><a href="#DFS-递归-1" class="headerlink" title="DFS/递归"></a>DFS/递归</h4><pre class="line-numbers language-c"><code class="language-c">class Solution <span class="token punctuation">{</span>
-public<span class="token punctuation">:</span>
-    <span class="token comment" spellcheck="true">/**
+        return re
+</code></pre><h3 id="C-实现"><a href="#C-实现" class="headerlink" title="C++实现"></a>C++实现</h3><h4 id="DFS-递归-1"><a href="#DFS-递归-1" class="headerlink" title="DFS/递归"></a>DFS/递归</h4><pre class="line-numbers language-lang-c"><code class="language-lang-c">class Solution {
+public:
+    /**
      * 
      * @param root TreeNode类 
      * @param sum int整型 
-     * @return int整型vector&lt;vector&lt;>>
-     */</span>
-    vector<span class="token operator">&lt;</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> <span class="token operator">></span> <span class="token function">pathSum</span><span class="token punctuation">(</span>TreeNode<span class="token operator">*</span> root<span class="token punctuation">,</span> <span class="token keyword">int</span> sum<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token comment" spellcheck="true">// write code here</span>
-        vector<span class="token operator">&lt;</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">>></span> result<span class="token punctuation">;</span>
-        vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> tmp<span class="token punctuation">;</span>
-        <span class="token function">findPath</span><span class="token punctuation">(</span>root<span class="token punctuation">,</span>sum<span class="token punctuation">,</span> result<span class="token punctuation">,</span> tmp<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">return</span> result<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
+     * @return int整型vector<vector<>>
+     */
+    vector<vector<int> > pathSum(TreeNode* root, int sum) {
+        // write code here
+        vector<vector<int>> result;
+        vector<int> tmp;
+        findPath(root,sum, result, tmp);
+        return result;
+    }
 
-    <span class="token keyword">void</span> <span class="token function">findPath</span><span class="token punctuation">(</span>TreeNode<span class="token operator">*</span> root<span class="token punctuation">,</span> <span class="token keyword">int</span> sum<span class="token punctuation">,</span> vector<span class="token operator">&lt;</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">>></span> <span class="token operator">&amp;</span>re<span class="token punctuation">,</span> vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> tmp<span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>root <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token keyword">return</span> <span class="token punctuation">;</span>
-        tmp<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>root<span class="token operator">-></span>val<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>root<span class="token operator">-></span>left <span class="token operator">==</span> <span class="token constant">NULL</span> <span class="token operator">&amp;&amp;</span> root<span class="token operator">-></span>right <span class="token operator">==</span><span class="token constant">NULL</span> <span class="token operator">&amp;&amp;</span> sum <span class="token operator">==</span> root<span class="token operator">-></span>val<span class="token punctuation">)</span><span class="token punctuation">{</span>
-            re<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>tmp<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token function">findPath</span><span class="token punctuation">(</span>root<span class="token operator">-></span>left<span class="token punctuation">,</span> sum<span class="token operator">-</span>root<span class="token operator">-></span>val<span class="token punctuation">,</span> re<span class="token punctuation">,</span> tmp<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token function">findPath</span><span class="token punctuation">(</span>root<span class="token operator">-></span>right<span class="token punctuation">,</span> sum<span class="token operator">-</span>root<span class="token operator">-></span>val<span class="token punctuation">,</span> re<span class="token punctuation">,</span> tmp<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token comment" spellcheck="true">//tmp.pop_back(); // tmp数组传引用的话需要pop_back()</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    void findPath(TreeNode* root, int sum, vector<vector<int>> &re, vector<int> tmp){
+        if(root == NULL)return ;
+        tmp.push_back(root->val);
+        if(root->left == NULL && root->right ==NULL && sum == root->val){
+            re.push_back(tmp);
+        }
+        findPath(root->left, sum-root->val, re, tmp);
+        findPath(root->right, sum-root->val, re, tmp);
+        //tmp.pop_back(); // tmp数组传引用的话需要pop_back()
+    }
+};
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr />
@@ -907,7 +908,7 @@ public<span class="token punctuation">:</span>
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">24.2k</span>
+                <span class="white-color">22.1k</span>
                 
 
                     <br>

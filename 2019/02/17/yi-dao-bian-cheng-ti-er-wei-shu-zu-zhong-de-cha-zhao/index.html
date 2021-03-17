@@ -468,7 +468,7 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    3 分
                 </div>
                 
                 
@@ -511,25 +511,26 @@
 <p>对于二维矩阵A，假设我们以左上角作为起点，开始查找，则开始的位置处于递增一维有序数组的开头，而当我们从左下角开始查找，开始的位置处于一维有序数组的中间位置，比对一次后，便可以排除最多n个元素。然后相应地移动到另外一个一维有序数组中进行比对。</p>
 <p>比如上图的矩阵，m先与左下角的4比对，对应的一维有序数组为红色框的数组，m小于4,则比对位置移动至上一行的3，对应的一维有序数组为蓝色框的数组。在这一步过程中，排除掉了最后一行的n个元素。</p>
 <p>相比之下，逐点比对，每一次比对只能排除掉一个元素。因此大大降低列时间复杂度。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># -*- coding:utf-8 -*-</span>
-<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token comment" spellcheck="true"># array 二维列表</span>
-    <span class="token keyword">def</span> <span class="token function">Find</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> target<span class="token punctuation">,</span> array<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token comment" spellcheck="true"># write code here</span>
-        <span class="token comment" spellcheck="true"># 从右上角开始查找</span>
-        i <span class="token operator">=</span> <span class="token number">0</span>
-        j <span class="token operator">=</span> len<span class="token punctuation">(</span>array<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span> 
-        row <span class="token operator">=</span> len<span class="token punctuation">(</span>array<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">#获取矩阵的shape</span>
-        flag <span class="token operator">=</span> <span class="token boolean">False</span>
-        <span class="token keyword">while</span> i<span class="token operator">&lt;</span>row <span class="token operator">and</span> j<span class="token operator">>=</span><span class="token number">0</span><span class="token punctuation">:</span>
-            <span class="token keyword">if</span> target<span class="token operator">></span>array<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">:</span>
-                i<span class="token operator">+=</span><span class="token number">1</span>
-            <span class="token keyword">elif</span> target<span class="token operator">&lt;</span>array<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">:</span>
-                j<span class="token operator">-=</span><span class="token number">1</span>
-            <span class="token keyword">elif</span> target <span class="token operator">==</span> array<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">:</span>
-                flag <span class="token operator">=</span> <span class="token boolean">True</span>
-                <span class="token keyword">break</span>
-        <span class="token keyword">return</span> flag<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre class="line-numbers language-lang-python"><code class="language-lang-python"># -*- coding:utf-8 -*-
+class Solution:
+    # array 二维列表
+    def Find(self, target, array):
+        # write code here
+        # 从右上角开始查找
+        i = 0
+        j = len(array[0])-1 
+        row = len(array)  #获取矩阵的shape
+        flag = False
+        while i<row and j>=0:
+            if target>array[i][j]:
+                i+=1
+            elif target<array[i][j]:
+                j-=1
+            elif target == array[i][j]:
+                flag = True
+                break
+        return flag
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr />
@@ -695,12 +696,12 @@
                                     
                                         <div class="card-action article-tags">
                                             
-                                                <a href="/tags/算法/" target="_blank">
-                                                    <span class="chip bg-color">算法</span>
-                                                </a>
-                                                
                                                 <a href="/tags/leetcode/" target="_blank">
                                                     <span class="chip bg-color">leetcode</span>
+                                                </a>
+                                                
+                                                <a href="/tags/算法/" target="_blank">
+                                                    <span class="chip bg-color">算法</span>
                                                 </a>
                                                 
                                         </div>
@@ -876,7 +877,7 @@
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">24.2k</span>
+                <span class="white-color">22.1k</span>
                 
 
                     <br>

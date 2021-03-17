@@ -460,7 +460,7 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    494
+                    492
                 </div>
                 
 
@@ -485,74 +485,76 @@
             <div id="articleContent">
                 <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个链表，删除链表的倒数第n个节点并返回链表的头指针，给出的链表为:1-&gt;2-&gt;3-&gt;4-&gt;5, n= 2。 删除了链表的倒数第n个节点之后,链表变为1-&gt;2-&gt;3-&gt;5。（保证n为有效值）</p>
 <p>删除一个节点，可以找出其前一个节点，然后将其next指针指向需要删除的节点的后一个节点。或者也可以找到要删除的节点，将其数据域设置为其后一个节点的值，然后next指针指向要删除的节点的后两个节点。</p>
-<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><h3 id="python实现"><a href="#python实现" class="headerlink" title="python实现"></a>python实现</h3><pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># class ListNode:</span>
-<span class="token comment" spellcheck="true">#     def __init__(self, x):</span>
-<span class="token comment" spellcheck="true">#         self.val = x</span>
-<span class="token comment" spellcheck="true">#         self.next = None</span>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><h3 id="python实现"><a href="#python实现" class="headerlink" title="python实现"></a>python实现</h3><pre class="line-numbers language-lang-python"><code class="language-lang-python"># class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
 
-<span class="token comment" spellcheck="true">#</span>
-<span class="token comment" spellcheck="true"># </span>
-<span class="token comment" spellcheck="true"># @param head ListNode类 </span>
-<span class="token comment" spellcheck="true"># @param n int整型 </span>
-<span class="token comment" spellcheck="true"># @return ListNode类</span>
-<span class="token comment" spellcheck="true">#</span>
-<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">removeNthFromEnd</span><span class="token punctuation">(</span>self <span class="token punctuation">,</span> head <span class="token punctuation">,</span> n <span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token comment" spellcheck="true"># write code here</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">not</span> head<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">return</span> None
-        <span class="token comment" spellcheck="true"># 找到倒数第n个节点的前一个节点，也就是倒数第n+1个节点</span>
-        node <span class="token operator">=</span> self<span class="token punctuation">.</span>findNthNode<span class="token punctuation">(</span>head<span class="token punctuation">,</span> n<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span>
-        <span class="token keyword">if</span> node<span class="token punctuation">:</span>
-            node<span class="token punctuation">.</span>next <span class="token operator">=</span> node<span class="token punctuation">.</span>next<span class="token punctuation">.</span>next
-        <span class="token keyword">else</span><span class="token punctuation">:</span>
-            head <span class="token operator">=</span> head<span class="token punctuation">.</span>next
-        <span class="token keyword">return</span> head
+#
+# 
+# @param head ListNode类 
+# @param n int整型 
+# @return ListNode类
+#
+class Solution:
+    def removeNthFromEnd(self , head , n ):
+        # write code here
+        if (not head): return None
+        # 找到倒数第n个节点的前一个节点，也就是倒数第n+1个节点
+        node = self.findNthNode(head, n+1)
+        if node:
+            node.next = node.next.next
+        else:
+            head = head.next
+        return head
 
-    <span class="token comment" spellcheck="true"># 寻找倒数第n个节点，不存在则返回None</span>
-    <span class="token keyword">def</span> <span class="token function">findNthNode</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> head<span class="token punctuation">,</span> n<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        firstP<span class="token punctuation">,</span> secondP <span class="token operator">=</span> head<span class="token punctuation">,</span> head
-        <span class="token keyword">while</span><span class="token punctuation">(</span>firstP <span class="token operator">and</span> n<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            n<span class="token operator">-=</span><span class="token number">1</span>
-            firstP <span class="token operator">=</span> firstP<span class="token punctuation">.</span>next
-        <span class="token comment" spellcheck="true"># fristP指针刚好不存在，而n已经等于0，也就是说倒数第n个正好是头节点</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">not</span> firstP <span class="token operator">and</span> n<span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-            <span class="token keyword">return</span> head
-        <span class="token comment" spellcheck="true"># firstP不存在且不足n个节点，则说明没有倒数第n个节点</span>
-        <span class="token keyword">elif</span><span class="token punctuation">(</span><span class="token operator">not</span> firstP<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            <span class="token keyword">return</span> None 
-        <span class="token keyword">while</span><span class="token punctuation">(</span>firstP<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            firstP  <span class="token operator">=</span>firstP<span class="token punctuation">.</span>next
-            secondP <span class="token operator">=</span> secondP<span class="token punctuation">.</span>next
-        <span class="token keyword">return</span> secondP<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    # 寻找倒数第n个节点，不存在则返回None
+    def findNthNode(self, head, n):
+        firstP, secondP = head, head
+        while(firstP and n):
+            n-=1
+            firstP = firstP.next
+        # fristP指针刚好不存在，而n已经等于0，也就是说倒数第n个正好是头节点
+        if (not firstP and n==0):
+            return head
+        # firstP不存在且不足n个节点，则说明没有倒数第n个节点
+        elif(not firstP):
+            return None 
+        while(firstP):
+            firstP  =firstP.next
+            secondP = secondP.next
+        return secondP
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="C-实现"><a href="#C-实现" class="headerlink" title="C++实现"></a>C++实现</h3><p>由于本题说明n为有效值，则可以稍微简单一点，不考虑n大于链表长度的情况：</p>
-<pre class="line-numbers language-c"><code class="language-c">class Solution <span class="token punctuation">{</span>
-public<span class="token punctuation">:</span>
-    <span class="token comment" spellcheck="true">/**
+<pre class="line-numbers language-lang-c"><code class="language-lang-c">class Solution {
+public:
+    /**
      * 
      * @param head ListNode类 
      * @param n int整型 
      * @return ListNode类
-     */</span>
-    ListNode<span class="token operator">*</span> <span class="token function">removeNthFromEnd</span><span class="token punctuation">(</span>ListNode<span class="token operator">*</span> head<span class="token punctuation">,</span> <span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token comment" spellcheck="true">// write code here</span>
-        ListNode<span class="token operator">*</span> fast <span class="token operator">=</span> head<span class="token punctuation">;</span>
-        ListNode<span class="token operator">*</span> slow <span class="token operator">=</span> head<span class="token punctuation">;</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>head<span class="token operator">==</span><span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token keyword">return</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
-        <span class="token keyword">while</span><span class="token punctuation">(</span>n<span class="token operator">></span><span class="token number">0</span> <span class="token operator">&amp;&amp;</span> fast<span class="token operator">!=</span><span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            fast <span class="token operator">=</span> fast<span class="token operator">-></span>next<span class="token punctuation">;</span>
-            n<span class="token operator">-</span><span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token comment" spellcheck="true">// 要删除的为head节点，即链表长度为n</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>fast<span class="token operator">==</span><span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token keyword">return</span> head<span class="token operator">-></span>next<span class="token punctuation">;</span>
-        <span class="token comment" spellcheck="true">// 链表长度小于n</span>
-        <span class="token keyword">while</span><span class="token punctuation">(</span>fast<span class="token operator">-></span>next<span class="token operator">!=</span><span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            fast<span class="token operator">=</span>fast<span class="token operator">-></span>next<span class="token punctuation">;</span>
-            slow<span class="token operator">=</span>slow<span class="token operator">-></span>next<span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        slow<span class="token operator">-></span>next <span class="token operator">=</span> slow<span class="token operator">-></span>next<span class="token operator">-></span>next<span class="token punctuation">;</span>
-        <span class="token keyword">return</span> head<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+     */
+    ListNode* removeNthFromEnd(ListNode* head, int n) {
+        // write code here
+        ListNode* fast = head;
+        ListNode* slow = head;
+        if(head==NULL)return NULL;
+        while(n>0 && fast!=NULL){
+            fast = fast->next;
+            n-=1;
+        }
+        // 要删除的为head节点，即链表长度为n
+        if(fast==NULL)return head->next;
+        // 链表长度小于n
+        while(fast->next!=NULL){
+            fast=fast->next;
+            slow=slow->next;
+        }
+        slow->next = slow->next->next;
+        return head;
+    }
+};
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr />
@@ -896,7 +898,7 @@ public<span class="token punctuation">:</span>
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">24.2k</span>
+                <span class="white-color">22.1k</span>
                 
 
                     <br>
