@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>一道算法——字典序</title>
+      <link href="/2021/03/17/yi-dao-suan-fa-zi-dian-xu/"/>
+      <url>/2021/03/17/yi-dao-suan-fa-zi-dian-xu/</url>
+      
+        <content type="html"><![CDATA[<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定整数n和m, 将1到n的这n个整数按字典序排列之后, 求其中的第m个数。<br>对于n=11, m=4, 按字典序排列依次为1, 10, 11, 2, 3, 4, 5, 6, 7, 8, 9, 因此第4个数是2.<br>对于n=200, m=25, 按字典序排列依次为1 10 100 101 102 103 104 105 106 107 108 109 11 110 111 112 113 114 115 116 117 118 119 12 120 121 122 123 124 125 126 127 128 129 13 130 131 132 133 134 135 136 137 138 139 14 140 141 142 143 144 145 146 147 148 149 15 150 151 152 153 154 155 156 157 158 159 16 160 161 162 163 164 165 166 167 168 169 17 170 171 172 173 174 175 176 177 178 179 18 180 181 182 183 184 185 186 187 188 189 19 190 191 192 193 194 195 196 197 198 199 2 20 200 21 22 23 24 25 26 27 28 29 3 30 31 32 33 34 35 36 37 38 39 4 40 41 42 43 44 45 46 47 48 49 5 50 51 52 53 54 55 56 57 58 59 6 60 61 62 63 64 65 66 67 68 69 7 70 71 72 73 74 75 76 77 78 79 8 80 81 82 83 84 85 86 87 88 89 9 90 91 92 93 94 95 96 97 98 99 因此第25个数是120…</p><p><strong>分析：</strong>由于首位不能为0，所以可以构造出以0-9为根的9棵十叉树。</p><p><img src="tree.png" alt="以1为根的十叉树" style="zoom:50%;"></p><p>以字典序排序就是求上述十叉树的深度遍历。深度遍历一般使用递归实现。</p><p>有意思的是，如果使用广度搜索，就可以实现自然数顺序的排序。</p><h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><h3 id="python实现"><a href="#python实现" class="headerlink" title="python实现"></a>python实现</h3><h4 id="1-暴力排序"><a href="#1-暴力排序" class="headerlink" title="1.暴力排序"></a>1.暴力排序</h4><pre class="line-numbers language-lang-python"><code class="language-lang-python">[n, m] = map(int, input().split())strList = [str(i) for i in range(1, n+1)]strList.sort()print(int(strList[m-1]))<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>python对于字符串的排序方式就是按照字典顺序进行排序的，但是会直接内存溢出。</p><h4 id="2-字典树"><a href="#2-字典树" class="headerlink" title="2.字典树"></a>2.字典树</h4><pre class="line-numbers language-lang-python"><code class="language-lang-python">[n, m] = map(int, input().split())re = 0 def findNum(value):    global re, m    if int(value)<=n:        # 以字典序从小到大查找，每找到一个就小于n的数就使全局变量m-1        m-=1        # m减到0，表示已经找到第m个数        if m==0:            re = value            return True        for i in range(10):            flag = findNum(value+str(i))            # 通过return True跳过接下来所有的递归            if flag:                return True            # 通过return 0来停止同一深度的递归，比如100已经超过n，则不再递归101            if flag == 0:                break    else:        return 0for a in range(1,10):    flag = findNum(str(a))    if flag:        breakprint(re)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>深度遍历字典树应该是最符合题目要求的做法，不过python使用递归效率不高，百万级数据就已经显示超时。</p><h4 id="3-找规律"><a href="#3-找规律" class="headerlink" title="3.找规律"></a>3.找规律</h4><p>以$n=25,m=20$为例。</p><p>小于等于25的数字按照字典序进行排序分别为：1 10 11 12 13 14 15 16 17 18 19 2 20 21 22 23 24 25 3  4 5 6 7 8 9</p><p>我们可以发现一些规律：</p><ol><li><p>由于25是2位数字，所以字典序中存在2位数字，又由于25的首位为2，所以只有1和2开头的可以取到2位数字，而剩下的3到9开头的数字则更少一位。</p></li><li><p>1和2开头的可以取到2位数字，而由于n为25，所以以2开头的数字取不满所有2位数，只有以1开头的数字可以取满，分别为10 11 12 13 14 15 16 17 18 19共10个数字再加上一位的1，以1开头的数字一共是$10^0+10^1=11$ ，以2开头的数字有$10^0+(25 - 2*10^1+1) = 7$个，以3、4、5、6、7、8、9开头的各1个。</p></li></ol><pre class="line-numbers language-lang-python"><code class="language-lang-python"><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 编程算法 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>一道编程题——删除倒数第k个节点</title>
       <link href="/2020/05/24/yi-dao-bian-cheng-ti-shan-chu-dao-shu-di-k-ge-jie-dian/"/>
       <url>/2020/05/24/yi-dao-bian-cheng-ti-shan-chu-dao-shu-di-k-ge-jie-dian/</url>
@@ -34,31 +59,6 @@
       <url>/2020/05/08/yi-dao-bian-cheng-ti-er-cha-shu-lu-jing-he-wei-zhi-ding-zhi/</url>
       
         <content type="html"><![CDATA[<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个二叉树和一个值 <code>sum</code>，请找出所有的根节点到叶子节点的节点值之和等于 <code>sum</code> 的路径。返回一个二维数组，数组中保存路径上节点的值。</p><p><img src="1.png" style="zoom:60%;"></p><p>返回结果：[[5,4,11,2], [5,8,9]]</p><h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>本题涉及二叉树的遍历，需要注意的是题目中所需要的路径为根节点到叶子节点，所以即使路径和已经为 <code>sum</code> ，也是不符合题目要求的路径。</p><p>二叉树的遍历既可以使用 <code>DFS</code> 也可以用  <code>BFS</code> 。<code>DFS</code> 的话需要使用递归，终止递归的条件为节点不存在，在递归的过程中，如果遇到节点为叶子节点并且路径和为所给定的值，则将这个路径保存下来，所以我们需要两个数组，一个数组用来暂存每一个遍历的路径，另外一个用来保存满足条件的路径。</p><h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><h3 id="python实现"><a href="#python实现" class="headerlink" title="python实现"></a>python实现</h3><h4 id="DFS-递归"><a href="#DFS-递归" class="headerlink" title="DFS/递归"></a>DFS/递归</h4><pre class="line-numbers language-lang-python"><code class="language-lang-python"># class TreeNode:#     def __init__(self, x):#         self.val = x#         self.left = None#         self.right = Noneimport copyclass Solution:    def __init__(self):        self.re = []    def pathSum(self , root , sum ):        # write code here        tmp = []        self.findPath(root, sum, tmp)        return self.re    # python函数传参形参为数组时传的是引用    def findPath(self, root, sum, tmp):        # 递归终止条件：节点为空        if(not root):return None        # 节点存在则加入到路径中        tmp.append(root.val)        if(not root.left and not root.right and sum==root.val):            # 这里需要用到深拷贝，否则tmp数组被加入到re中之后，仍然会被改变            self.re.append(copy.deepcopy(tmp))        # 递归左右子树        self.findPath(root.left, sum-root.val, tmp)        self.findPath(root.right, sum-root.val, tmp)        # 出递归，删去末尾节点，以便递归另外一个方向        tmp.pop()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h4 id="BFS"><a href="#BFS" class="headerlink" title="BFS"></a>BFS</h4><pre><code># BFSclass Solution2:    def pathSum(self , root , ssum ):        # write code here        if(not root):return None        path = [root.val]        tmp = [[root, path]]        re = []        while tmp:            node, path = tmp.pop(0)            if not node.left and not node.right and sum(path) == ssum:                re.append(path)            if node.left:                tmp.append([node.left, path+[node.left.val]])            if node.right:                tmp.append([node.right, path+[node.right.val]])        return re</code></pre><h3 id="C-实现"><a href="#C-实现" class="headerlink" title="C++实现"></a>C++实现</h3><h4 id="DFS-递归-1"><a href="#DFS-递归-1" class="headerlink" title="DFS/递归"></a>DFS/递归</h4><pre class="line-numbers language-lang-c"><code class="language-lang-c">class Solution {public:    /**     *      * @param root TreeNode类      * @param sum int整型      * @return int整型vector<vector<>>     */    vector<vector<int> > pathSum(TreeNode* root, int sum) {        // write code here        vector<vector<int>> result;        vector<int> tmp;        findPath(root,sum, result, tmp);        return result;    }    void findPath(TreeNode* root, int sum, vector<vector<int>> &re, vector<int> tmp){        if(root == NULL)return ;        tmp.push_back(root->val);        if(root->left == NULL && root->right ==NULL && sum == root->val){            re.push_back(tmp);        }        findPath(root->left, sum-root->val, re, tmp);        findPath(root->right, sum-root->val, re, tmp);        //tmp.pop_back(); // tmp数组传引用的话需要pop_back()    }};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
-      
-      
-      <categories>
-          
-          <category> 算法 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 编程算法 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>一道编程题——反转链表</title>
-      <link href="/2020/04/18/yi-dao-bian-cheng-ti-fan-zhuan-lian-biao/"/>
-      <url>/2020/04/18/yi-dao-bian-cheng-ti-fan-zhuan-lian-biao/</url>
-      
-        <content type="html"><![CDATA[<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>题目描述：输入一个链表，反转链表后，输出新链表的表头。如果链表没有节点，返回空。</p><h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>这一题是比较简单的链表题，设置三个指针，分别指向最新翻转的节点、即将翻转的节点、即将翻转的节点的下一个（起暂存的作用）。</p><p>然后使用迭代或者递归的方法都可以。</p><p><img src="1.png" style="zoom:50%;"></p><p>之所以记录这一题是因为，虽然简单，但是第一次提交却写错了，错在原链表的首节点没有处理。</p><p>这里放上<strong>错误</strong>代码：</p><pre class="line-numbers language-lang-python"><code class="language-lang-python">class Solution:    # 返回ListNode    def ReverseList(self, pHead):        # write code here        if not pHead: return None        # 这里直接让pre指针从pHead开始，造成了死循环。        pre, curr = pHead, pHead.next        while(curr):            tin = curr.next            curr.next = pre            pre = curr            curr = tin        return pre<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>这里要注意原头节点在翻转后指向None，如果这个指针不改变，他会指向原链表第二个节点，而翻转后，原链表第二个节点会指向原头节点，造成死循环。</p><p>可以比较下面的正确代码：</p><h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><h3 id="Python实现"><a href="#Python实现" class="headerlink" title="Python实现"></a>Python实现</h3><p><strong>迭代</strong></p><pre class="line-numbers language-lang-python"><code class="language-lang-python">class Solution:    # 返回ListNode    def ReverseList(self, pHead):        # write code here        # 这里要注意原头节点在翻转后指向None        pre, curr = None, pHead        while(curr):            tin = curr.next            curr.next = pre            pre = curr            curr = tin        return pre<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="C-实现"><a href="#C-实现" class="headerlink" title="C++实现"></a>C++实现</h3><pre class="line-numbers language-lang-c"><code class="language-lang-c">class Solution {public:    ListNode* ReverseList(ListNode* pHead) {        ListNode* pre = NULL;        ListNode* curr = pHead;        ListNode* tin;        while(curr!=NULL){            tin = curr->next;            curr->next = pre;            pre = curr;            curr = tin;        }        return pre;    }};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
       
       
       <categories>
@@ -530,9 +530,9 @@
       
         <tags>
             
-            <tag> leetcode </tag>
-            
             <tag> 算法 </tag>
+            
+            <tag> leetcode </tag>
             
         </tags>
       
