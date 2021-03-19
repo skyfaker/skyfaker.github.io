@@ -464,14 +464,14 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.3k
+                    1.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    6 分
                 </div>
                 
                 
@@ -543,22 +543,23 @@ print(re)
 </ol>
 <p>由上述规律可知，以1开头的数字为11个，以1开头的数排列完成之后才会有以2开头的数。由于m为20大于11，那么必然第20个数不会是以1开头。</p>
 <p>因此，递归的过程可以由计算以某个数字开头的所有数字个数替代，以减少计算次数。</p>
-<h5 id="AC代码"><a href="#AC代码" class="headerlink" title="AC代码"></a>AC代码</h5><pre class="line-numbers language-lang-python"><code class="language-lang-python"># 计算以pre开头，并且小于等于n的数字个数
+<h5 id="AC代码"><a href="#AC代码" class="headerlink" title="AC代码"></a>AC代码</h5><pre class="line-numbers language-lang-python"><code class="language-lang-python"># 以pre开头，并且小于等于n的数字个数
 def culculateNum_with_prefix(n, pre):
     n, pre = str(n), str(pre)
-    len_u, len_p = len(n), len(pre)
+    len_n, len_p = len(n), len(pre)
     # 以0开头的非法数字或者upper位数小于pre
-    if len_u < len_p or pre.startswith("0"):
+    if len_n < len_p or pre.startswith("0"):
         return 0
+    # n的相同位数前缀
     pre_upper = n[:len_p]
-    # pre的开头小于n的开头
+    # pre小于n的前缀
     if pre < pre_upper:
-        return int("1" * (1 + len_u - len_p))
-    # 大于n的开头
+        return int("1" * (1 + len_n - len_p))
+    # pre大于n的前缀
     if pre > pre_upper:
-        return int("1" * (len_u - len_p)) if len_u > len_p else 0
-    # 开头相同，位数也相同，则只有pre本身一个数；开头相同，位数不同需要分开计算
-    return int("1" * (len_u - len_p)) + 1 + int(n[len_p:]) if len_u > len_p else 1
+        return int("1" * (len_n - len_p)) if len_n > len_p else 0
+    # 开头相同，位数也相同，则只有pre本身一个数；开头相同，位数不同则需要分开计算
+    return int("1" * (len_n - len_p)) + 1 + int(n[len_p:]) if len_n > len_p else 1
 
 
 n,m = list(map(int,input().split()))
@@ -572,16 +573,16 @@ while rank < m:
         if rank + num >= m:
             break
         rank += num
-    prefix += digits[i]
-    rank += 1 
+    prefix += d
+    rank += 1
 print(prefix)
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h5 id="代码解析"><a href="#代码解析" class="headerlink" title="代码解析"></a>代码解析</h5><p>上面的<code>culculateNum_with_prefix</code>函数用数字的位数快速计算以某数为前缀的数字个数，这实际上就是以这个前缀<code>pre</code>为根节点的字典树元素个数。</p>
 <p>数字个数计算分为三种情况：</p>
 <ol>
 <li><strong><code>pre</code>小于<code>n</code>的前缀</strong></li>
 </ol>
-<p>举个例子，<code>n=250</code>， <code>pre=1</code>，则计算以1开头且小于250的数，分别为<code>1、10-19、100-199</code>共111个数，因为<code>pre</code>小于同位数的<code>n</code>的前缀2，所以相同位数的以<code>pre</code>开头的数字全都小于<code>n</code>。个数与<code>n</code>与<code>pre</code>的位数差有关，每相差一位，个数多十倍。所以满足条件的数字个数为<code>位数差+1</code>个1，以上面的250为例，位数差为2为，则数字个数为3个1，即111.</p>
+<p>举个例子，<code>n=250</code>， <code>pre=1</code>，则计算以1开头且小于250的数，分别为<code>1、10-19、100-199</code>共111个数，因为<code>pre</code>小于同位数的<code>n</code>的前缀2，所以相同位数的以<code>pre</code>开头的数字全都小于<code>n</code>。个数与<code>n</code>与<code>pre</code>的位数差有关，每相差一位，个数多十倍。所以满足条件的数字个数为<code>位数差+1</code>个1，以上面的250为例，位数差为2为，则数字个数为3个1，即111。</p>
 <ol>
 <li><strong><code>pre</code>大于<code>n</code>的前缀</strong></li>
 </ol>
@@ -600,6 +601,78 @@ print(prefix)
 <li>计算以12开头的数字个数为11个，加上之前的23已经超过m。 所以m必然以12开头，加上满足条件的根节点12，rank置为24；</li>
 <li>计算以120开头的数字个数为1，加上rank=24，正好25。查找完毕。</li>
 </ol>
+<h3 id="C-实现"><a href="#C-实现" class="headerlink" title="C++实现"></a>C++实现</h3><pre class="line-numbers language-lang-c++"><code class="language-lang-c++">#include <iostream>
+#include <cstring>
+#include <string>
+#include <vector>
+#include <algorithm>
+using namespace std;
+vector<string> ve;
+
+int culculateNum_with_prefix(string n, string pre){
+    int len_n = n.size();
+    int len_p = pre.size();
+    if((len_n<len_p) | (pre[0]=='0'))return 0;
+    string n_pre;
+    n_pre = n.substr(0,len_p);
+
+    if(pre<n_pre){
+        // 重复打印1+len_n-len_p个1
+        string tmp(1 + len_n-len_p,'1');
+        return atoi(tmp.c_str());   
+    }
+    else if(pre>n_pre){
+        if(len_n>len_p){
+            string tmp(len_n-len_p,'1');
+            return atoi(tmp.c_str());   
+        }
+        else{
+            return 0;
+        }
+    }
+    else{
+        if(len_n>len_p){
+            string str = n.substr(len_p);
+            string tmp(len_n-len_p,'1');
+            return atoi(tmp.c_str()) + 1 + atoi(str.c_str());
+        }
+        else{
+            return 1;
+        }
+    }
+}
+
+
+int main(){
+    int n,m;
+    // cin>>n>>m;
+    n = 1000000;
+    m = 888888;
+    for(int i=0;i<=9;i++){
+        ve.push_back(to_string(i));
+    }
+    string prefix = "";
+    int rank = 0;
+    int num = 0;
+    string d = "";
+    while (rank<m){
+        for(int j=0;j<10;j++){
+            d = ve[j];
+            num = culculateNum_with_prefix(to_string(n), prefix+d);
+            if(rank+num>=m){
+                break;
+            }
+            rank+=num;
+        }
+        prefix+=d;
+        rank+=1;
+    }
+    cout<<prefix<<endl;
+    cin.get();
+    return 0;
+
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr />
@@ -942,7 +1015,7 @@ print(prefix)
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">23k</span>
+                <span class="white-color">23.1k</span>
                 
 
                     <br>
