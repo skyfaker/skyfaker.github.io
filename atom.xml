@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.skyfaker.cc/"/>
-  <updated>2021-03-18T03:36:18.486Z</updated>
+  <updated>2021-03-16T09:28:25.759Z</updated>
   <id>https://www.skyfaker.cc/</id>
   
   <author>
@@ -15,32 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>一道算法——字典序</title>
-    <link href="https://www.skyfaker.cc/2021/03/17/yi-dao-suan-fa-zi-dian-xu/"/>
-    <id>https://www.skyfaker.cc/2021/03/17/yi-dao-suan-fa-zi-dian-xu/</id>
-    <published>2021-03-17T09:46:37.000Z</published>
-    <updated>2021-03-18T03:36:18.486Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot; title=&quot;题目描述&quot;&gt;&lt;/a&gt;题目描述&lt;/h2&gt;&lt;p&gt;给定整数n和m, 将1到n的这n个整数按字典序排列之后, 求其中的第m个数。&lt;br&gt;对于n=11, m=4,
-        
-      
-    
-    </summary>
-    
-      <category term="算法" scheme="https://www.skyfaker.cc/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-      <category term="编程算法" scheme="https://www.skyfaker.cc/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95/"/>
-    
-  </entry>
   
   <entry>
     <title>一道编程题——删除倒数第k个节点</title>
@@ -91,6 +65,34 @@
     
     
       <category term="编程算法" scheme="https://www.skyfaker.cc/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>字节算法题——字典序</title>
+    <link href="https://www.skyfaker.cc/2020/04/17/zi-jie-suan-fa-ti-zi-dian-xu/"/>
+    <id>https://www.skyfaker.cc/2020/04/17/zi-jie-suan-fa-ti-zi-dian-xu/</id>
+    <published>2020-04-17T09:46:37.000Z</published>
+    <updated>2021-03-19T03:08:01.813Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot; title=&quot;题目描述&quot;&gt;&lt;/a&gt;题目描述&lt;/h2&gt;&lt;p&gt;给定整数n和m, 将1到n的这n个整数按字典序排列之后, 求其中的第m个数。&lt;br&gt;对于n=11, m=4,
+        
+      
+    
+    </summary>
+    
+      <category term="算法" scheme="https://www.skyfaker.cc/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="编程算法" scheme="https://www.skyfaker.cc/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="字节" scheme="https://www.skyfaker.cc/tags/%E5%AD%97%E8%8A%82/"/>
     
   </entry>
   
@@ -203,7 +205,7 @@
     <link href="https://www.skyfaker.cc/2020/01/30/git-jian-ming-jiao-cheng-yu-ming-ling/"/>
     <id>https://www.skyfaker.cc/2020/01/30/git-jian-ming-jiao-cheng-yu-ming-ling/</id>
     <published>2020-01-30T06:38:39.000Z</published>
-    <updated>2021-02-21T08:15:28.648Z</updated>
+    <updated>2021-03-19T03:12:28.018Z</updated>
     
     <summary type="html">
     
@@ -477,7 +479,7 @@
     <link href="https://www.skyfaker.cc/2019/03/03/yi-dao-bian-cheng-ti-chong-jian-er-cha-shu/"/>
     <id>https://www.skyfaker.cc/2019/03/03/yi-dao-bian-cheng-ti-chong-jian-er-cha-shu/</id>
     <published>2019-03-03T07:09:23.000Z</published>
-    <updated>2021-03-07T14:08:03.217Z</updated>
+    <updated>2021-03-18T06:22:16.725Z</updated>
     
     <summary type="html">
     
