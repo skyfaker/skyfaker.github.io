@@ -498,29 +498,29 @@
 <p>空间变换对应矩阵的仿射变换，是指一个坐标通过函数变换的新的坐标位置。<br>从数学上来讲， 就是一个向量空间进行一次线形变换并加上平移向量， 从而变换到另外一个向量空间的过程。<br>向量空间m : $m=(x,y)$<br>向量空间n : $n=(x′,y′)$<br>向量空间从m到n的变换 $n=A∗m+b$<br>    即:</p>
 <script type="math/tex; mode=display">
 \begin{cases}
-x' = A_{00} * x + A_{01} * y + b_0\\\\
-x' = A_{00} * x + A_{01} * y + b_0\\\\
+x' = A_{00} * x + A_{01} * y + b_0\\
+x' = A_{00} * x + A_{01} * y + b_0\\
 \end{cases}</script><p>将上述的A和b组合在一起就组成了仿射矩阵M：</p>
 <script type="math/tex; mode=display">
 M = \begin{bmatrix}
-{A_{00}}&{A_{01}}&{b_{0}}\\\\
-{A_{10}}&{A_{11}}&{b_{1}}\\\\
+{A_{00}}&{A_{01}}&{b_{0}}\\
+{A_{10}}&{A_{11}}&{b_{1}}\\
 \end{bmatrix}</script><h3 id="平移变换"><a href="#平移变换" class="headerlink" title="平移变换"></a>平移变换</h3><p>平移变换是最简单的空间变换，目标物体的每一个像素点的相对位置不变，绝对位置发生相同的变化。</p>
 <p>平移之后的坐标可以表示为：</p>
 <script type="math/tex; mode=display">
 \begin{bmatrix}
-{x'}\\\\{y'}
+{x'}\\{y'}
 \end{bmatrix} 
-=\begin{bmatrix}{1}&{0}\\\\{0}&{1}
+=\begin{bmatrix}{1}&{0}\\{0}&{1}
 \end{bmatrix}  
-\begin{bmatrix}{b_1}\\\\{b_2}
+\begin{bmatrix}{b_1}\\{b_2}
 \end{bmatrix} 
-=\gg \begin{cases} x' = x + b_1 \\\\ y' = y + b_2 
+=\gg \begin{cases} x' = x + b_1 \\ y' = y + b_2 
 \end{cases}</script><h3 id="缩放矩阵"><a href="#缩放矩阵" class="headerlink" title="缩放矩阵"></a>缩放矩阵</h3><p>将图片横坐标放大（或缩小）$S_x$倍，纵坐标放大（或缩小）$S_y$倍，变换矩阵和逆矩阵分别为：</p>
 <script type="math/tex; mode=display">
-M = \begin{bmatrix} {S_x}&{0}&{0}\\\\{0}&{S_y}&{0} \end{bmatrix} \\\\ M^{-1} = \begin{bmatrix} {\frac{1}{S_x}}&{0}&{0}\\\\{0}&{\frac{1}{S_y}}&{0} \end{bmatrix}</script><h3 id="旋转变换"><a href="#旋转变换" class="headerlink" title="旋转变换"></a>旋转变换</h3><p>图像绕原点逆时针旋转$\alpha$角，其变换矩阵及逆矩阵（顺时针旋转）为：</p>
+M = \begin{bmatrix} {S_x}&{0}&{0}\\{0}&{S_y}&{0} \end{bmatrix} \\ M^{-1} = \begin{bmatrix} {\frac{1}{S_x}}&{0}&{0}\\{0}&{\frac{1}{S_y}}&{0} \end{bmatrix}</script><h3 id="旋转变换"><a href="#旋转变换" class="headerlink" title="旋转变换"></a>旋转变换</h3><p>图像绕原点逆时针旋转$\alpha$角，其变换矩阵及逆矩阵（顺时针旋转）为：</p>
 <script type="math/tex; mode=display">
-M = \begin{bmatrix} {cos\alpha}&{sin\alpha}&{0}\\\\{-sin\alpha}&{cos\alpha}&{0} \end{bmatrix} \\\\ M^{-1} = \begin{bmatrix} {cos(-\alpha)}&{sin(-\alpha)}&{0}\\\\{-sin(-\alpha)}&{cos(-\alpha)}&{0} \end{bmatrix}</script><h2 id="形态学变换"><a href="#形态学变换" class="headerlink" title="形态学变换"></a>形态学变换</h2><p>数学形态学（Mathematical morphology） 是一门建立在格论和拓扑学基础之上的图像分析学科，是数学形态学图像处理的基本理论。其基本的运算包括：腐蚀和膨胀、开运算和闭运算、骨架抽取、击中击不中变换、形态学梯度、Top-hat变换、颗粒分析等。</p>
+M = \begin{bmatrix} {cos\alpha}&{sin\alpha}&{0}\\{-sin\alpha}&{cos\alpha}&{0} \end{bmatrix} \\ M^{-1} = \begin{bmatrix} {cos(-\alpha)}&{sin(-\alpha)}&{0}\\{-sin(-\alpha)}&{cos(-\alpha)}&{0} \end{bmatrix}</script><h2 id="形态学变换"><a href="#形态学变换" class="headerlink" title="形态学变换"></a>形态学变换</h2><p>数学形态学（Mathematical morphology） 是一门建立在格论和拓扑学基础之上的图像分析学科，是数学形态学图像处理的基本理论。其基本的运算包括：腐蚀和膨胀、开运算和闭运算、骨架抽取、击中击不中变换、形态学梯度、Top-hat变换、颗粒分析等。</p>
 <p>主要的作用有<strong>形态学滤波、连通域分割、连通域拼接、提取图像轮廓、突出图像亮斑或者暗斑等。</strong></p>
 <h3 id="腐蚀（erode）"><a href="#腐蚀（erode）" class="headerlink" title="腐蚀（erode）"></a>腐蚀（erode）</h3><p>腐蚀在于消除一些孤立点, 消除一些边界点. 使边界向内收缩. 我们可以用腐蚀来消除无意义的小点。</p>
 <p>首先需要确定一个核 kernel ， 明确核的尺寸（一般为方阵）与核取值。例如我们确定好这个核的尺寸为3<em>3 。用这个核函数与其覆盖区域的<strong>二值图像</strong>做<em>*与（and）</em></em>操作，如果都为1，将覆盖区域的中心点像素设置为1，否则为0。</p>
