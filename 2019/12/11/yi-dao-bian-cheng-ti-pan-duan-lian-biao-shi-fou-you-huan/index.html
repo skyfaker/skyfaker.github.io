@@ -11,7 +11,8 @@
     <meta name="description" content="题目描述判断给定的一个链表中是否有环。如果有环则返回true，否则返回false。需要给出空间复杂度为O(1)的解法。
 题目分析这一题困难之处在于解法的空间复杂度需要满足O(1)。
 
-上图就是链表存在环的情况，画这个图的目的是表明，有环就2">
+
+上图就是链表存在环的情况，画这个图的目的是表明，有环就">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -463,7 +464,7 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    518
+                    520
                 </div>
                 
 
@@ -488,58 +489,59 @@
             <div id="articleContent">
                 <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>判断给定的一个链表中是否有环。如果有环则返回true，否则返回false。需要给出空间复杂度为O(1)的解法。</p>
 <h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>这一题困难之处在于解法的空间复杂度需要满足O(1)。</p>
-<p><img src="./1.png" style="zoom:50%"></p>
+<img src="./1.png" style="zoom:50%">
+
 <p>上图就是链表存在环的情况，画这个图的目的是表明，有环就2种情况，一是开始不是环，后面部分组成环。二是整个链表就是一个循环单链表。不会存在开始有环而链表尾不属于环的情况。</p>
 <p>而单链表有环的本质是链表中存在链表节点出现了2次。</p>
 <p>最简单的解法，是遍历链表，将链表的节点元素加入到一个哈希表中，哈希表发生冲突则表明有2个节点重复，即为有环。对于python来说，可以把链表元素加入到集合（ <code>set</code> ）中，判断是否重复出现。</p>
 <p>当然，这种解法的空间复杂度为 <code>O(n)</code>，不满足题目要求。</p>
 <h3 id="快慢指针"><a href="#快慢指针" class="headerlink" title="快慢指针"></a>快慢指针</h3><p>在来链表操作中，如果需要满足空间复杂度为 <code>O（1）</code> ，则常用到快慢指针，比如一个指针快而一个指针慢，或者一个指针先走一个后走。</p>
 <p>本地设置2个指针，一个慢指针每次遍历一个节点，另外一个快指针每次遍历2个节点，如果存在环，则快指针先进入环，等到慢指针进入环后，快指针将与慢指针相遇。</p>
-<h4 id="python"><a href="#python" class="headerlink" title="python"></a>python</h4><pre class="line-numbers language-lang-python"><code class="language-lang-python"># 思路比较简单，不再注释，详细见上述介绍
-# class ListNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.next = None
+<h4 id="python"><a href="#python" class="headerlink" title="python"></a>python</h4><pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 思路比较简单，不再注释，详细见上述介绍</span>
+<span class="token comment" spellcheck="true"># class ListNode:</span>
+<span class="token comment" spellcheck="true">#     def __init__(self, x):</span>
+<span class="token comment" spellcheck="true">#         self.val = x</span>
+<span class="token comment" spellcheck="true">#         self.next = None</span>
 
-class Solution:
-    def hasCycle(self , head ):
-        # write code here
-        if not head:
-            return False
-        slow_p = fast_p = head
-        while(fast_p and fast_p.next):
-            fast_p = fast_p.next.next
-            slow_p = slow_p.next
-            if fast_p == slow_p:
-                return True
-        return False
+<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">hasCycle</span><span class="token punctuation">(</span>self <span class="token punctuation">,</span> head <span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true"># write code here</span>
+        <span class="token keyword">if</span> <span class="token operator">not</span> head<span class="token punctuation">:</span>
+            <span class="token keyword">return</span> <span class="token boolean">False</span>
+        slow_p <span class="token operator">=</span> fast_p <span class="token operator">=</span> head
+        <span class="token keyword">while</span><span class="token punctuation">(</span>fast_p <span class="token operator">and</span> fast_p<span class="token punctuation">.</span>next<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            fast_p <span class="token operator">=</span> fast_p<span class="token punctuation">.</span>next<span class="token punctuation">.</span>next
+            slow_p <span class="token operator">=</span> slow_p<span class="token punctuation">.</span>next
+            <span class="token keyword">if</span> fast_p <span class="token operator">==</span> slow_p<span class="token punctuation">:</span>
+                <span class="token keyword">return</span> <span class="token boolean">True</span>
+        <span class="token keyword">return</span> <span class="token boolean">False</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="c"><a href="#c" class="headerlink" title="c++"></a>c++</h4><pre class="line-numbers language-lang-c++"><code class="language-lang-c++">/**
+<h4 id="c"><a href="#c" class="headerlink" title="c++"></a>c++</h4><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">/**
  * Definition for singly-linked list.
  * struct ListNode {
  *     int val;
  *     ListNode *next;
  *     ListNode(int x) : val(x), next(NULL) {}
  * };
- */
-class Solution {
-public:
-    bool hasCycle(ListNode *head) {
-        if(!head) {
-            return false;
-        }
-        ListNode* slow_p = head;
-        ListNode* fast_p = head;
-        while(fast_p && fast_p->next){
-            fast_p = fast_p->next->next;
-            slow_p = slow_p->next;
-            if(fast_p == slow_p){
-                return true;
-            }
-        }
-        return false;
-    }
-};
+ */</span>
+<span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token keyword">bool</span> <span class="token function">hasCycle</span><span class="token punctuation">(</span>ListNode <span class="token operator">*</span>head<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>head<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        ListNode<span class="token operator">*</span> slow_p <span class="token operator">=</span> head<span class="token punctuation">;</span>
+        ListNode<span class="token operator">*</span> fast_p <span class="token operator">=</span> head<span class="token punctuation">;</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span>fast_p <span class="token operator">&amp;&amp;</span> fast_p<span class="token operator">-</span><span class="token operator">></span>next<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            fast_p <span class="token operator">=</span> fast_p<span class="token operator">-</span><span class="token operator">></span>next<span class="token operator">-</span><span class="token operator">></span>next<span class="token punctuation">;</span>
+            slow_p <span class="token operator">=</span> slow_p<span class="token operator">-</span><span class="token operator">></span>next<span class="token punctuation">;</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>fast_p <span class="token operator">==</span> slow_p<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
@@ -883,7 +885,7 @@ public:
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">23.1k</span>
+                <span class="white-color">26.9k</span>
                 
 
                     <br>

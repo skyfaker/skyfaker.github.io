@@ -8,10 +8,10 @@
     <meta name="baidu-site-verification" content="fmlEuI34ir">
     <meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48">
     <meta name="360-site-verification" content="b7c11a830ef90fd1464ad6206bb7b6e7">
-    <meta name="description" content="题目描述将给出的链表中的节点每 k个一组翻转，返回翻转后的链表如果链表中的节点数不是  k 的倍数，将最后剩下的节点保持原样你不能更改节点中的值，只能更改节点本身。
+    <meta name="description" content="题目描述将给出的链表中的节点每 **k**个一组翻转，返回翻转后的链表如果链表中的节点数不是  k 的倍数，将最后剩下的节点保持原样你不能更改节点中的值，只能更改节点本身。
 例如：
 给定的链表是1→2→3→4→5 
-对于 k=2, 你应该返回 2→">
+对于 k=2, 你应该返">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -486,7 +486,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>将给出的链表中的节点每 <strong><code>k</code></strong>个一组翻转，返回翻转后的链表<br>如果链表中的节点数不是  <strong><code>k</code></strong> 的倍数，将最后剩下的节点保持原样<br>你不能更改节点中的值，只能更改节点本身。</p>
+                <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>将给出的链表中的节点每 **<code>k</code>**个一组翻转，返回翻转后的链表<br>如果链表中的节点数不是  <strong><code>k</code></strong> 的倍数，将最后剩下的节点保持原样<br>你不能更改节点中的值，只能更改节点本身。</p>
 <p>例如：</p>
 <p>给定的链表是1→2→3→4→5 </p>
 <p>对于 k=2, 你应该返回 2→1→4→3→5</p>
@@ -496,145 +496,147 @@
 <h3 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h3><p>使用递归方法解决，会比循环容易理解一些。通过递归的返回值将每一段的翻转链表连接起来。</p>
 <p>通过设置类成员变量决定递归次数，保证剩余部分不会被翻转。</p>
 <h3 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h3><p>设置一个长度为 <code>k</code> 的栈，逐个出栈就可以实现翻转，如果栈未满而链表已空则这一段链表不翻转。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><h3 id="python代码"><a href="#python代码" class="headerlink" title="python代码"></a>python代码</h3><h4 id="递归实现"><a href="#递归实现" class="headerlink" title="递归实现"></a>递归实现</h4><pre class="line-numbers language-lang-python"><code class="language-lang-python">class Solution:
-    def reverseKGroup(self , head , k ):
-        length = 0
-        curr = head
-        while curr:
-            length+=1
-            curr = curr.next
-        # 建立类成员变量，用来控制递归次数，把链表每k个作为一组（剩余的不分组），每组单独翻转，通过递归使新的组连接在一起
-        self.num = length//k
-        # 调用递归函数
-        root = self.reverseChain(head, k)
-        return root
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><h3 id="python代码"><a href="#python代码" class="headerlink" title="python代码"></a>python代码</h3><h4 id="递归实现"><a href="#递归实现" class="headerlink" title="递归实现"></a>递归实现</h4><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">reverseKGroup</span><span class="token punctuation">(</span>self <span class="token punctuation">,</span> head <span class="token punctuation">,</span> k <span class="token punctuation">)</span><span class="token punctuation">:</span>
+        length <span class="token operator">=</span> <span class="token number">0</span>
+        curr <span class="token operator">=</span> head
+        <span class="token keyword">while</span> curr<span class="token punctuation">:</span>
+            length<span class="token operator">+=</span><span class="token number">1</span>
+            curr <span class="token operator">=</span> curr<span class="token punctuation">.</span>next
+        <span class="token comment" spellcheck="true"># 建立类成员变量，用来控制递归次数，把链表每k个作为一组（剩余的不分组），每组单独翻转，通过递归使新的组连接在一起</span>
+        self<span class="token punctuation">.</span>num <span class="token operator">=</span> length<span class="token operator">//</span>k
+        <span class="token comment" spellcheck="true"># 调用递归函数</span>
+        root <span class="token operator">=</span> self<span class="token punctuation">.</span>reverseChain<span class="token punctuation">(</span>head<span class="token punctuation">,</span> k<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> root
+        
 
-
-    def reverseChain(self, head, k):
-        # 递归结束
-        if not head: 
-            return None
-        # 递归次数达到组数
-        if self.num ==0:
-            return head
-        self.num -=1 
-        # 翻转链表
-        p, c = head, head.next
-        i = 1
-        while(i!=k and c):
-            i+=1
-            q = c.next
-            c.next = p 
-            p = c 
-            c = q 
-            if q:
-                q = q.next
-        # 递归，原链表的head节点变成新链表的尾节点，尾节点指向递归返回节点
-        head.next = self.reverseChain(c, k)
-        return p # 递归函数返回反转之后的链表首节点
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <span class="token keyword">def</span> <span class="token function">reverseChain</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> head<span class="token punctuation">,</span> k<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true"># 递归结束</span>
+        <span class="token keyword">if</span> <span class="token operator">not</span> head<span class="token punctuation">:</span> 
+            <span class="token keyword">return</span> None
+        <span class="token comment" spellcheck="true"># 递归次数达到组数</span>
+        <span class="token keyword">if</span> self<span class="token punctuation">.</span>num <span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">:</span>
+            <span class="token keyword">return</span> head
+        self<span class="token punctuation">.</span>num <span class="token operator">-=</span><span class="token number">1</span> 
+        <span class="token comment" spellcheck="true"># 翻转链表</span>
+        p<span class="token punctuation">,</span> c <span class="token operator">=</span> head<span class="token punctuation">,</span> head<span class="token punctuation">.</span>next
+        i <span class="token operator">=</span> <span class="token number">1</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span>i<span class="token operator">!=</span>k <span class="token operator">and</span> c<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            i<span class="token operator">+=</span><span class="token number">1</span>
+            q <span class="token operator">=</span> c<span class="token punctuation">.</span>next
+            c<span class="token punctuation">.</span>next <span class="token operator">=</span> p 
+            p <span class="token operator">=</span> c 
+            c <span class="token operator">=</span> q 
+            <span class="token keyword">if</span> q<span class="token punctuation">:</span>
+                q <span class="token operator">=</span> q<span class="token punctuation">.</span>next
+        <span class="token comment" spellcheck="true"># 递归，原链表的head节点变成新链表的尾节点，尾节点指向递归返回节点</span>
+        head<span class="token punctuation">.</span>next <span class="token operator">=</span> self<span class="token punctuation">.</span>reverseChain<span class="token punctuation">(</span>c<span class="token punctuation">,</span> k<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> p <span class="token comment" spellcheck="true"># 递归函数返回反转之后的链表首节点</span>
+    
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>上述代码，首先遍历链表，计算长度，之后根据长度和k计算出需要翻转的段数，使用一个类成员变量控制类中的递归函数的递归次数。之后就可以调用递归函数了。</p>
 <p>递归函数的过程为，遍历链表，每k个节点翻转一次，返回这一段链表反转之后的首节点。而原链表的首节点变成了新链表的尾节点，让这个尾节点指向递归返回值即可。</p>
 <p>举个例子：原链表1-&gt;2-&gt;3-&gt;4-&gt;5, k=2, 那么翻转后的链表应该是2-&gt;1-&gt;4-&gt;3-&gt;5</p>
 <p>首先，获取链表长度5，5//2=2即为需要划分的段数，剩余部分不处理。接下来，开始处理链表，此时未处理的链表头节点为1，从1开始取长度为2的链表进行翻转，此时翻转后的链表头节点为2，尾节点为1。递归函数返回节点2，而原链表的头节点即翻转后的尾节点1指向后续链表的递归返回值。</p>
-<p><img src="./1.png" alt="第一次递归过程" style="zoom:40%"></p>
+<img src="./1.png" alt="第一次递归过程" style="zoom:40%">
+
 <p>第一次递归后，原始链表变成上述链表，之后继续递归即可。</p>
 <p>或者，也可以不使用类成员变量。在遍历链表的过程中确定需要翻转的范围，不满足长度则不翻转。</p>
-<pre class="line-numbers language-lang-python"><code class="language-lang-python">class Solution2:
-    def reverseKGroup(self, head, k):
-        if not head:
-            return None
-        curr = head
-        # 找出长度为k的一段链表
-        for i in range(k-1):
-            curr = curr.next
-            # 剩余部分不够k个，直接返回不翻转
-            if not curr:
-                return head
-        # tmp为剩余一段链表的头节点
-        tmp = curr.next
-        # new_head为翻转后的头节点
-        new_head = self.reverse(head, curr)
-        # head变成了翻转后的尾节点，则尾节点指向递归后的返回值
-        head.next = self.reverseKGroup(tmp, k)
-        # 递归返回值为翻转后的头节点
-        return new_head
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution2</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">reverseKGroup</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> head<span class="token punctuation">,</span> k<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> <span class="token operator">not</span> head<span class="token punctuation">:</span>
+            <span class="token keyword">return</span> None
+        curr <span class="token operator">=</span> head
+        <span class="token comment" spellcheck="true"># 找出长度为k的一段链表</span>
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>k<span class="token number">-1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            curr <span class="token operator">=</span> curr<span class="token punctuation">.</span>next
+            <span class="token comment" spellcheck="true"># 剩余部分不够k个，直接返回不翻转</span>
+            <span class="token keyword">if</span> <span class="token operator">not</span> curr<span class="token punctuation">:</span>
+                <span class="token keyword">return</span> head
+        <span class="token comment" spellcheck="true"># tmp为剩余一段链表的头节点</span>
+        tmp <span class="token operator">=</span> curr<span class="token punctuation">.</span>next
+        <span class="token comment" spellcheck="true"># new_head为翻转后的头节点</span>
+        new_head <span class="token operator">=</span> self<span class="token punctuation">.</span>reverse<span class="token punctuation">(</span>head<span class="token punctuation">,</span> curr<span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true"># head变成了翻转后的尾节点，则尾节点指向递归后的返回值</span>
+        head<span class="token punctuation">.</span>next <span class="token operator">=</span> self<span class="token punctuation">.</span>reverseKGroup<span class="token punctuation">(</span>tmp<span class="token punctuation">,</span> k<span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true"># 递归返回值为翻转后的头节点</span>
+        <span class="token keyword">return</span> new_head
 
-    def reverse(self, head, tail):
-        p, c = head, head.next
-        while(p!=tail):
-            q = c.next
-            c.next = p
-            p = c
-            c = q
-        return p
+    <span class="token keyword">def</span> <span class="token function">reverse</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> head<span class="token punctuation">,</span> tail<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        p<span class="token punctuation">,</span> c <span class="token operator">=</span> head<span class="token punctuation">,</span> head<span class="token punctuation">.</span>next
+        <span class="token keyword">while</span><span class="token punctuation">(</span>p<span class="token operator">!=</span>tail<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            q <span class="token operator">=</span> c<span class="token punctuation">.</span>next
+            c<span class="token punctuation">.</span>next <span class="token operator">=</span> p
+            p <span class="token operator">=</span> c
+            c <span class="token operator">=</span> q
+        <span class="token keyword">return</span> p
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>可以使用以下测试代码，测试翻转结果：</p>
-<pre class="line-numbers language-lang-python"><code class="language-lang-python">class ListNode:
-    def __init__(self, x):
-        self.val = x
-        self.next = None
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">ListNode</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> x<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>val <span class="token operator">=</span> x
+        self<span class="token punctuation">.</span>next <span class="token operator">=</span> None
 
-# 测试
-a = ListNode(1)
-b = ListNode(2)
-c = ListNode(3)
-d = ListNode(4)
+<span class="token comment" spellcheck="true"># 测试</span>
+a <span class="token operator">=</span> ListNode<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+b <span class="token operator">=</span> ListNode<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
+c <span class="token operator">=</span> ListNode<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span>
+d <span class="token operator">=</span> ListNode<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span>
 
-a.next = b
-b.next = c
-c.next = d
+a<span class="token punctuation">.</span>next <span class="token operator">=</span> b
+b<span class="token punctuation">.</span>next <span class="token operator">=</span> c
+c<span class="token punctuation">.</span>next <span class="token operator">=</span> d
 
 
-s = Solution2()
+s <span class="token operator">=</span> Solution2<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-new_root = s.reverseKGroup(a, 3)
+new_root <span class="token operator">=</span> s<span class="token punctuation">.</span>reverseKGroup<span class="token punctuation">(</span>a<span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span>
 
-while new_root:
-    print(new_root.val, end='')
-    if new_root.next:
-        print(' -> ', end='')
-    new_root = new_root.next
+<span class="token keyword">while</span> new_root<span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>new_root<span class="token punctuation">.</span>val<span class="token punctuation">,</span> end<span class="token operator">=</span><span class="token string">''</span><span class="token punctuation">)</span>
+    <span class="token keyword">if</span> new_root<span class="token punctuation">.</span>next<span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">' -> '</span><span class="token punctuation">,</span> end<span class="token operator">=</span><span class="token string">''</span><span class="token punctuation">)</span>
+    new_root <span class="token operator">=</span> new_root<span class="token punctuation">.</span>next
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="C-实现"><a href="#C-实现" class="headerlink" title="C++实现"></a>C++实现</h3><pre class="line-numbers language-lang-c++"><code class="language-lang-c++">class Solution {
-public:
-    /**
+<h3 id="C-实现"><a href="#C-实现" class="headerlink" title="C++实现"></a>C++实现</h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token comment" spellcheck="true">/**
      * 
      * @param head ListNode类 
      * @param k int整型 
      * @return ListNode类
-     */
-    ListNode* reverseKGroup(ListNode* head, int k) {
-        // write code here
-        if(!head){
-            return NULL;
-        }
-        ListNode* tail = head;
-        for(int i=1; i < k; i++){
-            tail = tail -> next;
-            if(!tail){
-                return head;
-            }
-        }
-        ListNode* next_chain = tail->next;
-        ListNode* reversed_head = reverseChain(head, tail);
-        head->next = reverseKGroup(next_chain, k);
-        return reversed_head;
-    }
-
-    ListNode* reverseChain(ListNode* head, ListNode* tail){
-        ListNode* p = head;
-        ListNode* c = head->next;
-        ListNode* q;
-        while(p!=tail){
-            q = c->next;
-            c->next = p;
-            p = c;
-            c = q;
-        }
-        return p;
-    }
-};
+     */</span>
+    ListNode<span class="token operator">*</span> <span class="token function">reverseKGroup</span><span class="token punctuation">(</span>ListNode<span class="token operator">*</span> head<span class="token punctuation">,</span> <span class="token keyword">int</span> k<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// write code here</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>head<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        ListNode<span class="token operator">*</span> tail <span class="token operator">=</span> head<span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> k<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            tail <span class="token operator">=</span> tail <span class="token operator">-</span><span class="token operator">></span> next<span class="token punctuation">;</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>tail<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token keyword">return</span> head<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        ListNode<span class="token operator">*</span> next_chain <span class="token operator">=</span> tail<span class="token operator">-</span><span class="token operator">></span>next<span class="token punctuation">;</span>
+        ListNode<span class="token operator">*</span> reversed_head <span class="token operator">=</span> <span class="token function">reverseChain</span><span class="token punctuation">(</span>head<span class="token punctuation">,</span> tail<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        head<span class="token operator">-</span><span class="token operator">></span>next <span class="token operator">=</span> <span class="token function">reverseKGroup</span><span class="token punctuation">(</span>next_chain<span class="token punctuation">,</span> k<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> reversed_head<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    
+    ListNode<span class="token operator">*</span> <span class="token function">reverseChain</span><span class="token punctuation">(</span>ListNode<span class="token operator">*</span> head<span class="token punctuation">,</span> ListNode<span class="token operator">*</span> tail<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        ListNode<span class="token operator">*</span> p <span class="token operator">=</span> head<span class="token punctuation">;</span>
+        ListNode<span class="token operator">*</span> c <span class="token operator">=</span> head<span class="token operator">-</span><span class="token operator">></span>next<span class="token punctuation">;</span>
+        ListNode<span class="token operator">*</span> q<span class="token punctuation">;</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span>p<span class="token operator">!=</span>tail<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            q <span class="token operator">=</span> c<span class="token operator">-</span><span class="token operator">></span>next<span class="token punctuation">;</span>
+            c<span class="token operator">-</span><span class="token operator">></span>next <span class="token operator">=</span> p<span class="token punctuation">;</span>
+            p <span class="token operator">=</span> c<span class="token punctuation">;</span>
+            c <span class="token operator">=</span> q<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> p<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>c++代码的思想与python第二种方法的思想一致，详细见python代码的注释，不再赘述。</p>
 
@@ -983,7 +985,7 @@ public:
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">23.1k</span>
+                <span class="white-color">26.9k</span>
                 
 
                     <br>
