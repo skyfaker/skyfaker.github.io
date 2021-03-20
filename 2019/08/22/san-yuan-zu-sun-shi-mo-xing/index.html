@@ -505,9 +505,10 @@
 <h3 id="理论推导"><a href="#理论推导" class="headerlink" title="理论推导"></a>理论推导</h3><p>Triplet loss 由一个三元组<a, p, n>构成，需要三张图片作为输入，如上一段中的图片所示，其中a: anchor 表示基准样本，p: positive 表示与anchor相同类别但不同的正样本，n: negative 表示与基准样本不同类别的负样本。利用生成的每个triplet，模型就能够创建出对应的positive pair <a, p>和negative pair <a, n>。</a,></a,></a,></p>
 <p>Triplet loss的目的是，在一定的距离（margin）上，将positive pair和negative pair分开,通过优化保证嵌入空间（Embedding Space）中类别相同的样本点之间距离足够近，而类别不同的样本点间距离足够远，即基准样本与负样本的距离要远远大于基准样本与正样本间的距离。</p>
 <p>则Triplet loss的思想用欧氏距离形式化表示为：</p>
-<p><strong><script type="math/tex">L = max \lbrace d(a, p)-d(a, n) + margin,\quad 0 \rbrace</script></strong><br>对于阈值margin的设置需要注意选择合适大小的值，理论上来说，较大的margin能够增强模型对不同类样本的区分度，但是如果在训练初期就将margin设置得比较大，则可能会增加模型训练的难度，进而出现网络不收敛的情况。在模型训练初期先使用一个较小的值对网络进行初始化训练，之后再根据测试的结果对margin的值进行适当的增大或缩小，这样可以在保证网络收敛的同时让模型也能拥有一个较好的性能。<br>在这里设样本为 $x$，$f(x)$为映射函数，整个训练集的大小为N，则每个triplet的输入<a, p, n>，对应的Triplet loss形式化表示就可以写作：</a,></p>
-<p><strong><script type="math/tex">\frac{1}{N} \{ \sum_i^N[|f(x_i^a) - f(x_i^p)|^2 - |f(x_i^a) - f(x_i^n)|^2 + \alpha]_+\}</script></strong></p>
-<p>式中$|f(x_i^a) - f(x_i^p)|^2$表示的是2-范数的平方，其作用是计算欧几里得空间的长度或者向量的模，具体的展开形式为：<strong><script type="math/tex">|\ast|^2 = |v_k|^2</script></strong><br>$v_k$表示的是向量，该式常用于机器学习的正则化中。<br>式中$ [\ast]+ $为合页损失（Hing loss）函数，表示与0取最大值，若式子小于 0,则说明此时的triplet满足损失值的要求，不同类别样本间的距离要远远大于相同类别样本间的距离，由于这样的triplet对神经网络的反向传播和参数更新没有提供帮助，因此将其损失值置为 0。至此我们可以看出，其实Triplet loss的整体优化目标就是一个最小化损失值的问题。</p>
+<script type="math/tex; mode=display">
+L = max \lbrace d(a, p)-d(a, n) + margin,\quad 0 \rbrace</script><p>对于阈值margin的设置需要注意选择合适大小的值，理论上来说，较大的margin能够增强模型对不同类样本的区分度，但是如果在训练初期就将margin设置得比较大，则可能会增加模型训练的难度，进而出现网络不收敛的情况。在模型训练初期先使用一个较小的值对网络进行初始化训练，之后再根据测试的结果对margin的值进行适当的增大或缩小，这样可以在保证网络收敛的同时让模型也能拥有一个较好的性能。<br>在这里设样本为 $x$，$f(x)$为映射函数，整个训练集的大小为N，则每个triplet的输入<a, p, n>，对应的Triplet loss形式化表示就可以写作：</a,></p>
+<script type="math/tex; mode=display">
+ \frac{1}{N} \{ \sum_i^N[|f(x_i^a) - f(x_i^p)|^2 - |f(x_i^a) - f(x_i^n)|^2 + \alpha]_+\}</script><p>式中$|f(x_i^a) - f(x_i^p)|^2$表示的是2-范数的平方，其作用是计算欧几里得空间的长度或者向量的模，具体的展开形式为：<strong><script type="math/tex">|\ast|^2 = |v_k|^2</script></strong><br>$v_k$表示的是向量，该式常用于机器学习的正则化中。<br>式中$ [\ast]+ $为合页损失（Hing loss）函数，表示与0取最大值，若式子小于 0,则说明此时的triplet满足损失值的要求，不同类别样本间的距离要远远大于相同类别样本间的距离，由于这样的triplet对神经网络的反向传播和参数更新没有提供帮助，因此将其损失值置为 0。至此我们可以看出，其实Triplet loss的整体优化目标就是一个最小化损失值的问题。</p>
 <h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><p>在图像任务中，Triplet loss经常用作样本点在欧氏空间上的距离向量表示，它可以极大地提升深度特征的判别能力。为了使训练更加迅速有效，需要注意设计好训练策略，只选择合适的triplet进行训练，因为一个数据集的triplet组合非常多，全部进行训练的话会大大降低效率。</p>
 <p>基于我们对Triplet loss的定义，一般而言，会将triplet分为三类，如图所示：</p>
 <p><img src="class.png" alt="三类基准样本、正样本和负样本之间的距离关系"></p>
@@ -521,8 +522,8 @@
 <p>但Triplet loss有一个缺点是，当数据集比较大时，训练的triplet数量也会随之变得十分庞大，此时会造成训练任务变得很艰难。而且如果采用随机选取三元组的训练策略，有可能很多次模型从训练集中挑选的三张图片，恰好是比较简单的三元组，计算出的损失值会很不稳定，从而导致模型很难学习到图片的主要特征。因此我们在使用Triplet loss函数时，要注意选取的训练集不宜过大，还要<strong>设计好训练策略</strong>来选择恰当的triplet。</p>
 <h3 id="三元组选取策略"><a href="#三元组选取策略" class="headerlink" title="三元组选取策略"></a>三元组选取策略</h3><p>许多类似的人脸识别、匹配工作都是在大数据集上实现的，这就要求对数据的高效利用。然而大多数样本在训练中后期不再有梯度贡献，例如含有margin的损失函数（triplet loss、softpn等），多数样本很容易满足于这个margin，此时损失函数中的loss不再发生变化，导致训练停滞阻塞。在极多identities（类别极多）的数据集中不能足够有效的挖掘困难样本，这就容易陷入局部极小，无法继续更新。</p>
 <p>所以如何有效的进行困难样本挖掘（OHEM）成为了关键，困难样本应该包括同类（匹配样本）中距离较大的和非同类（非匹配样本）中距离较小的样本。</p>
-<p><strong><script type="math/tex">\frac{1}{N} \{ \sum_i^N[|f(x_i^a) - f(x_i^p)|^2 - |f(x_i^a) - f(x_i^n)|^2 + \alpha]_+\}</script></strong></p>
-<p>对于上述的公式，实际上并没有体现困难挖掘，所以随机选取的样本并不能保证是困难样本，恰恰相反，这样选取的三元组实际上大部分为简单样本。</p>
+<script type="math/tex; mode=display">
+\frac{1}{N} \{ \sum_i^N[|f(x_i^a) - f(x_i^p)|^2 - |f(x_i^a) - f(x_i^n)|^2 + \alpha]_+\}</script><p>对于上述的公式，实际上并没有体现困难挖掘，所以随机选取的样本并不能保证是困难样本，恰恰相反，这样选取的三元组实际上大部分为简单样本。</p>
 <p>并且在大量图片样本下使用triplet loss也并非容易，如何有效的在large-scale情况下高效优化？使用triplet会发现数据量激增，可组合的三元组变多，如果要遍历所有组合是不现实的，或者极其低效 。</p>
 <p>主要有两种方法，一是将triplet loss转为softmax loss（<strong>triplet net一文中，将triplet loss结合了softmax的输出与mse</strong>），另一种是<strong>batch OHNM</strong>。</p>
 <p>直接考虑<strong>在所有的样本空间来sample一个batch</strong>，如果这个batch中有不满足margin的就认为是困难样本。然而这样做并不能保证采样时正好选取了很多很<strong>相似</strong>的样本，而且（a,p,n）图像组一经选取就已经固定，不会再有其他的组合，所以效率较低。所以寻找相似的个体（类别）是提高triplet net的核心关键。</p>
