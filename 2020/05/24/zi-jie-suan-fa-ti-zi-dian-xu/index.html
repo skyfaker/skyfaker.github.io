@@ -303,7 +303,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/29.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -489,14 +489,13 @@
             <div id="articleContent">
                 <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定整数n和m, 将1到n的这n个整数按字典序排列之后, 求其中的第m个数。<br>对于n=11, m=4, 按字典序排列依次为1, 10, 11, 2, 3, 4, 5, 6, 7, 8, 9, 因此第4个数是2.<br>对于n=200, m=25, 按字典序排列依次为1 10 100 101 102 103 104 105 106 107 108 109 11 110 111 112 113 114 115 116 117 118 119 12 120 121 122 123 124 125 126 127 128 129 13 130 131 132 133 134 135 136 137 138 139 14 140 141 142 143 144 145 146 147 148 149 15 150 151 152 153 154 155 156 157 158 159 16 160 161 162 163 164 165 166 167 168 169 17 170 171 172 173 174 175 176 177 178 179 18 180 181 182 183 184 185 186 187 188 189 19 190 191 192 193 194 195 196 197 198 199 2 20 200 21 22 23 24 25 26 27 28 29 3 30 31 32 33 34 35 36 37 38 39 4 40 41 42 43 44 45 46 47 48 49 5 50 51 52 53 54 55 56 57 58 59 6 60 61 62 63 64 65 66 67 68 69 7 70 71 72 73 74 75 76 77 78 79 8 80 81 82 83 84 85 86 87 88 89 9 90 91 92 93 94 95 96 97 98 99 因此第25个数是120…</p>
 <p><strong>分析：</strong>由于首位不能为0，所以可以构造出以0-9为根的9棵十叉树。</p>
-<img src="tree.png" alt="以1为根的十叉树" style="zoom:50%;">
-
+<p><img src="tree.png" alt="以1为根的十叉树" style="zoom:50%;"></p>
 <p>以字典序排序就是求上述十叉树的深度遍历。深度遍历一般使用递归实现。</p>
 <p>有意思的是，如果使用广度搜索，就可以实现自然数顺序的排序。</p>
 <h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><h3 id="python实现"><a href="#python实现" class="headerlink" title="python实现"></a>python实现</h3><h4 id="1-暴力排序"><a href="#1-暴力排序" class="headerlink" title="1.暴力排序"></a>1.暴力排序</h4><pre class="line-numbers language-python"><code class="language-python"><span class="token punctuation">[</span>n<span class="token punctuation">,</span> m<span class="token punctuation">]</span> <span class="token operator">=</span> map<span class="token punctuation">(</span>int<span class="token punctuation">,</span> input<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
- 
+
 strList <span class="token operator">=</span> <span class="token punctuation">[</span>str<span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> n<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
- 
+
 strList<span class="token punctuation">.</span>sort<span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span>int<span class="token punctuation">(</span>strList<span class="token punctuation">[</span>m<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
@@ -584,11 +583,11 @@ prefix<span class="token punctuation">,</span> rank <span class="token operator"
 <li><strong><code>pre</code>小于<code>n</code>的前缀</strong></li>
 </ol>
 <p>举个例子，<code>n=250</code>， <code>pre=1</code>，则计算以1开头且小于250的数，分别为<code>1、10-19、100-199</code>共111个数，因为<code>pre</code>小于同位数的<code>n</code>的前缀2，所以相同位数的以<code>pre</code>开头的数字全都小于<code>n</code>。个数与<code>n</code>与<code>pre</code>的位数差有关，每相差一位，个数多十倍。所以满足条件的数字个数为<code>位数差+1</code>个1，以上面的250为例，位数差为2为，则数字个数为3个1，即111。</p>
-<ol start="2">
+<ol>
 <li><strong><code>pre</code>大于<code>n</code>的前缀</strong></li>
 </ol>
 <p><code>n=250</code>， <code>pre=3</code>，满足条件的数只能为1位或者2位数字，即<code>3、30-39</code>共11个数字，所以是<code>位数差</code>个1，2个1即11。</p>
-<ol start="3">
+<ol>
 <li><strong><code>pre</code>等于<code>n</code>的前缀</strong></li>
 </ol>
 <p><code>pre</code>等于<code>n</code>的前缀的情况分为两种。第一种，<code>pre</code>和<code>n</code>的位数相同。例如<code>n=250</code>， <code>pre=250</code>，则只有250这一个数字。</p>
@@ -646,9 +645,9 @@ vector<span class="token operator">&lt;</span>string<span class="token operator"
 
 <span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
     <span class="token keyword">int</span> n<span class="token punctuation">,</span>m<span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">// cin>>n>>m;</span>
-    n <span class="token operator">=</span> <span class="token number">1000000</span><span class="token punctuation">;</span>
-    m <span class="token operator">=</span> <span class="token number">888888</span><span class="token punctuation">;</span>
+    cin<span class="token operator">>></span>n<span class="token operator">>></span>m<span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// n = 1000000;</span>
+    <span class="token comment" spellcheck="true">// m = 888888;</span>
     <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span><span class="token number">9</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
         ve<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span><span class="token function">to_string</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
@@ -671,7 +670,7 @@ vector<span class="token operator">&lt;</span>string<span class="token operator"
     cout<span class="token operator">&lt;&lt;</span>prefix<span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
     cin<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-    
+
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
@@ -760,7 +759,7 @@ vector<span class="token operator">&lt;</span>string<span class="token operator"
                             <div class="card-image">
                                 
                                         
-                                            <img src="/medias/featureimages/24.jpg" class="responsive-img" alt="字节算法题——连续出题问题">
+                                            <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="字节算法题——连续出题问题">
                                             
                                                 <span class="card-title">字节算法题——连续出题问题</span>
                             </div>
@@ -813,7 +812,7 @@ vector<span class="token operator">&lt;</span>string<span class="token operator"
                                         <div class="card-image">
                                             
                                                     
-                                                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="一道编程题——二叉树路径和为指定值">
+                                                        <img src="/medias/featureimages/30.jpg" class="responsive-img" alt="一道编程题——二叉树路径和为指定值">
                                                         
                                                             <span class="card-title">一道编程题——二叉树路径和为指定值</span>
                                         </div>
@@ -1020,7 +1019,7 @@ vector<span class="token operator">&lt;</span>string<span class="token operator"
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">26.9k</span>
+                <span class="white-color">28.4k</span>
                 
 
                     <br>

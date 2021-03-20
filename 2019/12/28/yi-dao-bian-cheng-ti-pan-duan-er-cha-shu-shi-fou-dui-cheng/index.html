@@ -308,7 +308,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/35.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/29.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -494,7 +494,7 @@
 <h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>看上图，很明显对二叉树的对称有了概念。</p>
 <p>可以用递归或者迭代的方式：</p>
 <h3 id="递归："><a href="#递归：" class="headerlink" title="递归："></a>递归：</h3><p>如上图对称二叉树的第二行，根节点1的左子树2和右子树2的值相等，并且左子树2的左子树3和右子树2的右子树3相等。</p>
-<p>所以递归公式为：<code> checkout(root1.left, root2.right) and checkout(root1.right, root2.left)</code></p>
+<p>所以递归公式为：<code>checkout(root1.left, root2.right) and checkout(root1.right, root2.left)</code></p>
 <p>即左子树的左子树应该等于右子树的右子树，并且左子树的右子树等于右子树的左子树。</p>
 <p>递归过程实际上类似为左子树前序遍历（中、左、右），右子树反向前序遍历（中、右、左），然后判断这两个遍历过程是否相等。</p>
 <h4 id="python实现"><a href="#python实现" class="headerlink" title="python实现"></a>python实现</h4><pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 递归</span>
@@ -504,7 +504,7 @@
         <span class="token keyword">if</span> <span class="token operator">not</span> root<span class="token punctuation">:</span>
             <span class="token keyword">return</span> <span class="token boolean">True</span>
         <span class="token keyword">return</span> self<span class="token punctuation">.</span>checkout<span class="token punctuation">(</span>root<span class="token punctuation">.</span>left<span class="token punctuation">,</span> root<span class="token punctuation">.</span>right<span class="token punctuation">)</span>
-    
+
     <span class="token keyword">def</span> <span class="token function">checkout</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> root1<span class="token punctuation">,</span> root2<span class="token punctuation">)</span><span class="token punctuation">:</span>
         <span class="token comment" spellcheck="true"># 左右对应位置的节点都为空，对称</span>
         <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">not</span> root1 <span class="token operator">and</span> <span class="token operator">not</span> root2<span class="token punctuation">)</span><span class="token punctuation">:</span>
@@ -534,7 +534,7 @@
         <span class="token punctuation">}</span>
         <span class="token keyword">return</span> <span class="token function">check</span><span class="token punctuation">(</span>root<span class="token punctuation">,</span> root<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-    
+
     <span class="token keyword">bool</span> <span class="token function">check</span><span class="token punctuation">(</span>TreeNode<span class="token operator">*</span> root1<span class="token punctuation">,</span> TreeNode<span class="token operator">*</span> root2<span class="token punctuation">)</span><span class="token punctuation">{</span>
         <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>root1 <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span>root2<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
         <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>root1 <span class="token operator">||</span> <span class="token operator">!</span>root2<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
@@ -544,7 +544,7 @@
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="迭代："><a href="#迭代：" class="headerlink" title="迭代："></a>迭代：</h3><p>类似于BFS，逐层遍历节点入栈（或者队列），只不过入栈的顺序与层次遍历不太一样。</p>
-<p>栈中元素为：<code> [左子树，右子树] -&gt;  [左子树的左子树，右子树的右子树，左子树的右子树，右子树的左子树]</code></p>
+<p>栈中元素为：<code>[左子树，右子树] -&gt;  [左子树的左子树，右子树的右子树，左子树的右子树，右子树的左子树]</code></p>
 <p>这样，只要比较栈中的成对的两个元素，直到栈为空。</p>
 <h4 id="python实现-1"><a href="#python实现-1" class="headerlink" title="python实现"></a>python实现</h4><pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 迭代</span>
 <span class="token keyword">class</span> <span class="token class-name">Solution2</span><span class="token punctuation">:</span>
@@ -655,7 +655,7 @@
                             <div class="card-image">
                                 
                                         
-                                            <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="git 简明教程与命令">
+                                            <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="git 简明教程与命令">
                                             
                                                 <span class="card-title">git 简明教程与命令</span>
                             </div>
@@ -704,7 +704,7 @@
                                         <div class="card-image">
                                             
                                                     
-                                                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="一道编程题——判断链表是否有环">
+                                                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="一道编程题——判断链表是否有环">
                                                         
                                                             <span class="card-title">一道编程题——判断链表是否有环</span>
                                         </div>
@@ -911,7 +911,7 @@
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">26.9k</span>
+                <span class="white-color">28.4k</span>
                 
 
                     <br>

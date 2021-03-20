@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.skyfaker.cc/"/>
-  <updated>2021-03-20T08:20:47.532Z</updated>
+  <updated>2021-03-20T17:05:16.245Z</updated>
   <id>https://www.skyfaker.cc/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>hexo 代码高亮与mathjax冲突</title>
+    <link href="https://www.skyfaker.cc/2020/06/20/hexo-dai-ma-gao-liang-yu-mathjax-chong-tu/"/>
+    <id>https://www.skyfaker.cc/2020/06/20/hexo-dai-ma-gao-liang-yu-mathjax-chong-tu/</id>
+    <published>2020-06-20T09:37:18.000Z</published>
+    <updated>2021-03-20T17:05:16.245Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;Prism高亮&quot;&gt;&lt;a href=&quot;#Prism高亮&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="hexo" scheme="https://www.skyfaker.cc/categories/hexo/"/>
+    
+    
+      <category term="mathjax" scheme="https://www.skyfaker.cc/tags/mathjax/"/>
+    
+      <category term="hexo渲染" scheme="https://www.skyfaker.cc/tags/hexo%E6%B8%B2%E6%9F%93/"/>
+    
+  </entry>
   
   <entry>
     <title>字节算法题——连续出题问题</title>
@@ -49,7 +77,7 @@
     <link href="https://www.skyfaker.cc/2020/05/24/zi-jie-suan-fa-ti-zi-dian-xu/"/>
     <id>https://www.skyfaker.cc/2020/05/24/zi-jie-suan-fa-ti-zi-dian-xu/</id>
     <published>2020-05-24T09:46:37.000Z</published>
-    <updated>2021-03-20T08:26:25.219Z</updated>
+    <updated>2021-03-20T12:19:14.696Z</updated>
     
     <summary type="html">
     
@@ -181,7 +209,7 @@
     <link href="https://www.skyfaker.cc/2020/02/17/shu-zi-tu-xiang-chu-li-xing-tai-xue/"/>
     <id>https://www.skyfaker.cc/2020/02/17/shu-zi-tu-xiang-chu-li-xing-tai-xue/</id>
     <published>2020-02-17T01:33:06.000Z</published>
-    <updated>2021-03-20T08:23:44.673Z</updated>
+    <updated>2021-03-20T10:03:38.864Z</updated>
     
     <summary type="html">
     
@@ -319,7 +347,7 @@
       
         
         
-          &lt;h2 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot; title=&quot;题目描述&quot;&gt;&lt;/a&gt;题目描述&lt;/h2&gt;&lt;p&gt;将给出的链表中的节点每 **&lt;code&gt;k&lt;/code&gt;**个一组翻转，返回翻转后的链表&lt;br&gt;如果链表中的节点数不是 
+          &lt;h2 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot; title=&quot;题目描述&quot;&gt;&lt;/a&gt;题目描述&lt;/h2&gt;&lt;p&gt;将给出的链表中的节点每
         
       
     
@@ -337,7 +365,7 @@
     <link href="https://www.skyfaker.cc/2019/08/22/san-yuan-zu-sun-shi-mo-xing/"/>
     <id>https://www.skyfaker.cc/2019/08/22/san-yuan-zu-sun-shi-mo-xing/</id>
     <published>2019-08-22T07:09:23.000Z</published>
-    <updated>2021-03-17T09:05:27.071Z</updated>
+    <updated>2021-03-20T09:23:27.149Z</updated>
     
     <summary type="html">
     
@@ -516,35 +544,6 @@
         
         
           &lt;h2 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="算法" scheme="https://www.skyfaker.cc/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-      <category term="编程算法" scheme="https://www.skyfaker.cc/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>一道编程题——反向打印链表</title>
-    <link href="https://www.skyfaker.cc/2019/02/24/yi-dao-bian-cheng-ti-fan-xiang-da-yin-lian-biao/"/>
-    <id>https://www.skyfaker.cc/2019/02/24/yi-dao-bian-cheng-ti-fan-xiang-da-yin-lian-biao/</id>
-    <published>2019-02-24T07:09:23.000Z</published>
-    <updated>2021-03-20T08:28:18.649Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;ul&gt;
-&lt;li&gt;前言：题目顺序 不严格按照剑指offer的题目顺序，有些过于简单的，涉及不到算法的，不适合用Python解决的题目，不会被记录。 &lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot;
         
       
     

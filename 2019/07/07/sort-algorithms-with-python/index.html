@@ -13,13 +13,13 @@
 性质汇总
 
 
+
 算法
 最好
 最坏
 平均
 空间
-稳定性
-">
+稳定性">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -314,7 +314,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -500,7 +500,8 @@
             <div id="articleContent">
                 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本文用Python实现列几种排序算法（冒泡排序、选择排序、插入排序、二分插入排序、快速排序、优化快速排序，并比较了他们在随机数组上的排序效率。</p>
 <p><strong>本文并不会详细讲解每种排序算法的原理</strong>。</p>
-<h2 id="性质汇总"><a href="#性质汇总" class="headerlink" title="性质汇总"></a>性质汇总</h2><table>
+<h2 id="性质汇总"><a href="#性质汇总" class="headerlink" title="性质汇总"></a>性质汇总</h2><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>算法</th>
@@ -511,7 +512,8 @@
 <th>稳定性</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>冒泡排序</td>
 <td>$O(n)$</td>
 <td>$O(n^2)$</td>
@@ -551,7 +553,9 @@
 <td>$O(\log n)$~$O(n)$</td>
 <td>$\times$</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><ul>
 <li>本次几个算法均没有返回值，直接对原数组进行操作。</li>
 </ul>
@@ -641,13 +645,13 @@
                     ls<span class="token punctuation">[</span>pos<span class="token punctuation">]</span><span class="token punctuation">,</span> ls<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> ls<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> ls<span class="token punctuation">[</span>pos<span class="token punctuation">]</span>
         ls<span class="token punctuation">[</span>pos<span class="token punctuation">]</span><span class="token punctuation">,</span> ls<span class="token punctuation">[</span>low<span class="token punctuation">]</span> <span class="token operator">=</span> ls<span class="token punctuation">[</span>low<span class="token punctuation">]</span><span class="token punctuation">,</span> ls<span class="token punctuation">[</span>pos<span class="token punctuation">]</span> 
         <span class="token keyword">return</span> pos
-    
+
     <span class="token keyword">def</span> <span class="token function">sort</span><span class="token punctuation">(</span>left<span class="token punctuation">,</span> right<span class="token punctuation">)</span><span class="token punctuation">:</span>
         <span class="token keyword">if</span> left <span class="token operator">&lt;</span> right<span class="token punctuation">:</span>
             pos <span class="token operator">=</span> partition<span class="token punctuation">(</span>left<span class="token punctuation">,</span> right<span class="token punctuation">)</span>
             sort<span class="token punctuation">(</span>left<span class="token punctuation">,</span> pos<span class="token number">-1</span><span class="token punctuation">)</span>
             sort<span class="token punctuation">(</span>pos<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>right<span class="token punctuation">)</span>
-    
+
     sort<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> len<span class="token punctuation">(</span>ls<span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>快速排序无愧于它的名字，数据量大的时候效率很高，在大多数计算机上，快速排序表现得都比其他几个排序方法要好。</p>
@@ -681,7 +685,7 @@
                     ls<span class="token punctuation">[</span>pos<span class="token punctuation">]</span><span class="token punctuation">,</span> ls<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> ls<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> ls<span class="token punctuation">[</span>pos<span class="token punctuation">]</span>
         ls<span class="token punctuation">[</span>pos<span class="token punctuation">]</span><span class="token punctuation">,</span> ls<span class="token punctuation">[</span>low<span class="token punctuation">]</span> <span class="token operator">=</span> ls<span class="token punctuation">[</span>low<span class="token punctuation">]</span><span class="token punctuation">,</span> ls<span class="token punctuation">[</span>pos<span class="token punctuation">]</span> 
         <span class="token keyword">return</span> pos
-    
+
     <span class="token keyword">def</span> <span class="token function">sort</span><span class="token punctuation">(</span>left<span class="token punctuation">,</span> right<span class="token punctuation">)</span><span class="token punctuation">:</span>
         <span class="token keyword">if</span> left <span class="token operator">&lt;</span> right<span class="token number">-20</span><span class="token punctuation">:</span>
             pos <span class="token operator">=</span> partition<span class="token punctuation">(</span>left<span class="token punctuation">,</span> right<span class="token punctuation">)</span>
@@ -689,7 +693,7 @@
             sort<span class="token punctuation">(</span>pos<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>right<span class="token punctuation">)</span>
         <span class="token keyword">else</span><span class="token punctuation">:</span>
             insert_sort<span class="token punctuation">(</span>left<span class="token punctuation">,</span> right<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span>
-    
+
     sort<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> len<span class="token punctuation">(</span>ls<span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>当数组或者子数组的长度在20以下，使用直接插入排序代替快速排序。另外，我们也可以从数组中随机选择一个数作为基准，而不是总是使用数组的第一个元素作为基准，这样可以避免在近似有序情况下，快速排序的退化问题。</p>
@@ -704,8 +708,7 @@ ls <span class="token operator">=</span> np<span class="token punctuation">.</sp
 折半插入排序：11.8s
 快速排序：0.221s
 插入排序优化后的快速排序：0.177s
-</code></pre>
-<p><strong>By the way, python自带的list.sort()也是原地排序，对上述数组的排序时间为：0.000996s,比优化后的快速排序还要快百倍，这么快也有可能是因为这个内置方法是用C语言写出来的。</strong></p>
+</code></pre><p><strong>By the way, python自带的list.sort()也是原地排序，对上述数组的排序时间为：0.000996s,比优化后的快速排序还要快百倍，这么快也有可能是因为这个内置方法是用C语言写出来的。</strong></p>
 <p><strong>list.sort()使用的排序方法为Timsort算法，速度非常快，缺点是空间复杂度为 $O(n)$ ，比较耗费内存。</strong></p>
 
             </div>
@@ -793,7 +796,7 @@ ls <span class="token operator">=</span> np<span class="token punctuation">.</sp
                             <div class="card-image">
                                 
                                         
-                                            <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="三元组损失模型">
+                                            <img src="/medias/featureimages/26.jpg" class="responsive-img" alt="三元组损失模型">
                                             
                                                 <span class="card-title">三元组损失模型</span>
                             </div>
@@ -846,7 +849,7 @@ ls <span class="token operator">=</span> np<span class="token punctuation">.</sp
                                         <div class="card-image">
                                             
                                                     
-                                                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="Matplotlib 可视化">
+                                                        <img src="/medias/featureimages/35.jpg" class="responsive-img" alt="Matplotlib 可视化">
                                                         
                                                             <span class="card-title">Matplotlib 可视化</span>
                                         </div>
@@ -1057,7 +1060,7 @@ ls <span class="token operator">=</span> np<span class="token punctuation">.</sp
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">26.9k</span>
+                <span class="white-color">28.4k</span>
                 
 
                     <br>

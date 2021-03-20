@@ -304,7 +304,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -423,12 +423,12 @@
                     
                     <div class="article-tag">
                         
-                        <a href="/tags/leetcode/" target="_blank">
-                            <span class="chip bg-color">leetcode</span>
-                        </a>
-                        
                         <a href="/tags/算法/" target="_blank">
                             <span class="chip bg-color">算法</span>
+                        </a>
+                        
+                        <a href="/tags/leetcode/" target="_blank">
+                            <span class="chip bg-color">leetcode</span>
                         </a>
                         
                     </div>
@@ -494,6 +494,7 @@
 <h2 id="性质汇总"><a href="#性质汇总" class="headerlink" title="性质汇总"></a>性质汇总</h2><blockquote>
 <p>如果发现表中有错误，请留言告知。</p>
 </blockquote>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -502,18 +503,19 @@
 <th>最坏</th>
 <th>平均</th>
 <th>空间</th>
-<th align="center">稳定性</th>
-<th align="center">是否基于比较</th>
+<th style="text-align:center">稳定性</th>
+<th style="text-align:center">是否基于比较</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>冒泡排序</td>
 <td>$O(n)$</td>
 <td>$O(n^2)$</td>
 <td>$O(n^2)$</td>
 <td>$O(1)$</td>
-<td align="center">$\checkmark$</td>
-<td align="center">$\checkmark$</td>
+<td style="text-align:center">$\checkmark$</td>
+<td style="text-align:center">$\checkmark$</td>
 </tr>
 <tr>
 <td>选择排序</td>
@@ -521,8 +523,8 @@
 <td>$O(n^2)$</td>
 <td>$O(n^2)$</td>
 <td>$O(1)$</td>
-<td align="center">$\times$</td>
-<td align="center">$\checkmark$</td>
+<td style="text-align:center">$\times$</td>
+<td style="text-align:center">$\checkmark$</td>
 </tr>
 <tr>
 <td>插入排序</td>
@@ -530,8 +532,8 @@
 <td>$O(n^2)$</td>
 <td>$O(n^2)$</td>
 <td>$O(1)$</td>
-<td align="center">$\checkmark$</td>
-<td align="center">$\checkmark$</td>
+<td style="text-align:center">$\checkmark$</td>
+<td style="text-align:center">$\checkmark$</td>
 </tr>
 <tr>
 <td>快速排序</td>
@@ -539,8 +541,8 @@
 <td>$O(n^2)$</td>
 <td>$O(n\log n)$</td>
 <td>$O(\log n)$~$O(n)$</td>
-<td align="center">$\times$</td>
-<td align="center">$\checkmark$</td>
+<td style="text-align:center">$\times$</td>
+<td style="text-align:center">$\checkmark$</td>
 </tr>
 <tr>
 <td>归并排序</td>
@@ -548,8 +550,8 @@
 <td>$O(n\log n)$</td>
 <td>$O(n\log n)$</td>
 <td>$O(n)$</td>
-<td align="center">$\checkmark$</td>
-<td align="center">$\checkmark$</td>
+<td style="text-align:center">$\checkmark$</td>
+<td style="text-align:center">$\checkmark$</td>
 </tr>
 <tr>
 <td>希尔排序</td>
@@ -557,8 +559,8 @@
 <td>$O(n^2)$</td>
 <td>$O(n\log n)$~$O(n^2)$</td>
 <td>$O(1)$</td>
-<td align="center">$\times$</td>
-<td align="center">$\checkmark$</td>
+<td style="text-align:center">$\times$</td>
+<td style="text-align:center">$\checkmark$</td>
 </tr>
 <tr>
 <td>计数排序</td>
@@ -566,8 +568,8 @@
 <td>$O(n+k)$</td>
 <td>$O(n+k)$</td>
 <td>$O(n+k)$</td>
-<td align="center">$\checkmark$</td>
-<td align="center">$\times$</td>
+<td style="text-align:center">$\checkmark$</td>
+<td style="text-align:center">$\times$</td>
 </tr>
 <tr>
 <td>基数排序</td>
@@ -575,8 +577,8 @@
 <td>$O(nk)$</td>
 <td>$O(nk)$</td>
 <td>$O(n+k)$</td>
-<td align="center">$\checkmark$</td>
-<td align="center">$\times$</td>
+<td style="text-align:center">$\checkmark$</td>
+<td style="text-align:center">$\times$</td>
 </tr>
 <tr>
 <td>桶排序</td>
@@ -584,8 +586,8 @@
 <td>$O(n)$</td>
 <td>$O(n)$</td>
 <td>$O(n+m)$</td>
-<td align="center">$\checkmark$</td>
-<td align="center">$\times$</td>
+<td style="text-align:center">$\checkmark$</td>
+<td style="text-align:center">$\times$</td>
 </tr>
 <tr>
 <td>堆排序</td>
@@ -593,10 +595,12 @@
 <td>$O(n\log n)$</td>
 <td>$O(n\log n)$</td>
 <td>$O(1)$</td>
-<td align="center">$\times$</td>
-<td align="center">$\checkmark$</td>
+<td style="text-align:center">$\times$</td>
+<td style="text-align:center">$\checkmark$</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <blockquote>
 <p>如果表格显示有问题的话，还可以直接看下面的汇总图：</p>
 </blockquote>
@@ -936,7 +940,7 @@
                             <div class="card-image">
                                 
                                         
-                                            <img src="/medias/featureimages/35.jpg" class="responsive-img" alt="一道编程题——二维数组的查找">
+                                            <img src="/medias/featureimages/29.jpg" class="responsive-img" alt="一道编程题——二维数组的查找">
                                             
                                                 <span class="card-title">一道编程题——二维数组的查找</span>
                             </div>
@@ -985,7 +989,7 @@
                                         <div class="card-image">
                                             
                                                     
-                                                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="New Blog">
+                                                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="New Blog">
                                                         
                                                             <span class="card-title">New Blog</span>
                                         </div>
@@ -1192,7 +1196,7 @@
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">26.9k</span>
+                <span class="white-color">28.4k</span>
                 
 
                     <br>

@@ -303,7 +303,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -492,7 +492,7 @@
 <p>因此，自编码器由两部分组成：</p>
 <p><strong>编码器</strong>：这部分能将输入压缩成潜在空间表征，可以用编码函数 <strong>h</strong> =f(x)表示。</p>
 <p><strong>解码器</strong>：这部分能重构来自潜在空间表征的输入，可以用解码函数 <strong>r</strong> =g(h)表示。</p>
-<p><img src="1-V_YtxTFUqDrmmu2JqMZ-rA.png"></p>
+<p><img src="1-V_YtxTFUqDrmmu2JqMZ-rA.png" alt></p>
 <p>整个自编码器可以用函数g(f(x)) =  <strong>r</strong> 来描述，其中输出r与原始输入 <strong>x</strong> 相近。</p>
 <p>自编码器原理和各种变换的原理相似，都是将原始特征空间通过编码映射到一个新的编码空间，再由编码空间通过解码映射到解码空间。而当编码变换与解码变换符合某种条件时，解码空间和原始特征空间可以近似一致。</p>
 <p>就像大名鼎鼎的傅里叶变换，通过它，可以把原始时域信号变换为频域信号，并且，频域信号可以通过反变换变换为时域信号。之所以要变换为频域信号，是为了获取原始信号在频域上的特征。同样的，对于自编码器的编码变换，也是为了获取不同角度，不同维度的特征（类似于SVM的核函数）。</p>
@@ -523,8 +523,7 @@ decoded = Dense(784, activation=&#39;sigmoid&#39;)(encoded)
 
 autoencoder = Model(input_img, decoded)
 encoder = Model(input_img, encoded)
-</code></pre>
-<p>上面这种就是自编码器是最简单的形式，其中encoder是编码器，autoencoder是整个自编码器。</p>
+</code></pre><p>上面这种就是自编码器是最简单的形式，其中encoder是编码器，autoencoder是整个自编码器。</p>
 <p>在这种形式中，基本上encoder的神经元个数都要少于输入的维度，因此Encoder在这里起到了降维的功能。</p>
 <p>把<code>encoding_dim=32</code>换成<code>encoding_dim=2</code>或者<code>encoding_dim=3</code>就可以满足上图的可视化数据要求。</p>
 <h4 id="3-2-稀疏自编码器"><a href="#3-2-稀疏自编码器" class="headerlink" title="3.2 稀疏自编码器"></a>3.2 稀疏自编码器</h4><p>除强加一个比输入更低维度的隐藏层外，还有其他一些方法可以限制自编码器的重构。包含正则化项的自编码器不需要通过保持编码器和解码器的浅层和程序的小体量来限制模型容量，而是使用损失函数来鼓励模型取得除了将输入复制到其输出之外的其他属性。在实践中，我们通常会使用稀疏自编码器。</p>
@@ -543,8 +542,7 @@ r = Dense(output_size, activation=&#39;sigmoid&#39;)(h)
 
 autoencoder = Model(input=x, output=r)
 encoder = Model(input=x, output=h)
-</code></pre>
-<p>在的隐藏层中，我们添加了一个l1激活值正则化矩阵（activity regularizer），它将在优化阶段对损失函数施加一个惩罚，与普通的自编码器相比，现在的表示方式更加稀疏。</p>
+</code></pre><p>在的隐藏层中，我们添加了一个l1激活值正则化矩阵（activity regularizer），它将在优化阶段对损失函数施加一个惩罚，与普通的自编码器相比，现在的表示方式更加稀疏。</p>
 <h4 id="3-3-卷积自编码器、变分自编码器（VAE）等"><a href="#3-3-卷积自编码器、变分自编码器（VAE）等" class="headerlink" title="3.3 卷积自编码器、变分自编码器（VAE）等"></a>3.3 卷积自编码器、变分自编码器（VAE）等</h4><p>如果输入的是图像，使用卷积神经网络（CNN）作为编码器和解码器是很有意义的。在实际使用中，应用于图像的自动编码器始终是卷积自动编码器 ，因为它们的性能要好得多。</p>
 <p>编码器将由Conv2D和MaxPooling2D层组成（最大池化用于下采样，以减小图像维度，降维），而解码器将由Conv2D和UpSampling2D（增加图像维度，升维）层组成。</p>
 <p>而VAE是一类重要的生成模型（generative model），广泛地用于生成图像，而大名鼎鼎的GAN就是对抗生成模型。原理和实现都比较复杂，用于以后研究。</p>
@@ -635,7 +633,7 @@ encoder = Model(input=x, output=h)
                             <div class="card-image">
                                 
                                         
-                                            <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="Matplotlib 可视化">
+                                            <img src="/medias/featureimages/35.jpg" class="responsive-img" alt="Matplotlib 可视化">
                                             
                                                 <span class="card-title">Matplotlib 可视化</span>
                             </div>
@@ -688,7 +686,7 @@ encoder = Model(input=x, output=h)
                                         <div class="card-image">
                                             
                                                     
-                                                        <img src="/medias/featureimages/34.jpg" class="responsive-img" alt="Vue初见——如何运行一个Vue项目">
+                                                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="Vue初见——如何运行一个Vue项目">
                                                         
                                                             <span class="card-title">Vue初见——如何运行一个Vue项目</span>
                                         </div>
@@ -880,7 +878,7 @@ encoder = Model(input=x, output=h)
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">26.9k</span>
+                <span class="white-color">28.4k</span>
                 
 
                     <br>
