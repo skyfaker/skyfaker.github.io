@@ -49,7 +49,7 @@
     <link href="https://www.skyfaker.cc/2020/06/10/zi-jie-suan-fa-ti-lian-xu-chu-ti-wen-ti/"/>
     <id>https://www.skyfaker.cc/2020/06/10/zi-jie-suan-fa-ti-lian-xu-chu-ti-wen-ti/</id>
     <published>2020-06-10T04:52:36.000Z</published>
-    <updated>2021-03-20T08:20:47.532Z</updated>
+    <updated>2021-03-21T14:55:33.332Z</updated>
     
     <summary type="html">
     
@@ -77,7 +77,7 @@
     <link href="https://www.skyfaker.cc/2020/05/24/zi-jie-suan-fa-ti-zi-dian-xu/"/>
     <id>https://www.skyfaker.cc/2020/05/24/zi-jie-suan-fa-ti-zi-dian-xu/</id>
     <published>2020-05-24T09:46:37.000Z</published>
-    <updated>2021-03-20T12:19:14.696Z</updated>
+    <updated>2021-03-21T14:55:23.778Z</updated>
     
     <summary type="html">
     
@@ -105,7 +105,7 @@
     <link href="https://www.skyfaker.cc/2020/05/08/yi-dao-bian-cheng-ti-er-cha-shu-lu-jing-he-wei-zhi-ding-zhi/"/>
     <id>https://www.skyfaker.cc/2020/05/08/yi-dao-bian-cheng-ti-er-cha-shu-lu-jing-he-wei-zhi-ding-zhi/</id>
     <published>2020-05-08T15:49:14.000Z</published>
-    <updated>2021-03-20T08:28:29.051Z</updated>
+    <updated>2021-03-21T14:56:52.629Z</updated>
     
     <summary type="html">
     
@@ -131,7 +131,7 @@
     <link href="https://www.skyfaker.cc/2020/04/17/yi-dao-bian-cheng-ti-shan-chu-dao-shu-di-k-ge-jie-dian/"/>
     <id>https://www.skyfaker.cc/2020/04/17/yi-dao-bian-cheng-ti-shan-chu-dao-shu-di-k-ge-jie-dian/</id>
     <published>2020-04-17T15:14:05.000Z</published>
-    <updated>2021-03-20T08:27:26.552Z</updated>
+    <updated>2021-03-21T14:56:05.508Z</updated>
     
     <summary type="html">
     
@@ -153,11 +153,38 @@
   </entry>
   
   <entry>
+    <title>激活函数与评价指标</title>
+    <link href="https://www.skyfaker.cc/2020/04/01/ji-huo-han-shu-yu-ping-jie-zhi-biao/"/>
+    <id>https://www.skyfaker.cc/2020/04/01/ji-huo-han-shu-yu-ping-jie-zhi-biao/</id>
+    <published>2020-04-01T03:40:29.000Z</published>
+    <updated>2021-03-21T15:01:45.686Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;本文记录了神经网络中常用的几个激活函数以及它们的导数；深度学习模型常用的一些评价指标以及它们的数学公式。&lt;/p&gt;
+&lt;h2 id=&quot;激活函数&quot;&gt;&lt;a href=&quot;#激活函数&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="深度学习" scheme="https://www.skyfaker.cc/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="模型" scheme="https://www.skyfaker.cc/tags/%E6%A8%A1%E5%9E%8B/"/>
+    
+  </entry>
+  
+  <entry>
     <title>一道编程题——合并K个有序链表</title>
     <link href="https://www.skyfaker.cc/2020/03/24/yi-dao-bian-cheng-ti-he-bing-k-ge-you-xu-lian-biao/"/>
     <id>https://www.skyfaker.cc/2020/03/24/yi-dao-bian-cheng-ti-he-bing-k-ge-you-xu-lian-biao/</id>
     <published>2020-03-24T15:57:53.000Z</published>
-    <updated>2021-03-20T08:28:12.197Z</updated>
+    <updated>2021-03-21T14:56:34.214Z</updated>
     
     <summary type="html">
     
@@ -183,7 +210,7 @@
     <link href="https://www.skyfaker.cc/2020/03/02/yi-dao-bian-cheng-ti-xun-zhao-huan-de-ru-kou-jie-dian/"/>
     <id>https://www.skyfaker.cc/2020/03/02/yi-dao-bian-cheng-ti-xun-zhao-huan-de-ru-kou-jie-dian/</id>
     <published>2020-03-02T15:32:04.000Z</published>
-    <updated>2021-03-20T08:27:18.707Z</updated>
+    <updated>2021-03-21T14:55:58.357Z</updated>
     
     <summary type="html">
     
@@ -235,7 +262,7 @@
     <link href="https://www.skyfaker.cc/2020/02/08/yi-dao-bian-cheng-ti-he-cheng-you-xu-lian-biao/"/>
     <id>https://www.skyfaker.cc/2020/02/08/yi-dao-bian-cheng-ti-he-cheng-you-xu-lian-biao/</id>
     <published>2020-02-08T15:01:10.000Z</published>
-    <updated>2021-03-20T08:27:54.694Z</updated>
+    <updated>2021-03-21T14:56:25.093Z</updated>
     
     <summary type="html">
     
@@ -261,7 +288,7 @@
     <link href="https://www.skyfaker.cc/2020/01/30/git-jian-ming-jiao-cheng-yu-ming-ling/"/>
     <id>https://www.skyfaker.cc/2020/01/30/git-jian-ming-jiao-cheng-yu-ming-ling/</id>
     <published>2020-01-30T06:38:39.000Z</published>
-    <updated>2021-03-19T03:12:28.018Z</updated>
+    <updated>2021-03-21T14:55:04.101Z</updated>
     
     <summary type="html">
     
@@ -287,7 +314,7 @@
     <link href="https://www.skyfaker.cc/2019/12/28/yi-dao-bian-cheng-ti-pan-duan-er-cha-shu-shi-fou-dui-cheng/"/>
     <id>https://www.skyfaker.cc/2019/12/28/yi-dao-bian-cheng-ti-pan-duan-er-cha-shu-shi-fou-dui-cheng/</id>
     <published>2019-12-28T13:18:17.000Z</published>
-    <updated>2021-03-20T08:27:43.151Z</updated>
+    <updated>2021-03-21T14:56:20.064Z</updated>
     
     <summary type="html">
     
@@ -313,7 +340,7 @@
     <link href="https://www.skyfaker.cc/2019/12/11/yi-dao-bian-cheng-ti-pan-duan-lian-biao-shi-fou-you-huan/"/>
     <id>https://www.skyfaker.cc/2019/12/11/yi-dao-bian-cheng-ti-pan-duan-lian-biao-shi-fou-you-huan/</id>
     <published>2019-12-11T09:47:21.000Z</published>
-    <updated>2021-03-20T08:27:34.627Z</updated>
+    <updated>2021-03-21T14:56:09.648Z</updated>
     
     <summary type="html">
     
@@ -339,7 +366,7 @@
     <link href="https://www.skyfaker.cc/2019/10/26/yi-dao-bian-cheng-ti-an-zu-fan-zhuan-lian-biao/"/>
     <id>https://www.skyfaker.cc/2019/10/26/yi-dao-bian-cheng-ti-an-zu-fan-zhuan-lian-biao/</id>
     <published>2019-10-26T15:31:33.000Z</published>
-    <updated>2021-03-20T08:28:36.964Z</updated>
+    <updated>2021-03-21T14:56:59.264Z</updated>
     
     <summary type="html">
     
@@ -365,7 +392,7 @@
     <link href="https://www.skyfaker.cc/2019/08/22/san-yuan-zu-sun-shi-mo-xing/"/>
     <id>https://www.skyfaker.cc/2019/08/22/san-yuan-zu-sun-shi-mo-xing/</id>
     <published>2019-08-22T07:09:23.000Z</published>
-    <updated>2021-03-20T17:15:26.344Z</updated>
+    <updated>2021-03-20T17:27:45.610Z</updated>
     
     <summary type="html">
     
@@ -424,7 +451,7 @@
     <link href="https://www.skyfaker.cc/2019/05/20/matplotlib-hui-zhi-san-dian-tu/"/>
     <id>https://www.skyfaker.cc/2019/05/20/matplotlib-hui-zhi-san-dian-tu/</id>
     <published>2019-05-20T08:03:48.000Z</published>
-    <updated>2021-03-04T16:27:59.160Z</updated>
+    <updated>2021-03-21T14:48:25.028Z</updated>
     
     <summary type="html">
     
@@ -508,7 +535,7 @@
     <link href="https://www.skyfaker.cc/2019/03/10/yi-dao-bian-cheng-ti-yong-liang-ge-zhan-shi-xian-dui-lie/"/>
     <id>https://www.skyfaker.cc/2019/03/10/yi-dao-bian-cheng-ti-yong-liang-ge-zhan-shi-xian-dui-lie/</id>
     <published>2019-03-10T08:40:23.000Z</published>
-    <updated>2021-03-20T08:27:11.209Z</updated>
+    <updated>2021-03-21T14:55:46.380Z</updated>
     
     <summary type="html">
     
@@ -518,32 +545,6 @@
         
           &lt;h2 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot; title=&quot;题目描述&quot;&gt;&lt;/a&gt;题目描述&lt;/h2&gt;&lt;p&gt;用两个栈来实现一个队列，完成队列的Push和Pop操作。 队列中的元素为int类型。&lt;/p&gt;
 &lt;h2
-        
-      
-    
-    </summary>
-    
-      <category term="算法" scheme="https://www.skyfaker.cc/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-      <category term="编程算法" scheme="https://www.skyfaker.cc/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>一道编程题——重建二叉树</title>
-    <link href="https://www.skyfaker.cc/2019/03/03/yi-dao-bian-cheng-ti-chong-jian-er-cha-shu/"/>
-    <id>https://www.skyfaker.cc/2019/03/03/yi-dao-bian-cheng-ti-chong-jian-er-cha-shu/</id>
-    <published>2019-03-03T07:09:23.000Z</published>
-    <updated>2021-03-20T08:27:04.989Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot;
         
       
     
