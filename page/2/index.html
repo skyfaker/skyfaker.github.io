@@ -24,13 +24,17 @@
     <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
     <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
     <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
-    <link rel="stylesheet" type="text/css" href="/css/matery.css">
-    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    
+    <!-- 3/22: 这里修改了js文件的路径，借助jsdelivr的CDN，用法为 “https://cdn.jsdelivr.net/gh/你的用户名/你的仓库名@发布的版本号/文件路径” 其中版本号可选，不写版本号则为最新-->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/css/my.css">
     <style type="text/css">
         
     </style>
 
-    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+    <!-- 3/22: 这里修改了jQuery文件的路径 -->
+    <!-- <script src="/libs/jquery/jquery-2.2.0.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/jquery/jquery-2.2.0.min.js"></script>
     <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
     <script>
         var _hmt = _hmt || [];
@@ -65,7 +69,7 @@
                 </a>
                 <!-- <a href="/" class="waves-effect waves-light">
                     
-                    <img src="/logo.jpg" class="logo-img" alt="LOGO">
+                    <img src="/logo.png" class="logo-img" alt="LOGO">
                     
                     <span class="logo-span">SKYFAKER</span>
                 </a> -->
@@ -149,7 +153,7 @@
 
     <div class="mobile-head bg-color">
         
-        <img src="/logo.jpg" class="logo-img circle responsive-img">
+        <img src="/logo.png" class="logo-img circle responsive-img">
         
         <div class="logo-name">SKYFAKER</div>
         <div class="logo-desc">
@@ -331,7 +335,9 @@
     // var random = Math.round(Math.random() * (11 - 1) + 1);
     // console.log(random);
     // $('.bg-cover').css('background-image', 'url(/medias/banner/' + random + '.jpg)');
-    $('.bg-cover').css('background-image', 'url(/medias/banner/8.jpg');
+
+    // 3/22: 这里修改了图片路径
+    $('.bg-cover').css('background-image', 'url(https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/medias/banner/8.jpg');
 </script>
     </div>
 </div>
@@ -359,9 +365,16 @@
                                                             <div class="card-image">
                                                                 
                                                                         
-                                                                            <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="一道编程题——判断链表是否有环">
+
+                                                                            <!-- 3/22: 这里修改了卡片图片的路径，借助jsdelivr的CDN，用法为 “https://cdn.jsdelivr.net/gh/你的用户名/你的仓库名@发布的版本号/文件路径” 其中版本号可选，不写版本号则为最新-->
+                                                                            <!-- <img src="/medias/featureimages/13.jpg" -->
+                                                                            <img src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io//medias/featureimages/13.jpg"
+                                                                                class="responsive-img"
+                                                                                alt="一道编程题——判断链表是否有环">
                                                                             
-                                                                                <span class="card-title">一道编程题——判断链表是否有环</span>
+                                                                                <span class="card-title">
+                                                                                    一道编程题——判断链表是否有环
+                                                                                </span>
                                                             </div>
                                                         </a>
 
@@ -373,18 +386,21 @@
                                                             </div>
                                                             <div class="publish-info">
                                                                 <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-12-11
-                            </span>
+                                                                    <i class="fa fa-clock-o fa-fw icon-date"></i>
+                                                                    2019-12-11
+                                                                </span>
                                                                 <span class="publish-author">
-                                
-                                <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/算法/" class="post-category" target="_blank">
-                                    算法
-                                </a>
-                                
-                                
-                            </span>
+                                                                    
+                                                                        <i
+                                                                            class="fa fa-bookmark fa-fw icon-category"></i>
+                                                                        
+                                                                            <a href="/categories/算法/"
+                                                                                class="post-category" target="_blank">
+                                                                                算法
+                                                                            </a>
+                                                                            
+                                                                                
+                                                                </span>
                                                             </div>
                                                         </div>
 
@@ -392,7 +408,9 @@
                                                             <div class="card-action article-tags">
                                                                 
                                                                     <a href="/tags/编程算法/" target="_blank">
-                                                                        <span class="chip bg-color">编程算法</span>
+                                                                        <span class="chip bg-color">
+                                                                            编程算法
+                                                                        </span>
                                                                     </a>
                                                                     
                                                             </div>
@@ -406,9 +424,16 @@
                                                             <div class="card-image">
                                                                 
                                                                         
-                                                                            <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="一道编程题——按组翻转链表">
+
+                                                                            <!-- 3/22: 这里修改了卡片图片的路径，借助jsdelivr的CDN，用法为 “https://cdn.jsdelivr.net/gh/你的用户名/你的仓库名@发布的版本号/文件路径” 其中版本号可选，不写版本号则为最新-->
+                                                                            <!-- <img src="/medias/featureimages/23.jpg" -->
+                                                                            <img src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io//medias/featureimages/23.jpg"
+                                                                                class="responsive-img"
+                                                                                alt="一道编程题——按组翻转链表">
                                                                             
-                                                                                <span class="card-title">一道编程题——按组翻转链表</span>
+                                                                                <span class="card-title">
+                                                                                    一道编程题——按组翻转链表
+                                                                                </span>
                                                             </div>
                                                         </a>
 
@@ -420,18 +445,21 @@
                                                             </div>
                                                             <div class="publish-info">
                                                                 <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-26
-                            </span>
+                                                                    <i class="fa fa-clock-o fa-fw icon-date"></i>
+                                                                    2019-10-26
+                                                                </span>
                                                                 <span class="publish-author">
-                                
-                                <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/算法/" class="post-category" target="_blank">
-                                    算法
-                                </a>
-                                
-                                
-                            </span>
+                                                                    
+                                                                        <i
+                                                                            class="fa fa-bookmark fa-fw icon-category"></i>
+                                                                        
+                                                                            <a href="/categories/算法/"
+                                                                                class="post-category" target="_blank">
+                                                                                算法
+                                                                            </a>
+                                                                            
+                                                                                
+                                                                </span>
                                                             </div>
                                                         </div>
 
@@ -439,7 +467,9 @@
                                                             <div class="card-action article-tags">
                                                                 
                                                                     <a href="/tags/编程算法/" target="_blank">
-                                                                        <span class="chip bg-color">编程算法</span>
+                                                                        <span class="chip bg-color">
+                                                                            编程算法
+                                                                        </span>
                                                                     </a>
                                                                     
                                                             </div>
@@ -453,9 +483,16 @@
                                                             <div class="card-image">
                                                                 
                                                                         
-                                                                            <img src="/medias/featureimages/25.jpg" class="responsive-img" alt="三元组损失模型">
+
+                                                                            <!-- 3/22: 这里修改了卡片图片的路径，借助jsdelivr的CDN，用法为 “https://cdn.jsdelivr.net/gh/你的用户名/你的仓库名@发布的版本号/文件路径” 其中版本号可选，不写版本号则为最新-->
+                                                                            <!-- <img src="/medias/featureimages/25.jpg" -->
+                                                                            <img src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io//medias/featureimages/25.jpg"
+                                                                                class="responsive-img"
+                                                                                alt="三元组损失模型">
                                                                             
-                                                                                <span class="card-title">三元组损失模型</span>
+                                                                                <span class="card-title">
+                                                                                    三元组损失模型
+                                                                                </span>
                                                             </div>
                                                         </a>
 
@@ -467,18 +504,21 @@
                                                             </div>
                                                             <div class="publish-info">
                                                                 <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-22
-                            </span>
+                                                                    <i class="fa fa-clock-o fa-fw icon-date"></i>
+                                                                    2019-08-22
+                                                                </span>
                                                                 <span class="publish-author">
-                                
-                                <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/深度学习/" class="post-category" target="_blank">
-                                    深度学习
-                                </a>
-                                
-                                
-                            </span>
+                                                                    
+                                                                        <i
+                                                                            class="fa fa-bookmark fa-fw icon-category"></i>
+                                                                        
+                                                                            <a href="/categories/深度学习/"
+                                                                                class="post-category" target="_blank">
+                                                                                深度学习
+                                                                            </a>
+                                                                            
+                                                                                
+                                                                </span>
                                                             </div>
                                                         </div>
 
@@ -486,11 +526,15 @@
                                                             <div class="card-action article-tags">
                                                                 
                                                                     <a href="/tags/图像分类/" target="_blank">
-                                                                        <span class="chip bg-color">图像分类</span>
+                                                                        <span class="chip bg-color">
+                                                                            图像分类
+                                                                        </span>
                                                                     </a>
                                                                     
                                                                     <a href="/tags/三元组损失/" target="_blank">
-                                                                        <span class="chip bg-color">三元组损失</span>
+                                                                        <span class="chip bg-color">
+                                                                            三元组损失
+                                                                        </span>
                                                                     </a>
                                                                     
                                                             </div>
@@ -504,9 +548,16 @@
                                                             <div class="card-image">
                                                                 
                                                                         
-                                                                            <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="常见排序算法实现与比较——Python版">
+
+                                                                            <!-- 3/22: 这里修改了卡片图片的路径，借助jsdelivr的CDN，用法为 “https://cdn.jsdelivr.net/gh/你的用户名/你的仓库名@发布的版本号/文件路径” 其中版本号可选，不写版本号则为最新-->
+                                                                            <!-- <img src="/medias/featureimages/18.jpg" -->
+                                                                            <img src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io//medias/featureimages/18.jpg"
+                                                                                class="responsive-img"
+                                                                                alt="常见排序算法实现与比较——Python版">
                                                                             
-                                                                                <span class="card-title">常见排序算法实现与比较——Python版</span>
+                                                                                <span class="card-title">
+                                                                                    常见排序算法实现与比较——Python版
+                                                                                </span>
                                                             </div>
                                                         </a>
 
@@ -518,18 +569,21 @@
                                                             </div>
                                                             <div class="publish-info">
                                                                 <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-07-07
-                            </span>
+                                                                    <i class="fa fa-clock-o fa-fw icon-date"></i>
+                                                                    2019-07-07
+                                                                </span>
                                                                 <span class="publish-author">
-                                
-                                <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/编程算法/" class="post-category" target="_blank">
-                                    编程算法
-                                </a>
-                                
-                                
-                            </span>
+                                                                    
+                                                                        <i
+                                                                            class="fa fa-bookmark fa-fw icon-category"></i>
+                                                                        
+                                                                            <a href="/categories/编程算法/"
+                                                                                class="post-category" target="_blank">
+                                                                                编程算法
+                                                                            </a>
+                                                                            
+                                                                                
+                                                                </span>
                                                             </div>
                                                         </div>
 
@@ -537,11 +591,15 @@
                                                             <div class="card-action article-tags">
                                                                 
                                                                     <a href="/tags/Python/" target="_blank">
-                                                                        <span class="chip bg-color">Python</span>
+                                                                        <span class="chip bg-color">
+                                                                            Python
+                                                                        </span>
                                                                     </a>
                                                                     
                                                                     <a href="/tags/算法/" target="_blank">
-                                                                        <span class="chip bg-color">算法</span>
+                                                                        <span class="chip bg-color">
+                                                                            算法
+                                                                        </span>
                                                                     </a>
                                                                     
                                                             </div>
@@ -555,9 +613,16 @@
                                                             <div class="card-image">
                                                                 
                                                                         
-                                                                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="Matplotlib 可视化">
+
+                                                                            <!-- 3/22: 这里修改了卡片图片的路径，借助jsdelivr的CDN，用法为 “https://cdn.jsdelivr.net/gh/你的用户名/你的仓库名@发布的版本号/文件路径” 其中版本号可选，不写版本号则为最新-->
+                                                                            <!-- <img src="/medias/featureimages/0.jpg" -->
+                                                                            <img src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io//medias/featureimages/0.jpg"
+                                                                                class="responsive-img"
+                                                                                alt="Matplotlib 可视化">
                                                                             
-                                                                                <span class="card-title">Matplotlib 可视化</span>
+                                                                                <span class="card-title">
+                                                                                    Matplotlib 可视化
+                                                                                </span>
                                                             </div>
                                                         </a>
 
@@ -569,18 +634,21 @@
                                                             </div>
                                                             <div class="publish-info">
                                                                 <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-20
-                            </span>
+                                                                    <i class="fa fa-clock-o fa-fw icon-date"></i>
+                                                                    2019-05-20
+                                                                </span>
                                                                 <span class="publish-author">
-                                
-                                <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/工具方法/" class="post-category" target="_blank">
-                                    工具方法
-                                </a>
-                                
-                                
-                            </span>
+                                                                    
+                                                                        <i
+                                                                            class="fa fa-bookmark fa-fw icon-category"></i>
+                                                                        
+                                                                            <a href="/categories/工具方法/"
+                                                                                class="post-category" target="_blank">
+                                                                                工具方法
+                                                                            </a>
+                                                                            
+                                                                                
+                                                                </span>
                                                             </div>
                                                         </div>
 
@@ -588,11 +656,15 @@
                                                             <div class="card-action article-tags">
                                                                 
                                                                     <a href="/tags/Python/" target="_blank">
-                                                                        <span class="chip bg-color">Python</span>
+                                                                        <span class="chip bg-color">
+                                                                            Python
+                                                                        </span>
                                                                     </a>
                                                                     
                                                                     <a href="/tags/matplotlib/" target="_blank">
-                                                                        <span class="chip bg-color">matplotlib</span>
+                                                                        <span class="chip bg-color">
+                                                                            matplotlib
+                                                                        </span>
                                                                     </a>
                                                                     
                                                             </div>
@@ -606,9 +678,16 @@
                                                             <div class="card-image">
                                                                 
                                                                         
-                                                                            <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="神经网络——自编码器（Autoencoder）">
+
+                                                                            <!-- 3/22: 这里修改了卡片图片的路径，借助jsdelivr的CDN，用法为 “https://cdn.jsdelivr.net/gh/你的用户名/你的仓库名@发布的版本号/文件路径” 其中版本号可选，不写版本号则为最新-->
+                                                                            <!-- <img src="/medias/featureimages/14.jpg" -->
+                                                                            <img src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io//medias/featureimages/14.jpg"
+                                                                                class="responsive-img"
+                                                                                alt="神经网络——自编码器（Autoencoder）">
                                                                             
-                                                                                <span class="card-title">神经网络——自编码器（Autoencoder）</span>
+                                                                                <span class="card-title">
+                                                                                    神经网络——自编码器（Autoencoder）
+                                                                                </span>
                                                             </div>
                                                         </a>
 
@@ -620,18 +699,21 @@
                                                             </div>
                                                             <div class="publish-info">
                                                                 <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-16
-                            </span>
+                                                                    <i class="fa fa-clock-o fa-fw icon-date"></i>
+                                                                    2019-04-16
+                                                                </span>
                                                                 <span class="publish-author">
-                                
-                                <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/深度学习/" class="post-category" target="_blank">
-                                    深度学习
-                                </a>
-                                
-                                
-                            </span>
+                                                                    
+                                                                        <i
+                                                                            class="fa fa-bookmark fa-fw icon-category"></i>
+                                                                        
+                                                                            <a href="/categories/深度学习/"
+                                                                                class="post-category" target="_blank">
+                                                                                深度学习
+                                                                            </a>
+                                                                            
+                                                                                
+                                                                </span>
                                                             </div>
                                                         </div>
 
@@ -639,11 +721,15 @@
                                                             <div class="card-action article-tags">
                                                                 
                                                                     <a href="/tags/AutoEncoder/" target="_blank">
-                                                                        <span class="chip bg-color">AutoEncoder</span>
+                                                                        <span class="chip bg-color">
+                                                                            AutoEncoder
+                                                                        </span>
                                                                     </a>
                                                                     
                                                                     <a href="/tags/全连接神经网络/" target="_blank">
-                                                                        <span class="chip bg-color">全连接神经网络</span>
+                                                                        <span class="chip bg-color">
+                                                                            全连接神经网络
+                                                                        </span>
                                                                     </a>
                                                                     
                                                             </div>
@@ -657,9 +743,16 @@
                                                             <div class="card-image">
                                                                 
                                                                         
-                                                                            <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="Vue初见——如何运行一个Vue项目">
+
+                                                                            <!-- 3/22: 这里修改了卡片图片的路径，借助jsdelivr的CDN，用法为 “https://cdn.jsdelivr.net/gh/你的用户名/你的仓库名@发布的版本号/文件路径” 其中版本号可选，不写版本号则为最新-->
+                                                                            <!-- <img src="/medias/featureimages/3.jpg" -->
+                                                                            <img src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io//medias/featureimages/3.jpg"
+                                                                                class="responsive-img"
+                                                                                alt="Vue初见——如何运行一个Vue项目">
                                                                             
-                                                                                <span class="card-title">Vue初见——如何运行一个Vue项目</span>
+                                                                                <span class="card-title">
+                                                                                    Vue初见——如何运行一个Vue项目
+                                                                                </span>
                                                             </div>
                                                         </a>
 
@@ -671,18 +764,21 @@
                                                             </div>
                                                             <div class="publish-info">
                                                                 <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-16
-                            </span>
+                                                                    <i class="fa fa-clock-o fa-fw icon-date"></i>
+                                                                    2019-03-16
+                                                                </span>
                                                                 <span class="publish-author">
-                                
-                                <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/前端/" class="post-category" target="_blank">
-                                    前端
-                                </a>
-                                
-                                
-                            </span>
+                                                                    
+                                                                        <i
+                                                                            class="fa fa-bookmark fa-fw icon-category"></i>
+                                                                        
+                                                                            <a href="/categories/前端/"
+                                                                                class="post-category" target="_blank">
+                                                                                前端
+                                                                            </a>
+                                                                            
+                                                                                
+                                                                </span>
                                                             </div>
                                                         </div>
 
@@ -690,11 +786,15 @@
                                                             <div class="card-action article-tags">
                                                                 
                                                                     <a href="/tags/Vue/" target="_blank">
-                                                                        <span class="chip bg-color">Vue</span>
+                                                                        <span class="chip bg-color">
+                                                                            Vue
+                                                                        </span>
                                                                     </a>
                                                                     
                                                                     <a href="/tags/Node-js/" target="_blank">
-                                                                        <span class="chip bg-color">Node.js</span>
+                                                                        <span class="chip bg-color">
+                                                                            Node.js
+                                                                        </span>
                                                                     </a>
                                                                     
                                                             </div>
@@ -708,9 +808,16 @@
                                                             <div class="card-image">
                                                                 
                                                                         
-                                                                            <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="一道编程题——两个栈实现队列">
+
+                                                                            <!-- 3/22: 这里修改了卡片图片的路径，借助jsdelivr的CDN，用法为 “https://cdn.jsdelivr.net/gh/你的用户名/你的仓库名@发布的版本号/文件路径” 其中版本号可选，不写版本号则为最新-->
+                                                                            <!-- <img src="/medias/featureimages/11.jpg" -->
+                                                                            <img src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io//medias/featureimages/11.jpg"
+                                                                                class="responsive-img"
+                                                                                alt="一道编程题——两个栈实现队列">
                                                                             
-                                                                                <span class="card-title">一道编程题——两个栈实现队列</span>
+                                                                                <span class="card-title">
+                                                                                    一道编程题——两个栈实现队列
+                                                                                </span>
                                                             </div>
                                                         </a>
 
@@ -722,18 +829,21 @@
                                                             </div>
                                                             <div class="publish-info">
                                                                 <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-10
-                            </span>
+                                                                    <i class="fa fa-clock-o fa-fw icon-date"></i>
+                                                                    2019-03-10
+                                                                </span>
                                                                 <span class="publish-author">
-                                
-                                <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/算法/" class="post-category" target="_blank">
-                                    算法
-                                </a>
-                                
-                                
-                            </span>
+                                                                    
+                                                                        <i
+                                                                            class="fa fa-bookmark fa-fw icon-category"></i>
+                                                                        
+                                                                            <a href="/categories/算法/"
+                                                                                class="post-category" target="_blank">
+                                                                                算法
+                                                                            </a>
+                                                                            
+                                                                                
+                                                                </span>
                                                             </div>
                                                         </div>
 
@@ -741,7 +851,9 @@
                                                             <div class="card-action article-tags">
                                                                 
                                                                     <a href="/tags/编程算法/" target="_blank">
-                                                                        <span class="chip bg-color">编程算法</span>
+                                                                        <span class="chip bg-color">
+                                                                            编程算法
+                                                                        </span>
                                                                     </a>
                                                                     
                                                             </div>
@@ -755,9 +867,16 @@
                                                             <div class="card-image">
                                                                 
                                                                         
-                                                                            <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="一道编程题——重建二叉树">
+
+                                                                            <!-- 3/22: 这里修改了卡片图片的路径，借助jsdelivr的CDN，用法为 “https://cdn.jsdelivr.net/gh/你的用户名/你的仓库名@发布的版本号/文件路径” 其中版本号可选，不写版本号则为最新-->
+                                                                            <!-- <img src="/medias/featureimages/8.jpg" -->
+                                                                            <img src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io//medias/featureimages/8.jpg"
+                                                                                class="responsive-img"
+                                                                                alt="一道编程题——重建二叉树">
                                                                             
-                                                                                <span class="card-title">一道编程题——重建二叉树</span>
+                                                                                <span class="card-title">
+                                                                                    一道编程题——重建二叉树
+                                                                                </span>
                                                             </div>
                                                         </a>
 
@@ -769,18 +888,21 @@
                                                             </div>
                                                             <div class="publish-info">
                                                                 <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-03
-                            </span>
+                                                                    <i class="fa fa-clock-o fa-fw icon-date"></i>
+                                                                    2019-03-03
+                                                                </span>
                                                                 <span class="publish-author">
-                                
-                                <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/算法/" class="post-category" target="_blank">
-                                    算法
-                                </a>
-                                
-                                
-                            </span>
+                                                                    
+                                                                        <i
+                                                                            class="fa fa-bookmark fa-fw icon-category"></i>
+                                                                        
+                                                                            <a href="/categories/算法/"
+                                                                                class="post-category" target="_blank">
+                                                                                算法
+                                                                            </a>
+                                                                            
+                                                                                
+                                                                </span>
                                                             </div>
                                                         </div>
 
@@ -788,7 +910,9 @@
                                                             <div class="card-action article-tags">
                                                                 
                                                                     <a href="/tags/编程算法/" target="_blank">
-                                                                        <span class="chip bg-color">编程算法</span>
+                                                                        <span class="chip bg-color">
+                                                                            编程算法
+                                                                        </span>
                                                                     </a>
                                                                     
                                                             </div>
@@ -802,9 +926,16 @@
                                                             <div class="card-image">
                                                                 
                                                                         
-                                                                            <img src="/medias/featureimages/24.jpg" class="responsive-img" alt="一道编程题——反向打印链表">
+
+                                                                            <!-- 3/22: 这里修改了卡片图片的路径，借助jsdelivr的CDN，用法为 “https://cdn.jsdelivr.net/gh/你的用户名/你的仓库名@发布的版本号/文件路径” 其中版本号可选，不写版本号则为最新-->
+                                                                            <!-- <img src="/medias/featureimages/24.jpg" -->
+                                                                            <img src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io//medias/featureimages/24.jpg"
+                                                                                class="responsive-img"
+                                                                                alt="一道编程题——反向打印链表">
                                                                             
-                                                                                <span class="card-title">一道编程题——反向打印链表</span>
+                                                                                <span class="card-title">
+                                                                                    一道编程题——反向打印链表
+                                                                                </span>
                                                             </div>
                                                         </a>
 
@@ -816,18 +947,21 @@
                                                             </div>
                                                             <div class="publish-info">
                                                                 <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-02-24
-                            </span>
+                                                                    <i class="fa fa-clock-o fa-fw icon-date"></i>
+                                                                    2019-02-24
+                                                                </span>
                                                                 <span class="publish-author">
-                                
-                                <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/算法/" class="post-category" target="_blank">
-                                    算法
-                                </a>
-                                
-                                
-                            </span>
+                                                                    
+                                                                        <i
+                                                                            class="fa fa-bookmark fa-fw icon-category"></i>
+                                                                        
+                                                                            <a href="/categories/算法/"
+                                                                                class="post-category" target="_blank">
+                                                                                算法
+                                                                            </a>
+                                                                            
+                                                                                
+                                                                </span>
                                                             </div>
                                                         </div>
 
@@ -835,7 +969,9 @@
                                                             <div class="card-action article-tags">
                                                                 
                                                                     <a href="/tags/编程算法/" target="_blank">
-                                                                        <span class="chip bg-color">编程算法</span>
+                                                                        <span class="chip bg-color">
+                                                                            编程算法
+                                                                        </span>
                                                                     </a>
                                                                     
                                                             </div>
@@ -849,9 +985,16 @@
                                                             <div class="card-image">
                                                                 
                                                                         
-                                                                            <img src="/medias/featureimages/30.jpg" class="responsive-img" alt="一道编程题——二维数组的查找">
+
+                                                                            <!-- 3/22: 这里修改了卡片图片的路径，借助jsdelivr的CDN，用法为 “https://cdn.jsdelivr.net/gh/你的用户名/你的仓库名@发布的版本号/文件路径” 其中版本号可选，不写版本号则为最新-->
+                                                                            <!-- <img src="/medias/featureimages/30.jpg" -->
+                                                                            <img src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io//medias/featureimages/30.jpg"
+                                                                                class="responsive-img"
+                                                                                alt="一道编程题——二维数组的查找">
                                                                             
-                                                                                <span class="card-title">一道编程题——二维数组的查找</span>
+                                                                                <span class="card-title">
+                                                                                    一道编程题——二维数组的查找
+                                                                                </span>
                                                             </div>
                                                         </a>
 
@@ -863,18 +1006,21 @@
                                                             </div>
                                                             <div class="publish-info">
                                                                 <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-02-17
-                            </span>
+                                                                    <i class="fa fa-clock-o fa-fw icon-date"></i>
+                                                                    2019-02-17
+                                                                </span>
                                                                 <span class="publish-author">
-                                
-                                <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/算法/" class="post-category" target="_blank">
-                                    算法
-                                </a>
-                                
-                                
-                            </span>
+                                                                    
+                                                                        <i
+                                                                            class="fa fa-bookmark fa-fw icon-category"></i>
+                                                                        
+                                                                            <a href="/categories/算法/"
+                                                                                class="post-category" target="_blank">
+                                                                                算法
+                                                                            </a>
+                                                                            
+                                                                                
+                                                                </span>
                                                             </div>
                                                         </div>
 
@@ -882,7 +1028,9 @@
                                                             <div class="card-action article-tags">
                                                                 
                                                                     <a href="/tags/编程算法/" target="_blank">
-                                                                        <span class="chip bg-color">编程算法</span>
+                                                                        <span class="chip bg-color">
+                                                                            编程算法
+                                                                        </span>
                                                                     </a>
                                                                     
                                                             </div>
@@ -896,9 +1044,16 @@
                                                             <div class="card-image">
                                                                 
                                                                         
-                                                                            <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="十大经典排序算法整理汇总（附代码）">
+
+                                                                            <!-- 3/22: 这里修改了卡片图片的路径，借助jsdelivr的CDN，用法为 “https://cdn.jsdelivr.net/gh/你的用户名/你的仓库名@发布的版本号/文件路径” 其中版本号可选，不写版本号则为最新-->
+                                                                            <!-- <img src="/medias/featureimages/4.jpg" -->
+                                                                            <img src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io//medias/featureimages/4.jpg"
+                                                                                class="responsive-img"
+                                                                                alt="十大经典排序算法整理汇总（附代码）">
                                                                             
-                                                                                <span class="card-title">十大经典排序算法整理汇总（附代码）</span>
+                                                                                <span class="card-title">
+                                                                                    十大经典排序算法整理汇总（附代码）
+                                                                                </span>
                                                             </div>
                                                         </a>
 
@@ -910,18 +1065,21 @@
                                                             </div>
                                                             <div class="publish-info">
                                                                 <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-02-16
-                            </span>
+                                                                    <i class="fa fa-clock-o fa-fw icon-date"></i>
+                                                                    2019-02-16
+                                                                </span>
                                                                 <span class="publish-author">
-                                
-                                <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/编程算法/" class="post-category" target="_blank">
-                                    编程算法
-                                </a>
-                                
-                                
-                            </span>
+                                                                    
+                                                                        <i
+                                                                            class="fa fa-bookmark fa-fw icon-category"></i>
+                                                                        
+                                                                            <a href="/categories/编程算法/"
+                                                                                class="post-category" target="_blank">
+                                                                                编程算法
+                                                                            </a>
+                                                                            
+                                                                                
+                                                                </span>
                                                             </div>
                                                         </div>
 
@@ -929,11 +1087,15 @@
                                                             <div class="card-action article-tags">
                                                                 
                                                                     <a href="/tags/算法/" target="_blank">
-                                                                        <span class="chip bg-color">算法</span>
+                                                                        <span class="chip bg-color">
+                                                                            算法
+                                                                        </span>
                                                                     </a>
                                                                     
                                                                     <a href="/tags/leetcode/" target="_blank">
-                                                                        <span class="chip bg-color">leetcode</span>
+                                                                        <span class="chip bg-color">
+                                                                            leetcode
+                                                                        </span>
                                                                     </a>
                                                                     
                                                             </div>
@@ -1104,7 +1266,8 @@
     </div>
 </div>
 
-<script src="/js/search.js"></script>
+<!-- 3/22: 修改了js文件路径 -->
+<script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/js/search.js"></script>
 <script type="text/javascript">
 $(function () {
     searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
@@ -1123,13 +1286,16 @@ $(function () {
                             <script src="/libs/aos/aos.js"></script>
                             <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
                             <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
-                            <script src="/js/matery.js"></script>
+
+                            <!-- 3/22: 修改了js文件路径 -->
+                            <!-- <script src="/js/matery.js"></script> -->
+                            <script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/js/matery.js"></script>
 
                             <script type="text/javascript">
                                 var OriginTitile = document.title,
                                     st;
                                 document.addEventListener("visibilitychange", function() {
-                                    document.hidden ? (document.title = "(っ °Д °;)喔哟，崩溃啦！", clearTimeout(st)) : (document.title = "(゜▽゜*)咦，又好了！", st = setTimeout(function() {
+                                    document.hidden ? (document.title = "(っ °Д °;)哦，崩溃啦！", clearTimeout(st)) : (document.title = "(゜▽゜*)咦，又好了！", st = setTimeout(function() {
                                         document.title = OriginTitile
                                     }, 3e3))
                                 })

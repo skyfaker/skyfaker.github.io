@@ -24,13 +24,17 @@
     <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
     <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
     <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
-    <link rel="stylesheet" type="text/css" href="/css/matery.css">
-    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    
+    <!-- 3/22: 这里修改了js文件的路径，借助jsdelivr的CDN，用法为 “https://cdn.jsdelivr.net/gh/你的用户名/你的仓库名@发布的版本号/文件路径” 其中版本号可选，不写版本号则为最新-->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/css/my.css">
     <style type="text/css">
         
     </style>
 
-    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+    <!-- 3/22: 这里修改了jQuery文件的路径 -->
+    <!-- <script src="/libs/jquery/jquery-2.2.0.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/jquery/jquery-2.2.0.min.js"></script>
     <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
     <script>
         var _hmt = _hmt || [];
@@ -65,7 +69,7 @@
                 </a>
                 <!-- <a href="/" class="waves-effect waves-light">
                     
-                    <img src="/logo.jpg" class="logo-img" alt="LOGO">
+                    <img src="/logo.png" class="logo-img" alt="LOGO">
                     
                     <span class="logo-span">SKYFAKER</span>
                 </a> -->
@@ -149,7 +153,7 @@
 
     <div class="mobile-head bg-color">
         
-        <img src="/logo.jpg" class="logo-img circle responsive-img">
+        <img src="/logo.png" class="logo-img circle responsive-img">
         
         <div class="logo-name">SKYFAKER</div>
         <div class="logo-desc">
@@ -330,7 +334,9 @@
     // var random = Math.round(Math.random() * (11 - 1) + 1);
     // console.log(random);
     // $('.bg-cover').css('background-image', 'url(/medias/banner/' + random + '.jpg)');
-    $('.bg-cover').css('background-image', 'url(/medias/banner/8.jpg');
+
+    // 3/22: 这里修改了图片路径
+    $('.bg-cover').css('background-image', 'url(https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/medias/banner/8.jpg');
 </script>
     </div>
 </div>
@@ -348,19 +354,10 @@
             <div class="tag-chips">
                 
                 
-                <a href="/tags/博客/" title="博客: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="博客" style="background-color: #F9EBEA;">博客
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
                 <a href="/tags/AutoEncoder/" title="AutoEncoder: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="AutoEncoder" style="background-color: #F5EEF8;">AutoEncoder
+                            data-tagname="AutoEncoder" style="background-color: #F9EBEA;">AutoEncoder
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -369,7 +366,7 @@
                 <a href="/tags/全连接神经网络/" title="全连接神经网络: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="全连接神经网络" style="background-color: #D5F5E3;">全连接神经网络
+                            data-tagname="全连接神经网络" style="background-color: #F5EEF8;">全连接神经网络
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -378,7 +375,7 @@
                 <a href="/tags/Python/" title="Python: 2">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="Python" style="background-color: #E8F8F5;">Python
+                            data-tagname="Python" style="background-color: #D5F5E3;">Python
                         <span class="tag-length">2</span>
                     </span>
                 </a>
@@ -387,7 +384,16 @@
                 <a href="/tags/matplotlib/" title="matplotlib: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-active "
-                            data-tagname="matplotlib" style="background-color: #FEF9E7;">matplotlib
+                            data-tagname="matplotlib" style="background-color: #E8F8F5;">matplotlib
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/博客/" title="博客: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="博客" style="background-color: #FEF9E7;">博客
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -420,29 +426,20 @@
                 </a>
                 
                 
-                <a href="/tags/算法/" title="算法: 2">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="算法" style="background-color: #A3E4D7;">算法
-                        <span class="tag-length">2</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/leetcode/" title="leetcode: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="leetcode" style="background-color: #85C1E9;">leetcode
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
                 <a href="/tags/编程算法/" title="编程算法: 14">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="编程算法" style="background-color: #F8C471;">编程算法
+                            data-tagname="编程算法" style="background-color: #A3E4D7;">编程算法
                         <span class="tag-length">14</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/算法/" title="算法: 2">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="算法" style="background-color: #85C1E9;">算法
+                        <span class="tag-length">2</span>
                     </span>
                 </a>
                 
@@ -450,7 +447,7 @@
                 <a href="/tags/Vue/" title="Vue: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="Vue" style="background-color: #F9E79F;">Vue
+                            data-tagname="Vue" style="background-color: #F8C471;">Vue
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -459,7 +456,16 @@
                 <a href="/tags/Node-js/" title="Node.js: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="Node.js" style="background-color: #D5F5E3;">Node.js
+                            data-tagname="Node.js" style="background-color: #F9E79F;">Node.js
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/leetcode/" title="leetcode: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="leetcode" style="background-color: #82E0AA;">leetcode
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -483,20 +489,20 @@
                 </a>
                 
                 
-                <a href="/tags/字节/" title="字节: 2">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="字节" style="background-color: #82E0AA;">字节
-                        <span class="tag-length">2</span>
-                    </span>
-                </a>
-                
-                
                 <a href="/tags/形态学/" title="形态学: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
                             data-tagname="形态学" style="background-color: #E8F8F5;">形态学
                         <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/字节/" title="字节: 2">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="字节" style="background-color: #82E0AA;">字节
+                        <span class="tag-length">2</span>
                     </span>
                 </a>
                 
@@ -688,7 +694,8 @@
     </div>
 </div>
 
-<script src="/js/search.js"></script>
+<!-- 3/22: 修改了js文件路径 -->
+<script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/js/search.js"></script>
 <script type="text/javascript">
 $(function () {
     searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
@@ -707,13 +714,16 @@ $(function () {
                             <script src="/libs/aos/aos.js"></script>
                             <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
                             <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
-                            <script src="/js/matery.js"></script>
+
+                            <!-- 3/22: 修改了js文件路径 -->
+                            <!-- <script src="/js/matery.js"></script> -->
+                            <script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/js/matery.js"></script>
 
                             <script type="text/javascript">
                                 var OriginTitile = document.title,
                                     st;
                                 document.addEventListener("visibilitychange", function() {
-                                    document.hidden ? (document.title = "(っ °Д °;)喔哟，崩溃啦！", clearTimeout(st)) : (document.title = "(゜▽゜*)咦，又好了！", st = setTimeout(function() {
+                                    document.hidden ? (document.title = "(っ °Д °;)哦，崩溃啦！", clearTimeout(st)) : (document.title = "(゜▽゜*)咦，又好了！", st = setTimeout(function() {
                                         document.title = OriginTitile
                                     }, 3e3))
                                 })
