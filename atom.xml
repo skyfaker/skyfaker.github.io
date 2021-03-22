@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.skyfaker.cc/"/>
-  <updated>2021-03-20T17:08:37.279Z</updated>
+  <updated>2021-03-22T08:50:41.584Z</updated>
   <id>https://www.skyfaker.cc/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>hexo prism高亮问题与mathjax渲染冲突</title>
+    <title>mathjax渲染异常与hexo prism高亮无效bug</title>
     <link href="https://www.skyfaker.cc/2020/06/20/hexo-dai-ma-gao-liang-yu-mathjax-chong-tu/"/>
     <id>https://www.skyfaker.cc/2020/06/20/hexo-dai-ma-gao-liang-yu-mathjax-chong-tu/</id>
     <published>2020-06-20T09:37:18.000Z</published>
-    <updated>2021-03-20T17:08:37.279Z</updated>
+    <updated>2021-03-22T08:50:41.584Z</updated>
     
     <summary type="html">
     
@@ -157,7 +157,7 @@
     <link href="https://www.skyfaker.cc/2020/04/01/ji-huo-han-shu-yu-ping-jie-zhi-biao/"/>
     <id>https://www.skyfaker.cc/2020/04/01/ji-huo-han-shu-yu-ping-jie-zhi-biao/</id>
     <published>2020-04-01T03:40:29.000Z</published>
-    <updated>2021-03-22T04:23:44.938Z</updated>
+    <updated>2021-03-22T08:43:23.957Z</updated>
     
     <summary type="html">
     
@@ -288,7 +288,7 @@
     <link href="https://www.skyfaker.cc/2020/01/30/git-jian-ming-jiao-cheng-yu-ming-ling/"/>
     <id>https://www.skyfaker.cc/2020/01/30/git-jian-ming-jiao-cheng-yu-ming-ling/</id>
     <published>2020-01-30T06:38:39.000Z</published>
-    <updated>2021-03-21T14:55:04.101Z</updated>
+    <updated>2021-03-22T08:42:22.041Z</updated>
     
     <summary type="html">
     

@@ -539,7 +539,7 @@ git的架构如下图所示：
 </ol>
 <p>当然，<code>git checkout &lt;B commitId&gt;</code> 这种去掉文件名的形式也是可以的，实现的效果为恢复所有的文件到B状态。</p>
 <p>使用后会显示一段提示，如下图：</p>
-<p><img src="checkout_status.png" alt="初始状态" style="zoom:40%;"></p>
+<p><img src="checkout_status.jpg" alt="初始状态" style="zoom:40%;"></p>
 <p>这里的 <code>detached Head</code> 被翻译为游离指针，接下来的操作都是在这个指针所指向的节点上，如果你在这时对文件做出了更改，那么可能在你想要回到之前的分支时会遭到阻拦。</p>
 <p>比如，上图是从master分支checkout过来的，在文件改变之后想要checkout回到master时，可能回不去了，这时，就可以像上述建议一样把这个修改后的节点通过 <code>git branch -c &lt;new-Branch-Name&gt;</code> 来生成一个新的分支，之后再合并这个分支到master中。</p>
 <p>以上的表现形式看来，<code>git checkout</code> 像是平行时空，可以在不同不互相干扰的平行时空之间切换。因为这个命令主要是用来切换分支，具体用法如下。</p>
@@ -600,7 +600,7 @@ hard就是动repo还有staging还有working
 <p>如果想查看你已经配置的远程仓库服务器，可以运行 <code>git remote</code> 命令。 它会列出你指定的每一个远程服务器的简写。 </p>
 <h4 id="添加远程仓库"><a href="#添加远程仓库" class="headerlink" title="添加远程仓库"></a>添加远程仓库</h4><p>运行 <code>git remote add &lt;shortname&gt; &lt;url&gt;</code> 添加一个新的远程 Git 仓库，同时指定一个方便使用的简写：这样你可以在命令行中使用你所设置的 <code>shortname</code> 来代替整个 URL。</p>
 <p>比如，现在我们添加一个GitHub中的仓库，并把它命名为origin:</p>
-<p><img src="./gitadd.png" alt="添加远程仓库" style="zoom:40%"></p>
+<p><img src="./gitadd.jpg" alt="添加远程仓库" style="zoom:40%"></p>
 <p>原本，本地这个文件夹没有任何远程仓库，在我们使用  <code>git remote add &lt;shortname&gt; &lt;url&gt;</code> 命令之后，就添加了一个名为origin的远程仓库。现在，这个远程仓库中的master分支就可以用 <code>origin/master</code> 表示。</p>
 <h4 id="PUSH代码到远程仓库"><a href="#PUSH代码到远程仓库" class="headerlink" title="PUSH代码到远程仓库"></a>PUSH代码到远程仓库</h4><p>上面，我们已经关联了一个远程仓库，并且命名为origin。</p>
 <p>把本地库的内容推送到远程，用<code>git push</code>命令，实际上是把当前分支<code>master</code>推送到远程。使用 <code>-u</code>参数，会把本地的<code>master</code>分支和远程的<code>master</code>分支关联起来，在以后的推送或者拉取时就可以简化命令。</p>
@@ -1071,11 +1071,17 @@ $(function () {
 </div>
 
 
-                            <script src="/libs/materialize/materialize.min.js"></script>
+                        <!-- 3/22: 修改了js文件路径 --> 
+                            <!-- <script src="/libs/materialize/materialize.min.js"></script>
                             <script src="/libs/masonry/masonry.pkgd.min.js"></script>
                             <script src="/libs/aos/aos.js"></script>
                             <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
-                            <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+                            <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script> -->
+                            <script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/materialize/materialize.min.js"></script>
+                            <script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/masonry/masonry.pkgd.min.js"></script>
+                            <script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/aos/aos.js"></script>
+                            <script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/scrollprogress/scrollProgress.min.js"></script>
+                            <script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/lightGallery/js/lightgallery-all.min.js"></script>
 
                             <!-- 3/22: 修改了js文件路径 -->
                             <!-- <script src="/js/matery.js"></script> -->
@@ -1107,11 +1113,14 @@ $(function () {
 
 
                                 
-                                    <script src="/libs/others/clicklove.js"></script>
+
+                                    <!-- 3/22: 修改了js文件路径 --> 
+                                    <!-- <script src="/libs/others/clicklove.js"></script> -->
+                                    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/others/clicklove.js"></script>
                                     
 
                                                     
-                                                        <!-- <!-- 3/22: 修改了js文件路径 --> -->
+                                                        <!-- 3/22: 修改了js文件路径 --> 
                                                         <!-- <script async src="/libs/others/busuanzi.pure.mini.js"></script> -->
                                                         <script async src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/others/busuanzi.pure.mini.js"></script>
                                                         

@@ -493,7 +493,7 @@
             <div id="articleContent">
                 <p>本文记录了神经网络中常用的几个激活函数以及它们的导数；深度学习模型常用的一些评价指标以及它们的数学公式。</p>
 <h2 id="激活函数"><a href="#激活函数" class="headerlink" title="激活函数"></a>激活函数</h2><p>下图为一个简单的多层感知机：</p>
-<p><img src="multi.png" style="zoom:25%;"></p>
+<p><img src="multi.jpg" style="zoom:25%;"></p>
 <p>如果没有激活函数，那么神经网络的权重、偏置全是线性的<strong>仿射变换（affine transformation）</strong>:</p>
 <p><img src="affine.png" style="zoom:45%;"></p>
 <p>也就是说，如果没有激活函数，那么无论是多少层的感知机，效果都和一层一样，输出只是输入的线性变换。无法解决任何一个简单的非线性问题，而现实需要解决的问题几乎不会是线性问题。</p>
@@ -1056,11 +1056,17 @@ $(function () {
 </div>
 
 
-                            <script src="/libs/materialize/materialize.min.js"></script>
+                        <!-- 3/22: 修改了js文件路径 --> 
+                            <!-- <script src="/libs/materialize/materialize.min.js"></script>
                             <script src="/libs/masonry/masonry.pkgd.min.js"></script>
                             <script src="/libs/aos/aos.js"></script>
                             <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
-                            <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+                            <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script> -->
+                            <script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/materialize/materialize.min.js"></script>
+                            <script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/masonry/masonry.pkgd.min.js"></script>
+                            <script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/aos/aos.js"></script>
+                            <script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/scrollprogress/scrollProgress.min.js"></script>
+                            <script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/lightGallery/js/lightgallery-all.min.js"></script>
 
                             <!-- 3/22: 修改了js文件路径 -->
                             <!-- <script src="/js/matery.js"></script> -->
@@ -1092,11 +1098,14 @@ $(function () {
 
 
                                 
-                                    <script src="/libs/others/clicklove.js"></script>
+
+                                    <!-- 3/22: 修改了js文件路径 --> 
+                                    <!-- <script src="/libs/others/clicklove.js"></script> -->
+                                    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/others/clicklove.js"></script>
                                     
 
                                                     
-                                                        <!-- <!-- 3/22: 修改了js文件路径 --> -->
+                                                        <!-- 3/22: 修改了js文件路径 --> 
                                                         <!-- <script async src="/libs/others/busuanzi.pure.mini.js"></script> -->
                                                         <script async src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/others/busuanzi.pure.mini.js"></script>
                                                         

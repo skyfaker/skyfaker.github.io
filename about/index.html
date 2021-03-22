@@ -567,7 +567,7 @@
                 type: 'pie',
                 radius: '50%',
                 color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
-                data: [{"name":"深度学习","value":3},{"name":"随便写写","value":1},{"name":"工具方法","value":2},{"name":"算法","value":14},{"name":"hexo","value":1},{"name":"编程算法","value":2},{"name":"前端","value":1},{"name":"图像处理","value":1}],
+                data: [{"name":"深度学习","value":3},{"name":"工具方法","value":2},{"name":"随便写写","value":1},{"name":"前端","value":1},{"name":"hexo","value":1},{"name":"编程算法","value":2},{"name":"算法","value":14},{"name":"图像处理","value":1}],
                 itemStyle: {
                     emphasis: {
                         shadowBlur: 10,
@@ -591,7 +591,7 @@
         xAxis: [
             {
                 type: 'category',
-                data: ["编程算法","Python","算法","字节","AutoEncoder","全连接神经网络","博客","git","matplotlib","mathjax"]
+                data: ["编程算法","Python","算法","字节","AutoEncoder","全连接神经网络","git","博客","matplotlib","Vue"]
             }
         ],
         yAxis: [
@@ -787,14 +787,14 @@
             
             
             
-            <a href="/tags/博客/" target="_blank">
-                <span class="chip center-align waves-effect waves-light chip-default">博客</span>
+            <a href="/tags/git/" target="_blank">
+                <span class="chip center-align waves-effect waves-light chip-default">git</span>
             </a>
             
             
             
-            <a href="/tags/git/" target="_blank">
-                <span class="chip center-align waves-effect waves-light chip-default">git</span>
+            <a href="/tags/博客/" target="_blank">
+                <span class="chip center-align waves-effect waves-light chip-default">博客</span>
             </a>
             
             
@@ -807,8 +807,10 @@
             
             
             
-            <a href="/tags/编程算法/" target="_blank">
-                <span class="chip center-align waves-effect waves-light chip-default">编程算法</span>
+            
+            
+            <a href="/tags/Node-js/" target="_blank">
+                <span class="chip center-align waves-effect waves-light chip-default">Node.js</span>
             </a>
             
             
@@ -825,22 +827,26 @@
             
             
             
+            <a href="/tags/leetcode/" target="_blank">
+                <span class="chip center-align waves-effect waves-light chip-default">leetcode</span>
+            </a>
+            
+            
+            
             <a href="/tags/算法/" target="_blank">
                 <span class="chip center-align waves-effect waves-light chip-default">算法</span>
             </a>
             
             
             
-            
-            
-            <a href="/tags/Node-js/" target="_blank">
-                <span class="chip center-align waves-effect waves-light chip-default">Node.js</span>
+            <a href="/tags/编程算法/" target="_blank">
+                <span class="chip center-align waves-effect waves-light chip-default">编程算法</span>
             </a>
             
             
             
-            <a href="/tags/leetcode/" target="_blank">
-                <span class="chip center-align waves-effect waves-light chip-default">leetcode</span>
+            <a href="/tags/字节/" target="_blank">
+                <span class="chip center-align waves-effect waves-light chip-default">字节</span>
             </a>
             
             
@@ -853,12 +859,6 @@
             
             <a href="/tags/三元组损失/" target="_blank">
                 <span class="chip center-align waves-effect waves-light chip-default">三元组损失</span>
-            </a>
-            
-            
-            
-            <a href="/tags/字节/" target="_blank">
-                <span class="chip center-align waves-effect waves-light chip-default">字节</span>
             </a>
             
             
@@ -1046,11 +1046,17 @@ $(function () {
 </div>
 
 
-                            <script src="/libs/materialize/materialize.min.js"></script>
+                        <!-- 3/22: 修改了js文件路径 --> 
+                            <!-- <script src="/libs/materialize/materialize.min.js"></script>
                             <script src="/libs/masonry/masonry.pkgd.min.js"></script>
                             <script src="/libs/aos/aos.js"></script>
                             <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
-                            <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+                            <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script> -->
+                            <script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/materialize/materialize.min.js"></script>
+                            <script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/masonry/masonry.pkgd.min.js"></script>
+                            <script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/aos/aos.js"></script>
+                            <script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/scrollprogress/scrollProgress.min.js"></script>
+                            <script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/lightGallery/js/lightgallery-all.min.js"></script>
 
                             <!-- 3/22: 修改了js文件路径 -->
                             <!-- <script src="/js/matery.js"></script> -->
@@ -1082,11 +1088,14 @@ $(function () {
 
 
                                 
-                                    <script src="/libs/others/clicklove.js"></script>
+
+                                    <!-- 3/22: 修改了js文件路径 --> 
+                                    <!-- <script src="/libs/others/clicklove.js"></script> -->
+                                    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/others/clicklove.js"></script>
                                     
 
                                                     
-                                                        <!-- <!-- 3/22: 修改了js文件路径 --> -->
+                                                        <!-- 3/22: 修改了js文件路径 --> 
                                                         <!-- <script async src="/libs/others/busuanzi.pure.mini.js"></script> -->
                                                         <script async src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/others/busuanzi.pure.mini.js"></script>
                                                         

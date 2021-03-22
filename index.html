@@ -621,8 +621,8 @@
     <div class="col s12 m6" >
 
         <!-- 3/22: 这里修改了主页推荐卡片的图片路径 -->
-        <!-- <div class="post-card" style="background-image: url('/medias/featureimages/31.jpg')"> -->
-        <div class="post-card" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/medias/featureimages/31.jpg');">
+        <!-- <div class="post-card" style="background-image: url('/medias/featureimages/0.jpg')"> -->
+        <div class="post-card" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/medias/featureimages/0.jpg');">
             <div class="post-body">
                 <div class="post-categories">
                     
@@ -630,7 +630,7 @@
                     
                 </div>
                 <a href="/2020/06/20/hexo-dai-ma-gao-liang-yu-mathjax-chong-tu/" target="_blank">
-                    <h3 class="post-title">hexo prism高亮问题与mathjax渲染冲突</h3>
+                    <h3 class="post-title">mathjax渲染异常与hexo prism高亮无效bug</h3>
                 </a>
                 <p class="post-description">
                     
@@ -732,13 +732,13 @@
                                                                         
 
                                                                             <!-- 3/22: 这里修改了卡片图片的路径，借助jsdelivr的CDN，用法为 “https://cdn.jsdelivr.net/gh/你的用户名/你的仓库名@发布的版本号/文件路径” 其中版本号可选，不写版本号则为最新-->
-                                                                            <!-- <img src="/medias/featureimages/31.jpg" -->
-                                                                            <img src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/medias/featureimages/31.jpg"
+                                                                            <!-- <img src="/medias/featureimages/0.jpg" -->
+                                                                            <img src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/medias/featureimages/0.jpg"
                                                                                 class="responsive-img"
-                                                                                alt="hexo prism高亮问题与mathjax渲染冲突">
+                                                                                alt="mathjax渲染异常与hexo prism高亮无效bug">
                                                                             
                                                                                 <span class="card-title">
-                                                                                    hexo prism高亮问题与mathjax渲染冲突
+                                                                                    mathjax渲染异常与hexo prism高亮无效bug
                                                                                 </span>
                                                             </div>
                                                         </a>
@@ -1627,11 +1627,17 @@ $(function () {
 </div>
 
 
-                            <script src="/libs/materialize/materialize.min.js"></script>
+                        <!-- 3/22: 修改了js文件路径 --> 
+                            <!-- <script src="/libs/materialize/materialize.min.js"></script>
                             <script src="/libs/masonry/masonry.pkgd.min.js"></script>
                             <script src="/libs/aos/aos.js"></script>
                             <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
-                            <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+                            <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script> -->
+                            <script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/materialize/materialize.min.js"></script>
+                            <script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/masonry/masonry.pkgd.min.js"></script>
+                            <script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/aos/aos.js"></script>
+                            <script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/scrollprogress/scrollProgress.min.js"></script>
+                            <script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/lightGallery/js/lightgallery-all.min.js"></script>
 
                             <!-- 3/22: 修改了js文件路径 -->
                             <!-- <script src="/js/matery.js"></script> -->
@@ -1663,11 +1669,14 @@ $(function () {
 
 
                                 
-                                    <script src="/libs/others/clicklove.js"></script>
+
+                                    <!-- 3/22: 修改了js文件路径 --> 
+                                    <!-- <script src="/libs/others/clicklove.js"></script> -->
+                                    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/others/clicklove.js"></script>
                                     
 
                                                     
-                                                        <!-- <!-- 3/22: 修改了js文件路径 --> -->
+                                                        <!-- 3/22: 修改了js文件路径 --> 
                                                         <!-- <script async src="/libs/others/busuanzi.pure.mini.js"></script> -->
                                                         <script async src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/others/busuanzi.pure.mini.js"></script>
                                                         
