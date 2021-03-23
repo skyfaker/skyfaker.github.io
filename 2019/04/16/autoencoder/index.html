@@ -499,7 +499,7 @@
 <p>因此，自编码器由两部分组成：</p>
 <p><strong>编码器</strong>：这部分能将输入压缩成潜在空间表征，可以用编码函数 <strong>h</strong> =f(x)表示。</p>
 <p><strong>解码器</strong>：这部分能重构来自潜在空间表征的输入，可以用解码函数 <strong>r</strong> =g(h)表示。</p>
-<p><img src="1-V_YtxTFUqDrmmu2JqMZ-rA.png" alt></p>
+<p><img src="1.jpg" alt></p>
 <p>整个自编码器可以用函数g(f(x)) =  <strong>r</strong> 来描述，其中输出r与原始输入 <strong>x</strong> 相近。</p>
 <p>自编码器原理和各种变换的原理相似，都是将原始特征空间通过编码映射到一个新的编码空间，再由编码空间通过解码映射到解码空间。而当编码变换与解码变换符合某种条件时，解码空间和原始特征空间可以近似一致。</p>
 <p>就像大名鼎鼎的傅里叶变换，通过它，可以把原始时域信号变换为频域信号，并且，频域信号可以通过反变换变换为时域信号。之所以要变换为频域信号，是为了获取原始信号在频域上的特征。同样的，对于自编码器的编码变换，也是为了获取不同角度，不同维度的特征（类似于SVM的核函数）。</p>
@@ -512,10 +512,10 @@
 <p>利用上述的方法，就达到了降维的作用。而当隐藏表达的维度降至三维或者二维时，就可以实现数据的可视化。</p>
 <p>自编码器通过数据自动学习。这意味着在特定类型的输入中，自编码器可以表现出良好的结果，并且不需要任何新的结构，只需适当的训练数据即可。这种结构单一、无需标签的网络使用起来异常简单，并且常常会有不错的表现，所以使用地很广泛。</p>
 <p>下面，看个例子，mnist数据集的二维可视化：</p>
-<p><img src="2d.png" alt="二维可视化效果"></p>
+<p><img src="2d.jpg" alt="二维可视化效果"></p>
 <p>上图就是mnist数据集经过降维至二维后的可视化效果图。不同颜色的点代表不同的数字。</p>
 <p>同样的，我们也可以降维到三维，形成空间可视化图：</p>
-<p><img src="3d.png" alt="三维可视化效果"></p>
+<p><img src="3d.jpg" alt="三维可视化效果"></p>
 <p>不过，它也不是没有缺点，首先，自编码器是数据相关的，是在给定的一组数据上进行训练的，因此它将得到与所用训练集数据相似的压缩结果，在这样的数据上表现优异，但就其通用性来说，效果并不好。比如在图像压缩领域，效果比不上JPEG这样的通用压缩技术。</p>
 <h3 id="3-常见的自编码器与代码示例"><a href="#3-常见的自编码器与代码示例" class="headerlink" title="3. 常见的自编码器与代码示例"></a>3. 常见的自编码器与代码示例</h3><h4 id="3-1-简单自编码器和深度自编码器"><a href="#3-1-简单自编码器和深度自编码器" class="headerlink" title="3.1 简单自编码器和深度自编码器"></a>3.1 简单自编码器和深度自编码器</h4><pre><code>from keras.layers import Input, Dense
 from keras.models import Model
@@ -573,45 +573,6 @@ encoder = Model(input=x, output=h)
 <script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/share/js/social-share.min.js"></script>
 
             
-
-    <div class="reprint" id="reprint-statement">
-        <p class="reprint-tip">
-            <i class="fa fa-exclamation-triangle"></i>&nbsp;&nbsp;
-            <span>转载规则</span>
-        </p>
-        
-            <div class="center-align">
-                <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
-                    <img alt=""
-                         style="border-width:0"
-                         src="https://i.creativecommons.org/l/by/4.0/88x31.png"/>
-                </a>
-            </div>
-            <br/>
-            <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
-                  property="dct:title" rel="dct:type">
-                    《神经网络——自编码器（Autoencoder）》
-                </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/04/16/autoencoder/" property="cc:attributionName"
-               rel="cc:attributionURL">
-                文杰
-            </a> 采用
-            <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
-                知识共享署名 4.0 国际许可协议
-            </a>进行许可。
-        
-    </div>
-
-    <script async defer>
-      document.addEventListener("copy", function (e) {
-        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
-        M.toast({html: toastHTML})
-      });
-
-      function navToReprintStatement() {
-        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
-      }
-    </script>
 
 
         </div>
