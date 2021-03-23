@@ -503,7 +503,7 @@ npm i -S hexo-pri">
 <pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">npm</span> i -S hexo-prism-plugin
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>安装完成之后需要关掉hexo自带的高亮，并配置prism。</p>
-<p><img src="prism.jpg" style="zoom:38%;"></p>
+<p><img src="https://z3.ax1x.com/2021/03/23/6HG5ZQ.jpg" style="zoom:38%;"></p>
 <h2 id="mathjax显示"><a href="#mathjax显示" class="headerlink" title="mathjax显示"></a>mathjax显示</h2><p>使用markdown编辑mathjax公式，markdown显示正常，部署到hexo中显示异常。</p>
 <p>这个数学公式问题，主要是Hexo的Markdown解析器与MathJax有冲突引起的。</p>
 <p>Markdwon本身的特殊符号与Latex中的符号出现冲突的时候，比如:</p>
@@ -513,7 +513,7 @@ npm i -S hexo-pri">
 </ul>
 <p>hexo默认使用<code>marked.js</code>去解析我们写的markdown，比如一些符号，<code>_</code>代表斜体，会被处理为<code>&lt;em&gt;</code>标签，比如<code>x_i</code>在开始被渲染的时候，处理为<code>x&lt;em&gt;i&lt;/em&gt;</code>，这个时候mathjax就无法渲染成下标了。很多符号都有这个问题，比如粗体<code>*</code>,也是无法在mathjax渲染出来的，好在有替代的乘法等,包括<code>\\</code>同理。 所以说到底，是hexo使用的markdown引擎的锅，因为很多其它引擎在这方面处理的很好。</p>
 <p>不仅仅是公式的问题，代码也会出现这个问题，比如说<code>&lt;code&gt;</code>，<code>&lt;代码&gt;在尖括号里面的字母或者数字会被隐藏。如下图：</code></p>
-<p><img src="1.jpg" alt="尖括号字母被隐藏" style="zoom:38%;"></p>
+<p><img src="https://z3.ax1x.com/2021/03/23/6HG6PI.jpg" alt="尖括号字母被隐藏" style="zoom:38%;"></p>
 <p>上图是我在markdown中打出来的内容，而页面显示的部分却少了一块。</p>
 <p>原因在于尖括号之间的内容会被解析为HTML元素，并且后面的内容样式会改变。我就遇到过c++代码中的部分内容消失了，就是因为这部分代码被包在了尖括号中，最简单的方法是输入尖括号之后加一个空格，如：&lt; code&gt;</p>
 <p>那么如何避免mathjax公式的显示异常问题呢？</p>
@@ -539,7 +539,7 @@ em<span class="token punctuation">:</span><span class="token regex">/^\*((?:\*\*
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p><strong>PS：</strong></p>
 <p>可能由于marked插件的版本不同，我的<code>escape</code>那一行和网上的不太一样</p>
-<p><img src="2.jpg" style="zoom:38%;"></p>
+<p><img src="https://z3.ax1x.com/2021/03/23/6HGcGt.jpg" style="zoom:38%;"></p>
 <p>并且更改之后也没有效果，<code>\\</code>仍然不能实现换行。</p>
 <h3 id="4-更换模板引擎（可用）"><a href="#4-更换模板引擎（可用）" class="headerlink" title="4.更换模板引擎（可用）"></a>4.更换模板引擎（可用）</h3><p>以下是替代原始解析器的两个模板引擎：</p>
 <ul>
@@ -556,9 +556,9 @@ em<span class="token punctuation">:</span><span class="token regex">/^\*((?:\*\*
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <pre class="line-numbers language-js"><code class="language-js">em<span class="token punctuation">:</span> <span class="token regex">/^\*((?:\*\*|[\s\S])+?)\*(?!\*)/</span><span class="token punctuation">,</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p><img src="kramed.jpg" style="zoom:30%;"></p>
+<p><img src="https://z3.ax1x.com/2021/03/23/6HGhqg.jpg" style="zoom:30%;"></p>
 <p>我们输入以下图片中的公式，发现可以正常显示：</p>
-<p><img src="mathjax.jpg" alt="公式代码" style="zoom:38%;"></p>
+<p><img src="https://z3.ax1x.com/2021/03/23/6HGfsS.jpg" alt="公式代码" style="zoom:38%;"></p>
 <p>显示效果：</p>
 <p>$a_0\\b_{12}$</p>
 <script type="math/tex; mode=display">
@@ -568,26 +568,26 @@ b_{12}</script><p>总结：</p>
 <p>2.愿意折腾以下又追求完美的，可以更换渲染引擎，如pandoc和kramed。pandoc安装比较麻烦，但是听说很好用。kramed安装简单，但是内联公式显示仍然有问题，需要修改源码中的转义方式。并且kramed可能和hexo的其他插件发生冲突，比如上面安装的代码高亮插件Prism。</p>
 <h2 id="prism与kramed冲突"><a href="#prism与kramed冲突" class="headerlink" title="prism与kramed冲突"></a>prism与kramed冲突</h2><p>安装配置完kramed之后，mathjax公式显示正常了，但是这时候又发现了一个新的问题：</p>
 <p>prism代码高亮失效了：</p>
-<p><img src="3.jpg" style="zoom:30%;"></p>
+<p><img src="https://z3.ax1x.com/2021/03/23/6HG2xf.jpg" style="zoom:30%;"></p>
 <p>并且我们看到右上角的语言名前面多了一个<code>Lang-</code>。</p>
 <p>直觉告诉我，无法高亮与右上角的变化有关。</p>
 <p>首先，markdown中代码块是以</p>
-<p><img src="block.jpg" style="zoom:38%;"></p>
+<p><img src="https://z3.ax1x.com/2021/03/23/6HGsIA.jpg" style="zoom:38%;"></p>
 <p>格式写出来的。</p>
 <p>通过查看网页元素，发现这些被固定格式包起来的代码，被渲染完成之后是以 <code>&lt; pre &gt;&lt; code &gt;your code&lt; /code &gt; &lt; /pre &gt;</code>的元素形式存在的</p>
-<p><img src="code.jpg" alt="代码在页面中的元素" style="zoom:38%;"></p>
+<p><img src="https://z3.ax1x.com/2021/03/23/6HGWM8.jpg" alt="代码在页面中的元素" style="zoom:38%;"></p>
 <p>hexo中的主题中存在对应的CSS文件，用来渲染这些元素。</p>
 <p>由于kramed渲染引擎会自动修改代码元素的<code>class name</code>，所以导致prism插件找不到对应元素，也就无法自动高亮代码块中的代码。</p>
 <p>解决方法：</p>
 <p>打开<code>\node_modules\kramed\lib\renderer.js</code></p>
-<p><img src="renderer.jpg" style="zoom:40%;"></p>
+<p><img src="https://z3.ax1x.com/2021/03/23/6HGIaj.jpg" style="zoom:40%;"></p>
 <pre class="line-numbers language-js"><code class="language-js">langPrefix<span class="token punctuation">:</span> <span class="token string">'lang-'</span><span class="token punctuation">,</span>
 改为
 langPrefix<span class="token punctuation">:</span> <span class="token string">''</span><span class="token punctuation">,</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>即可防止kramed自动修改元素的<code>class name</code>。</p>
 <p>最终prism又恢复了正常，效果如下：</p>
-<p><img src="4.jpg" style="zoom:38%;"></p>
+<p><img src="https://z3.ax1x.com/2021/03/23/6HGgRP.jpg" style="zoom:38%;"></p>
 
             </div>
             <hr />

@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.skyfaker.cc/2020/06/20/hexo-dai-ma-gao-liang-yu-mathjax-chong-tu/</loc>
+    
+    <lastmod>2021-03-23T14:54:11.028Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.skyfaker.cc/2019/02/16/sort-algorithms/</loc>
     
     <lastmod>2021-03-23T09:30:08.174Z</lastmod>
@@ -40,13 +47,6 @@
     <loc>https://www.skyfaker.cc/2019/04/16/autoencoder/</loc>
     
     <lastmod>2021-03-23T09:14:37.472Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.skyfaker.cc/2020/06/20/hexo-dai-ma-gao-liang-yu-mathjax-chong-tu/</loc>
-    
-    <lastmod>2021-03-22T08:50:41.584Z</lastmod>
     
   </url>
   
