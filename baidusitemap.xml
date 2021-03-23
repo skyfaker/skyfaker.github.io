@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://www.skyfaker.cc/2019/02/16/sort-algorithms/</loc>
+    <lastmod>2021-03-23</lastmod>
+  </url>  <url>
+    <loc>https://www.skyfaker.cc/2019/07/07/sort-algorithms-with-python/</loc>
+    <lastmod>2021-03-23</lastmod>
+  </url>  <url>
     <loc>https://www.skyfaker.cc/2019/05/20/matplotlib-hui-zhi-san-dian-tu/</loc>
     <lastmod>2021-03-23</lastmod>
   </url>  <url>
@@ -67,13 +73,7 @@
     <loc>https://www.skyfaker.cc/2019/08/22/san-yuan-zu-sun-shi-mo-xing/</loc>
     <lastmod>2021-03-20</lastmod>
   </url>  <url>
-    <loc>https://www.skyfaker.cc/2019/07/07/sort-algorithms-with-python/</loc>
-    <lastmod>2021-03-20</lastmod>
-  </url>  <url>
     <loc>https://www.skyfaker.cc/2019/03/16/how-to-run-a-vue/</loc>
     <lastmod>2020-06-22</lastmod>
-  </url>  <url>
-    <loc>https://www.skyfaker.cc/2019/02/16/sort-algorithms/</loc>
-    <lastmod>2020-05-26</lastmod>
   </url>
 </urlset>

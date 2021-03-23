@@ -396,7 +396,7 @@
       
       <categories>
           
-          <category> 编程算法 </category>
+          <category> 算法 </category>
           
       </categories>
       
@@ -405,7 +405,7 @@
             
             <tag> Python </tag>
             
-            <tag> 算法 </tag>
+            <tag> 编程算法 </tag>
             
         </tags>
       
@@ -604,16 +604,14 @@
       
       <categories>
           
-          <category> 编程算法 </category>
+          <category> 算法 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> leetcode </tag>
-            
-            <tag> 算法 </tag>
+            <tag> 编程算法 </tag>
             
         </tags>
       
