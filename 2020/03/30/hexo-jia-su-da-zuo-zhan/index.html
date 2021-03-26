@@ -4,7 +4,7 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="hexo加速大作战, 深度学习 | 数据挖掘">
+    <meta name="keywords" content="深度学习 | 数据挖掘">
     <meta name="baidu-site-verification" content="fmlEuI34ir">
     <meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48">
     <meta name="360-site-verification" content="b7c11a830ef90fd1464ad6206bb7b6e7">
@@ -16,7 +16,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>hexo加速大作战 | SKYFAKER</title>
+    <title>SKYFAKER</title>
 
     <!-- 网页在浏览器上的图标 -->
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/favicon.png">
@@ -310,13 +310,13 @@
 
 
 <!-- 3/22: 这里修改了推荐页文章点击进去之后的图片路径 -->
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/medias/featureimages/35.jpg');">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/medias/featureimages/5.jpg');">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        hexo加速大作战
+                        
                     </div>
                 </div>
             </div>
@@ -471,14 +471,14 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.9k
+                    2.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    6 分
+                    9 分
                 </div>
                 
                 
@@ -495,7 +495,7 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p>前段时间，朋友和我说访问我的博客页面速度很慢，加载要很久。我纳闷，不对啊，不久前还测试过呢，速度蛮快的啊。又清除了缓存测试了一遍，发现还是很快就可以加载。最后一对比，发现原来我加载快是因为我设置了代理，而没有设置代理的国内其他用户访问的速度就很不稳定。</p>
-<p><img src="before.jpg" alt="加速前加载时间" style="zoom:33%;"></p>
+<p><img src="before.jpg" alt="加速前加载时间" style="zoom:40%;"></p>
 <p>而因为github服务器在国外，国内访问速度很不稳定，导致部署在GitHub Page上的hexo页面加载很慢，就会严重影响访问体验。经过多次测试，发现白天的时候，访问速度非常慢，大约30s才能加载一篇博客，而图片更多的首页则要接近一分钟。而到了晚上12点之后，访问速度会有所提升。</p>
 <p>总而言之，为了加快博客访问速度，对Hexo的加速计划已经是势在必行了。</p>
 <p>根据上面的加载时间图，发现影响加载时间的文件主要是img文件和js文件，因此加速计划也主要针对这些文件。</p>
@@ -541,10 +541,23 @@
 </code></pre><h5 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h5><p>针对我的matery主题，虽然主页面图片很多，但所有的图片都是固定的，也就是说长期不会变动的，这个很适合放在jsdelivr上面。同样的，js文件和css文件也可以这样操作。</p>
 <p>修改页面图片主要包括2处，最上面的大图和每一个博客卡片封面的小图。</p>
 <p>大图地址为<code>hexo\themes\matery\layout\_partial\bg-cover-content.ejs</code>:</p>
-<p><img src="bg.jpg" style="zoom:50%;"></p>
+<p><img src="bg.jpg" style="zoom:45%;">as</p>
 <p>只要在原始路径前加上<code>https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/</code>即可。</p>
 <p>卡片封面图为<code>hexo\themes\matery\layout\_partial\index.ejs</code>:</p>
 <p><img src="smallimg.jpg" style="zoom:60%;"></p>
+<p>js文件和css文件修改同理，找到对应的地方，把引用本地文件改为引用jsdelivr中CDN的地址即可。</p>
+<h4 id="图床-1"><a href="#图床-1" class="headerlink" title="图床"></a>图床</h4><p>一般而言，写博客比较多的作者会打开 <code>post_asset_folder</code> 选项，便于管理博客资源文件：</p>
+<blockquote>
+<p>对于那些想要更有规律地提供图片和其他资源以及想要将他们的资源分布在各个文章上的人来说，Hexo也提供了更组织化的方式来管理资源。这个稍微有些复杂但是管理资源非常方便的功能可以通过将 <code>config.yml</code> 文件中的 <code>post_asset_folder</code> 选项设为 <code>true</code> 来打开。</p>
+<p>当资源文件管理功能打开后，Hexo将会在你每一次通过 <code>hexo new [layout] &lt;title&gt;</code> 命令创建新文章时自动创建一个文件夹。这个资源文件夹将会有与这个文章文件一样的名字。将所有与你的文章有关的资源放在这个关联文件夹中之后，你可以通过相对路径来引用它们，这样你就得到了一个更简单而且方便得多的工作流。</p>
+</blockquote>
+<p>开启这个选项之后，每篇博客有一个自己的同名文件夹，用来放置图片文件，在网页中是以相对路径的方式引用图片。并且该路径与博客的名称相关。</p>
+<p>这对于使用jsdelivr却并不方便，因为每一篇文章的图片根目录都不相同路径，我们很难去在某一处统一设置所有图片的根目录。再加上jsdelivr需要引用GitHub上的资源，这就意味着我们必须先把图片文件上传到GitHub，再引用经过jsdelivr加速后的新地址。</p>
+<p>并且由于jsdelivr并不能实时更新，博客图片需要更改需要几天之后才能看到变化。</p>
+<p>因此，为了实时性和加载性能，决定把一些图片较多的博客土拍你搬移到图床上。这里还是建立如果要使用图床，一定要选择一个有保障的、能够持久运营的。</p>
+<p>图床的使用就简单多了，先把图片上传到图床，图床生成图片链接，就像引用网络图片一样引用这个链接即可。</p>
+<h3 id="加速效果"><a href="#加速效果" class="headerlink" title="加速效果"></a>加速效果</h3><p>同样关闭代理，清除缓存，在使用jsdelivr之后，主页基本可以做到秒开：</p>
+<p><img src="after.png" style="zoom:40%;"></p>
 
             </div>
             <hr />
@@ -853,7 +866,7 @@
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">32.4k</span>
+                <span class="white-color">33k</span>
                 
 
                     <br>

@@ -5,9 +5,9 @@
   <subtitle>Hello，world.</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/"/>
+  <link href="https://www.skyfaker.cc/"/>
   <updated>2021-03-23T14:54:11.028Z</updated>
-  <id>https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/</id>
+  <id>https://www.skyfaker.cc/</id>
   
   <author>
     <name>文杰</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>mathjax渲染异常与hexo prism高亮无效bug</title>
-    <link href="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/2020/06/20/hexo-dai-ma-gao-liang-yu-mathjax-chong-tu/"/>
-    <id>https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/2020/06/20/hexo-dai-ma-gao-liang-yu-mathjax-chong-tu/</id>
+    <link href="https://www.skyfaker.cc/2020/06/20/hexo-dai-ma-gao-liang-yu-mathjax-chong-tu/"/>
+    <id>https://www.skyfaker.cc/2020/06/20/hexo-dai-ma-gao-liang-yu-mathjax-chong-tu/</id>
     <published>2020-06-20T09:37:18.000Z</published>
     <updated>2021-03-23T14:54:11.028Z</updated>
     
@@ -35,19 +35,19 @@
     
     </summary>
     
-      <category term="hexo" scheme="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/categories/hexo/"/>
+      <category term="hexo" scheme="https://www.skyfaker.cc/categories/hexo/"/>
     
     
-      <category term="mathjax" scheme="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/tags/mathjax/"/>
+      <category term="mathjax" scheme="https://www.skyfaker.cc/tags/mathjax/"/>
     
-      <category term="hexo渲染" scheme="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/tags/hexo%E6%B8%B2%E6%9F%93/"/>
+      <category term="hexo渲染" scheme="https://www.skyfaker.cc/tags/hexo%E6%B8%B2%E6%9F%93/"/>
     
   </entry>
   
   <entry>
     <title>字节算法题——连续出题问题</title>
-    <link href="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/2020/06/10/zi-jie-suan-fa-ti-lian-xu-chu-ti-wen-ti/"/>
-    <id>https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/2020/06/10/zi-jie-suan-fa-ti-lian-xu-chu-ti-wen-ti/</id>
+    <link href="https://www.skyfaker.cc/2020/06/10/zi-jie-suan-fa-ti-lian-xu-chu-ti-wen-ti/"/>
+    <id>https://www.skyfaker.cc/2020/06/10/zi-jie-suan-fa-ti-lian-xu-chu-ti-wen-ti/</id>
     <published>2020-06-10T04:52:36.000Z</published>
     <updated>2021-03-21T14:55:33.332Z</updated>
     
@@ -63,19 +63,19 @@
     
     </summary>
     
-      <category term="算法" scheme="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+      <category term="算法" scheme="https://www.skyfaker.cc/categories/%E7%AE%97%E6%B3%95/"/>
     
     
-      <category term="编程算法" scheme="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95/"/>
+      <category term="编程算法" scheme="https://www.skyfaker.cc/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95/"/>
     
-      <category term="字节" scheme="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/tags/%E5%AD%97%E8%8A%82/"/>
+      <category term="字节" scheme="https://www.skyfaker.cc/tags/%E5%AD%97%E8%8A%82/"/>
     
   </entry>
   
   <entry>
     <title>字节算法题——字典序</title>
-    <link href="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/2020/05/24/zi-jie-suan-fa-ti-zi-dian-xu/"/>
-    <id>https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/2020/05/24/zi-jie-suan-fa-ti-zi-dian-xu/</id>
+    <link href="https://www.skyfaker.cc/2020/05/24/zi-jie-suan-fa-ti-zi-dian-xu/"/>
+    <id>https://www.skyfaker.cc/2020/05/24/zi-jie-suan-fa-ti-zi-dian-xu/</id>
     <published>2020-05-24T09:46:37.000Z</published>
     <updated>2021-03-21T14:55:23.778Z</updated>
     
@@ -91,19 +91,19 @@
     
     </summary>
     
-      <category term="算法" scheme="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+      <category term="算法" scheme="https://www.skyfaker.cc/categories/%E7%AE%97%E6%B3%95/"/>
     
     
-      <category term="编程算法" scheme="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95/"/>
+      <category term="编程算法" scheme="https://www.skyfaker.cc/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95/"/>
     
-      <category term="字节" scheme="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/tags/%E5%AD%97%E8%8A%82/"/>
+      <category term="字节" scheme="https://www.skyfaker.cc/tags/%E5%AD%97%E8%8A%82/"/>
     
   </entry>
   
   <entry>
     <title>一道编程题——二叉树路径和为指定值</title>
-    <link href="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/2020/05/08/yi-dao-bian-cheng-ti-er-cha-shu-lu-jing-he-wei-zhi-ding-zhi/"/>
-    <id>https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/2020/05/08/yi-dao-bian-cheng-ti-er-cha-shu-lu-jing-he-wei-zhi-ding-zhi/</id>
+    <link href="https://www.skyfaker.cc/2020/05/08/yi-dao-bian-cheng-ti-er-cha-shu-lu-jing-he-wei-zhi-ding-zhi/"/>
+    <id>https://www.skyfaker.cc/2020/05/08/yi-dao-bian-cheng-ti-er-cha-shu-lu-jing-he-wei-zhi-ding-zhi/</id>
     <published>2020-05-08T15:49:14.000Z</published>
     <updated>2021-03-21T14:56:52.629Z</updated>
     
@@ -119,17 +119,17 @@
     
     </summary>
     
-      <category term="算法" scheme="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+      <category term="算法" scheme="https://www.skyfaker.cc/categories/%E7%AE%97%E6%B3%95/"/>
     
     
-      <category term="编程算法" scheme="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95/"/>
+      <category term="编程算法" scheme="https://www.skyfaker.cc/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
   <entry>
     <title>一道编程题——删除倒数第k个节点</title>
-    <link href="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/2020/04/17/yi-dao-bian-cheng-ti-shan-chu-dao-shu-di-k-ge-jie-dian/"/>
-    <id>https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/2020/04/17/yi-dao-bian-cheng-ti-shan-chu-dao-shu-di-k-ge-jie-dian/</id>
+    <link href="https://www.skyfaker.cc/2020/04/17/yi-dao-bian-cheng-ti-shan-chu-dao-shu-di-k-ge-jie-dian/"/>
+    <id>https://www.skyfaker.cc/2020/04/17/yi-dao-bian-cheng-ti-shan-chu-dao-shu-di-k-ge-jie-dian/</id>
     <published>2020-04-17T15:14:05.000Z</published>
     <updated>2021-03-21T14:56:05.508Z</updated>
     
@@ -145,17 +145,17 @@
     
     </summary>
     
-      <category term="算法" scheme="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+      <category term="算法" scheme="https://www.skyfaker.cc/categories/%E7%AE%97%E6%B3%95/"/>
     
     
-      <category term="编程算法" scheme="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95/"/>
+      <category term="编程算法" scheme="https://www.skyfaker.cc/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
   <entry>
     <title>激活函数与评价指标</title>
-    <link href="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/2020/04/01/ji-huo-han-shu-yu-ping-jie-zhi-biao/"/>
-    <id>https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/2020/04/01/ji-huo-han-shu-yu-ping-jie-zhi-biao/</id>
+    <link href="https://www.skyfaker.cc/2020/04/01/ji-huo-han-shu-yu-ping-jie-zhi-biao/"/>
+    <id>https://www.skyfaker.cc/2020/04/01/ji-huo-han-shu-yu-ping-jie-zhi-biao/</id>
     <published>2020-04-01T03:40:29.000Z</published>
     <updated>2021-03-24T10:12:02.704Z</updated>
     
@@ -172,19 +172,19 @@
     
     </summary>
     
-      <category term="深度学习" scheme="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+      <category term="深度学习" scheme="https://www.skyfaker.cc/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
     
-      <category term="模型" scheme="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/tags/%E6%A8%A1%E5%9E%8B/"/>
+      <category term="模型" scheme="https://www.skyfaker.cc/tags/%E6%A8%A1%E5%9E%8B/"/>
     
   </entry>
   
   <entry>
-    <title>hexo加速大作战</title>
-    <link href="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/2020/03/30/hexo-jia-su-da-zuo-zhan/"/>
-    <id>https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/2020/03/30/hexo-jia-su-da-zuo-zhan/</id>
+    <title></title>
+    <link href="https://www.skyfaker.cc/2020/03/30/hexo-jia-su-da-zuo-zhan/"/>
+    <id>https://www.skyfaker.cc/2020/03/30/hexo-jia-su-da-zuo-zhan/</id>
     <published>2020-03-30T10:17:38.000Z</published>
-    <updated>2021-03-26T03:10:27.502Z</updated>
+    <updated>2021-03-26T10:27:56.467Z</updated>
     
     <summary type="html">
     
@@ -199,19 +199,19 @@
     
     </summary>
     
-      <category term="hexo" scheme="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/categories/hexo/"/>
+      <category term="hexo" scheme="https://www.skyfaker.cc/categories/hexo/"/>
     
     
-      <category term="hexo加速" scheme="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/tags/hexo%E5%8A%A0%E9%80%9F/"/>
+      <category term="hexo加速" scheme="https://www.skyfaker.cc/tags/hexo%E5%8A%A0%E9%80%9F/"/>
     
-      <category term="jsDelivr" scheme="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/tags/jsDelivr/"/>
+      <category term="jsDelivr" scheme="https://www.skyfaker.cc/tags/jsDelivr/"/>
     
   </entry>
   
   <entry>
     <title>一道编程题——合并K个有序链表</title>
-    <link href="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/2020/03/24/yi-dao-bian-cheng-ti-he-bing-k-ge-you-xu-lian-biao/"/>
-    <id>https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/2020/03/24/yi-dao-bian-cheng-ti-he-bing-k-ge-you-xu-lian-biao/</id>
+    <link href="https://www.skyfaker.cc/2020/03/24/yi-dao-bian-cheng-ti-he-bing-k-ge-you-xu-lian-biao/"/>
+    <id>https://www.skyfaker.cc/2020/03/24/yi-dao-bian-cheng-ti-he-bing-k-ge-you-xu-lian-biao/</id>
     <published>2020-03-24T15:57:53.000Z</published>
     <updated>2021-03-21T14:56:34.214Z</updated>
     
@@ -227,17 +227,17 @@
     
     </summary>
     
-      <category term="算法" scheme="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+      <category term="算法" scheme="https://www.skyfaker.cc/categories/%E7%AE%97%E6%B3%95/"/>
     
     
-      <category term="编程算法" scheme="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95/"/>
+      <category term="编程算法" scheme="https://www.skyfaker.cc/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
   <entry>
     <title>一道编程题——寻找环的入口节点</title>
-    <link href="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/2020/03/02/yi-dao-bian-cheng-ti-xun-zhao-huan-de-ru-kou-jie-dian/"/>
-    <id>https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/2020/03/02/yi-dao-bian-cheng-ti-xun-zhao-huan-de-ru-kou-jie-dian/</id>
+    <link href="https://www.skyfaker.cc/2020/03/02/yi-dao-bian-cheng-ti-xun-zhao-huan-de-ru-kou-jie-dian/"/>
+    <id>https://www.skyfaker.cc/2020/03/02/yi-dao-bian-cheng-ti-xun-zhao-huan-de-ru-kou-jie-dian/</id>
     <published>2020-03-02T15:32:04.000Z</published>
     <updated>2021-03-21T14:55:58.357Z</updated>
     
@@ -253,17 +253,17 @@
     
     </summary>
     
-      <category term="算法" scheme="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+      <category term="算法" scheme="https://www.skyfaker.cc/categories/%E7%AE%97%E6%B3%95/"/>
     
     
-      <category term="编程算法" scheme="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95/"/>
+      <category term="编程算法" scheme="https://www.skyfaker.cc/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
   <entry>
     <title>数字图像处理——形态学</title>
-    <link href="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/2020/02/17/shu-zi-tu-xiang-chu-li-xing-tai-xue/"/>
-    <id>https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/2020/02/17/shu-zi-tu-xiang-chu-li-xing-tai-xue/</id>
+    <link href="https://www.skyfaker.cc/2020/02/17/shu-zi-tu-xiang-chu-li-xing-tai-xue/"/>
+    <id>https://www.skyfaker.cc/2020/02/17/shu-zi-tu-xiang-chu-li-xing-tai-xue/</id>
     <published>2020-02-17T01:33:06.000Z</published>
     <updated>2021-03-24T09:32:05.106Z</updated>
     
@@ -279,17 +279,17 @@
     
     </summary>
     
-      <category term="图像处理" scheme="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
+      <category term="图像处理" scheme="https://www.skyfaker.cc/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
     
     
-      <category term="形态学" scheme="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/tags/%E5%BD%A2%E6%80%81%E5%AD%A6/"/>
+      <category term="形态学" scheme="https://www.skyfaker.cc/tags/%E5%BD%A2%E6%80%81%E5%AD%A6/"/>
     
   </entry>
   
   <entry>
     <title>一道编程题——合成有序链表</title>
-    <link href="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/2020/02/08/yi-dao-bian-cheng-ti-he-cheng-you-xu-lian-biao/"/>
-    <id>https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/2020/02/08/yi-dao-bian-cheng-ti-he-cheng-you-xu-lian-biao/</id>
+    <link href="https://www.skyfaker.cc/2020/02/08/yi-dao-bian-cheng-ti-he-cheng-you-xu-lian-biao/"/>
+    <id>https://www.skyfaker.cc/2020/02/08/yi-dao-bian-cheng-ti-he-cheng-you-xu-lian-biao/</id>
     <published>2020-02-08T15:01:10.000Z</published>
     <updated>2021-03-21T14:56:25.093Z</updated>
     
@@ -305,17 +305,17 @@
     
     </summary>
     
-      <category term="算法" scheme="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+      <category term="算法" scheme="https://www.skyfaker.cc/categories/%E7%AE%97%E6%B3%95/"/>
     
     
-      <category term="编程算法" scheme="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95/"/>
+      <category term="编程算法" scheme="https://www.skyfaker.cc/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
   <entry>
     <title>git 简明教程与命令</title>
-    <link href="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/2020/01/30/git-jian-ming-jiao-cheng-yu-ming-ling/"/>
-    <id>https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/2020/01/30/git-jian-ming-jiao-cheng-yu-ming-ling/</id>
+    <link href="https://www.skyfaker.cc/2020/01/30/git-jian-ming-jiao-cheng-yu-ming-ling/"/>
+    <id>https://www.skyfaker.cc/2020/01/30/git-jian-ming-jiao-cheng-yu-ming-ling/</id>
     <published>2020-01-30T06:38:39.000Z</published>
     <updated>2021-03-24T09:47:00.043Z</updated>
     
@@ -331,17 +331,17 @@
     
     </summary>
     
-      <category term="工具方法" scheme="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/categories/%E5%B7%A5%E5%85%B7%E6%96%B9%E6%B3%95/"/>
+      <category term="工具方法" scheme="https://www.skyfaker.cc/categories/%E5%B7%A5%E5%85%B7%E6%96%B9%E6%B3%95/"/>
     
     
-      <category term="git" scheme="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/tags/git/"/>
+      <category term="git" scheme="https://www.skyfaker.cc/tags/git/"/>
     
   </entry>
   
   <entry>
     <title>一道编程题——判断二叉树是否对称</title>
-    <link href="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/2019/12/28/yi-dao-bian-cheng-ti-pan-duan-er-cha-shu-shi-fou-dui-cheng/"/>
-    <id>https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/2019/12/28/yi-dao-bian-cheng-ti-pan-duan-er-cha-shu-shi-fou-dui-cheng/</id>
+    <link href="https://www.skyfaker.cc/2019/12/28/yi-dao-bian-cheng-ti-pan-duan-er-cha-shu-shi-fou-dui-cheng/"/>
+    <id>https://www.skyfaker.cc/2019/12/28/yi-dao-bian-cheng-ti-pan-duan-er-cha-shu-shi-fou-dui-cheng/</id>
     <published>2019-12-28T13:18:17.000Z</published>
     <updated>2021-03-21T14:56:20.064Z</updated>
     
@@ -357,17 +357,17 @@
     
     </summary>
     
-      <category term="算法" scheme="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+      <category term="算法" scheme="https://www.skyfaker.cc/categories/%E7%AE%97%E6%B3%95/"/>
     
     
-      <category term="编程算法" scheme="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95/"/>
+      <category term="编程算法" scheme="https://www.skyfaker.cc/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
   <entry>
     <title>一道编程题——判断链表是否有环</title>
-    <link href="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/2019/12/11/yi-dao-bian-cheng-ti-pan-duan-lian-biao-shi-fou-you-huan/"/>
-    <id>https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/2019/12/11/yi-dao-bian-cheng-ti-pan-duan-lian-biao-shi-fou-you-huan/</id>
+    <link href="https://www.skyfaker.cc/2019/12/11/yi-dao-bian-cheng-ti-pan-duan-lian-biao-shi-fou-you-huan/"/>
+    <id>https://www.skyfaker.cc/2019/12/11/yi-dao-bian-cheng-ti-pan-duan-lian-biao-shi-fou-you-huan/</id>
     <published>2019-12-11T09:47:21.000Z</published>
     <updated>2021-03-21T14:56:09.648Z</updated>
     
@@ -383,17 +383,17 @@
     
     </summary>
     
-      <category term="算法" scheme="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+      <category term="算法" scheme="https://www.skyfaker.cc/categories/%E7%AE%97%E6%B3%95/"/>
     
     
-      <category term="编程算法" scheme="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95/"/>
+      <category term="编程算法" scheme="https://www.skyfaker.cc/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
   <entry>
     <title>一道编程题——按组翻转链表</title>
-    <link href="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/2019/10/26/yi-dao-bian-cheng-ti-an-zu-fan-zhuan-lian-biao/"/>
-    <id>https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/2019/10/26/yi-dao-bian-cheng-ti-an-zu-fan-zhuan-lian-biao/</id>
+    <link href="https://www.skyfaker.cc/2019/10/26/yi-dao-bian-cheng-ti-an-zu-fan-zhuan-lian-biao/"/>
+    <id>https://www.skyfaker.cc/2019/10/26/yi-dao-bian-cheng-ti-an-zu-fan-zhuan-lian-biao/</id>
     <published>2019-10-26T15:31:33.000Z</published>
     <updated>2021-03-21T14:56:59.264Z</updated>
     
@@ -409,17 +409,17 @@
     
     </summary>
     
-      <category term="算法" scheme="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+      <category term="算法" scheme="https://www.skyfaker.cc/categories/%E7%AE%97%E6%B3%95/"/>
     
     
-      <category term="编程算法" scheme="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95/"/>
+      <category term="编程算法" scheme="https://www.skyfaker.cc/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
   <entry>
     <title>三元组损失模型</title>
-    <link href="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/2019/08/22/san-yuan-zu-sun-shi-mo-xing/"/>
-    <id>https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/2019/08/22/san-yuan-zu-sun-shi-mo-xing/</id>
+    <link href="https://www.skyfaker.cc/2019/08/22/san-yuan-zu-sun-shi-mo-xing/"/>
+    <id>https://www.skyfaker.cc/2019/08/22/san-yuan-zu-sun-shi-mo-xing/</id>
     <published>2019-08-22T07:09:23.000Z</published>
     <updated>2021-03-23T15:21:17.233Z</updated>
     
@@ -438,19 +438,19 @@
     
     </summary>
     
-      <category term="深度学习" scheme="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+      <category term="深度学习" scheme="https://www.skyfaker.cc/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
     
-      <category term="图像分类" scheme="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/tags/%E5%9B%BE%E5%83%8F%E5%88%86%E7%B1%BB/"/>
+      <category term="图像分类" scheme="https://www.skyfaker.cc/tags/%E5%9B%BE%E5%83%8F%E5%88%86%E7%B1%BB/"/>
     
-      <category term="三元组损失" scheme="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/tags/%E4%B8%89%E5%85%83%E7%BB%84%E6%8D%9F%E5%A4%B1/"/>
+      <category term="三元组损失" scheme="https://www.skyfaker.cc/tags/%E4%B8%89%E5%85%83%E7%BB%84%E6%8D%9F%E5%A4%B1/"/>
     
   </entry>
   
   <entry>
     <title>常见排序算法实现与比较——Python版</title>
-    <link href="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/2019/07/07/sort-algorithms-with-python/"/>
-    <id>https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/2019/07/07/sort-algorithms-with-python/</id>
+    <link href="https://www.skyfaker.cc/2019/07/07/sort-algorithms-with-python/"/>
+    <id>https://www.skyfaker.cc/2019/07/07/sort-algorithms-with-python/</id>
     <published>2019-07-07T07:09:23.000Z</published>
     <updated>2021-03-23T09:29:41.654Z</updated>
     
@@ -466,19 +466,19 @@
     
     </summary>
     
-      <category term="算法" scheme="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+      <category term="算法" scheme="https://www.skyfaker.cc/categories/%E7%AE%97%E6%B3%95/"/>
     
     
-      <category term="Python" scheme="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/tags/Python/"/>
+      <category term="Python" scheme="https://www.skyfaker.cc/tags/Python/"/>
     
-      <category term="编程算法" scheme="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95/"/>
+      <category term="编程算法" scheme="https://www.skyfaker.cc/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
   <entry>
     <title>Matplotlib 可视化</title>
-    <link href="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/2019/05/20/matplotlib-hui-zhi-san-dian-tu/"/>
-    <id>https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/2019/05/20/matplotlib-hui-zhi-san-dian-tu/</id>
+    <link href="https://www.skyfaker.cc/2019/05/20/matplotlib-hui-zhi-san-dian-tu/"/>
+    <id>https://www.skyfaker.cc/2019/05/20/matplotlib-hui-zhi-san-dian-tu/</id>
     <published>2019-05-20T08:03:48.000Z</published>
     <updated>2021-03-24T03:30:39.549Z</updated>
     
@@ -494,19 +494,19 @@
     
     </summary>
     
-      <category term="工具方法" scheme="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/categories/%E5%B7%A5%E5%85%B7%E6%96%B9%E6%B3%95/"/>
+      <category term="工具方法" scheme="https://www.skyfaker.cc/categories/%E5%B7%A5%E5%85%B7%E6%96%B9%E6%B3%95/"/>
     
     
-      <category term="Python" scheme="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/tags/Python/"/>
+      <category term="Python" scheme="https://www.skyfaker.cc/tags/Python/"/>
     
-      <category term="matplotlib" scheme="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/tags/matplotlib/"/>
+      <category term="matplotlib" scheme="https://www.skyfaker.cc/tags/matplotlib/"/>
     
   </entry>
   
   <entry>
     <title>神经网络——自编码器（Autoencoder）</title>
-    <link href="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/2019/04/16/autoencoder/"/>
-    <id>https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/2019/04/16/autoencoder/</id>
+    <link href="https://www.skyfaker.cc/2019/04/16/autoencoder/"/>
+    <id>https://www.skyfaker.cc/2019/04/16/autoencoder/</id>
     <published>2019-04-16T07:09:23.000Z</published>
     <updated>2021-03-23T15:25:11.745Z</updated>
     
@@ -522,19 +522,19 @@
     
     </summary>
     
-      <category term="深度学习" scheme="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+      <category term="深度学习" scheme="https://www.skyfaker.cc/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
     
-      <category term="AutoEncoder" scheme="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/tags/AutoEncoder/"/>
+      <category term="AutoEncoder" scheme="https://www.skyfaker.cc/tags/AutoEncoder/"/>
     
-      <category term="全连接神经网络" scheme="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/tags/%E5%85%A8%E8%BF%9E%E6%8E%A5%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
+      <category term="全连接神经网络" scheme="https://www.skyfaker.cc/tags/%E5%85%A8%E8%BF%9E%E6%8E%A5%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
     
   </entry>
   
   <entry>
     <title>Vue初见——如何运行一个Vue项目</title>
-    <link href="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/2019/03/16/how-to-run-a-vue/"/>
-    <id>https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/2019/03/16/how-to-run-a-vue/</id>
+    <link href="https://www.skyfaker.cc/2019/03/16/how-to-run-a-vue/"/>
+    <id>https://www.skyfaker.cc/2019/03/16/how-to-run-a-vue/</id>
     <published>2019-03-16T07:09:23.000Z</published>
     <updated>2020-06-22T08:29:12.000Z</updated>
     
@@ -550,12 +550,12 @@
     
     </summary>
     
-      <category term="前端" scheme="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+      <category term="前端" scheme="https://www.skyfaker.cc/categories/%E5%89%8D%E7%AB%AF/"/>
     
     
-      <category term="Vue" scheme="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/tags/Vue/"/>
+      <category term="Vue" scheme="https://www.skyfaker.cc/tags/Vue/"/>
     
-      <category term="Node.js" scheme="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/tags/Node-js/"/>
+      <category term="Node.js" scheme="https://www.skyfaker.cc/tags/Node-js/"/>
     
   </entry>
   
