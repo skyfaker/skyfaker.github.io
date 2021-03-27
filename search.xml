@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>mobilenet</title>
+      <link href="/2020/07/27/mobilenet/"/>
+      <url>/2020/07/27/mobilenet/</url>
+      
+        <content type="html"><![CDATA[<p>卷积神经网络（CNN）在计算机视觉领域产生了许多新进展也衍生出了许多新型的网络，其中MobileNet就是CNN在轻量级网络的一个非常优秀的网络架构探索。近些年，为了追求分类准确度，模型深度越来越深，模型复杂度也越来越高，如深度残差网络（ResNet）其层数已经多达152层。</p><p>在某些应用场景如移动或者边缘嵌入式设备，大而复杂的模型是难以被应用的。模型过于庞大，面临着内存不足的问题，其次这些场景要求低延迟，或者说响应速度要快。所以，研究小而高效的CNN模型在这些场景至关重要，也是目前的一个主流方向。</p><p>目前的研究总结来看分为两个方向：一是对训练好的复杂模型进行压缩得到小模型；二是直接设计小模型并进行训练。不管如何，其目标在保持模型性能（accuracy）的前提下降低模型大小（parameters size），同时提升模型速度（speed, low latency）。本文的主角MobileNet属于后者，其是Google最近提出的一种小巧而高效的CNN模型，其在accuracy和latency之间做了一个balance。</p><p><a href="https://arxiv.org/abs/1704.04861" target="_blank" rel="noopener">MobileNet论文地址</a>。</p><h2 id="Depthwise-separable-convolution"><a href="#Depthwise-separable-convolution" class="headerlink" title="Depthwise separable convolution"></a>Depthwise separable convolution</h2><p>MobileNet的基本单元是深度级可分离卷积（depthwise separable convolution），它是一种可分解卷积操作，把常规的卷积过程分解为两个更小的操作：<strong>深度卷积(depthwise convolution)</strong>和<strong>逐点卷积(pointwise convolution)</strong>，以减少计算量。</p><p>Depthwise convolution和标准卷积不同，对于标准卷积其卷积核是用在所有的输入通道上（input channels），而depthwise convolution针对每个输入通道采用不同的卷积核，就是说一个卷积核对应一个输入通道，所以说depthwise convolution是depth级别的操作。而pointwise convolution其实就是普通的卷积，只不过其采用1x1的卷积核。</p><p><img src="1.png" alt="论文给出的卷积区别" style="zoom:50%;"></p><p>如上图（a），假设这一层的输入的特征图为$D_f \times D_f \times M(输入通道数M)$，该层输出为$D_f \times D_f \times N(输入通道数N)$，则对于卷积过程，首先需要一个$D_k \times D_k \times M \times N(卷积核个数N)$，即卷积核的通道数必须等于特征图的通道数。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 深度学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> CNN </tag>
+            
+            <tag> MobileNet </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>mathjax渲染异常与hexo prism高亮无效bug</title>
       <link href="/2020/06/20/hexo-dai-ma-gao-liang-yu-mathjax-chong-tu/"/>
       <url>/2020/06/20/hexo-dai-ma-gao-liang-yu-mathjax-chong-tu/</url>
