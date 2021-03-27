@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.skyfaker.cc/2020/03/30/hexo-jia-su-da-zuo-zhan/</loc>
+    <loc>https://www.skyfaker.cc/2020/05/24/zi-jie-suan-fa-ti-zi-dian-xu/</loc>
+    <lastmod>2021-03-27</lastmod>
+  </url>  <url>
+    <loc>https://www.skyfaker.cc/2019/10/26/yi-dao-bian-cheng-ti-an-zu-fan-zhuan-lian-biao/</loc>
+    <lastmod>2021-03-27</lastmod>
+  </url>  <url>
+    <loc>https://www.skyfaker.cc/2020/03/30/hexo-jia-su-ji-hua/</loc>
+    <lastmod>2021-03-26</lastmod>
+  </url>  <url>
+    <loc>https://www.skyfaker.cc/2019/04/16/autoencoder/</loc>
     <lastmod>2021-03-26</lastmod>
   </url>  <url>
     <loc>https://www.skyfaker.cc/2020/04/01/ji-huo-han-shu-yu-ping-jie-zhi-biao/</loc>
@@ -16,9 +25,6 @@
     <loc>https://www.skyfaker.cc/2019/05/20/matplotlib-hui-zhi-san-dian-tu/</loc>
     <lastmod>2021-03-24</lastmod>
   </url>  <url>
-    <loc>https://www.skyfaker.cc/2019/04/16/autoencoder/</loc>
-    <lastmod>2021-03-23</lastmod>
-  </url>  <url>
     <loc>https://www.skyfaker.cc/2019/08/22/san-yuan-zu-sun-shi-mo-xing/</loc>
     <lastmod>2021-03-23</lastmod>
   </url>  <url>
@@ -30,9 +36,6 @@
   </url>  <url>
     <loc>https://www.skyfaker.cc/2019/07/07/sort-algorithms-with-python/</loc>
     <lastmod>2021-03-23</lastmod>
-  </url>  <url>
-    <loc>https://www.skyfaker.cc/2019/10/26/yi-dao-bian-cheng-ti-an-zu-fan-zhuan-lian-biao/</loc>
-    <lastmod>2021-03-21</lastmod>
   </url>  <url>
     <loc>https://www.skyfaker.cc/2020/05/08/yi-dao-bian-cheng-ti-er-cha-shu-lu-jing-he-wei-zhi-ding-zhi/</loc>
     <lastmod>2021-03-21</lastmod>
@@ -68,9 +71,6 @@
     <lastmod>2021-03-21</lastmod>
   </url>  <url>
     <loc>https://www.skyfaker.cc/2020/06/10/zi-jie-suan-fa-ti-lian-xu-chu-ti-wen-ti/</loc>
-    <lastmod>2021-03-21</lastmod>
-  </url>  <url>
-    <loc>https://www.skyfaker.cc/2020/05/24/zi-jie-suan-fa-ti-zi-dian-xu/</loc>
     <lastmod>2021-03-21</lastmod>
   </url>  <url>
     <loc>https://www.skyfaker.cc/2019/02/15/hello-world/</loc>
