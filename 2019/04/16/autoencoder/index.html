@@ -310,7 +310,7 @@
 
 
 <!-- 3/22: 这里修改了推荐页文章点击进去之后的图片路径 -->
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/medias/featureimages/9.jpg');">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/medias/featureimages/15.jpg');">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -471,7 +471,7 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.2k
+                    2.1k
                 </div>
                 
 
@@ -517,39 +517,41 @@
 <p>同样的，我们也可以降维到三维，形成空间可视化图：</p>
 <p><img src="https://z3.ax1x.com/2021/03/23/6HNTmT.jpg" alt="三维可视化效果"></p>
 <p>不过，它也不是没有缺点，首先，自编码器是数据相关的，是在给定的一组数据上进行训练的，因此它将得到与所用训练集数据相似的压缩结果，在这样的数据上表现优异，但就其通用性来说，效果并不好。比如在图像压缩领域，效果比不上JPEG这样的通用压缩技术。</p>
-<h3 id="3-常见的自编码器与代码示例"><a href="#3-常见的自编码器与代码示例" class="headerlink" title="3. 常见的自编码器与代码示例"></a>3. 常见的自编码器与代码示例</h3><h4 id="3-1-简单自编码器和深度自编码器"><a href="#3-1-简单自编码器和深度自编码器" class="headerlink" title="3.1 简单自编码器和深度自编码器"></a>3.1 简单自编码器和深度自编码器</h4><pre><code>from keras.layers import Input, Dense
-from keras.models import Model
-from keras.datasets import mnist
-import numpy as np
+<h3 id="3-常见的自编码器与代码示例"><a href="#3-常见的自编码器与代码示例" class="headerlink" title="3. 常见的自编码器与代码示例"></a>3. 常见的自编码器与代码示例</h3><h4 id="3-1-简单自编码器和深度自编码器"><a href="#3-1-简单自编码器和深度自编码器" class="headerlink" title="3.1 简单自编码器和深度自编码器"></a>3.1 简单自编码器和深度自编码器</h4><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">from</span> keras<span class="token punctuation">.</span>layers <span class="token keyword">import</span> Input<span class="token punctuation">,</span> Dense
+<span class="token keyword">from</span> keras<span class="token punctuation">.</span>models <span class="token keyword">import</span> Model
+<span class="token keyword">from</span> keras<span class="token punctuation">.</span>datasets <span class="token keyword">import</span> mnist
+<span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
 
 
-encoding_dim=32
-input_img = Input(shape=(784,))
-encoded = Dense(encoding_dim, activation=&#39;relu&#39;)(input_img)
-decoded = Dense(784, activation=&#39;sigmoid&#39;)(encoded)
+encoding_dim<span class="token operator">=</span><span class="token number">32</span>
+input_img <span class="token operator">=</span> Input<span class="token punctuation">(</span>shape<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">784</span><span class="token punctuation">,</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+encoded <span class="token operator">=</span> Dense<span class="token punctuation">(</span>encoding_dim<span class="token punctuation">,</span> activation<span class="token operator">=</span><span class="token string">'relu'</span><span class="token punctuation">)</span><span class="token punctuation">(</span>input_img<span class="token punctuation">)</span>
+decoded <span class="token operator">=</span> Dense<span class="token punctuation">(</span><span class="token number">784</span><span class="token punctuation">,</span> activation<span class="token operator">=</span><span class="token string">'sigmoid'</span><span class="token punctuation">)</span><span class="token punctuation">(</span>encoded<span class="token punctuation">)</span>
 
-autoencoder = Model(input_img, decoded)
-encoder = Model(input_img, encoded)
-</code></pre><p>上面这种就是自编码器是最简单的形式，其中encoder是编码器，autoencoder是整个自编码器。</p>
+autoencoder <span class="token operator">=</span> Model<span class="token punctuation">(</span>input_img<span class="token punctuation">,</span> decoded<span class="token punctuation">)</span>
+encoder <span class="token operator">=</span> Model<span class="token punctuation">(</span>input_img<span class="token punctuation">,</span> encoded<span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>上面这种就是自编码器是最简单的形式，其中encoder是编码器，autoencoder是整个自编码器。</p>
 <p>在这种形式中，基本上encoder的神经元个数都要少于输入的维度，因此Encoder在这里起到了降维的功能。</p>
 <p>把<code>encoding_dim=32</code>换成<code>encoding_dim=2</code>或者<code>encoding_dim=3</code>就可以满足上图的可视化数据要求。</p>
 <h4 id="3-2-稀疏自编码器"><a href="#3-2-稀疏自编码器" class="headerlink" title="3.2 稀疏自编码器"></a>3.2 稀疏自编码器</h4><p>除强加一个比输入更低维度的隐藏层外，还有其他一些方法可以限制自编码器的重构。包含正则化项的自编码器不需要通过保持编码器和解码器的浅层和程序的小体量来限制模型容量，而是使用损失函数来鼓励模型取得除了将输入复制到其输出之外的其他属性。在实践中，我们通常会使用稀疏自编码器。</p>
 <p>简而言之，稀疏自编码器就是加入了正则项的自编码器，大部分参数置为0 ，这样做可以会使我们的自编码器学习数据的稀疏表示。</p>
-<pre><code>input_size = 784
-hidden_size = 64
-output_size = 784
+<pre class="line-numbers language-python"><code class="language-python">input_size <span class="token operator">=</span> <span class="token number">784</span>
+hidden_size <span class="token operator">=</span> <span class="token number">64</span>
+output_size <span class="token operator">=</span> <span class="token number">784</span>
 
-x = Input(shape=(input_size,))
+x <span class="token operator">=</span> Input<span class="token punctuation">(</span>shape<span class="token operator">=</span><span class="token punctuation">(</span>input_size<span class="token punctuation">,</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 
-# Encoder
-h = Dense(hidden_size, activation=&#39;relu&#39;, activity_regularizer=regularizers.l1(10e-5))(x)
+<span class="token comment" spellcheck="true"># Encoder</span>
+h <span class="token operator">=</span> Dense<span class="token punctuation">(</span>hidden_size<span class="token punctuation">,</span> activation<span class="token operator">=</span><span class="token string">'relu'</span><span class="token punctuation">,</span> activity_regularizer<span class="token operator">=</span>regularizers<span class="token punctuation">.</span>l1<span class="token punctuation">(</span><span class="token number">10e</span><span class="token operator">-</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span>
 
-# Decoder
-r = Dense(output_size, activation=&#39;sigmoid&#39;)(h)
+<span class="token comment" spellcheck="true"># Decoder</span>
+r <span class="token operator">=</span> Dense<span class="token punctuation">(</span>output_size<span class="token punctuation">,</span> activation<span class="token operator">=</span><span class="token string">'sigmoid'</span><span class="token punctuation">)</span><span class="token punctuation">(</span>h<span class="token punctuation">)</span>
 
-autoencoder = Model(input=x, output=r)
-encoder = Model(input=x, output=h)
-</code></pre><p>在的隐藏层中，我们添加了一个l1激活值正则化矩阵（activity regularizer），它将在优化阶段对损失函数施加一个惩罚，与普通的自编码器相比，现在的表示方式更加稀疏。</p>
+autoencoder <span class="token operator">=</span> Model<span class="token punctuation">(</span>input<span class="token operator">=</span>x<span class="token punctuation">,</span> output<span class="token operator">=</span>r<span class="token punctuation">)</span>
+encoder <span class="token operator">=</span> Model<span class="token punctuation">(</span>input<span class="token operator">=</span>x<span class="token punctuation">,</span> output<span class="token operator">=</span>h<span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>在的隐藏层中，我们添加了一个l1激活值正则化矩阵（activity regularizer），它将在优化阶段对损失函数施加一个惩罚，与普通的自编码器相比，现在的表示方式更加稀疏。</p>
 <h4 id="3-3-卷积自编码器、变分自编码器（VAE）等"><a href="#3-3-卷积自编码器、变分自编码器（VAE）等" class="headerlink" title="3.3 卷积自编码器、变分自编码器（VAE）等"></a>3.3 卷积自编码器、变分自编码器（VAE）等</h4><p>如果输入的是图像，使用卷积神经网络（CNN）作为编码器和解码器是很有意义的。在实际使用中，应用于图像的自动编码器始终是卷积自动编码器 ，因为它们的性能要好得多。</p>
 <p>编码器将由Conv2D和MaxPooling2D层组成（最大池化用于下采样，以减小图像维度，降维），而解码器将由Conv2D和UpSampling2D（增加图像维度，升维）层组成。</p>
 <p>而VAE是一类重要的生成模型（generative model），广泛地用于生成图像，而大名鼎鼎的GAN就是对抗生成模型。原理和实现都比较复杂，用于以后研究。</p>
@@ -627,7 +629,7 @@ encoder = Model(input=x, output=h)
                                         
 
                                             <!-- 3/22修改： -->
-                                            <img src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/medias/featureimages/5.jpg" class="responsive-img" alt="Matplotlib 可视化">
+                                            <img src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/medias/featureimages/35.jpg" class="responsive-img" alt="Matplotlib 可视化">
                                             
                                                 <span class="card-title">Matplotlib 可视化</span>
                             </div>
@@ -680,7 +682,7 @@ encoder = Model(input=x, output=h)
                                         <div class="card-image">
                                             
                                                     
-                                                        <img src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/medias/featureimages/34.jpg" class="responsive-img" alt="Vue初见——如何运行一个Vue项目">
+                                                        <img src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/medias/featureimages/4.jpg" class="responsive-img" alt="Vue初见——如何运行一个Vue项目">
                                                         
                                                             <span class="card-title">Vue初见——如何运行一个Vue项目</span>
                                         </div>
@@ -886,7 +888,7 @@ encoder = Model(input=x, output=h)
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">33.7k</span>
+                <span class="white-color">35.2k</span>
                 
 
                     <br>

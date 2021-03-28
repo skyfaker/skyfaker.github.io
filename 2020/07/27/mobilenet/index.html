@@ -4,7 +4,7 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="mobilenet, 深度学习 | 数据挖掘">
+    <meta name="keywords" content="MobileNet--准确与速度的均衡, 深度学习 | 数据挖掘">
     <meta name="baidu-site-verification" content="fmlEuI34ir">
     <meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48">
     <meta name="360-site-verification" content="b7c11a830ef90fd1464ad6206bb7b6e7">
@@ -16,7 +16,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>mobilenet | SKYFAKER</title>
+    <title>MobileNet--准确与速度的均衡 | SKYFAKER</title>
 
     <!-- 网页在浏览器上的图标 -->
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/favicon.png">
@@ -310,13 +310,13 @@
 
 
 <!-- 3/22: 这里修改了推荐页文章点击进去之后的图片路径 -->
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/medias/featureimages/5.jpg');">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/medias/featureimages/24.jpg');">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        mobilenet
+                        MobileNet--准确与速度的均衡
                     </div>
                 </div>
             </div>
@@ -471,14 +471,14 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    596
+                    2.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    8 分
                 </div>
                 
                 
@@ -499,10 +499,49 @@
 <p>目前的研究总结来看分为两个方向：一是对训练好的复杂模型进行压缩得到小模型；二是直接设计小模型并进行训练。不管如何，其目标在保持模型性能（accuracy）的前提下降低模型大小（parameters size），同时提升模型速度（speed, low latency）。本文的主角MobileNet属于后者，其是Google最近提出的一种小巧而高效的CNN模型，其在accuracy和latency之间做了一个balance。</p>
 <p><a href="https://arxiv.org/abs/1704.04861" target="_blank" rel="noopener">MobileNet论文地址</a>。</p>
 <h2 id="Depthwise-separable-convolution"><a href="#Depthwise-separable-convolution" class="headerlink" title="Depthwise separable convolution"></a>Depthwise separable convolution</h2><p>MobileNet的基本单元是深度级可分离卷积（depthwise separable convolution），它是一种可分解卷积操作，把常规的卷积过程分解为两个更小的操作：<strong>深度卷积(depthwise convolution)</strong>和<strong>逐点卷积(pointwise convolution)</strong>，以减少计算量。</p>
-<p>Depthwise convolution和标准卷积不同，对于标准卷积其卷积核是用在所有的输入通道上（input channels），而depthwise convolution针对每个输入通道采用不同的卷积核，就是说一个卷积核对应一个输入通道，所以说depthwise convolution是depth级别的操作。而pointwise convolution其实就是普通的卷积，只不过其采用1x1的卷积核。</p>
-<p><img src="1.png" alt="论文给出的卷积区别" style="zoom:50%;"></p>
-<p>如上图（a），假设这一层的输入的特征图为$D_f \times D_f \times M(输入通道数M)$，该层输出为$D_f \times D_f \times N(输入通道数N)$，则对于卷积过程，首先需要一个$D_k \times D_k \times M \times N(卷积核个数N)$，即卷积核的通道数必须等于特征图的通道数。</p>
-
+<p>Depthwise convolution和标准卷积不同，对于标准卷积其卷积核是用在所有的输入通道上（input channels），而depthwise convolution针对每个输入通道采用不同的卷积核，就是说一个卷积核对应一个输入通道，所以说depthwise convolution是depth级别的操作。而pointwise convolution其实就是普通的卷积，只不过其采用的是1x1的卷积核。</p>
+<h3 id="分离卷积过程"><a href="#分离卷积过程" class="headerlink" title="分离卷积过程"></a>分离卷积过程</h3><p>下图分别为depthwise和pointwise的卷积过程：</p>
+<p><img src="sep.jpg" alt="分离卷积" style="zoom:100%;"></p>
+<p>左边为depthwise卷积过程，绿、红、黄分别为三个不同的 $3<em>3</em>1$的卷积核，每个卷积核分别与输入特征图对应的某一个通道做卷积运算，以此得到了一个通道数不变的新特征图。</p>
+<p>右边为pointwise卷积过程，它以depthwise卷积的输出作为输入，以N个 $1*1$的卷积核做运算，得到一个新的通道数为N的特征图。</p>
+<p>更加全面的过程可以看下面的流程图，注意图中<strong>箭头的指向</strong>：</p>
+<p><img src="all.png" alt="分离卷积全流程图" style="zoom:50%;"></p>
+<h3 id="计算次数比较"><a href="#计算次数比较" class="headerlink" title="计算次数比较"></a>计算次数比较</h3><p><img src="1.png" alt="论文给出的卷积核区别" style="zoom:50%;"></p>
+<h4 id="常规卷积"><a href="#常规卷积" class="headerlink" title="常规卷积"></a>常规卷积</h4><p>如上图（a），假设这一层的输入特征图维度为 $D_f \times D_f \times M (D_f为输入特征图宽高，M为通道数)$，假设卷积时使用边缘填充，则输出的宽高不变，该层输出为 $D_f \times D_f \times N(N为输入通道数)$，则对于卷积过程，需要N（卷积核个数）个维度为 $D_k \times D_k \times M (M为卷积核通道数)$的卷积核。</p>
+<p>即卷积核的通道数必须等于输入特征图的通道数，而卷积核的个数是输出特征图的通道数。</p>
+<p>因此，每一个卷积核包含的参数个数为 $D_k \times D_k \times M$个，此次运算所有卷积核参数为$D_k \times D_k \times M \times N $。</p>
+<p>现在我们得到了卷积核和输入输出特征图的维度，那么可以计算出在卷积过程中进行的乘加运算次数（粗略计算）：</p>
+<script type="math/tex; mode=display">
+D_k \times D_k \times D_f \times D_f \times M \times N \tag{1}</script><p>其中 $D_k \times D_k \times D_f \times D_f$为一个卷积核在输入特征图的某一个通道进行的运算次数。</p>
+<h4 id="分离卷积"><a href="#分离卷积" class="headerlink" title="分离卷积"></a>分离卷积</h4><p>如上图（b），这一层的输入、输出特征图维度均与常规卷积相同。那么卷积过程分为2步：1.depthwise convolution，2.pointwise convolution。</p>
+<h5 id="depthwise-convolution"><a href="#depthwise-convolution" class="headerlink" title="depthwise convolution"></a>depthwise convolution</h5><p>对于depthwise convolution的过程，首先需要维度为M个 $D_k \times D_k \times 1$的卷积核。这些卷积核的通道数为1，因此只负责某一层的卷积运算，这也是为什么需要M个卷积核，输入特征图的每一个通道需要一个不同的卷积核。</p>
+<p>在这一部分中，所有的M个卷积核，参数总个数为$D_k \times D_k \times 1 \times M$。</p>
+<p>乘加运算次数为：</p>
+<script type="math/tex; mode=display">
+D_k \times D_k \times D_f \times D_f \times M \tag{2}</script><h5 id="pointwise-convolution"><a href="#pointwise-convolution" class="headerlink" title="pointwise convolution"></a>pointwise convolution</h5><p>如上图（c）,该卷积运算的过程与常规运算基本一致，差别在于pointwise convolution为N个 $1 \times 1 \times M$的卷积核。</p>
+<p>这一部分中，参数个数为 $1 \times 1 \times M \times N$。</p>
+<p>运算次数为：</p>
+<script type="math/tex; mode=display">
+1 \times 1 \times D_f \times D_f \times M \times N \tag{3}</script><p>分离卷积的总参数量为 $D_k \times D_k \times M + M \times N$。</p>
+<p>总计算量为 式（2）+ 式（3）：</p>
+<script type="math/tex; mode=display">
+D_k \times D_k \times D_f \times D_f \times M + D_f \times D_f \times M \times N \tag{4}</script><h5 id="参数量与计算量比较"><a href="#参数量与计算量比较" class="headerlink" title="参数量与计算量比较"></a>参数量与计算量比较</h5><p>因此，我们可以得出，相同输入和输出的分离卷积过程和常规卷积过程，参数量的比值为：</p>
+<script type="math/tex; mode=display">
+\frac{D_k \times D_k \times M + M \times N}{D_k \times D_k \times M \times N } = \frac{D_k \times D_k + N}{D_k \times D_k \times N} = \frac{1}{N} + \frac{1}{D_k^2} \tag{参数量之比}</script><p>由于一般卷积神经网络中，卷积核大小为$3*3$，而卷积核个数为256、512或1024等，因此分离卷积的参数量大约为正常卷积的$\frac{1}{9}$。</p>
+<p> 由 式（1）和 式（4）可知，计算量的比值为：</p>
+<script type="math/tex; mode=display">
+\frac{D_k \times D_k \times D_f \times D_f \times M + D_f \times D_f \times M \times N}{D_k \times D_k \times D_f \times D_f \times M \times N}  = \frac{1}{N} + \frac{1}{D_k^2} \tag{计算量之比}</script><p>与参数量的比值一致，因此分离卷积的计算量也大约为正常卷积的$\frac{1}{9}$。</p>
+<p><strong>PS：这里的乘加运算量为近似值，非准确计算。</strong></p>
+<p>之所以分离卷积可以大幅度减少计算量，实际上是因为分离卷积相比于正常的卷积方式，大大减少了特征提取的次数。常规卷积每个卷积核会对所有通道做特征提取，而depthwise卷积只会对每个通道做一次特征提取，之后的pointwise只是对提取的特征进行复用。也因此，网络的特征提取能力会较差一些。</p>
+<p>除了减少计算量，另一方面，分离卷积增加了网络的深度，也就增加了添加非线性激活函数的次数。 在depthwise卷积和pointwise卷积之后，可以分别应用一个非线性激活层，既增加了非线性层的数量而又不显著增加参数和计算量。无论是ReLU，Softmax还是其他，激活层都是非线性的，这与卷积层不同。 “线的线性组合仍然是线”，而非线性层扩展了模型的可能性，所以“深层”网络比“宽层”网络更好。 </p>
+<p>因此，可以说，可分离卷积是通过减少单次卷积运算的特征提取能力，换取了更少的计算次数和更强的非线性拟合能力。</p>
+<h5 id="网络内部参数比较"><a href="#网络内部参数比较" class="headerlink" title="网络内部参数比较"></a>网络内部参数比较</h5><p>从上面的公式可以看出，大部分计算量与参数量都集中在pointwise卷积过程中，如果没有pointwise过程，则计算量可以降低到大约$\frac{1}{N}$。</p>
+<p><img src="resource.png" alt="MobileNet各部分比较" style="zoom:60%;"></p>
+<p>上表为Mobile net网络中所有不同部分的计算量和参数量比较。也可以看出，$1 \times 1$的卷积集中了整个网络接近95%的计算量和75%的参数量。</p>
+<p>那么，为什么有了depthwise卷积之后还要加上耗费巨大计算量的pointwise卷积过程呢？</p>
+<p>第一点，很明显，pointwise卷积可以用来改变输出的特征图的通道数。如果只有depthwise过程的话，输出只能和输入的通道数保持一致，无法改变。</p>
+<p>第二点，个人看法。每一个卷积核代表了一种特征提取方式，但是有些提取出的特征需要进行组合才有意义。比如说一个卷积核用于x轴边缘检测，另一个卷积核用于y轴边缘检测，两个特征图组合在一起才是一个完整的边缘检测过程。所以需要pointwise过程，将各个通道的特征进行复用与融合，形成新的特征。有一种网络结构shuffleNet在group convolution之后使用channel shuffle打乱了通道顺序，也是一种对特征图通道进行操作的方式。</p>
+<h3 id="性能比较"><a href="#性能比较" class="headerlink" title="性能比较"></a>性能比较</h3>
             </div>
             <hr />
 
@@ -573,9 +612,9 @@
                                 <div class="card-image">
                                     
                                             
-                                                <img src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/medias/featureimages/5.jpg" class="responsive-img" alt="mobilenet">
+                                                <img src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/medias/featureimages/24.jpg" class="responsive-img" alt="MobileNet--准确与速度的均衡">
                                                 
-                                                    <span class="card-title">mobilenet</span>
+                                                    <span class="card-title">MobileNet--准确与速度的均衡</span>
                                 </div>
                             </a>
                             <div class="card-content article-content">
@@ -627,7 +666,7 @@
                                         <div class="card-image">
                                             
                                                     
-                                                        <img src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/medias/featureimages/5.jpg" class="responsive-img" alt="mathjax渲染异常与hexo prism高亮无效bug">
+                                                        <img src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/medias/featureimages/35.jpg" class="responsive-img" alt="mathjax渲染异常与hexo prism高亮无效bug">
                                                         
                                                             <span class="card-title">mathjax渲染异常与hexo prism高亮无效bug</span>
                                         </div>
@@ -841,7 +880,7 @@
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">33.7k</span>
+                <span class="white-color">35.2k</span>
                 
 
                     <br>
