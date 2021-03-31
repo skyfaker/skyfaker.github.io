@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.skyfaker.cc/"/>
-  <updated>2021-03-30T10:33:20.966Z</updated>
+  <updated>2021-03-30T15:26:28.685Z</updated>
   <id>https://www.skyfaker.cc/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>mathjax渲染异常与hexo prism高亮无效bug</title>
+    <link href="https://www.skyfaker.cc/2020/08/20/hexo-dai-ma-gao-liang-yu-mathjax-chong-tu/"/>
+    <id>https://www.skyfaker.cc/2020/08/20/hexo-dai-ma-gao-liang-yu-mathjax-chong-tu/</id>
+    <published>2020-08-20T09:37:18.000Z</published>
+    <updated>2021-03-30T15:26:28.685Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;Prism高亮&quot;&gt;&lt;a href=&quot;#Prism高亮&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="hexo" scheme="https://www.skyfaker.cc/categories/hexo/"/>
+    
+    
+      <category term="mathjax" scheme="https://www.skyfaker.cc/tags/mathjax/"/>
+    
+      <category term="hexo渲染" scheme="https://www.skyfaker.cc/tags/hexo%E6%B8%B2%E6%9F%93/"/>
+    
+  </entry>
   
   <entry>
     <title>MobileNet--准确与速度的均衡</title>
@@ -45,11 +73,11 @@
   </entry>
   
   <entry>
-    <title>mathjax渲染异常与hexo prism高亮无效bug</title>
-    <link href="https://www.skyfaker.cc/2020/06/20/hexo-dai-ma-gao-liang-yu-mathjax-chong-tu/"/>
-    <id>https://www.skyfaker.cc/2020/06/20/hexo-dai-ma-gao-liang-yu-mathjax-chong-tu/</id>
-    <published>2020-06-20T09:37:18.000Z</published>
-    <updated>2021-03-23T14:54:11.028Z</updated>
+    <title>字节算法题——机器人跳跃</title>
+    <link href="https://www.skyfaker.cc/2020/06/30/zi-jie-suan-fa-ti-ji-qi-ren-tiao-yue/"/>
+    <id>https://www.skyfaker.cc/2020/06/30/zi-jie-suan-fa-ti-ji-qi-ren-tiao-yue/</id>
+    <published>2020-06-30T15:27:18.000Z</published>
+    <updated>2021-03-31T03:30:05.318Z</updated>
     
     <summary type="html">
     
@@ -57,18 +85,18 @@
       
         
         
-          &lt;h2 id=&quot;Prism高亮&quot;&gt;&lt;a href=&quot;#Prism高亮&quot; class=&quot;headerlink&quot;
+          &lt;h2 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot; title=&quot;题目描述&quot;&gt;&lt;/a&gt;题目描述&lt;/h2&gt;&lt;p&gt;游戏中有N+1座建筑——从0到N编号，从左到右排列。编号为0的建筑高度为0个单位，编号为i的建筑的高度为H(i)个单位。
         
       
     
     </summary>
     
-      <category term="hexo" scheme="https://www.skyfaker.cc/categories/hexo/"/>
+      <category term="算法" scheme="https://www.skyfaker.cc/categories/%E7%AE%97%E6%B3%95/"/>
     
     
-      <category term="mathjax" scheme="https://www.skyfaker.cc/tags/mathjax/"/>
+      <category term="编程算法" scheme="https://www.skyfaker.cc/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95/"/>
     
-      <category term="hexo渲染" scheme="https://www.skyfaker.cc/tags/hexo%E6%B8%B2%E6%9F%93/"/>
+      <category term="字节" scheme="https://www.skyfaker.cc/tags/%E5%AD%97%E8%8A%82/"/>
     
   </entry>
   
@@ -528,34 +556,6 @@
       <category term="Python" scheme="https://www.skyfaker.cc/tags/Python/"/>
     
       <category term="matplotlib" scheme="https://www.skyfaker.cc/tags/matplotlib/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>神经网络——自编码器（Autoencoder）</title>
-    <link href="https://www.skyfaker.cc/2019/04/16/autoencoder/"/>
-    <id>https://www.skyfaker.cc/2019/04/16/autoencoder/</id>
-    <published>2019-04-16T07:09:23.000Z</published>
-    <updated>2021-03-30T10:30:54.604Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;神经网络（neural-network）的应用——自编码器（Autoencoder）&quot;&gt;&lt;a href=&quot;#神经网络（neural-network）的应用——自编码器（Autoencoder）&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="深度学习" scheme="https://www.skyfaker.cc/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="AutoEncoder" scheme="https://www.skyfaker.cc/tags/AutoEncoder/"/>
-    
-      <category term="全连接神经网络" scheme="https://www.skyfaker.cc/tags/%E5%85%A8%E8%BF%9E%E6%8E%A5%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
     
   </entry>
   
