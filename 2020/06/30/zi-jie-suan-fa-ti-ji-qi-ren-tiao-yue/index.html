@@ -311,7 +311,7 @@
 
 
 <!-- 3/22: 这里修改了推荐页文章点击进去之后的图片路径 -->
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/medias/featureimages/0.jpg');">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/medias/featureimages/35.jpg');">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -520,7 +520,7 @@ E_n = 2E_{n-1} - H_{n} = 2\times (2E_{n-2} - H_{n-1}) - H_n =……\\
 <p>现在要求跳到第n个建筑的时候能量不小于0，则最小为0，那么设$E_{n} = 0$，则$E_{n-1} =\lceil \frac{H_n}{2} \rceil, E_{n-2} =\lceil \frac{H_{n-1}\ +\ E_{n-1}}{2} \rceil …… E_{0} =\lceil \frac{H_1 \ + \ E_{1}}{2} \rceil$。</p>
 <h3 id="模拟过程"><a href="#模拟过程" class="headerlink" title="模拟过程"></a>模拟过程</h3><p>还可以直接模拟跳跃过程，搜索最小的$E_0$。搜索过程可以使用二分查找。</p>
 <p>初始的能量只要超过全部建筑高度之和sum，则必定可以跳到最后一个建筑。则可以在 [1, sum] 使用二分查找。</p>
-<p>也可以从1开始，跳跃失败则指数增加，知道跳跃成功，然后在失败的最大值和成功值之间二分查找。例如开始$E_0 = 1$，失败则设置$E_0 = 2$、$E_0 = 4$、$E_0 = 8$，假设$E_0 = 8$成功，则在 [4,8]之间二分查找。</p>
+<p>也可以从1开始，跳跃失败则指数增加，直到跳跃成功，然后在失败的最大值和成功值之间二分查找。例如开始$E_0 = 1$，失败则设置$E_0 = 2$、$E_0 = 4$、$E_0 = 8$，假设$E_0 = 8$成功，则在 [4,8]之间二分查找。</p>
 <h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><h3 id="python实现"><a href="#python实现" class="headerlink" title="python实现"></a>python实现</h3><h4 id="公式法-1"><a href="#公式法-1" class="headerlink" title="公式法"></a>公式法</h4><pre class="line-numbers language-python"><code class="language-python">n <span class="token operator">=</span> int<span class="token punctuation">(</span>input<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 hight <span class="token operator">=</span> <span class="token punctuation">[</span>int<span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> input<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
 
@@ -615,7 +615,7 @@ E <span class="token operator">=</span> <span class="token number">0</span>
                                         
 
                                             <!-- 3/22修改： -->
-                                            <img src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/medias/featureimages/27.jpg" class="responsive-img" alt="MobileNet--准确与速度的均衡">
+                                            <img src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/medias/featureimages/28.jpg" class="responsive-img" alt="MobileNet--准确与速度的均衡">
                                             
                                                 <span class="card-title">MobileNet--准确与速度的均衡</span>
                             </div>
@@ -668,7 +668,7 @@ E <span class="token operator">=</span> <span class="token number">0</span>
                                         <div class="card-image">
                                             
                                                     
-                                                        <img src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/medias/featureimages/21.jpg" class="responsive-img" alt="字节算法题——连续出题问题">
+                                                        <img src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/medias/featureimages/22.jpg" class="responsive-img" alt="字节算法题——连续出题问题">
                                                         
                                                             <span class="card-title">字节算法题——连续出题问题</span>
                                         </div>

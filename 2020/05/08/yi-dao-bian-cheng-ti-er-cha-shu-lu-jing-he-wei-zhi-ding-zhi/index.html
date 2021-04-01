@@ -313,7 +313,7 @@
 
 
 <!-- 3/22: 这里修改了推荐页文章点击进去之后的图片路径 -->
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/medias/featureimages/33.jpg');">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/medias/featureimages/34.jpg');">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -470,14 +470,14 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    638
+                    655
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    3 分
                 </div>
                 
                 
@@ -528,24 +528,26 @@
         <span class="token comment" spellcheck="true"># 出递归，删去末尾节点，以便递归另外一个方向</span>
         tmp<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="BFS"><a href="#BFS" class="headerlink" title="BFS"></a>BFS</h4><pre><code># BFS
-class Solution2:
-    def pathSum(self , root , ssum ):
-        # write code here
-        if(not root):return None
-        path = [root.val]
-        tmp = [[root, path]]
-        re = []
-        while tmp:
-            node, path = tmp.pop(0)
-            if not node.left and not node.right and sum(path) == ssum:
-                re.append(path)
-            if node.left:
-                tmp.append([node.left, path+[node.left.val]])
-            if node.right:
-                tmp.append([node.right, path+[node.right.val]])
-        return re
-</code></pre><h3 id="C-实现"><a href="#C-实现" class="headerlink" title="C++实现"></a>C++实现</h3><h4 id="DFS-递归-1"><a href="#DFS-递归-1" class="headerlink" title="DFS/递归"></a>DFS/递归</h4><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+<h4 id="BFS"><a href="#BFS" class="headerlink" title="BFS"></a>BFS</h4><pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># BFS</span>
+<span class="token keyword">class</span> <span class="token class-name">Solution2</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">pathSum</span><span class="token punctuation">(</span>self <span class="token punctuation">,</span> root <span class="token punctuation">,</span> ssum <span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true"># write code here</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">not</span> root<span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token keyword">return</span> None
+        <span class="token comment" spellcheck="true"># path数组保存根节点到当前节点的路径值</span>
+        path <span class="token operator">=</span> <span class="token punctuation">[</span>root<span class="token punctuation">.</span>val<span class="token punctuation">]</span>
+        tmp <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">[</span>root<span class="token punctuation">,</span> path<span class="token punctuation">]</span><span class="token punctuation">]</span>
+        re <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+        <span class="token keyword">while</span> tmp<span class="token punctuation">:</span>
+            node<span class="token punctuation">,</span> path <span class="token operator">=</span> tmp<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+            <span class="token keyword">if</span> <span class="token operator">not</span> node<span class="token punctuation">.</span>left <span class="token operator">and</span> <span class="token operator">not</span> node<span class="token punctuation">.</span>right <span class="token operator">and</span> sum<span class="token punctuation">(</span>path<span class="token punctuation">)</span> <span class="token operator">==</span> ssum<span class="token punctuation">:</span>
+                re<span class="token punctuation">.</span>append<span class="token punctuation">(</span>path<span class="token punctuation">)</span>
+            <span class="token keyword">if</span> node<span class="token punctuation">.</span>left<span class="token punctuation">:</span>
+                tmp<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token punctuation">[</span>node<span class="token punctuation">.</span>left<span class="token punctuation">,</span> path<span class="token operator">+</span><span class="token punctuation">[</span>node<span class="token punctuation">.</span>left<span class="token punctuation">.</span>val<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+            <span class="token keyword">if</span> node<span class="token punctuation">.</span>right<span class="token punctuation">:</span>
+                tmp<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token punctuation">[</span>node<span class="token punctuation">.</span>right<span class="token punctuation">,</span> path<span class="token operator">+</span><span class="token punctuation">[</span>node<span class="token punctuation">.</span>right<span class="token punctuation">.</span>val<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> re
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="C-实现"><a href="#C-实现" class="headerlink" title="C++实现"></a>C++实现</h3><h4 id="DFS-递归-1"><a href="#DFS-递归-1" class="headerlink" title="DFS/递归"></a>DFS/递归</h4><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
 <span class="token keyword">public</span><span class="token operator">:</span>
     <span class="token comment" spellcheck="true">/**
      * 
@@ -646,7 +648,7 @@ class Solution2:
                                         
 
                                             <!-- 3/22修改： -->
-                                            <img src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/medias/featureimages/26.jpg" class="responsive-img" alt="字节算法题——字典序">
+                                            <img src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/medias/featureimages/25.jpg" class="responsive-img" alt="字节算法题——字典序">
                                             
                                                 <span class="card-title">字节算法题——字典序</span>
                             </div>
@@ -699,7 +701,7 @@ class Solution2:
                                         <div class="card-image">
                                             
                                                     
-                                                        <img src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/medias/featureimages/3.jpg" class="responsive-img" alt="一道编程题——删除倒数第k个节点">
+                                                        <img src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/medias/featureimages/4.jpg" class="responsive-img" alt="一道编程题——删除倒数第k个节点">
                                                         
                                                             <span class="card-title">一道编程题——删除倒数第k个节点</span>
                                         </div>
