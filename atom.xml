@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.skyfaker.cc/"/>
-  <updated>2021-03-30T15:26:28.685Z</updated>
+  <updated>2021-04-03T09:42:37.249Z</updated>
   <id>https://www.skyfaker.cc/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>搜索算法综述</title>
+    <link href="https://www.skyfaker.cc/2020/10/26/sou-suo-suan-fa/"/>
+    <id>https://www.skyfaker.cc/2020/10/26/sou-suo-suan-fa/</id>
+    <published>2020-10-26T15:31:33.000Z</published>
+    <updated>2021-04-03T09:42:37.249Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;启发式搜索&quot;&gt;&lt;a href=&quot;#启发式搜索&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="算法" scheme="https://www.skyfaker.cc/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="搜索求解" scheme="https://www.skyfaker.cc/tags/%E6%90%9C%E7%B4%A2%E6%B1%82%E8%A7%A3/"/>
+    
+      <category term="启发式搜索" scheme="https://www.skyfaker.cc/tags/%E5%90%AF%E5%8F%91%E5%BC%8F%E6%90%9C%E7%B4%A2/"/>
+    
+      <category term="蒙特卡洛树" scheme="https://www.skyfaker.cc/tags/%E8%92%99%E7%89%B9%E5%8D%A1%E6%B4%9B%E6%A0%91/"/>
+    
+  </entry>
   
   <entry>
     <title>mathjax渲染异常与hexo prism高亮无效bug</title>
@@ -528,34 +558,6 @@
       <category term="Python" scheme="https://www.skyfaker.cc/tags/Python/"/>
     
       <category term="编程算法" scheme="https://www.skyfaker.cc/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Matplotlib 可视化</title>
-    <link href="https://www.skyfaker.cc/2019/05/20/matplotlib-hui-zhi-san-dian-tu/"/>
-    <id>https://www.skyfaker.cc/2019/05/20/matplotlib-hui-zhi-san-dian-tu/</id>
-    <published>2019-05-20T08:03:48.000Z</published>
-    <updated>2021-03-24T03:30:39.549Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;matplotlib绘制散点图&quot;&gt;&lt;a href=&quot;#matplotlib绘制散点图&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="工具方法" scheme="https://www.skyfaker.cc/categories/%E5%B7%A5%E5%85%B7%E6%96%B9%E6%B3%95/"/>
-    
-    
-      <category term="Python" scheme="https://www.skyfaker.cc/tags/Python/"/>
-    
-      <category term="matplotlib" scheme="https://www.skyfaker.cc/tags/matplotlib/"/>
     
   </entry>
   
