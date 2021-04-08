@@ -316,7 +316,7 @@ git的架构如下图所示：
 
 
 <!-- 3/22: 这里修改了推荐页文章点击进去之后的图片路径 -->
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/medias/featureimages/18.jpg');">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/medias/featureimages/20.jpg');">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -473,14 +473,14 @@ git的架构如下图所示：
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.9k
+                    3.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    10 分
+                    11 分
                 </div>
                 
                 
@@ -607,7 +607,28 @@ hard就是动repo还有staging还有working
 <h4 id="PUSH代码到远程仓库"><a href="#PUSH代码到远程仓库" class="headerlink" title="PUSH代码到远程仓库"></a>PUSH代码到远程仓库</h4><p>上面，我们已经关联了一个远程仓库，并且命名为origin。</p>
 <p>把本地库的内容推送到远程，用<code>git push</code>命令，实际上是把当前分支<code>master</code>推送到远程。使用 <code>-u</code>参数，会把本地的<code>master</code>分支和远程的<code>master</code>分支关联起来，在以后的推送或者拉取时就可以简化命令。</p>
 <p>之后，就可以通过 <code>git push origin master</code> 推送到远程了。</p>
-<p><code>git push origin 分支名 --force</code>可以强制使用本地仓库覆盖远程仓库。</p>
+<p><code>git push origin 分支名 --force</code>可以强制使用本地仓库覆盖远程仓库，但是要非常小心。</p>
+<h4 id="PULL代码到本地"><a href="#PULL代码到本地" class="headerlink" title="PULL代码到本地"></a>PULL代码到本地</h4><p>有些时候，会先在GitHub建立仓库，或者从GitHub拉取最新的代码，这时候需要用到<code>git pull</code>命令。</p>
+<p>假如需要从已经关联的origin仓库拉取，如果你很有自信，可以直接拉取：</p>
+<pre class="line-numbers language-bash"><code class="language-bash">//查询当前远程的版本
+$ <span class="token function">git</span> remote -v
+//直接拉取并合并最新代码
+$ <span class="token function">git</span> pull origin master <span class="token punctuation">[</span>示例1：拉取远端origin/master分支并合并到当前分支<span class="token punctuation">]</span>
+$ <span class="token function">git</span> pull origin dev <span class="token punctuation">[</span>示例2：拉取远端origin/dev分支并合并到当前分支<span class="token punctuation">]</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>一般情况下，<strong>推荐</strong><code>git fetch + merge</code>手动合并：</p>
+<pre class="line-numbers language-bash"><code class="language-bash">//查询当前远程的版本
+$ <span class="token function">git</span> remote -v
+
+$ <span class="token function">git</span> fetch origin master  <span class="token punctuation">[</span>示例1：获取远端的origin/master分支<span class="token punctuation">]</span>
+$ <span class="token function">git</span> fetch origin dev <span class="token punctuation">[</span>示例2：获取远端的origin/dev分支<span class="token punctuation">]</span>
+//查看版本差异
+$ <span class="token function">git</span> log -p master<span class="token punctuation">..</span>origin/master <span class="token punctuation">[</span>示例1：查看本地master与远端origin/master的版本差异<span class="token punctuation">]</span>
+$ <span class="token function">git</span> log -p dev<span class="token punctuation">..</span>origin/dev   <span class="token punctuation">[</span>示例2：查看本地dev与远端origin/dev的版本差异<span class="token punctuation">]</span>
+//合并最新代码到本地分支
+$ <span class="token function">git</span> merge origin/master  <span class="token punctuation">[</span>示例1：合并远端分支origin/master到当前分支<span class="token punctuation">]</span>
+$ <span class="token function">git</span> merge origin/dev <span class="token punctuation">[</span>示例2：合并远端分支origin/dev到当前分支<span class="token punctuation">]</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr />
@@ -681,7 +702,7 @@ hard就是动repo还有staging还有working
                                         
 
                                             <!-- 3/22修改： -->
-                                            <img src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/medias/featureimages/29.jpg" class="responsive-img" alt="一道编程题——合成有序链表">
+                                            <img src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/medias/featureimages/27.jpg" class="responsive-img" alt="一道编程题——合成有序链表">
                                             
                                                 <span class="card-title">一道编程题——合成有序链表</span>
                             </div>
@@ -730,7 +751,7 @@ hard就是动repo还有staging还有working
                                         <div class="card-image">
                                             
                                                     
-                                                        <img src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/medias/featureimages/32.jpg" class="responsive-img" alt="一道编程题——判断二叉树是否对称">
+                                                        <img src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/medias/featureimages/34.jpg" class="responsive-img" alt="一道编程题——判断二叉树是否对称">
                                                         
                                                             <span class="card-title">一道编程题——判断二叉树是否对称</span>
                                         </div>
@@ -932,7 +953,7 @@ hard就是动repo还有staging还有working
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">43.4k</span>
+                <span class="white-color">43.6k</span>
                 
 
                     <br>
