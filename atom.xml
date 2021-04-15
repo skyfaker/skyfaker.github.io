@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.skyfaker.cc/"/>
-  <updated>2021-04-09T16:08:41.041Z</updated>
+  <updated>2021-04-14T13:56:35.917Z</updated>
   <id>https://www.skyfaker.cc/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>机器学习——SVM简述</title>
+    <link href="https://www.skyfaker.cc/2020/11/11/svm-xiang-jie/"/>
+    <id>https://www.skyfaker.cc/2020/11/11/svm-xiang-jie/</id>
+    <published>2020-11-11T07:15:06.000Z</published>
+    <updated>2021-04-14T13:56:35.917Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;支持向量机（Support Vector Machine,
+        
+      
+    
+    </summary>
+    
+      <category term="机器学习" scheme="https://www.skyfaker.cc/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="SVM" scheme="https://www.skyfaker.cc/tags/SVM/"/>
+    
+  </entry>
+  
+  <entry>
     <title>遍历与启发式搜索</title>
     <link href="https://www.skyfaker.cc/2020/10/06/bian-li-yu-qi-fa-shi-sou-suo/"/>
     <id>https://www.skyfaker.cc/2020/10/06/bian-li-yu-qi-fa-shi-sou-suo/</id>
     <published>2020-10-06T09:43:33.000Z</published>
-    <updated>2021-04-09T16:08:41.041Z</updated>
+    <updated>2021-04-11T07:28:45.138Z</updated>
     
     <summary type="html">
     
@@ -298,7 +324,7 @@
     <link href="https://www.skyfaker.cc/2020/03/30/hexo-jia-su-ji-hua/"/>
     <id>https://www.skyfaker.cc/2020/03/30/hexo-jia-su-ji-hua/</id>
     <published>2020-03-30T10:17:38.000Z</published>
-    <updated>2021-03-27T03:54:15.039Z</updated>
+    <updated>2021-04-14T07:53:23.417Z</updated>
     
     <summary type="html">
     
@@ -527,37 +553,6 @@
     
     
       <category term="编程算法" scheme="https://www.skyfaker.cc/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>三元组损失模型</title>
-    <link href="https://www.skyfaker.cc/2019/08/22/san-yuan-zu-sun-shi-mo-xing/"/>
-    <id>https://www.skyfaker.cc/2019/08/22/san-yuan-zu-sun-shi-mo-xing/</id>
-    <published>2019-08-22T07:09:23.000Z</published>
-    <updated>2021-04-05T07:38:05.391Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;ul&gt;
-&lt;li&gt;&lt;h5 id=&quot;论文素材提供：珍珍&quot;&gt;&lt;a href=&quot;#论文素材提供：珍珍&quot; class=&quot;headerlink&quot; title=&quot;论文素材提供：珍珍&quot;&gt;&lt;/a&gt;论文素材提供：珍珍&lt;/h5&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;三元组损失概述&quot;&gt;&lt;a
-        
-      
-    
-    </summary>
-    
-      <category term="深度学习" scheme="https://www.skyfaker.cc/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="图像分类" scheme="https://www.skyfaker.cc/tags/%E5%9B%BE%E5%83%8F%E5%88%86%E7%B1%BB/"/>
-    
-      <category term="三元组损失" scheme="https://www.skyfaker.cc/tags/%E4%B8%89%E5%85%83%E7%BB%84%E6%8D%9F%E5%A4%B1/"/>
     
   </entry>
   
