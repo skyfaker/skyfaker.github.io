@@ -498,7 +498,7 @@
 <li>线性可分SVM</li>
 </ul>
 <blockquote>
-<p>当训练数据线性可分时，通过硬间隔（hard margin，什么是硬、软间隔下面会讲）最大化可以学习得到一个线性分类器，即硬间隔SVM，如上图的的H3。</p>
+<p>当训练数据线性可分时，通过硬间隔（hard margin，什么是硬、软间隔下面会讲）最大化可以学习得到一个线性分类器，即硬间隔SVM。</p>
 </blockquote>
 <ul>
 <li>软间隔SVM</li>
@@ -539,7 +539,7 @@
 </blockquote>
 <h4 id="间隔"><a href="#间隔" class="headerlink" title="间隔"></a>间隔</h4><p><strong>间隔表示距离划分超平面最近的样本到划分超平面距离的两倍。</strong></p>
 <p>那么，间隔为最近样本到超平面距离的两倍是怎么得来的呢？</p>
-<p>因为最优超平面是位于支持向量中间，现在我们将这个超平面向上移动，直到接触到第一个正样本，此时超平面方程$C1$为$\boldsymbol w^T \boldsymbol x+b=c$。同样的，将超平面向下移动直到碰到第一个负样本，此时超平面方程$C2$为$\boldsymbol w^T \boldsymbol x +b=-c,c&lt;0$。</p>
+<p>因为最优超平面是位于支持向量中间，现在我们将这个超平面向上移动，直到接触到第一个正样本，此时超平面方程$C1$为$\boldsymbol w^T \boldsymbol x+b=c,c&gt;0$。同样的，将超平面向下移动直到碰到第一个负样本，此时超平面方程$C2$为$\boldsymbol w^T \boldsymbol x +b=-c$。</p>
 <p>那么$C1C2$两个超平面的距离为$\frac{2c}{||\boldsymbol w||}$。</p>
 <p>通过缩放$\boldsymbol w$和$b$，我们总是可以使得$c=1$并且不影响解，这样$C1C2$两个超平面的方程分别为$\boldsymbol w^T \boldsymbol x +b=1$和$\boldsymbol w^T \boldsymbol x+b=-1$，注意此时的$\boldsymbol w、b$为经过放缩之后的新向量。</p>
 <p>此时上下两个超平面之间距离为$\frac{2}{||\boldsymbol w||}$，如下图所示。</p>
