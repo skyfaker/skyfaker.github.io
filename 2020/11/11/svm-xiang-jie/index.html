@@ -468,14 +468,14 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.2k
+                    1.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    13 分
+                    4 分
                 </div>
                 
                 
@@ -534,7 +534,8 @@
 \frac{\boldsymbol w^T\boldsymbol x_i + b}{||\boldsymbol w||} \tag{2}</script><p>其中，$||\boldsymbol w|| = \sqrt{w_1^2+w_2^2+\dots w_d^2}$ ，是向量的欧几里德范数，也称为向量模、欧几里德长度或 2范数。</p>
 <p>注：上面的向量模定义来自matlab向量范数和矩阵范数一节：</p>
 <blockquote>
-<h4 id="欧几里德范数"><a href="#欧几里德范数" class="headerlink" title="欧几里德范数"></a>欧几里德范数</h4><p>具有 <code>N</code> 个元素的向量 <code>v</code> 的欧几里德范数（也称为向量模、欧几里德长度或 2-范数）的定义如下：</p>
+<p>欧几里德范数</p>
+<p>具有 <code>N</code> 个元素的向量 <code>v</code> 的欧几里德范数（也称为向量模、欧几里德长度或 2-范数）的定义如下：</p>
 <p>$||\boldsymbol v|| = \sqrt{\sum_{k=1}^N{|v_k|^2}}$</p>
 </blockquote>
 <h4 id="间隔"><a href="#间隔" class="headerlink" title="间隔"></a>间隔</h4><p><strong>间隔表示距离划分超平面最近的样本到划分超平面距离的两倍。</strong></p>
@@ -552,7 +553,7 @@
 \boldsymbol w^T \boldsymbol x_i+b<=-1,y_i=-1\\
 \end{cases} \tag{3}</script><p>此时方程组（3）可以写成这样：</p>
 <script type="math/tex; mode=display">
-对于\forall (\boldsymbol x_i,y_i),\quad y_i (\boldsymbol w^T \boldsymbol x_i+b) >=1 \tag{4}</script><h4 id="间隔最大化"><a href="#间隔最大化" class="headerlink" title="间隔最大化"></a>间隔最大化</h4><p><strong>不等式（4）满足了最优超平面的条件1和条件3</strong>，只剩下条件2：最大化间隔。</p>
+对于\forall (\boldsymbol x_i,y_i),\quad y_i (\boldsymbol w^T \boldsymbol x_i+b) \geq1 \tag{4}</script><h4 id="间隔最大化"><a href="#间隔最大化" class="headerlink" title="间隔最大化"></a>间隔最大化</h4><p><strong>不等式（4）满足了最优超平面的条件1和条件3</strong>，只剩下条件2：最大化间隔。</p>
 <p>所以最终我们得到了，线性支持向量机的优化问题等价于找到一组合适的参数$(\boldsymbol w,b)$, 使得</p>
 <script type="math/tex; mode=display">
 \max\frac{2}{||\boldsymbol w||}\\
@@ -573,7 +574,7 @@ s.t.\quad 1-y_i (\boldsymbol w^T \boldsymbol x_i+b) \leq 0, i=1,2,\dots ,n \tag{
 <p>我们将公式（6）转化为拉格朗日函数：</p>
 <script type="math/tex; mode=display">
 L(\boldsymbol w,b,\boldsymbol \alpha) = \frac{1}{2}\boldsymbol w^T \boldsymbol w + \sum_{i=1}^{n}\alpha_i(1-y_i (\boldsymbol w^T \boldsymbol x_i+b)) \tag{7}</script><p>其中，$\alpha_i = (a_1;a_2;\dots ;a_n;)$，拉格朗日乘子$\alpha_i \geq 0$。</p>
-<h4 id="对偶问题"><a href="#对偶问题" class="headerlink" title="对偶问题"></a>对偶问题</h4><p>接下来要求解公式（7）的对偶问题，转换为对偶问题来求解的原因是:</p>
+<h3 id="对偶问题"><a href="#对偶问题" class="headerlink" title="对偶问题"></a>对偶问题</h3><p>接下来要求解公式（7）的对偶问题，转换为对偶问题来求解的原因是:</p>
 <ul>
 <li>对偶问题更易求解，由下文知对偶问题只需优化一个变量$\alpha$且约束条件更简单；</li>
 <li>能更加自然地引入核函数，进而推广到非线性问题。</li>
@@ -606,7 +607,7 @@ s.t. \quad \sum_{1}^{n}a_iy_i=0;\\
 <p>解出$\boldsymbol \alpha$后，求出 $\boldsymbol w$ 与b即可得到模型：</p>
 <script type="math/tex; mode=display">
 f(x)=\boldsymbol w^Tx+b=∑_{i=1}^{m}α_iy_i\boldsymbol x_i^T\boldsymbol x+b \tag{11}</script><p>关于求解$\boldsymbol \alpha$的方法，可以采用二次规划的解法，也有一些其他算法比如SMO（Sequential Minimal Optimization）算法。</p>
-<h4 id="支持向量"><a href="#支持向量" class="headerlink" title="支持向量"></a>支持向量</h4><p> KKT （Karush-Kuhn-Tucker）条件是指优化问题在最优值处必须满足如下条件：</p>
+<h3 id="支持向量"><a href="#支持向量" class="headerlink" title="支持向量"></a>支持向量</h3><p> KKT （Karush-Kuhn-Tucker）条件是指优化问题在最优值处必须满足如下条件：</p>
 <ul>
 <li>$主问题可行: g_i(u) ≤ 0, h_i(u) = 0; $</li>
 <li>$对偶问题可行: \alpha_i ≥ 0; $</li>
@@ -973,7 +974,7 @@ L(\boldsymbol w,b,\delta,\boldsymbol \alpha,\boldsymbol \beta) = \frac{1}{2}\bol
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">47.5k</span>
+                <span class="white-color">45.7k</span>
                 
 
                     <br>
