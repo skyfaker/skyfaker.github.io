@@ -311,7 +311,7 @@
 
 
 <!-- 3/22: 这里修改了推荐页文章点击进去之后的图片路径 -->
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/medias/featureimages/22.jpg');">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/medias/featureimages/19.jpg');">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -622,7 +622,8 @@ f(x)=\boldsymbol w^Tx+b=∑_{i=1}^{m}α_iy_i\boldsymbol x_i^T\boldsymbol x+b \ta
 <p>线性支持向量机中, 支持向量是距离划分超平面最近的样本, 落在最大间隔边界上。支持向量机的参数$(\boldsymbol w,b)$仅由支持向量决定, 与其他样本无关。</p>
 <p>对于任意样本$(\boldsymbol x_i,y_i)$，总会有$\boldsymbol \alpha_i=0 $或者$y_i(\boldsymbol w^Tx_i + b)=1$或者。则若$\boldsymbol \alpha_i=0 $则该样本不是支持向量，对模型没有任何影响；若$\boldsymbol \alpha_i&gt;0 $，此样本点位于最大间隔边界上，是一个支持向量。</p>
 <h2 id="软间隔SVM"><a href="#软间隔SVM" class="headerlink" title="软间隔SVM"></a>软间隔SVM</h2><p>再上面一节，我们假设训练样本是严格线性可分的即存在一个超平面能完全将两类数据分开。但是现实任务这个假设往往不成立。</p>
-<p>这种问题的一个解决方法是适当地放松限制条件，允许少量的数据可以不满足$y_i (\boldsymbol w^T \boldsymbol x_i+b) &gt;=1$的约束条件，即允许少量样本落在间隔中间。放松约束条件的基本思路是对于每一个样本，设置一个松弛变量$\delta$。</p>
+<p>这种问题的一个解决方法是适当地放松限制条件，允许少量的数据可以不满足$y_i (\boldsymbol w^T \boldsymbol x_i+b) &gt;=1$的约束条件，即允许少量样本被分错。放松约束条件的基本思路是对于每一个样本，设置一个松弛变量$\delta$。</p>
+<p><img src="Non.jpg" style="zoom:50%;"></p>
 <p>那么约束条件变成：</p>
 <script type="math/tex; mode=display">
 对于\forall (\boldsymbol x_i,y_i),\quad y_i (\boldsymbol w^T \boldsymbol x_i+b) \geq 1- \delta_i,(i=1\sim N) \tag{12}</script><p>只要$\delta_i$足够大，每一个样本都可以满足这个条件，所以我们还要加入新的限制条件，使得$\delta_i$不会变的太大。</p>
@@ -710,7 +711,7 @@ L(\boldsymbol w,b,\delta,\boldsymbol \alpha,\boldsymbol \beta) = \frac{1}{2}\bol
                                 <div class="card-image">
                                     
                                             
-                                                <img src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/medias/featureimages/22.jpg" class="responsive-img" alt="机器学习——SVM简述">
+                                                <img src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/medias/featureimages/19.jpg" class="responsive-img" alt="机器学习——SVM简述">
                                                 
                                                     <span class="card-title">机器学习——SVM简述</span>
                                 </div>
@@ -760,7 +761,7 @@ L(\boldsymbol w,b,\delta,\boldsymbol \alpha,\boldsymbol \beta) = \frac{1}{2}\bol
                                         <div class="card-image">
                                             
                                                     
-                                                        <img src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/medias/featureimages/6.jpg" class="responsive-img" alt="遍历与启发式搜索">
+                                                        <img src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/medias/featureimages/3.jpg" class="responsive-img" alt="遍历与启发式搜索">
                                                         
                                                             <span class="card-title">遍历与启发式搜索</span>
                                         </div>
@@ -974,7 +975,7 @@ L(\boldsymbol w,b,\delta,\boldsymbol \alpha,\boldsymbol \beta) = \frac{1}{2}\bol
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">45.7k</span>
+                <span class="white-color">45.9k</span>
                 
 
                     <br>

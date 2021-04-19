@@ -310,7 +310,7 @@
 
 
 <!-- 3/22: 这里修改了推荐页文章点击进去之后的图片路径 -->
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/medias/featureimages/28.jpg');">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/medias/featureimages/25.jpg');">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -471,14 +471,14 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.9k
+                    4.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    14 分
+                    15 分
                 </div>
                 
                 
@@ -587,6 +587,8 @@ D_k \times D_k \times D_f \times D_f \times \alpha M + D_f \times D_f \times \al
 <p>使用者可以根据自己的设备算力和问题复杂程度调整这两个参数，来灵活应对不同的问题。</p>
 <h3 id="Tensorflow实现"><a href="#Tensorflow实现" class="headerlink" title="Tensorflow实现"></a>Tensorflow实现</h3><p>MobileNet已经收录在tensorflow的applications中，见此<a href="https://github.com/tensorflow/tensorflow/blob/98fe455579e1569050ee54567287c0a0b07b0a71/tensorflow/python/keras/applications/mobilenet.py#L82" target="_blank" rel="noopener">GitHub地址</a>。</p>
 <p>并且有在ImageNet上训练好的模型可以直接使用。</p>
+<h3 id="个人感想"><a href="#个人感想" class="headerlink" title="个人感想"></a>个人感想</h3><p>我个人还是很喜欢MobileNet找一个网络结构的，虽然它的精度比不上ResNet，但是实际情况下我还是会经常用到它。在许多不是特别复杂的任务中，通过预先处理数据，剔除掉一些干扰特征，这个网络也可以表现得很不错。</p>
+<p>而且分组卷积也是一个非常符合人类思维的结构。在上学那会，因为先接触到的是数字图像处理，图像处理里的空域变换都是用的厚度为1的算子卷积图像，所以刚刚接触到CNN的时候，我对卷积过程中卷积核的形状产生过疑惑，我总以为卷积核就是一个3*3*1的形状。即使后来理解了仍然会好奇为什么每一个通道需要使用不同的算子。而分组卷积正好就是不同的通道使用同一个算子从而减少参数量。</p>
 
             </div>
             <hr />
@@ -660,7 +662,7 @@ D_k \times D_k \times D_f \times D_f \times \alpha M + D_f \times D_f \times \al
                                         
 
                                             <!-- 3/22修改： -->
-                                            <img src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/medias/featureimages/3.jpg" class="responsive-img" alt="mathjax渲染异常与hexo prism高亮无效bug">
+                                            <img src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/medias/featureimages/0.jpg" class="responsive-img" alt="mathjax渲染异常与hexo prism高亮无效bug">
                                             
                                                 <span class="card-title">mathjax渲染异常与hexo prism高亮无效bug</span>
                             </div>
@@ -713,7 +715,7 @@ D_k \times D_k \times D_f \times D_f \times \alpha M + D_f \times D_f \times \al
                                         <div class="card-image">
                                             
                                                     
-                                                        <img src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/medias/featureimages/35.jpg" class="responsive-img" alt="字节算法题——机器人跳跃">
+                                                        <img src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/medias/featureimages/2.jpg" class="responsive-img" alt="字节算法题——机器人跳跃">
                                                         
                                                             <span class="card-title">字节算法题——机器人跳跃</span>
                                         </div>
@@ -927,7 +929,7 @@ D_k \times D_k \times D_f \times D_f \times \alpha M + D_f \times D_f \times \al
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">45.7k</span>
+                <span class="white-color">45.9k</span>
                 
 
                     <br>
