@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.skyfaker.cc/"/>
-  <updated>2021-06-20T16:06:13.161Z</updated>
+  <updated>2021-06-21T15:22:18.916Z</updated>
   <id>https://www.skyfaker.cc/</id>
   
   <author>
@@ -18,15 +18,21 @@
   
   <entry>
     <title>天池算法赛-心跳信号分类预测</title>
-    <link href="https://www.skyfaker.cc/2021/06/21/tian-chi-suan-fa-sai-xin-tiao-xin-hao-fen-lei-yu-ce/"/>
-    <id>https://www.skyfaker.cc/2021/06/21/tian-chi-suan-fa-sai-xin-tiao-xin-hao-fen-lei-yu-ce/</id>
-    <published>2021-06-20T16:06:13.000Z</published>
-    <updated>2021-06-20T16:06:13.161Z</updated>
+    <link href="https://www.skyfaker.cc/2021/05/21/tian-chi-suan-fa-sai-xin-tiao-xin-hao-fen-lei-yu-ce/"/>
+    <id>https://www.skyfaker.cc/2021/05/21/tian-chi-suan-fa-sai-xin-tiao-xin-hao-fen-lei-yu-ce/</id>
+    <published>2021-05-20T16:06:13.000Z</published>
+    <updated>2021-06-21T15:22:18.916Z</updated>
     
     <summary type="html">
     
     </summary>
     
+      <category term="比赛" scheme="https://www.skyfaker.cc/categories/%E6%AF%94%E8%B5%9B/"/>
+    
+    
+      <category term="算法赛" scheme="https://www.skyfaker.cc/tags/%E7%AE%97%E6%B3%95%E8%B5%9B/"/>
+    
+      <category term="天池" scheme="https://www.skyfaker.cc/tags/%E5%A4%A9%E6%B1%A0/"/>
     
   </entry>
   
@@ -147,7 +153,7 @@
     <link href="https://www.skyfaker.cc/2020/07/27/mobilenet/"/>
     <id>https://www.skyfaker.cc/2020/07/27/mobilenet/</id>
     <published>2020-07-27T05:26:16.000Z</published>
-    <updated>2021-04-15T13:14:46.124Z</updated>
+    <updated>2021-06-22T15:34:03.813Z</updated>
     
     <summary type="html">
     
