@@ -311,7 +311,7 @@
 
 
 <!-- 3/22: 这里修改了推荐页文章点击进去之后的图片路径 -->
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/medias/featureimages/20.jpg');">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/medias/featureimages/24.jpg');">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -540,9 +540,9 @@
 </blockquote>
 <h4 id="间隔"><a href="#间隔" class="headerlink" title="间隔"></a>间隔</h4><p><strong>间隔表示距离划分超平面最近的样本到划分超平面距离的两倍。</strong></p>
 <p>那么，间隔为最近样本到超平面距离的两倍是怎么得来的呢？</p>
-<p>因为最优超平面是位于支持向量中间，现在我们将这个超平面向上移动，直到接触到第一个正样本，此时超平面方程$C1$为$\boldsymbol w^T \boldsymbol x+b=c,c&gt;0$。同样的，将超平面向下移动直到碰到第一个负样本，此时超平面方程$C2$为$\boldsymbol w^T \boldsymbol x +b=-c$。</p>
-<p>那么$C1C2$两个超平面的距离为$\frac{2c}{||\boldsymbol w||}$。</p>
-<p>通过缩放$\boldsymbol w$和$b$，我们总是可以使得$c=1$并且不影响解，这样$C1C2$两个超平面的方程分别为$\boldsymbol w^T \boldsymbol x +b=1$和$\boldsymbol w^T \boldsymbol x+b=-1$，注意此时的$\boldsymbol w、b$为经过放缩之后的新向量。</p>
+<p>因为最优超平面是位于支持向量中间，现在我们将这个超平面向上移动，直到接触到第一个正样本，此时超平面方程$C_1$为$\boldsymbol w^T \boldsymbol x+b=c,c&gt;0$。同样的，将超平面向下移动直到碰到第一个负样本，此时超平面方程$C_2$为$\boldsymbol w^T \boldsymbol x +b=-c$。</p>
+<p>那么$C_1C_2$两个超平面的距离为$\frac{2c}{||\boldsymbol w||}$。</p>
+<p>通过缩放$\boldsymbol w$和$b$，我们总是可以使得$c=1$并且不影响解，这样$C_1C_2$两个超平面的方程分别为$\boldsymbol w^T \boldsymbol x +b=1$和$\boldsymbol w^T \boldsymbol x+b=-1$，注意此时的$\boldsymbol w、b$为经过放缩之后的新向量。</p>
 <p>此时上下两个超平面之间距离为$\frac{2}{||\boldsymbol w||}$，如下图所示。</p>
 <p><img src="hp.jpg" style="zoom:67%;"></p>
 <p>也就是说，此时，<strong>我们用来划分不同类别的超平面$H$正好处于两类之间，且保证了到两类的最边缘的向量（支持向量）距离相等</strong>。</p>
@@ -639,7 +639,7 @@ s.t.\quad  1+ \delta_i - y_i (\boldsymbol w^T \boldsymbol x_i+b)\leq 0 , (i=1\si
 \delta_i \leq 0, (i=1\sim n)\tag{14}</script><h3 id="对偶问题-1"><a href="#对偶问题-1" class="headerlink" title="对偶问题"></a>对偶问题</h3><p>软间隔支持向量机依然是一个凸二次规划问题，和硬间隔支持向量机类似，通过拉格朗日乘子法将其转换为对偶问题进行求解。</p>
 <p>公式（14）所对应的拉格朗日函数为：</p>
 <script type="math/tex; mode=display">
-L(\boldsymbol w,b,\delta,\boldsymbol \alpha,\boldsymbol \beta) = \frac{1}{2}\boldsymbol w^T \boldsymbol w - C\sum_{i=1}^{n}\beta_i \delta_i + \sum_{i=1}^{n}\alpha_i(1+ \delta_i - y_i (\boldsymbol w^T \boldsymbol x_i+b)) \tag{7}</script><p>为了求得对偶问题的解，我们需要先求得$L(\boldsymbol w,b,\delta,\boldsymbol \alpha,\boldsymbol \beta)$对$\boldsymbol w,b,\delta,$的极小再求对$\boldsymbol \alpha,\boldsymbol \beta$的极大。</p>
+L(\boldsymbol w,b,\delta,\boldsymbol \alpha,\boldsymbol \beta) = \frac{1}{2}\boldsymbol w^T \boldsymbol w - C\sum_{i=1}^{n}\beta_i \delta_i + \sum_{i=1}^{n}\alpha_i(1+ \delta_i - y_i (\boldsymbol w^T \boldsymbol x_i+b)) \tag{7}</script><p>为了求得对偶问题的解，我们同样需要先求得$L(\boldsymbol w,b,\delta,\boldsymbol \alpha,\boldsymbol \beta)$对$\boldsymbol w,b,\delta,$的极小，再求对$\boldsymbol \alpha,\boldsymbol \beta$的极大。</p>
 
             </div>
             <hr />
@@ -701,61 +701,56 @@ L(\boldsymbol w,b,\delta,\boldsymbol \alpha,\boldsymbol \beta) = \frac{1}{2}\bol
     <article id="prenext-posts" class="prev-next articles">
         <div class="row article-row">
             
-                <div class="article col s12 m6" data-aos="fade-up">
-                    <div class="article-badge left-badge text-color">
-                        <i class="fa fa-chevron-left"></i>&nbsp;
-                        上一篇
-                    </div>
-                    <div class="card">
-                        <a href="/2021/05/21/tian-chi-suan-fa-sai-xin-tiao-xin-hao-fen-lei-yu-ce/">
-                            <div class="card-image">
-                                
-                                        
-
-                                            <!-- 3/22修改： -->
-                                            <img src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/medias/featureimages/31.jpg" class="responsive-img" alt="天池算法赛-心跳信号分类预测">
+                    <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+                        <div class="article-badge left-badge text-color">
+                            <i class="fa fa-dot-circle-o"></i>&nbsp;
+                            本篇
+                        </div>
+                        <div class="card">
+                            <a href="/2020/11/11/svm-xiang-jie/">
+                                <div class="card-image">
+                                    
                                             
-                                                <span class="card-title">天池算法赛-心跳信号分类预测</span>
-                            </div>
-                        </a>
-                        <div class="card-content article-content">
-                            <div class="summary block-with-text">
-                                
-                                            
+                                                <img src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/medias/featureimages/24.jpg" class="responsive-img" alt="机器学习——SVM简述">
                                                 
-                            </div>
-                            <div class="publish-info">
-                                <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2021-05-21
-                        </span>
-                                <span class="publish-author">
+                                                    <span class="card-title">机器学习——SVM简述</span>
+                                </div>
+                            </a>
+                            <div class="card-content article-content">
+                                <div class="summary block-with-text">
+                                    
+                                        支持向量机(Support Vector Machine, SVM)是一种应用非常广泛的分类方法。传统的SVM是一种二类分类方法，适用于数据只有两类的情况。本文和接下来几篇文章将从间隔最大化开始，逐步推导SVM形成的优化问题，拉格朗日对偶问题，非线性SVM，以及训练SVM的序列最小最优化(Sequential Minimal Optimization, SMO)算法等。
+                                            
+                                </div>
+                                <div class="publish-info">
+                                    <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-11-11
+                            </span>
+                                    <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/比赛/" class="post-category" target="_blank">
-                                    比赛
+                            <a href="/categories/机器学习/" class="post-category" target="_blank">
+                                    机器学习
                                 </a>
                             
                             
                         </span>
+                                </div>
                             </div>
-                        </div>
-                        
-                            <div class="card-action article-tags">
-                                
-                                    <a href="/tags/算法赛/" target="_blank">
-                                        <span class="chip bg-color">算法赛</span>
-                                    </a>
-                                    
-                                    <a href="/tags/天池/" target="_blank">
-                                        <span class="chip bg-color">天池</span>
-                                    </a>
-                                    
-                            </div>
+
                             
+                                <div class="card-action article-tags">
+                                    
+                                        <a href="/tags/SVM/" target="_blank">
+                                            <span class="chip bg-color">SVM</span>
+                                        </a>
+                                        
+                                </div>
+                                
+                        </div>
                     </div>
-                </div>
-                
+                    
                         
                             <div class="article col s12 m6" data-aos="fade-up">
                                 <div class="article-badge right-badge text-color">
@@ -766,7 +761,7 @@ L(\boldsymbol w,b,\delta,\boldsymbol \alpha,\boldsymbol \beta) = \frac{1}{2}\bol
                                         <div class="card-image">
                                             
                                                     
-                                                        <img src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/medias/featureimages/4.jpg" class="responsive-img" alt="遍历与启发式搜索">
+                                                        <img src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/medias/featureimages/8.jpg" class="responsive-img" alt="遍历与启发式搜索">
                                                         
                                                             <span class="card-title">遍历与启发式搜索</span>
                                         </div>
