@@ -34,9 +34,12 @@
         
     </style>
 
-    <!-- 3/22: 这里修改了jQuery文件的路径 -->
+    <!-- 2020/03/22: 这里修改了jQuery文件的路径 -->
     <!-- <script src="/libs/jquery/jquery-2.2.0.min.js"></script> -->
-    <script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/jquery/jquery-2.2.0.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/jquery/jquery-2.2.0.min.js"></script> -->
+    
+    <!-- 2022/02/06: 修改了jQuery文件的路径，换到七牛云的staticfile -->
+    <script src="https://cdn.staticfile.org/jquery/2.2.0/jquery.min.js"></script>
     <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
     <script>
         var _hmt = _hmt || [];
@@ -556,15 +559,23 @@ $(function () {
                             <script src="/libs/aos/aos.js"></script>
                             <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
                             <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script> -->
-                            <script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/materialize/materialize.min.js"></script>
+
+                            <!-- <script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/materialize/materialize.min.js"></script>
                             <script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/masonry/masonry.pkgd.min.js"></script>
                             <script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/aos/aos.js"></script>
                             <script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/scrollprogress/scrollProgress.min.js"></script>
-                            <script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/lightGallery/js/lightgallery-all.min.js"></script>
+                            <script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/lightGallery/js/lightgallery-all.min.js"></script> -->
+
+                            <!-- 2022/02/06 从jsdelivr换到staticfile-->
+                            <script src="https://cdn.staticfile.org/materialize/1.0.0/js/materialize.min.js"></script>
+                            <script src="https://cdn.staticfile.org/masonry/4.0.0/masonry.pkgd.min.js"></script>
+                            <script src="https://cdn.staticfile.org/aos/2.3.4/aos.js"></script>
+                            <script src="https://cdn.staticfile.org/scrollprogress/3.0.0/scrollProgress.min.js"></script>
+                            <script src="https://cdn.staticfile.org/lightgallery/1.6.11/js/lightgallery.min.js"></script>
 
                             <!-- 3/22: 修改了js文件路径 -->
-                            <!-- <script src="/js/matery.js"></script> -->
-                            <script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/js/matery.js"></script>
+                            <script src="/js/matery.js"></script>
+                            <!-- <script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/js/matery.js"></script> -->
 
                             <script type="text/javascript">
                                 var OriginTitile = document.title,
@@ -594,14 +605,14 @@ $(function () {
                                 
 
                                     <!-- 3/22: 修改了js文件路径 --> 
-                                    <!-- <script src="/libs/others/clicklove.js"></script> -->
-                                    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/others/clicklove.js"></script>
+                                    <script src="/libs/others/clicklove.js"></script>
+                                    <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/others/clicklove.js"></script> -->
                                     
 
                                                     
                                                         <!-- 3/22: 修改了js文件路径 --> 
-                                                        <!-- <script async src="/libs/others/busuanzi.pure.mini.js"></script> -->
-                                                        <script async src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/others/busuanzi.pure.mini.js"></script>
+                                                        <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+                                                        <!-- <script async src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/others/busuanzi.pure.mini.js"></script> -->
                                                         
 
                                                             <!-- 雪花特效 -->

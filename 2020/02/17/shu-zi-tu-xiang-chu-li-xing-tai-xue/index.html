@@ -36,9 +36,12 @@
         
     </style>
 
-    <!-- 3/22: 这里修改了jQuery文件的路径 -->
+    <!-- 2020/03/22: 这里修改了jQuery文件的路径 -->
     <!-- <script src="/libs/jquery/jquery-2.2.0.min.js"></script> -->
-    <script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/jquery/jquery-2.2.0.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/jquery/jquery-2.2.0.min.js"></script> -->
+    
+    <!-- 2022/02/06: 修改了jQuery文件的路径，换到七牛云的staticfile -->
+    <script src="https://cdn.staticfile.org/jquery/2.2.0/jquery.min.js"></script>
     <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
     <script>
         var _hmt = _hmt || [];
@@ -312,7 +315,9 @@
 
 
 <!-- 3/22: 这里修改了推荐页文章点击进去之后的图片路径 -->
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/medias/featureimages/15.jpg');">
+<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/medias/featureimages/15.jpg');"> -->
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg');">
+
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -620,7 +625,7 @@ M = \begin{bmatrix} {cos\alpha}&{sin\alpha}&{0}\\{-sin\alpha}&{cos\alpha}&{0} \e
                                         
 
                                             <!-- 3/22修改： -->
-                                            <img src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/medias/featureimages/33.jpg" class="responsive-img" alt="一道编程题——寻找环的入口节点">
+                                            <img src="/medias/featureimages/33.jpg" class="responsive-img" alt="一道编程题——寻找环的入口节点">
                                             
                                                 <span class="card-title">一道编程题——寻找环的入口节点</span>
                             </div>
@@ -669,7 +674,7 @@ M = \begin{bmatrix} {cos\alpha}&{sin\alpha}&{0}\\{-sin\alpha}&{cos\alpha}&{0} \e
                                         <div class="card-image">
                                             
                                                     
-                                                        <img src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/medias/featureimages/32.jpg" class="responsive-img" alt="一道编程题——合成有序链表">
+                                                        <img src="/medias/featureimages/32.jpg" class="responsive-img" alt="一道编程题——合成有序链表">
                                                         
                                                             <span class="card-title">一道编程题——合成有序链表</span>
                                         </div>
@@ -851,7 +856,8 @@ M = \begin{bmatrix} {cos\alpha}&{sin\alpha}&{0}\\{-sin\alpha}&{cos\alpha}&{0} \e
 
 
 <script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script> -->
+<script src="https://cdn.staticfile.org/mathjax/2.7.5/config/TeX-MML-AM_CHTML.js"></script>
 <script>
     MathJax.Hub.Config({
         tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
@@ -1026,15 +1032,23 @@ $(function () {
                             <script src="/libs/aos/aos.js"></script>
                             <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
                             <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script> -->
-                            <script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/materialize/materialize.min.js"></script>
+
+                            <!-- <script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/materialize/materialize.min.js"></script>
                             <script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/masonry/masonry.pkgd.min.js"></script>
                             <script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/aos/aos.js"></script>
                             <script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/scrollprogress/scrollProgress.min.js"></script>
-                            <script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/lightGallery/js/lightgallery-all.min.js"></script>
+                            <script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/lightGallery/js/lightgallery-all.min.js"></script> -->
+
+                            <!-- 2022/02/06 从jsdelivr换到staticfile-->
+                            <script src="https://cdn.staticfile.org/materialize/1.0.0/js/materialize.min.js"></script>
+                            <script src="https://cdn.staticfile.org/masonry/4.0.0/masonry.pkgd.min.js"></script>
+                            <script src="https://cdn.staticfile.org/aos/2.3.4/aos.js"></script>
+                            <script src="https://cdn.staticfile.org/scrollprogress/3.0.0/scrollProgress.min.js"></script>
+                            <script src="https://cdn.staticfile.org/lightgallery/1.6.11/js/lightgallery.min.js"></script>
 
                             <!-- 3/22: 修改了js文件路径 -->
-                            <!-- <script src="/js/matery.js"></script> -->
-                            <script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/js/matery.js"></script>
+                            <script src="/js/matery.js"></script>
+                            <!-- <script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/js/matery.js"></script> -->
 
                             <script type="text/javascript">
                                 var OriginTitile = document.title,
@@ -1064,14 +1078,14 @@ $(function () {
                                 
 
                                     <!-- 3/22: 修改了js文件路径 --> 
-                                    <!-- <script src="/libs/others/clicklove.js"></script> -->
-                                    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/others/clicklove.js"></script>
+                                    <script src="/libs/others/clicklove.js"></script>
+                                    <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/others/clicklove.js"></script> -->
                                     
 
                                                     
                                                         <!-- 3/22: 修改了js文件路径 --> 
-                                                        <!-- <script async src="/libs/others/busuanzi.pure.mini.js"></script> -->
-                                                        <script async src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/others/busuanzi.pure.mini.js"></script>
+                                                        <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+                                                        <!-- <script async src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/others/busuanzi.pure.mini.js"></script> -->
                                                         
 
                                                             <!-- 雪花特效 -->
