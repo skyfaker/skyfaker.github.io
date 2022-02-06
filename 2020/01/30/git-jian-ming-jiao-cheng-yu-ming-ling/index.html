@@ -316,7 +316,7 @@ git的架构如下图所示：
 
 
 <!-- 3/22: 这里修改了推荐页文章点击进去之后的图片路径 -->
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/medias/featureimages/21.jpg');">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/medias/featureimages/15.jpg');">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -515,7 +515,7 @@ git的架构如下图所示：
 <p>如下图所示：（蓝色表示已存为版本库，绿色表示处于暂存区还没有存为版本库，红色表示修改后还没有存入暂存区）</p>
 <p><img src="https://z3.ax1x.com/2021/03/24/6q9Z1x.png" alt="初始状态" style="zoom:55%;"></p>
 <p>上图的A、B、C、D、E表示不同的文件状态。</p>
-<p>首先，我们在工作区修改了文件，会处于上图的working状态，工作区中的文件是最新的版本，其中A，B，C都已经 <code>git add</code>  和 <code>git commit</code>，即这些步骤已经存在了版本库中。D执行了 <code>git add</code> 但还没有执行 <code>git commit</code>，即只存在了暂存区还没有存入版本库。而E还没有执行 <code>git add</code>，即最新的改动尚未被git所跟踪 。</p>
+<p>首先，我们在工作区修改了文件，会处于上图的working状态，工作区中的文件是最新的版本，其中A，B，C都已经 <code>git add</code>  和 <code>git commit</code>，即这些步骤已经存在了版本库中。D执行了 <code>git add</code> 但还没有执行 <code>git commit</code>，即只存在了暂存区还没有存入版本库。而E还没有执行 <code>git add</code>，即最新的改动尚未被git所暂存 。</p>
 <h4 id="1-2-版本回退"><a href="#1-2-版本回退" class="headerlink" title="1.2 版本回退"></a>1.2 版本回退</h4><p><strong>版本回退指的是从暂存区或者版本库回退先前的版本到工作区。</strong></p>
 <p>版本回退一般使用 <code>git checkout</code> 、<code>git reset</code> 和<code>git revert</code>命令。</p>
 <h5 id="git-checkout"><a href="#git-checkout" class="headerlink" title="git checkout"></a>git checkout</h5><p>在<code>Git</code>里面，<code>checkout</code>用于切换分支或者恢复工作树的文件。checkout命令实际上是用来改变HEAD的指向。不会对版本库中节点做改变。 </p>
@@ -532,9 +532,9 @@ git的架构如下图所示：
 <p>执行完上述命令，工作区变成了和暂存区一样的状态。</p>
 <p>又或者，你想要让工作区回到指定的C状态或者B状态（穿越回过去），可以使用 <code>git checkout &lt;B commitId&gt; -- test.txt</code> 就可以让暂存区和工作区都回到B状态，如下图所示：</p>
 <p><img src="https://z3.ax1x.com/2021/03/24/6q9V91.png" alt="after checkout B" style="zoom:55%;"></p>
-<p>此时，工作区、暂存区都变成了同样的B状态，并且，这个命令不会影响到其他文件。更很神奇的是，版本库的commit节点不会发生任何变化，也就是说，<code>git checkout &lt;B commitId&gt; -- test.txt</code> 命令只是让<strong>test.txt文件</strong>在<strong>工作区和暂存区</strong>回到了B节点的状态，对于版本库不会有变化。</p>
+<p>此时，工作区、暂存区都变成了同样的B状态，并且，这个命令不会影响到其他文件。更很神奇的是，版本库中原有的commit节点不会发生任何变化，也就是说，<code>git checkout &lt;B commitId&gt; -- test.txt</code> 命令只是让<strong>test.txt文件</strong>在<strong>工作区和暂存区</strong>回到了B节点的状态，对于版本库不会有变化。</p>
 <p>可以用 <code>git diff</code> 和 <code>git diff --cached</code> 分别比较工作区与暂存区、暂存区与版本库的状态。</p>
-<p>不过要注意的是，这个命令会使用版本库覆盖暂存区，所以没有被追踪的E状态和暂存区中的D状态会丢失。所以建议使用这个命令回到过去状态之前，把目前的暂存区提交到版本库。</p>
+<p>不过要注意的是，<code>git checkout</code>命令会使用版本库覆盖暂存区，所以没有被追踪的E状态和暂存区中的D状态会丢失。所以建议使用这个命令回到过去状态之前，把目前的暂存区提交到版本库。</p>
 <p>如果，执行完之后你又后悔了，想回到C的状态，可以使用 <code>git log</code> 查看C的commitID（关闭窗口再打开也还在），然后使用 <code>git checkout &lt;C commitId&gt; -- test.txt</code> 就可以回到C状态。</p>
 <ol>
 <li><h6 id="恢复提交对象"><a href="#恢复提交对象" class="headerlink" title="恢复提交对象"></a><strong>恢复提交对象</strong></h6></li>
@@ -702,7 +702,7 @@ $ <span class="token function">git</span> merge origin/dev <span class="token pu
                                         
 
                                             <!-- 3/22修改： -->
-                                            <img src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/medias/featureimages/26.jpg" class="responsive-img" alt="一道编程题——合成有序链表">
+                                            <img src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/medias/featureimages/32.jpg" class="responsive-img" alt="一道编程题——合成有序链表">
                                             
                                                 <span class="card-title">一道编程题——合成有序链表</span>
                             </div>
@@ -751,7 +751,7 @@ $ <span class="token function">git</span> merge origin/dev <span class="token pu
                                         <div class="card-image">
                                             
                                                     
-                                                        <img src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/medias/featureimages/35.jpg" class="responsive-img" alt="一道编程题——判断二叉树是否对称">
+                                                        <img src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/medias/featureimages/29.jpg" class="responsive-img" alt="一道编程题——判断二叉树是否对称">
                                                         
                                                             <span class="card-title">一道编程题——判断二叉树是否对称</span>
                                         </div>
@@ -953,7 +953,7 @@ $ <span class="token function">git</span> merge origin/dev <span class="token pu
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">45.9k</span>
+                <span class="white-color">48k</span>
                 
 
                     <br>
