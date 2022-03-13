@@ -28,8 +28,14 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.staticfile.org/lightgallery/1.6.11/css/lightgallery.min.css">
     
     <!-- 3/22: 这里修改了js文件的路径，借助jsdelivr的CDN，用法为 “https://cdn.jsdelivr.net/gh/你的用户名/你的仓库名@发布的版本号/文件路径” 其中版本号可选，不写版本号则为最新-->
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/css/matery.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/css/my.css">
+    <!-- <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/css/my.css"> -->
+
+    <!-- 22/02/06 -->
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+
     <style type="text/css">
         
     </style>
@@ -351,6 +357,9 @@
     // $('.bg-cover').css('background-image', 'url(https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/medias/banner/8.jpg');
     
     $('.bg-cover').css('background-image', 'url(https://s4.ax1x.com/2022/02/08/H32CNt.jpg');
+    // $('.bg-cover').css('background-image', 'url(https://s6.jpg.cm/2022/02/08/LoHvL5.jpg');
+
+    
 
 </script>
     </div>
@@ -365,7 +374,7 @@
                     <div class="post-statis col l4 hide-on-med-and-down" data-aos="zoom-in-right">
                         
 <div class="statis">
-    <span class="count"><a href="/" target="_blank">32</a></span>
+    <span class="count"><a href="/" target="_blank">33</a></span>
     <span class="name">文章</span>
 </div>
 
@@ -379,7 +388,7 @@
 
 
 <div class="statis">
-    <span class="count"><a href="/tags" target="_blank">28</a></span>
+    <span class="count"><a href="/tags" target="_blank">29</a></span>
     <span class="name">标签</span>
 </div>
 
@@ -394,7 +403,7 @@
                                 <div class="post-statis hide-on-large-only" data-aos="zoom-in-right">
                                     
 <div class="statis">
-    <span class="count"><a href="/" target="_blank">32</a></span>
+    <span class="count"><a href="/" target="_blank">33</a></span>
     <span class="name">文章</span>
 </div>
 
@@ -408,7 +417,7 @@
 
 
 <div class="statis">
-    <span class="count"><a href="/tags" target="_blank">28</a></span>
+    <span class="count"><a href="/tags" target="_blank">29</a></span>
     <span class="name">标签</span>
 </div>
 
@@ -523,7 +532,7 @@
         },
         xAxis: {
             type: 'category',
-            data: ["2021-02","2021-03","2021-04","2021-05","2021-06","2021-07","2021-08","2021-09","2021-10","2021-11","2021-12","2022-01","2022-02"]
+            data: ["2021-03","2021-04","2021-05","2021-06","2021-07","2021-08","2021-09","2021-10","2021-11","2021-12","2022-01","2022-02","2022-03"]
         },
         yAxis: {
             type: 'value',
@@ -533,7 +542,7 @@
                 name: '文章篇数',
                 type: 'line',
                 color: ['#6772e5'],
-                data: [0,0,1,0,0,0,0,0,0,0,0,0,0],
+                data: [0,1,0,0,0,0,0,0,0,0,0,0,0],
                 markPoint: {
                     symbolSize: 45,
                     color: ['#fa755a','#3ecf8e','#82d3f4'],
@@ -575,7 +584,7 @@
                 type: 'pie',
                 radius: '50%',
                 color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
-                data: [{"name":"工具方法","value":2},{"name":"深度学习","value":4},{"name":"机器学习","value":1},{"name":"随便写写","value":1},{"name":"hexo","value":2},{"name":"前端","value":1},{"name":"python","value":1},{"name":"算法","value":17},{"name":"搜索算法","value":2},{"name":"图像处理","value":1},{"name":"比赛","value":0}],
+                data: [{"name":"比赛","value":0},{"name":"随便写写","value":1},{"name":"深度学习","value":4},{"name":"工具方法","value":2},{"name":"机器学习","value":1},{"name":"前端","value":1},{"name":"hexo","value":2},{"name":"python","value":2},{"name":"算法","value":17},{"name":"搜索算法","value":2},{"name":"图像处理","value":1}],
                 itemStyle: {
                     emphasis: {
                         shadowBlur: 10,
@@ -599,7 +608,7 @@
         xAxis: [
             {
                 type: 'category',
-                data: ["编程算法","字节","Python","启发式搜索","matplotlib","AutoEncoder","全连接神经网络","SVM","博客","git"]
+                data: ["编程算法","字节","Python","启发式搜索","博客","AutoEncoder","全连接神经网络","matplotlib","SVM","Vue"]
             }
         ],
         yAxis: [
@@ -783,10 +792,20 @@
         <div class="tag-chips center-align">
             
             
+            <a href="/tags/算法赛/" target="_blank">
+                <span class="chip center-align waves-effect waves-light chip-default">算法赛</span>
+            </a>
             
             
-            <a href="/tags/matplotlib/" target="_blank">
-                <span class="chip center-align waves-effect waves-light chip-default">matplotlib</span>
+            
+            <a href="/tags/天池/" target="_blank">
+                <span class="chip center-align waves-effect waves-light chip-default">天池</span>
+            </a>
+            
+            
+            
+            <a href="/tags/博客/" target="_blank">
+                <span class="chip center-align waves-effect waves-light chip-default">博客</span>
             </a>
             
             
@@ -803,32 +822,24 @@
             
             
             
+            
+            
+            <a href="/tags/matplotlib/" target="_blank">
+                <span class="chip center-align waves-effect waves-light chip-default">matplotlib</span>
+            </a>
+            
+            
+            
             <a href="/tags/SVM/" target="_blank">
                 <span class="chip center-align waves-effect waves-light chip-default">SVM</span>
             </a>
             
             
             
-            <a href="/tags/博客/" target="_blank">
-                <span class="chip center-align waves-effect waves-light chip-default">博客</span>
-            </a>
             
             
-            
-            <a href="/tags/git/" target="_blank">
-                <span class="chip center-align waves-effect waves-light chip-default">git</span>
-            </a>
-            
-            
-            
-            <a href="/tags/mathjax/" target="_blank">
-                <span class="chip center-align waves-effect waves-light chip-default">mathjax</span>
-            </a>
-            
-            
-            
-            <a href="/tags/hexo渲染/" target="_blank">
-                <span class="chip center-align waves-effect waves-light chip-default">hexo渲染</span>
+            <a href="/tags/Node-js/" target="_blank">
+                <span class="chip center-align waves-effect waves-light chip-default">Node.js</span>
             </a>
             
             
@@ -845,22 +856,14 @@
             
             
             
-            
-            
-            <a href="/tags/Node-js/" target="_blank">
-                <span class="chip center-align waves-effect waves-light chip-default">Node.js</span>
+            <a href="/tags/mathjax/" target="_blank">
+                <span class="chip center-align waves-effect waves-light chip-default">mathjax</span>
             </a>
             
             
             
-            <a href="/tags/CNN/" target="_blank">
-                <span class="chip center-align waves-effect waves-light chip-default">CNN</span>
-            </a>
-            
-            
-            
-            <a href="/tags/MobileNet/" target="_blank">
-                <span class="chip center-align waves-effect waves-light chip-default">MobileNet</span>
+            <a href="/tags/hexo渲染/" target="_blank">
+                <span class="chip center-align waves-effect waves-light chip-default">hexo渲染</span>
             </a>
             
             
@@ -877,6 +880,30 @@
             
             
             
+            <a href="/tags/CNN/" target="_blank">
+                <span class="chip center-align waves-effect waves-light chip-default">CNN</span>
+            </a>
+            
+            
+            
+            <a href="/tags/MobileNet/" target="_blank">
+                <span class="chip center-align waves-effect waves-light chip-default">MobileNet</span>
+            </a>
+            
+            
+            
+            <a href="/tags/git/" target="_blank">
+                <span class="chip center-align waves-effect waves-light chip-default">git</span>
+            </a>
+            
+            
+            
+            <a href="/tags/字节/" target="_blank">
+                <span class="chip center-align waves-effect waves-light chip-default">字节</span>
+            </a>
+            
+            
+            
             <a href="/tags/图像分类/" target="_blank">
                 <span class="chip center-align waves-effect waves-light chip-default">图像分类</span>
             </a>
@@ -885,12 +912,6 @@
             
             <a href="/tags/三元组损失/" target="_blank">
                 <span class="chip center-align waves-effect waves-light chip-default">三元组损失</span>
-            </a>
-            
-            
-            
-            <a href="/tags/字节/" target="_blank">
-                <span class="chip center-align waves-effect waves-light chip-default">字节</span>
             </a>
             
             
@@ -913,8 +934,8 @@
             
             
             
-            <a href="/tags/模型/" target="_blank">
-                <span class="chip center-align waves-effect waves-light chip-default">模型</span>
+            <a href="/tags/正则表达式/" target="_blank">
+                <span class="chip center-align waves-effect waves-light chip-default">正则表达式</span>
             </a>
             
             
@@ -925,20 +946,14 @@
             
             
             
+            <a href="/tags/模型/" target="_blank">
+                <span class="chip center-align waves-effect waves-light chip-default">模型</span>
+            </a>
+            
+            
+            
             <a href="/tags/遍历/" target="_blank">
                 <span class="chip center-align waves-effect waves-light chip-default">遍历</span>
-            </a>
-            
-            
-            
-            <a href="/tags/算法赛/" target="_blank">
-                <span class="chip center-align waves-effect waves-light chip-default">算法赛</span>
-            </a>
-            
-            
-            
-            <a href="/tags/天池/" target="_blank">
-                <span class="chip center-align waves-effect waves-light chip-default">天池</span>
             </a>
             
             
@@ -974,7 +989,7 @@
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">48k</span>
+                <span class="white-color">49.7k</span>
                 
 
                     <br>
