@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.skyfaker.cc/"/>
-  <updated>2022-02-06T15:09:47.627Z</updated>
+  <updated>2022-09-06T15:26:40.777Z</updated>
   <id>https://www.skyfaker.cc/</id>
   
   <author>
@@ -15,6 +15,90 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>神经网络语言模型</title>
+    <link href="https://www.skyfaker.cc/2021/07/06/shen-jing-wang-luo-yu-yan-mo-xing/"/>
+    <id>https://www.skyfaker.cc/2021/07/06/shen-jing-wang-luo-yu-yan-mo-xing/</id>
+    <published>2021-07-06T15:09:39.000Z</published>
+    <updated>2022-09-06T15:26:40.777Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;神经网络语言模型&quot;&gt;&lt;a href=&quot;#神经网络语言模型&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="NLP" scheme="https://www.skyfaker.cc/categories/NLP/"/>
+    
+    
+      <category term="语言模型" scheme="https://www.skyfaker.cc/tags/%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/"/>
+    
+      <category term="神经网络" scheme="https://www.skyfaker.cc/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>语言模型——N-gram模型</title>
+    <link href="https://www.skyfaker.cc/2021/05/26/n-gram-yu-yan-mo-xing/"/>
+    <id>https://www.skyfaker.cc/2021/05/26/n-gram-yu-yan-mo-xing/</id>
+    <published>2021-05-26T14:24:04.000Z</published>
+    <updated>2022-09-06T15:24:07.060Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;N-Gram语言模型&quot;&gt;&lt;a href=&quot;#N-Gram语言模型&quot; class=&quot;headerlink&quot; title=&quot;N-Gram语言模型&quot;&gt;&lt;/a&gt;N-Gram语言模型&lt;/h2&gt;&lt;h3 id=&quot;模型定义&quot;&gt;&lt;a href=&quot;#模型定义&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="NLP" scheme="https://www.skyfaker.cc/categories/NLP/"/>
+    
+    
+      <category term="语言模型" scheme="https://www.skyfaker.cc/tags/%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/"/>
+    
+      <category term="N-gram" scheme="https://www.skyfaker.cc/tags/N-gram/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>语言神经网络</title>
+    <link href="https://www.skyfaker.cc/2021/05/03/yu-yan-mo-xing-gai-shu/"/>
+    <id>https://www.skyfaker.cc/2021/05/03/yu-yan-mo-xing-gai-shu/</id>
+    <published>2021-05-03T14:06:17.000Z</published>
+    <updated>2022-09-06T15:23:48.520Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;语言模型基本概念&quot;&gt;&lt;a href=&quot;#语言模型基本概念&quot; class=&quot;headerlink&quot; title=&quot;语言模型基本概念&quot;&gt;&lt;/a&gt;语言模型基本概念&lt;/h3&gt;&lt;h4 id=&quot;1-语言模型基础&quot;&gt;&lt;a href=&quot;#1-语言模型基础&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="NLP" scheme="https://www.skyfaker.cc/categories/NLP/"/>
+    
+    
+      <category term="语言模型" scheme="https://www.skyfaker.cc/tags/%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/"/>
+    
+      <category term="概述" scheme="https://www.skyfaker.cc/tags/%E6%A6%82%E8%BF%B0/"/>
+    
+  </entry>
   
   <entry>
     <title>python协程入门</title>
@@ -475,84 +559,6 @@
     
     
       <category term="形态学" scheme="https://www.skyfaker.cc/tags/%E5%BD%A2%E6%80%81%E5%AD%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>一道编程题——合成有序链表</title>
-    <link href="https://www.skyfaker.cc/2020/02/08/yi-dao-bian-cheng-ti-he-cheng-you-xu-lian-biao/"/>
-    <id>https://www.skyfaker.cc/2020/02/08/yi-dao-bian-cheng-ti-he-cheng-you-xu-lian-biao/</id>
-    <published>2020-02-08T15:01:10.000Z</published>
-    <updated>2021-03-21T14:56:25.093Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;题目描述与分析&quot;&gt;&lt;a href=&quot;#题目描述与分析&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="算法" scheme="https://www.skyfaker.cc/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-      <category term="编程算法" scheme="https://www.skyfaker.cc/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>git 简明教程与命令</title>
-    <link href="https://www.skyfaker.cc/2020/01/30/git-jian-ming-jiao-cheng-yu-ming-ling/"/>
-    <id>https://www.skyfaker.cc/2020/01/30/git-jian-ming-jiao-cheng-yu-ming-ling/</id>
-    <published>2020-01-30T06:38:39.000Z</published>
-    <updated>2022-01-01T05:31:53.802Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;git-简明教程与命令&quot;&gt;&lt;a href=&quot;#git-简明教程与命令&quot; class=&quot;headerlink&quot; title=&quot;git 简明教程与命令&quot;&gt;&lt;/a&gt;git 简明教程与命令&lt;/h2&gt;&lt;h3 id=&quot;What-is-git&quot;&gt;&lt;a
-        
-      
-    
-    </summary>
-    
-      <category term="工具方法" scheme="https://www.skyfaker.cc/categories/%E5%B7%A5%E5%85%B7%E6%96%B9%E6%B3%95/"/>
-    
-    
-      <category term="git" scheme="https://www.skyfaker.cc/tags/git/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>一道编程题——判断二叉树是否对称</title>
-    <link href="https://www.skyfaker.cc/2019/12/28/yi-dao-bian-cheng-ti-pan-duan-er-cha-shu-shi-fou-dui-cheng/"/>
-    <id>https://www.skyfaker.cc/2019/12/28/yi-dao-bian-cheng-ti-pan-duan-er-cha-shu-shi-fou-dui-cheng/</id>
-    <published>2019-12-28T13:18:17.000Z</published>
-    <updated>2021-03-21T14:56:20.064Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="算法" scheme="https://www.skyfaker.cc/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-      <category term="编程算法" scheme="https://www.skyfaker.cc/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
