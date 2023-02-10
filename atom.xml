@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.skyfaker.cc/"/>
-  <updated>2022-09-06T15:26:40.777Z</updated>
+  <updated>2023-02-10T06:49:46.561Z</updated>
   <id>https://www.skyfaker.cc/</id>
   
   <author>
@@ -15,6 +15,20 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>attention is all you need</title>
+    <link href="https://www.skyfaker.cc/2023/02/10/attention-is-all-you-need/"/>
+    <id>https://www.skyfaker.cc/2023/02/10/attention-is-all-you-need/</id>
+    <published>2023-02-10T06:49:46.000Z</published>
+    <updated>2023-02-10T06:49:46.561Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>神经网络语言模型</title>
@@ -73,11 +87,11 @@
   </entry>
   
   <entry>
-    <title>语言神经网络</title>
+    <title>语言模型概述</title>
     <link href="https://www.skyfaker.cc/2021/05/03/yu-yan-mo-xing-gai-shu/"/>
     <id>https://www.skyfaker.cc/2021/05/03/yu-yan-mo-xing-gai-shu/</id>
     <published>2021-05-03T14:06:17.000Z</published>
-    <updated>2022-09-06T16:04:50.888Z</updated>
+    <updated>2023-02-10T06:50:50.924Z</updated>
     
     <summary type="html">
     
@@ -533,32 +547,6 @@
     
     
       <category term="编程算法" scheme="https://www.skyfaker.cc/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>数字图像处理——形态学</title>
-    <link href="https://www.skyfaker.cc/2020/02/17/shu-zi-tu-xiang-chu-li-xing-tai-xue/"/>
-    <id>https://www.skyfaker.cc/2020/02/17/shu-zi-tu-xiang-chu-li-xing-tai-xue/</id>
-    <published>2020-02-17T01:33:06.000Z</published>
-    <updated>2021-03-28T07:12:55.090Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;图像分类&quot;&gt;&lt;a href=&quot;#图像分类&quot; class=&quot;headerlink&quot; title=&quot;图像分类&quot;&gt;&lt;/a&gt;图像分类&lt;/h2&gt;&lt;h3 id=&quot;二值图&quot;&gt;&lt;a href=&quot;#二值图&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="图像处理" scheme="https://www.skyfaker.cc/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
-    
-    
-      <category term="形态学" scheme="https://www.skyfaker.cc/tags/%E5%BD%A2%E6%80%81%E5%AD%A6/"/>
     
   </entry>
   
