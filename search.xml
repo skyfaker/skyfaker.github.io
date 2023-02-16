@@ -4,19 +4,6 @@
   
     
     <entry>
-      <title>attention is all you need</title>
-      <link href="/2023/02/10/attention-is-all-you-need/"/>
-      <url>/2023/02/10/attention-is-all-you-need/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>神经网络语言模型</title>
       <link href="/2021/07/06/shen-jing-wang-luo-yu-yan-mo-xing/"/>
       <url>/2021/07/06/shen-jing-wang-luo-yu-yan-mo-xing/</url>
@@ -63,6 +50,31 @@
             <tag> 语言模型 </tag>
             
             <tag> N-gram </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Attention is all you need</title>
+      <link href="/2021/05/10/attention-is-all-you-need/"/>
+      <url>/2021/05/10/attention-is-all-you-need/</url>
+      
+        <content type="html"><![CDATA[<h2 id="对Attention的一些解读"><a href="#对Attention的一些解读" class="headerlink" title="对Attention的一些解读"></a>对Attention的一些解读</h2><p>2017年，Google发表了论文《Attention is All You Need》，在论文中，抛弃了常用的RNN结构，提出了一种比较新颖的Attention结构。</p><h3 id="Attention的作用"><a href="#Attention的作用" class="headerlink" title="Attention的作用"></a>Attention的作用</h3><p>在做NLP任务时，原始数据一般是句子级别，所以需要先将句子拆分，中文通常按照词或者字级别进行拆分。以中文字拆分为例，拆分后的每个字通过字典获取这个字的唯一编号，然后将这个编号转换成对应的字向量。这样，一个句子<code>X</code>可以表示成 $X=( x_0,x_1, …,x_n)$，其中 $x_i$ 为该句子中第 $i$ 个字的字向量，维度为v, 即$X\in R_{n×d_v}$。</p><p>将编号转换成向量的最简单方法为one-hot编码，但是这种编码方式不具备实用性，我们需要的是一种维度更低的，表达语义效果更好的向量。</p><h4 id="RNN"><a href="#RNN" class="headerlink" title="RNN"></a>RNN</h4><p>在NLP领域中，最常用的编码结构为RNN结构，RNN方法的过程可以简单表示为一种递归的方式</p><script type="math/tex; mode=display">y_{t+1}=f(y_t, x_t)</script><p>这样，在改变原始字的向量维度的同时，还可以结合到这个字之前的字的信息，从而可以实现对于同一个字在不同语境中生成不同的字向量。</p><p>在所有语言中，都会出现字或者单词存在一字多义的情况，使用one-hot编码的方式，无法处理这样的情况。比如说，“一头牛”和“你真牛”中的“牛”明显不是同一个含义，甚至于词性都不一样，但在one-hot这样的编码方式中，这两个“牛”的字向量是完全相同的，而在RNN结构中就可以实现同一个字根据上下文语义生成不同的字向量，例如双向的RNN结构可以同时获取当前字之前和之后的语义信息。</p><p>基于这样的特性，RNN天然的适合序列建模，但RNN的明显缺点之一就是无法并行，因此速度较慢，另外RNN无法很好地学习到全局的结构信息。因为它本质是一个马尔科夫决策过程，其他字对于当前字的影响会随着距离的拉远而削弱和稀释，这和语言学上的表现是不一致的，语言中字之间的关系并不严格和位置正相关，因此很多时候，距离较远的字对当前字在语义信息上的影响要大于当前字旁边的字，而这一点很难在RNN结构上体现出来。</p><h4 id="CNN"><a href="#CNN" class="headerlink" title="CNN"></a>CNN</h4><p>CNN结构也是一种可以用于生成序列字向量的结构，和RNN的递归方法不同，CNN结构通过当前字符的前后字符来重新编码当前字符，从而可以获取一定范围上下文信息，这有点儿类似于前后方向上的N-gram方法。</p><p>例如，CNN结构中卷积核尺寸为3，则经过该结构之后的字向量可以表示为：</p><script type="math/tex; mode=display">y_t = f(x_{t-1}, x_{t}, x_{t+1})</script><p>而对于超过了卷积核范围的其他字向量信息，可以通过层级机构，扩大感受野，获取更远距离的字符信息。</p><h4 id="Attention"><a href="#Attention" class="headerlink" title="Attention"></a>Attention</h4><p>Attention Mechanism和CNN与RNN最大的不同是，在attention结构中，每一个字可以获取到所有信息。</p><script type="math/tex; mode=display">Y = f(Q, K, X)</script><p>其中Q，K为列维度相同的矩阵，X为输入的句子的子向量，且K和X的向量个数相同，即 $Q\in R_{m×d_k},K\in R_{n×d_k},V\in R_{n×d_v}$。</p><p>当Q=K=X时，称为self-attention。</p><p>以self-attention为例，在self-attention中，每个字都可以直接与句子中任意一个字直接连接，即这个字可以获取到句子中任意一个字的信息。</p><h3 id="Attention定义"><a href="#Attention定义" class="headerlink" title="Attention定义"></a>Attention定义</h3><p><img src="./attention.png" style="zoom:67%;" alt="attention 示意图"></p><script type="math/tex; mode=display">Attention(Q,K,V)=softmax(\frac{QK^T}{\sqrt{d_k}})V \\其中 Q\in R_{m×d_k},K\in R_{n×d_k},V\in R_{n×d_v}</script><p>结构很简单，除去中间的Scale,Mask,SoftMax之后，就是两次简单的矩阵运算，Attention之后的矩阵维度为$R_{m×d_v}$。当Q=K=V时，就是self-attention。</p><p>对于这个结构的作用，可以这么理解：K，V是一对匹配对，Q是一个query，通过Q和K的矩阵运算，计算Q与K的相关性，再用这个相关性与V做矩阵运算，后得到一个由V构成的与Q相关的矩阵。  </p><p>举个例子：有这样一句话“Attention is all you need”，使用self-attention，即Q=K=V均为该句子的向量。设每个字的向量长度为d，则Q，K，V矩阵维度为5*d。</p><p>先计算$QK^T$, 为一个5*5的矩阵，这个矩阵的第i行第j列表示第i个单词向量与第j个单词的向量的点乘。我们知道向量的点乘可以表示两个向量的“相似度”，两个向量越“相似”，它们的点乘结果越大。因此该矩阵就表示这个句子中5个单词向量之间的相似性。将这个矩阵经过scale和softmax之后，与V做矩阵运算生成一个新的5*d矩阵，这个新的矩阵就是这个句子中5个单词的新的表征向量，并且每个单词的新的表征是由这句话中的5个单词的原始向量组成的，从而每个单词的新的表征向量获取到了这个上下文的信息。</p><h4 id="Multi-Head-Attention"><a href="#Multi-Head-Attention" class="headerlink" title="Multi-Head Attention"></a>Multi-Head Attention</h4><p><img src="Multi-Head-Attention.png" style="zoom:67%;" alt="multi-head attention 示意图"></p><p>论文中使用的方法主要是Multi-Head Attention，这个Multi-Head Attention实际上也非常简单，首先将V,K,Q三个举证经过一层简单的全连接网络，然后新的V,K,Q矩阵进行Attention，上述的过程重复h次之后结果拼接起来，就是h次的Multi-Head Attention。</p><script type="math/tex; mode=display">MultiHead(Q, K, V ) = Concat(head_1, ..., head_h)W^O \\{\bf where} \ head_i = Attention(QW^Q_i, KW^K_i, VW^V_i) \\其中 Q\in R_{m×d_k},K\in R_{n×d_k},V\in R_{n×d_v}, W^Q_i\in R_{d_k× \widetilde d_k}, W^K_i\in R_{d_k× \widetilde d_k}, W^V_i\in R_{d_v× \widetilde d_v}</script><p>可以看出，经过Multi-Head Attention之后，新的结果矩阵维度为$R_{m×(h \widetilde d_v)}$，如果全连接矩阵不改变输入的Q，K，V三个矩阵的维度，则，经过h次的Multi-Head Attention之后，结果矩阵的列维度会变成输入的h倍，所以为了保持输入矩阵经过h次的Multi-Head Attention之后字向量维度不变，在论文中，Google设置$\widetilde d_k, \widetilde d_v$为$d_k, d_v$的$\frac{1}{h}$。</p><h4 id="Self-Attention"><a href="#Self-Attention" class="headerlink" title="Self-Attention"></a>Self-Attention</h4><p>论文的一大贡献就是，证明了Self-Attention在机器翻译的编码过程中的是非常有效的。正如在Attention小节中提到的，在self-attention中，每个字都可以直接与句子中任意一个字直接连接，即这个字可以获取到序列中任意一个字的信息。因此在编码过程中，可以更好的找到每个字之间的联系。</p><p>当然，论文中使用的是Self Multi-Head Attention。</p><p>想象一下这个场景，一个队伍按次序排列，每个人只能接收到相邻人的消息，也只能向相邻的人发出消息，这种传递消息的方式就相当于RNN及其变种。我们把相邻的人称为邻居，除了自己和邻居之外的人称为非邻居，实际上每个人都接收不到非邻居的消息，这些非邻居的消息是经过自己的邻居处理过的，而不是原始的消息。</p><h4 id="Position-Embedding"><a href="#Position-Embedding" class="headerlink" title="Position Embedding"></a>Position Embedding</h4>]]></content>
+      
+      
+      <categories>
+          
+          <category> NLP </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Attention </tag>
             
         </tags>
       
