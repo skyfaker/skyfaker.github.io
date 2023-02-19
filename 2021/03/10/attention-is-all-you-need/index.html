@@ -4,12 +4,12 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="python协程入门, 深度学习 | 数据挖掘">
+    <meta name="keywords" content="Attention is all you need, 深度学习 | 数据挖掘">
     <meta name="baidu-site-verification" content="fmlEuI34ir">
     <meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48">
     <meta name="360-site-verification" content="b7c11a830ef90fd1464ad6206bb7b6e7">
-    <meta name="description" content="并发并发编程是指在一台处理器上“同时”（同一个时间段）处理多个任务。 并发是在同一实体上的多个事件。 多个事件在同一时间间隔发生。
-比如，多个线程任务在同一个CPU上快速地轮换执行，由于切换的速度非常快，给人的感觉就是这些线程任务是在同时进">
+    <meta name="description" content="对Attention的一些解读2017年，Google发表了论文《Attention is All You Need》，在论文中，抛弃了常用的RNN结构，提出了一种比较新颖的Attention结构。
+Attention的作用在做NLP任务时">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>python协程入门 | SKYFAKER</title>
+    <title>Attention is all you need | SKYFAKER</title>
 
     <!-- 网页在浏览器上的图标 -->
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/favicon.png">
@@ -320,15 +320,15 @@
 
 
 <!-- 3/22: 这里修改了推荐页文章点击进去之后的图片路径 -->
-<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.iohttps://s4.ax1x.com/2022/02/08/HlQnjs.jpg');"> -->
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://s4.ax1x.com/2022/02/08/HlQnjs.jpg');">
+<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.iohttps://s4.ax1x.com/2022/02/08/HlQpjA.jpg');"> -->
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://s4.ax1x.com/2022/02/08/HlQpjA.jpg');">
 
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        python协程入门
+                        Attention is all you need
                     </div>
                 </div>
             </div>
@@ -441,8 +441,8 @@
                     
                     <div class="article-tag">
                         
-                        <a href="/tags/并发编程/" target="_blank">
-                            <span class="chip bg-color">并发编程</span>
+                        <a href="/tags/Attention/" target="_blank">
+                            <span class="chip bg-color">Attention</span>
                         </a>
                         
                     </div>
@@ -453,8 +453,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                        <a href="/categories/python/" class="post-category" target="_blank">
-                            python
+                        <a href="/categories/NLP/" class="post-category" target="_blank">
+                            NLP
                         </a>
                         
                     </div>
@@ -465,7 +465,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-04-02
+                    2021-03-10
                 </div>
 
                 <div class="post-author info-break-policy">
@@ -479,14 +479,14 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.1k
+                    2.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    8 分
+                    10 分
                 </div>
                 
                 
@@ -502,158 +502,56 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="并发"><a href="#并发" class="headerlink" title="并发"></a>并发</h2><p><strong>并发编程是指在一台处理器上“同时”（同一个时间段）处理多个任务。</strong> 并发是在同一实体上的多个事件。 多个事件在同一时间间隔发生。</p>
-<p>比如，多个线程任务在同一个CPU上快速地轮换执行，由于切换的速度非常快，给人的感觉就是这些线程任务是在同时进行的，但其实并发只是一种逻辑上的同时进行。</p>
-<p>举个例子，你有一台单CPU的电脑，在上面打开了一个视频播放软件，这样就启动了一个进程，但是这个进程内部有2个线程，一个用于显示视频，另一个用于播放声音。在任意一个时刻，只有一个线程占用CPU，所以视频于音频并不是同时播放的，只是因为线程切换速度快到无法察觉，从宏观上看起来是“同时”的。</p>
-<h2 id="协程"><a href="#协程" class="headerlink" title="协程"></a>协程</h2><p><strong>协程，又称微线程，英文名<code>Coroutine</code></strong>。实际上，协程是运行在单线程中的“并发”，程序员通过高超的代码能力，在代码执行流程中人为的实现多任务并发，是单个线程内的任务调度技巧。协程相比多线程的一大优势就是省去了多线程之间的切换开销，获得了更高的运行效率。</p>
-<blockquote>
-<p>特点：</p>
-<ol>
-<li>线程的切换由操作系统负责调度，协程由用户自己进行调度，因此减少了上下文切换，提高了效率。</li>
-<li>协程切换需要的Stack远小于线程，因此可以在相同的内存中开启更多的协程。</li>
-<li>由于在同一个线程上，因此可以避免出现竞争和死锁。</li>
-<li>适用于被阻塞的，且需要大量并发的场景。但不适用于大量计算的多线程，遇到此种情况，更好实用线程去解决。</li>
-</ol>
-</blockquote>
-<h3 id="python协程"><a href="#python协程" class="headerlink" title="python协程"></a>python协程</h3><h4 id="yield"><a href="#yield" class="headerlink" title="yield"></a>yield</h4><p>python中协程的原始实现方式是通过yield关键字实现，而yield关键字在python中用于实现生成器。</p>
-<p>yield的语法规则是这样的：<strong>代码执行时遇到yield则停止执行，返回yield右侧的值（没有则返回None），遇到next（或者send）命令则从yield处继续执行，并将send命令的参数传给yield的左值变量。</strong></p>
-<p>看个例子：</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">example_coroutine</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'-> 启动协程'</span><span class="token punctuation">)</span>
-    y <span class="token operator">=</span> <span class="token number">10</span>
-    x <span class="token operator">=</span> <span class="token keyword">yield</span> y
-    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'-> 协程接收到了x的值:'</span><span class="token punctuation">,</span> x<span class="token punctuation">)</span>
-
-ex_coro <span class="token operator">=</span> example_coroutine<span class="token punctuation">(</span><span class="token punctuation">)</span>
-res <span class="token operator">=</span> next<span class="token punctuation">(</span>ex_coro<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 或者ex_coro.send(None)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span>
-ex_coro<span class="token punctuation">.</span>send<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>
-
-<span class="token comment" spellcheck="true">## 控制台输出：</span>
-<span class="token operator">-</span><span class="token operator">></span> 启动协程
-<span class="token number">10</span>
-<span class="token operator">-</span><span class="token operator">></span> 协程接收到了x的值<span class="token punctuation">:</span> <span class="token number">10</span>
-Traceback <span class="token punctuation">(</span>most recent call last<span class="token punctuation">)</span><span class="token punctuation">:</span>
-  File <span class="token string">"d:/exercise/algorithm_exercise/py_coroutine.py"</span><span class="token punctuation">,</span> line <span class="token number">15</span><span class="token punctuation">,</span> <span class="token keyword">in</span> <span class="token operator">&lt;</span>module<span class="token operator">></span>
-    ex_coro<span class="token punctuation">.</span>send<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>
-StopIteration
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>过程是这样的：next唤醒生成器，生成器返回变量y的值10，res接收到生成器的返回值,send(10)将10传入生成器并赋值给变量x，最后生成器结束，抛出<code>StopIteration</code>异常。</p>
-<p>实际上到这里，已经实现了一个简易的协程，通过yield和send实现任务切换。</p>
-<p>下面的例子表示如何通过协程实现主任务与副任务切换：</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> time
-
-<span class="token keyword">def</span> <span class="token function">task1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
-        count <span class="token operator">=</span> <span class="token keyword">yield</span> <span class="token string">"&lt;甲>累了，让&lt;乙>工作一会儿"</span>
-        <span class="token keyword">if</span> count<span class="token punctuation">:</span>
-            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"&lt;甲>开始工作....."</span><span class="token punctuation">)</span>
-            time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
-        <span class="token keyword">else</span><span class="token punctuation">:</span>
-            <span class="token keyword">break</span>
-
-<span class="token keyword">def</span> <span class="token function">task2</span><span class="token punctuation">(</span>t<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token comment" spellcheck="true"># next(t)</span>
-    a <span class="token operator">=</span> t<span class="token punctuation">.</span>send<span class="token punctuation">(</span>None<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># a = "&lt;甲>累了，让&lt;乙>工作一会儿"</span>
-    count <span class="token operator">=</span> <span class="token number">2</span>
-    <span class="token keyword">while</span> count<span class="token punctuation">:</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"-----------------------------------"</span><span class="token punctuation">)</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"&lt;乙>开始工作....."</span><span class="token punctuation">)</span>
-        time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"&lt;乙>累了，让&lt;甲>工作一会儿...."</span><span class="token punctuation">)</span>
-        ret <span class="token operator">=</span> t<span class="token punctuation">.</span>send<span class="token punctuation">(</span>count<span class="token punctuation">)</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span>ret<span class="token punctuation">)</span>
-        count<span class="token operator">-=</span><span class="token number">1</span>
-    t<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
-
-<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
-    t <span class="token operator">=</span> task1<span class="token punctuation">(</span><span class="token punctuation">)</span>
-    task2<span class="token punctuation">(</span>t<span class="token punctuation">)</span>
-
-<span class="token comment" spellcheck="true"># 控制台输出</span>
-<span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span>
-<span class="token operator">&lt;</span>乙<span class="token operator">></span>开始工作<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
-<span class="token operator">&lt;</span>乙<span class="token operator">></span>累了，让<span class="token operator">&lt;</span>甲<span class="token operator">></span>工作一会儿<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
-<span class="token operator">&lt;</span>甲<span class="token operator">></span>开始工作<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
-<span class="token operator">&lt;</span>甲<span class="token operator">></span>累了，让<span class="token operator">&lt;</span>乙<span class="token operator">></span>工作一会儿
-<span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span>
-<span class="token operator">&lt;</span>乙<span class="token operator">></span>开始工作<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
-<span class="token operator">&lt;</span>乙<span class="token operator">></span>累了，让<span class="token operator">&lt;</span>甲<span class="token operator">></span>工作一会儿<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
-<span class="token operator">&lt;</span>甲<span class="token operator">></span>开始工作<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
-<span class="token operator">&lt;</span>甲<span class="token operator">></span>累了，让<span class="token operator">&lt;</span>乙<span class="token operator">></span>工作一会儿
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="asyncio模块"><a href="#asyncio模块" class="headerlink" title="asyncio模块"></a>asyncio模块</h4><p><code>asyncio</code>是<strong>Python 3.4</strong>版本引入的标准库，直接内置了对异步IO的支持。asyncio是一个基于事件循环的异步IO模块。</p>
-<p><code>yield from</code>可以返回另一个生成器生成的值。<a href="https://wenkefendou.gitbooks.io/python3-learning/content/yield_from.html" target="_blank" rel="noopener">yield详细介绍点这里</a>。</p>
-<p>asyncio可以分成三个过程：</p>
-<ol>
-<li>创建事件循环</li>
-<li>指定循环模式并运行</li>
-<li>关闭循环</li>
-</ol>
-<p>要注意的是，简单地调用一个协程并不会使其被调度执行。</p>
-<p>通常我们使用<code>asyncio.get_event_loop()</code>方法创建一个循环。</p>
-<p>循环创建后可以通过<code>run_until_complete()</code>方法或者<code>run_forever()</code>方法来运行循环</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> asyncio
-<span class="token keyword">import</span> threading
-
-@asyncio<span class="token punctuation">.</span>coroutine  <span class="token comment" spellcheck="true"># 声明为协程函数</span>
-<span class="token keyword">def</span> <span class="token function">hello1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Hello 1 start! (%s)'</span> <span class="token operator">%</span> threading<span class="token punctuation">.</span>currentThread<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-    <span class="token keyword">yield</span> <span class="token keyword">from</span> asyncio<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 遇到IO，出让线程</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Hello 1 end! (%s)'</span> <span class="token operator">%</span> threading<span class="token punctuation">.</span>currentThread<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-
-@asyncio<span class="token punctuation">.</span>coroutine
-<span class="token keyword">def</span> <span class="token function">hello2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Hello 2 start! (%s)'</span> <span class="token operator">%</span> threading<span class="token punctuation">.</span>currentThread<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-    <span class="token keyword">yield</span> <span class="token keyword">from</span> asyncio<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Hello 2 end! (%s)'</span> <span class="token operator">%</span> threading<span class="token punctuation">.</span>currentThread<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-
-<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
-    loop <span class="token operator">=</span> asyncio<span class="token punctuation">.</span>get_event_loop<span class="token punctuation">(</span><span class="token punctuation">)</span>
-    tasks <span class="token operator">=</span> <span class="token punctuation">[</span>hello1<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> hello2<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
-    loop<span class="token punctuation">.</span>run_until_complete<span class="token punctuation">(</span>asyncio<span class="token punctuation">.</span>wait<span class="token punctuation">(</span>tasks<span class="token punctuation">)</span><span class="token punctuation">)</span>
-    loop<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
-
-<span class="token comment" spellcheck="true"># 控制台输出</span>
-Hello <span class="token number">2</span> start! <span class="token punctuation">(</span><span class="token operator">&lt;</span>_MainThread<span class="token punctuation">(</span>MainThread<span class="token punctuation">,</span> started <span class="token number">21500</span><span class="token punctuation">)</span><span class="token operator">></span><span class="token punctuation">)</span>
-Hello <span class="token number">1</span> start! <span class="token punctuation">(</span><span class="token operator">&lt;</span>_MainThread<span class="token punctuation">(</span>MainThread<span class="token punctuation">,</span> started <span class="token number">21500</span><span class="token punctuation">)</span><span class="token operator">></span><span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true"># 在这里阻塞1s</span>
-Hello <span class="token number">2</span> end! <span class="token punctuation">(</span><span class="token operator">&lt;</span>_MainThread<span class="token punctuation">(</span>MainThread<span class="token punctuation">,</span> started <span class="token number">21500</span><span class="token punctuation">)</span><span class="token operator">></span><span class="token punctuation">)</span>
-Hello <span class="token number">1</span> end! <span class="token punctuation">(</span><span class="token operator">&lt;</span>_MainThread<span class="token punctuation">(</span>MainThread<span class="token punctuation">,</span> started <span class="token number">21500</span><span class="token punctuation">)</span><span class="token operator">></span><span class="token punctuation">)</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>上面一段代码，使用asyncio模拟了同一个线程中的两个协程。不像上面的例子，分为主副协程，这个例子中的hello1和hello2属于平等，并不是由某个协程直接唤醒另外一个协程。虽然hello1再task列表中排在第一位，先执行的确是hello2 协程。</p>
-<p>具体过程为<code>@asyncio.coroutine</code>装饰器声明协程，调用协程并不会使其被执行。<code>asyncio.sleep(1)</code>模拟1s的IO操作。<code>hello2</code>协程先执行，遇到IO操作时出让CPU，然后<code>hello1</code>协程被调度，同样遇到IO出让CPU，hello2的<code>asyncio.sleep(1)</code>结束后，由<code>yield from</code>返回hello2协程，获取CPU资源。因此虽然模拟了2s的IO操作，但是2次IO同时进行，程序总耗时大约1s。</p>
-<h4 id="async、await"><a href="#async、await" class="headerlink" title="async、await"></a>async、await</h4><p><strong>Python3.5</strong>中对协程提供了更直接的支持，引入了<code>async/await</code>关键字。使用<code>async</code>代替<code>@asyncio.coroutine</code>，使用<code>await</code>代替<code>yield from</code>，代码变得更加简洁可读。从Python设计的角度来说，<code>async/await</code>让协程独立于生成器而存在，不需要再借助yield语法。<code>async</code>与<code>await</code>必须成双成对使用。</p>
-<p>下面使用async和await重写上面的代码：</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> asyncio
-<span class="token keyword">import</span> threading
-
-<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">hello3</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Hello 3 start! (%s)'</span> <span class="token operator">%</span> threading<span class="token punctuation">.</span>currentThread<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-    <span class="token keyword">await</span> asyncio<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Hello 3 end! (%s)'</span> <span class="token operator">%</span> threading<span class="token punctuation">.</span>currentThread<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-
-<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">hello4</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Hello 4 start! (%s)'</span> <span class="token operator">%</span> threading<span class="token punctuation">.</span>currentThread<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-    <span class="token keyword">await</span> asyncio<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Hello 4 end! (%s)'</span> <span class="token operator">%</span> threading<span class="token punctuation">.</span>currentThread<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-
-<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
-    loop <span class="token operator">=</span> asyncio<span class="token punctuation">.</span>get_event_loop<span class="token punctuation">(</span><span class="token punctuation">)</span>
-    tasks <span class="token operator">=</span> <span class="token punctuation">[</span>hello3<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> hello4<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
-    loop<span class="token punctuation">.</span>run_until_complete<span class="token punctuation">(</span>asyncio<span class="token punctuation">.</span>wait<span class="token punctuation">(</span>tasks<span class="token punctuation">)</span><span class="token punctuation">)</span>
-    loop<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
-
-<span class="token comment" spellcheck="true"># 控制台输出</span>
-Hello <span class="token number">3</span> start! <span class="token punctuation">(</span><span class="token operator">&lt;</span>_MainThread<span class="token punctuation">(</span>MainThread<span class="token punctuation">,</span> started <span class="token number">15288</span><span class="token punctuation">)</span><span class="token operator">></span><span class="token punctuation">)</span>
-Hello <span class="token number">4</span> start! <span class="token punctuation">(</span><span class="token operator">&lt;</span>_MainThread<span class="token punctuation">(</span>MainThread<span class="token punctuation">,</span> started <span class="token number">15288</span><span class="token punctuation">)</span><span class="token operator">></span><span class="token punctuation">)</span>
-Hello <span class="token number">3</span> end! <span class="token punctuation">(</span><span class="token operator">&lt;</span>_MainThread<span class="token punctuation">(</span>MainThread<span class="token punctuation">,</span> started <span class="token number">15288</span><span class="token punctuation">)</span><span class="token operator">></span><span class="token punctuation">)</span>
-Hello <span class="token number">4</span> end! <span class="token punctuation">(</span><span class="token operator">&lt;</span>_MainThread<span class="token punctuation">(</span>MainThread<span class="token punctuation">,</span> started <span class="token number">15288</span><span class="token punctuation">)</span><span class="token operator">></span><span class="token punctuation">)</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="怎么用协程"><a href="#怎么用协程" class="headerlink" title="怎么用协程"></a>怎么用协程</h2><p>开头介绍了一些协程与线程的区别以及协程的优点，但是事实上大部分情况下，多线程都能很好的完成任务，而并不是花心思写协程。</p>
-<p>目前，主流的代码结构设计理念需要先对要解决的问题进行抽象、分解、建模，强调的是高内聚低耦合的模块化思想。模块之间不应该相互影响，这对于互相基本不影响的多线程来说是很自然的，对于底层资源的竞争都交给操作系统来解决，上层的代码层面就可以做到模块化。而对于协程，却并不是这样，协程把资源的分配提到用户态，由程序员在代码中实现逻辑流，不可避免地会使得一些代码相互耦合。</p>
-<p>但是多线程也不是万能的，抢断式线程调度下，操作系统对于不同线程的时间片分配使公平的，公平有时候就会导致效率低下。另外，涉及到线程非独立的时候会遇到更多的问题，比如A线程需要B线程产生的资源，那么操作系统即使切换到A线程，也会因为资源不足而必须再切回去；又比如多线程操作同一个资源，需要进行线程安全处理。这些情况下，主动出让式的协程效率则高得多。</p>
-<p>在如今的python程序中，协程绝大多数情况下用来处理网络IO或者文件IO，但是很多情况下也是可以从协程的角度去设计代码的，很多问题从协程角度去思考可能会别有一番天地。</p>
+                <h2 id="对Attention的一些解读"><a href="#对Attention的一些解读" class="headerlink" title="对Attention的一些解读"></a>对Attention的一些解读</h2><p>2017年，Google发表了论文《Attention is All You Need》，在论文中，抛弃了常用的RNN结构，提出了一种比较新颖的Attention结构。</p>
+<h3 id="Attention的作用"><a href="#Attention的作用" class="headerlink" title="Attention的作用"></a>Attention的作用</h3><p>在做NLP任务时，原始数据一般是句子级别，所以需要先将句子拆分，中文通常按照词或者字级别进行拆分。以中文字拆分为例，拆分后的每个字通过字典获取这个字的唯一编号，然后将这个编号转换成对应的字向量。这样，一个句子<code>X</code>可以表示成 $X=( x_0,x_1, …,x_n)$，其中 $x_i$ 为该句子中第 $i$ 个字的字向量，维度为v, 即$X\in R_{n×d_v}$。</p>
+<p>将编号转换成向量的最简单方法为one-hot编码，但是这种编码方式不具备实用性，我们需要的是一种维度更低的，表达语义效果更好的向量。</p>
+<h4 id="RNN"><a href="#RNN" class="headerlink" title="RNN"></a>RNN</h4><p>在NLP领域中，最常用的编码结构为RNN结构，RNN方法的过程可以简单表示为一种递归的方式</p>
+<script type="math/tex; mode=display">
+y_{t+1}=f(y_t, x_t)</script><p>这样，在改变原始字的向量维度的同时，还可以结合到这个字之前的字的信息，从而可以实现对于同一个字在不同语境中生成不同的字向量。</p>
+<p>在所有语言中，都会出现字或者单词存在一字多义的情况，使用one-hot编码的方式，无法处理这样的情况。比如说，“一头牛”和“你真牛”中的“牛”明显不是同一个含义，甚至于词性都不一样，但在one-hot这样的编码方式中，这两个“牛”的字向量是完全相同的，而在RNN结构中就可以实现同一个字根据上下文语义生成不同的字向量，例如双向的RNN结构可以同时获取当前字之前和之后的语义信息。</p>
+<p>基于这样的特性，RNN天然的适合序列建模，但RNN的明显缺点之一就是无法并行，因此速度较慢，另外RNN无法很好地学习到全局的结构信息。因为它本质是一个马尔科夫决策过程，其他字对于当前字的影响会随着距离的拉远而削弱和稀释，这和语言学上的表现是不一致的，语言中字之间的关系并不严格和位置正相关，因此很多时候，距离较远的字对当前字在语义信息上的影响要大于当前字旁边的字，而这一点很难在RNN结构上体现出来。</p>
+<h4 id="CNN"><a href="#CNN" class="headerlink" title="CNN"></a>CNN</h4><p>CNN结构也是一种可以用于生成序列字向量的结构，和RNN的递归方法不同，CNN结构通过当前字符的前后字符来重新编码当前字符，从而可以获取一定范围上下文信息，这有点儿类似于前后方向上的N-gram方法。</p>
+<p>例如，CNN结构中卷积核尺寸为3，则经过该结构之后的字向量可以表示为：</p>
+<script type="math/tex; mode=display">
+y_t = f(x_{t-1}, x_{t}, x_{t+1})</script><p>而对于超过了卷积核范围的其他字向量信息，可以通过层级机构，扩大感受野，获取更远距离的字符信息。</p>
+<h4 id="Attention"><a href="#Attention" class="headerlink" title="Attention"></a>Attention</h4><p>Attention Mechanism和CNN与RNN最大的不同是，在attention结构中，每一个字可以获取到所有信息。</p>
+<script type="math/tex; mode=display">
+Y = f(Q, K, X)</script><p>其中Q，K为列维度相同的矩阵，X为输入的句子的子向量，且K和X的向量个数相同，即 $Q\in R_{m×d_k},K\in R_{n×d_k},V\in R_{n×d_v}$。</p>
+<p>当Q=K=X时，称为self-attention。</p>
+<p>以self-attention为例，在self-attention中，每个字都可以直接与句子中任意一个字直接连接，即这个字可以获取到句子中任意一个字的信息。</p>
+<h3 id="Attention定义"><a href="#Attention定义" class="headerlink" title="Attention定义"></a>Attention定义</h3><p><img src="./attention.png" style="zoom:67%;" alt="attention 示意图"></p>
+<script type="math/tex; mode=display">
+Attention(Q,K,V)=softmax(\frac{QK^T}{\sqrt{d_k}})V \\
+其中 Q\in R_{m×d_k},K\in R_{n×d_k},V\in R_{n×d_v}</script><p>结构很简单，除去中间的Scale,Mask,SoftMax之后，就是两次简单的矩阵运算，Attention之后的矩阵维度为$R_{m×d_v}$。当Q=K=V时，就是self-attention。</p>
+<p>对于这个结构的作用，可以这么理解：K，V是一对匹配对，Q是一个query，通过Q和K的矩阵运算，计算Q与K的相关性，再用这个相关性与V做矩阵运算，后得到一个由V构成的与Q相关的矩阵。  </p>
+<p>举个例子：有这样一句话“Attention is all you need”，使用self-attention，即Q=K=V均为该句子的向量。设每个字的向量长度为d，则Q，K，V矩阵维度为5*d。</p>
+<p>先计算$QK^T$, 为一个5*5的矩阵，这个矩阵的第i行第j列表示第i个单词向量与第j个单词的向量的点乘。我们知道向量的点乘可以表示两个向量的“相似度”，两个向量越“相似”，它们的点乘结果越大。因此该矩阵就表示这个句子中5个单词向量之间的相似性。将这个矩阵经过scale和softmax之后，与V做矩阵运算生成一个新的5*d矩阵，这个新的矩阵就是这个句子中5个单词的新的表征向量，并且每个单词的新的表征是由这句话中的5个单词的原始向量组成的，从而每个单词的新的表征向量获取到了这个上下文的信息。</p>
+<p>想象一下这个场景：一个队伍按次序排列，每个人只能接收到相邻人的消息，也只能向相邻的人发出消息，这种传递消息的方式就相当于RNN及其变种。我们把相邻的人称为邻居，除了自己和邻居之外的人称为非邻居，实际上每个人都接收不到非邻居的消息，这些非邻居的消息是经过自己的邻居处理过的，而不是原始的消息。</p>
+<p>而Attention可以想象成是这种场景，所有人散布在操场上，每个人之间没有顺序关系，但是每个人都随身携带一个对讲机，可以和任意一个直接通信，每个人都根据和其他所有人直接通信之后收到的信息生成一个新的向量。</p>
+<h4 id="Multi-Head-Attention"><a href="#Multi-Head-Attention" class="headerlink" title="Multi-Head Attention"></a>Multi-Head Attention</h4><p><img src="Multi-Head-Attention.png" style="zoom:67%;" alt="multi-head attention 示意图"></p>
+<p>论文中使用的方法主要是Multi-Head Attention，这个Multi-Head Attention实际上也非常简单，首先将V,K,Q三个举证经过一层简单的全连接网络，然后新的V,K,Q矩阵进行Attention，上述的过程重复h次之后结果拼接起来，就是h次的Multi-Head Attention。</p>
+<script type="math/tex; mode=display">
+MultiHead(Q, K, V ) = Concat(head_1, ..., head_h)W^O \\
+{\bf where} \ head_i = Attention(QW^Q_i, KW^K_i, VW^V_i) \\
+其中 Q\in R_{m×d_k},K\in R_{n×d_k},V\in R_{n×d_v}, W^Q_i\in R_{d_k× \widetilde d_k}, W^K_i\in R_{d_k× \widetilde d_k}, W^V_i\in R_{d_v× \widetilde d_v}</script><p>可以看出，经过Multi-Head Attention之后，新的结果矩阵维度为$R_{m×(h \widetilde d_v)}$，如果全连接矩阵不改变输入的Q，K，V三个矩阵的维度，则，经过h次的Multi-Head Attention之后，结果矩阵的列维度会变成输入的h倍，所以为了保持输入矩阵经过h次的Multi-Head Attention之后字向量维度不变，在论文中，Google设置$\widetilde d_k, \widetilde d_v$为$d_k, d_v$的 $\frac{1}{h}$。</p>
+<h4 id="Self-Attention"><a href="#Self-Attention" class="headerlink" title="Self-Attention"></a>Self-Attention</h4><p>论文的一大贡献就是，证明了Self-Attention在机器翻译的编码过程中的是非常有效的。正如在Attention小节中提到的，在self-attention中，每个字都可以直接与句子中任意一个字直接连接，即这个字可以获取到序列中任意一个字的信息。因此在编码过程中，可以更好的找到每个字之间的联系。</p>
+<p>当然，论文中使用的是Self Multi-Head Attention。</p>
+<p>我们可以这样理解Self-Attention：对于一个序列$X=( x_0,x_1, …,x_n)$， $x_i$为序列中第i个字的字向量，序列 $X$ 经过Self-Attention之后的新向量为 $Y =( y_0,y_1, …,y_n)$， $y_i$为序列中第i个字的新生成的字向量，即：</p>
+<script type="math/tex; mode=display">
+Y = f(X, K, X)</script><p>如果不考虑最后的Softmax，可以理解为 $y_i$是由 $x_0,x_1, …,x_n$ 按照一定比例相加产生的。</p>
+<p>这样的过程可以用来表示序列中每个字对于其他字不同的影响。</p>
+<h4 id="Position-Embedding"><a href="#Position-Embedding" class="headerlink" title="Position Embedding"></a>Position Embedding</h4><p>上文提到Attention可以看成是所有人散布在操场上，每个人之间没有顺序关系，但是每个人都随身携带一个对讲机，可以和任意一个直接通信。这样却有一个明显的缺点，那就是序列中所有的字失去的原有的顺序关系，因为它们可以直接通信，所以并不知道它们之间的相互字符距离，而这个字符距离或者说字符的顺序在很多场景是必不可少的。比如在翻译任务中，“人吃肉”和“肉吃人”肯定不是一个相同的意思，失去顺序信息可能导致每个字的意思都翻译出来了，但是句子意思截然不同。</p>
+<p>为了解决个问题，Google引入了”位置向量”——“Position Embedding”，通过给每一个位置编一个号，让每一个编号对应一个字向量，从而和字向量一起加入到模型中，在纯Attention模型中，Position Embedding是位置信息的唯一来源，因此它是模型的核心成分之一。</p>
+<p>在Google的论文中，直接给出了这个“Position Embedding”的计算方法，和以往的由模型学习产生不同，论文中的“Position Embedding”是由公式直接计算出来的。</p>
+<script type="math/tex; mode=display">
+\begin{cases}
+PE(pos,2i)=sin(p/10000^{2i/d_{pos}}) \\
+PE(pos,2i+1)=cos(p/10000^{2i/d_{pos}})
+\end{cases}</script><p>Google在论文中也提到，他们尝试过直接训练出来的位置向量，和公式计算出来的位置向量，模型效果基本一致。并且公式计算的方式可以满足模型推理时序列长度长于模型训练的情况。</p>
+<h4 id="计算复杂度"><a href="#计算复杂度" class="headerlink" title="计算复杂度"></a>计算复杂度</h4><p><img src="./complexity.png" style="zoom:67%;"></p>
+<p>上图是论文中的每一层Attention与RNN以及CNN相比较的复杂度，n表示序列中字的个数，d表示字向量的长度，k表示CNN层卷积核的大小，r表示restrict Attention中相邻字的长度。</p>
+<p>由于一般来说，一个序列中的相关联的字距离不会很大，即使是一句较长的序列，一般相关字距离也就几十。而目前预训练模型一般设置字向量的长度为512、768甚至1024等，要大于序列长度，所以从这个角度来看，Attention的计算复杂度要低于RNN。</p>
+<h3 id="不足之处"><a href="#不足之处" class="headerlink" title="不足之处"></a>不足之处</h3><p>上面介绍了一些Attention的好处，但是它也有不足之处。首先Attention失去了位置信息，使用Position Embedding来弥补这一缺点，但是Position Emdedding对位置的表达能力有限，对于翻译任务表现还好，但是对于序列标注任务就有所力不从心了。我曾经尝试过使用self-Attention于序列标注的任务，加入Position Emdedding之后效果几乎没有提升。由此看出Attention想要完全代替RNN是不现实的，它们各有自己的擅长范围，我们应该组合着使用。</p>
 
             </div>
             <hr />
@@ -721,33 +619,33 @@ Hello <span class="token number">4</span> end! <span class="token punctuation">(
                         上一篇
                     </div>
                     <div class="card">
-                        <a href="/2021/05/03/yu-yan-mo-xing-gai-shu/">
+                        <a href="/2021/04/02/python-xie-cheng/">
                             <div class="card-image">
                                 
                                         
 
                                             <!-- 3/22修改： -->
-                                            <img src="https://s4.ax1x.com/2022/02/08/HlQdD1.jpg" class="responsive-img" alt="语言模型概述">
+                                            <img src="https://s4.ax1x.com/2022/02/08/HlQnjs.jpg" class="responsive-img" alt="python协程入门">
                                             
-                                                <span class="card-title">语言模型概述</span>
+                                                <span class="card-title">python协程入门</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    语言模型（Language Model），是对语句的概率分布的建模。对于语言模型，输入为字或者单词组成的序列，输出为这个序列的概率。
+                                    python并发编程中的协程。协程，又称微线程，英文名Coroutine，是运行在单线程中的“并发”，协程相比多线程的一大优势就是省去了多线程之间的切换开销，获得了更高的运行效率。
                                         
                             </div>
                             <div class="publish-info">
                                 <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2021-05-03
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2021-04-02
                         </span>
                                 <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/NLP/" class="post-category" target="_blank">
-                                    NLP
+                            <a href="/categories/python/" class="post-category" target="_blank">
+                                    python
                                 </a>
                             
                             
@@ -757,12 +655,8 @@ Hello <span class="token number">4</span> end! <span class="token punctuation">(
                         
                             <div class="card-action article-tags">
                                 
-                                    <a href="/tags/语言模型/" target="_blank">
-                                        <span class="chip bg-color">语言模型</span>
-                                    </a>
-                                    
-                                    <a href="/tags/概述/" target="_blank">
-                                        <span class="chip bg-color">概述</span>
+                                    <a href="/tags/并发编程/" target="_blank">
+                                        <span class="chip bg-color">并发编程</span>
                                     </a>
                                     
                             </div>
@@ -776,31 +670,31 @@ Hello <span class="token number">4</span> end! <span class="token punctuation">(
                                     下一篇&nbsp;<i class="fa fa-chevron-right"></i>
                                 </div>
                                 <div class="card">
-                                    <a href="/2021/03/10/attention-is-all-you-need/">
+                                    <a href="/2021/01/01/zheng-ze-biao-da-shi-yu-python-zheng-ze/">
                                         <div class="card-image">
                                             
                                                     
-                                                        <img src="https://s4.ax1x.com/2022/02/08/HlQpjA.jpg" class="responsive-img" alt="Attention is all you need">
+                                                        <img src="https://s4.ax1x.com/2022/02/08/HlQ1EV.jpg" class="responsive-img" alt="正则表达式与python正则">
                                                         
-                                                            <span class="card-title">Attention is all you need</span>
+                                                            <span class="card-title">正则表达式与python正则</span>
                                         </div>
                                     </a>
                                     <div class="card-content article-content">
                                         <div class="summary block-with-text">
                                             
-                                                这是Google公司在2017年发表的一篇论文，论文提出了一种新的结构来“代替”RNN或者CNN的结构，确实是一种比较新颖的操作。
+                                                正则表达式是一种语言，它使用单个字符串来描述、匹配一系列匹配某个句法规则的字符序列，能帮助你方便的检查一个字符串是否与某种模式匹配。
                                                     
                                         </div>
                                         <div class="publish-info">
                                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-03-10
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-01-01
                             </span>
                                             <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/NLP/" class="post-category" target="_blank">
-                                    NLP
+                            <a href="/categories/python/" class="post-category" target="_blank">
+                                    python
                                 </a>
                             
                             
@@ -810,8 +704,8 @@ Hello <span class="token number">4</span> end! <span class="token punctuation">(
                                     
                                         <div class="card-action article-tags">
                                             
-                                                <a href="/tags/Attention/" target="_blank">
-                                                    <span class="chip bg-color">Attention</span>
+                                                <a href="/tags/正则表达式/" target="_blank">
+                                                    <span class="chip bg-color">正则表达式</span>
                                                 </a>
                                                 
                                         </div>
@@ -961,6 +855,25 @@ Hello <span class="token number">4</span> end! <span class="token punctuation">(
 </main>
 
 
+    <script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script>
+        MathJax.Hub.Config({
+            tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+        });
+    </script>
+    
+    <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+    <!-- 代码语言 -->
+    <script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+    <!-- 代码块复制 -->
+    <script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+    <script type="text/javascript" src="/libs/codeBlock/clipboard.min.js"></script>
+    <!-- 代码块收缩 -->
+    <script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script> 
+    <!-- 代码块折行 -->
+    <style type="text/css">code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }</style>
+    
+    
                 <footer class="page-footer bg-color">
     <div class="container row center-align">
         <div class="col s12 m8 l8 copy-right">
