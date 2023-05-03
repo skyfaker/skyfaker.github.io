@@ -2,12 +2,12 @@
 <html lang="zh-CN">
 
 
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
     <meta charset="utf-8">
     <meta name="keywords" content="一道编程题——判断链表是否有环, 深度学习 | 数据挖掘">
-    <meta name="baidu-site-verification" content="fmlEuI34ir">
-    <meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48">
-    <meta name="360-site-verification" content="b7c11a830ef90fd1464ad6206bb7b6e7">
+    <meta name="baidu-site-verification" content="fmlEuI34ir" />
+    <meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48" />
+    <meta name="360-site-verification" content="b7c11a830ef90fd1464ad6206bb7b6e7" />
     <meta name="description" content="题目描述判断给定的一个链表中是否有环。如果有环则返回true，否则返回false。需要给出空间复杂度为O(1)的解法。
 题目分析这一题困难之处在于解法的空间复杂度需要满足O(1)。
 
@@ -69,6 +69,7 @@
         })();
     </script>
 
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="SKYFAKER" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
@@ -322,8 +323,8 @@
 
 
 <!-- 3/22: 这里修改了推荐页文章点击进去之后的图片路径 -->
-<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.iohttps://s4.ax1x.com/2022/02/08/HlQiHP.jpg');"> -->
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://s4.ax1x.com/2022/02/08/HlQiHP.jpg');">
+<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.iohttps://s4.ax1x.com/2022/02/08/HlQpjA.jpg');"> -->
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://s4.ax1x.com/2022/02/08/HlQpjA.jpg');">
 
     <div class="container">
         <div class="row">
@@ -443,7 +444,7 @@
                     
                     <div class="article-tag">
                         
-                        <a href="/tags/编程算法/" target="_blank">
+                        <a href="/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95/" target="_blank">
                             <span class="chip bg-color">编程算法</span>
                         </a>
                         
@@ -455,7 +456,7 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                        <a href="/categories/算法/" class="post-category" target="_blank">
+                        <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category" target="_blank">
                             算法
                         </a>
                         
@@ -481,7 +482,7 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    520
+                    532
                 </div>
                 
 
@@ -506,58 +507,58 @@
             <div id="articleContent">
                 <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>判断给定的一个链表中是否有环。如果有环则返回true，否则返回false。需要给出空间复杂度为O(1)的解法。</p>
 <h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>这一题困难之处在于解法的空间复杂度需要满足O(1)。</p>
-<p><img src="./1.png" style="zoom:50%"></p>
+<p><img src = './1.png' style = 'zoom:50%'/></p>
 <p>上图就是链表存在环的情况，画这个图的目的是表明，有环就2种情况，一是开始不是环，后面部分组成环。二是整个链表就是一个循环单链表。不会存在开始有环而链表尾不属于环的情况。</p>
 <p>而单链表有环的本质是链表中存在链表节点出现了2次。</p>
 <p>最简单的解法，是遍历链表，将链表的节点元素加入到一个哈希表中，哈希表发生冲突则表明有2个节点重复，即为有环。对于python来说，可以把链表元素加入到集合（ <code>set</code> ）中，判断是否重复出现。</p>
 <p>当然，这种解法的空间复杂度为 <code>O(n)</code>，不满足题目要求。</p>
 <h3 id="快慢指针"><a href="#快慢指针" class="headerlink" title="快慢指针"></a>快慢指针</h3><p>在来链表操作中，如果需要满足空间复杂度为 <code>O（1）</code> ，则常用到快慢指针，比如一个指针快而一个指针慢，或者一个指针先走一个后走。</p>
 <p>本地设置2个指针，一个慢指针每次遍历一个节点，另外一个快指针每次遍历2个节点，如果存在环，则快指针先进入环，等到慢指针进入环后，快指针将与慢指针相遇。</p>
-<h4 id="python"><a href="#python" class="headerlink" title="python"></a>python</h4><pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 思路比较简单，不再注释，详细见上述介绍</span>
-<span class="token comment" spellcheck="true"># class ListNode:</span>
-<span class="token comment" spellcheck="true">#     def __init__(self, x):</span>
-<span class="token comment" spellcheck="true">#         self.val = x</span>
-<span class="token comment" spellcheck="true">#         self.next = None</span>
+<h4 id="python"><a href="#python" class="headerlink" title="python"></a>python</h4><pre class="line-numbers language-lang-python"><code class="language-lang-python"># 思路比较简单，不再注释，详细见上述介绍
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
 
-<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">hasCycle</span><span class="token punctuation">(</span>self <span class="token punctuation">,</span> head <span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token comment" spellcheck="true"># write code here</span>
-        <span class="token keyword">if</span> <span class="token operator">not</span> head<span class="token punctuation">:</span>
-            <span class="token keyword">return</span> <span class="token boolean">False</span>
-        slow_p <span class="token operator">=</span> fast_p <span class="token operator">=</span> head
-        <span class="token keyword">while</span><span class="token punctuation">(</span>fast_p <span class="token operator">and</span> fast_p<span class="token punctuation">.</span>next<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            fast_p <span class="token operator">=</span> fast_p<span class="token punctuation">.</span>next<span class="token punctuation">.</span>next
-            slow_p <span class="token operator">=</span> slow_p<span class="token punctuation">.</span>next
-            <span class="token keyword">if</span> fast_p <span class="token operator">==</span> slow_p<span class="token punctuation">:</span>
-                <span class="token keyword">return</span> <span class="token boolean">True</span>
-        <span class="token keyword">return</span> <span class="token boolean">False</span>
+class Solution:
+    def hasCycle(self , head ):
+        # write code here
+        if not head:
+            return False
+        slow_p = fast_p = head
+        while(fast_p and fast_p.next):
+            fast_p = fast_p.next.next
+            slow_p = slow_p.next
+            if fast_p == slow_p:
+                return True
+        return False
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="c"><a href="#c" class="headerlink" title="c++"></a>c++</h4><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">/**
+<h4 id="c"><a href="#c" class="headerlink" title="c++"></a>c++</h4><pre class="line-numbers language-lang-cpp"><code class="language-lang-cpp">/**
  * Definition for singly-linked list.
- * struct ListNode {
+ * struct ListNode &#123;
  *     int val;
  *     ListNode *next;
- *     ListNode(int x) : val(x), next(NULL) {}
- * };
- */</span>
-<span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
-<span class="token keyword">public</span><span class="token operator">:</span>
-    <span class="token keyword">bool</span> <span class="token function">hasCycle</span><span class="token punctuation">(</span>ListNode <span class="token operator">*</span>head<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>head<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        ListNode<span class="token operator">*</span> slow_p <span class="token operator">=</span> head<span class="token punctuation">;</span>
-        ListNode<span class="token operator">*</span> fast_p <span class="token operator">=</span> head<span class="token punctuation">;</span>
-        <span class="token keyword">while</span><span class="token punctuation">(</span>fast_p <span class="token operator">&amp;&amp;</span> fast_p<span class="token operator">-</span><span class="token operator">></span>next<span class="token punctuation">)</span><span class="token punctuation">{</span>
-            fast_p <span class="token operator">=</span> fast_p<span class="token operator">-</span><span class="token operator">></span>next<span class="token operator">-</span><span class="token operator">></span>next<span class="token punctuation">;</span>
-            slow_p <span class="token operator">=</span> slow_p<span class="token operator">-</span><span class="token operator">></span>next<span class="token punctuation">;</span>
-            <span class="token keyword">if</span><span class="token punctuation">(</span>fast_p <span class="token operator">==</span> slow_p<span class="token punctuation">)</span><span class="token punctuation">{</span>
-                <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
+ *     ListNode(int x) : val(x), next(NULL) &#123;&#125;
+ * &#125;;
+ */
+class Solution &#123;
+public:
+    bool hasCycle(ListNode *head) &#123;
+        if(!head) &#123;
+            return false;
+        &#125;
+        ListNode* slow_p = head;
+        ListNode* fast_p = head;
+        while(fast_p && fast_p->next)&#123;
+            fast_p = fast_p->next->next;
+            slow_p = slow_p->next;
+            if(fast_p == slow_p)&#123;
+                return true;
+            &#125;
+        &#125;
+        return false;
+    &#125;
+&#125;;
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
@@ -632,7 +633,7 @@
                                         
 
                                             <!-- 3/22修改： -->
-                                            <img src="https://s4.ax1x.com/2022/02/08/HlMXtO.jpg" class="responsive-img" alt="一道编程题——判断二叉树是否对称">
+                                            <img src="https://s4.ax1x.com/2022/02/08/HlMb0x.jpg" class="responsive-img" alt="一道编程题——判断二叉树是否对称">
                                             
                                                 <span class="card-title">一道编程题——判断二叉树是否对称</span>
                             </div>
@@ -651,7 +652,7 @@
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/算法/" class="post-category" target="_blank">
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category" target="_blank">
                                     算法
                                 </a>
                             
@@ -662,7 +663,7 @@
                         
                             <div class="card-action article-tags">
                                 
-                                    <a href="/tags/编程算法/" target="_blank">
+                                    <a href="/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95/" target="_blank">
                                         <span class="chip bg-color">编程算法</span>
                                     </a>
                                     
@@ -681,7 +682,7 @@
                                         <div class="card-image">
                                             
                                                     
-                                                        <img src="https://s4.ax1x.com/2022/02/08/HlQScd.jpg" class="responsive-img" alt="一道编程题——按组翻转链表">
+                                                        <img src="https://s4.ax1x.com/2022/02/08/HlMjhD.jpg" class="responsive-img" alt="一道编程题——按组翻转链表">
                                                         
                                                             <span class="card-title">一道编程题——按组翻转链表</span>
                                         </div>
@@ -700,7 +701,7 @@
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/算法/" class="post-category" target="_blank">
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category" target="_blank">
                                     算法
                                 </a>
                             
@@ -711,7 +712,7 @@
                                     
                                         <div class="card-action article-tags">
                                             
-                                                <a href="/tags/编程算法/" target="_blank">
+                                                <a href="/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95/" target="_blank">
                                                     <span class="chip bg-color">编程算法</span>
                                                 </a>
                                                 
@@ -869,7 +870,7 @@
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">57.4k</span>
+                <span class="white-color">56.5k</span>
                 
 
                     <br>

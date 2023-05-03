@@ -2,12 +2,12 @@
 <html lang="zh-CN">
 
 
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
     <meta charset="utf-8">
     <meta name="keywords" content="hexo加速计划, 深度学习 | 数据挖掘">
-    <meta name="baidu-site-verification" content="fmlEuI34ir">
-    <meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48">
-    <meta name="360-site-verification" content="b7c11a830ef90fd1464ad6206bb7b6e7">
+    <meta name="baidu-site-verification" content="fmlEuI34ir" />
+    <meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48" />
+    <meta name="360-site-verification" content="b7c11a830ef90fd1464ad6206bb7b6e7" />
     <meta name="description" content="前段时间，朋友和我说访问我的博客页面速度很慢，加载要很久。我纳闷，不对啊，不久前还测试过呢，速度蛮快的啊。又清除了缓存测试了一遍，发现还是很快就可以加载。最后一对比，发现原来我加载快是因为我设置了代理，而没有设置代理的国内其他用户访问的速度">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -66,6 +66,7 @@
         })();
     </script>
 
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="SKYFAKER" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
@@ -319,8 +320,8 @@
 
 
 <!-- 3/22: 这里修改了推荐页文章点击进去之后的图片路径 -->
-<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.iohttps://s4.ax1x.com/2022/02/08/HlQ3NT.jpg');"> -->
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://s4.ax1x.com/2022/02/08/HlQ3NT.jpg');">
+<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.iohttps://s4.ax1x.com/2022/02/08/HlQMBq.jpg');"> -->
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://s4.ax1x.com/2022/02/08/HlQMBq.jpg');">
 
     <div class="container">
         <div class="row">
@@ -440,7 +441,7 @@
                     
                     <div class="article-tag">
                         
-                        <a href="/tags/hexo加速/" target="_blank">
+                        <a href="/tags/hexo%E5%8A%A0%E9%80%9F/" target="_blank">
                             <span class="chip bg-color">hexo加速</span>
                         </a>
                         
@@ -506,7 +507,7 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p>前段时间，朋友和我说访问我的博客页面速度很慢，加载要很久。我纳闷，不对啊，不久前还测试过呢，速度蛮快的啊。又清除了缓存测试了一遍，发现还是很快就可以加载。最后一对比，发现原来我加载快是因为我设置了代理，而没有设置代理的国内其他用户访问的速度就很不稳定。</p>
-<p><img src="https://z3.ax1x.com/2021/03/26/6vWsBt.jpg" alt="加速前加载时间" style="zoom:40%;"></p>
+<p><img src="https://z3.ax1x.com/2021/03/26/6vWsBt.jpg" alt='加速前加载时间' style="zoom:40%;" /></p>
 <p>而因为github服务器在国外，国内访问速度很不稳定，导致部署在GitHub Page上的hexo页面加载很慢，就会严重影响访问体验。经过多次测试，发现白天的时候，访问速度非常慢，大约30s才能加载一篇博客，而图片更多的首页则要接近一分钟。而到了晚上12点之后，访问速度会有所提升。</p>
 <p>总而言之，为了加快博客访问速度，对Hexo的加速计划已经是势在必行了。</p>
 <p>根据上面的加载时间图，发现影响加载时间的文件主要是img文件和js文件，因此加速计划也主要针对这些文件。</p>
@@ -527,7 +528,7 @@
 <p>考虑到图床的优点，建议大家找一个稳定的图床。</p>
 <h4 id="CDN"><a href="#CDN" class="headerlink" title="CDN"></a>CDN</h4><p>CDN（Content Delivery Network，内容分发网络），通过在网络各处部署节点服务器，实现将源站内容分发至所有CDN节点，使用户可以就近获得所需的内容。CDN服务缩短了用户查看内容的访问延迟，提高了用户访问网站的响应速度与网站的可用性，解决了网络带宽小、用户访问量大、网点分布不均等问题。</p>
 <p>简单来说，就是将网站进行备份，放在不同的服务器，不同的用户请求网站，就会转到自己访问最快的服务器。</p>
-<p>CDN的效果是很棒的，但是一般来说要收费，这里用到的是一个免费的CDN——<a href="https://www.jsdelivr.com/" target="_blank" rel="noopener">jsDelivr</a>。</p>
+<p>CDN的效果是很棒的，但是一般来说要收费，这里用到的是一个免费的CDN——<a target="_blank" rel="noopener" href="https://www.jsdelivr.com/">jsDelivr</a>。</p>
 <p>jsdelivr+github是一个非常棒的组合，jsdelivr的首页就有介绍如何使用GitHub的资源。</p>
 <h4 id="Coding"><a href="#Coding" class="headerlink" title="Coding"></a>Coding</h4><p>把博客迁移到coding.net，就和部署在GitHub上一样，对于国内访问，coding有很大的优势。不过迁移到coding还需要重新配置hexo和域名等，稍有点麻烦，并且在coding部署的页面需要在页面中声明由coding提供支持。</p>
 <p>之前在网上看到由方法可以同时部署在coding和GitHub上，并且实现分流，国内自动解析到coding，而其他用户会自动访问到GitHub。不过也有人说这种方法会导致coding不稳定，这里我也没有尝试过，只是提供一个思路，感兴趣的朋友可以去试试。</p>
@@ -537,7 +538,7 @@
 <p>不过要小心的是，如果被运营商发现，IP会被封。尽量不要使用80端口和443端口。</p>
 <h3 id="选定方案"><a href="#选定方案" class="headerlink" title="选定方案"></a>选定方案</h3><p>首先，压缩文件对于网络影响不大，排除。其次，搬迁到coding工程量较大，暂定。服务器方案成本较高，待定。</p>
 <p>最终方案为CDN加图床。</p>
-<h4 id="CDN-1"><a href="#CDN-1" class="headerlink" title="CDN"></a>CDN</h4><p>CDN选用<a href="https://www.jsdelivr.com/" target="_blank" rel="noopener">jsDelivr</a>，效果不错并且免费。jsDelivr也有一个缺点，在CDN中缓存的文件很难更新，因为对外不提供清除缓存的接口，修改文件之后只能等到它自己检查文件更新。测试下来，css文件和js文件大概要1-2天时间才会更新，所以推荐长期不会变动的数据放在上面。针对缓存问题，jsDelivr有了一个接口，用来清除缓存，但是测试下来完全没用，后来查了之后发现需要发邮件去申请这个权限。</p>
+<h4 id="CDN-1"><a href="#CDN-1" class="headerlink" title="CDN"></a>CDN</h4><p>CDN选用<a target="_blank" rel="noopener" href="https://www.jsdelivr.com/">jsDelivr</a>，效果不错并且免费。jsDelivr也有一个缺点，在CDN中缓存的文件很难更新，因为对外不提供清除缓存的接口，修改文件之后只能等到它自己检查文件更新。测试下来，css文件和js文件大概要1-2天时间才会更新，所以推荐长期不会变动的数据放在上面。针对缓存问题，jsDelivr有了一个接口，用来清除缓存，但是测试下来完全没用，后来查了之后发现需要发邮件去申请这个权限。</p>
 <p>下面简单记录以下jsdelivr的使用方法：</p>
 <p>以我托管博客的 GitHub 仓库为例，地址是 <code>https://github.com/skyfaker/skyfaker.github.io</code>，那它里面的资源可以直接以 <code>https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/</code> + <code>仓库里的文件路径</code> 来访问。</p>
 <p>比如说，仓库中有个文件为<code>medias/banner/1.jpg</code>。</p>
@@ -552,12 +553,12 @@
 </code></pre><h5 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h5><p>针对我的matery主题，虽然主页面图片很多，但所有的图片都是固定的，也就是说长期不会变动的，这个很适合放在jsdelivr上面。同样的，js文件和css文件也可以这样操作。</p>
 <p>修改页面图片主要包括2处，最上面的大图和每一个博客卡片封面的小图。</p>
 <p>大图地址为<code>hexo\themes\matery\layout\_partial\bg-cover-content.ejs</code>:</p>
-<p><img src="https://z3.ax1x.com/2021/03/26/6vWrnI.jpg" style="zoom:45%;"></p>
+<p><img src="https://z3.ax1x.com/2021/03/26/6vWrnI.jpg" style="zoom:45%;" /></p>
 <p>只要在原始路径前加上<code>https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/</code>即可。</p>
 <p>卡片封面图为<code>hexo\themes\matery\layout\_partial\index.ejs</code>:</p>
-<p><img src="https://z3.ax1x.com/2021/03/26/6vW0cd.jpg" style="zoom:60%;"></p>
+<p><img src="https://z3.ax1x.com/2021/03/26/6vW0cd.jpg" style="zoom:60%;" /></p>
 <p>js文件和css文件修改同理，找到对应的地方，把引用本地文件改为引用jsdelivr中CDN的地址即可。</p>
-<p><img src="https://z3.ax1x.com/2021/03/26/6vWBjA.jpg" style="zoom:50%;"></p>
+<p><img src="https://z3.ax1x.com/2021/03/26/6vWBjA.jpg" style="zoom:50%;" /></p>
 <h4 id="图床-1"><a href="#图床-1" class="headerlink" title="图床"></a>图床</h4><p>一般而言，写博客比较多的作者会打开 <code>post_asset_folder</code> 选项，便于管理博客资源文件：</p>
 <blockquote>
 <p>对于那些想要更有规律地提供图片和其他资源以及想要将他们的资源分布在各个文章上的人来说，Hexo也提供了更组织化的方式来管理资源。这个稍微有些复杂但是管理资源非常方便的功能可以通过将 <code>config.yml</code> 文件中的 <code>post_asset_folder</code> 选项设为 <code>true</code> 来打开。</p>
@@ -569,7 +570,7 @@
 <p>因此，为了实时性和加载性能，决定把一些图片较多的博客土拍你搬移到图床上。这里还是建立如果要使用图床，一定要选择一个有保障的、能够持久运营的。</p>
 <p>图床的使用就简单多了，先把图片上传到图床，图床生成图片链接，就像引用网络图片一样引用这个链接即可。</p>
 <h3 id="加速效果"><a href="#加速效果" class="headerlink" title="加速效果"></a>加速效果</h3><p>同样关闭代理，清除缓存，在使用jsdelivr之后，主页基本可以做到秒开：</p>
-<p><img src="https://z3.ax1x.com/2021/03/26/6vWyHP.png" style="zoom:40%;"></p>
+<p><img src="https://z3.ax1x.com/2021/03/26/6vWyHP.png" style="zoom:40%;" /></p>
 <p>使用了图床之后，博客文章页也达到了差不多的效果，终于又可以愉快地写博客了。</p>
 
             </div>
@@ -644,7 +645,7 @@
                                         
 
                                             <!-- 3/22修改： -->
-                                            <img src="https://s4.ax1x.com/2022/02/08/HlQPBt.jpg" class="responsive-img" alt="激活函数与评价指标">
+                                            <img src="https://s4.ax1x.com/2022/02/08/HlQScd.jpg" class="responsive-img" alt="激活函数与评价指标">
                                             
                                                 <span class="card-title">激活函数与评价指标</span>
                             </div>
@@ -663,7 +664,7 @@
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/深度学习/" class="post-category" target="_blank">
+                            <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="post-category" target="_blank">
                                     深度学习
                                 </a>
                             
@@ -674,7 +675,7 @@
                         
                             <div class="card-action article-tags">
                                 
-                                    <a href="/tags/模型/" target="_blank">
+                                    <a href="/tags/%E6%A8%A1%E5%9E%8B/" target="_blank">
                                         <span class="chip bg-color">模型</span>
                                     </a>
                                     
@@ -693,7 +694,7 @@
                                         <div class="card-image">
                                             
                                                     
-                                                        <img src="https://s4.ax1x.com/2022/02/08/HlQwHx.jpg" class="responsive-img" alt="一道编程题——合并K个有序链表">
+                                                        <img src="https://s4.ax1x.com/2022/02/08/HlMHn1.jpg" class="responsive-img" alt="一道编程题——合并K个有序链表">
                                                         
                                                             <span class="card-title">一道编程题——合并K个有序链表</span>
                                         </div>
@@ -712,7 +713,7 @@
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/算法/" class="post-category" target="_blank">
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category" target="_blank">
                                     算法
                                 </a>
                             
@@ -723,7 +724,7 @@
                                     
                                         <div class="card-action article-tags">
                                             
-                                                <a href="/tags/编程算法/" target="_blank">
+                                                <a href="/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95/" target="_blank">
                                                     <span class="chip bg-color">编程算法</span>
                                                 </a>
                                                 
@@ -881,7 +882,7 @@
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">57.4k</span>
+                <span class="white-color">56.5k</span>
                 
 
                     <br>

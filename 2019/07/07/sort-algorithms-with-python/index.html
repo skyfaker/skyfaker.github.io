@@ -2,12 +2,12 @@
 <html lang="zh-CN">
 
 
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
     <meta charset="utf-8">
     <meta name="keywords" content="常见排序算法实现与比较——Python版, 深度学习 | 数据挖掘">
-    <meta name="baidu-site-verification" content="fmlEuI34ir">
-    <meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48">
-    <meta name="360-site-verification" content="b7c11a830ef90fd1464ad6206bb7b6e7">
+    <meta name="baidu-site-verification" content="fmlEuI34ir" />
+    <meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48" />
+    <meta name="360-site-verification" content="b7c11a830ef90fd1464ad6206bb7b6e7" />
     <meta name="description" content="前言本文用Python实现列几种排序算法（冒泡排序、选择排序、插入排序、二分插入排序、快速排序、优化快速排序，并比较了他们在随机数组上的排序效率。
 本文并不会详细讲解每种排序算法的原理。
 性质汇总
@@ -77,6 +77,7 @@
         })();
     </script>
 
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="SKYFAKER" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
@@ -330,8 +331,8 @@
 
 
 <!-- 3/22: 这里修改了推荐页文章点击进去之后的图片路径 -->
-<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.iohttps://s4.ax1x.com/2022/02/08/HlMb0x.jpg');"> -->
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://s4.ax1x.com/2022/02/08/HlMb0x.jpg');">
+<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.iohttps://s4.ax1x.com/2022/02/08/HlMoc9.jpg');"> -->
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://s4.ax1x.com/2022/02/08/HlMoc9.jpg');">
 
     <div class="container">
         <div class="row">
@@ -455,7 +456,7 @@
                             <span class="chip bg-color">Python</span>
                         </a>
                         
-                        <a href="/tags/编程算法/" target="_blank">
+                        <a href="/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95/" target="_blank">
                             <span class="chip bg-color">编程算法</span>
                         </a>
                         
@@ -467,7 +468,7 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                        <a href="/categories/算法/" class="post-category" target="_blank">
+                        <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category" target="_blank">
                             算法
                         </a>
                         
@@ -493,14 +494,14 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.6k
+                    435
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    6 分
+                    1 分
                 </div>
                 
                 
@@ -577,100 +578,100 @@
 <h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><ul>
 <li>本次几个算法均没有返回值，直接对原数组进行操作。</li>
 </ul>
-<h3 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h3><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">from</span> time <span class="token keyword">import</span> time
-<span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
+<h3 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h3><pre class="line-numbers language-lang-python"><code class="language-lang-python">from time import time
+import numpy as np
 
-<span class="token keyword">def</span> <span class="token function">timer</span><span class="token punctuation">(</span>fc<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">f</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        before <span class="token operator">=</span> time<span class="token punctuation">(</span><span class="token punctuation">)</span>
-        fc<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"time: "</span><span class="token punctuation">,</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-</span>before<span class="token punctuation">)</span>
-    <span class="token keyword">return</span> f
+def timer(fc):
+    def f(x):
+        before = time()
+        fc(x)
+        print("time: ",time()-before)
+    return f
 
-<span class="token comment" spellcheck="true"># 冒泡排序</span>
+# 冒泡排序
 @timer
-<span class="token keyword">def</span> <span class="token function">bubble_sort</span><span class="token punctuation">(</span>ls<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token comment" spellcheck="true"># assert type(ls) == list, "参数类型不为List"</span>
-    j <span class="token operator">=</span> len<span class="token punctuation">(</span>ls<span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span>
-    <span class="token keyword">while</span> j<span class="token operator">></span><span class="token number">0</span><span class="token punctuation">:</span>
-        flag <span class="token operator">=</span> <span class="token boolean">True</span> <span class="token comment" spellcheck="true"># 如果某一次遍历过程没有发生元素交换，则已经有序，后续不需要再执行了</span>
-        <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>j<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            <span class="token keyword">if</span> ls<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">></span>ls<span class="token punctuation">[</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
-                flag <span class="token operator">=</span> <span class="token boolean">False</span>
-                ls<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> ls<span class="token punctuation">[</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> ls<span class="token punctuation">[</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> ls<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
-        <span class="token keyword">if</span> flag<span class="token punctuation">:</span><span class="token keyword">return</span>
-        j<span class="token operator">-=</span><span class="token number">1</span>
+def bubble_sort(ls):
+    # assert type(ls) == list, "参数类型不为List"
+    j = len(ls)-1
+    while j>0:
+        flag = True # 如果某一次遍历过程没有发生元素交换，则已经有序，后续不需要再执行了
+        for i in range(j):
+            if ls[i]>ls[i+1]:
+                flag = False
+                ls[i], ls[i+1] = ls[i+1], ls[i]
+        if flag:return
+        j-=1
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>1-9行，实现了一个装饰器，用来给算法计时。</p>
 <p>11-23行，实现了一个冒泡排序算法，并稍微做了一点优化，一旦每一轮遍历没有改变元素顺序，则表示数组已经有序，后续的循环不需要再执行了。</p>
-<h3 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h3><pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 选择排序</span>
+<h3 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h3><pre class="line-numbers language-lang-python"><code class="language-lang-python"># 选择排序
 @timer
-<span class="token keyword">def</span> <span class="token function">choose_sort</span><span class="token punctuation">(</span>ls<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>len<span class="token punctuation">(</span>ls<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        tmp <span class="token operator">=</span> ls<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
-        pos <span class="token operator">=</span> i
-        <span class="token keyword">for</span> j <span class="token keyword">in</span> range<span class="token punctuation">(</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span> len<span class="token punctuation">(</span>ls<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-            <span class="token keyword">if</span> ls<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">&lt;</span>tmp<span class="token punctuation">:</span>
-                pos <span class="token operator">=</span> j
-                tmp <span class="token operator">=</span> ls<span class="token punctuation">[</span>j<span class="token punctuation">]</span>
-        <span class="token keyword">if</span> i<span class="token operator">!=</span>pos<span class="token punctuation">:</span>
-            ls<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> ls<span class="token punctuation">[</span>pos<span class="token punctuation">]</span> <span class="token operator">=</span> ls<span class="token punctuation">[</span>pos<span class="token punctuation">]</span><span class="token punctuation">,</span> ls<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+def choose_sort(ls):
+    for i in range(len(ls)):
+        tmp = ls[i]
+        pos = i
+        for j in range(i+1, len(ls)):
+            if ls[j]<tmp:
+                pos = j
+                tmp = ls[j]
+        if i!=pos:
+            ls[i], ls[pos] = ls[pos], ls[i]
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>选择排序的思路也很简单，虽然时间复杂度和冒泡排序一样为$O（n^2）$,但是随机情况下，速度大约比冒泡快一倍。</p>
-<h3 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h3><pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 插入排序，在近似有序的数组上表现最优</span>
+<h3 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h3><pre class="line-numbers language-lang-python"><code class="language-lang-python"># 插入排序，在近似有序的数组上表现最优
 @timer
-<span class="token keyword">def</span> <span class="token function">insert_sort</span><span class="token punctuation">(</span>ls<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> len<span class="token punctuation">(</span>ls<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">if</span> ls<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">&lt;</span>ls<span class="token punctuation">[</span>i<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
-            tmp <span class="token operator">=</span> ls<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
-            j <span class="token operator">=</span> i<span class="token number">-1</span>
-            <span class="token keyword">while</span> j<span class="token operator">>=</span><span class="token number">0</span> <span class="token operator">and</span> tmp <span class="token operator">&lt;</span> ls<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">:</span>
-                ls<span class="token punctuation">[</span>j<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> ls<span class="token punctuation">[</span>j<span class="token punctuation">]</span>
-                j<span class="token operator">-=</span><span class="token number">1</span>
-            ls<span class="token punctuation">[</span>j<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> tmp
+def insert_sort(ls):
+    for i in range(1, len(ls)):
+        if ls[i]<ls[i-1]:
+            tmp = ls[i]
+            j = i-1
+            while j>=0 and tmp < ls[j]:
+                ls[j+1] = ls[j]
+                j-=1
+            ls[j+1] = tmp
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>插入排序类似于人打扑克牌时对牌进行的排序。速度上比冒泡略快，比选择排序略慢。</p>
 <p>在近似有序的数组上，插入排序的表现是最好的。</p>
-<h3 id="折半插入排序"><a href="#折半插入排序" class="headerlink" title="折半插入排序"></a>折半插入排序</h3><pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 二分插入排序</span>
+<h3 id="折半插入排序"><a href="#折半插入排序" class="headerlink" title="折半插入排序"></a>折半插入排序</h3><pre class="line-numbers language-lang-python"><code class="language-lang-python"># 二分插入排序
 @timer
-<span class="token keyword">def</span> <span class="token function">binary_insert_sort</span><span class="token punctuation">(</span>ls<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> len<span class="token punctuation">(</span>ls<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        tmp <span class="token operator">=</span> ls<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
-        low <span class="token operator">=</span> <span class="token number">0</span> 
-        high <span class="token operator">=</span> i<span class="token number">-1</span>
+def binary_insert_sort(ls):
+    for i in range(1, len(ls)):
+        tmp = ls[i]
+        low = 0 
+        high = i-1
 
-        <span class="token keyword">while</span> low <span class="token operator">&lt;=</span> high<span class="token punctuation">:</span>
-            middle <span class="token operator">=</span> int<span class="token punctuation">(</span><span class="token punctuation">(</span>low <span class="token operator">+</span> high<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">)</span>
-            <span class="token keyword">if</span> tmp <span class="token operator">></span> ls<span class="token punctuation">[</span>middle<span class="token punctuation">]</span><span class="token punctuation">:</span>
-                low <span class="token operator">=</span> middle<span class="token operator">+</span><span class="token number">1</span>
-            <span class="token keyword">else</span><span class="token punctuation">:</span>
-                high <span class="token operator">=</span> middle<span class="token number">-1</span>
-        <span class="token keyword">for</span> j <span class="token keyword">in</span> range<span class="token punctuation">(</span>i<span class="token punctuation">,</span> low<span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-            ls<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> ls<span class="token punctuation">[</span>j<span class="token number">-1</span><span class="token punctuation">]</span>
-        ls<span class="token punctuation">[</span>low<span class="token punctuation">]</span> <span class="token operator">=</span> tmp
+        while low <= high:
+            middle = int((low + high) / 2)
+            if tmp > ls[middle]:
+                low = middle+1
+            else:
+                high = middle-1
+        for j in range(i, low, -1):
+            ls[j] = ls[j-1]
+        ls[low] = tmp
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>折半插入排序也叫二分插入排序，使用二分法来寻找插入的位置。在随机情况和最差情况下，表现比普通插入排序好得多，但在近似有序的数组上，表现不如普通插入排序。</p>
-<h3 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h3><pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 快速排序, 为了使用装饰器，多做了一层封装</span>
+<h3 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h3><pre class="line-numbers language-lang-python"><code class="language-lang-python"># 快速排序, 为了使用装饰器，多做了一层封装
 @timer
-<span class="token keyword">def</span> <span class="token function">quick_sort</span><span class="token punctuation">(</span>ls<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">partition</span><span class="token punctuation">(</span>low<span class="token punctuation">,</span> high<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        pos <span class="token operator">=</span> low
-        tmp <span class="token operator">=</span> ls<span class="token punctuation">[</span>low<span class="token punctuation">]</span>
-        <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>low<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span> high<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-            <span class="token keyword">if</span> ls<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;</span> tmp<span class="token punctuation">:</span>
-                pos<span class="token operator">+=</span><span class="token number">1</span>
-                <span class="token keyword">if</span> pos<span class="token operator">!=</span>i<span class="token punctuation">:</span>
-                    ls<span class="token punctuation">[</span>pos<span class="token punctuation">]</span><span class="token punctuation">,</span> ls<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> ls<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> ls<span class="token punctuation">[</span>pos<span class="token punctuation">]</span>
-        ls<span class="token punctuation">[</span>pos<span class="token punctuation">]</span><span class="token punctuation">,</span> ls<span class="token punctuation">[</span>low<span class="token punctuation">]</span> <span class="token operator">=</span> ls<span class="token punctuation">[</span>low<span class="token punctuation">]</span><span class="token punctuation">,</span> ls<span class="token punctuation">[</span>pos<span class="token punctuation">]</span> 
-        <span class="token keyword">return</span> pos
+def quick_sort(ls):
+    def partition(low, high):
+        pos = low
+        tmp = ls[low]
+        for i in range(low+1, high+1):
+            if ls[i] < tmp:
+                pos+=1
+                if pos!=i:
+                    ls[pos], ls[i] = ls[i], ls[pos]
+        ls[pos], ls[low] = ls[low], ls[pos] 
+        return pos
 
-    <span class="token keyword">def</span> <span class="token function">sort</span><span class="token punctuation">(</span>left<span class="token punctuation">,</span> right<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">if</span> left <span class="token operator">&lt;</span> right<span class="token punctuation">:</span>
-            pos <span class="token operator">=</span> partition<span class="token punctuation">(</span>left<span class="token punctuation">,</span> right<span class="token punctuation">)</span>
-            sort<span class="token punctuation">(</span>left<span class="token punctuation">,</span> pos<span class="token number">-1</span><span class="token punctuation">)</span>
-            sort<span class="token punctuation">(</span>pos<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>right<span class="token punctuation">)</span>
+    def sort(left, right):
+        if left < right:
+            pos = partition(left, right)
+            sort(left, pos-1)
+            sort(pos+1,right)
 
-    sort<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> len<span class="token punctuation">(</span>ls<span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span>
+    sort(0, len(ls)-1)
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>快速排序无愧于它的名字，数据量大的时候效率很高，在大多数计算机上，快速排序表现得都比其他几个排序方法要好。</p>
 <p>但是，我们也得清楚快速排序的缺点。</p>
@@ -679,45 +680,45 @@
 <li>快速排序的趟数取决于的递归树的深度。倘若每次快排都可以把数组划分为2个大小相同的数组，递归树的深度可以达到最小$O(logn)$，而对于有序数组，递归树退化为单枝树，递归树的深度达到 $O(n)$，排序时速度退化到简单排序的水平。不仅需要大量的存储空间，还会有“爆栈”的风险。</li>
 <li>数据量小的时候，不适用与快速排序，可以选插入排序。研究表明，数组长度为5—25的时候，使用插入排序要比快速排序至少快10%。</li>
 </ol>
-<h3 id="优化后的快速排序"><a href="#优化后的快速排序" class="headerlink" title="优化后的快速排序"></a>优化后的快速排序</h3><pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 插入排序优化后的快速排序，解决快排在小数据量的排序效率低下问题</span>
+<h3 id="优化后的快速排序"><a href="#优化后的快速排序" class="headerlink" title="优化后的快速排序"></a>优化后的快速排序</h3><pre class="line-numbers language-lang-python"><code class="language-lang-python"># 插入排序优化后的快速排序，解决快排在小数据量的排序效率低下问题
 @timer
-<span class="token keyword">def</span> <span class="token function">quick_sort_insert</span><span class="token punctuation">(</span>ls<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token comment" spellcheck="true"># 插入排序</span>
-    <span class="token keyword">def</span> <span class="token function">insert_sort</span><span class="token punctuation">(</span>low<span class="token punctuation">,</span> high<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>low<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span> high<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            <span class="token keyword">if</span> ls<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;</span> ls<span class="token punctuation">[</span>i<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
-                tmp <span class="token operator">=</span> ls<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
-                j <span class="token operator">=</span> i<span class="token number">-1</span>
-                <span class="token keyword">while</span> j<span class="token operator">>=</span><span class="token number">0</span> <span class="token operator">and</span> tmp <span class="token operator">&lt;</span> ls<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">:</span>
-                    ls<span class="token punctuation">[</span>j<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> ls<span class="token punctuation">[</span>j<span class="token punctuation">]</span>
-                    j<span class="token operator">-=</span><span class="token number">1</span>
-                ls<span class="token punctuation">[</span>j<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> tmp
+def quick_sort_insert(ls):
+    # 插入排序
+    def insert_sort(low, high):
+        for i in range(low+1, high):
+            if ls[i] < ls[i-1]:
+                tmp = ls[i]
+                j = i-1
+                while j>=0 and tmp < ls[j]:
+                    ls[j+1] = ls[j]
+                    j-=1
+                ls[j+1] = tmp
 
-    <span class="token keyword">def</span> <span class="token function">partition</span><span class="token punctuation">(</span>low<span class="token punctuation">,</span> high<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        pos <span class="token operator">=</span> low
-        tmp <span class="token operator">=</span> ls<span class="token punctuation">[</span>low<span class="token punctuation">]</span>
-        <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>low<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span> high<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-            <span class="token keyword">if</span> ls<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;</span> tmp<span class="token punctuation">:</span>
-                pos<span class="token operator">+=</span><span class="token number">1</span>
-                <span class="token keyword">if</span> pos<span class="token operator">!=</span>i<span class="token punctuation">:</span>
-                    ls<span class="token punctuation">[</span>pos<span class="token punctuation">]</span><span class="token punctuation">,</span> ls<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> ls<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> ls<span class="token punctuation">[</span>pos<span class="token punctuation">]</span>
-        ls<span class="token punctuation">[</span>pos<span class="token punctuation">]</span><span class="token punctuation">,</span> ls<span class="token punctuation">[</span>low<span class="token punctuation">]</span> <span class="token operator">=</span> ls<span class="token punctuation">[</span>low<span class="token punctuation">]</span><span class="token punctuation">,</span> ls<span class="token punctuation">[</span>pos<span class="token punctuation">]</span> 
-        <span class="token keyword">return</span> pos
+    def partition(low, high):
+        pos = low
+        tmp = ls[low]
+        for i in range(low+1, high+1):
+            if ls[i] < tmp:
+                pos+=1
+                if pos!=i:
+                    ls[pos], ls[i] = ls[i], ls[pos]
+        ls[pos], ls[low] = ls[low], ls[pos] 
+        return pos
 
-    <span class="token keyword">def</span> <span class="token function">sort</span><span class="token punctuation">(</span>left<span class="token punctuation">,</span> right<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">if</span> left <span class="token operator">&lt;</span> right<span class="token number">-20</span><span class="token punctuation">:</span>
-            pos <span class="token operator">=</span> partition<span class="token punctuation">(</span>left<span class="token punctuation">,</span> right<span class="token punctuation">)</span>
-            sort<span class="token punctuation">(</span>left<span class="token punctuation">,</span> pos<span class="token number">-1</span><span class="token punctuation">)</span>
-            sort<span class="token punctuation">(</span>pos<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>right<span class="token punctuation">)</span>
-        <span class="token keyword">else</span><span class="token punctuation">:</span>
-            insert_sort<span class="token punctuation">(</span>left<span class="token punctuation">,</span> right<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span>
+    def sort(left, right):
+        if left < right-20:
+            pos = partition(left, right)
+            sort(left, pos-1)
+            sort(pos+1,right)
+        else:
+            insert_sort(left, right+1)
 
-    sort<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> len<span class="token punctuation">(</span>ls<span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span>
+    sort(0, len(ls)-1)
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>当数组或者子数组的长度在20以下，使用直接插入排序代替快速排序。另外，我们也可以从数组中随机选择一个数作为基准，而不是总是使用数组的第一个元素作为基准，这样可以避免在近似有序情况下，快速排序的退化问题。</p>
 <h2 id="性能比较"><a href="#性能比较" class="headerlink" title="性能比较"></a>性能比较</h2><p>测试方法，随机生成一个长度为1W的数组</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 利用numpy，从0到5W生成一个长度1W的数组</span>
-ls <span class="token operator">=</span> np<span class="token punctuation">.</span>random<span class="token punctuation">.</span>randint<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">50000</span><span class="token punctuation">,</span><span class="token number">10000</span><span class="token punctuation">)</span>
+<pre class="line-numbers language-lang-python"><code class="language-lang-python"># 利用numpy，从0到5W生成一个长度1W的数组
+ls = np.random.randint(0,50000,10000)
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>比较上述几种排序方法的运行时间：</p>
 <pre><code>冒泡排序：31.1s
@@ -801,7 +802,7 @@ ls <span class="token operator">=</span> np<span class="token punctuation">.</sp
                                         
 
                                             <!-- 3/22修改： -->
-                                            <img src="https://s4.ax1x.com/2022/02/08/HlMoc9.jpg" class="responsive-img" alt="三元组损失模型">
+                                            <img src="https://s4.ax1x.com/2022/02/08/HlMb0x.jpg" class="responsive-img" alt="三元组损失模型">
                                             
                                                 <span class="card-title">三元组损失模型</span>
                             </div>
@@ -820,7 +821,7 @@ ls <span class="token operator">=</span> np<span class="token punctuation">.</sp
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/深度学习/" class="post-category" target="_blank">
+                            <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="post-category" target="_blank">
                                     深度学习
                                 </a>
                             
@@ -831,11 +832,11 @@ ls <span class="token operator">=</span> np<span class="token punctuation">.</sp
                         
                             <div class="card-action article-tags">
                                 
-                                    <a href="/tags/图像分类/" target="_blank">
+                                    <a href="/tags/%E5%9B%BE%E5%83%8F%E5%88%86%E7%B1%BB/" target="_blank">
                                         <span class="chip bg-color">图像分类</span>
                                     </a>
                                     
-                                    <a href="/tags/三元组损失/" target="_blank">
+                                    <a href="/tags/%E4%B8%89%E5%85%83%E7%BB%84%E6%8D%9F%E5%A4%B1/" target="_blank">
                                         <span class="chip bg-color">三元组损失</span>
                                     </a>
                                     
@@ -854,7 +855,7 @@ ls <span class="token operator">=</span> np<span class="token punctuation">.</sp
                                         <div class="card-image">
                                             
                                                     
-                                                        <img src="https://s4.ax1x.com/2022/02/08/HlQCnI.jpg" class="responsive-img" alt="Matplotlib 可视化">
+                                                        <img src="https://s4.ax1x.com/2022/02/08/HlMz1H.jpg" class="responsive-img" alt="Matplotlib 可视化">
                                                         
                                                             <span class="card-title">Matplotlib 可视化</span>
                                         </div>
@@ -873,7 +874,7 @@ ls <span class="token operator">=</span> np<span class="token punctuation">.</sp
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/工具方法/" class="post-category" target="_blank">
+                            <a href="/categories/%E5%B7%A5%E5%85%B7%E6%96%B9%E6%B3%95/" class="post-category" target="_blank">
                                     工具方法
                                 </a>
                             
@@ -1065,7 +1066,7 @@ ls <span class="token operator">=</span> np<span class="token punctuation">.</sp
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">57.4k</span>
+                <span class="white-color">56.5k</span>
                 
 
                     <br>

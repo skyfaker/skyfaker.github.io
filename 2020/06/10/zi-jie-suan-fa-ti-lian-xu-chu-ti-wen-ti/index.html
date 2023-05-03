@@ -2,12 +2,12 @@
 <html lang="zh-CN">
 
 
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
     <meta charset="utf-8">
     <meta name="keywords" content="字节算法题——连续出题问题, 深度学习 | 数据挖掘">
-    <meta name="baidu-site-verification" content="fmlEuI34ir">
-    <meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48">
-    <meta name="360-site-verification" content="b7c11a830ef90fd1464ad6206bb7b6e7">
+    <meta name="baidu-site-verification" content="fmlEuI34ir" />
+    <meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48" />
+    <meta name="360-site-verification" content="b7c11a830ef90fd1464ad6206bb7b6e7" />
     <meta name="description" content="题目描述每个出题人都出了一些有趣的题目，现在想把这些题目组合成若干场考试出来，在选题之前，我们定出了每道题的难度系统。一场考试包含3道开放性题目，假设他们的难度从小到大分别为a,b,c，我们希望这3道题能满足下列条件：a&amp;lt;=b&amp;lt;">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -66,6 +66,7 @@
         })();
     </script>
 
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="SKYFAKER" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
@@ -319,8 +320,8 @@
 
 
 <!-- 3/22: 这里修改了推荐页文章点击进去之后的图片路径 -->
-<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.iohttps://s4.ax1x.com/2022/02/08/HlQ84U.jpg');"> -->
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://s4.ax1x.com/2022/02/08/HlQ84U.jpg');">
+<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.iohttps://s4.ax1x.com/2022/02/08/HlQQH0.jpg');"> -->
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://s4.ax1x.com/2022/02/08/HlQQH0.jpg');">
 
     <div class="container">
         <div class="row">
@@ -440,11 +441,11 @@
                     
                     <div class="article-tag">
                         
-                        <a href="/tags/编程算法/" target="_blank">
+                        <a href="/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95/" target="_blank">
                             <span class="chip bg-color">编程算法</span>
                         </a>
                         
-                        <a href="/tags/字节/" target="_blank">
+                        <a href="/tags/%E5%AD%97%E8%8A%82/" target="_blank">
                             <span class="chip bg-color">字节</span>
                         </a>
                         
@@ -456,7 +457,7 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                        <a href="/categories/算法/" class="post-category" target="_blank">
+                        <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category" target="_blank">
                             算法
                         </a>
                         
@@ -482,14 +483,14 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    838
+                    527
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    2 分
                 </div>
                 
                 
@@ -514,84 +515,84 @@
 <p>4:第二个数-第一个数小于10,而第三个数-第二个数大于10,前两个题目为一组,需要添加1个题目。</p>
 <p>第三点和第四点再写法上可以并为一点。</p>
 <p>最后剩下的可能为1或者2个数,再判断一次即可。</p>
-<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><h3 id="python实现"><a href="#python实现" class="headerlink" title="python实现"></a>python实现</h3><pre class="line-numbers language-python"><code class="language-python">n <span class="token operator">=</span> int<span class="token punctuation">(</span>input<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-ques <span class="token operator">=</span> sorted<span class="token punctuation">(</span>map<span class="token punctuation">(</span>int<span class="token punctuation">,</span> input<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><h3 id="python实现"><a href="#python实现" class="headerlink" title="python实现"></a>python实现</h3><pre class="line-numbers language-lang-python"><code class="language-lang-python">n = int(input().split()[0])
+ques = sorted(map(int, input().split()))
 
-re <span class="token operator">=</span> <span class="token number">0</span>
-pos <span class="token operator">=</span> <span class="token number">0</span>
-<span class="token keyword">while</span><span class="token punctuation">(</span>n<span class="token operator">-</span>pos<span class="token operator">>=</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token comment" spellcheck="true"># max((b-a), (c-b))&lt;=10,即三个题目可以分为一组</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token punctuation">(</span>ques<span class="token punctuation">[</span>pos<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">-</span>ques<span class="token punctuation">[</span>pos<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">&lt;=</span><span class="token number">10</span> <span class="token operator">and</span> <span class="token punctuation">(</span>ques<span class="token punctuation">[</span>pos<span class="token operator">+</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token operator">-</span>ques<span class="token punctuation">[</span>pos<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">&lt;=</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        pos<span class="token operator">+=</span><span class="token number">3</span>
-    <span class="token comment" spellcheck="true"># 前两个相差大于20,至少需要增加2题</span>
-    <span class="token keyword">elif</span><span class="token punctuation">(</span><span class="token punctuation">(</span>ques<span class="token punctuation">[</span>pos<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">-</span>ques<span class="token punctuation">[</span>pos<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">></span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        re<span class="token operator">+=</span><span class="token number">2</span>
-        pos<span class="token operator">+=</span><span class="token number">1</span>
-    <span class="token comment" spellcheck="true"># 前两个可以为一组</span>
-    <span class="token keyword">else</span><span class="token punctuation">:</span>
-        re<span class="token operator">+=</span><span class="token number">1</span>
-        pos<span class="token operator">+=</span><span class="token number">2</span>
-<span class="token comment" spellcheck="true"># 剩余1个题目</span>
-<span class="token keyword">if</span><span class="token punctuation">(</span>n<span class="token operator">-</span>pos<span class="token operator">==</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    re<span class="token operator">+=</span><span class="token number">2</span>
-<span class="token comment" spellcheck="true"># 剩余2个题目,有2种情况,一种增加一个题目,另一种增加4个题目</span>
-<span class="token keyword">elif</span><span class="token punctuation">(</span>n<span class="token operator">-</span>pos<span class="token operator">==</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token punctuation">[</span>a<span class="token punctuation">,</span>b<span class="token punctuation">]</span> <span class="token operator">=</span> ques<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">:</span><span class="token punctuation">]</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token punctuation">(</span>b<span class="token operator">-</span>a<span class="token punctuation">)</span><span class="token operator">&lt;=</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        re<span class="token operator">+=</span><span class="token number">1</span>
-    <span class="token keyword">else</span><span class="token punctuation">:</span>
-        re<span class="token operator">+=</span><span class="token number">4</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>re<span class="token punctuation">)</span>
+re = 0
+pos = 0
+while(n-pos>=3):
+    # max((b-a), (c-b))<=10,即三个题目可以分为一组
+    if((ques[pos+1]-ques[pos])<=10 and (ques[pos+2]-ques[pos+1])<=10):
+        pos+=3
+    # 前两个相差大于20,至少需要增加2题
+    elif((ques[pos+1]-ques[pos])>20):
+        re+=2
+        pos+=1
+    # 前两个可以为一组
+    else:
+        re+=1
+        pos+=2
+# 剩余1个题目
+if(n-pos==1):
+    re+=2
+# 剩余2个题目,有2种情况,一种增加一个题目,另一种增加4个题目
+elif(n-pos==2):
+    [a,b] = ques[-2:]
+    if((b-a)<=20):
+        re+=1
+    else:
+        re+=4
+print(re)
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="C-实现"><a href="#C-实现" class="headerlink" title="C++实现"></a>C++实现</h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;iostream></span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;vector></span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;algorithm></span></span>
-<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+<h3 id="C-实现"><a href="#C-实现" class="headerlink" title="C++实现"></a>C++实现</h3><pre class="line-numbers language-lang-cpp"><code class="language-lang-cpp">#include<iostream>
+#include<vector>
+#include<algorithm>
+using namespace std;
 
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token keyword">int</span> n<span class="token punctuation">;</span>
-    cin<span class="token operator">>></span>n<span class="token punctuation">;</span>
-    vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> <span class="token function">ques</span><span class="token punctuation">(</span>n<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        cin<span class="token operator">>></span>ques<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token comment" spellcheck="true">// 排序</span>
-    <span class="token function">sort</span><span class="token punctuation">(</span>ques<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> ques<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">int</span> re <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-    <span class="token keyword">int</span> pos <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">// 遍历</span>
-    <span class="token keyword">while</span><span class="token punctuation">(</span>n<span class="token operator">-</span>pos<span class="token operator">>=</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token comment" spellcheck="true">// max((b-a), (c-b))&lt;=10,即三个题目可以分为一组</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token punctuation">(</span>ques<span class="token punctuation">[</span>pos<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">-</span>ques<span class="token punctuation">[</span>pos<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">&lt;=</span><span class="token number">10</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>ques<span class="token punctuation">[</span>pos<span class="token operator">+</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token operator">-</span>ques<span class="token punctuation">[</span>pos<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">&lt;=</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            pos<span class="token operator">+</span><span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token comment" spellcheck="true">// 前两个相差大于20,至少需要增加2题</span>
-        <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token punctuation">(</span>ques<span class="token punctuation">[</span>pos<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">-</span>ques<span class="token punctuation">[</span>pos<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">></span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            re<span class="token operator">+</span><span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">;</span>
-            pos<span class="token operator">+</span><span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token comment" spellcheck="true">// 前两个可以为一组</span>
-        <span class="token keyword">else</span><span class="token punctuation">{</span>
-            re<span class="token operator">+</span><span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
-            pos<span class="token operator">+</span><span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>   
-    <span class="token punctuation">}</span>
-    <span class="token comment" spellcheck="true">// 剩余2个题目,有2种情况,一种增加一个题目,另一种增加4个题目</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span>n<span class="token operator">-</span>pos<span class="token operator">==</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token punctuation">(</span>ques<span class="token punctuation">[</span>pos<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">-</span> ques<span class="token punctuation">[</span>pos<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">&lt;=</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            re<span class="token operator">+</span><span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">else</span><span class="token punctuation">{</span>
-            re<span class="token operator">+</span><span class="token operator">=</span><span class="token number">4</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-    <span class="token comment" spellcheck="true">// 剩余1个题目,增加2题</span>
-    <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>n<span class="token operator">-</span>pos<span class="token operator">==</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        re<span class="token operator">+</span><span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    cout<span class="token operator">&lt;&lt;</span> re <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
-    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+int main()&#123;
+    int n;
+    cin>>n;
+    vector<int> ques(n,0);
+    for(int i=0;i<n;i++)&#123;
+        cin>>ques[i];
+    &#125;
+    // 排序
+    sort(ques.begin(), ques.end());
+    int re = 0;
+    int pos = 0;
+    // 遍历
+    while(n-pos>=3)&#123;
+        // max((b-a), (c-b))<=10,即三个题目可以分为一组
+        if((ques[pos+1]-ques[pos])<=10 && (ques[pos+2]-ques[pos+1])<=10)&#123;
+            pos+=3;
+        &#125;
+        // 前两个相差大于20,至少需要增加2题
+        else if((ques[pos+1]-ques[pos])>20)&#123;
+            re+=2;
+            pos+=1;
+        &#125;
+        // 前两个可以为一组
+        else&#123;
+            re+=1;
+            pos+=2;
+        &#125;   
+    &#125;
+    // 剩余2个题目,有2种情况,一种增加一个题目,另一种增加4个题目
+    if(n-pos==2)&#123;
+        if((ques[pos+1] - ques[pos])<=20)&#123;
+            re+=1;
+        &#125;
+        else&#123;
+            re+=4;
+        &#125;
+    &#125;
+    // 剩余1个题目,增加2题
+    else if(n-pos==1)&#123;
+        re+=2;
+    &#125;
+    cout<< re << endl;
+    return 0;
+&#125;
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
@@ -666,7 +667,7 @@ pos <span class="token operator">=</span> <span class="token number">0</span>
                                         
 
                                             <!-- 3/22修改： -->
-                                            <img src="https://s4.ax1x.com/2022/02/08/HlQQH0.jpg" class="responsive-img" alt="字节算法题——机器人跳跃">
+                                            <img src="https://s4.ax1x.com/2022/02/08/HlQ84U.jpg" class="responsive-img" alt="字节算法题——机器人跳跃">
                                             
                                                 <span class="card-title">字节算法题——机器人跳跃</span>
                             </div>
@@ -685,7 +686,7 @@ pos <span class="token operator">=</span> <span class="token number">0</span>
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/算法/" class="post-category" target="_blank">
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category" target="_blank">
                                     算法
                                 </a>
                             
@@ -696,11 +697,11 @@ pos <span class="token operator">=</span> <span class="token number">0</span>
                         
                             <div class="card-action article-tags">
                                 
-                                    <a href="/tags/编程算法/" target="_blank">
+                                    <a href="/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95/" target="_blank">
                                         <span class="chip bg-color">编程算法</span>
                                     </a>
                                     
-                                    <a href="/tags/字节/" target="_blank">
+                                    <a href="/tags/%E5%AD%97%E8%8A%82/" target="_blank">
                                         <span class="chip bg-color">字节</span>
                                     </a>
                                     
@@ -719,7 +720,7 @@ pos <span class="token operator">=</span> <span class="token number">0</span>
                                         <div class="card-image">
                                             
                                                     
-                                                        <img src="https://s4.ax1x.com/2022/02/08/HlQkAf.jpg" class="responsive-img" alt="字节算法题——字典序">
+                                                        <img src="https://s4.ax1x.com/2022/02/08/HlQe3Q.jpg" class="responsive-img" alt="字节算法题——字典序">
                                                         
                                                             <span class="card-title">字节算法题——字典序</span>
                                         </div>
@@ -738,7 +739,7 @@ pos <span class="token operator">=</span> <span class="token number">0</span>
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/算法/" class="post-category" target="_blank">
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category" target="_blank">
                                     算法
                                 </a>
                             
@@ -749,11 +750,11 @@ pos <span class="token operator">=</span> <span class="token number">0</span>
                                     
                                         <div class="card-action article-tags">
                                             
-                                                <a href="/tags/编程算法/" target="_blank">
+                                                <a href="/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95/" target="_blank">
                                                     <span class="chip bg-color">编程算法</span>
                                                 </a>
                                                 
-                                                <a href="/tags/字节/" target="_blank">
+                                                <a href="/tags/%E5%AD%97%E8%8A%82/" target="_blank">
                                                     <span class="chip bg-color">字节</span>
                                                 </a>
                                                 
@@ -911,7 +912,7 @@ pos <span class="token operator">=</span> <span class="token number">0</span>
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">57.4k</span>
+                <span class="white-color">56.5k</span>
                 
 
                     <br>

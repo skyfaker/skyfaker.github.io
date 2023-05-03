@@ -2,14 +2,14 @@
 <html lang="zh-CN">
 
 
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
     <meta charset="utf-8">
     <meta name="keywords" content="神经网络语言模型, 深度学习 | 数据挖掘">
-    <meta name="baidu-site-verification" content="fmlEuI34ir">
-    <meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48">
-    <meta name="360-site-verification" content="b7c11a830ef90fd1464ad6206bb7b6e7">
+    <meta name="baidu-site-verification" content="fmlEuI34ir" />
+    <meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48" />
+    <meta name="360-site-verification" content="b7c11a830ef90fd1464ad6206bb7b6e7" />
     <meta name="description" content="神经网络语言模型N-gram语言模型接收离散向量作为输入，一般来说，这些输入都是由词典中的词使用one-hot编码之后获得，因此也引入了one-hot编码的一些弊端。
-从语义相似性的角度，{“猎豹”，“花豹”}要比{“猎豹”，“汽车”}的语">
+从语义相似性的角度，&amp;#123;“猎豹”，“花豹”&amp;#125;要比&amp;#1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -67,6 +67,7 @@
         })();
     </script>
 
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="SKYFAKER" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
@@ -320,8 +321,8 @@
 
 
 <!-- 3/22: 这里修改了推荐页文章点击进去之后的图片路径 -->
-<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.iohttps://s4.ax1x.com/2022/02/08/HlQ84U.jpg');"> -->
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://s4.ax1x.com/2022/02/08/HlQ84U.jpg');">
+<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.iohttps://s4.ax1x.com/2022/02/08/HlQQH0.jpg');"> -->
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://s4.ax1x.com/2022/02/08/HlQQH0.jpg');">
 
     <div class="container">
         <div class="row">
@@ -441,11 +442,11 @@
                     
                     <div class="article-tag">
                         
-                        <a href="/tags/语言模型/" target="_blank">
+                        <a href="/tags/%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/" target="_blank">
                             <span class="chip bg-color">语言模型</span>
                         </a>
                         
-                        <a href="/tags/神经网络/" target="_blank">
+                        <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" target="_blank">
                             <span class="chip bg-color">神经网络</span>
                         </a>
                         
@@ -507,13 +508,13 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="神经网络语言模型"><a href="#神经网络语言模型" class="headerlink" title="神经网络语言模型"></a>神经网络语言模型</h2><p>N-gram语言模型接收离散向量作为输入，一般来说，这些输入都是由词典中的词使用one-hot编码之后获得，因此也引入了one-hot编码的一些弊端。</p>
-<p>从语义相似性的角度，<code>{“猎豹”，“花豹”}</code>要比<code>{“猎豹”，“汽车”}</code>的语义相似度更高，在很多句子中，<code>“猎豹”</code>与<code>“花豹”</code>是可以相互替换的，这表明从语法规则上来说，这两个词的语义也更相似。但是经过one-hot编码之后的词与词之间失去了语义关联，因为编码后的任意两个向量都是单位向量且彼此正交，因此任意两个向量之间的距离都相等，即词与词之间丢失了距离信息。这一点严重限制了N-gram模型的性能。</p>
+<p>从语义相似性的角度，<code>&#123;“猎豹”，“花豹”&#125;</code>要比<code>&#123;“猎豹”，“汽车”&#125;</code>的语义相似度更高，在很多句子中，<code>“猎豹”</code>与<code>“花豹”</code>是可以相互替换的，这表明从语法规则上来说，这两个词的语义也更相似。但是经过one-hot编码之后的词与词之间失去了语义关联，因为编码后的任意两个向量都是单位向量且彼此正交，因此任意两个向量之间的距离都相等，即词与词之间丢失了距离信息。这一点严重限制了N-gram模型的性能。</p>
 <p>N-gram模型无法解决长距离依赖（long dependency）问题。一般在使用N-gram模型时，N的取值为3~5，因为超过5之后模型性能的提升不大，但是计算复杂度却大幅增加。</p>
 <p>前馈神经网络语言模型通过结合词向量（word embedding）和前馈神经网络来解决上面两个问题。</p>
 <p>前馈神经网络语言模型接收低维稠密向量作为输入，这些低位稠密向量由one-hot编码之后的高维稀疏向量训练产生，在训练过程中，高维稀疏向量经过学习与压缩，维度降低且学习到了词汇之间的语义关系。</p>
 <p>语言模型本质是计算  $P（w_1,w_2,w_3,…,w_n）$，即给定句子的概率分布，而神经网络强大的非线性拟合能力很适合拟合概率分布。并且神经网络模型可以获取到当前词汇下文的信息，这一点是N-gram语言模型所不具备的，另外神经网络模型能够利用到的的上下文词汇长度要比N-gram模型长的多，即看到的信息也要更多更广。</p>
 <h4 id="前馈神经网络模型"><a href="#前馈神经网络模型" class="headerlink" title="前馈神经网络模型"></a>前馈神经网络模型</h4><p>神经网络语言模型中最简单的就是前馈神经网络模型。前馈神经网络将 $x_t$ 的前n-1个词的向量进行拼接作为网络输入，经过一次非线性变换，最后输出字典中每个词的概率作为预测结果，其中 $x_t$ 为序列中的第t个词。</p>
-<p><img src="前馈神经网络结构图.png" alt="前馈神经网络结构图" style="zoom:40%;"></p>
+<p><img src="前馈神经网络结构图.png" alt='前馈神经网络结构图' style="zoom:40%;" /></p>
 <p>上述过程主要分为2大步骤：</p>
 <ol>
 <li><p>先将 $x_t$ 前的n-1个单词从词典信息转化为特征向量，这一步通常被称为特征映射或者词嵌入。每个词在词典V（V为词典大小，即词典中词个数）中的index（位置顺序）通过映射矩阵C转换成一个维度为m的特征向量，然后将n-1个单词的特征向量进行拼接，合并成一个（n−1）*m维的向量。</p>
@@ -526,12 +527,12 @@
 <h4 id="循环神经网络语言模型"><a href="#循环神经网络语言模型" class="headerlink" title="循环神经网络语言模型"></a>循环神经网络语言模型</h4><p>前面介绍到的前馈神经网络将一个个的输入单独地送入隐藏层，对于模型来说，在隐藏层之前的输入是隔离开的，前一个输入和后一个输入所携带的信息无法互通。但是，语言模型的一大特点是，即前面的输入和后面的输入是有关联的，这一点在多义词上表现尤为明显。</p>
 <p>比如，<code>“一头牛”</code>和<code>“你真牛”</code>中的同一个<code>“牛”</code>字在不同上下文中的含义不同，甚至词性都不一样，而由于同一个字在词典中出现一次，只有一个index，所以在前馈神经网络中经过特征映射之后只会有一个特征向量，即同一个字在不同的上下文中虽然有不同的含义，却只会有一个固定的特征向量表示，这明显是不合理的。所以很自然的，我们引入了循环神经网络语言模型。</p>
 <p>循环神经网络模型的特殊之处在于每一个RNN神经元不仅接收原始的输入，还会保留上一时刻的隐藏状态，在二者共同作用下生成一个新的输出。</p>
-<p><img src="循环神经网络按时间线展开.png" alt="循环神经网络按时间线展开" style="zoom:30%;"></p>
+<p><img src="循环神经网络按时间线展开.png" alt="循环神经网络按时间线展开" style="zoom:30%;" /></p>
 <p>x为输入向量，s表示隐藏层的值（这一层可以是多个节点），o表示输出层的值。</p>
 <p>对于上图左侧的RNN神经元，如果把右侧W去掉，它就变成了全连接神经网络中的一个神经元。循环神经网络的隐藏层的值s不仅仅取决于当前这次的输入x，还取决于上一次隐藏层的值s。隐藏层上一次的值经过权重矩阵 W之后作为这一次输入的一部分。</p>
-<p>从上图右侧可以看出，t时刻网络接收到输入 $x_t$ 之后，生成输出层结果 $o_t$，而 $o_t$ 不仅仅与输入  $x_t$  有关，也与前一时刻的隐藏层结果 $s_{t-1}$ 有关。在 $s_{t-1}$ 和 $x_t$ 的共同作用下，计算出输出结果 $o_{t}$ ，同时生成 $s_{t}$ 用于下一次计算。通过这种类似接力的方式，每一时刻可以保留部分之前时刻的信息。</p>
+<p>从上图右侧可以看出，t时刻网络接收到输入 $x<em>t$ 之后，生成输出层结果 $o_t$，而 $o_t$ 不仅仅与输入  $x_t$  有关，也与前一时刻的隐藏层结果 $s</em>{t-1}$ 有关。在 $s<em>{t-1}$ 和 $x_t$ 的共同作用下，计算出输出结果 $o</em>{t}$ ，同时生成 $s_{t}$ 用于下一次计算。通过这种类似接力的方式，每一时刻可以保留部分之前时刻的信息。</p>
 <p>通过下图可以明显看出在模型训练过程中，模型可以感受到的文档信息：</p>
-<p><img src="N-gram模型与神经网络模型上下文信息示意图.png" alt="N-gram模型与神经网络模型上下文信息示意图" style="zoom:40%;"></p>
+<p><img src="N-gram模型与神经网络模型上下文信息示意图.png" alt="N-gram模型与神经网络模型上下文信息示意图" style="zoom:40%;" /></p>
 <p>上图为unigram、bigram、前馈神经网络和单向循环神经网络四个模型预测“本”字在当前位置出现的概率，其中蓝框部分为网络可以感受到的字的范围。</p>
 <p>当我们预测“智能文本实战”这个序列中的“本”字的概率时，N-gram模型只能接收到有限范围的信息，例如unigram只包含当前时刻，即“本”一个字的信息，而bigram除了当前字之外，还可以获取到前一个字，即“文本”二字的信息。</p>
 <p>而神经网络模型的感受范围就要广得多，前馈神经网络可以获取到前面数十个字的信息，而循环神经网络则更进一步，每个字都融合了之前字的信息。</p>
@@ -596,32 +597,34 @@
     <article id="prenext-posts" class="prev-next articles">
         <div class="row article-row">
             
-                    <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
-                        <div class="article-badge left-badge text-color">
-                            <i class="fa fa-dot-circle-o"></i>&nbsp;
-                            本篇
-                        </div>
-                        <div class="card">
-                            <a href="/2021/07/06/shen-jing-wang-luo-yu-yan-mo-xing/">
-                                <div class="card-image">
-                                    
+                <div class="article col s12 m6" data-aos="fade-up">
+                    <div class="article-badge left-badge text-color">
+                        <i class="fa fa-chevron-left"></i>&nbsp;
+                        上一篇
+                    </div>
+                    <div class="card">
+                        <a href="/2021/09/01/ner-ji-zhu-de-tan-suo-yu-shi-jian/">
+                            <div class="card-image">
+                                
+                                        
+
+                                            <!-- 3/22修改： -->
+                                            <img src="https://s4.ax1x.com/2022/02/08/HlQZ9g.jpg" class="responsive-img" alt="NER技术的探索与实践">
                                             
-                                                <img src="https://s4.ax1x.com/2022/02/08/HlQ84U.jpg" class="responsive-img" alt="神经网络语言模型">
-                                                
-                                                    <span class="card-title">神经网络语言模型</span>
-                                </div>
-                            </a>
-                            <div class="card-content article-content">
-                                <div class="summary block-with-text">
-                                    
-                                        语言模型本质是计算给定序列的概率，而神经网络强大的非线性拟合能力很适合拟合概率分布。并且神经网络模型可以获取到当前词汇下文的信息，这一点是N-gram语言模型所不具备的，另外神经网络模型能够利用到的的上下文词汇长度要比N-gram模型长的多。
-                                            
-                                </div>
-                                <div class="publish-info">
-                                    <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-07-06
-                            </span>
-                                    <span class="publish-author">
+                                                <span class="card-title">NER技术的探索与实践</span>
+                            </div>
+                        </a>
+                        <div class="card-content article-content">
+                            <div class="summary block-with-text">
+                                
+                                    命名实体识别（Named Entity Recognition，简称NER），是指识别文本中具有特定意义的实体，主要包括人名、地名、机构名、专有名词等，一般的也可以识别特定类型的、人为规定的实体。
+                                        
+                            </div>
+                            <div class="publish-info">
+                                <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2021-09-01
+                        </span>
+                                <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
@@ -631,25 +634,20 @@
                             
                             
                         </span>
-                                </div>
                             </div>
-
-                            
-                                <div class="card-action article-tags">
-                                    
-                                        <a href="/tags/语言模型/" target="_blank">
-                                            <span class="chip bg-color">语言模型</span>
-                                        </a>
-                                        
-                                        <a href="/tags/神经网络/" target="_blank">
-                                            <span class="chip bg-color">神经网络</span>
-                                        </a>
-                                        
-                                </div>
-                                
                         </div>
+                        
+                            <div class="card-action article-tags">
+                                
+                                    <a href="/tags/NER/" target="_blank">
+                                        <span class="chip bg-color">NER</span>
+                                    </a>
+                                    
+                            </div>
+                            
                     </div>
-                    
+                </div>
+                
                         
                             <div class="article col s12 m6" data-aos="fade-up">
                                 <div class="article-badge right-badge text-color">
@@ -660,7 +658,7 @@
                                         <div class="card-image">
                                             
                                                     
-                                                        <img src="https://s4.ax1x.com/2022/02/08/HlMb0x.jpg" class="responsive-img" alt="语言模型——N-gram模型">
+                                                        <img src="https://s4.ax1x.com/2022/02/08/HlMoc9.jpg" class="responsive-img" alt="语言模型——N-gram模型">
                                                         
                                                             <span class="card-title">语言模型——N-gram模型</span>
                                         </div>
@@ -690,7 +688,7 @@
                                     
                                         <div class="card-action article-tags">
                                             
-                                                <a href="/tags/语言模型/" target="_blank">
+                                                <a href="/tags/%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/" target="_blank">
                                                     <span class="chip bg-color">语言模型</span>
                                                 </a>
                                                 
@@ -871,7 +869,7 @@
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">57.4k</span>
+                <span class="white-color">56.5k</span>
                 
 
                     <br>

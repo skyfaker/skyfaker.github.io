@@ -2,12 +2,12 @@
 <html lang="zh-CN">
 
 
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
     <meta charset="utf-8">
     <meta name="keywords" content="数字图像处理——形态学, 深度学习 | 数据挖掘">
-    <meta name="baidu-site-verification" content="fmlEuI34ir">
-    <meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48">
-    <meta name="360-site-verification" content="b7c11a830ef90fd1464ad6206bb7b6e7">
+    <meta name="baidu-site-verification" content="fmlEuI34ir" />
+    <meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48" />
+    <meta name="360-site-verification" content="b7c11a830ef90fd1464ad6206bb7b6e7" />
     <meta name="description" content="图像分类二值图解释：二值图像是指仅仅包括黑色和白色两种颜色的图像，计算机将白色像素点处理为“1”，黑色像素点处理为“0”
 
 灰度图计算机会将灰度处理为256个灰度级，用数值区间[0，255]来表示。其中，数值“255”表示为纯白色，数值“0">
@@ -68,6 +68,7 @@
         })();
     </script>
 
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="SKYFAKER" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
@@ -321,8 +322,8 @@
 
 
 <!-- 3/22: 这里修改了推荐页文章点击进去之后的图片路径 -->
-<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.iohttps://s4.ax1x.com/2022/02/08/HlQZ9g.jpg');"> -->
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://s4.ax1x.com/2022/02/08/HlQZ9g.jpg');">
+<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.iohttps://s4.ax1x.com/2022/02/08/HlQnjs.jpg');"> -->
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://s4.ax1x.com/2022/02/08/HlQnjs.jpg');">
 
     <div class="container">
         <div class="row">
@@ -442,7 +443,7 @@
                     
                     <div class="article-tag">
                         
-                        <a href="/tags/形态学/" target="_blank">
+                        <a href="/tags/%E5%BD%A2%E6%80%81%E5%AD%A6/" target="_blank">
                             <span class="chip bg-color">形态学</span>
                         </a>
                         
@@ -454,7 +455,7 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                        <a href="/categories/图像处理/" class="post-category" target="_blank">
+                        <a href="/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" class="post-category" target="_blank">
                             图像处理
                         </a>
                         
@@ -504,14 +505,14 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="图像分类"><a href="#图像分类" class="headerlink" title="图像分类"></a>图像分类</h2><h3 id="二值图"><a href="#二值图" class="headerlink" title="二值图"></a>二值图</h3><p>解释：二值图像是指仅仅包括黑色和白色两种颜色的图像，计算机将白色像素点处理为“1”，黑色像素点处理为“0”</p>
-<p><img src="erzhi.jpg" alt="二值图" style="zoom:40%;"></p>
+<p><img src="erzhi.jpg" alt="二值图" style="zoom:40%;" /></p>
 <h3 id="灰度图"><a href="#灰度图" class="headerlink" title="灰度图"></a>灰度图</h3><p>计算机会将灰度处理为256个灰度级，用数值区间[0，255]来表示。其中，数值“255”表示为纯白色，数值“0”表示为纯黑色，其余数值表示从纯白到纯黑的数值。</p>
-<p><img src="https://z3.ax1x.com/2021/03/24/6qpYmF.jpg" alt="灰度图" style="zoom:50%;"></p>
+<p><img src="https://z3.ax1x.com/2021/03/24/6qpYmF.jpg" alt="灰度图" style="zoom:50%;" /></p>
 <p>我们常看到的图片都是8位图片，即图片有$2^8 = 256$个灰度级，图片位数越高，灰度级也就越大，图片的细腻程度也会越高。一般来说8位的图片，人眼一般看不出灰度变化，而低于8位，则图片灰度变化时会产生明显的分界面。</p>
 <h3 id="彩色图"><a href="#彩色图" class="headerlink" title="彩色图"></a>彩色图</h3><p>前面的二值图和灰度图，图片深度为1，而我们平时看见最多的为RGB彩色图，它的深度为3。</p>
-<p><img src="https://z3.ax1x.com/2021/03/24/6qptw4.png" style="zoom:50%;"></p>
+<p><img src="https://z3.ax1x.com/2021/03/24/6qptw4.png" style="zoom:50%;" /></p>
 <p>上面的图片就是彩色点，每一个点都表示一种颜色，而这个颜色是由三种颜色R、G、B混合而成的。依次，我们看到的彩色图片的每一个像素点，都是由三种颜色组成的，我们也可以把这三种颜色分离出来。如下图：</p>
-<p><img src="https://z3.ax1x.com/2021/03/24/6qpNTJ.png" alt="三通道分离" style="zoom:50%;"></p>
+<p><img src="https://z3.ax1x.com/2021/03/24/6qpNTJ.png" alt="三通道分离" style="zoom:50%;" /></p>
 <h2 id="空间变换"><a href="#空间变换" class="headerlink" title="空间变换"></a>空间变换</h2><p>由于每一个像素点都有自己的空间位置，并且图片就是由像素点表现出来的，那么我们可以通过改变像素点的位置来使得图片产生相应的变换，这就是图片空间变换。</p>
 <p>空间变换对应矩阵的仿射变换，是指一个坐标通过函数变换的新的坐标位置。<br>从数学上来讲， 就是一个向量空间进行一次线形变换并加上平移向量， 从而变换到另外一个向量空间的过程。<br>向量空间m : $m=(x,y)$<br>向量空间n : $n=(x′,y′)$<br>向量空间从m到n的变换 $n=A∗m+b$<br>    即:</p>
 <script type="math/tex; mode=display">
@@ -542,22 +543,22 @@ M = \begin{bmatrix} {cos\alpha}&{sin\alpha}&{0}\\{-sin\alpha}&{cos\alpha}&{0} \e
 <p>主要的作用有<strong>形态学滤波、连通域分割、连通域拼接、提取图像轮廓、突出图像亮斑或者暗斑等。</strong></p>
 <h3 id="腐蚀（erode）"><a href="#腐蚀（erode）" class="headerlink" title="腐蚀（erode）"></a>腐蚀（erode）</h3><p>腐蚀在于消除一些孤立点, 消除一些边界点. 使边界向内收缩. 我们可以用腐蚀来消除无意义的小点。</p>
 <p>首先需要确定一个核 kernel ， 明确核的尺寸（一般为方阵）与核取值。例如我们确定好这个核的尺寸为3<em>3 。用这个核函数与其覆盖区域的<strong>二值图像</strong>做<em>*与（and）</em></em>操作，如果都为1，将覆盖区域的中心点像素设置为1，否则为0。</p>
-<p><img src="https://z3.ax1x.com/2021/03/24/6qpGOU.png" style="zoom:60%;"></p>
+<p><img src="https://z3.ax1x.com/2021/03/24/6qpGOU.png" style="zoom:60%;" /></p>
 <p>使用的核函数越大，则腐蚀效果越明显。</p>
 <h3 id="膨胀（dilate）"><a href="#膨胀（dilate）" class="headerlink" title="膨胀（dilate）"></a>膨胀（dilate）</h3><p>膨胀与腐蚀其实刚好是一对相反的操作。膨胀是将与物体接触的所有背景点合并到该物体中，使边界向外部扩张的过程。可以用来填补物体中的空洞。</p>
 <p>用核函数与其覆盖的二值图像区域做<strong>或 (or)</strong>操作。如果周边与其自身任意一个点为1，则覆盖区域的中心点像素设置为1, 否则为0。</p>
-<p><img src="https://z3.ax1x.com/2021/03/24/6qp8yT.png" style="zoom:60%;"></p>
+<p><img src="https://z3.ax1x.com/2021/03/24/6qp8yT.png" style="zoom:60%;" /></p>
 <p>同样的，核函数越大，则膨胀的效果越强。</p>
 <p>腐蚀和膨胀都是在二值图片的基础上操作，针对的是二值图中的1，也就是亮点。所以腐蚀之后，图片整体亮度变暗，而膨胀之后整体亮度提高。</p>
 <h3 id="开运算"><a href="#开运算" class="headerlink" title="开运算"></a>开运算</h3><p>开运算（opening） 等于对图像先进行腐蚀（erode） 然后进行膨胀（dilate）。</p>
 <p>开运算其主要作用与腐蚀相似，但与腐蚀操作相比，具有可以基本保持目标原有大小不变的优点。</p>
-<p><img src="opening.jpg" style="zoom:67%;"></p>
+<p><img src="opening.jpg" style="zoom:67%;" /></p>
 <p>开运算先腐蚀再膨胀，主要目标大小可以保持不变，而其中较小的亮点噪声就会再腐蚀过程中被消除，而在膨胀过程中，主要目标大小会被复原，而消除的亮点则不再复原。</p>
 <h3 id="闭运算"><a href="#闭运算" class="headerlink" title="闭运算"></a>闭运算</h3><p>闭运算（closing） 是先对图像进行膨胀, 然后进行腐蚀操作.<br>闭运算用来填充物体内细小空洞、连接邻近物体、平滑其边界的同时并不明显改变其面积。</p>
-<p><img src="closing.jpg" style="zoom:67%;"></p>
+<p><img src="closing.jpg" style="zoom:67%;" /></p>
 <p>闭运算可以消除图像中的黑点。</p>
 <h3 id="形态学梯度"><a href="#形态学梯度" class="headerlink" title="形态学梯度"></a>形态学梯度</h3><p>形态学梯度 = 图像膨胀 - 图像腐蚀，从而获取到图像的边缘。</p>
-<p><img src="grad.jpg" style="zoom:50%;"></p>
+<p><img src="grad.jpg" style="zoom:50%;" /></p>
 
             </div>
             <hr />
@@ -631,7 +632,7 @@ M = \begin{bmatrix} {cos\alpha}&{sin\alpha}&{0}\\{-sin\alpha}&{cos\alpha}&{0} \e
                                         
 
                                             <!-- 3/22修改： -->
-                                            <img src="https://s4.ax1x.com/2022/02/08/HlQpjA.jpg" class="responsive-img" alt="一道编程题——寻找环的入口节点">
+                                            <img src="https://s4.ax1x.com/2022/02/08/HlMx9e.jpg" class="responsive-img" alt="一道编程题——寻找环的入口节点">
                                             
                                                 <span class="card-title">一道编程题——寻找环的入口节点</span>
                             </div>
@@ -650,7 +651,7 @@ M = \begin{bmatrix} {cos\alpha}&{sin\alpha}&{0}\\{-sin\alpha}&{cos\alpha}&{0} \e
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/算法/" class="post-category" target="_blank">
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category" target="_blank">
                                     算法
                                 </a>
                             
@@ -661,7 +662,7 @@ M = \begin{bmatrix} {cos\alpha}&{sin\alpha}&{0}\\{-sin\alpha}&{cos\alpha}&{0} \e
                         
                             <div class="card-action article-tags">
                                 
-                                    <a href="/tags/编程算法/" target="_blank">
+                                    <a href="/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95/" target="_blank">
                                         <span class="chip bg-color">编程算法</span>
                                     </a>
                                     
@@ -680,7 +681,7 @@ M = \begin{bmatrix} {cos\alpha}&{sin\alpha}&{0}\\{-sin\alpha}&{cos\alpha}&{0} \e
                                         <div class="card-image">
                                             
                                                     
-                                                        <img src="https://s4.ax1x.com/2022/02/08/HlQ1EV.jpg" class="responsive-img" alt="一道编程题——合成有序链表">
+                                                        <img src="https://s4.ax1x.com/2022/02/08/HlQJCF.jpg" class="responsive-img" alt="一道编程题——合成有序链表">
                                                         
                                                             <span class="card-title">一道编程题——合成有序链表</span>
                                         </div>
@@ -699,7 +700,7 @@ M = \begin{bmatrix} {cos\alpha}&{sin\alpha}&{0}\\{-sin\alpha}&{cos\alpha}&{0} \e
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/算法/" class="post-category" target="_blank">
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category" target="_blank">
                                     算法
                                 </a>
                             
@@ -710,7 +711,7 @@ M = \begin{bmatrix} {cos\alpha}&{sin\alpha}&{0}\\{-sin\alpha}&{cos\alpha}&{0} \e
                                     
                                         <div class="card-action article-tags">
                                             
-                                                <a href="/tags/编程算法/" target="_blank">
+                                                <a href="/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95/" target="_blank">
                                                     <span class="chip bg-color">编程算法</span>
                                                 </a>
                                                 
@@ -887,7 +888,7 @@ M = \begin{bmatrix} {cos\alpha}&{sin\alpha}&{0}\\{-sin\alpha}&{cos\alpha}&{0} \e
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">57.4k</span>
+                <span class="white-color">56.5k</span>
                 
 
                     <br>

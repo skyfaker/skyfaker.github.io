@@ -2,12 +2,12 @@
 <html lang="zh-CN">
 
 
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
     <meta charset="utf-8">
     <meta name="keywords" content="激活函数与评价指标, 深度学习 | 数据挖掘">
-    <meta name="baidu-site-verification" content="fmlEuI34ir">
-    <meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48">
-    <meta name="360-site-verification" content="b7c11a830ef90fd1464ad6206bb7b6e7">
+    <meta name="baidu-site-verification" content="fmlEuI34ir" />
+    <meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48" />
+    <meta name="360-site-verification" content="b7c11a830ef90fd1464ad6206bb7b6e7" />
     <meta name="description" content="本文记录了神经网络中常用的几个激活函数以及它们的导数；深度学习模型常用的一些评价指标以及它们的数学公式。
 激活函数下图为一个简单的多层感知机：
 
@@ -69,6 +69,7 @@
         })();
     </script>
 
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="SKYFAKER" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
@@ -322,8 +323,8 @@
 
 
 <!-- 3/22: 这里修改了推荐页文章点击进去之后的图片路径 -->
-<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.iohttps://s4.ax1x.com/2022/02/08/HlQPBt.jpg');"> -->
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://s4.ax1x.com/2022/02/08/HlQPBt.jpg');">
+<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.iohttps://s4.ax1x.com/2022/02/08/HlQScd.jpg');"> -->
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://s4.ax1x.com/2022/02/08/HlQScd.jpg');">
 
     <div class="container">
         <div class="row">
@@ -443,7 +444,7 @@
                     
                     <div class="article-tag">
                         
-                        <a href="/tags/模型/" target="_blank">
+                        <a href="/tags/%E6%A8%A1%E5%9E%8B/" target="_blank">
                             <span class="chip bg-color">模型</span>
                         </a>
                         
@@ -455,7 +456,7 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                        <a href="/categories/深度学习/" class="post-category" target="_blank">
+                        <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="post-category" target="_blank">
                             深度学习
                         </a>
                         
@@ -506,15 +507,15 @@
             <div id="articleContent">
                 <p>本文记录了神经网络中常用的几个激活函数以及它们的导数；深度学习模型常用的一些评价指标以及它们的数学公式。</p>
 <h2 id="激活函数"><a href="#激活函数" class="headerlink" title="激活函数"></a>激活函数</h2><p>下图为一个简单的多层感知机：</p>
-<p><img src="https://z3.ax1x.com/2021/03/24/6qFHFe.jpg" style="zoom:25%;"></p>
+<p><img src="https://z3.ax1x.com/2021/03/24/6qFHFe.jpg" style="zoom:25%;" /></p>
 <p>如果没有激活函数，那么神经网络的权重、偏置全是线性的<strong>仿射变换（affine transformation）</strong>:</p>
-<p><img src="https://z3.ax1x.com/2021/03/24/6qFIeK.png" style="zoom:45%;"></p>
+<p><img src="https://z3.ax1x.com/2021/03/24/6qFIeK.png" style="zoom:45%;" /></p>
 <p>也就是说，如果没有激活函数，那么无论是多少层的感知机，效果都和一层一样，输出只是输入的线性变换。无法解决任何一个简单的非线性问题，而现实需要解决的问题几乎不会是线性问题。</p>
 <p>因此，激活函数是用来加入非线性因素的，因为线性模型的表达能力不够。</p>
 <p>神经网络的<strong>激活函数（activation function）</strong>可以扭曲翻转特征空间，使特征空间映射到高维，在高维特征空间中寻找线性的边界，即寻找一个超平面，实现边界的分割。</p>
 <p>常见的激活函数有3种：</p>
-<p><img src="https://z3.ax1x.com/2021/03/24/6qFbJH.png" style="zoom:50%;"></p>
-<h3 id="sigmoid"><a href="#sigmoid" class="headerlink" title="sigmoid"></a>sigmoid</h3><p><img src="https://z3.ax1x.com/2021/03/24/6qFqWd.png" alt="sigmoid函数，红色为其梯度" style="zoom:70%;"></p>
+<p><img src="https://z3.ax1x.com/2021/03/24/6qFbJH.png" style="zoom:50%;" /></p>
+<h3 id="sigmoid"><a href="#sigmoid" class="headerlink" title="sigmoid"></a>sigmoid</h3><p><img src="https://z3.ax1x.com/2021/03/24/6qFqWd.png" alt = 'sigmoid函数，红色为其梯度' style="zoom:70%;" /></p>
 <p>sigmoid将输入挤压进0到1区间（这和概率的取值范围一致），这在二分类任务中很常见。</p>
 <h3 id="softmax"><a href="#softmax" class="headerlink" title="softmax"></a>softmax</h3><p>在多分类任务中，输出层经常加入softmax函数，完成多分类的目的。</p>
 <p>假设我们有一个有n个元素的数组$V_n$，$V_i$表示V中的第i个元素，那么这个元素的softmax值就是</p>
@@ -526,11 +527,11 @@ S_i = \frac{e^i}{\sum_{j = 1}^{n}e^j}</script><p>softmax将多个输出限定在
 Loss = -\sum_{i}y^i\ln{a^i}\quad(y^i表示i类上的真实值，a^i表示i类上的预测值)</script><p>看起来比较复杂，而实际上，由于多分类一般使用one-hot编码，标签中除去正确的一类，其他都为0。</p>
 <p>比如样本属于第j类，则只有$y^j$有值，且为1，其他都为0。因此，交叉熵损失可以简化为：</p>
 <script type="math/tex; mode=display">
-Loss = -y^j\ln{a^j} \quad \Rightarrow \quad Loss = -\ln{a^j}</script><h3 id="tanh"><a href="#tanh" class="headerlink" title="tanh"></a>tanh</h3><p><img src="https://z3.ax1x.com/2021/03/24/6qFOSA.png" style="zoom:67%;"></p>
+Loss = -y^j\ln{a^j} \quad \Rightarrow \quad Loss = -\ln{a^j}</script><h3 id="tanh"><a href="#tanh" class="headerlink" title="tanh"></a>tanh</h3><p><img src="https://z3.ax1x.com/2021/03/24/6qFOSA.png" style="zoom:67%;" /></p>
 <p>tanh的形状和sigmoid类似，只不过tanh将“挤压”输入至区间(-1, 1)。因此，中心为零，（某种程度上）激活值已经是下一层的正态分布输入。</p>
 <p>至于梯度，它有一个大得多的峰值1.0（同样位于z = 0处），但梯度下降得更快，当|z|的值到达3时就已经接近零了。这是所谓<strong>梯度消失（vanishing gradients）</strong>问题背后的原因，会导致网络的训练进展变慢。现在一般不用这个激活函数了。</p>
 <h3 id="ReLU"><a href="#ReLU" class="headerlink" title="ReLU"></a><strong>ReLU</strong></h3><p>它是目前通常使用的激励函数。ReLU解决了了sigmoid、tanh中常见的梯度消失问题，同时也是计算梯度<strong>最快</strong>的激励函数。</p>
-<p><img src="relu.png" style="zoom:67%;"></p>
+<p><img src="relu.png" style="zoom:67%;" /></p>
 <p>它并不会把输入映射到某一区间——它只是<strong>保留正值</strong>，并将所有<strong>负值转化为零</strong>。</p>
 <p>使用ReLU的积极方面是它的梯度要么是1（正值），要么是0（负值）——<strong>再也没有梯度消失了！</strong>这一模式使网络<strong>更快收敛</strong>。</p>
 <p>在代码中，只需要一个<code>if else</code>即可实现，比其他的激活函数运算快得多。</p>
@@ -542,7 +543,7 @@ Loss = -y^j\ln{a^j} \quad \Rightarrow \quad Loss = -\ln{a^j}</script><h3 id="tan
 <p>精确率与召回率多用于二分类问题。<br>精确率（Precision）指的是模型预测为正的样本中有多少是真正的正样本；<br>召回率（Recall）指的是所有正样本有多少被模型判为正样本，即正样本有多少被正确找出，也被称为灵敏度（sensitive）。</p>
 <p>我们先通过韦恩图理解一下精确率与召回率：</p>
 <p>设模型预测出的正样本prediction集合为A，真正的正样本truth集合为B，则有如下韦恩图：</p>
-<p><img src="https://z3.ax1x.com/2021/03/24/6qFXQI.png" style="zoom:50%;"></p>
+<p><img src="https://z3.ax1x.com/2021/03/24/6qFXQI.png" style="zoom:50%;" /></p>
 <p><strong>精确率</strong>：</p>
 <script type="math/tex; mode=display">
 precision(A,B) = \begin{vmatrix} A \bigcap B\end{vmatrix} \div |A|</script><p><strong>召回率</strong>：</p>
@@ -550,7 +551,7 @@ precision(A,B) = \begin{vmatrix} A \bigcap B\end{vmatrix} \div |A|</script><p><s
 recall(A,B) = \begin{vmatrix} A \bigcap B\end{vmatrix} \div |B|</script><p>即两个正样本的交集部分分别与预测值的正样本、真实值的正样本的比值。</p>
 <p>接下来通过混淆矩阵理解精确率与召回率：</p>
 <p><strong>混淆矩阵</strong></p>
-<p><img src="https://z3.ax1x.com/2021/03/24/6qFToD.png" style="zoom:120%;"></p>
+<p><img src="https://z3.ax1x.com/2021/03/24/6qFToD.png" style="zoom:120%;" /></p>
 <p>True Positive(真正，TP)：将正类预测为正类数；</p>
 <p>True Negative(真负，TN)：将负类预测为负类数；</p>
 <p>False Positive(假正，FP)：将负类预测为正类数$\rightarrow$误报 (Type I error)；</p>
@@ -567,7 +568,7 @@ accuracy = \frac{TP+TN}{TP+TN+FP+FN}</script><p><strong>F-Score</strong></p>
 <script type="math/tex; mode=display">
 F = \frac{(\alpha^2+1)*P*R}{\alpha^2*(P+R)}</script><p>当$\alpha = 1$时，就是常见的$F1\ score$，也就是</p>
 <script type="math/tex; mode=display">
-F1 = \frac{2*P*R}{P+R}</script><p><strong>ROC曲线</strong><br>ROC（Receiver Operating Characteristic）曲线是以假正率（FP_rate，简称FPR）和真正率（TP_rate，简称TPR）为轴的曲线，ROC曲线下面的面积我们叫做AUC（area under curve）：<br><img src="https://z3.ax1x.com/2021/03/24/6qFodO.png" style="zoom:60%;"></p>
+F1 = \frac{2*P*R}{P+R}</script><p><strong>ROC曲线</strong><br>ROC（Receiver Operating Characteristic）曲线是以假正率（FP_rate，简称FPR）和真正率（TP_rate，简称TPR）为轴的曲线，ROC曲线下面的面积我们叫做AUC（area under curve）：<br><img src="https://z3.ax1x.com/2021/03/24/6qFodO.png" style="zoom:60%;" /></p>
 <p>其中 $TPR = \frac{TP}{TP + FN}（与recall的公式一样）, \quad FPR = \frac{FP}{FP+TN}$</p>
 <p>$TPR$ 的含义是原始正样本中，被正确预测为正的比例；</p>
 <p>$FPR$ 的含义是原始负样本中，被错误识别为正的比例。</p>
@@ -577,7 +578,7 @@ F1 = \frac{2*P*R}{P+R}</script><p><strong>ROC曲线</strong><br>ROC（Receiver O
 <p>当阈值为0时，所有的输出都高于阈值，即所有样本都被认为是正类。那么TPR，也就是正样本中被识别为正样本的比例为1。而FPR，即负样本被识别为正样本的比例也为1。对应ROC曲线中的（1，1）。</p>
 <p>当我们不断调节阈值，就可以得到N组由（FPR，TPR）组成的点，将这些点相邻地连接起来，就得到了ROC曲线。而这个曲线下的面积就是AUC。</p>
 <p>在预测值为随机值的情况下，ROC曲线对应上图中的蓝色虚线，$AUC=0.5$。</p>
-<p>所以一个有意义的模型的AUC一定是大于0.5的，越接近0.5说明模型越接近于随机猜测。当然如果$AUC<0.5$，我们可以通过规定高于阈值为负类，低于阈值为正类，使得roc曲线以虚线为对称轴对称到$auc>0.5$。</0.5$，我们可以通过规定高于阈值为负类，低于阈值为正类，使得roc曲线以虚线为对称轴对称到$auc></p>
+<p>所以一个有意义的模型的AUC一定是大于0.5的，越接近0.5说明模型越接近于随机猜测。当然如果$AUC<0.5$，我们可以通过规定高于阈值为负类，低于阈值为正类，使得ROC曲线以虚线为对称轴对称到$AUC>0.5$。</p>
 <p>而如果曲线经过左上角的（0，1）点，则表示我们可以找到一个阈值，使得模型可以完美预测所有样本。</p>
 <h3 id="回归"><a href="#回归" class="headerlink" title="回归"></a>回归</h3><p>回归任务评价指标有RMSE(平方根误差)、MAE（平均绝对误差）、MSE(平均平方误差)</p>
 <script type="math/tex; mode=display">
@@ -657,7 +658,7 @@ MSE(y_i,\hat{y_i}) = \frac{1}{N} \sum_{i=1}^{N} (y_i - \hat{y_i})^2</script><scr
                                         
 
                                             <!-- 3/22修改： -->
-                                            <img src="https://s4.ax1x.com/2022/02/08/HlQ84U.jpg" class="responsive-img" alt="一道编程题——删除倒数第k个节点">
+                                            <img src="https://s4.ax1x.com/2022/02/08/HlQQH0.jpg" class="responsive-img" alt="一道编程题——删除倒数第k个节点">
                                             
                                                 <span class="card-title">一道编程题——删除倒数第k个节点</span>
                             </div>
@@ -676,7 +677,7 @@ MSE(y_i,\hat{y_i}) = \frac{1}{N} \sum_{i=1}^{N} (y_i - \hat{y_i})^2</script><scr
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/算法/" class="post-category" target="_blank">
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category" target="_blank">
                                     算法
                                 </a>
                             
@@ -687,7 +688,7 @@ MSE(y_i,\hat{y_i}) = \frac{1}{N} \sum_{i=1}^{N} (y_i - \hat{y_i})^2</script><scr
                         
                             <div class="card-action article-tags">
                                 
-                                    <a href="/tags/编程算法/" target="_blank">
+                                    <a href="/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95/" target="_blank">
                                         <span class="chip bg-color">编程算法</span>
                                     </a>
                                     
@@ -706,7 +707,7 @@ MSE(y_i,\hat{y_i}) = \frac{1}{N} \sum_{i=1}^{N} (y_i - \hat{y_i})^2</script><scr
                                         <div class="card-image">
                                             
                                                     
-                                                        <img src="https://s4.ax1x.com/2022/02/08/HlQ3NT.jpg" class="responsive-img" alt="hexo加速计划">
+                                                        <img src="https://s4.ax1x.com/2022/02/08/HlQMBq.jpg" class="responsive-img" alt="hexo加速计划">
                                                         
                                                             <span class="card-title">hexo加速计划</span>
                                         </div>
@@ -736,7 +737,7 @@ MSE(y_i,\hat{y_i}) = \frac{1}{N} \sum_{i=1}^{N} (y_i - \hat{y_i})^2</script><scr
                                     
                                         <div class="card-action article-tags">
                                             
-                                                <a href="/tags/hexo加速/" target="_blank">
+                                                <a href="/tags/hexo%E5%8A%A0%E9%80%9F/" target="_blank">
                                                     <span class="chip bg-color">hexo加速</span>
                                                 </a>
                                                 
@@ -917,7 +918,7 @@ MSE(y_i,\hat{y_i}) = \frac{1}{N} \sum_{i=1}^{N} (y_i - \hat{y_i})^2</script><scr
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">57.4k</span>
+                <span class="white-color">56.5k</span>
                 
 
                     <br>

@@ -2,12 +2,12 @@
 <html lang="zh-CN">
 
 
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
     <meta charset="utf-8">
     <meta name="keywords" content="一道编程题——判断二叉树是否对称, 深度学习 | 数据挖掘">
-    <meta name="baidu-site-verification" content="fmlEuI34ir">
-    <meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48">
-    <meta name="360-site-verification" content="b7c11a830ef90fd1464ad6206bb7b6e7">
+    <meta name="baidu-site-verification" content="fmlEuI34ir" />
+    <meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48" />
+    <meta name="360-site-verification" content="b7c11a830ef90fd1464ad6206bb7b6e7" />
     <meta name="description" content="题目描述给定一棵二叉树，判断它是否是自身的镜像（即：二叉树是否为轴对称）
 例如：下面这棵二叉树是对称的
 而下面这棵二叉树不对称。
@@ -71,6 +71,7 @@
         })();
     </script>
 
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="SKYFAKER" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
@@ -324,8 +325,8 @@
 
 
 <!-- 3/22: 这里修改了推荐页文章点击进去之后的图片路径 -->
-<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.iohttps://s4.ax1x.com/2022/02/08/HlMXtO.jpg');"> -->
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://s4.ax1x.com/2022/02/08/HlMXtO.jpg');">
+<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.iohttps://s4.ax1x.com/2022/02/08/HlMb0x.jpg');"> -->
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://s4.ax1x.com/2022/02/08/HlMb0x.jpg');">
 
     <div class="container">
         <div class="row">
@@ -445,7 +446,7 @@
                     
                     <div class="article-tag">
                         
-                        <a href="/tags/编程算法/" target="_blank">
+                        <a href="/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95/" target="_blank">
                             <span class="chip bg-color">编程算法</span>
                         </a>
                         
@@ -457,7 +458,7 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                        <a href="/categories/算法/" class="post-category" target="_blank">
+                        <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category" target="_blank">
                             算法
                         </a>
                         
@@ -483,7 +484,7 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    640
+                    644
                 </div>
                 
 
@@ -507,85 +508,85 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一棵二叉树，判断它是否是自身的镜像（即：二叉树是否为轴对称）</p>
-<p>例如：下面这棵二叉树是对称的<br><img src="1.png" alt="对称二叉树" style="zoom:50%;"></p>
-<p>而下面这棵二叉树不对称。<br><img src="2.png" alt="不对称" style="zoom:50%;"></p>
+<p>例如：下面这棵二叉树是对称的<br><img src="1.png" alt = '对称二叉树' style="zoom:50%;" /></p>
+<p>而下面这棵二叉树不对称。<br><img src="2.png" alt='不对称' style="zoom:50%;" /></p>
 <h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>看上图，很明显对二叉树的对称有了概念。</p>
 <p>可以用递归或者迭代的方式：</p>
 <h3 id="递归："><a href="#递归：" class="headerlink" title="递归："></a>递归：</h3><p>如上图对称二叉树的第二行，根节点1的左子树2和右子树2的值相等，并且左子树2的左子树3和右子树2的右子树3相等。</p>
 <p>所以递归公式为：<code>checkout(root1.left, root2.right) and checkout(root1.right, root2.left)</code></p>
 <p>即左子树的左子树应该等于右子树的右子树，并且左子树的右子树等于右子树的左子树。</p>
 <p>递归过程实际上类似为左子树前序遍历（中、左、右），右子树反向前序遍历（中、右、左），然后判断这两个遍历过程是否相等。</p>
-<h4 id="python实现"><a href="#python实现" class="headerlink" title="python实现"></a>python实现</h4><pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 递归</span>
-<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">isSymmetric</span><span class="token punctuation">(</span>self <span class="token punctuation">,</span> root <span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token comment" spellcheck="true"># write code here</span>
-        <span class="token keyword">if</span> <span class="token operator">not</span> root<span class="token punctuation">:</span>
-            <span class="token keyword">return</span> <span class="token boolean">True</span>
-        <span class="token keyword">return</span> self<span class="token punctuation">.</span>checkout<span class="token punctuation">(</span>root<span class="token punctuation">.</span>left<span class="token punctuation">,</span> root<span class="token punctuation">.</span>right<span class="token punctuation">)</span>
+<h4 id="python实现"><a href="#python实现" class="headerlink" title="python实现"></a>python实现</h4><pre class="line-numbers language-lang-python"><code class="language-lang-python"># 递归
+class Solution:
+    def isSymmetric(self , root ):
+        # write code here
+        if not root:
+            return True
+        return self.checkout(root.left, root.right)
 
-    <span class="token keyword">def</span> <span class="token function">checkout</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> root1<span class="token punctuation">,</span> root2<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token comment" spellcheck="true"># 左右对应位置的节点都为空，对称</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">not</span> root1 <span class="token operator">and</span> <span class="token operator">not</span> root2<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            <span class="token keyword">return</span> <span class="token boolean">True</span>
-        <span class="token comment" spellcheck="true"># 有一个节点为空，则不对称</span>
-        <span class="token keyword">elif</span><span class="token punctuation">(</span><span class="token operator">not</span> root1 <span class="token operator">or</span> <span class="token operator">not</span> root2<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            <span class="token keyword">return</span> <span class="token boolean">False</span>
-        <span class="token comment" spellcheck="true"># 节点值不等，不对称</span>
-        <span class="token keyword">elif</span><span class="token punctuation">(</span>root1<span class="token punctuation">.</span>val<span class="token operator">!=</span>root2<span class="token punctuation">.</span>val<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            <span class="token keyword">return</span> <span class="token boolean">False</span>
-        <span class="token comment" spellcheck="true"># 继续递归</span>
-        <span class="token keyword">else</span><span class="token punctuation">:</span>
-            <span class="token keyword">return</span> self<span class="token punctuation">.</span>checkout<span class="token punctuation">(</span>root1<span class="token punctuation">.</span>left<span class="token punctuation">,</span> root2<span class="token punctuation">.</span>right<span class="token punctuation">)</span> <span class="token operator">and</span> self<span class="token punctuation">.</span>checkout<span class="token punctuation">(</span>root1<span class="token punctuation">.</span>right<span class="token punctuation">,</span> root2<span class="token punctuation">.</span>left<span class="token punctuation">)</span>
+    def checkout(self, root1, root2):
+        # 左右对应位置的节点都为空，对称
+        if (not root1 and not root2):
+            return True
+        # 有一个节点为空，则不对称
+        elif(not root1 or not root2):
+            return False
+        # 节点值不等，不对称
+        elif(root1.val!=root2.val):
+            return False
+        # 继续递归
+        else:
+            return self.checkout(root1.left, root2.right) and self.checkout(root1.right, root2.left)
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="C-实现"><a href="#C-实现" class="headerlink" title="C++实现"></a>C++实现</h4><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">// 递归</span>
-<span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
-<span class="token keyword">public</span><span class="token operator">:</span>
-    <span class="token comment" spellcheck="true">/**
+<h4 id="C-实现"><a href="#C-实现" class="headerlink" title="C++实现"></a>C++实现</h4><pre class="line-numbers language-lang-cpp"><code class="language-lang-cpp">// 递归
+class Solution &#123;
+public:
+    /**
      * 
      * @param root TreeNode类 
      * @return bool布尔型
-     */</span>
-    <span class="token keyword">bool</span> <span class="token function">isSymmetric</span><span class="token punctuation">(</span>TreeNode<span class="token operator">*</span> root<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token comment" spellcheck="true">// write code here</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>root<span class="token punctuation">)</span><span class="token punctuation">{</span>
-            <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">return</span> <span class="token function">check</span><span class="token punctuation">(</span>root<span class="token punctuation">,</span> root<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
+     */
+    bool isSymmetric(TreeNode* root) &#123;
+        // write code here
+        if(!root)&#123;
+            return true;
+        &#125;
+        return check(root, root);
+    &#125;
 
-    <span class="token keyword">bool</span> <span class="token function">check</span><span class="token punctuation">(</span>TreeNode<span class="token operator">*</span> root1<span class="token punctuation">,</span> TreeNode<span class="token operator">*</span> root2<span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>root1 <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span>root2<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
-        <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>root1 <span class="token operator">||</span> <span class="token operator">!</span>root2<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-        <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>root1<span class="token operator">-</span><span class="token operator">></span>val <span class="token operator">!=</span> root2<span class="token operator">-</span><span class="token operator">></span>val<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-        <span class="token keyword">return</span> <span class="token function">check</span><span class="token punctuation">(</span>root1<span class="token operator">-</span><span class="token operator">></span>left<span class="token punctuation">,</span> root2<span class="token operator">-</span><span class="token operator">></span>right<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token function">check</span><span class="token punctuation">(</span>root1<span class="token operator">-</span><span class="token operator">></span>right<span class="token punctuation">,</span> root2<span class="token operator">-</span><span class="token operator">></span>left<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
+    bool check(TreeNode* root1, TreeNode* root2)&#123;
+        if(!root1 && !root2) return true;
+        else if(!root1 || !root2) return false;
+        else if(root1->val != root2->val) return false;
+        return check(root1->left, root2->right) && check(root1->right, root2->left);
+    &#125;
+&#125;;
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="迭代："><a href="#迭代：" class="headerlink" title="迭代："></a>迭代：</h3><p>类似于BFS，逐层遍历节点入栈（或者队列），只不过入栈的顺序与层次遍历不太一样。</p>
 <p>栈中元素为：<code>[左子树，右子树] -&gt;  [左子树的左子树，右子树的右子树，左子树的右子树，右子树的左子树]</code></p>
 <p>这样，只要比较栈中的成对的两个元素，直到栈为空。</p>
-<h4 id="python实现-1"><a href="#python实现-1" class="headerlink" title="python实现"></a>python实现</h4><pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 迭代</span>
-<span class="token keyword">class</span> <span class="token class-name">Solution2</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">isSymmetric</span><span class="token punctuation">(</span>self <span class="token punctuation">,</span> root <span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token comment" spellcheck="true"># write code here</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">not</span> root<span class="token punctuation">)</span> <span class="token operator">or</span> <span class="token punctuation">(</span><span class="token operator">not</span> root<span class="token punctuation">.</span>left <span class="token operator">and</span> <span class="token operator">not</span> root<span class="token punctuation">.</span>right<span class="token punctuation">)</span><span class="token punctuation">:</span> 
-            <span class="token keyword">return</span> <span class="token boolean">True</span>
-        <span class="token keyword">if</span> <span class="token operator">not</span> root<span class="token punctuation">.</span>left <span class="token operator">or</span> <span class="token operator">not</span> root<span class="token punctuation">.</span>right<span class="token punctuation">:</span>
-            <span class="token keyword">return</span> <span class="token boolean">False</span>
-        stack <span class="token operator">=</span> <span class="token punctuation">[</span>root<span class="token punctuation">.</span>left<span class="token punctuation">,</span> root<span class="token punctuation">.</span>right<span class="token punctuation">]</span>
-        <span class="token keyword">while</span><span class="token punctuation">(</span>stack<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            right_node <span class="token operator">=</span> stack<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token punctuation">)</span>
-            left_node <span class="token operator">=</span> stack<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token punctuation">)</span>
-            <span class="token comment" spellcheck="true"># 左右节点均为空</span>
-            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">not</span> left_node <span class="token operator">and</span> <span class="token operator">not</span> right_node<span class="token punctuation">)</span><span class="token punctuation">:</span>
-                <span class="token keyword">continue</span>
-            <span class="token comment" spellcheck="true"># 左右节点均存在且相等，则继续加入到栈</span>
-            <span class="token keyword">if</span> <span class="token punctuation">(</span>left_node <span class="token operator">and</span> right_node<span class="token punctuation">)</span> <span class="token operator">and</span> <span class="token punctuation">(</span>left_node<span class="token punctuation">.</span>val <span class="token operator">==</span> right_node<span class="token punctuation">.</span>val<span class="token punctuation">)</span><span class="token punctuation">:</span>
-                stack<span class="token punctuation">.</span>extend<span class="token punctuation">(</span><span class="token punctuation">[</span>left_node<span class="token punctuation">.</span>left<span class="token punctuation">,</span> right_node<span class="token punctuation">.</span>right<span class="token punctuation">,</span> left_node<span class="token punctuation">.</span>right<span class="token punctuation">,</span> right_node<span class="token punctuation">.</span>left<span class="token punctuation">]</span><span class="token punctuation">)</span>
-            <span class="token comment" spellcheck="true"># 左右节点只有一个存在或者左右节点的值不等</span>
-            <span class="token keyword">else</span><span class="token punctuation">:</span>
-                <span class="token keyword">return</span> <span class="token boolean">False</span>
-        <span class="token keyword">return</span> <span class="token boolean">True</span>
+<h4 id="python实现-1"><a href="#python实现-1" class="headerlink" title="python实现"></a>python实现</h4><pre class="line-numbers language-lang-python"><code class="language-lang-python"># 迭代
+class Solution2:
+    def isSymmetric(self , root ):
+        # write code here
+        if (not root) or (not root.left and not root.right): 
+            return True
+        if not root.left or not root.right:
+            return False
+        stack = [root.left, root.right]
+        while(stack):
+            right_node = stack.pop()
+            left_node = stack.pop()
+            # 左右节点均为空
+            if (not left_node and not right_node):
+                continue
+            # 左右节点均存在且相等，则继续加入到栈
+            if (left_node and right_node) and (left_node.val == right_node.val):
+                stack.extend([left_node.left, right_node.right, left_node.right, right_node.left])
+            # 左右节点只有一个存在或者左右节点的值不等
+            else:
+                return False
+        return True
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
@@ -660,7 +661,7 @@
                                         
 
                                             <!-- 3/22修改： -->
-                                            <img src="https://s4.ax1x.com/2022/02/08/HlMHn1.jpg" class="responsive-img" alt="git 简明教程与命令">
+                                            <img src="https://s4.ax1x.com/2022/02/08/HlQwHx.jpg" class="responsive-img" alt="git 简明教程与命令">
                                             
                                                 <span class="card-title">git 简明教程与命令</span>
                             </div>
@@ -679,7 +680,7 @@
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/工具方法/" class="post-category" target="_blank">
+                            <a href="/categories/%E5%B7%A5%E5%85%B7%E6%96%B9%E6%B3%95/" class="post-category" target="_blank">
                                     工具方法
                                 </a>
                             
@@ -709,7 +710,7 @@
                                         <div class="card-image">
                                             
                                                     
-                                                        <img src="https://s4.ax1x.com/2022/02/08/HlQiHP.jpg" class="responsive-img" alt="一道编程题——判断链表是否有环">
+                                                        <img src="https://s4.ax1x.com/2022/02/08/HlQpjA.jpg" class="responsive-img" alt="一道编程题——判断链表是否有环">
                                                         
                                                             <span class="card-title">一道编程题——判断链表是否有环</span>
                                         </div>
@@ -728,7 +729,7 @@
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/算法/" class="post-category" target="_blank">
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category" target="_blank">
                                     算法
                                 </a>
                             
@@ -739,7 +740,7 @@
                                     
                                         <div class="card-action article-tags">
                                             
-                                                <a href="/tags/编程算法/" target="_blank">
+                                                <a href="/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95/" target="_blank">
                                                     <span class="chip bg-color">编程算法</span>
                                                 </a>
                                                 
@@ -897,7 +898,7 @@
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">57.4k</span>
+                <span class="white-color">56.5k</span>
                 
 
                     <br>

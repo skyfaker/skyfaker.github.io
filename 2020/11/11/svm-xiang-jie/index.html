@@ -2,12 +2,12 @@
 <html lang="zh-CN">
 
 
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
     <meta charset="utf-8">
     <meta name="keywords" content="机器学习——SVM简述, 深度学习 | 数据挖掘">
-    <meta name="baidu-site-verification" content="fmlEuI34ir">
-    <meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48">
-    <meta name="360-site-verification" content="b7c11a830ef90fd1464ad6206bb7b6e7">
+    <meta name="baidu-site-verification" content="fmlEuI34ir" />
+    <meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48" />
+    <meta name="360-site-verification" content="b7c11a830ef90fd1464ad6206bb7b6e7" />
     <meta name="description" content="支持向量机（Support Vector Machine, SVM）是一种应用非常广泛的分类方法。其基本模型定义是特征空间上的间隔最大的线性分类器，即支持向量机的学习策略是间隔最大化，最终可转化为一个凸二次规划问题的求解。
 简而言之，就是寻">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -67,6 +67,7 @@
         })();
     </script>
 
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="SKYFAKER" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
@@ -320,8 +321,8 @@
 
 
 <!-- 3/22: 这里修改了推荐页文章点击进去之后的图片路径 -->
-<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.iohttps://s4.ax1x.com/2022/02/08/HlQpjA.jpg');"> -->
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://s4.ax1x.com/2022/02/08/HlQpjA.jpg');">
+<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.iohttps://s4.ax1x.com/2022/02/08/HlMx9e.jpg');"> -->
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://s4.ax1x.com/2022/02/08/HlMx9e.jpg');">
 
     <div class="container">
         <div class="row">
@@ -453,7 +454,7 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                        <a href="/categories/机器学习/" class="post-category" target="_blank">
+                        <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="post-category" target="_blank">
                             机器学习
                         </a>
                         
@@ -524,12 +525,12 @@
 <p>当训练数据线性不可分时，通过使用核技巧（kernel trick）和软间隔最大化，可以学习到一个非线性SVM。</p>
 </blockquote>
 <h2 id="线性可分"><a href="#线性可分" class="headerlink" title="线性可分"></a>线性可分</h2><p>先看一个简单的例子：</p>
-<p><img src="two.jpg" style="zoom:70%;"></p>
+<p><img src="two.jpg" style="zoom:70%;" /></p>
 <p>什么的图片中有2类点，一类用 “+” 表示，一类用 “-” 表示，每个点有2个特征$x_1, x_2$，现在我们想找到一个合适的直线（超平面的二维形式），正确的分开两类。可以看到，上述图片中的线段都能达到这一目的，那么哪一个直线是最优的呢？</p>
 <p>直觉上红色的线是最优的。而其他的线，比如1号线旁边有一个黑色十字，如果黑十字旁边有一个新的稍微偏移一些的点，即蓝色十字的位置，那么1号线就会判断错误。所以看起来红色的线鲁棒性更强，不会因为一些数据的扰动而产生错误判断，这也是深度学习里面说的“泛化性”。</p>
 <p>因为由于能将样本分开的超平面可能有很多, SVM 进一步希望找到离各样本都比较远的划分超平面，也就是上述红色的直线。</p>
 <p>那么在SVM中，这个红色的线到底应该如何精确定义和求解呢？</p>
-<h3 id="超平面与间隔"><a href="#超平面与间隔" class="headerlink" title="超平面与间隔"></a>超平面与间隔</h3><h4 id="超平面"><a href="#超平面" class="headerlink" title="超平面"></a>超平面</h4><p>给定一个有n个样本的数据集$D_n = (\boldsymbol x_1,y_1),(\boldsymbol x_2,y_2) \dots (\boldsymbol x_n,y_n)$，其中$\boldsymbol x_i=(x_1,x_2\dots x_d)$是一个含有d个元素的列向量, 即$\boldsymbol x_i \in R^d$；$y_i$即标签，是标量，$y_i \in \{+1, -1\}$，$y_i = +1$时表示属于正类别，$y_i = -1$时表示负样本。</p>
+<h3 id="超平面与间隔"><a href="#超平面与间隔" class="headerlink" title="超平面与间隔"></a>超平面与间隔</h3><h4 id="超平面"><a href="#超平面" class="headerlink" title="超平面"></a>超平面</h4><p>给定一个有n个样本的数据集$D_n = (\boldsymbol x_1,y_1),(\boldsymbol x_2,y_2) \dots (\boldsymbol x_n,y_n)$，其中$\boldsymbol x_i=(x_1,x_2\dots x_d)$是一个含有d个元素的列向量, 即$\boldsymbol x_i \in R^d$；$y_i$即标签，是标量，$y_i \in {+1, -1}$，$y_i = +1$时表示属于正类别，$y_i = -1$时表示负样本。</p>
 <p>SVM考虑基于训练集$D_n$在样本空间中找到一个划分超平面，将不同类别的样本分开。<strong>在支持向量机中, 我们用间隔 （margin） 刻画划分超平面与样本之间的距离。</strong></p>
 <p>最优的超平面应该满足三点：</p>
 <ol>
@@ -555,7 +556,7 @@
 <p>那么$C_1C_2$两个超平面的距离为$\frac{2c}{||\boldsymbol w||}$。</p>
 <p>通过缩放$\boldsymbol w$和$b$，我们总是可以使得$c=1$并且不影响解，这样$C_1C_2$两个超平面的方程分别为$\boldsymbol w^T \boldsymbol x +b=1$和$\boldsymbol w^T \boldsymbol x+b=-1$，注意此时的$\boldsymbol w、b$为经过放缩之后的新向量。</p>
 <p>此时上下两个超平面之间距离为$\frac{2}{||\boldsymbol w||}$，如下图所示。</p>
-<p><img src="hp.jpg" style="zoom:67%;"></p>
+<p><img src="hp.jpg" style="zoom:67%;" /></p>
 <p>也就是说，此时，<strong>我们用来划分不同类别的超平面$H$正好处于两类之间，且保证了到两类的最边缘的向量（支持向量）距离相等</strong>。</p>
 <p>则对于任意样本点$\boldsymbol x_i$：</p>
 <script type="math/tex; mode=display">
@@ -609,7 +610,7 @@ L(\boldsymbol w,b,\boldsymbol \alpha) = \frac{1}{2}\boldsymbol w^T \boldsymbol w
 \frac{\partial L}{\partial b}=0 \Rightarrow \sum_{i=1}^{n}\alpha_i y_i=0
 \end{cases} \tag{9}</script><p>将求导后的公式（9）带入公式（7），将$L(\boldsymbol w,b,\boldsymbol \alpha)$中的$(\boldsymbol w,b)$消掉，则：</p>
 <script type="math/tex; mode=display">
-\min \limits_{\boldsymbol w,b} L(\boldsymbol w,b,\boldsymbol \alpha) = \sum_{i=1}^{n}\alpha_i - \frac{1}{2} \sum_{i=1}^{n}\sum_{j=1}^{n}\alpha_i\alpha_jy_iy_j \boldsymbol x_i^T \boldsymbol x_j</script><p>（2）对$\min \limits_{\boldsymbol w,b} L(\boldsymbol w,b,\boldsymbol \alpha)$求α的极大，即$\max \limits_{\alpha} \ \min \limits_{\boldsymbol w,b} L(\boldsymbol w,b,\boldsymbol \alpha)$：</p>
+\min \limits_{\boldsymbol w,b} L(\boldsymbol w,b,\boldsymbol \alpha) = \sum_{i=1}^{n}\alpha_i - \frac{1}{2} \sum_{i=1}^{n}\sum_{j=1}^{n}\alpha_i\alpha_jy_iy_j \boldsymbol x_i^T \boldsymbol x_j</script><p>（2）对$\min \limits<em>{\boldsymbol w,b} L(\boldsymbol w,b,\boldsymbol \alpha)$求α的极大，即$\max \limits</em>{\alpha} \ \min \limits_{\boldsymbol w,b} L(\boldsymbol w,b,\boldsymbol \alpha)$：</p>
 <script type="math/tex; mode=display">
 \max \limits_{\alpha} \ \min \limits_{\boldsymbol w,b} L(\boldsymbol w,b,\boldsymbol \alpha) = \max \limits_{\alpha} \quad \sum_{i=1}^{n}\alpha_i - \frac{1}{2} \sum_{i=1}^{n}\sum_{j=1}^{n}\alpha_i\alpha_jy_iy_j \boldsymbol x_i^T \boldsymbol x_j \\
 s.t. \quad \sum_{1}^{n}a_iy_i=0;\\ 
@@ -634,7 +635,7 @@ f(x)=\boldsymbol w^Tx+b=∑_{i=1}^{m}α_iy_i\boldsymbol x_i^T\boldsymbol x+b \ta
 <p>对于任意样本$(\boldsymbol x_i,y_i)$，总会有$\boldsymbol \alpha_i=0 $或者$y_i(\boldsymbol w^Tx_i + b)=1$或者。则若$\boldsymbol \alpha_i=0 $则该样本不是支持向量，对模型没有任何影响；若$\boldsymbol \alpha_i&gt;0 $，此样本点位于最大间隔边界上，是一个支持向量。</p>
 <h2 id="软间隔SVM"><a href="#软间隔SVM" class="headerlink" title="软间隔SVM"></a>软间隔SVM</h2><p>再上面一节，我们假设训练样本是严格线性可分的即存在一个超平面能完全将两类数据分开。但是现实任务这个假设往往不成立。</p>
 <p>这种问题的一个解决方法是适当地放松限制条件，允许少量的数据可以不满足$y_i (\boldsymbol w^T \boldsymbol x_i+b) &gt;=1$的约束条件，即允许少量样本被分错。放松约束条件的基本思路是对于每一个样本，设置一个松弛变量$\delta$。</p>
-<p><img src="Non.jpg" style="zoom:50%;"></p>
+<p><img src="Non.jpg" style="zoom:50%;" /></p>
 <p>那么约束条件变成：</p>
 <script type="math/tex; mode=display">
 对于\forall (\boldsymbol x_i,y_i),\quad y_i (\boldsymbol w^T \boldsymbol x_i+b) \geq 1- \delta_i,(i=1\sim N) \tag{12}</script><p>只要$\delta_i$足够大，每一个样本都可以满足这个条件，所以我们还要加入新的限制条件，使得$\delta_i$不会变的太大。</p>
@@ -724,7 +725,7 @@ L(\boldsymbol w,b,\delta,\boldsymbol \alpha,\boldsymbol \beta) = \frac{1}{2}\bol
                                         
 
                                             <!-- 3/22修改： -->
-                                            <img src="https://s4.ax1x.com/2022/02/08/HlQ1EV.jpg" class="responsive-img" alt="正则表达式与python正则">
+                                            <img src="https://s4.ax1x.com/2022/02/08/HlQJCF.jpg" class="responsive-img" alt="正则表达式与python正则">
                                             
                                                 <span class="card-title">正则表达式与python正则</span>
                             </div>
@@ -754,7 +755,7 @@ L(\boldsymbol w,b,\delta,\boldsymbol \alpha,\boldsymbol \beta) = \frac{1}{2}\bol
                         
                             <div class="card-action article-tags">
                                 
-                                    <a href="/tags/正则表达式/" target="_blank">
+                                    <a href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" target="_blank">
                                         <span class="chip bg-color">正则表达式</span>
                                     </a>
                                     
@@ -773,7 +774,7 @@ L(\boldsymbol w,b,\delta,\boldsymbol \alpha,\boldsymbol \beta) = \frac{1}{2}\bol
                                         <div class="card-image">
                                             
                                                     
-                                                        <img src="https://s4.ax1x.com/2022/02/08/HlQe3Q.jpg" class="responsive-img" alt="遍历与启发式搜索">
+                                                        <img src="https://s4.ax1x.com/2022/02/08/HlQkAf.jpg" class="responsive-img" alt="遍历与启发式搜索">
                                                         
                                                             <span class="card-title">遍历与启发式搜索</span>
                                         </div>
@@ -792,7 +793,7 @@ L(\boldsymbol w,b,\delta,\boldsymbol \alpha,\boldsymbol \beta) = \frac{1}{2}\bol
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/搜索算法/" class="post-category" target="_blank">
+                            <a href="/categories/%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95/" class="post-category" target="_blank">
                                     搜索算法
                                 </a>
                             
@@ -803,11 +804,11 @@ L(\boldsymbol w,b,\delta,\boldsymbol \alpha,\boldsymbol \beta) = \frac{1}{2}\bol
                                     
                                         <div class="card-action article-tags">
                                             
-                                                <a href="/tags/启发式搜索/" target="_blank">
+                                                <a href="/tags/%E5%90%AF%E5%8F%91%E5%BC%8F%E6%90%9C%E7%B4%A2/" target="_blank">
                                                     <span class="chip bg-color">启发式搜索</span>
                                                 </a>
                                                 
-                                                <a href="/tags/遍历/" target="_blank">
+                                                <a href="/tags/%E9%81%8D%E5%8E%86/" target="_blank">
                                                     <span class="chip bg-color">遍历</span>
                                                 </a>
                                                 
@@ -984,7 +985,7 @@ L(\boldsymbol w,b,\delta,\boldsymbol \alpha,\boldsymbol \beta) = \frac{1}{2}\bol
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">57.4k</span>
+                <span class="white-color">56.5k</span>
                 
 
                     <br>

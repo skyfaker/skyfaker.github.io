@@ -2,12 +2,12 @@
 <html lang="zh-CN">
 
 
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
     <meta charset="utf-8">
     <meta name="keywords" content="神经网络——自编码器（Autoencoder）, 深度学习 | 数据挖掘">
-    <meta name="baidu-site-verification" content="fmlEuI34ir">
-    <meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48">
-    <meta name="360-site-verification" content="b7c11a830ef90fd1464ad6206bb7b6e7">
+    <meta name="baidu-site-verification" content="fmlEuI34ir" />
+    <meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48" />
+    <meta name="360-site-verification" content="b7c11a830ef90fd1464ad6206bb7b6e7" />
     <meta name="description" content="神经网络（neural network）的应用——自编码器（Autoencoder）1. 自编码器简介自编码器（Autoencoder，AE），是一种利用反向传播算法使得输出值等于输入值的神经网络，它先将输入压缩成潜在空间表征，然后通过这种">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -66,6 +66,7 @@
         })();
     </script>
 
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="SKYFAKER" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
@@ -319,8 +320,8 @@
 
 
 <!-- 3/22: 这里修改了推荐页文章点击进去之后的图片路径 -->
-<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.iohttps://s4.ax1x.com/2022/02/08/HlMHn1.jpg');"> -->
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://s4.ax1x.com/2022/02/08/HlMHn1.jpg');">
+<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.iohttps://s4.ax1x.com/2022/02/08/HlMOAK.jpg');"> -->
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://s4.ax1x.com/2022/02/08/HlMOAK.jpg');">
 
     <div class="container">
         <div class="row">
@@ -444,7 +445,7 @@
                             <span class="chip bg-color">AutoEncoder</span>
                         </a>
                         
-                        <a href="/tags/全连接神经网络/" target="_blank">
+                        <a href="/tags/%E5%85%A8%E8%BF%9E%E6%8E%A5%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" target="_blank">
                             <span class="chip bg-color">全连接神经网络</span>
                         </a>
                         
@@ -456,7 +457,7 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                        <a href="/categories/深度学习/" class="post-category" target="_blank">
+                        <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="post-category" target="_blank">
                             深度学习
                         </a>
                         
@@ -510,7 +511,7 @@
 <p>因此，自编码器由两部分组成：</p>
 <p><strong>编码器</strong>：这部分能将输入压缩成潜在空间表征，可以用编码函数 <strong>h</strong> =f(x)表示。</p>
 <p><strong>解码器</strong>：这部分能重构来自潜在空间表征的输入，可以用解码函数 <strong>r</strong> =g(h)表示。</p>
-<p><img src="https://z3.ax1x.com/2021/03/23/6HN70U.jpg" alt></p>
+<p><img src="https://z3.ax1x.com/2021/03/23/6HN70U.jpg" alt=""></p>
 <p>整个自编码器可以用函数g(f(x)) =  <strong>r</strong> 来描述，其中输出r与原始输入 <strong>x</strong> 相近。</p>
 <p>自编码器原理和各种变换的原理相似，都是将原始特征空间通过编码映射到一个新的编码空间，再由编码空间通过解码映射到解码空间。而当编码变换与解码变换符合某种条件时，解码空间和原始特征空间可以近似一致。</p>
 <p>就像大名鼎鼎的傅里叶变换，通过它，可以把原始时域信号变换为频域信号，并且，频域信号可以通过反变换变换为时域信号。之所以要变换为频域信号，是为了获取原始信号在频域上的特征。同样的，对于自编码器的编码变换，也是为了获取不同角度，不同维度的特征（类似于SVM的核函数）。</p>
@@ -528,39 +529,39 @@
 <p>同样的，我们也可以降维到三维，形成空间可视化图：</p>
 <p><img src="https://z3.ax1x.com/2021/03/23/6HNTmT.jpg" alt="三维可视化效果"></p>
 <p>不过，它也不是没有缺点，首先，自编码器是数据相关的，是在给定的一组数据上进行训练的，因此它将得到与所用训练集数据相似的压缩结果，在这样的数据上表现优异，但就其通用性来说，效果并不好。比如在图像压缩领域，效果比不上JPEG这样的通用压缩技术。</p>
-<h3 id="3-常见的自编码器与代码示例"><a href="#3-常见的自编码器与代码示例" class="headerlink" title="3. 常见的自编码器与代码示例"></a>3. 常见的自编码器与代码示例</h3><h4 id="3-1-简单自编码器和深度自编码器"><a href="#3-1-简单自编码器和深度自编码器" class="headerlink" title="3.1 简单自编码器和深度自编码器"></a>3.1 简单自编码器和深度自编码器</h4><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">from</span> keras<span class="token punctuation">.</span>layers <span class="token keyword">import</span> Input<span class="token punctuation">,</span> Dense
-<span class="token keyword">from</span> keras<span class="token punctuation">.</span>models <span class="token keyword">import</span> Model
-<span class="token keyword">from</span> keras<span class="token punctuation">.</span>datasets <span class="token keyword">import</span> mnist
-<span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
+<h3 id="3-常见的自编码器与代码示例"><a href="#3-常见的自编码器与代码示例" class="headerlink" title="3. 常见的自编码器与代码示例"></a>3. 常见的自编码器与代码示例</h3><h4 id="3-1-简单自编码器和深度自编码器"><a href="#3-1-简单自编码器和深度自编码器" class="headerlink" title="3.1 简单自编码器和深度自编码器"></a>3.1 简单自编码器和深度自编码器</h4><pre class="line-numbers language-lang-python"><code class="language-lang-python">from keras.layers import Input, Dense
+from keras.models import Model
+from keras.datasets import mnist
+import numpy as np
 
 
-encoding_dim<span class="token operator">=</span><span class="token number">32</span>
-input_img <span class="token operator">=</span> Input<span class="token punctuation">(</span>shape<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">784</span><span class="token punctuation">,</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-encoded <span class="token operator">=</span> Dense<span class="token punctuation">(</span>encoding_dim<span class="token punctuation">,</span> activation<span class="token operator">=</span><span class="token string">'relu'</span><span class="token punctuation">)</span><span class="token punctuation">(</span>input_img<span class="token punctuation">)</span>
-decoded <span class="token operator">=</span> Dense<span class="token punctuation">(</span><span class="token number">784</span><span class="token punctuation">,</span> activation<span class="token operator">=</span><span class="token string">'sigmoid'</span><span class="token punctuation">)</span><span class="token punctuation">(</span>encoded<span class="token punctuation">)</span>
+encoding_dim=32
+input_img = Input(shape=(784,))
+encoded = Dense(encoding_dim, activation='relu')(input_img)
+decoded = Dense(784, activation='sigmoid')(encoded)
 
-autoencoder <span class="token operator">=</span> Model<span class="token punctuation">(</span>input_img<span class="token punctuation">,</span> decoded<span class="token punctuation">)</span>
-encoder <span class="token operator">=</span> Model<span class="token punctuation">(</span>input_img<span class="token punctuation">,</span> encoded<span class="token punctuation">)</span>
+autoencoder = Model(input_img, decoded)
+encoder = Model(input_img, encoded)
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>上面这种就是自编码器是最简单的形式，其中encoder是编码器，autoencoder是整个自编码器。</p>
 <p>在这种形式中，基本上encoder的神经元个数都要少于输入的维度，因此Encoder在这里起到了降维的功能。</p>
 <p>把<code>encoding_dim=32</code>换成<code>encoding_dim=2</code>或者<code>encoding_dim=3</code>就可以满足上图的可视化数据要求。</p>
 <h4 id="3-2-稀疏自编码器"><a href="#3-2-稀疏自编码器" class="headerlink" title="3.2 稀疏自编码器"></a>3.2 稀疏自编码器</h4><p>除强加一个比输入更低维度的隐藏层外，还有其他一些方法可以限制自编码器的重构。包含正则化项的自编码器不需要通过保持编码器和解码器的浅层和程序的小体量来限制模型容量，而是使用损失函数来鼓励模型取得除了将输入复制到其输出之外的其他属性。在实践中，我们通常会使用稀疏自编码器。</p>
 <p>简而言之，稀疏自编码器就是加入了正则项的自编码器，大部分参数置为0 ，这样做可以会使我们的自编码器学习数据的稀疏表示。</p>
-<pre class="line-numbers language-python"><code class="language-python">input_size <span class="token operator">=</span> <span class="token number">784</span>
-hidden_size <span class="token operator">=</span> <span class="token number">64</span>
-output_size <span class="token operator">=</span> <span class="token number">784</span>
+<pre class="line-numbers language-lang-python"><code class="language-lang-python">input_size = 784
+hidden_size = 64
+output_size = 784
 
-x <span class="token operator">=</span> Input<span class="token punctuation">(</span>shape<span class="token operator">=</span><span class="token punctuation">(</span>input_size<span class="token punctuation">,</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+x = Input(shape=(input_size,))
 
-<span class="token comment" spellcheck="true"># Encoder</span>
-h <span class="token operator">=</span> Dense<span class="token punctuation">(</span>hidden_size<span class="token punctuation">,</span> activation<span class="token operator">=</span><span class="token string">'relu'</span><span class="token punctuation">,</span> activity_regularizer<span class="token operator">=</span>regularizers<span class="token punctuation">.</span>l1<span class="token punctuation">(</span><span class="token number">10e</span><span class="token operator">-</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+# Encoder
+h = Dense(hidden_size, activation='relu', activity_regularizer=regularizers.l1(10e-5))(x)
 
-<span class="token comment" spellcheck="true"># Decoder</span>
-r <span class="token operator">=</span> Dense<span class="token punctuation">(</span>output_size<span class="token punctuation">,</span> activation<span class="token operator">=</span><span class="token string">'sigmoid'</span><span class="token punctuation">)</span><span class="token punctuation">(</span>h<span class="token punctuation">)</span>
+# Decoder
+r = Dense(output_size, activation='sigmoid')(h)
 
-autoencoder <span class="token operator">=</span> Model<span class="token punctuation">(</span>input<span class="token operator">=</span>x<span class="token punctuation">,</span> output<span class="token operator">=</span>r<span class="token punctuation">)</span>
-encoder <span class="token operator">=</span> Model<span class="token punctuation">(</span>input<span class="token operator">=</span>x<span class="token punctuation">,</span> output<span class="token operator">=</span>h<span class="token punctuation">)</span>
+autoencoder = Model(input=x, output=r)
+encoder = Model(input=x, output=h)
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>在的隐藏层中，我们添加了一个l1激活值正则化矩阵（activity regularizer），它将在优化阶段对损失函数施加一个惩罚，与普通的自编码器相比，现在的表示方式更加稀疏。</p>
 <h4 id="3-3-卷积自编码器、变分自编码器（VAE）等"><a href="#3-3-卷积自编码器、变分自编码器（VAE）等" class="headerlink" title="3.3 卷积自编码器、变分自编码器（VAE）等"></a>3.3 卷积自编码器、变分自编码器（VAE）等</h4><p>如果输入的是图像，使用卷积神经网络（CNN）作为编码器和解码器是很有意义的。在实际使用中，应用于图像的自动编码器始终是卷积自动编码器 ，因为它们的性能要好得多。</p>
@@ -640,7 +641,7 @@ encoder <span class="token operator">=</span> Model<span class="token punctuatio
                                         
 
                                             <!-- 3/22修改： -->
-                                            <img src="https://s4.ax1x.com/2022/02/08/HlQCnI.jpg" class="responsive-img" alt="Matplotlib 可视化">
+                                            <img src="https://s4.ax1x.com/2022/02/08/HlMz1H.jpg" class="responsive-img" alt="Matplotlib 可视化">
                                             
                                                 <span class="card-title">Matplotlib 可视化</span>
                             </div>
@@ -659,7 +660,7 @@ encoder <span class="token operator">=</span> Model<span class="token punctuatio
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/工具方法/" class="post-category" target="_blank">
+                            <a href="/categories/%E5%B7%A5%E5%85%B7%E6%96%B9%E6%B3%95/" class="post-category" target="_blank">
                                     工具方法
                                 </a>
                             
@@ -693,7 +694,7 @@ encoder <span class="token operator">=</span> Model<span class="token punctuatio
                                         <div class="card-image">
                                             
                                                     
-                                                        <img src="https://s4.ax1x.com/2022/02/08/HlQPBt.jpg" class="responsive-img" alt="Vue初见——如何运行一个Vue项目">
+                                                        <img src="https://s4.ax1x.com/2022/02/08/HlQAN8.jpg" class="responsive-img" alt="Vue初见——如何运行一个Vue项目">
                                                         
                                                             <span class="card-title">Vue初见——如何运行一个Vue项目</span>
                                         </div>
@@ -712,7 +713,7 @@ encoder <span class="token operator">=</span> Model<span class="token punctuatio
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/前端/" class="post-category" target="_blank">
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category" target="_blank">
                                     前端
                                 </a>
                             
@@ -885,7 +886,7 @@ encoder <span class="token operator">=</span> Model<span class="token punctuatio
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">57.4k</span>
+                <span class="white-color">56.5k</span>
                 
 
                     <br>
