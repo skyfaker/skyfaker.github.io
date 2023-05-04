@@ -6,7 +6,7 @@
   <link href="https://www.skyfaker.cc/atom.xml" rel="self"/>
   
   <link href="https://www.skyfaker.cc/"/>
-  <updated>2023-05-03T15:20:22.799Z</updated>
+  <updated>2023-05-04T17:04:16.146Z</updated>
   <id>https://www.skyfaker.cc/</id>
   
   <author>
@@ -17,11 +17,36 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Don&#39;t stop pretraining</title>
+    <link href="https://www.skyfaker.cc/2021/10/04/don-t-stop-pretraining/"/>
+    <id>https://www.skyfaker.cc/2021/10/04/don-t-stop-pretraining/</id>
+    <published>2021-10-04T06:35:21.000Z</published>
+    <updated>2023-05-04T17:04:16.146Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;如今很多NLP任务都会在Bert等预训练模型的基础上进行fine-tuning，可能很多人没有意识到在任务领域上进行新的预训练会进一步提高模型效果，下面这篇论文&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="NLP" scheme="https://www.skyfaker.cc/categories/NLP/"/>
+    
+    
+    <category term="Pretraining model" scheme="https://www.skyfaker.cc/tags/Pretraining-model/"/>
+    
+  </entry>
+  
+  <entry>
     <title>NER技术的探索与实践</title>
     <link href="https://www.skyfaker.cc/2021/09/01/ner-ji-zhu-de-tan-suo-yu-shi-jian/"/>
     <id>https://www.skyfaker.cc/2021/09/01/ner-ji-zhu-de-tan-suo-yu-shi-jian/</id>
     <published>2021-09-01T07:15:23.000Z</published>
-    <updated>2023-05-03T15:20:22.799Z</updated>
+    <updated>2023-05-03T15:41:43.538Z</updated>
     
     
       
@@ -283,7 +308,7 @@
     <link href="https://www.skyfaker.cc/2020/08/20/hexo-dai-ma-gao-liang-yu-mathjax-chong-tu/"/>
     <id>https://www.skyfaker.cc/2020/08/20/hexo-dai-ma-gao-liang-yu-mathjax-chong-tu/</id>
     <published>2020-08-20T09:37:18.000Z</published>
-    <updated>2021-03-30T15:26:28.685Z</updated>
+    <updated>2023-05-04T17:03:26.317Z</updated>
     
     
       
@@ -514,31 +539,6 @@
     <category term="hexo加速" scheme="https://www.skyfaker.cc/tags/hexo%E5%8A%A0%E9%80%9F/"/>
     
     <category term="jsDelivr" scheme="https://www.skyfaker.cc/tags/jsDelivr/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>一道编程题——合并K个有序链表</title>
-    <link href="https://www.skyfaker.cc/2020/03/24/yi-dao-bian-cheng-ti-he-bing-k-ge-you-xu-lian-biao/"/>
-    <id>https://www.skyfaker.cc/2020/03/24/yi-dao-bian-cheng-ti-he-bing-k-ge-you-xu-lian-biao/</id>
-    <published>2020-03-24T15:57:53.000Z</published>
-    <updated>2021-03-21T14:56:34.214Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;题目描述与分析&quot;&gt;&lt;a href=&quot;#题目描述与分析&quot; class=&quot;headerlink&quot; title=&quot;题目描述与分析&quot;&gt;&lt;/a&gt;题目描述与分析&lt;/h2&gt;&lt;p&gt;合并 k</summary>
-        
-      
-    
-    
-    
-    <category term="算法" scheme="https://www.skyfaker.cc/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-    <category term="编程算法" scheme="https://www.skyfaker.cc/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
