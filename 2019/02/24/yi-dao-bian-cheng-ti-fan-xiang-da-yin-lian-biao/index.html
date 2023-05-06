@@ -324,8 +324,8 @@
 
 
 <!-- 3/22: 这里修改了推荐页文章点击进去之后的图片路径 -->
-<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.iohttps://s4.ax1x.com/2022/02/08/HlMz1H.jpg');"> -->
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://s4.ax1x.com/2022/02/08/HlMz1H.jpg');">
+<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.iohttps://s4.ax1x.com/2022/02/08/HlMq76.jpg');"> -->
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://s4.ax1x.com/2022/02/08/HlMq76.jpg');">
 
     <div class="container">
         <div class="row">
@@ -527,21 +527,21 @@
 <p><img src="双向循环链表.png" alt="双向循环链表结构图"></p>
 <p>如果是双向循环链表的话，每个节点不仅指示下一个节点的地址，还指示了上一个节点的地址，则可以从尾节点反向依次查找，并且由于是循环链表，可以直接从头结点找到尾节点，而不需要把链表轮询一遍。</p>
 <p>则时间复杂度为$O(n)$，空间复杂度为$O(1)$。查找的空间复杂大大降低，不过由于每个节点多了一个指针域，需要消耗更多的存储空间。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre class="line-numbers language-lang-python"><code class="language-lang-python"># -*- coding:utf-8 -*-
-# 单链表节点的类定义
-# class ListNode:
-#     def __init__(self, x):
-#         self.val = x  # 数据域
-#         self.next = None  # 指针域
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># -*- coding:utf-8 -*-</span>
+<span class="token comment" spellcheck="true"># 单链表节点的类定义</span>
+<span class="token comment" spellcheck="true"># class ListNode:</span>
+<span class="token comment" spellcheck="true">#     def __init__(self, x):</span>
+<span class="token comment" spellcheck="true">#         self.val = x  # 数据域</span>
+<span class="token comment" spellcheck="true">#         self.next = None  # 指针域</span>
 
-class Solution:
-    # 返回从尾部到头部的列表值序列，例如[1,2,3]
-    def printListFromTailToHead(self, listNode):
-        # write code here
-        if listNode is None:
-            return []
-        # 递归运算，返回值用到了Python的特性，列表的+操作为将2个列表拼接在一起。
-        return self.printListFromTailToHead(listNode.next) + [listNode.val]
+<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true"># 返回从尾部到头部的列表值序列，例如[1,2,3]</span>
+    <span class="token keyword">def</span> <span class="token function">printListFromTailToHead</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> listNode<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true"># write code here</span>
+        <span class="token keyword">if</span> listNode <span class="token keyword">is</span> None<span class="token punctuation">:</span>
+            <span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+        <span class="token comment" spellcheck="true"># 递归运算，返回值用到了Python的特性，列表的+操作为将2个列表拼接在一起。</span>
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>printListFromTailToHead<span class="token punctuation">(</span>listNode<span class="token punctuation">.</span>next<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token punctuation">[</span>listNode<span class="token punctuation">.</span>val<span class="token punctuation">]</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
@@ -616,7 +616,7 @@ class Solution:
                                         
 
                                             <!-- 3/22修改： -->
-                                            <img src="https://s4.ax1x.com/2022/02/08/HlQAN8.jpg" class="responsive-img" alt="一道编程题——重建二叉树">
+                                            <img src="https://s4.ax1x.com/2022/02/08/HlQpjA.jpg" class="responsive-img" alt="一道编程题——重建二叉树">
                                             
                                                 <span class="card-title">一道编程题——重建二叉树</span>
                             </div>
@@ -665,7 +665,7 @@ class Solution:
                                         <div class="card-image">
                                             
                                                     
-                                                        <img src="https://s4.ax1x.com/2022/02/08/HlQY34.jpg" class="responsive-img" alt="一道编程题——二维数组的查找">
+                                                        <img src="https://s4.ax1x.com/2022/02/08/HlMoc9.jpg" class="responsive-img" alt="一道编程题——二维数组的查找">
                                                         
                                                             <span class="card-title">一道编程题——二维数组的查找</span>
                                         </div>
@@ -853,7 +853,7 @@ class Solution:
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">58.4k</span>
+                <span class="white-color">62.6k</span>
                 
 
                     <br>

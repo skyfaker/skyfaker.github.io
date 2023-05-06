@@ -323,8 +323,8 @@
 
 
 <!-- 3/22: 这里修改了推荐页文章点击进去之后的图片路径 -->
-<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.iohttps://s4.ax1x.com/2022/02/08/HlMz1H.jpg');"> -->
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://s4.ax1x.com/2022/02/08/HlMz1H.jpg');">
+<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.iohttps://s4.ax1x.com/2022/02/08/HlQiHP.jpg');"> -->
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://s4.ax1x.com/2022/02/08/HlQiHP.jpg');">
 
     <div class="container">
         <div class="row">
@@ -482,7 +482,7 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    532
+                    548
                 </div>
                 
 
@@ -514,51 +514,51 @@
 <p>当然，这种解法的空间复杂度为 <code>O(n)</code>，不满足题目要求。</p>
 <h3 id="快慢指针"><a href="#快慢指针" class="headerlink" title="快慢指针"></a>快慢指针</h3><p>在来链表操作中，如果需要满足空间复杂度为 <code>O（1）</code> ，则常用到快慢指针，比如一个指针快而一个指针慢，或者一个指针先走一个后走。</p>
 <p>本地设置2个指针，一个慢指针每次遍历一个节点，另外一个快指针每次遍历2个节点，如果存在环，则快指针先进入环，等到慢指针进入环后，快指针将与慢指针相遇。</p>
-<h4 id="python"><a href="#python" class="headerlink" title="python"></a>python</h4><pre class="line-numbers language-lang-python"><code class="language-lang-python"># 思路比较简单，不再注释，详细见上述介绍
-# class ListNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.next = None
+<h4 id="python"><a href="#python" class="headerlink" title="python"></a>python</h4><pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 思路比较简单，不再注释，详细见上述介绍</span>
+<span class="token comment" spellcheck="true"># class ListNode:</span>
+<span class="token comment" spellcheck="true">#     def __init__(self, x):</span>
+<span class="token comment" spellcheck="true">#         self.val = x</span>
+<span class="token comment" spellcheck="true">#         self.next = None</span>
 
-class Solution:
-    def hasCycle(self , head ):
-        # write code here
-        if not head:
-            return False
-        slow_p = fast_p = head
-        while(fast_p and fast_p.next):
-            fast_p = fast_p.next.next
-            slow_p = slow_p.next
-            if fast_p == slow_p:
-                return True
-        return False
+<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">hasCycle</span><span class="token punctuation">(</span>self <span class="token punctuation">,</span> head <span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true"># write code here</span>
+        <span class="token keyword">if</span> <span class="token operator">not</span> head<span class="token punctuation">:</span>
+            <span class="token keyword">return</span> <span class="token boolean">False</span>
+        slow_p <span class="token operator">=</span> fast_p <span class="token operator">=</span> head
+        <span class="token keyword">while</span><span class="token punctuation">(</span>fast_p <span class="token operator">and</span> fast_p<span class="token punctuation">.</span>next<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            fast_p <span class="token operator">=</span> fast_p<span class="token punctuation">.</span>next<span class="token punctuation">.</span>next
+            slow_p <span class="token operator">=</span> slow_p<span class="token punctuation">.</span>next
+            <span class="token keyword">if</span> fast_p <span class="token operator">==</span> slow_p<span class="token punctuation">:</span>
+                <span class="token keyword">return</span> <span class="token boolean">True</span>
+        <span class="token keyword">return</span> <span class="token boolean">False</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="c"><a href="#c" class="headerlink" title="c++"></a>c++</h4><pre class="line-numbers language-lang-cpp"><code class="language-lang-cpp">/**
+<h4 id="c"><a href="#c" class="headerlink" title="c++"></a>c++</h4><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">/**
  * Definition for singly-linked list.
- * struct ListNode &#123;
+ * struct ListNode &amp;#123;
  *     int val;
  *     ListNode *next;
- *     ListNode(int x) : val(x), next(NULL) &#123;&#125;
- * &#125;;
- */
-class Solution &#123;
-public:
-    bool hasCycle(ListNode *head) &#123;
-        if(!head) &#123;
-            return false;
-        &#125;
-        ListNode* slow_p = head;
-        ListNode* fast_p = head;
-        while(fast_p && fast_p->next)&#123;
-            fast_p = fast_p->next->next;
-            slow_p = slow_p->next;
-            if(fast_p == slow_p)&#123;
-                return true;
-            &#125;
-        &#125;
-        return false;
-    &#125;
-&#125;;
+ *     ListNode(int x) : val(x), next(NULL) &amp;#123;&amp;#125;
+ * &amp;#125;;
+ */</span>
+<span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token keyword">bool</span> <span class="token function">hasCycle</span><span class="token punctuation">(</span>ListNode <span class="token operator">*</span>head<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>head<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+        ListNode<span class="token operator">*</span> slow_p <span class="token operator">=</span> head<span class="token punctuation">;</span>
+        ListNode<span class="token operator">*</span> fast_p <span class="token operator">=</span> head<span class="token punctuation">;</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span>fast_p <span class="token operator">&amp;&amp;</span> fast_p<span class="token operator">-</span><span class="token operator">></span>next<span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+            fast_p <span class="token operator">=</span> fast_p<span class="token operator">-</span><span class="token operator">></span>next<span class="token operator">-</span><span class="token operator">></span>next<span class="token punctuation">;</span>
+            slow_p <span class="token operator">=</span> slow_p<span class="token operator">-</span><span class="token operator">></span>next<span class="token punctuation">;</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>fast_p <span class="token operator">==</span> slow_p<span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+                <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+            <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
@@ -633,7 +633,7 @@ public:
                                         
 
                                             <!-- 3/22修改： -->
-                                            <img src="https://s4.ax1x.com/2022/02/08/HlMTXR.jpg" class="responsive-img" alt="一道编程题——判断二叉树是否对称">
+                                            <img src="https://s4.ax1x.com/2022/02/08/HlMXtO.jpg" class="responsive-img" alt="一道编程题——判断二叉树是否对称">
                                             
                                                 <span class="card-title">一道编程题——判断二叉树是否对称</span>
                             </div>
@@ -682,7 +682,7 @@ public:
                                         <div class="card-image">
                                             
                                                     
-                                                        <img src="https://s4.ax1x.com/2022/02/08/HlMOAK.jpg" class="responsive-img" alt="一道编程题——按组翻转链表">
+                                                        <img src="https://s4.ax1x.com/2022/02/08/HlQScd.jpg" class="responsive-img" alt="一道编程题——按组翻转链表">
                                                         
                                                             <span class="card-title">一道编程题——按组翻转链表</span>
                                         </div>
@@ -870,7 +870,7 @@ public:
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">58.4k</span>
+                <span class="white-color">62.6k</span>
                 
 
                     <br>

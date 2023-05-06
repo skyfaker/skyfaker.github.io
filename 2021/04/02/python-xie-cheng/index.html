@@ -321,8 +321,8 @@
 
 
 <!-- 3/22: 这里修改了推荐页文章点击进去之后的图片路径 -->
-<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.iohttps://s4.ax1x.com/2022/02/08/HlQkAf.jpg');"> -->
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://s4.ax1x.com/2022/02/08/HlQkAf.jpg');">
+<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.iohttps://s4.ax1x.com/2022/02/08/HlQnjs.jpg');"> -->
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://s4.ax1x.com/2022/02/08/HlQnjs.jpg');">
 
     <div class="container">
         <div class="row">
@@ -480,14 +480,14 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2k
+                    2.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    7 分
+                    8 分
                 </div>
                 
                 
@@ -519,69 +519,69 @@
 <h3 id="python协程"><a href="#python协程" class="headerlink" title="python协程"></a>python协程</h3><h4 id="yield"><a href="#yield" class="headerlink" title="yield"></a>yield</h4><p>python中协程的原始实现方式是通过yield关键字实现，而yield关键字在python中用于实现生成器。</p>
 <p>yield的语法规则是这样的：<strong>代码执行时遇到yield则停止执行，返回yield右侧的值（没有则返回None），遇到next（或者send）命令则从yield处继续执行，并将send命令的参数传给yield的左值变量。</strong></p>
 <p>看个例子：</p>
-<pre class="line-numbers language-lang-python"><code class="language-lang-python">def example_coroutine():
-    print('-> 启动协程')
-    y = 10
-    x = yield y
-    print('-> 协程接收到了x的值:', x)
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">example_coroutine</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'-> 启动协程'</span><span class="token punctuation">)</span>
+    y <span class="token operator">=</span> <span class="token number">10</span>
+    x <span class="token operator">=</span> <span class="token keyword">yield</span> y
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'-> 协程接收到了x的值:'</span><span class="token punctuation">,</span> x<span class="token punctuation">)</span>
 
-ex_coro = example_coroutine()
-res = next(ex_coro)  # 或者ex_coro.send(None)
-print(res)
-ex_coro.send(10)
+ex_coro <span class="token operator">=</span> example_coroutine<span class="token punctuation">(</span><span class="token punctuation">)</span>
+res <span class="token operator">=</span> next<span class="token punctuation">(</span>ex_coro<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 或者ex_coro.send(None)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span>
+ex_coro<span class="token punctuation">.</span>send<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>
 
-## 控制台输出：
--> 启动协程
-10
--> 协程接收到了x的值: 10
-Traceback (most recent call last):
-  File "d:/exercise/algorithm_exercise/py_coroutine.py", line 15, in <module>
-    ex_coro.send(10)
+<span class="token comment" spellcheck="true">## 控制台输出：</span>
+<span class="token operator">-</span><span class="token operator">></span> 启动协程
+<span class="token number">10</span>
+<span class="token operator">-</span><span class="token operator">></span> 协程接收到了x的值<span class="token punctuation">:</span> <span class="token number">10</span>
+Traceback <span class="token punctuation">(</span>most recent call last<span class="token punctuation">)</span><span class="token punctuation">:</span>
+  File <span class="token string">"d:/exercise/algorithm_exercise/py_coroutine.py"</span><span class="token punctuation">,</span> line <span class="token number">15</span><span class="token punctuation">,</span> <span class="token keyword">in</span> <span class="token operator">&lt;</span>module<span class="token operator">></span>
+    ex_coro<span class="token punctuation">.</span>send<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>
 StopIteration
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>过程是这样的：next唤醒生成器，生成器返回变量y的值10，res接收到生成器的返回值,send(10)将10传入生成器并赋值给变量x，最后生成器结束，抛出<code>StopIteration</code>异常。</p>
 <p>实际上到这里，已经实现了一个简易的协程，通过yield和send实现任务切换。</p>
 <p>下面的例子表示如何通过协程实现主任务与副任务切换：</p>
-<pre class="line-numbers language-lang-python"><code class="language-lang-python">import time
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> time
 
-def task1():
-    while True:
-        count = yield "<甲>累了，让<乙>工作一会儿"
-        if count:
-            print("<甲>开始工作.....")
-            time.sleep(1)
-        else:
-            break
+<span class="token keyword">def</span> <span class="token function">task1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
+        count <span class="token operator">=</span> <span class="token keyword">yield</span> <span class="token string">"&lt;甲>累了，让&lt;乙>工作一会儿"</span>
+        <span class="token keyword">if</span> count<span class="token punctuation">:</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"&lt;甲>开始工作....."</span><span class="token punctuation">)</span>
+            time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            <span class="token keyword">break</span>
 
-def task2(t):
-    # next(t)
-    a = t.send(None)  # a = "<甲>累了，让<乙>工作一会儿"
-    count = 2
-    while count:
-        print("-----------------------------------")
-        print("<乙>开始工作.....")
-        time.sleep(2)
-        print("<乙>累了，让<甲>工作一会儿....")
-        ret = t.send(count)
-        print(ret)
-        count-=1
-    t.close()
+<span class="token keyword">def</span> <span class="token function">task2</span><span class="token punctuation">(</span>t<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true"># next(t)</span>
+    a <span class="token operator">=</span> t<span class="token punctuation">.</span>send<span class="token punctuation">(</span>None<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># a = "&lt;甲>累了，让&lt;乙>工作一会儿"</span>
+    count <span class="token operator">=</span> <span class="token number">2</span>
+    <span class="token keyword">while</span> count<span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"-----------------------------------"</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"&lt;乙>开始工作....."</span><span class="token punctuation">)</span>
+        time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"&lt;乙>累了，让&lt;甲>工作一会儿...."</span><span class="token punctuation">)</span>
+        ret <span class="token operator">=</span> t<span class="token punctuation">.</span>send<span class="token punctuation">(</span>count<span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>ret<span class="token punctuation">)</span>
+        count<span class="token operator">-=</span><span class="token number">1</span>
+    t<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-if __name__ == '__main__':
-    t = task1()
-    task2(t)
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    t <span class="token operator">=</span> task1<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    task2<span class="token punctuation">(</span>t<span class="token punctuation">)</span>
 
-# 控制台输出
------------------------------------
-<乙>开始工作.....
-<乙>累了，让<甲>工作一会儿....
-<甲>开始工作.....
-<甲>累了，让<乙>工作一会儿
------------------------------------
-<乙>开始工作.....
-<乙>累了，让<甲>工作一会儿....
-<甲>开始工作.....
-<甲>累了，让<乙>工作一会儿
+<span class="token comment" spellcheck="true"># 控制台输出</span>
+<span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span>
+<span class="token operator">&lt;</span>乙<span class="token operator">></span>开始工作<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token operator">&lt;</span>乙<span class="token operator">></span>累了，让<span class="token operator">&lt;</span>甲<span class="token operator">></span>工作一会儿<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token operator">&lt;</span>甲<span class="token operator">></span>开始工作<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token operator">&lt;</span>甲<span class="token operator">></span>累了，让<span class="token operator">&lt;</span>乙<span class="token operator">></span>工作一会儿
+<span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span>
+<span class="token operator">&lt;</span>乙<span class="token operator">></span>开始工作<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token operator">&lt;</span>乙<span class="token operator">></span>累了，让<span class="token operator">&lt;</span>甲<span class="token operator">></span>工作一会儿<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token operator">&lt;</span>甲<span class="token operator">></span>开始工作<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token operator">&lt;</span>甲<span class="token operator">></span>累了，让<span class="token operator">&lt;</span>乙<span class="token operator">></span>工作一会儿
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="asyncio模块"><a href="#asyncio模块" class="headerlink" title="asyncio模块"></a>asyncio模块</h4><p><code>asyncio</code>是<strong>Python 3.4</strong>版本引入的标准库，直接内置了对异步IO的支持。asyncio是一个基于事件循环的异步IO模块。</p>
 <p><code>yield from</code>可以返回另一个生成器生成的值。<a target="_blank" rel="noopener" href="https://wenkefendou.gitbooks.io/python3-learning/content/yield_from.html">yield详细介绍点这里</a>。</p>
@@ -594,62 +594,62 @@ if __name__ == '__main__':
 <p>要注意的是，简单地调用一个协程并不会使其被调度执行。</p>
 <p>通常我们使用<code>asyncio.get_event_loop()</code>方法创建一个循环。</p>
 <p>循环创建后可以通过<code>run_until_complete()</code>方法或者<code>run_forever()</code>方法来运行循环</p>
-<pre class="line-numbers language-lang-python"><code class="language-lang-python">import asyncio
-import threading
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> asyncio
+<span class="token keyword">import</span> threading
 
-@asyncio.coroutine  # 声明为协程函数
-def hello1():
-    print('Hello 1 start! (%s)' % threading.currentThread())
-    yield from asyncio.sleep(1)  # 遇到IO，出让线程
-    print('Hello 1 end! (%s)' % threading.currentThread())
+@asyncio<span class="token punctuation">.</span>coroutine  <span class="token comment" spellcheck="true"># 声明为协程函数</span>
+<span class="token keyword">def</span> <span class="token function">hello1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Hello 1 start! (%s)'</span> <span class="token operator">%</span> threading<span class="token punctuation">.</span>currentThread<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">yield</span> <span class="token keyword">from</span> asyncio<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 遇到IO，出让线程</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Hello 1 end! (%s)'</span> <span class="token operator">%</span> threading<span class="token punctuation">.</span>currentThread<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 
-@asyncio.coroutine
-def hello2():
-    print('Hello 2 start! (%s)' % threading.currentThread())
-    yield from asyncio.sleep(1)
-    print('Hello 2 end! (%s)' % threading.currentThread())
+@asyncio<span class="token punctuation">.</span>coroutine
+<span class="token keyword">def</span> <span class="token function">hello2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Hello 2 start! (%s)'</span> <span class="token operator">%</span> threading<span class="token punctuation">.</span>currentThread<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">yield</span> <span class="token keyword">from</span> asyncio<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Hello 2 end! (%s)'</span> <span class="token operator">%</span> threading<span class="token punctuation">.</span>currentThread<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 
-if __name__ == '__main__':
-    loop = asyncio.get_event_loop()
-    tasks = [hello1(), hello2()]
-    loop.run_until_complete(asyncio.wait(tasks))
-    loop.close()
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    loop <span class="token operator">=</span> asyncio<span class="token punctuation">.</span>get_event_loop<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    tasks <span class="token operator">=</span> <span class="token punctuation">[</span>hello1<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> hello2<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+    loop<span class="token punctuation">.</span>run_until_complete<span class="token punctuation">(</span>asyncio<span class="token punctuation">.</span>wait<span class="token punctuation">(</span>tasks<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    loop<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-# 控制台输出
-Hello 2 start! (<_MainThread(MainThread, started 21500)>)
-Hello 1 start! (<_MainThread(MainThread, started 21500)>)
-# 在这里阻塞1s
-Hello 2 end! (<_MainThread(MainThread, started 21500)>)
-Hello 1 end! (<_MainThread(MainThread, started 21500)>)
+<span class="token comment" spellcheck="true"># 控制台输出</span>
+Hello <span class="token number">2</span> start! <span class="token punctuation">(</span><span class="token operator">&lt;</span>_MainThread<span class="token punctuation">(</span>MainThread<span class="token punctuation">,</span> started <span class="token number">21500</span><span class="token punctuation">)</span><span class="token operator">></span><span class="token punctuation">)</span>
+Hello <span class="token number">1</span> start! <span class="token punctuation">(</span><span class="token operator">&lt;</span>_MainThread<span class="token punctuation">(</span>MainThread<span class="token punctuation">,</span> started <span class="token number">21500</span><span class="token punctuation">)</span><span class="token operator">></span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 在这里阻塞1s</span>
+Hello <span class="token number">2</span> end! <span class="token punctuation">(</span><span class="token operator">&lt;</span>_MainThread<span class="token punctuation">(</span>MainThread<span class="token punctuation">,</span> started <span class="token number">21500</span><span class="token punctuation">)</span><span class="token operator">></span><span class="token punctuation">)</span>
+Hello <span class="token number">1</span> end! <span class="token punctuation">(</span><span class="token operator">&lt;</span>_MainThread<span class="token punctuation">(</span>MainThread<span class="token punctuation">,</span> started <span class="token number">21500</span><span class="token punctuation">)</span><span class="token operator">></span><span class="token punctuation">)</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>上面一段代码，使用asyncio模拟了同一个线程中的两个协程。不像上面的例子，分为主副协程，这个例子中的hello1和hello2属于平等，并不是由某个协程直接唤醒另外一个协程。虽然hello1再task列表中排在第一位，先执行的确是hello2 协程。</p>
 <p>具体过程为<code>@asyncio.coroutine</code>装饰器声明协程，调用协程并不会使其被执行。<code>asyncio.sleep(1)</code>模拟1s的IO操作。<code>hello2</code>协程先执行，遇到IO操作时出让CPU，然后<code>hello1</code>协程被调度，同样遇到IO出让CPU，hello2的<code>asyncio.sleep(1)</code>结束后，由<code>yield from</code>返回hello2协程，获取CPU资源。因此虽然模拟了2s的IO操作，但是2次IO同时进行，程序总耗时大约1s。</p>
 <h4 id="async、await"><a href="#async、await" class="headerlink" title="async、await"></a>async、await</h4><p><strong>Python3.5</strong>中对协程提供了更直接的支持，引入了<code>async/await</code>关键字。使用<code>async</code>代替<code>@asyncio.coroutine</code>，使用<code>await</code>代替<code>yield from</code>，代码变得更加简洁可读。从Python设计的角度来说，<code>async/await</code>让协程独立于生成器而存在，不需要再借助yield语法。<code>async</code>与<code>await</code>必须成双成对使用。</p>
 <p>下面使用async和await重写上面的代码：</p>
-<pre class="line-numbers language-lang-python"><code class="language-lang-python">import asyncio
-import threading
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> asyncio
+<span class="token keyword">import</span> threading
 
-async def hello3():
-    print('Hello 3 start! (%s)' % threading.currentThread())
-    await asyncio.sleep(1)
-    print('Hello 3 end! (%s)' % threading.currentThread())
+<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">hello3</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Hello 3 start! (%s)'</span> <span class="token operator">%</span> threading<span class="token punctuation">.</span>currentThread<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">await</span> asyncio<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Hello 3 end! (%s)'</span> <span class="token operator">%</span> threading<span class="token punctuation">.</span>currentThread<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 
-async def hello4():
-    print('Hello 4 start! (%s)' % threading.currentThread())
-    await asyncio.sleep(1)
-    print('Hello 4 end! (%s)' % threading.currentThread())
+<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">hello4</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Hello 4 start! (%s)'</span> <span class="token operator">%</span> threading<span class="token punctuation">.</span>currentThread<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">await</span> asyncio<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Hello 4 end! (%s)'</span> <span class="token operator">%</span> threading<span class="token punctuation">.</span>currentThread<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 
-if __name__ == '__main__':
-    loop = asyncio.get_event_loop()
-    tasks = [hello3(), hello4()]
-    loop.run_until_complete(asyncio.wait(tasks))
-    loop.close()
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    loop <span class="token operator">=</span> asyncio<span class="token punctuation">.</span>get_event_loop<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    tasks <span class="token operator">=</span> <span class="token punctuation">[</span>hello3<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> hello4<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+    loop<span class="token punctuation">.</span>run_until_complete<span class="token punctuation">(</span>asyncio<span class="token punctuation">.</span>wait<span class="token punctuation">(</span>tasks<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    loop<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-# 控制台输出
-Hello 3 start! (<_MainThread(MainThread, started 15288)>)
-Hello 4 start! (<_MainThread(MainThread, started 15288)>)
-Hello 3 end! (<_MainThread(MainThread, started 15288)>)
-Hello 4 end! (<_MainThread(MainThread, started 15288)>)
+<span class="token comment" spellcheck="true"># 控制台输出</span>
+Hello <span class="token number">3</span> start! <span class="token punctuation">(</span><span class="token operator">&lt;</span>_MainThread<span class="token punctuation">(</span>MainThread<span class="token punctuation">,</span> started <span class="token number">15288</span><span class="token punctuation">)</span><span class="token operator">></span><span class="token punctuation">)</span>
+Hello <span class="token number">4</span> start! <span class="token punctuation">(</span><span class="token operator">&lt;</span>_MainThread<span class="token punctuation">(</span>MainThread<span class="token punctuation">,</span> started <span class="token number">15288</span><span class="token punctuation">)</span><span class="token operator">></span><span class="token punctuation">)</span>
+Hello <span class="token number">3</span> end! <span class="token punctuation">(</span><span class="token operator">&lt;</span>_MainThread<span class="token punctuation">(</span>MainThread<span class="token punctuation">,</span> started <span class="token number">15288</span><span class="token punctuation">)</span><span class="token operator">></span><span class="token punctuation">)</span>
+Hello <span class="token number">4</span> end! <span class="token punctuation">(</span><span class="token operator">&lt;</span>_MainThread<span class="token punctuation">(</span>MainThread<span class="token punctuation">,</span> started <span class="token number">15288</span><span class="token punctuation">)</span><span class="token operator">></span><span class="token punctuation">)</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="怎么用协程"><a href="#怎么用协程" class="headerlink" title="怎么用协程"></a>怎么用协程</h2><p>开头介绍了一些协程与线程的区别以及协程的优点，但是事实上大部分情况下，多线程都能很好的完成任务，而并不是花心思写协程。</p>
 <p>目前，主流的代码结构设计理念需要先对要解决的问题进行抽象、分解、建模，强调的是高内聚低耦合的模块化思想。模块之间不应该相互影响，这对于互相基本不影响的多线程来说是很自然的，对于底层资源的竞争都交给操作系统来解决，上层的代码层面就可以做到模块化。而对于协程，却并不是这样，协程把资源的分配提到用户态，由程序员在代码中实现逻辑流，不可避免地会使得一些代码相互耦合。</p>
@@ -728,7 +728,7 @@ Hello 4 end! (<_MainThread(MainThread, started 15288)>)
                                         
 
                                             <!-- 3/22修改： -->
-                                            <img src="https://s4.ax1x.com/2022/02/08/HlMb0x.jpg" class="responsive-img" alt="语言模型概述">
+                                            <img src="https://s4.ax1x.com/2022/02/08/HlQdD1.jpg" class="responsive-img" alt="语言模型概述">
                                             
                                                 <span class="card-title">语言模型概述</span>
                             </div>
@@ -781,7 +781,7 @@ Hello 4 end! (<_MainThread(MainThread, started 15288)>)
                                         <div class="card-image">
                                             
                                                     
-                                                        <img src="https://s4.ax1x.com/2022/02/08/HlQAN8.jpg" class="responsive-img" alt="Attention is all you need">
+                                                        <img src="https://s4.ax1x.com/2022/02/08/HlQpjA.jpg" class="responsive-img" alt="Attention is all you need">
                                                         
                                                             <span class="card-title">Attention is all you need</span>
                                         </div>
@@ -969,7 +969,7 @@ Hello 4 end! (<_MainThread(MainThread, started 15288)>)
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">58.4k</span>
+                <span class="white-color">62.6k</span>
                 
 
                     <br>

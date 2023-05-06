@@ -323,8 +323,8 @@
 
 
 <!-- 3/22: 这里修改了推荐页文章点击进去之后的图片路径 -->
-<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.iohttps://s4.ax1x.com/2022/02/08/HlMXtO.jpg');"> -->
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://s4.ax1x.com/2022/02/08/HlMXtO.jpg');">
+<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.iohttps://s4.ax1x.com/2022/02/08/HlQpjA.jpg');"> -->
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://s4.ax1x.com/2022/02/08/HlQpjA.jpg');">
 
     <div class="container">
         <div class="row">
@@ -482,7 +482,7 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    675
+                    687
                 </div>
                 
 
@@ -515,61 +515,61 @@
 <p>由于快慢指针相遇到Z点，可知慢指针行进距离为 $a+b$，又由于快指针的速度是慢指针的2倍，所以快指针的行进距离为 $2*(a+b)$。 并且由于快指针最终也停在了Z点（假设绕环n次），则可知 $2*(a+b)= a + b + k*n$ ，即 $a+b = k*n$ 。</p>
 <p>现在我们已经获得了两个节点X，Z的位置了，从这两个节点到入口节点Y的路程分别为 a 和 $k*n -b$ ，并且a = $k*n - b$。</p>
 <p>所以，可以通过设置一个指针从X开始，另外一个指针从Z，同时以相同的速度前进，当他们相遇时，正好在入口节点上。</p>
-<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><h3 id="python实现"><a href="#python实现" class="headerlink" title="python实现"></a>python实现</h3><pre class="line-numbers language-lang-python"><code class="language-lang-python">class Solution:
-    def detectCycle(self , head ):
-        # write code here
-        if not head or not head.next:
-            return None
-        # 判断是否存在环
-        node = self.find_circle(head)
-        if not node:
-            return None
-        # 存在环，则设置一个从头节点开始的慢指针，两个慢指针再次相遇时即为换的入口
-        s = head
-        while(s!=node):
-            s = s.next
-            node = node.next
-        return node
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><h3 id="python实现"><a href="#python实现" class="headerlink" title="python实现"></a>python实现</h3><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">detectCycle</span><span class="token punctuation">(</span>self <span class="token punctuation">,</span> head <span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true"># write code here</span>
+        <span class="token keyword">if</span> <span class="token operator">not</span> head <span class="token operator">or</span> <span class="token operator">not</span> head<span class="token punctuation">.</span>next<span class="token punctuation">:</span>
+            <span class="token keyword">return</span> None
+        <span class="token comment" spellcheck="true"># 判断是否存在环</span>
+        node <span class="token operator">=</span> self<span class="token punctuation">.</span>find_circle<span class="token punctuation">(</span>head<span class="token punctuation">)</span>
+        <span class="token keyword">if</span> <span class="token operator">not</span> node<span class="token punctuation">:</span>
+            <span class="token keyword">return</span> None
+        <span class="token comment" spellcheck="true"># 存在环，则设置一个从头节点开始的慢指针，两个慢指针再次相遇时即为换的入口</span>
+        s <span class="token operator">=</span> head
+        <span class="token keyword">while</span><span class="token punctuation">(</span>s<span class="token operator">!=</span>node<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            s <span class="token operator">=</span> s<span class="token punctuation">.</span>next
+            node <span class="token operator">=</span> node<span class="token punctuation">.</span>next
+        <span class="token keyword">return</span> node
 
-    #  判断是否存在环，存在则返回快慢指针相遇的节点
-    def find_circle(self, head):
-        f = head
-        s = head
-        while(f and f.next):
-            s = s.next
-            f = f.next.next
-            if s==f:
-                return s
-        return None
+    <span class="token comment" spellcheck="true">#  判断是否存在环，存在则返回快慢指针相遇的节点</span>
+    <span class="token keyword">def</span> <span class="token function">find_circle</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> head<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        f <span class="token operator">=</span> head
+        s <span class="token operator">=</span> head
+        <span class="token keyword">while</span><span class="token punctuation">(</span>f <span class="token operator">and</span> f<span class="token punctuation">.</span>next<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            s <span class="token operator">=</span> s<span class="token punctuation">.</span>next
+            f <span class="token operator">=</span> f<span class="token punctuation">.</span>next<span class="token punctuation">.</span>next
+            <span class="token keyword">if</span> s<span class="token operator">==</span>f<span class="token punctuation">:</span>
+                <span class="token keyword">return</span> s
+        <span class="token keyword">return</span> None
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="C-实现"><a href="#C-实现" class="headerlink" title="C++实现"></a>C++实现</h3><pre class="line-numbers language-lang-cpp"><code class="language-lang-cpp">class Solution &#123;
-public:
-    ListNode *detectCycle(ListNode *head) &#123;
-        if(head==NULL) return NULL;
-        // 判断是否存在环
-        ListNode *node = find_circle(head);
-        if(node==NULL) return NULL;
-        // 设置一个从头节点开始的慢指针，两个慢指针再次相遇时即为换的入口
-        ListNode *s = head;
-        while(s!=node)&#123;
-            s = s->next;
-            node = node->next;
-        &#125;
-        return node;
-    &#125;
+<h3 id="C-实现"><a href="#C-实现" class="headerlink" title="C++实现"></a>C++实现</h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    ListNode <span class="token operator">*</span><span class="token function">detectCycle</span><span class="token punctuation">(</span>ListNode <span class="token operator">*</span>head<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>head<span class="token operator">==</span><span class="token constant">NULL</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">// 判断是否存在环</span>
+        ListNode <span class="token operator">*</span>node <span class="token operator">=</span> <span class="token function">find_circle</span><span class="token punctuation">(</span>head<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>node<span class="token operator">==</span><span class="token constant">NULL</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">// 设置一个从头节点开始的慢指针，两个慢指针再次相遇时即为换的入口</span>
+        ListNode <span class="token operator">*</span>s <span class="token operator">=</span> head<span class="token punctuation">;</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span>s<span class="token operator">!=</span>node<span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+            s <span class="token operator">=</span> s<span class="token operator">-</span><span class="token operator">></span>next<span class="token punctuation">;</span>
+            node <span class="token operator">=</span> node<span class="token operator">-</span><span class="token operator">></span>next<span class="token punctuation">;</span>
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> node<span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
-    // 判断是否存在环，存在则返回快慢指针相遇的节点
-    ListNode *find_circle(ListNode *head)&#123;
-        ListNode * s = head;
-        ListNode * f = head;
-        while(f!=NULL && f->next!=NULL)&#123;
-            s = s->next;
-            f = f->next->next;
-            if(s==f) return s;
-        &#125;
-        return NULL;
-    &#125;
-&#125;;
+    <span class="token comment" spellcheck="true">// 判断是否存在环，存在则返回快慢指针相遇的节点</span>
+    ListNode <span class="token operator">*</span><span class="token function">find_circle</span><span class="token punctuation">(</span>ListNode <span class="token operator">*</span>head<span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        ListNode <span class="token operator">*</span> s <span class="token operator">=</span> head<span class="token punctuation">;</span>
+        ListNode <span class="token operator">*</span> f <span class="token operator">=</span> head<span class="token punctuation">;</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span>f<span class="token operator">!=</span><span class="token constant">NULL</span> <span class="token operator">&amp;&amp;</span> f<span class="token operator">-</span><span class="token operator">></span>next<span class="token operator">!=</span><span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+            s <span class="token operator">=</span> s<span class="token operator">-</span><span class="token operator">></span>next<span class="token punctuation">;</span>
+            f <span class="token operator">=</span> f<span class="token operator">-</span><span class="token operator">></span>next<span class="token operator">-</span><span class="token operator">></span>next<span class="token punctuation">;</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>s<span class="token operator">==</span>f<span class="token punctuation">)</span> <span class="token keyword">return</span> s<span class="token punctuation">;</span>
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
@@ -644,7 +644,7 @@ public:
                                         
 
                                             <!-- 3/22修改： -->
-                                            <img src="https://s4.ax1x.com/2022/02/08/HlMq76.jpg" class="responsive-img" alt="一道编程题——合并K个有序链表">
+                                            <img src="https://s4.ax1x.com/2022/02/08/HlQwHx.jpg" class="responsive-img" alt="一道编程题——合并K个有序链表">
                                             
                                                 <span class="card-title">一道编程题——合并K个有序链表</span>
                             </div>
@@ -693,7 +693,7 @@ public:
                                         <div class="card-image">
                                             
                                                     
-                                                        <img src="https://s4.ax1x.com/2022/02/08/HlQMBq.jpg" class="responsive-img" alt="数字图像处理——形态学">
+                                                        <img src="https://s4.ax1x.com/2022/02/08/HlQZ9g.jpg" class="responsive-img" alt="数字图像处理——形态学">
                                                         
                                                             <span class="card-title">数字图像处理——形态学</span>
                                         </div>
@@ -881,7 +881,7 @@ public:
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">58.4k</span>
+                <span class="white-color">62.6k</span>
                 
 
                     <br>
