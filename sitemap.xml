@@ -448,6 +448,13 @@
   </url>
   
   <url>
+    <loc>https://www.skyfaker.cc/tags/Pretraining-model/</loc>
+    <lastmod>2023-05-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://www.skyfaker.cc/tags/%E5%8D%9A%E5%AE%A2/</loc>
     <lastmod>2023-05-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -463,13 +470,6 @@
   
   <url>
     <loc>https://www.skyfaker.cc/tags/matplotlib/</loc>
-    <lastmod>2023-05-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.skyfaker.cc/tags/Pretraining-model/</loc>
     <lastmod>2023-05-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -497,6 +497,13 @@
   </url>
   
   <url>
+    <loc>https://www.skyfaker.cc/tags/SVM/</loc>
+    <lastmod>2023-05-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://www.skyfaker.cc/tags/Attention/</loc>
     <lastmod>2023-05-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -504,7 +511,14 @@
   </url>
   
   <url>
-    <loc>https://www.skyfaker.cc/tags/SVM/</loc>
+    <loc>https://www.skyfaker.cc/tags/mathjax/</loc>
+    <lastmod>2023-05-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.skyfaker.cc/tags/hexo%E6%B8%B2%E6%9F%93/</loc>
     <lastmod>2023-05-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -546,20 +560,6 @@
   </url>
   
   <url>
-    <loc>https://www.skyfaker.cc/tags/mathjax/</loc>
-    <lastmod>2023-05-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.skyfaker.cc/tags/hexo%E6%B8%B2%E6%9F%93/</loc>
-    <lastmod>2023-05-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://www.skyfaker.cc/tags/CNN/</loc>
     <lastmod>2023-05-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -581,6 +581,13 @@
   </url>
   
   <url>
+    <loc>https://www.skyfaker.cc/tags/%E5%A4%9A%E8%BF%9B%E7%A8%8B/</loc>
+    <lastmod>2023-05-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://www.skyfaker.cc/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95/</loc>
     <lastmod>2023-05-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -588,7 +595,7 @@
   </url>
   
   <url>
-    <loc>https://www.skyfaker.cc/tags/python/</loc>
+    <loc>https://www.skyfaker.cc/tags/%E5%AD%97%E8%8A%82/</loc>
     <lastmod>2023-05-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -603,13 +610,6 @@
   
   <url>
     <loc>https://www.skyfaker.cc/tags/%E4%B8%89%E5%85%83%E7%BB%84%E6%8D%9F%E5%A4%B1/</loc>
-    <lastmod>2023-05-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.skyfaker.cc/tags/%E5%AD%97%E8%8A%82/</loc>
     <lastmod>2023-05-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -688,6 +688,13 @@
   </url>
   
   <url>
+    <loc>https://www.skyfaker.cc/categories/NLP/</loc>
+    <lastmod>2023-05-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://www.skyfaker.cc/categories/%E9%9A%8F%E4%BE%BF%E5%86%99%E5%86%99/</loc>
     <lastmod>2023-05-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -696,13 +703,6 @@
   
   <url>
     <loc>https://www.skyfaker.cc/categories/%E5%B7%A5%E5%85%B7%E6%96%B9%E6%B3%95/</loc>
-    <lastmod>2023-05-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.skyfaker.cc/categories/NLP/</loc>
     <lastmod>2023-05-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

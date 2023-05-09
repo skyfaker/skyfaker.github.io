@@ -67,8 +67,7 @@
     </script>
 
 <meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="SKYFAKER" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+</head>
 
     <body>
 
@@ -511,43 +510,41 @@
 <p><img src="tree.png" alt='以1为根的十叉树' style="zoom:50%;" /></p>
 <p>以字典序排序就是求上述十叉树的深度遍历。深度遍历一般使用递归实现。</p>
 <p>有意思的是，如果使用广度搜索，就可以实现自然数顺序的排序。</p>
-<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><h3 id="python实现"><a href="#python实现" class="headerlink" title="python实现"></a>python实现</h3><h4 id="1-暴力排序"><a href="#1-暴力排序" class="headerlink" title="1.暴力排序"></a>1.暴力排序</h4><pre class="line-numbers language-python"><code class="language-python"><span class="token punctuation">[</span>n<span class="token punctuation">,</span> m<span class="token punctuation">]</span> <span class="token operator">=</span> map<span class="token punctuation">(</span>int<span class="token punctuation">,</span> input<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-
-strList <span class="token operator">=</span> <span class="token punctuation">[</span>str<span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> n<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
-
-strList<span class="token punctuation">.</span>sort<span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>int<span class="token punctuation">(</span>strList<span class="token punctuation">[</span>m<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><h3 id="python实现"><a href="#python实现" class="headerlink" title="python实现"></a>python实现</h3><h4 id="1-暴力排序"><a href="#1-暴力排序" class="headerlink" title="1.暴力排序"></a>1.暴力排序</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python">[n, m] &#x3D; map(int, input().split())
+ 
+strList &#x3D; [str(i) for i in range(1, n+1)]
+ 
+strList.sort()
+print(int(strList[m-1]))<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>python对于字符串的排序方式就是按照字典顺序进行排序的，但是会直接内存溢出。</p>
-<h4 id="2-字典树"><a href="#2-字典树" class="headerlink" title="2.字典树"></a>2.字典树</h4><pre class="line-numbers language-python"><code class="language-python"><span class="token punctuation">[</span>n<span class="token punctuation">,</span> m<span class="token punctuation">]</span> <span class="token operator">=</span> map<span class="token punctuation">(</span>int<span class="token punctuation">,</span> input<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<h4 id="2-字典树"><a href="#2-字典树" class="headerlink" title="2.字典树"></a>2.字典树</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python">[n, m] &#x3D; map(int, input().split())
 
-re <span class="token operator">=</span> <span class="token number">0</span> 
-<span class="token keyword">def</span> <span class="token function">findNum</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">global</span> re<span class="token punctuation">,</span> m
-    <span class="token keyword">if</span> int<span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token operator">&lt;=</span>n<span class="token punctuation">:</span>
-        <span class="token comment" spellcheck="true"># 以字典序从小到大查找，每找到一个就小于n的数就使全局变量m-1</span>
-        m<span class="token operator">-=</span><span class="token number">1</span>
-        <span class="token comment" spellcheck="true"># m减到0，表示已经找到第m个数</span>
-        <span class="token keyword">if</span> m<span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">:</span>
-            re <span class="token operator">=</span> value
-            <span class="token keyword">return</span> <span class="token boolean">True</span>
-        <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-            flag <span class="token operator">=</span> findNum<span class="token punctuation">(</span>value<span class="token operator">+</span>str<span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span>
-            <span class="token comment" spellcheck="true"># 通过return True跳过接下来所有的递归</span>
-            <span class="token keyword">if</span> flag<span class="token punctuation">:</span>
-                <span class="token keyword">return</span> <span class="token boolean">True</span>
-            <span class="token comment" spellcheck="true"># 通过return 0来停止同一深度的递归，比如100已经超过n，则不再递归101</span>
-            <span class="token keyword">if</span> flag <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
-                <span class="token keyword">break</span>
-    <span class="token keyword">else</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> <span class="token number">0</span>
+re &#x3D; 0 
+def findNum(value):
+    global re, m
+    if int(value)&lt;&#x3D;n:
+        # 以字典序从小到大查找，每找到一个就小于n的数就使全局变量m-1
+        m-&#x3D;1
+        # m减到0，表示已经找到第m个数
+        if m&#x3D;&#x3D;0:
+            re &#x3D; value
+            return True
+        for i in range(10):
+            flag &#x3D; findNum(value+str(i))
+            # 通过return True跳过接下来所有的递归
+            if flag:
+                return True
+            # 通过return 0来停止同一深度的递归，比如100已经超过n，则不再递归101
+            if flag &#x3D;&#x3D; 0:
+                break
+    else:
+        return 0
 
-<span class="token keyword">for</span> a <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    flag <span class="token operator">=</span> findNum<span class="token punctuation">(</span>str<span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">)</span>
-    <span class="token keyword">if</span> flag<span class="token punctuation">:</span>
-        <span class="token keyword">break</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>re<span class="token punctuation">)</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+for a in range(1,10):
+    flag &#x3D; findNum(str(a))
+    if flag:
+        break
+print(re)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>深度遍历字典树应该是最符合题目要求的做法，不过python使用递归效率不高，百万级数据就已经显示超时。</p>
 <h4 id="3-找规律"><a href="#3-找规律" class="headerlink" title="3.找规律"></a>3.找规律</h4><h5 id="规律"><a href="#规律" class="headerlink" title="规律"></a>规律</h5><p>实际上，上面的字典树的目的在于找出第m个数在哪一个字典树以及在某个字典树的哪个位置。</p>
 <p>而上面的字典树递归解法，浪费了太多时间在递归上，而实际上很多递归是不必要的。我们可以通过计算以1开头的字典树的元素个数，和m比较，这样就可以知道m是否在以1开头的字典树中。</p>
@@ -562,40 +559,39 @@ re <span class="token operator">=</span> <span class="token number">0</span>
 </ol>
 <p>由上述规律可知，以1开头的数字为11个，以1开头的数排列完成之后才会有以2开头的数。由于m为20大于11，那么必然第20个数不会是以1开头。</p>
 <p>因此，递归的过程可以由计算以某个数字开头的所有数字个数替代，以减少计算次数。</p>
-<h5 id="AC代码"><a href="#AC代码" class="headerlink" title="AC代码"></a>AC代码</h5><pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 以pre开头，并且小于等于n的数字个数</span>
-<span class="token keyword">def</span> <span class="token function">culculateNum_with_prefix</span><span class="token punctuation">(</span>n<span class="token punctuation">,</span> pre<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    n<span class="token punctuation">,</span> pre <span class="token operator">=</span> str<span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">,</span> str<span class="token punctuation">(</span>pre<span class="token punctuation">)</span>
-    len_n<span class="token punctuation">,</span> len_p <span class="token operator">=</span> len<span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">,</span> len<span class="token punctuation">(</span>pre<span class="token punctuation">)</span>
-    <span class="token comment" spellcheck="true"># 以0开头的非法数字或者upper位数小于pre</span>
-    <span class="token keyword">if</span> len_n <span class="token operator">&lt;</span> len_p <span class="token operator">or</span> pre<span class="token punctuation">.</span>startswith<span class="token punctuation">(</span><span class="token string">"0"</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> <span class="token number">0</span>
-    <span class="token comment" spellcheck="true"># n的相同位数前缀</span>
-    pre_upper <span class="token operator">=</span> n<span class="token punctuation">[</span><span class="token punctuation">:</span>len_p<span class="token punctuation">]</span>
-    <span class="token comment" spellcheck="true"># pre小于n的前缀</span>
-    <span class="token keyword">if</span> pre <span class="token operator">&lt;</span> pre_upper<span class="token punctuation">:</span>
-        <span class="token keyword">return</span> int<span class="token punctuation">(</span><span class="token string">"1"</span> <span class="token operator">*</span> <span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">+</span> len_n <span class="token operator">-</span> len_p<span class="token punctuation">)</span><span class="token punctuation">)</span>
-    <span class="token comment" spellcheck="true"># pre大于n的前缀</span>
-    <span class="token keyword">if</span> pre <span class="token operator">></span> pre_upper<span class="token punctuation">:</span>
-        <span class="token keyword">return</span> int<span class="token punctuation">(</span><span class="token string">"1"</span> <span class="token operator">*</span> <span class="token punctuation">(</span>len_n <span class="token operator">-</span> len_p<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">if</span> len_n <span class="token operator">></span> len_p <span class="token keyword">else</span> <span class="token number">0</span>
-    <span class="token comment" spellcheck="true"># 开头相同，位数也相同，则只有pre本身一个数；开头相同，位数不同则需要分开计算</span>
-    <span class="token keyword">return</span> int<span class="token punctuation">(</span><span class="token string">"1"</span> <span class="token operator">*</span> <span class="token punctuation">(</span>len_n <span class="token operator">-</span> len_p<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span> <span class="token operator">+</span> int<span class="token punctuation">(</span>n<span class="token punctuation">[</span>len_p<span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token keyword">if</span> len_n <span class="token operator">></span> len_p <span class="token keyword">else</span> <span class="token number">1</span>
+<h5 id="AC代码"><a href="#AC代码" class="headerlink" title="AC代码"></a>AC代码</h5><pre class="line-numbers language-python" data-language="python"><code class="language-python"># 以pre开头，并且小于等于n的数字个数
+def culculateNum_with_prefix(n, pre):
+    n, pre &#x3D; str(n), str(pre)
+    len_n, len_p &#x3D; len(n), len(pre)
+    # 以0开头的非法数字或者upper位数小于pre
+    if len_n &lt; len_p or pre.startswith(&quot;0&quot;):
+        return 0
+    # n的相同位数前缀
+    pre_upper &#x3D; n[:len_p]
+    # pre小于n的前缀
+    if pre &lt; pre_upper:
+        return int(&quot;1&quot; * (1 + len_n - len_p))
+    # pre大于n的前缀
+    if pre &gt; pre_upper:
+        return int(&quot;1&quot; * (len_n - len_p)) if len_n &gt; len_p else 0
+    # 开头相同，位数也相同，则只有pre本身一个数；开头相同，位数不同则需要分开计算
+    return int(&quot;1&quot; * (len_n - len_p)) + 1 + int(n[len_p:]) if len_n &gt; len_p else 1
 
 
-n<span class="token punctuation">,</span>m <span class="token operator">=</span> list<span class="token punctuation">(</span>map<span class="token punctuation">(</span>int<span class="token punctuation">,</span>input<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+n,m &#x3D; list(map(int,input().split()))
 
-digits <span class="token operator">=</span> tuple<span class="token punctuation">(</span>str<span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token keyword">for</span> x <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-prefix<span class="token punctuation">,</span> rank <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">,</span> <span class="token number">0</span>
-<span class="token keyword">while</span> rank <span class="token operator">&lt;</span> m<span class="token punctuation">:</span>
-    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>len<span class="token punctuation">(</span>digits<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        d <span class="token operator">=</span> digits<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
-        num <span class="token operator">=</span> culculateNum_with_prefix<span class="token punctuation">(</span>n<span class="token punctuation">,</span> prefix <span class="token operator">+</span> d<span class="token punctuation">)</span>
-        <span class="token keyword">if</span> rank <span class="token operator">+</span> num <span class="token operator">>=</span> m<span class="token punctuation">:</span>
-            <span class="token keyword">break</span>
-        rank <span class="token operator">+=</span> num
-    prefix <span class="token operator">+=</span> d
-    rank <span class="token operator">+=</span> <span class="token number">1</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>prefix<span class="token punctuation">)</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+digits &#x3D; tuple(str(x) for x in range(10))
+prefix, rank &#x3D; &quot;&quot;, 0
+while rank &lt; m:
+    for i in range(len(digits)):
+        d &#x3D; digits[i]
+        num &#x3D; culculateNum_with_prefix(n, prefix + d)
+        if rank + num &gt;&#x3D; m:
+            break
+        rank +&#x3D; num
+    prefix +&#x3D; d
+    rank +&#x3D; 1
+print(prefix)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h5 id="代码解析"><a href="#代码解析" class="headerlink" title="代码解析"></a>代码解析</h5><p>上面的<code>culculateNum_with_prefix</code>函数用数字的位数快速计算以某数为前缀的数字个数，这实际上就是以这个前缀<code>pre</code>为根节点的字典树元素个数。</p>
 <p>数字个数计算分为三种情况：</p>
 <ol>
@@ -620,78 +616,77 @@ prefix<span class="token punctuation">,</span> rank <span class="token operator"
 <li>计算以12开头的数字个数为11个，加上之前的23已经超过m。 所以m必然以12开头，加上满足条件的根节点12，rank置为24；</li>
 <li>计算以120开头的数字个数为1，加上rank=24，正好25。查找完毕。</li>
 </ol>
-<h3 id="C-实现"><a href="#C-实现" class="headerlink" title="C++实现"></a>C++实现</h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;cstring></span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;string></span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;vector></span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;algorithm></span></span>
-<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
-vector<span class="token operator">&lt;</span>string<span class="token operator">></span> ve<span class="token punctuation">;</span>
+<h3 id="C-实现"><a href="#C-实现" class="headerlink" title="C++实现"></a>C++实现</h3><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;cstring&gt;
+#include &lt;string&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+vector&lt;string&gt; ve;
 
-<span class="token keyword">int</span> <span class="token function">culculateNum_with_prefix</span><span class="token punctuation">(</span>string n<span class="token punctuation">,</span> string pre<span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-    <span class="token keyword">int</span> len_n <span class="token operator">=</span> n<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">int</span> len_p <span class="token operator">=</span> pre<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token punctuation">(</span>len_n<span class="token operator">&lt;</span>len_p<span class="token punctuation">)</span> <span class="token operator">|</span> <span class="token punctuation">(</span>pre<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">==</span><span class="token string">'0'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-    string n_pre<span class="token punctuation">;</span>
-    n_pre <span class="token operator">=</span> n<span class="token punctuation">.</span><span class="token function">substr</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span>len_p<span class="token punctuation">)</span><span class="token punctuation">;</span>
+int culculateNum_with_prefix(string n, string pre)&#123;
+    int len_n &#x3D; n.size();
+    int len_p &#x3D; pre.size();
+    if((len_n&lt;len_p) | (pre[0]&#x3D;&#x3D;&#39;0&#39;))return 0;
+    string n_pre;
+    n_pre &#x3D; n.substr(0,len_p);
 
-    <span class="token keyword">if</span><span class="token punctuation">(</span>pre<span class="token operator">&lt;</span>n_pre<span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-        <span class="token comment" spellcheck="true">// 重复打印1+len_n-len_p个1</span>
-        string <span class="token function">tmp</span><span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">+</span> len_n<span class="token operator">-</span>len_p<span class="token punctuation">,</span><span class="token string">'1'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">return</span> <span class="token function">atoi</span><span class="token punctuation">(</span>tmp<span class="token punctuation">.</span><span class="token function">c_str</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-    <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>pre<span class="token operator">></span>n_pre<span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>len_n<span class="token operator">></span>len_p<span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-            string <span class="token function">tmp</span><span class="token punctuation">(</span>len_n<span class="token operator">-</span>len_p<span class="token punctuation">,</span><span class="token string">'1'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token keyword">return</span> <span class="token function">atoi</span><span class="token punctuation">(</span>tmp<span class="token punctuation">.</span><span class="token function">c_str</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   
-        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-        <span class="token keyword">else</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-            <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-    <span class="token keyword">else</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>len_n<span class="token operator">></span>len_p<span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-            string str <span class="token operator">=</span> n<span class="token punctuation">.</span><span class="token function">substr</span><span class="token punctuation">(</span>len_p<span class="token punctuation">)</span><span class="token punctuation">;</span>
-            string <span class="token function">tmp</span><span class="token punctuation">(</span>len_n<span class="token operator">-</span>len_p<span class="token punctuation">,</span><span class="token string">'1'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token keyword">return</span> <span class="token function">atoi</span><span class="token punctuation">(</span>tmp<span class="token punctuation">.</span><span class="token function">c_str</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span> <span class="token operator">+</span> <span class="token function">atoi</span><span class="token punctuation">(</span>str<span class="token punctuation">.</span><span class="token function">c_str</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-        <span class="token keyword">else</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-            <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
-        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    if(pre&lt;n_pre)&#123;
+        &#x2F;&#x2F; 重复打印1+len_n-len_p个1
+        string tmp(1 + len_n-len_p,&#39;1&#39;);
+        return atoi(tmp.c_str());   
+    &#125;
+    else if(pre&gt;n_pre)&#123;
+        if(len_n&gt;len_p)&#123;
+            string tmp(len_n-len_p,&#39;1&#39;);
+            return atoi(tmp.c_str());   
+        &#125;
+        else&#123;
+            return 0;
+        &#125;
+    &#125;
+    else&#123;
+        if(len_n&gt;len_p)&#123;
+            string str &#x3D; n.substr(len_p);
+            string tmp(len_n-len_p,&#39;1&#39;);
+            return atoi(tmp.c_str()) + 1 + atoi(str.c_str());
+        &#125;
+        else&#123;
+            return 1;
+        &#125;
+    &#125;
+&#125;
 
 
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-    <span class="token keyword">int</span> n<span class="token punctuation">,</span>m<span class="token punctuation">;</span>
-    cin<span class="token operator">>></span>n<span class="token operator">>></span>m<span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">// n = 1000000;</span>
-    <span class="token comment" spellcheck="true">// m = 888888;</span>
-    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span><span class="token number">9</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-        ve<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span><span class="token function">to_string</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-    string prefix <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">;</span>
-    <span class="token keyword">int</span> rank <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-    <span class="token keyword">int</span> num <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-    string d <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">;</span>
-    <span class="token keyword">while</span> <span class="token punctuation">(</span>rank<span class="token operator">&lt;</span>m<span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>j<span class="token operator">&lt;</span><span class="token number">10</span><span class="token punctuation">;</span>j<span class="token operator">++</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-            d <span class="token operator">=</span> ve<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
-            num <span class="token operator">=</span> <span class="token function">culculateNum_with_prefix</span><span class="token punctuation">(</span><span class="token function">to_string</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">,</span> prefix<span class="token operator">+</span>d<span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token keyword">if</span><span class="token punctuation">(</span>rank<span class="token operator">+</span>num<span class="token operator">>=</span>m<span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-                <span class="token keyword">break</span><span class="token punctuation">;</span>
-            <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-            rank<span class="token operator">+</span><span class="token operator">=</span>num<span class="token punctuation">;</span>
-        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-        prefix<span class="token operator">+</span><span class="token operator">=</span>d<span class="token punctuation">;</span>
-        rank<span class="token operator">+</span><span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-    cout<span class="token operator">&lt;&lt;</span>prefix<span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
-    cin<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+int main()&#123;
+    int n,m;
+    cin&gt;&gt;n&gt;&gt;m;
+    &#x2F;&#x2F; n &#x3D; 1000000;
+    &#x2F;&#x2F; m &#x3D; 888888;
+    for(int i&#x3D;0;i&lt;&#x3D;9;i++)&#123;
+        ve.push_back(to_string(i));
+    &#125;
+    string prefix &#x3D; &quot;&quot;;
+    int rank &#x3D; 0;
+    int num &#x3D; 0;
+    string d &#x3D; &quot;&quot;;
+    while (rank&lt;m)&#123;
+        for(int j&#x3D;0;j&lt;10;j++)&#123;
+            d &#x3D; ve[j];
+            num &#x3D; culculateNum_with_prefix(to_string(n), prefix+d);
+            if(rank+num&gt;&#x3D;m)&#123;
+                break;
+            &#125;
+            rank+&#x3D;num;
+        &#125;
+        prefix+&#x3D;d;
+        rank+&#x3D;1;
+    &#125;
+    cout&lt;&lt;prefix&lt;&lt;endl;
+    cin.get();
+    return 0;
+    
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr />
@@ -1025,7 +1020,7 @@ vector<span class="token operator">&lt;</span>string<span class="token operator"
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">65k</span>
+                <span class="white-color">65.8k</span>
                 
 
                     <br>
