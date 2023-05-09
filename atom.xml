@@ -6,7 +6,7 @@
   <link href="https://www.skyfaker.cc/atom.xml" rel="self"/>
   
   <link href="https://www.skyfaker.cc/"/>
-  <updated>2023-05-06T15:43:48.991Z</updated>
+  <updated>2023-05-09T18:11:03.120Z</updated>
   <id>https://www.skyfaker.cc/</id>
   
   <author>
@@ -17,11 +17,35 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>python多进程中的坑</title>
+    <link href="https://www.skyfaker.cc/2022/01/17/python-duo-jin-cheng-zhong-de-keng/"/>
+    <id>https://www.skyfaker.cc/2022/01/17/python-duo-jin-cheng-zhong-de-keng/</id>
+    <published>2022-01-16T16:19:32.000Z</published>
+    <updated>2023-05-09T18:11:03.120Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;最近在线上的测试环境遇到一个偶发的问题，问题表现为docker容器卡死，不执行程序并且也不再消费消息队列中的任务。&lt;/p&gt;
+&lt;p&gt;线上环境使用docker集群，消息的传递使用消息队列实现。出问题的是一个下游服务，这个服务基本流程是，载入数据，处理之后进行模型训练和预测。奇怪</summary>
+        
+      
+    
+    
+    
+    
+    <category term="python" scheme="https://www.skyfaker.cc/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Don&#39;t stop pretraining</title>
-    <link href="https://www.skyfaker.cc/2021/11/04/don-t-stop-pretraining/"/>
-    <id>https://www.skyfaker.cc/2021/11/04/don-t-stop-pretraining/</id>
-    <published>2021-11-04T06:35:21.000Z</published>
-    <updated>2023-05-06T15:43:48.991Z</updated>
+    <link href="https://www.skyfaker.cc/2021/12/11/don-t-stop-pretraining/"/>
+    <id>https://www.skyfaker.cc/2021/12/11/don-t-stop-pretraining/</id>
+    <published>2021-12-11T06:35:21.000Z</published>
+    <updated>2023-05-09T03:02:58.198Z</updated>
     
     
       
@@ -43,10 +67,10 @@
   
   <entry>
     <title>NER技术的探索与实践</title>
-    <link href="https://www.skyfaker.cc/2021/10/01/ner-ji-zhu-de-tan-suo-yu-shi-jian/"/>
-    <id>https://www.skyfaker.cc/2021/10/01/ner-ji-zhu-de-tan-suo-yu-shi-jian/</id>
-    <published>2021-10-01T07:15:23.000Z</published>
-    <updated>2023-05-06T15:43:41.554Z</updated>
+    <link href="https://www.skyfaker.cc/2021/11/01/ner-ji-zhu-de-tan-suo-yu-shi-jian/"/>
+    <id>https://www.skyfaker.cc/2021/11/01/ner-ji-zhu-de-tan-suo-yu-shi-jian/</id>
+    <published>2021-11-01T07:15:23.000Z</published>
+    <updated>2023-05-09T03:02:22.752Z</updated>
     
     
       
@@ -68,10 +92,10 @@
   
   <entry>
     <title>神经网络语言模型</title>
-    <link href="https://www.skyfaker.cc/2021/07/06/shen-jing-wang-luo-yu-yan-mo-xing/"/>
-    <id>https://www.skyfaker.cc/2021/07/06/shen-jing-wang-luo-yu-yan-mo-xing/</id>
-    <published>2021-07-06T15:09:39.000Z</published>
-    <updated>2022-09-06T15:26:40.777Z</updated>
+    <link href="https://www.skyfaker.cc/2021/08/06/shen-jing-wang-luo-yu-yan-mo-xing/"/>
+    <id>https://www.skyfaker.cc/2021/08/06/shen-jing-wang-luo-yu-yan-mo-xing/</id>
+    <published>2021-08-06T15:09:39.000Z</published>
+    <updated>2023-05-09T03:02:09.988Z</updated>
     
     
       
@@ -511,34 +535,6 @@
     
     
     <category term="模型" scheme="https://www.skyfaker.cc/tags/%E6%A8%A1%E5%9E%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>hexo加速计划</title>
-    <link href="https://www.skyfaker.cc/2020/03/30/hexo-jia-su-ji-hua/"/>
-    <id>https://www.skyfaker.cc/2020/03/30/hexo-jia-su-ji-hua/</id>
-    <published>2020-03-30T10:17:38.000Z</published>
-    <updated>2021-04-14T07:53:23.417Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;前段时间，朋友和我说访问我的博客页面速度很慢，加载要很久。我纳闷，不对啊，不久前还测试过呢，速度蛮快的啊。又清除了缓存测试了一遍，发现还是很快就可以加载。最后一对比，发现原来我加载快是因为我设置了代理，而没有设置代理的国内其他用户访问的速度就很不稳定。&lt;/p&gt;
-&lt;p&gt;&lt;im</summary>
-        
-      
-    
-    
-    
-    <category term="hexo" scheme="https://www.skyfaker.cc/categories/hexo/"/>
-    
-    
-    <category term="hexo加速" scheme="https://www.skyfaker.cc/tags/hexo%E5%8A%A0%E9%80%9F/"/>
-    
-    <category term="jsDelivr" scheme="https://www.skyfaker.cc/tags/jsDelivr/"/>
     
   </entry>
   

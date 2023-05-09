@@ -1,15 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://www.skyfaker.cc/2022/01/17/python-duo-jin-cheng-zhong-de-keng/</loc>
+    <lastmod>2023-05-09</lastmod>
+  </url>
+  <url>
+    <loc>https://www.skyfaker.cc/2021/12/11/don-t-stop-pretraining/</loc>
+    <lastmod>2023-05-09</lastmod>
+  </url>
+  <url>
+    <loc>https://www.skyfaker.cc/2021/11/01/ner-ji-zhu-de-tan-suo-yu-shi-jian/</loc>
+    <lastmod>2023-05-09</lastmod>
+  </url>
+  <url>
+    <loc>https://www.skyfaker.cc/2021/08/06/shen-jing-wang-luo-yu-yan-mo-xing/</loc>
+    <lastmod>2023-05-09</lastmod>
+  </url>
+  <url>
     <loc>https://www.skyfaker.cc/2020/10/06/bian-li-yu-qi-fa-shi-sou-suo/</loc>
-    <lastmod>2023-05-06</lastmod>
-  </url>
-  <url>
-    <loc>https://www.skyfaker.cc/2021/11/04/don-t-stop-pretraining/</loc>
-    <lastmod>2023-05-06</lastmod>
-  </url>
-  <url>
-    <loc>https://www.skyfaker.cc/2021/10/01/ner-ji-zhu-de-tan-suo-yu-shi-jian/</loc>
     <lastmod>2023-05-06</lastmod>
   </url>
   <url>
@@ -38,10 +46,6 @@
   </url>
   <url>
     <loc>https://www.skyfaker.cc/2021/05/26/n-gram-yu-yan-mo-xing/</loc>
-    <lastmod>2022-09-06</lastmod>
-  </url>
-  <url>
-    <loc>https://www.skyfaker.cc/2021/07/06/shen-jing-wang-luo-yu-yan-mo-xing/</loc>
     <lastmod>2022-09-06</lastmod>
   </url>
   <url>

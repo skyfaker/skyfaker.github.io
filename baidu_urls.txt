@@ -1,6 +1,7 @@
-https://www.skyfaker.cc/2021/11/04/don-t-stop-pretraining/
-https://www.skyfaker.cc/2021/10/01/ner-ji-zhu-de-tan-suo-yu-shi-jian/
-https://www.skyfaker.cc/2021/07/06/shen-jing-wang-luo-yu-yan-mo-xing/
+https://www.skyfaker.cc/2022/01/17/python-duo-jin-cheng-zhong-de-keng/
+https://www.skyfaker.cc/2021/12/11/don-t-stop-pretraining/
+https://www.skyfaker.cc/2021/11/01/ner-ji-zhu-de-tan-suo-yu-shi-jian/
+https://www.skyfaker.cc/2021/08/06/shen-jing-wang-luo-yu-yan-mo-xing/
 https://www.skyfaker.cc/2021/05/26/n-gram-yu-yan-mo-xing/
 https://www.skyfaker.cc/2021/05/03/yu-yan-mo-xing-gai-shu/
 https://www.skyfaker.cc/2021/04/02/python-xie-cheng/
