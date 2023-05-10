@@ -466,7 +466,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-01-17
+                    2022-02-15
                 </div>
 
                 <div class="post-author info-break-policy">
@@ -572,7 +572,7 @@ if __name__ &#x3D;&#x3D; &#39;__main__&#39;:
 sub_res &#x3D; pool.apply_async(subprocesses, error_callback&#x3D;collect_result)  #以apply_async为例，apply,map,map_async结构类似<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>第一行为<code>Pool的实例化</code>，在第一行代码执行之后，会生成三个队列<code>_taskqueue, _inqueue, _outqueue</code>，并生成一个<code>_cache</code>字典，之后生成指定数量的子进程加入到进程池中，最后生成三个线程<code>_worker_handler, _task_handler, _result_handler</code>。</p>
 <p>以下为<strong>精简后</strong>的<code>Pool</code>类的<code>init</code>函数</p>
-<pre class="line-numbers language-none"><code class="language-none">self._pool &#x3D; []
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">self._pool &#x3D; []
 self._setup_queues()  # 在这里构造_inqueue, _outqueue队列
 self._taskqueue &#x3D; queue.SimpleQueue()  # _taskqueue队列
 self._cache &#x3D; _PoolCache(notifier&#x3D;self._change_notifier)  # 构造_cache
@@ -639,8 +639,9 @@ _result_handler: 从_outqueue取出结果的子线程，并将_cache中对应的
 <li>_task_handler线程遍历_taskqueue队列，将任务放入_inqueue队列；</li>
 <li>子进程执行任务，将结果放入_outqueue队列；</li>
 <li>_result_handler从_outqueue队列中取出子进程的运算结果，并删除_cache中对应的记录。</li>
-<li>_result_handler检查_cache，当_cache才会停止_result_handler线程<br>另外，Pool类的一些重要方法如下：</li>
+<li>_result_handler检查_cache，当_cache才会停止_result_handler线程</li>
 </ol>
+<p>另外，Pool类的一些重要方法如下：</p>
 <p>pool.join()是用来等待进程池中的worker进程执行完毕，防止主进程在worker进程结束前结束。但pool.join()必须使用在pool.close()或者pool.terminate()之后。</p>
 <p>close()跟terminate()的区别在于close()会等待池中的worker进程执行结束再关闭pool,而terminate()则是直接关闭。</p>
 </blockquote>
@@ -776,7 +777,7 @@ if __name__ &#x3D;&#x3D; &#39;__main__&#39;:    process_list &#x3D; []
                             本篇
                         </div>
                         <div class="card">
-                            <a href="/2022/01/17/python-duo-jin-cheng-zhong-de-keng/">
+                            <a href="/2022/02/15/python-duo-jin-cheng-zhong-de-keng/">
                                 <div class="card-image">
                                     
                                             
@@ -793,7 +794,7 @@ if __name__ &#x3D;&#x3D; &#39;__main__&#39;:    process_list &#x3D; []
                                 </div>
                                 <div class="publish-info">
                                     <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2022-01-17
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2022-02-15
                             </span>
                                     <span class="publish-author">
                             
