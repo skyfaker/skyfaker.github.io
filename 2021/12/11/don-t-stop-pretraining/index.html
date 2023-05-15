@@ -320,8 +320,8 @@
 
 
 <!-- 3/22: 这里修改了推荐页文章点击进去之后的图片路径 -->
-<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.iohttps://s4.ax1x.com/2022/02/08/HlMOAK.jpg');"> -->
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://s4.ax1x.com/2022/02/08/HlMOAK.jpg');">
+<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.iohttps://s4.ax1x.com/2022/02/08/HlMjhD.jpg');"> -->
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://s4.ax1x.com/2022/02/08/HlMjhD.jpg');">
 
     <div class="container">
         <div class="row">
@@ -538,16 +538,12 @@
 <p>上图比较了TAPT和Curated-TAPT的效果差异，可以看出DAPT+Curated-TAPT的效果最佳。并且这样的生成预训练数据集的成本非常低，通常是不需要额外标注。因此在实际的任务中，我们最好是尽可能搜集数据，即使没有资源标注，也可以作为进一步预训练的数据。</p>
 <p>论文还给出了一个自动数据选择方法，不过看起来效果不不太好，这里就不介绍了，感兴趣可以看论文原文。</p>
 <h3 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h3><p>在实际任务中，尤其是中文任务，有一些实践上的小trick：</p>
-<ol>
-<li>怎么样进一步预训练模型。</li>
-</ol>
+<p><strong>怎么样进一步预训练模型？</strong></p>
 <p>以Bert模型为例，Bert模型分为2个过程<strong>Masked LM任务</strong>即预测被mask掉的字符和<strong>NSP任务</strong>，即预测下一个句子。</p>
 <p>在进一步预训练时，只需要训练Masked LM任务即可。对于中文数据，在进行mask的时候可以直接mask一个完整词语而不是单个字。</p>
 <p>具体预训练方法在Transformer中已经有现成的，可以直接使用，<a target="_blank" rel="noopener" href="https://github.com/huggingface/transformers/tree/main/examples/pytorch/language-modeling">详情参考这个Github仓库</a>。</p>
 <p>Transformer如果没法满足个性化预训练需求的，可以参考<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/337212893">这一篇知乎文章</a>。</p>
-<ol>
-<li>一般需要多少数据进行进一步预训练才会有提升？</li>
-</ol>
+<p><strong>需要多少数据进行进一步预训练才会有提升？</strong></p>
 <p>鉴于论文中提的Curated-TAPT方法，我们应该尽可能搜集任务相关无标注数据作为预训练预料。</p>
 <p>考虑到Bert的Masked LM任务中只有15%的字符或者词汇被mask，所以用于预训练的语料要尽可能大一些，个人实践至少要有1W条以上的序列用于预训练，换算成Token的话在15W左右。</p>
 <p>相比于Bert模型10亿级Token作为训练集，10万的Token做进一步预训练就可以继续提升模型效果，成本确实是非常低了。</p>
@@ -624,7 +620,7 @@
                                         
 
                                             <!-- 3/22修改： -->
-                                            <img src="https://s4.ax1x.com/2022/02/08/HlQdD1.jpg" class="responsive-img" alt="python多进程中的坑">
+                                            <img src="https://s4.ax1x.com/2022/02/08/HlQtgJ.jpg" class="responsive-img" alt="python多进程中的坑">
                                             
                                                 <span class="card-title">python多进程中的坑</span>
                             </div>
@@ -673,7 +669,7 @@
                                         <div class="card-image">
                                             
                                                     
-                                                        <img src="https://s4.ax1x.com/2022/02/08/HlQZ9g.jpg" class="responsive-img" alt="NER技术的探索与实践">
+                                                        <img src="https://s4.ax1x.com/2022/02/08/HlQmcj.jpg" class="responsive-img" alt="NER技术的探索与实践">
                                                         
                                                             <span class="card-title">NER技术的探索与实践</span>
                                         </div>
