@@ -321,8 +321,8 @@ Attention的作用在做NLP任务时">
 
 
 <!-- 3/22: 这里修改了推荐页文章点击进去之后的图片路径 -->
-<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.iohttps://s4.ax1x.com/2022/02/08/HlQCnI.jpg');"> -->
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://s4.ax1x.com/2022/02/08/HlQCnI.jpg');">
+<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.iohttps://s4.ax1x.com/2022/02/08/HlQAN8.jpg');"> -->
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://s4.ax1x.com/2022/02/08/HlQAN8.jpg');">
 
     <div class="container">
         <div class="row">
@@ -553,7 +553,7 @@ PE(pos,2i+1)=cos(p/10000^{2i/d_{pos}})
 <h4 id="计算复杂度"><a href="#计算复杂度" class="headerlink" title="计算复杂度"></a>计算复杂度</h4><p><img src="./complexity.png" style="zoom:67%;" /></p>
 <p>上图是论文中的每一层Attention与RNN以及CNN相比较的复杂度，n表示序列中字的个数，d表示字向量的长度，k表示CNN层卷积核的大小，r表示restrict Attention中相邻字的长度。</p>
 <p>由于一般来说，一个序列中的相关联的字距离不会很大，即使是一句较长的序列，一般相关字距离也就几十。而目前预训练模型一般设置字向量的长度为512、768甚至1024等，要大于序列长度，所以从这个角度来看，Attention的计算复杂度要低于RNN。</p>
-<h3 id="不足之处"><a href="#不足之处" class="headerlink" title="不足之处"></a>不足之处</h3><p>上面介绍了一些Attention的好处，但是它也有不足之处。首先Attention失去了位置信息，使用Position Embedding来弥补这一缺点，但是Position Emdedding对位置的表达能力有限，对于翻译任务表现还好，但是对于序列标注任务就有所力不从心了。我曾经尝试过使用self-Attention于序列标注的任务，加入Position Emdedding之后效果几乎没有提升。由此看出Attention想要完全代替RNN是不现实的，它们各有自己的擅长范围，我们应该组合着使用。</p>
+<h3 id="不足之处"><a href="#不足之处" class="headerlink" title="不足之处"></a>不足之处</h3><p>上面介绍了一些Attention的好处，但是它也有不足之处。首先Attention失去了位置信息，使用Position Embedding来弥补这一缺点，但是Position Emdedding对位置的表达能力有限，对于翻译任务表现还好，但是对于序列标注任务就有所力不从心了。我曾经尝试过使用self-Attention于序列标注的任务，加入Position Emdedding之后效果几乎没有提升。由此看出Attention想要完全代替RNN还需要进一步解决位置信息的问题。</p>
 
             </div>
             <hr />
@@ -627,7 +627,7 @@ PE(pos,2i+1)=cos(p/10000^{2i/d_{pos}})
                                         
 
                                             <!-- 3/22修改： -->
-                                            <img src="https://s4.ax1x.com/2022/02/08/HlQmcj.jpg" class="responsive-img" alt="python协程入门">
+                                            <img src="https://s4.ax1x.com/2022/02/08/HlQkAf.jpg" class="responsive-img" alt="python协程入门">
                                             
                                                 <span class="card-title">python协程入门</span>
                             </div>
@@ -676,7 +676,7 @@ PE(pos,2i+1)=cos(p/10000^{2i/d_{pos}})
                                         <div class="card-image">
                                             
                                                     
-                                                        <img src="https://s4.ax1x.com/2022/02/08/HlQ3NT.jpg" class="responsive-img" alt="正则表达式与python正则">
+                                                        <img src="https://s4.ax1x.com/2022/02/08/HlQtgJ.jpg" class="responsive-img" alt="正则表达式与python正则">
                                                         
                                                             <span class="card-title">正则表达式与python正则</span>
                                         </div>
