@@ -11,15 +11,6 @@
   </url>
   
   <url>
-    <loc>https://www.skyfaker.cc/2020/08/20/hexo-dai-ma-gao-liang-yu-mathjax-chong-tu-copy/</loc>
-    
-    <lastmod>2025-02-07</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.skyfaker.cc/2021/03/10/attention-is-all-you-need/</loc>
     
     <lastmod>2025-02-06</lastmod>
@@ -520,6 +511,13 @@
   </url>
   
   <url>
+    <loc>https://www.skyfaker.cc/tags/git/</loc>
+    <lastmod>2025-02-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://www.skyfaker.cc/tags/mathjax/</loc>
     <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
@@ -528,13 +526,6 @@
   
   <url>
     <loc>https://www.skyfaker.cc/tags/hexo%E6%B8%B2%E6%9F%93/</loc>
-    <lastmod>2025-02-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.skyfaker.cc/tags/git/</loc>
     <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

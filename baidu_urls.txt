@@ -10,7 +10,6 @@ https://www.skyfaker.cc/2021/01/01/zheng-ze-biao-da-shi-yu-python-zheng-ze/
 https://www.skyfaker.cc/2020/11/11/svm-xiang-jie/
 https://www.skyfaker.cc/2020/10/06/bian-li-yu-qi-fa-shi-sou-suo/
 https://www.skyfaker.cc/2020/10/02/sou-suo-suan-fa-zong-shu/
-https://www.skyfaker.cc/2020/08/20/hexo-dai-ma-gao-liang-yu-mathjax-chong-tu-copy/
 https://www.skyfaker.cc/2020/08/20/hexo-dai-ma-gao-liang-yu-mathjax-chong-tu/
 https://www.skyfaker.cc/2020/07/27/mobilenet/
 https://www.skyfaker.cc/2020/06/30/zi-jie-suan-fa-ti-ji-qi-ren-tiao-yue/
