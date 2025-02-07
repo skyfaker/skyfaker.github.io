@@ -24,7 +24,7 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.staticfile.org/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.staticfile.org/aos/2.3.4/aos.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.staticfile.org/animate.css/3.5.1/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.staticfile.org/lightgallery/1.6.11/css/lightgallery.min.css">
     
     <!-- 3/22: 这里修改了js文件的路径，借助jsdelivr的CDN，用法为 “https://cdn.jsdelivr.net/gh/你的用户名/你的仓库名@发布的版本号/文件路径” 其中版本号可选，不写版本号则为最新-->
@@ -45,7 +45,10 @@
     <!-- <script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/jquery/jquery-2.2.0.min.js"></script> -->
     
     <!-- 2022/02/06: 修改了jQuery文件的路径，换到七牛云的staticfile -->
-    <script src="https://cdn.staticfile.org/jquery/2.2.0/jquery.min.js"></script>
+<!--    <script src="https://cdn.staticfile.org/jquery/2.2.0/jquery.min.js"></script>-->
+
+    <!-- 2025/02/07: 修改了jQuery文件的路径，换到官方 -->
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
     <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
     <script>
         var _hmt = _hmt || [];
@@ -377,7 +380,7 @@
                     <div class="post-statis col l4 hide-on-med-and-down" data-aos="zoom-in-right">
                         
 <div class="statis">
-    <span class="count"><a href="/" target="_blank">40</a></span>
+    <span class="count"><a href="/" target="_blank">41</a></span>
     <span class="name">文章</span>
 </div>
 
@@ -406,7 +409,7 @@
                                 <div class="post-statis hide-on-large-only" data-aos="zoom-in-right">
                                     
 <div class="statis">
-    <span class="count"><a href="/" target="_blank">40</a></span>
+    <span class="count"><a href="/" target="_blank">41</a></span>
     <span class="name">文章</span>
 </div>
 
@@ -587,7 +590,7 @@
                 type: 'pie',
                 radius: '50%',
                 color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
-                data: [{"name":"深度学习","value":4},{"name":"NLP","value":6},{"name":"随便写写","value":1},{"name":"工具方法","value":2},{"name":"机器学习","value":1},{"name":"hexo","value":2},{"name":"前端","value":1},{"name":"python","value":3},{"name":"算法","value":17},{"name":"搜索算法","value":2},{"name":"图像处理","value":1}],
+                data: [{"name":"深度学习","value":4},{"name":"NLP","value":6},{"name":"随便写写","value":1},{"name":"工具方法","value":2},{"name":"机器学习","value":1},{"name":"hexo","value":3},{"name":"前端","value":1},{"name":"python","value":3},{"name":"算法","value":17},{"name":"搜索算法","value":2},{"name":"图像处理","value":1}],
                 itemStyle: {
                     emphasis: {
                         shadowBlur: 10,
@@ -611,7 +614,7 @@
         xAxis: [
             {
                 type: 'category',
-                data: ["编程算法","语言模型","字节","Python","启发式搜索","AutoEncoder","全连接神经网络","Pretraining model","博客","matplotlib"]
+                data: ["编程算法","语言模型","字节","Python","mathjax","hexo渲染","启发式搜索","AutoEncoder","全连接神经网络","Pretraining model"]
             }
         ],
         yAxis: [
@@ -624,7 +627,7 @@
                 type: 'bar',
                 color: ['#82d3f4'],
                 barWidth : 18,
-                data: [17,3,3,2,2,1,1,1,1,1],
+                data: [17,3,3,2,2,2,2,1,1,1],
                 markPoint: {
                     symbolSize: 45,
                     data: [{
@@ -857,12 +860,6 @@
             
             
             
-            <a href="/tags/git/" target="_blank">
-                <span class="chip center-align waves-effect waves-light chip-default">git</span>
-            </a>
-            
-            
-            
             <a href="/tags/mathjax/" target="_blank">
                 <span class="chip center-align waves-effect waves-light chip-default">mathjax</span>
             </a>
@@ -871,6 +868,12 @@
             
             <a href="/tags/hexo%E6%B8%B2%E6%9F%93/" target="_blank">
                 <span class="chip center-align waves-effect waves-light chip-default">hexo渲染</span>
+            </a>
+            
+            
+            
+            <a href="/tags/git/" target="_blank">
+                <span class="chip center-align waves-effect waves-light chip-default">git</span>
             </a>
             
             
@@ -1028,7 +1031,7 @@
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">65.8k</span>
+                <span class="white-color">67.5k</span>
                 
 
                     <br>
@@ -1171,7 +1174,7 @@ $(function () {
                         <!-- 3/22: 修改了js文件路径 --> 
                             <script src="https://cdn.staticfile.org/materialize/1.0.0/js/materialize.js"></script>
                             <script src="https://cdn.staticfile.org/masonry/4.0.0/masonry.pkgd.min.js"></script>
-                            <script src="https://cdn.staticfile.org/aos/2.3.4/aos.js"></script>
+                            <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
                             <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
                             <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
 
@@ -1198,17 +1201,6 @@ $(function () {
                             </script>
 
                             <!-- Global site tag (gtag.js) - Google Analytics -->
-
-<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-
-    gtag('js', new Date());
-    gtag('config', '');
-</script>
 
 
 

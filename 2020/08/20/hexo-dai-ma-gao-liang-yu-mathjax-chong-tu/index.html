@@ -27,7 +27,7 @@ npm i -S hexo-pri">
     <link rel="stylesheet" type="text/css" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.staticfile.org/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.staticfile.org/aos/2.3.4/aos.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.staticfile.org/animate.css/3.5.1/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.staticfile.org/lightgallery/1.6.11/css/lightgallery.min.css">
     
     <!-- 3/22: 这里修改了js文件的路径，借助jsdelivr的CDN，用法为 “https://cdn.jsdelivr.net/gh/你的用户名/你的仓库名@发布的版本号/文件路径” 其中版本号可选，不写版本号则为最新-->
@@ -48,7 +48,10 @@ npm i -S hexo-pri">
     <!-- <script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/jquery/jquery-2.2.0.min.js"></script> -->
     
     <!-- 2022/02/06: 修改了jQuery文件的路径，换到七牛云的staticfile -->
-    <script src="https://cdn.staticfile.org/jquery/2.2.0/jquery.min.js"></script>
+<!--    <script src="https://cdn.staticfile.org/jquery/2.2.0/jquery.min.js"></script>-->
+
+    <!-- 2025/02/07: 修改了jQuery文件的路径，换到官方 -->
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
     <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
     <script>
         var _hmt = _hmt || [];
@@ -323,8 +326,8 @@ npm i -S hexo-pri">
 
 
 <!-- 3/22: 这里修改了推荐页文章点击进去之后的图片路径 -->
-<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.iohttps://s4.ax1x.com/2022/02/08/HlQScd.jpg');"> -->
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://s4.ax1x.com/2022/02/08/HlQScd.jpg');">
+<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.iohttps://s4.ax1x.com/2022/02/08/HlMz1H.jpg');"> -->
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://s4.ax1x.com/2022/02/08/HlMz1H.jpg');">
 
     <div class="container">
         <div class="row">
@@ -493,7 +496,7 @@ npm i -S hexo-pri">
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    6 分
                 </div>
                 
                 
@@ -523,10 +526,12 @@ npm i -S hexo-pri">
 <li><code>\\</code>的换行，在markdown中，<code>\\</code>会被转义为<code>\</code>这样也会影响影响mathjax对公式中的<code>\\</code>进行渲染。</li>
 </ul>
 <p>hexo默认使用<code>marked.js</code>去解析我们写的markdown，比如一些符号，<code>_</code>代表斜体，会被处理为<code>&lt;em&gt;</code>标签，比如<code>x_i</code>在开始被渲染的时候，处理为<code>x&lt;em&gt;i&lt;/em&gt;</code>，这个时候mathjax就无法渲染成下标了。很多符号都有这个问题，比如粗体<code>*</code>,也是无法在mathjax渲染出来的，好在有替代的乘法等,包括<code>\\</code>同理。 所以说到底，是hexo使用的markdown引擎的锅，因为很多其它引擎在这方面处理的很好。</p>
-<p>不仅仅是公式的问题，代码也会出现这个问题，比如说<code>&lt;code&gt;</code>，<code>&lt;代码&gt;在尖括号里面的字母或者数字会被隐藏。如下图：</p>
+<p>不仅仅是公式的问题，在 HTML 文件中，有两个字符需要特殊处理： <code>&lt;</code> 和 <code>&amp;</code> 。 <code>&lt;</code> 符号用于起始标签，<code>&amp;</code> 符号则用于标记 HTML 实体，如果你只是想要显示这些字符的原型，你必须要使用实体的形式，像是 <code>&lt;</code> 和 <code>&amp;</code>。</p>
+<p>比如说<code>&lt;code&gt;</code>，&lt;代码&gt;在尖括号里面的字母code会被当做HTML。</p>
+<p>如下图：</p>
 <p><img src="https://z3.ax1x.com/2021/03/23/6HG6PI.jpg" alt = '尖括号字母被隐藏' style="zoom:38%;" /></p>
 <p>上图是我在markdown中打出来的内容，而页面显示的部分却少了一块。</p>
-<p>原因在于尖括号之间的内容会被解析为HTML元素，并且后面的内容样式会改变。我就遇到过c++代码中的部分内容消失了，就是因为这部分代码被包在了尖括号中，最简单的方法是输入尖括号之后加一个空格，如：&lt; code&gt;</p>
+<p>原因在于尖括号之间的内容会被解析为HTML元素，并且后面的内容样式会改变。我遇到过c++代码中的部分内容消失了，就是因为这部分代码被包在了尖括号中，最简单的方法是输入尖括号之后加一个空格，如：&lt; code&gt;</p>
 <p>那么如何避免mathjax公式的显示异常问题呢？</p>
 <h3 id="1-手动转义（最简单）"><a href="#1-手动转义（最简单）" class="headerlink" title="1. 手动转义（最简单）"></a>1. 手动转义（最简单）</h3><p>这个方法最直接，多写一个转义。比如需要在公式中写下标符号，那就修改写法写为: <code>x\_i</code>，需要换行就使用<code>\\\\</code>,即可，需要写<code>&lt;</code>的地方多加一个空格。</p>
 <p> 如果你不需要迁移到其他平台的话可以这样做，最简单。而且用<code>\\\\</code>换行到其他平台也影响不大，只是由一个换行变成了两个换行。</p>
@@ -566,7 +571,7 @@ npm install hexo-renderer-kramed --save &#x2F;&#x2F; 安装kramed<span aria-hidd
 <p>我们输入以下图片中的公式，发现可以正常显示：</p>
 <p><img src="https://z3.ax1x.com/2021/03/23/6HGfsS.jpg" alt='公式代码' style="zoom:38%;" /></p>
 <p>显示效果：</p>
-<p>$a_0\\b_{12}$</p>
+<p>$ a_0\\b_{12} $</p>
 <script type="math/tex; mode=display">
 a_0\\
 b_{12}</script><p>总结：</p>
@@ -593,6 +598,11 @@ b_{12}</script><p>总结：</p>
 <p>即可防止kramed自动修改元素的<code>class name</code>。</p>
 <p>最终prism又恢复了正常，效果如下：</p>
 <p><img src="https://z3.ax1x.com/2021/03/23/6HGgRP.jpg" style="zoom:38%;" /></p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int main()
+&#123;
+   cout &lt;&lt; &quot;Hello World&quot;; &#x2F;&#x2F; 输出 Hello World
+   return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr />
@@ -624,28 +634,6 @@ b_{12}</script><p>总结：</p>
     
 
     
-    <div class="livere-card card" data-aos="fade-up">
-    <!-- 来必力City版安装代码 -->
-    <div id="lv-container" class="card-content" data-id="city" data-uid="MTAyMC81MzA3Ny8yOTU1Mw==">
-        <script type="text/javascript">
-            (function (d, s) {
-                let j, e = d.getElementsByTagName(s)[0];
-                if (typeof LivereTower === 'function') {
-                    return;
-                }
-
-                j = d.createElement(s);
-                j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-                j.async = true;
-
-                e.parentNode.insertBefore(j, e);
-            })(document, 'script');
-        </script>
-        <noscript>为正常使用来必力评论功能请激活JavaScript。</noscript>
-    </div>
-    <!-- City版安装代码已完成 -->
-</div>
-    
 
     
 
@@ -660,33 +648,33 @@ b_{12}</script><p>总结：</p>
                         上一篇
                     </div>
                     <div class="card">
-                        <a href="/2020/10/02/sou-suo-suan-fa-zong-shu/">
+                        <a href="/2020/08/20/hexo-dai-ma-gao-liang-yu-mathjax-chong-tu-copy/">
                             <div class="card-image">
                                 
                                         
 
                                             <!-- 3/22修改： -->
-                                            <img src="https://s4.ax1x.com/2022/02/08/HlMx9e.jpg" class="responsive-img" alt="搜索算法综述">
+                                            <img src="https://s4.ax1x.com/2022/02/08/HlMz1H.jpg" class="responsive-img" alt="mathjax渲染异常与hexo prism高亮无效bug">
                                             
-                                                <span class="card-title">搜索算法综述</span>
+                                                <span class="card-title">mathjax渲染异常与hexo prism高亮无效bug</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    本文为搜索求解算法学习笔记。主要内容为启发式搜索、对抗式搜索和蒙特卡洛树搜索。启发式搜索中包含了贪婪最佳优先和A*算法，对抗式搜索包括了最大最小搜索和以此为基础的Alpha-Bata剪枝搜索。
+                                    1.解决markdown显示mathjax公式bug的几种方式；2.高亮插件Prism与kramed渲染引擎对代码的渲染发生冲突后的解决方法。
                                         
                             </div>
                             <div class="publish-info">
                                 <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2020-10-02
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2020-08-20
                         </span>
                                 <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95/" class="post-category" target="_blank">
-                                    搜索算法
+                            <a href="/categories/hexo/" class="post-category" target="_blank">
+                                    hexo
                                 </a>
                             
                             
@@ -696,16 +684,12 @@ b_{12}</script><p>总结：</p>
                         
                             <div class="card-action article-tags">
                                 
-                                    <a href="/tags/%E6%90%9C%E7%B4%A2%E6%B1%82%E8%A7%A3/" target="_blank">
-                                        <span class="chip bg-color">搜索求解</span>
+                                    <a href="/tags/mathjax/" target="_blank">
+                                        <span class="chip bg-color">mathjax</span>
                                     </a>
                                     
-                                    <a href="/tags/%E5%90%AF%E5%8F%91%E5%BC%8F%E6%90%9C%E7%B4%A2/" target="_blank">
-                                        <span class="chip bg-color">启发式搜索</span>
-                                    </a>
-                                    
-                                    <a href="/tags/%E8%92%99%E7%89%B9%E5%8D%A1%E6%B4%9B%E6%A0%91/" target="_blank">
-                                        <span class="chip bg-color">蒙特卡洛树</span>
+                                    <a href="/tags/hexo%E6%B8%B2%E6%9F%93/" target="_blank">
+                                        <span class="chip bg-color">hexo渲染</span>
                                     </a>
                                     
                             </div>
@@ -723,7 +707,7 @@ b_{12}</script><p>总结：</p>
                                         <div class="card-image">
                                             
                                                     
-                                                        <img src="https://s4.ax1x.com/2022/02/08/HlQkAf.jpg" class="responsive-img" alt="MobileNet--准确与速度的均衡">
+                                                        <img src="https://s4.ax1x.com/2022/02/08/HlQiHP.jpg" class="responsive-img" alt="MobileNet--准确与速度的均衡">
                                                         
                                                             <span class="card-title">MobileNet--准确与速度的均衡</span>
                                         </div>
@@ -908,7 +892,7 @@ b_{12}</script><p>总结：</p>
 </main>
 
 
-    <script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script>
         MathJax.Hub.Config({
             tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
@@ -934,7 +918,7 @@ b_{12}</script><p>总结：</p>
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">65.8k</span>
+                <span class="white-color">67.5k</span>
                 
 
                     <br>
@@ -1077,7 +1061,7 @@ $(function () {
                         <!-- 3/22: 修改了js文件路径 --> 
                             <script src="https://cdn.staticfile.org/materialize/1.0.0/js/materialize.js"></script>
                             <script src="https://cdn.staticfile.org/masonry/4.0.0/masonry.pkgd.min.js"></script>
-                            <script src="https://cdn.staticfile.org/aos/2.3.4/aos.js"></script>
+                            <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
                             <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
                             <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
 
@@ -1104,17 +1088,6 @@ $(function () {
                             </script>
 
                             <!-- Global site tag (gtag.js) - Google Analytics -->
-
-<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-
-    gtag('js', new Date());
-    gtag('config', '');
-</script>
 
 
 

@@ -4,11 +4,19 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="一道编程题——删除倒数第k个节点, 深度学习 | 数据挖掘">
+    <meta name="keywords" content="mathjax渲染异常与hexo prism高亮无效bug, 深度学习 | 数据挖掘">
     <meta name="baidu-site-verification" content="fmlEuI34ir" />
     <meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48" />
     <meta name="360-site-verification" content="b7c11a830ef90fd1464ad6206bb7b6e7" />
-    <meta name="description" content="题目描述给定一个链表，删除链表的倒数第n个节点并返回链表的头指针，给出的链表为:1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;5, n= 2。 删除了链表的倒数第n个节点之后,链表变为1-&amp;gt;2-&amp;gt;3-&amp;gt;5。（保证n为有效">
+    <meta name="description" content="Prism高亮在安装设置完hexo之后，写代码的时候发现hexo默认自带的代码高亮工具highlight.js不太好用。便安装了Prism代码高亮插件。
+def a():
+	print()
+    
+    
+    
+
+
+a &gt; bPri">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +24,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>一道编程题——删除倒数第k个节点 | SKYFAKER</title>
+    <title>mathjax渲染异常与hexo prism高亮无效bug | SKYFAKER</title>
 
     <!-- 网页在浏览器上的图标 -->
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/favicon.png">
@@ -323,15 +331,15 @@
 
 
 <!-- 3/22: 这里修改了推荐页文章点击进去之后的图片路径 -->
-<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.iohttps://s4.ax1x.com/2022/02/08/HlQnjs.jpg');"> -->
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://s4.ax1x.com/2022/02/08/HlQnjs.jpg');">
+<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.iohttps://s4.ax1x.com/2022/02/08/HlMz1H.jpg');"> -->
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://s4.ax1x.com/2022/02/08/HlMz1H.jpg');">
 
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        一道编程题——删除倒数第k个节点
+                        mathjax渲染异常与hexo prism高亮无效bug
                     </div>
                 </div>
             </div>
@@ -444,8 +452,12 @@
                     
                     <div class="article-tag">
                         
-                        <a href="/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95/" target="_blank">
-                            <span class="chip bg-color">编程算法</span>
+                        <a href="/tags/mathjax/" target="_blank">
+                            <span class="chip bg-color">mathjax</span>
+                        </a>
+                        
+                        <a href="/tags/hexo%E6%B8%B2%E6%9F%93/" target="_blank">
+                            <span class="chip bg-color">hexo渲染</span>
                         </a>
                         
                     </div>
@@ -456,8 +468,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                        <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category" target="_blank">
-                            算法
+                        <a href="/categories/hexo/" class="post-category" target="_blank">
+                            hexo
                         </a>
                         
                     </div>
@@ -468,7 +480,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-04-17
+                    2020-08-20
                 </div>
 
                 <div class="post-author info-break-policy">
@@ -482,14 +494,14 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    544
+                    1.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    6 分
                 </div>
                 
                 
@@ -505,76 +517,99 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个链表，删除链表的倒数第n个节点并返回链表的头指针，给出的链表为:1-&gt;2-&gt;3-&gt;4-&gt;5, n= 2。 删除了链表的倒数第n个节点之后,链表变为1-&gt;2-&gt;3-&gt;5。（保证n为有效值）</p>
-<p>删除一个节点，可以找出其前一个节点，然后将其next指针指向需要删除的节点的后一个节点。或者也可以找到要删除的节点，将其数据域设置为其后一个节点的值，然后next指针指向要删除的节点的后两个节点。</p>
-<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><h3 id="python实现"><a href="#python实现" class="headerlink" title="python实现"></a>python实现</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"># class ListNode:
-#     def __init__(self, x):
-#         self.val &#x3D; x
-#         self.next &#x3D; None
-
-#
-# 
-# @param head ListNode类 
-# @param n int整型 
-# @return ListNode类
-#
-class Solution:
-    def removeNthFromEnd(self , head , n ):
-        # write code here
-        if (not head): return None
-        # 找到倒数第n个节点的前一个节点，也就是倒数第n+1个节点
-        node &#x3D; self.findNthNode(head, n+1)
-        if node:
-            node.next &#x3D; node.next.next
-        else:
-            head &#x3D; head.next
-        return head
+                <h2 id="Prism高亮"><a href="#Prism高亮" class="headerlink" title="Prism高亮"></a>Prism高亮</h2><p>在安装设置完hexo之后，写代码的时候发现hexo默认自带的代码高亮工具highlight.js不太好用。便安装了Prism代码高亮插件。</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">def a():
+	print()
     
-    # 寻找倒数第n个节点，不存在则返回None
-    def findNthNode(self, head, n):
-        firstP, secondP &#x3D; head, head
-        while(firstP and n):
-            n-&#x3D;1
-            firstP &#x3D; firstP.next
-        # fristP指针刚好不存在，而n已经等于0，也就是说倒数第n个正好是头节点
-        if (not firstP and n&#x3D;&#x3D;0):
-            return head
-        # firstP不存在且不足n个节点，则说明没有倒数第n个节点
-        elif(not firstP):
-            return None 
-        while(firstP):
-            firstP  &#x3D;firstP.next
-            secondP &#x3D; secondP.next
-        return secondP<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="C-实现"><a href="#C-实现" class="headerlink" title="C++实现"></a>C++实现</h3><p>由于本题说明n为有效值，则可以稍微简单一点，不考虑n大于链表长度的情况：</p>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">class Solution &#123;
-public:
-    &#x2F;**
-     * 
-     * @param head ListNode类 
-     * @param n int整型 
-     * @return ListNode类
-     *&#x2F;
-    ListNode* removeNthFromEnd(ListNode* head, int n) &#123;
-        &#x2F;&#x2F; write code here
-        ListNode* fast &#x3D; head;
-        ListNode* slow &#x3D; head;
-        if(head&#x3D;&#x3D;NULL)return NULL;
-        while(n&gt;0 &amp;&amp; fast!&#x3D;NULL)&#123;
-            fast &#x3D; fast-&gt;next;
-            n-&#x3D;1;
-        &#125;
-        &#x2F;&#x2F; 要删除的为head节点，即链表长度为n
-        if(fast&#x3D;&#x3D;NULL)return head-&gt;next;
-        &#x2F;&#x2F; 链表长度小于n
-        while(fast-&gt;next!&#x3D;NULL)&#123;
-            fast&#x3D;fast-&gt;next;
-            slow&#x3D;slow-&gt;next;
-        &#125;
-        slow-&gt;next &#x3D; slow-&gt;next-&gt;next;
-        return head;
-    &#125;
-&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    
+    
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<script type="math/tex; mode=display">
+a > b</script><p><a target="_blank" rel="noopener" href="https://github.com/ele828/hexo-prism-plugin">Prism高亮插件GitHub仓库地址</a></p>
+<p>安装方式：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">npm i -S hexo-prism-plugin<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>安装完成之后需要关掉hexo自带的高亮，并配置prism。</p>
+<p><img src="https://z3.ax1x.com/2021/03/23/6HG5ZQ.jpg" style="zoom:38%;" /></p>
+<h2 id="mathjax显示"><a href="#mathjax显示" class="headerlink" title="mathjax显示"></a>mathjax显示</h2><p>使用markdown编辑mathjax公式，markdown显示正常，部署到hexo中显示异常。</p>
+<p>这个数学公式问题，主要是Hexo的Markdown解析器与MathJax有冲突引起的。</p>
+<p>Markdwon本身的特殊符号与Latex中的符号出现冲突的时候，比如:</p>
+<ul>
+<li><code>_</code>的转义，在markdown中，<code>_</code>是斜体，但是在latex中，却有下标的意思，这样你在公式里面写下标会被解析为斜体。</li>
+<li><code>\\</code>的换行，在markdown中，<code>\\</code>会被转义为<code>\</code>这样也会影响影响mathjax对公式中的<code>\\</code>进行渲染。</li>
+</ul>
+<p>hexo默认使用<code>marked.js</code>去解析我们写的markdown，比如一些符号，<code>_</code>代表斜体，会被处理为<code>&lt;em&gt;</code>标签，比如<code>x_i</code>在开始被渲染的时候，处理为<code>x&lt;em&gt;i&lt;/em&gt;</code>，这个时候mathjax就无法渲染成下标了。很多符号都有这个问题，比如粗体<code>*</code>,也是无法在mathjax渲染出来的，好在有替代的乘法等,包括<code>\\</code>同理。 所以说到底，是hexo使用的markdown引擎的锅，因为很多其它引擎在这方面处理的很好。</p>
+<p>不仅仅是公式的问题，在 HTML 文件中，有两个字符需要特殊处理： <code>&lt;</code> 和 <code>&amp;</code> 。 <code>&lt;</code> 符号用于起始标签，<code>&amp;</code> 符号则用于标记 HTML 实体，如果你只是想要显示这些字符的原型，你必须要使用实体的形式，像是 <code>&lt;</code> 和 <code>&amp;</code>。</p>
+<p>比如说<code>&lt;code&gt;</code>，&lt;代码&gt;在尖括号里面的字母code会被当做HTML。</p>
+<p>如下图：</p>
+<p><img src="https://z3.ax1x.com/2021/03/23/6HG6PI.jpg" alt = '尖括号字母被隐藏' style="zoom:38%;" /></p>
+<p>上图是我在markdown中打出来的内容，而页面显示的部分却少了一块。</p>
+<p>原因在于尖括号之间的内容会被解析为HTML元素，并且后面的内容样式会改变。我遇到过c++代码中的部分内容消失了，就是因为这部分代码被包在了尖括号中，最简单的方法是输入尖括号之后加一个空格，如：&lt; code&gt;</p>
+<p>那么如何避免mathjax公式的显示异常问题呢？</p>
+<h3 id="1-手动转义（最简单）"><a href="#1-手动转义（最简单）" class="headerlink" title="1. 手动转义（最简单）"></a>1. 手动转义（最简单）</h3><p>这个方法最直接，多写一个转义。比如需要在公式中写下标符号，那就修改写法写为: <code>x\_i</code>，需要换行就使用<code>\\\\</code>,即可，需要写<code>&lt;</code>的地方多加一个空格。</p>
+<p> 如果你不需要迁移到其他平台的话可以这样做，最简单。而且用<code>\\\\</code>换行到其他平台也影响不大，只是由一个换行变成了两个换行。</p>
+<h3 id="2-代码块保护"><a href="#2-代码块保护" class="headerlink" title="2.代码块保护"></a>2.代码块保护</h3><p>markdown解析的时候是不会解析两个 <strong>`</strong> 之间内容的，某些情况下可以使用这种方法，但是需要注意的是mathjax仍然会解析里面的公式。</p>
+<h3 id="3-手动修改渲染引擎源码（失败）"><a href="#3-手动修改渲染引擎源码（失败）" class="headerlink" title="3.手动修改渲染引擎源码（失败）"></a>3.手动修改渲染引擎源码（失败）</h3><p>hexo默认的渲染引擎为<a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo-renderer-marked"> hexo-renderer-marked</a>，源码文件地址: <code>nodes_modules/marked/lib/marked.js</code>:</p>
+<p>修改渲染引擎源码主要有两个目的：</p>
+<ul>
+<li>去掉<code>\\</code>的额外转义，这样<code>\\</code>就可以实现换行，就不会影响mathjax公式的换行显示了；</li>
+<li>将em标签对应的符号中，去掉<code>_</code>,因为markdown中有<code>*</code>可以表示斜体，<code>—</code>去掉了就不会影响mathjax的下标显示了。</li>
+</ul>
+<p>根据网上的教程，打开<code>nodes_modules/marked/lib/marked.js</code></p>
+<p>找到<code>escape</code>那一行</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token literal-property property">escape</span><span class="token operator">:</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">^\\([!"#$%&amp;'()*+,\-./:;&lt;=>?@\[\]\\^_`&#123;|&#125;~])</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">,</span>
+    替换成
+<span class="token literal-property property">escape</span><span class="token operator">:</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">^\\([`*&#123;&#125;\[\]()# +\-.!_>])</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">,</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>找到em的那一行:</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token literal-property property">em</span><span class="token operator">:</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">^\b_((?:[^_]|__)+?)_\b|^\*((?:\*\*|[\s\S])+?)\*(?!\*)</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">,</span>
+    替换成
+<span class="token literal-property property">em</span><span class="token operator">:</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">^\*((?:\*\*|[\s\S])+?)\*(?!\*)</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">,</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p><strong>PS：</strong></p>
+<p>可能由于marked插件的版本不同，我的<code>escape</code>那一行和网上的不太一样</p>
+<p><img src="https://z3.ax1x.com/2021/03/23/6HGcGt.jpg" style="zoom:38%;" /></p>
+<p>并且更改之后也没有效果，<code>\\</code>仍然不能实现换行。</p>
+<h3 id="4-更换模板引擎（可用）"><a href="#4-更换模板引擎（可用）" class="headerlink" title="4.更换模板引擎（可用）"></a>4.更换模板引擎（可用）</h3><p>以下是替代原始解析器的两个模板引擎：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/wzpan/hexo-renderer-pandoc">hexo-renderer-pandoc</a>，很强大的解析器，Pandoc的语法完全没有上述问题, 但是安装比较麻烦。</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/sun11/hexo-renderer-kramed">hexo-renderer-kramed</a>，安装方便，修改了marked中一部分bug，但还是有部分问题。</li>
+</ul>
+<p>以安装kramed为例：</p>
+<h4 id="安装kramed"><a href="#安装kramed" class="headerlink" title="安装kramed"></a>安装kramed</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">npm uninstall hexo-renderer-marked --save &#x2F;&#x2F; 卸载marked
+npm install hexo-renderer-kramed --save &#x2F;&#x2F; 安装kramed<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>kramed对于<code>block</code>形式的公式可以正确渲染，但是对于内联公式<code>inline</code>仍然有问题。所以我们仍然需要修改其转义部分的源码。</p>
+<h4 id="修改源码"><a href="#修改源码" class="headerlink" title="修改源码"></a>修改源码</h4><p>打开<code>/node_modules\kramed\lib\rules\inline.js</code><br>更改后为：</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token literal-property property">escape</span><span class="token operator">:</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">^\\([`*\[\]()#$+\-.!_>])</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">,</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token literal-property property">em</span><span class="token operator">:</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">^\*((?:\*\*|[\s\S])+?)\*(?!\*)</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">,</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><img src="https://z3.ax1x.com/2021/03/23/6HGhqg.jpg" style="zoom:30%;" /></p>
+<p>我们输入以下图片中的公式，发现可以正常显示：</p>
+<p><img src="https://z3.ax1x.com/2021/03/23/6HGfsS.jpg" alt='公式代码' style="zoom:38%;" /></p>
+<p>显示效果：</p>
+<p>$ a_0\\b_{12} $</p>
+<script type="math/tex; mode=display">
+a_0\\
+b_{12}</script><p>总结：</p>
+<p>1.如果想正确显示公式，又不想太折腾，那么在输入公式的时候，用<code>\_</code>代替<code>_</code>，用<code>\\\\</code>代替<code>\\</code>，缺点是markdown文件放到其他平台时，渲染方式不兼容。</p>
+<p>2.愿意折腾以下又追求完美的，可以更换渲染引擎，如pandoc和kramed。pandoc安装比较麻烦，但是听说很好用。kramed安装简单，但是内联公式显示仍然有问题，需要修改源码中的转义方式。并且kramed可能和hexo的其他插件发生冲突，比如上面安装的代码高亮插件Prism。</p>
+<h2 id="prism与kramed冲突"><a href="#prism与kramed冲突" class="headerlink" title="prism与kramed冲突"></a>prism与kramed冲突</h2><p>安装配置完kramed之后，mathjax公式显示正常了，但是这时候又发现了一个新的问题：</p>
+<p>prism代码高亮失效了：</p>
+<p><img src="https://z3.ax1x.com/2021/03/23/6HG2xf.jpg" style="zoom:30%;" /></p>
+<p>并且我们看到右上角的语言名前面多了一个<code>Lang-</code>。</p>
+<p>直觉告诉我，无法高亮与右上角的变化有关。</p>
+<p>首先，markdown中代码块是以</p>
+<p><img src="https://z3.ax1x.com/2021/03/23/6HGsIA.jpg" style="zoom:38%;" /></p>
+<p>格式写出来的。</p>
+<p>通过查看网页元素，发现这些被固定格式包起来的代码，被渲染完成之后是以 <code>&lt; pre &gt;&lt; code &gt;your code&lt; /code &gt; &lt; /pre &gt;</code>的元素形式存在的</p>
+<p><img src="https://z3.ax1x.com/2021/03/23/6HGWM8.jpg" alt='代码在页面中的元素' style="zoom:38%;" /></p>
+<p>hexo中的主题中存在对应的CSS文件，用来渲染这些元素。</p>
+<p>由于kramed渲染引擎会自动修改代码元素的<code>class name</code>，所以导致prism插件找不到对应元素，也就无法自动高亮代码块中的代码。</p>
+<p>解决方法：</p>
+<p>打开<code>\node_modules\kramed\lib\renderer.js</code></p>
+<p><img src="https://z3.ax1x.com/2021/03/23/6HGIaj.jpg" style="zoom:40%;" /></p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token literal-property property">langPrefix</span><span class="token operator">:</span> <span class="token string">'lang-'</span><span class="token punctuation">,</span>
+改为
+<span class="token literal-property property">langPrefix</span><span class="token operator">:</span> <span class="token string">''</span><span class="token punctuation">,</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>即可防止kramed自动修改元素的<code>class name</code>。</p>
+<p>最终prism又恢复了正常，效果如下：</p>
+<p><img src="https://z3.ax1x.com/2021/03/23/6HGgRP.jpg" style="zoom:38%;" /></p>
 
             </div>
             <hr />
@@ -620,33 +655,33 @@ public:
                         上一篇
                     </div>
                     <div class="card">
-                        <a href="/2020/05/08/yi-dao-bian-cheng-ti-er-cha-shu-lu-jing-he-wei-zhi-ding-zhi/">
+                        <a href="/2020/10/02/sou-suo-suan-fa-zong-shu/">
                             <div class="card-image">
                                 
                                         
 
                                             <!-- 3/22修改： -->
-                                            <img src="https://s4.ax1x.com/2022/02/08/HlQ84U.jpg" class="responsive-img" alt="一道编程题——二叉树路径和为指定值">
+                                            <img src="https://s4.ax1x.com/2022/02/08/HlMz1H.jpg" class="responsive-img" alt="搜索算法综述">
                                             
-                                                <span class="card-title">一道编程题——二叉树路径和为指定值</span>
+                                                <span class="card-title">搜索算法综述</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    给定一个二叉树和一个值 sum，请找出所有的根节点到叶子节点的节点值之和等于 sum 的路径。返回一个二维数组，数组中保存路径上节点的值。
+                                    本文为搜索求解算法学习笔记。主要内容为启发式搜索、对抗式搜索和蒙特卡洛树搜索。启发式搜索中包含了贪婪最佳优先和A*算法，对抗式搜索包括了最大最小搜索和以此为基础的Alpha-Bata剪枝搜索。
                                         
                             </div>
                             <div class="publish-info">
                                 <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2020-05-08
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2020-10-02
                         </span>
                                 <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category" target="_blank">
-                                    算法
+                            <a href="/categories/%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95/" class="post-category" target="_blank">
+                                    搜索算法
                                 </a>
                             
                             
@@ -656,8 +691,16 @@ public:
                         
                             <div class="card-action article-tags">
                                 
-                                    <a href="/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95/" target="_blank">
-                                        <span class="chip bg-color">编程算法</span>
+                                    <a href="/tags/%E6%90%9C%E7%B4%A2%E6%B1%82%E8%A7%A3/" target="_blank">
+                                        <span class="chip bg-color">搜索求解</span>
+                                    </a>
+                                    
+                                    <a href="/tags/%E5%90%AF%E5%8F%91%E5%BC%8F%E6%90%9C%E7%B4%A2/" target="_blank">
+                                        <span class="chip bg-color">启发式搜索</span>
+                                    </a>
+                                    
+                                    <a href="/tags/%E8%92%99%E7%89%B9%E5%8D%A1%E6%B4%9B%E6%A0%91/" target="_blank">
+                                        <span class="chip bg-color">蒙特卡洛树</span>
                                     </a>
                                     
                             </div>
@@ -671,31 +714,31 @@ public:
                                     下一篇&nbsp;<i class="fa fa-chevron-right"></i>
                                 </div>
                                 <div class="card">
-                                    <a href="/2020/04/01/ji-huo-han-shu-yu-ping-jie-zhi-biao/">
+                                    <a href="/2020/08/20/hexo-dai-ma-gao-liang-yu-mathjax-chong-tu/">
                                         <div class="card-image">
                                             
                                                     
-                                                        <img src="https://s4.ax1x.com/2022/02/08/HlMjhD.jpg" class="responsive-img" alt="激活函数与评价指标">
+                                                        <img src="https://s4.ax1x.com/2022/02/08/HlMz1H.jpg" class="responsive-img" alt="mathjax渲染异常与hexo prism高亮无效bug">
                                                         
-                                                            <span class="card-title">激活函数与评价指标</span>
+                                                            <span class="card-title">mathjax渲染异常与hexo prism高亮无效bug</span>
                                         </div>
                                     </a>
                                     <div class="card-content article-content">
                                         <div class="summary block-with-text">
                                             
-                                                本文记录了神经网络中常用的几个激活函数以及它们的导数；深度学习模型常用的一些评价指标以及它们的数学公式。
+                                                1.解决markdown显示mathjax公式bug的几种方式；2.高亮插件Prism与kramed渲染引擎对代码的渲染发生冲突后的解决方法。
                                                     
                                         </div>
                                         <div class="publish-info">
                                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-04-01
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-08-20
                             </span>
                                             <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="post-category" target="_blank">
-                                    深度学习
+                            <a href="/categories/hexo/" class="post-category" target="_blank">
+                                    hexo
                                 </a>
                             
                             
@@ -705,8 +748,12 @@ public:
                                     
                                         <div class="card-action article-tags">
                                             
-                                                <a href="/tags/%E6%A8%A1%E5%9E%8B/" target="_blank">
-                                                    <span class="chip bg-color">模型</span>
+                                                <a href="/tags/mathjax/" target="_blank">
+                                                    <span class="chip bg-color">mathjax</span>
+                                                </a>
+                                                
+                                                <a href="/tags/hexo%E6%B8%B2%E6%9F%93/" target="_blank">
+                                                    <span class="chip bg-color">hexo渲染</span>
                                                 </a>
                                                 
                                         </div>
@@ -856,6 +903,25 @@ public:
 </main>
 
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script>
+        MathJax.Hub.Config({
+            tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+        });
+    </script>
+    
+    <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+    <!-- 代码语言 -->
+    <script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+    <!-- 代码块复制 -->
+    <script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+    <script type="text/javascript" src="/libs/codeBlock/clipboard.min.js"></script>
+    <!-- 代码块收缩 -->
+    <script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script> 
+    <!-- 代码块折行 -->
+    <style type="text/css">code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }</style>
+    
+    
                 <footer class="page-footer bg-color">
     <div class="container row center-align">
         <div class="col s12 m8 l8 copy-right">
