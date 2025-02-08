@@ -574,7 +574,7 @@
 <p>其中，若将$g(n)$置为0，则A*算法退化成贪婪最佳优先算法，若$h(n)=0$，则退化成Dijkstra算法。</p>
 <p>能否找到最优路径的关键是启发函数$h(n)$的选取，如果$h(n)$始终小于等于节点n到终点的代价，则A*算法保证一定能够找到最短路径。但是当$h(n)$的值选取不合适，会导致算法将遍历越多的节点，也就导致算法越慢。<br>由于A* 算法的启发函数是位置上的距离，因此在不带位置信息的图数据中不适用。</p>
 <p>A*算法描述如下：</p>
-<pre class="line-numbers language-text" data-language="text"><code class="language-text">* 初始化open_set和close_set；
+<pre class="line-numbers language-text"><code class="language-text">* 初始化open_set和close_set；
 * 将起点加入open_set中，并设置优先级f(n)为0（优先级最高）；
 * 如果open_set不为空，则从open_set中选取优先级最高的节点n：
     * 如果节点n为终点，则：
@@ -583,7 +583,7 @@
     * 如果节点n不是终点，则：
         * 将节点n从open_set中删除，并加入close_set中；
         * 遍历节点n所有的邻近节点：
-        	* 如果邻近节点m在open_set中，则：
+            * 如果邻近节点m在open_set中，则：
                 * 比较g(n)是否比原来更小，如果更小则更新其g(n)、优先级f(n)和其父节点
             * 如果邻近节点m在close_set中，则：
                 * 跳过，选取下一个邻近节点
@@ -591,7 +591,8 @@
                 * 设置节点m的parent为节点n
                 * 计算移动代价g(n)
                 * 计算节点m的优先级f(n)
-                * 将节点m加入open_set中<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+                * 将节点m加入open_set中
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>对于网格形式的图，有以下这些启发函数可以使用：</p>
 <ul>
 <li>如果图形中只允许朝上下左右四个方向移动，则可以使用曼哈顿距离（Manhattan distance）。</li>
@@ -940,7 +941,7 @@ h(n) = \sqrt{dx^2 + dy^2}</script></li>
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">65.9k</span>
+                <span class="white-color">65k</span>
                 
 
                     <br>
