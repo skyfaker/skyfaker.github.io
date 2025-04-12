@@ -70,7 +70,9 @@
         })();
     </script>
 
-<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="SKYFAKER" type="application/atom+xml">
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-shiki-plugin@latest/lib/codeblock.css">
+<style>:root{--hl-color:#abb2bf;--hl-bg:#282c34;--hltools-bg:#21252b;--hltools-color:#bbbbbc;--hlnumber-bg:#282c34;--hlnumber-color:#495162;--hlscrollbar-bg:#373c47;--hlexpand-bg:linear-gradient(180deg,rgba(40,44,52,0.1),rgba(40,44,52,0.9))}</style><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="SKYFAKER" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
@@ -512,10 +514,10 @@
             <div id="articleContent">
                 <h1 id="如何运行一个Vue项目"><a href="#如何运行一个Vue项目" class="headerlink" title="如何运行一个Vue项目"></a>如何运行一个Vue项目</h1><p>一开始刚接手项目内的vue.js，或者在GitHub上找到vue.js的开源项目，会发现不知如何运行这个项目。通过查阅网上教程，成功搭建好项目环境，同时对前段工程化有了朦朦胧胧的认知，因此将环境搭建过程分享给大家。</p>
 <h2 id="1-环境安装"><a href="#1-环境安装" class="headerlink" title="1. 环境安装"></a>1. 环境安装</h2><p>首先，列出来我们需要的东西：</p>
-<pre><code>node.js环境（npm包管理器）
-vue-cli 脚手架构建工具
-cnpm  npm的淘宝镜像
-</code></pre><h3 id="安装node-js"><a href="#安装node-js" class="headerlink" title="安装node.js"></a>安装node.js</h3><p>从node.js官网下载并安装node，安装过程很简单，一路“下一步”就可以了（傻瓜式安装）。<br>安装完成之后，打开命令行工具，输入 <code>node -v</code>，如下图，如果出现相应的版本号，则说明安装成功。</p>
+<figure class="shiki"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #abb2bf">node.js环境（npm包管理器）</span></span>
+<span class="line"><span style="color: #abb2bf">vue-cli 脚手架构建工具</span></span>
+<span class="line"><span style="color: #abb2bf">cnpm  npm的淘宝镜像</span></span></code></pre></div></div></figure>
+<h3 id="安装node-js"><a href="#安装node-js" class="headerlink" title="安装node.js"></a>安装node.js</h3><p>从node.js官网下载并安装node，安装过程很简单，一路“下一步”就可以了（傻瓜式安装）。<br>安装完成之后，打开命令行工具，输入 <code>node -v</code>，如下图，如果出现相应的版本号，则说明安装成功。</p>
 <p><img src="image-20200216144352886.png" alt="image-20200216144352886"></p>
 <p>npm包管理器直接集成在node中的，所以，不需要额外安装，输入 <code>npm -v</code>就会如下图所示，显示出npm的版本信息。</p>
 <p><img src="image-20200216144500107.png" alt="image-20200216144500107"></p>
@@ -824,7 +826,7 @@ cnpm  npm的淘宝镜像
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">65k</span>
+                <span class="white-color">66.2k</span>
                 
 
                     <br>
@@ -1013,6 +1015,27 @@ $(function () {
                                                             <!-- 雪花特效 -->
                                                             
 
-    </body>
+    <!-- hexo injector body_end start -->
+  <script>
+  const CODE_CONFIG = {
+    beautify: undefined,
+    highlightCopy: undefined,
+    highlightLang: undefined,
+    highlightHeightLimit: undefined,
+    isHighlightShrink: undefined,
+    copy: {
+      success: 'undefined',
+      error: 'undefined',
+      noSupport: 'undefined',
+    }
+  };
+  console.log(
+    `%c hexo-shiki-plugin %c v1.0.27 %c https://github.com/nova1751/hexo-shiki-plugin`,
+    "color: #fff; background: #5f5f5f",
+    "color: #fff; background: #80c8f8",
+    ""
+  );
+  </script>
+  <!-- hexo injector body_end end --></body>
 
 </html>

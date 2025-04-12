@@ -72,7 +72,9 @@ npm i -S hexo-pri">
         })();
     </script>
 
-<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="SKYFAKER" type="application/atom+xml">
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-shiki-plugin@latest/lib/codeblock.css">
+<style>:root{--hl-color:#abb2bf;--hl-bg:#282c34;--hltools-bg:#21252b;--hltools-color:#bbbbbc;--hlnumber-bg:#282c34;--hlnumber-color:#495162;--hlscrollbar-bg:#373c47;--hlexpand-bg:linear-gradient(180deg,rgba(40,44,52,0.1),rgba(40,44,52,0.9))}</style><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="SKYFAKER" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
@@ -515,8 +517,7 @@ npm i -S hexo-pri">
                 <h2 id="Prism高亮"><a href="#Prism高亮" class="headerlink" title="Prism高亮"></a>Prism高亮</h2><p>在安装设置完hexo之后，写代码的时候发现hexo默认自带的代码高亮工具highlight.js不太好用。便安装了Prism代码高亮插件。</p>
 <p><a target="_blank" rel="noopener" href="https://github.com/ele828/hexo-prism-plugin">Prism高亮插件GitHub仓库地址</a></p>
 <p>安装方式：</p>
-<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">npm</span> i -S hexo-prism-plugin
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="shiki bash"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #61AFEF">npm</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">i</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">-S</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">hexo-prism-plugin</span></span></code></pre></div></div></figure>
 <p>安装完成之后需要关掉hexo自带的高亮，并配置prism。</p>
 <p><img src="https://z3.ax1x.com/2021/03/23/6HG5ZQ.jpg" style="zoom:38%;" /></p>
 <h2 id="mathjax显示"><a href="#mathjax显示" class="headerlink" title="mathjax显示"></a>mathjax显示</h2><p>使用markdown编辑mathjax公式，markdown显示正常，部署到hexo中显示异常。</p>
@@ -545,15 +546,13 @@ npm i -S hexo-pri">
 </ul>
 <p>根据网上的教程，打开<code>nodes_modules/marked/lib/marked.js</code></p>
 <p>找到<code>escape</code>那一行</p>
-<pre class="line-numbers language-js"><code class="language-js">escape<span class="token punctuation">:</span> <span class="token operator">/</span><span class="token operator">^</span>\\<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token operator">!</span>"#$<span class="token operator">%</span><span class="token operator">&amp;</span>'<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token operator">+</span><span class="token punctuation">,</span>\<span class="token operator">-</span><span class="token punctuation">.</span><span class="token operator">/</span><span class="token punctuation">:</span><span class="token punctuation">;</span><span class="token operator">&lt;=</span><span class="token operator">></span><span class="token operator">?</span>@\<span class="token punctuation">[</span>\<span class="token punctuation">]</span>\\<span class="token operator">^</span>_<span class="token template-string"><span class="token string">`&amp;#123;|&amp;#125;~])/,
-    替换成
-escape: /^\\([`</span></span><span class="token operator">*</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>\<span class="token punctuation">[</span>\<span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token punctuation">)</span># <span class="token operator">+</span>\<span class="token operator">-</span><span class="token punctuation">.</span><span class="token operator">!</span>_<span class="token operator">></span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token punctuation">,</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<figure class="shiki js"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #E06C75">escape</span><span style="color: #ABB2BF">:</span><span style="color: #E06C75"> /</span><span style="color: #C678DD">^</span><span style="color: #56B6C2">\\</span><span style="color: #E06C75">(</span><span style="color: #D19A66">[!&quot;#$%&amp;&#39;()*+,\-./:;&lt;=&gt;?@</span><span style="color: #56B6C2">\[\]\\</span><span style="color: #D19A66">^_`{|}~]</span><span style="color: #E06C75">)/</span><span style="color: #ABB2BF">,</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #E06C75">替换成</span></span>
+<span class="line"><span style="color: #E06C75">escape</span><span style="color: #ABB2BF">: </span><span style="color: #E06C75">/</span><span style="color: #C678DD">^</span><span style="color: #56B6C2">\\</span><span style="color: #E06C75">(</span><span style="color: #D19A66">[`*{}</span><span style="color: #56B6C2">\[\]</span><span style="color: #D19A66">()# +\-.!_&gt;]</span><span style="color: #E06C75">)/</span><span style="color: #ABB2BF">,</span></span></code></pre></div></div></figure>
 <p>找到em的那一行:</p>
-<pre class="line-numbers language-js"><code class="language-js">em<span class="token punctuation">:</span> <span class="token regex">/^\b_((?:[^_]|__)+?)_\b|^\*((?:\*\*|[\s\S])+?)\*(?!\*)/</span><span class="token punctuation">,</span>
-    替换成
-em<span class="token punctuation">:</span><span class="token regex">/^\*((?:\*\*|[\s\S])+?)\*(?!\*)/</span><span class="token punctuation">,</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<figure class="shiki js"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #E06C75">em</span><span style="color: #ABB2BF">: </span><span style="color: #E06C75">/</span><span style="color: #C678DD">^\b</span><span style="color: #E06C75">_((?:</span><span style="color: #D19A66">[</span><span style="color: #ABB2BF">^</span><span style="color: #D19A66">_]</span><span style="color: #ABB2BF">|</span><span style="color: #E06C75">__)</span><span style="color: #D19A66">+?</span><span style="color: #E06C75">)_</span><span style="color: #C678DD">\b</span><span style="color: #ABB2BF">|</span><span style="color: #C678DD">^</span><span style="color: #56B6C2">\*</span><span style="color: #E06C75">((?:</span><span style="color: #56B6C2">\*\*</span><span style="color: #ABB2BF">|</span><span style="color: #D19A66">[</span><span style="color: #E06C75">\s\S</span><span style="color: #D19A66">]</span><span style="color: #E06C75">)</span><span style="color: #D19A66">+?</span><span style="color: #E06C75">)</span><span style="color: #56B6C2">\*</span><span style="color: #E06C75">(?!</span><span style="color: #56B6C2">\*</span><span style="color: #E06C75">)/</span><span style="color: #ABB2BF">,</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #E06C75">替换成</span></span>
+<span class="line"><span style="color: #E06C75">em</span><span style="color: #ABB2BF">:</span><span style="color: #E06C75">/</span><span style="color: #C678DD">^</span><span style="color: #56B6C2">\*</span><span style="color: #E06C75">((?:</span><span style="color: #56B6C2">\*\*</span><span style="color: #ABB2BF">|</span><span style="color: #D19A66">[</span><span style="color: #E06C75">\s\S</span><span style="color: #D19A66">]</span><span style="color: #E06C75">)</span><span style="color: #D19A66">+?</span><span style="color: #E06C75">)</span><span style="color: #56B6C2">\*</span><span style="color: #E06C75">(?!</span><span style="color: #56B6C2">\*</span><span style="color: #E06C75">)/</span><span style="color: #ABB2BF">,</span></span></code></pre></div></div></figure>
 <p><strong>PS：</strong></p>
 <p>可能由于marked插件的版本不同，我的<code>escape</code>那一行和网上的不太一样</p>
 <p><img src="https://z3.ax1x.com/2021/03/23/6HGcGt.jpg" style="zoom:38%;" /></p>
@@ -564,20 +563,17 @@ em<span class="token punctuation">:</span><span class="token regex">/^\*((?:\*\*
 <li><a target="_blank" rel="noopener" href="https://github.com/sun11/hexo-renderer-kramed">hexo-renderer-kramed</a>，安装方便，修改了marked中一部分bug，但还是有部分问题。</li>
 </ul>
 <p>以安装kramed为例：</p>
-<h4 id="安装kramed"><a href="#安装kramed" class="headerlink" title="安装kramed"></a>安装kramed</h4><pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">npm</span> uninstall hexo-renderer-marked --save // 卸载marked
-<span class="token function">npm</span> <span class="token function">install</span> hexo-renderer-kramed --save // 安装kramed
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h4 id="安装kramed"><a href="#安装kramed" class="headerlink" title="安装kramed"></a>安装kramed</h4><figure class="shiki bash"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #61AFEF">npm</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">uninstall</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">hexo-renderer-marked</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">--save</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">//</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">卸载marked</span></span>
+<span class="line"><span style="color: #61AFEF">npm</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">install</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">hexo-renderer-kramed</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">--save</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">//</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">安装kramed</span></span></code></pre></div></div></figure>
 <p>kramed对于<code>block</code>形式的公式可以正确渲染，但是对于内联公式<code>inline</code>仍然有问题。所以我们仍然需要修改其转义部分的源码。</p>
 <h4 id="修改源码"><a href="#修改源码" class="headerlink" title="修改源码"></a>修改源码</h4><p>打开<code>/node_modules\kramed\lib\rules\inline.js</code><br>更改后为：</p>
-<pre class="line-numbers language-js"><code class="language-js">escape<span class="token punctuation">:</span> <span class="token regex">/^\\([`*\[\]()#$+\-.!_>])/</span><span class="token punctuation">,</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<pre class="line-numbers language-js"><code class="language-js">em<span class="token punctuation">:</span> <span class="token regex">/^\*((?:\*\*|[\s\S])+?)\*(?!\*)/</span><span class="token punctuation">,</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="shiki js"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #E06C75">escape</span><span style="color: #ABB2BF">: </span><span style="color: #E06C75">/</span><span style="color: #C678DD">^</span><span style="color: #56B6C2">\\</span><span style="color: #E06C75">(</span><span style="color: #D19A66">[`*</span><span style="color: #56B6C2">\[\]</span><span style="color: #D19A66">()#$+\-.!_&gt;]</span><span style="color: #E06C75">)/</span><span style="color: #ABB2BF">,</span></span></code></pre></div></div></figure>
+<figure class="shiki js"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #E06C75">em</span><span style="color: #ABB2BF">: </span><span style="color: #E06C75">/</span><span style="color: #C678DD">^</span><span style="color: #56B6C2">\*</span><span style="color: #E06C75">((?:</span><span style="color: #56B6C2">\*\*</span><span style="color: #ABB2BF">|</span><span style="color: #D19A66">[</span><span style="color: #E06C75">\s\S</span><span style="color: #D19A66">]</span><span style="color: #E06C75">)</span><span style="color: #D19A66">+?</span><span style="color: #E06C75">)</span><span style="color: #56B6C2">\*</span><span style="color: #E06C75">(?!</span><span style="color: #56B6C2">\*</span><span style="color: #E06C75">)/</span><span style="color: #ABB2BF">,</span></span></code></pre></div></div></figure>
 <p><img src="https://z3.ax1x.com/2021/03/23/6HGhqg.jpg" style="zoom:30%;" /></p>
 <p>我们输入以下图片中的公式，发现可以正常显示：</p>
 <p><img src="https://z3.ax1x.com/2021/03/23/6HGfsS.jpg" alt='公式代码' style="zoom:38%;" /></p>
 <p>显示效果：</p>
-<p>$ a_0\\b_{12} $</p>
+<p>$ a<em>0\b</em>{12} $</p>
 <script type="math/tex; mode=display">
 a_0\\
 b_{12}</script><p>总结：</p>
@@ -598,10 +594,9 @@ b_{12}</script><p>总结：</p>
 <p>解决方法：</p>
 <p>打开<code>\node_modules\kramed\lib\renderer.js</code></p>
 <p><img src="https://z3.ax1x.com/2021/03/23/6HGIaj.jpg" style="zoom:40%;" /></p>
-<pre class="line-numbers language-js"><code class="language-js">langPrefix<span class="token punctuation">:</span> <span class="token string">'lang-'</span><span class="token punctuation">,</span>
-改为
-langPrefix<span class="token punctuation">:</span> <span class="token string">''</span><span class="token punctuation">,</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<figure class="shiki js"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #E06C75">langPrefix</span><span style="color: #ABB2BF">: </span><span style="color: #98C379">&#39;lang-&#39;</span><span style="color: #ABB2BF">,</span></span>
+<span class="line"><span style="color: #E06C75">改为</span></span>
+<span class="line"><span style="color: #E06C75">langPrefix</span><span style="color: #ABB2BF">: </span><span style="color: #98C379">&#39;&#39;</span><span style="color: #ABB2BF">,</span></span></code></pre></div></div></figure>
 <p>即可防止kramed自动修改元素的<code>class name</code>。</p>
 <p>最终prism又恢复了正常，效果如下：</p>
 <p><img src="https://z3.ax1x.com/2021/03/23/6HGgRP.jpg" style="zoom:38%;" /></p>
@@ -924,7 +919,7 @@ langPrefix<span class="token punctuation">:</span> <span class="token string">''
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">65k</span>
+                <span class="white-color">66.2k</span>
                 
 
                     <br>
@@ -1113,6 +1108,27 @@ $(function () {
                                                             <!-- 雪花特效 -->
                                                             
 
-    </body>
+    <!-- hexo injector body_end start -->
+  <script>
+  const CODE_CONFIG = {
+    beautify: undefined,
+    highlightCopy: undefined,
+    highlightLang: undefined,
+    highlightHeightLimit: undefined,
+    isHighlightShrink: undefined,
+    copy: {
+      success: 'undefined',
+      error: 'undefined',
+      noSupport: 'undefined',
+    }
+  };
+  console.log(
+    `%c hexo-shiki-plugin %c v1.0.27 %c https://github.com/nova1751/hexo-shiki-plugin`,
+    "color: #fff; background: #5f5f5f",
+    "color: #fff; background: #80c8f8",
+    ""
+  );
+  </script>
+  <!-- hexo injector body_end end --></body>
 
 </html>

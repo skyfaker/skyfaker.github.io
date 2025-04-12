@@ -73,7 +73,9 @@
         })();
     </script>
 
-<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="SKYFAKER" type="application/atom+xml">
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-shiki-plugin@latest/lib/codeblock.css">
+<style>:root{--hl-color:#abb2bf;--hl-bg:#282c34;--hltools-bg:#21252b;--hltools-color:#bbbbbc;--hlnumber-bg:#282c34;--hlnumber-color:#495162;--hlscrollbar-bg:#373c47;--hlexpand-bg:linear-gradient(180deg,rgba(40,44,52,0.1),rgba(40,44,52,0.9))}</style><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="SKYFAKER" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
@@ -486,14 +488,14 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    491
+                    473
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    1 分
                 </div>
                 
                 
@@ -521,48 +523,46 @@
 <p>模拟出队操作，则需要取出第一个元素1，这时，需要把栈A中元素转到栈B。</p>
 <p>栈A = [ ]，栈B = [ 4, 3, 2, 1]。然后再取出栈B的最后一个元素1。</p>
 <p>下一次出队操作，再次从栈B取出栈顶元素。如果栈B为空，则将栈A所有的元素取出，压入栈B，再执行栈B的弹出栈顶操作。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><h3 id="python实现"><a href="#python实现" class="headerlink" title="python实现"></a>python实现</h3><pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># -*- coding:utf-8 -*-</span>
-<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        self<span class="token punctuation">.</span>stack_a <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-        self<span class="token punctuation">.</span>stack_b <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-    <span class="token keyword">def</span> <span class="token function">push</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> node<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token comment" spellcheck="true"># write code here</span>
-        self<span class="token punctuation">.</span>stack_a<span class="token punctuation">.</span>append<span class="token punctuation">(</span>node<span class="token punctuation">)</span>
-    <span class="token keyword">def</span> <span class="token function">pop</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token comment" spellcheck="true"># return xx</span>
-        <span class="token keyword">if</span> self<span class="token punctuation">.</span>stack_b <span class="token operator">==</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
-            <span class="token keyword">if</span> self<span class="token punctuation">.</span>stack_a <span class="token operator">==</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">:</span><span class="token keyword">return</span>
-            self<span class="token punctuation">.</span>stack_b <span class="token operator">=</span> list<span class="token punctuation">(</span>reversed<span class="token punctuation">(</span>self<span class="token punctuation">.</span>stack_a<span class="token punctuation">)</span><span class="token punctuation">)</span>
-            self<span class="token punctuation">.</span>stack_a <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-            <span class="token keyword">return</span> self<span class="token punctuation">.</span>stack_b<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token keyword">else</span><span class="token punctuation">:</span>
-            <span class="token keyword">return</span> self<span class="token punctuation">.</span>stack_b<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="C-实现"><a href="#C-实现" class="headerlink" title="C++实现"></a>C++实现</h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span>
-<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-<span class="token keyword">public</span><span class="token operator">:</span>
-    <span class="token keyword">void</span> <span class="token function">push</span><span class="token punctuation">(</span><span class="token keyword">int</span> node<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-        stack2<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-
-    <span class="token keyword">int</span> <span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>stack1<span class="token punctuation">.</span><span class="token function">empty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-            <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token operator">!</span>stack2<span class="token punctuation">.</span><span class="token function">empty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-                stack1<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>stack2<span class="token punctuation">.</span><span class="token function">top</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                stack2<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-        <span class="token keyword">int</span> tmp <span class="token operator">=</span> stack1<span class="token punctuation">.</span><span class="token function">top</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        stack1<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">return</span> tmp<span class="token punctuation">;</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-
-<span class="token keyword">private</span><span class="token operator">:</span>
-    stack<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> stack1<span class="token punctuation">;</span>
-    stack<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> stack2<span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><h3 id="python实现"><a href="#python实现" class="headerlink" title="python实现"></a>python实现</h3><figure class="shiki python"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #7F848E; font-style: italic"># -*- coding:utf-8 -*-</span></span>
+<span class="line"><span style="color: #C678DD">class</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Solution</span><span style="color: #ABB2BF">:</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #C678DD">def</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">__init__</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B; font-style: italic">self</span><span style="color: #ABB2BF">):</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">self</span><span style="color: #ABB2BF">.stack_a </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> []</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">self</span><span style="color: #ABB2BF">.stack_b </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> []</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #C678DD">def</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">push</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B; font-style: italic">self</span><span style="color: #ABB2BF">, </span><span style="color: #D19A66; font-style: italic">node</span><span style="color: #ABB2BF">):</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #7F848E; font-style: italic"># write code here</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">self</span><span style="color: #ABB2BF">.stack_a.</span><span style="color: #61AFEF">append</span><span style="color: #ABB2BF">(node)</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #C678DD">def</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">pop</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B; font-style: italic">self</span><span style="color: #ABB2BF">):</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #7F848E; font-style: italic"># return xx</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">if</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">self</span><span style="color: #ABB2BF">.stack_b </span><span style="color: #56B6C2">==</span><span style="color: #ABB2BF"> []:</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #C678DD">if</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">self</span><span style="color: #ABB2BF">.stack_a </span><span style="color: #56B6C2">==</span><span style="color: #ABB2BF"> []:</span><span style="color: #C678DD">return</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #E5C07B">self</span><span style="color: #ABB2BF">.stack_b </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">list</span><span style="color: #ABB2BF">(</span><span style="color: #56B6C2">reversed</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">self</span><span style="color: #ABB2BF">.stack_a))</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #E5C07B">self</span><span style="color: #ABB2BF">.stack_a </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> []</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">self</span><span style="color: #ABB2BF">.stack_b.</span><span style="color: #61AFEF">pop</span><span style="color: #ABB2BF">()</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">else</span><span style="color: #ABB2BF">:</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">self</span><span style="color: #ABB2BF">.stack_b.</span><span style="color: #61AFEF">pop</span><span style="color: #ABB2BF">()</span></span></code></pre></div></div></figure>
+<h3 id="C-实现"><a href="#C-实现" class="headerlink" title="C++实现"></a>C++实现</h3><figure class="shiki cpp"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">class</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Solution</span></span>
+<span class="line"><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #C678DD">public:</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #C678DD">void</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">push</span><span style="color: #ABB2BF">(</span><span style="color: #C678DD">int</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">node</span><span style="color: #ABB2BF">) {</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">stack2</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">push</span><span style="color: #ABB2BF">(node);</span></span>
+<span class="line"><span style="color: #ABB2BF">    }</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #C678DD">int</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">pop</span><span style="color: #ABB2BF">() {</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">if</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">stack1</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">empty</span><span style="color: #ABB2BF">()){</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #C678DD">while</span><span style="color: #ABB2BF">(</span><span style="color: #56B6C2">!</span><span style="color: #E5C07B">stack2</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">empty</span><span style="color: #ABB2BF">()){</span></span>
+<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #E5C07B">stack1</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">push</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">stack2</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">top</span><span style="color: #ABB2BF">());</span></span>
+<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #E5C07B">stack2</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">pop</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #ABB2BF">            }</span></span>
+<span class="line"><span style="color: #ABB2BF">        }</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">int</span><span style="color: #ABB2BF"> tmp </span><span style="color: #C678DD">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">stack1</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">top</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">stack1</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">pop</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> tmp;</span></span>
+<span class="line"><span style="color: #ABB2BF">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C678DD">private:</span></span>
+<span class="line"><span style="color: #ABB2BF">    stack</span><span style="color: #C678DD">&lt;int&gt;</span><span style="color: #ABB2BF"> stack1;</span></span>
+<span class="line"><span style="color: #ABB2BF">    stack</span><span style="color: #C678DD">&lt;int&gt;</span><span style="color: #ABB2BF"> stack2;</span></span>
+<span class="line"><span style="color: #ABB2BF">};</span></span></code></pre></div></div></figure>
 
             </div>
             <hr />
@@ -855,7 +855,7 @@
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">65k</span>
+                <span class="white-color">66.2k</span>
                 
 
                     <br>
@@ -1044,6 +1044,27 @@ $(function () {
                                                             <!-- 雪花特效 -->
                                                             
 
-    </body>
+    <!-- hexo injector body_end start -->
+  <script>
+  const CODE_CONFIG = {
+    beautify: undefined,
+    highlightCopy: undefined,
+    highlightLang: undefined,
+    highlightHeightLimit: undefined,
+    isHighlightShrink: undefined,
+    copy: {
+      success: 'undefined',
+      error: 'undefined',
+      noSupport: 'undefined',
+    }
+  };
+  console.log(
+    `%c hexo-shiki-plugin %c v1.0.27 %c https://github.com/nova1751/hexo-shiki-plugin`,
+    "color: #fff; background: #5f5f5f",
+    "color: #fff; background: #80c8f8",
+    ""
+  );
+  </script>
+  <!-- hexo injector body_end end --></body>
 
 </html>

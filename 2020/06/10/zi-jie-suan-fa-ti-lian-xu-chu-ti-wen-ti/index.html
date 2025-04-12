@@ -69,7 +69,9 @@
         })();
     </script>
 
-<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="SKYFAKER" type="application/atom+xml">
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-shiki-plugin@latest/lib/codeblock.css">
+<style>:root{--hl-color:#abb2bf;--hl-bg:#282c34;--hltools-bg:#21252b;--hltools-color:#bbbbbc;--hlnumber-bg:#282c34;--hlnumber-color:#495162;--hlscrollbar-bg:#373c47;--hlexpand-bg:linear-gradient(180deg,rgba(40,44,52,0.1),rgba(40,44,52,0.9))}</style><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="SKYFAKER" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
@@ -486,7 +488,7 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    878
+                    850
                 </div>
                 
 
@@ -518,85 +520,83 @@
 <p>4:第二个数-第一个数小于10,而第三个数-第二个数大于10,前两个题目为一组,需要添加1个题目。</p>
 <p>第三点和第四点再写法上可以并为一点。</p>
 <p>最后剩下的可能为1或者2个数,再判断一次即可。</p>
-<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><h3 id="python实现"><a href="#python实现" class="headerlink" title="python实现"></a>python实现</h3><pre class="line-numbers language-python"><code class="language-python">n <span class="token operator">=</span> int<span class="token punctuation">(</span>input<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-ques <span class="token operator">=</span> sorted<span class="token punctuation">(</span>map<span class="token punctuation">(</span>int<span class="token punctuation">,</span> input<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-
-re <span class="token operator">=</span> <span class="token number">0</span>
-pos <span class="token operator">=</span> <span class="token number">0</span>
-<span class="token keyword">while</span><span class="token punctuation">(</span>n<span class="token operator">-</span>pos<span class="token operator">>=</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token comment" spellcheck="true"># max((b-a), (c-b))&lt;=10,即三个题目可以分为一组</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token punctuation">(</span>ques<span class="token punctuation">[</span>pos<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">-</span>ques<span class="token punctuation">[</span>pos<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">&lt;=</span><span class="token number">10</span> <span class="token operator">and</span> <span class="token punctuation">(</span>ques<span class="token punctuation">[</span>pos<span class="token operator">+</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token operator">-</span>ques<span class="token punctuation">[</span>pos<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">&lt;=</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        pos<span class="token operator">+=</span><span class="token number">3</span>
-    <span class="token comment" spellcheck="true"># 前两个相差大于20,至少需要增加2题</span>
-    <span class="token keyword">elif</span><span class="token punctuation">(</span><span class="token punctuation">(</span>ques<span class="token punctuation">[</span>pos<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">-</span>ques<span class="token punctuation">[</span>pos<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">></span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        re<span class="token operator">+=</span><span class="token number">2</span>
-        pos<span class="token operator">+=</span><span class="token number">1</span>
-    <span class="token comment" spellcheck="true"># 前两个可以为一组</span>
-    <span class="token keyword">else</span><span class="token punctuation">:</span>
-        re<span class="token operator">+=</span><span class="token number">1</span>
-        pos<span class="token operator">+=</span><span class="token number">2</span>
-<span class="token comment" spellcheck="true"># 剩余1个题目</span>
-<span class="token keyword">if</span><span class="token punctuation">(</span>n<span class="token operator">-</span>pos<span class="token operator">==</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    re<span class="token operator">+=</span><span class="token number">2</span>
-<span class="token comment" spellcheck="true"># 剩余2个题目,有2种情况,一种增加一个题目,另一种增加4个题目</span>
-<span class="token keyword">elif</span><span class="token punctuation">(</span>n<span class="token operator">-</span>pos<span class="token operator">==</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token punctuation">[</span>a<span class="token punctuation">,</span>b<span class="token punctuation">]</span> <span class="token operator">=</span> ques<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">:</span><span class="token punctuation">]</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token punctuation">(</span>b<span class="token operator">-</span>a<span class="token punctuation">)</span><span class="token operator">&lt;=</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        re<span class="token operator">+=</span><span class="token number">1</span>
-    <span class="token keyword">else</span><span class="token punctuation">:</span>
-        re<span class="token operator">+=</span><span class="token number">4</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>re<span class="token punctuation">)</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="C-实现"><a href="#C-实现" class="headerlink" title="C++实现"></a>C++实现</h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;iostream></span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;vector></span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;algorithm></span></span>
-<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
-
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-    <span class="token keyword">int</span> n<span class="token punctuation">;</span>
-    cin<span class="token operator">>></span>n<span class="token punctuation">;</span>
-    vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> <span class="token function">ques</span><span class="token punctuation">(</span>n<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-        cin<span class="token operator">>></span>ques<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">// 排序</span>
-    <span class="token function">sort</span><span class="token punctuation">(</span>ques<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> ques<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">int</span> re <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-    <span class="token keyword">int</span> pos <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">// 遍历</span>
-    <span class="token keyword">while</span><span class="token punctuation">(</span>n<span class="token operator">-</span>pos<span class="token operator">>=</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-        <span class="token comment" spellcheck="true">// max((b-a), (c-b))&lt;=10,即三个题目可以分为一组</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token punctuation">(</span>ques<span class="token punctuation">[</span>pos<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">-</span>ques<span class="token punctuation">[</span>pos<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">&lt;=</span><span class="token number">10</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>ques<span class="token punctuation">[</span>pos<span class="token operator">+</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token operator">-</span>ques<span class="token punctuation">[</span>pos<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">&lt;=</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-            pos<span class="token operator">+</span><span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">;</span>
-        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-        <span class="token comment" spellcheck="true">// 前两个相差大于20,至少需要增加2题</span>
-        <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token punctuation">(</span>ques<span class="token punctuation">[</span>pos<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">-</span>ques<span class="token punctuation">[</span>pos<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">></span><span class="token number">20</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-            re<span class="token operator">+</span><span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">;</span>
-            pos<span class="token operator">+</span><span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
-        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-        <span class="token comment" spellcheck="true">// 前两个可以为一组</span>
-        <span class="token keyword">else</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-            re<span class="token operator">+</span><span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
-            pos<span class="token operator">+</span><span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">;</span>
-        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>   
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">// 剩余2个题目,有2种情况,一种增加一个题目,另一种增加4个题目</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span>n<span class="token operator">-</span>pos<span class="token operator">==</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token punctuation">(</span>ques<span class="token punctuation">[</span>pos<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">-</span> ques<span class="token punctuation">[</span>pos<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">&lt;=</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-            re<span class="token operator">+</span><span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
-        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-        <span class="token keyword">else</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-            re<span class="token operator">+</span><span class="token operator">=</span><span class="token number">4</span><span class="token punctuation">;</span>
-        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">// 剩余1个题目,增加2题</span>
-    <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>n<span class="token operator">-</span>pos<span class="token operator">==</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-        re<span class="token operator">+</span><span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">;</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-    cout<span class="token operator">&lt;&lt;</span> re <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
-    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><h3 id="python实现"><a href="#python实现" class="headerlink" title="python实现"></a>python实现</h3><figure class="shiki python"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #ABB2BF">n </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">int</span><span style="color: #ABB2BF">(</span><span style="color: #56B6C2">input</span><span style="color: #ABB2BF">().</span><span style="color: #61AFEF">split</span><span style="color: #ABB2BF">()[</span><span style="color: #D19A66">0</span><span style="color: #ABB2BF">])</span></span>
+<span class="line"><span style="color: #ABB2BF">ques </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">sorted</span><span style="color: #ABB2BF">(</span><span style="color: #56B6C2">map</span><span style="color: #ABB2BF">(</span><span style="color: #56B6C2">int</span><span style="color: #ABB2BF">, </span><span style="color: #56B6C2">input</span><span style="color: #ABB2BF">().</span><span style="color: #61AFEF">split</span><span style="color: #ABB2BF">()))</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">re </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">0</span></span>
+<span class="line"><span style="color: #ABB2BF">pos </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">0</span></span>
+<span class="line"><span style="color: #C678DD">while</span><span style="color: #ABB2BF">(n</span><span style="color: #56B6C2">-</span><span style="color: #ABB2BF">pos</span><span style="color: #56B6C2">&gt;=</span><span style="color: #D19A66">3</span><span style="color: #ABB2BF">):</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #7F848E; font-style: italic"># max((b-a), (c-b))&lt;=10,即三个题目可以分为一组</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #C678DD">if</span><span style="color: #ABB2BF">((ques[pos</span><span style="color: #56B6C2">+</span><span style="color: #D19A66">1</span><span style="color: #ABB2BF">]</span><span style="color: #56B6C2">-</span><span style="color: #ABB2BF">ques[pos])</span><span style="color: #56B6C2">&lt;=</span><span style="color: #D19A66">10</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">and</span><span style="color: #ABB2BF"> (ques[pos</span><span style="color: #56B6C2">+</span><span style="color: #D19A66">2</span><span style="color: #ABB2BF">]</span><span style="color: #56B6C2">-</span><span style="color: #ABB2BF">ques[pos</span><span style="color: #56B6C2">+</span><span style="color: #D19A66">1</span><span style="color: #ABB2BF">])</span><span style="color: #56B6C2">&lt;=</span><span style="color: #D19A66">10</span><span style="color: #ABB2BF">):</span></span>
+<span class="line"><span style="color: #ABB2BF">        pos</span><span style="color: #56B6C2">+=</span><span style="color: #D19A66">3</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #7F848E; font-style: italic"># 前两个相差大于20,至少需要增加2题</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #C678DD">elif</span><span style="color: #ABB2BF">((ques[pos</span><span style="color: #56B6C2">+</span><span style="color: #D19A66">1</span><span style="color: #ABB2BF">]</span><span style="color: #56B6C2">-</span><span style="color: #ABB2BF">ques[pos])</span><span style="color: #56B6C2">&gt;</span><span style="color: #D19A66">20</span><span style="color: #ABB2BF">):</span></span>
+<span class="line"><span style="color: #ABB2BF">        re</span><span style="color: #56B6C2">+=</span><span style="color: #D19A66">2</span></span>
+<span class="line"><span style="color: #ABB2BF">        pos</span><span style="color: #56B6C2">+=</span><span style="color: #D19A66">1</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #7F848E; font-style: italic"># 前两个可以为一组</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #C678DD">else</span><span style="color: #ABB2BF">:</span></span>
+<span class="line"><span style="color: #ABB2BF">        re</span><span style="color: #56B6C2">+=</span><span style="color: #D19A66">1</span></span>
+<span class="line"><span style="color: #ABB2BF">        pos</span><span style="color: #56B6C2">+=</span><span style="color: #D19A66">2</span></span>
+<span class="line"><span style="color: #7F848E; font-style: italic"># 剩余1个题目</span></span>
+<span class="line"><span style="color: #C678DD">if</span><span style="color: #ABB2BF">(n</span><span style="color: #56B6C2">-</span><span style="color: #ABB2BF">pos</span><span style="color: #56B6C2">==</span><span style="color: #D19A66">1</span><span style="color: #ABB2BF">):</span></span>
+<span class="line"><span style="color: #ABB2BF">    re</span><span style="color: #56B6C2">+=</span><span style="color: #D19A66">2</span></span>
+<span class="line"><span style="color: #7F848E; font-style: italic"># 剩余2个题目,有2种情况,一种增加一个题目,另一种增加4个题目</span></span>
+<span class="line"><span style="color: #C678DD">elif</span><span style="color: #ABB2BF">(n</span><span style="color: #56B6C2">-</span><span style="color: #ABB2BF">pos</span><span style="color: #56B6C2">==</span><span style="color: #D19A66">2</span><span style="color: #ABB2BF">):</span></span>
+<span class="line"><span style="color: #ABB2BF">    [a,b] </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> ques[</span><span style="color: #56B6C2">-</span><span style="color: #D19A66">2</span><span style="color: #ABB2BF">:]</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #C678DD">if</span><span style="color: #ABB2BF">((b</span><span style="color: #56B6C2">-</span><span style="color: #ABB2BF">a)</span><span style="color: #56B6C2">&lt;=</span><span style="color: #D19A66">20</span><span style="color: #ABB2BF">):</span></span>
+<span class="line"><span style="color: #ABB2BF">        re</span><span style="color: #56B6C2">+=</span><span style="color: #D19A66">1</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #C678DD">else</span><span style="color: #ABB2BF">:</span></span>
+<span class="line"><span style="color: #ABB2BF">        re</span><span style="color: #56B6C2">+=</span><span style="color: #D19A66">4</span></span>
+<span class="line"><span style="color: #56B6C2">print</span><span style="color: #ABB2BF">(re)</span></span></code></pre></div></div></figure>
+<h3 id="C-实现"><a href="#C-实现" class="headerlink" title="C++实现"></a>C++实现</h3><figure class="shiki cpp"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">#include</span><span style="color: #98C379">&lt;iostream&gt;</span></span>
+<span class="line"><span style="color: #C678DD">#include</span><span style="color: #98C379">&lt;vector&gt;</span></span>
+<span class="line"><span style="color: #C678DD">#include</span><span style="color: #98C379">&lt;algorithm&gt;</span></span>
+<span class="line"><span style="color: #C678DD">using</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">namespace</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">std</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C678DD">int</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">main</span><span style="color: #ABB2BF">(){</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #C678DD">int</span><span style="color: #ABB2BF"> n;</span></span>
+<span class="line"><span style="color: #ABB2BF">    cin</span><span style="color: #C678DD">&gt;&gt;</span><span style="color: #ABB2BF">n;</span></span>
+<span class="line"><span style="color: #ABB2BF">    vector</span><span style="color: #C678DD">&lt;int&gt;</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">ques</span><span style="color: #ABB2BF">(n,</span><span style="color: #D19A66">0</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #C678DD">for</span><span style="color: #ABB2BF">(</span><span style="color: #C678DD">int</span><span style="color: #ABB2BF"> i</span><span style="color: #C678DD">=</span><span style="color: #D19A66">0</span><span style="color: #ABB2BF">;i</span><span style="color: #C678DD">&lt;</span><span style="color: #ABB2BF">n;i</span><span style="color: #C678DD">++</span><span style="color: #ABB2BF">){</span></span>
+<span class="line"><span style="color: #ABB2BF">        cin</span><span style="color: #C678DD">&gt;&gt;</span><span style="color: #E5C07B">ques</span><span style="color: #ABB2BF">[i];</span></span>
+<span class="line"><span style="color: #ABB2BF">    }</span></span>
+<span class="line"><span style="color: #7F848E; font-style: italic">    // 排序</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #61AFEF">sort</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">ques</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">begin</span><span style="color: #ABB2BF">(), </span><span style="color: #E5C07B">ques</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">end</span><span style="color: #ABB2BF">());</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #C678DD">int</span><span style="color: #ABB2BF"> re </span><span style="color: #C678DD">=</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">0</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #C678DD">int</span><span style="color: #ABB2BF"> pos </span><span style="color: #C678DD">=</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">0</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #7F848E; font-style: italic">    // 遍历</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #C678DD">while</span><span style="color: #ABB2BF">(n</span><span style="color: #56B6C2">-</span><span style="color: #ABB2BF">pos</span><span style="color: #C678DD">&gt;=</span><span style="color: #D19A66">3</span><span style="color: #ABB2BF">){</span></span>
+<span class="line"><span style="color: #7F848E; font-style: italic">        // max((b-a), (c-b))&lt;=10,即三个题目可以分为一组</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">if</span><span style="color: #ABB2BF">((</span><span style="color: #E5C07B">ques</span><span style="color: #ABB2BF">[pos</span><span style="color: #56B6C2">+</span><span style="color: #D19A66">1</span><span style="color: #ABB2BF">]</span><span style="color: #56B6C2">-</span><span style="color: #E5C07B">ques</span><span style="color: #ABB2BF">[pos])</span><span style="color: #C678DD">&lt;=</span><span style="color: #D19A66">10</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">&amp;&amp;</span><span style="color: #ABB2BF"> (</span><span style="color: #E5C07B">ques</span><span style="color: #ABB2BF">[pos</span><span style="color: #56B6C2">+</span><span style="color: #D19A66">2</span><span style="color: #ABB2BF">]</span><span style="color: #56B6C2">-</span><span style="color: #E5C07B">ques</span><span style="color: #ABB2BF">[pos</span><span style="color: #56B6C2">+</span><span style="color: #D19A66">1</span><span style="color: #ABB2BF">])</span><span style="color: #C678DD">&lt;=</span><span style="color: #D19A66">10</span><span style="color: #ABB2BF">){</span></span>
+<span class="line"><span style="color: #ABB2BF">            pos</span><span style="color: #C678DD">+=</span><span style="color: #D19A66">3</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">        }</span></span>
+<span class="line"><span style="color: #7F848E; font-style: italic">        // 前两个相差大于20,至少需要增加2题</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">else</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">if</span><span style="color: #ABB2BF">((</span><span style="color: #E5C07B">ques</span><span style="color: #ABB2BF">[pos</span><span style="color: #56B6C2">+</span><span style="color: #D19A66">1</span><span style="color: #ABB2BF">]</span><span style="color: #56B6C2">-</span><span style="color: #E5C07B">ques</span><span style="color: #ABB2BF">[pos])</span><span style="color: #C678DD">&gt;</span><span style="color: #D19A66">20</span><span style="color: #ABB2BF">){</span></span>
+<span class="line"><span style="color: #ABB2BF">            re</span><span style="color: #C678DD">+=</span><span style="color: #D19A66">2</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">            pos</span><span style="color: #C678DD">+=</span><span style="color: #D19A66">1</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">        }</span></span>
+<span class="line"><span style="color: #7F848E; font-style: italic">        // 前两个可以为一组</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">else</span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #ABB2BF">            re</span><span style="color: #C678DD">+=</span><span style="color: #D19A66">1</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">            pos</span><span style="color: #C678DD">+=</span><span style="color: #D19A66">2</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">        }   </span></span>
+<span class="line"><span style="color: #ABB2BF">    }</span></span>
+<span class="line"><span style="color: #7F848E; font-style: italic">    // 剩余2个题目,有2种情况,一种增加一个题目,另一种增加4个题目</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #C678DD">if</span><span style="color: #ABB2BF">(n</span><span style="color: #56B6C2">-</span><span style="color: #ABB2BF">pos</span><span style="color: #C678DD">==</span><span style="color: #D19A66">2</span><span style="color: #ABB2BF">){</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">if</span><span style="color: #ABB2BF">((</span><span style="color: #E5C07B">ques</span><span style="color: #ABB2BF">[pos</span><span style="color: #56B6C2">+</span><span style="color: #D19A66">1</span><span style="color: #ABB2BF">] </span><span style="color: #56B6C2">-</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">ques</span><span style="color: #ABB2BF">[pos])</span><span style="color: #C678DD">&lt;=</span><span style="color: #D19A66">20</span><span style="color: #ABB2BF">){</span></span>
+<span class="line"><span style="color: #ABB2BF">            re</span><span style="color: #C678DD">+=</span><span style="color: #D19A66">1</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">        }</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">else</span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #ABB2BF">            re</span><span style="color: #C678DD">+=</span><span style="color: #D19A66">4</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">        }</span></span>
+<span class="line"><span style="color: #ABB2BF">    }</span></span>
+<span class="line"><span style="color: #7F848E; font-style: italic">    // 剩余1个题目,增加2题</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #C678DD">else</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">if</span><span style="color: #ABB2BF">(n</span><span style="color: #56B6C2">-</span><span style="color: #ABB2BF">pos</span><span style="color: #C678DD">==</span><span style="color: #D19A66">1</span><span style="color: #ABB2BF">){</span></span>
+<span class="line"><span style="color: #ABB2BF">        re</span><span style="color: #C678DD">+=</span><span style="color: #D19A66">2</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">    }</span></span>
+<span class="line"><span style="color: #ABB2BF">    cout</span><span style="color: #C678DD">&lt;&lt;</span><span style="color: #ABB2BF"> re </span><span style="color: #C678DD">&lt;&lt;</span><span style="color: #ABB2BF"> endl;</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">0</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">}</span></span></code></pre></div></div></figure>
 
             </div>
             <hr />
@@ -893,7 +893,7 @@ pos <span class="token operator">=</span> <span class="token number">0</span>
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">65k</span>
+                <span class="white-color">66.2k</span>
                 
 
                     <br>
@@ -1082,6 +1082,27 @@ $(function () {
                                                             <!-- 雪花特效 -->
                                                             
 
-    </body>
+    <!-- hexo injector body_end start -->
+  <script>
+  const CODE_CONFIG = {
+    beautify: undefined,
+    highlightCopy: undefined,
+    highlightLang: undefined,
+    highlightHeightLimit: undefined,
+    isHighlightShrink: undefined,
+    copy: {
+      success: 'undefined',
+      error: 'undefined',
+      noSupport: 'undefined',
+    }
+  };
+  console.log(
+    `%c hexo-shiki-plugin %c v1.0.27 %c https://github.com/nova1751/hexo-shiki-plugin`,
+    "color: #fff; background: #5f5f5f",
+    "color: #fff; background: #80c8f8",
+    ""
+  );
+  </script>
+  <!-- hexo injector body_end end --></body>
 
 </html>

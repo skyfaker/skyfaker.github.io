@@ -4,13 +4,12 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="New Blog, 深度学习 | 数据挖掘">
+    <meta name="keywords" content="BERT与GPT：语言模型的双子星, 深度学习 | 数据挖掘">
     <meta name="baidu-site-verification" content="fmlEuI34ir" />
     <meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48" />
     <meta name="360-site-verification" content="b7c11a830ef90fd1464ad6206bb7b6e7" />
-    <meta name="description" content="前言之前也用过hexo框架生成的博客，当时部署在了国内的coding上面，速度会稳定一些，只是要在你的博客上给coding打个广告。
-GitHub没有这个限制，but访问的时候，可能会遇到图片加载慢的问题。
-其实如果有备案好的域名，也可以直">
+    <meta name="description" content="随着论文《Attention is All You Need》的发表，常用的RNN结构逐渐被抛弃。出现了基于attention的Transformer模型架构。
+在seq2seq模型架构中，存在一个encoder与一个decoder，这二者">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +17,7 @@ GitHub没有这个限制，but访问的时候，可能会遇到图片加载慢�
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>New Blog | SKYFAKER</title>
+    <title>BERT与GPT：语言模型的双子星 | SKYFAKER</title>
 
     <!-- 网页在浏览器上的图标 -->
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/favicon.png">
@@ -327,15 +326,15 @@ GitHub没有这个限制，but访问的时候，可能会遇到图片加载慢�
 
 
 <!-- 3/22: 这里修改了推荐页文章点击进去之后的图片路径 -->
-<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.iohttps://s4.ax1x.com/2022/02/08/HlMoc9.jpg');"> -->
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://s4.ax1x.com/2022/02/08/HlMoc9.jpg');">
+<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.iohttps://s4.ax1x.com/2022/02/08/HlMjhD.jpg');"> -->
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://s4.ax1x.com/2022/02/08/HlMjhD.jpg');">
 
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        New Blog
+                        BERT与GPT：语言模型的双子星
                     </div>
                 </div>
             </div>
@@ -448,8 +447,8 @@ GitHub没有这个限制，but访问的时候，可能会遇到图片加载慢�
                     
                     <div class="article-tag">
                         
-                        <a href="/tags/%E5%8D%9A%E5%AE%A2/" target="_blank">
-                            <span class="chip bg-color">博客</span>
+                        <a href="/tags/Pretraining-model/" target="_blank">
+                            <span class="chip bg-color">Pretraining model</span>
                         </a>
                         
                     </div>
@@ -460,8 +459,8 @@ GitHub没有这个限制，but访问的时候，可能会遇到图片加载慢�
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                        <a href="/categories/%E9%9A%8F%E4%BE%BF%E5%86%99%E5%86%99/" class="post-category" target="_blank">
-                            随便写写
+                        <a href="/categories/NLP/" class="post-category" target="_blank">
+                            NLP
                         </a>
                         
                     </div>
@@ -472,7 +471,7 @@ GitHub没有这个限制，but访问的时候，可能会遇到图片加载慢�
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-02-15
+                    2022-04-09
                 </div>
 
                 <div class="post-author info-break-policy">
@@ -486,14 +485,14 @@ GitHub没有这个限制，but访问的时候，可能会遇到图片加载慢�
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    203
+                    1.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    5 分
                 </div>
                 
                 
@@ -509,12 +508,53 @@ GitHub没有这个限制，but访问的时候，可能会遇到图片加载慢�
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>之前也用过hexo框架生成的博客，当时部署在了国内的coding上面，速度会稳定一些，只是要在你的博客上给coding打个广告。</p>
-<p>GitHub没有这个限制，but访问的时候，可能会遇到图片加载慢的问题。</p>
-<p>其实如果有备案好的域名，也可以直接把静态文件放在七牛云、腾讯上面，还可以获得CDN加速的效果，免费的流量应该也够用。可惜我懒得备案，反正现在博客访问的人也不多，等到以后内容多了，可能又要搬家了吧，maybe。</p>
-<p>放在GitHub上的静态文件，也有一些trick可以加速访问。这个放在TODO里面，以后研究一下吧。</p>
-<p>That’s all！</p>
-<p>Hello world again！</p>
+                <p>随着论文《Attention is All You Need》的发表，常用的RNN结构逐渐被抛弃。出现了基于attention的Transformer模型架构。</p>
+<p>在seq2seq模型架构中，存在一个encoder与一个decoder，这二者都是基于RNN结构。而当把原本的RNN结构换成多头attention（还包括位置向量、归一化和残差等模块）就形成了Transformer模型架构。</p>
+<p>而GPT和BERT是Transformer模型架构中最流行的两种语言模型。</p>
+<h2 id="1-BERT模型结构：双向编码"><a href="#1-BERT模型结构：双向编码" class="headerlink" title="1 BERT模型结构：双向编码"></a>1 BERT模型结构：双向编码</h2><h4 id="1-1-核心架构"><a href="#1-1-核心架构" class="headerlink" title="1.1 核心架构"></a>1.1 核心架构</h4><p>bert严格说来属于是Transformer的编码器部分，虽然在预训练过程中需要使用解码器，但是训练完成之后这部分就被丢弃，只保留了编码器部分。所以，我们下载到的开源bert模型的输出为编码器生成的embedding向量。</p>
+<p>模型结构方面比较简单，主要是使用了attention代替RNN，具体可以看之前写的<a target="_blank" rel="noopener" href="https://skyfaker.cc/2021/03/10/attention-is-all-you-need/">关于attention的博客</a>。</p>
+<h4 id="1-2-预训练"><a href="#1-2-预训练" class="headerlink" title="1.2 预训练"></a>1.2 预训练</h4><p>Bert模型的思路和ELMO一脉相承，ELMO采用了很典型的两阶段过程，第一阶段，对语言模型进行预训练；第二阶段，是进行下游任务时，将Embedding作为新特征补充到下游模型中。</p>
+<p>Bert模型采用双向自注意力机制。其输入由三部分嵌入向量相加构成：</p>
+<ul>
+<li><strong>Token Embeddings</strong>：对输入token进行向量化（含特殊符号[CLS]和[SEP]）</li>
+<li><strong>Segment Embeddings</strong>：区分句子对（如问答中的问题与答案）</li>
+<li><strong>Position Embeddings</strong>：编码序列中每个token的位置信息</li>
+</ul>
+<p>Bert模型在预训练阶段有2个任务：</p>
+<ol>
+<li><strong>掩码语言模型（MLM）</strong>：随机遮蔽15%的输入词，模型需预测被遮蔽词（其中80%替换为[MASK]，10%随机替换，10%保持不变）。MLM借鉴了CBOW的思路，类似于做完形填空。</li>
+<li><strong>下一句预测（NSP）</strong>：判断两个句子是否为连续文本，增强篇章理解能力。这个任务作用不是很大。</li>
+</ol>
+<h4 id="1-3-BERT-vs-RoBERTa：优化方向的演进"><a href="#1-3-BERT-vs-RoBERTa：优化方向的演进" class="headerlink" title="1.3 BERT vs RoBERTa：优化方向的演进"></a>1.3 BERT vs RoBERTa：优化方向的演进</h4><p>RoBERTa（Robustly Optimized BERT）通过四项关键改进提升BERT性能：</p>
+<ol>
+<li><strong>动态掩码</strong>：训练时对同一数据多次随机遮蔽，替代静态掩码，增强模型鲁棒性。</li>
+<li><strong>移除NSP任务</strong>：实验证明NSP对下游任务无显著增益，改为连续文本输入。</li>
+<li><strong>更大批次与数据量</strong>：批次从256增至8,000，训练数据从16GB扩至160GB。</li>
+<li><strong>更长的训练周期</strong>：从BERT的1M步增至300K-500K步，充分挖掘模型潜力。</li>
+</ol>
+<p><strong>性能提升</strong>：RoBERTa在GLUE基准测试中平均提升2-3个百分点，尤其在长文本理解任务中表现突出。</p>
+<h4 id="1-4-BERT的评价"><a href="#1-4-BERT的评价" class="headerlink" title="1.4 BERT的评价"></a>1.4 BERT的评价</h4><p>Bert的效果很强，一出现就霸榜，但是它的优越性不在于多么新奇的网络结构，或者是新的训练方式（MLM），而是它证明了Transformer的上限要远超RNN和LSTM。</p>
+<p>另外，通过Bert与RoBERTa的对比，我们可以发现，Bert也还没有充分发掘出Transformer的能力上限，只要有更多更优质的数据，更深的模型层数，就可以得到更强大的模型。</p>
+<h2 id="2-GPT模型结构：自回归生成"><a href="#2-GPT模型结构：自回归生成" class="headerlink" title="2 GPT模型结构：自回归生成"></a>2 GPT模型结构：自回归生成</h2><h4 id="2-1-核心架构"><a href="#2-1-核心架构" class="headerlink" title="2.1 核心架构"></a>2.1 核心架构</h4><p>GPT系列（如GPT-3）基于Transformer的<strong>解码器堆叠</strong>，采用<strong>掩码自注意力机制</strong>（仅允许关注左侧上下文）。其训练特点包括：</p>
+<ul>
+<li><p><strong>自回归语言建模</strong>：逐词生成，通过上文预测下一个词（如“我爱__”预测“你”）。类似于写作文任务。</p>
+</li>
+<li><p><strong>无监督预训练 + 零样本学习</strong>：无需微调即可完成对话、翻译等生成任务。</p>
+</li>
+</ul>
+<h2 id="3-BERT-vs-GPT：架构与能力的本质差异"><a href="#3-BERT-vs-GPT：架构与能力的本质差异" class="headerlink" title="3 BERT vs GPT：架构与能力的本质差异"></a>3 BERT vs GPT：架构与能力的本质差异</h2><h4 id="3-1-GPT和Bert强弱对比"><a href="#3-1-GPT和Bert强弱对比" class="headerlink" title="3.1 GPT和Bert强弱对比"></a>3.1 GPT和Bert强弱对比</h4><p>GPT只采用Context-before，即这个单词的上文来进行预测，所以普遍认为其在上下文的理解上较弱于Bert。</p>
+<p>个人认为根本上是二者在训练阶段的不同训练方式导致的。</p>
+<p>Bert的编码器结构将token编码成embedding向量，然后由下游模型去微调完成下游任务，并且一般的下游任务为分类任务。由于额外的网络结构，加上特地为分类任务去微调，天然导致Bert模型在这方面更强。</p>
+<p>而GPT训练过程更偏向于文本生成，因此在文本生成方面也要强于Bert模型。</p>
+<h4 id="3-2-GPT和Bert的缺陷和发展方向"><a href="#3-2-GPT和Bert的缺陷和发展方向" class="headerlink" title="3.2 GPT和Bert的缺陷和发展方向"></a>3.2 GPT和Bert的缺陷和发展方向</h4><p>Bert模型的一大特点就是两阶段训练，一阶段训练出encoder，二阶段结合下游模型微调（也可以freeze一阶段的encoder）。</p>
+<p>这个特点带来了更强的适配性，另一方面也存在一些问题：</p>
+<ol>
+<li>训练和推理存在gap，训练时token中存在了推理阶段没有的token：[MASK]。因此在训练阶段[MASK]比例不能太高，就像是完形填空不能一篇文章全是空，那就没法填了。</li>
+<li>论文采用的遮蔽方式太不优雅，随机遮蔽15%的比例，也造成了训练效率低下，即每次只有15%的token被训练，而计算量是100%。</li>
+<li>另外，为了实现自监督学习，Bert需要有解码器，并且解码器不能太简单。而在训练完成之后的大部分场景，解码器是无用的，也是白白浪费算力。</li>
+</ol>
+<p>GPT模型的一大特点是自回归生成，训练与推理一致，完全属于是端到端的模型架构。那他的缺点就是不方便外接下游任务，不像Bert生成的向量可以给各种各样的下游模型使用。</p>
+<p>不过理论上，生成的方式可以解决目前所有的NLP任务，而且GPT使用prompt来适配不同任务的方式更加自然，更加符合人类的使用习惯。现在的问题是生成式任务自由度太高了，GPT基础模型还不够强，实现不了仅通过prompt的方式适配所有任务。</p>
 
             </div>
             <hr />
@@ -554,107 +594,105 @@ GitHub没有这个限制，but访问的时候，可能会遇到图片加载慢�
     <article id="prenext-posts" class="prev-next articles">
         <div class="row article-row">
             
-                <div class="article col s12 m6" data-aos="fade-up">
-                    <div class="article-badge left-badge text-color">
-                        <i class="fa fa-chevron-left"></i>&nbsp;
-                        上一篇
-                    </div>
-                    <div class="card">
-                        <a href="/2019/02/16/sort-algorithms/">
-                            <div class="card-image">
-                                
-                                        
-
-                                            <!-- 3/22修改： -->
-                                            <img src="https://s4.ax1x.com/2022/02/08/HlQpjA.jpg" class="responsive-img" alt="十大经典排序算法整理汇总（附代码）">
-                                            
-                                                <span class="card-title">十大经典排序算法整理汇总（附代码）</span>
-                            </div>
-                        </a>
-                        <div class="card-content article-content">
-                            <div class="summary block-with-text">
-                                
-                                    本文整理并总结了十大经典的排序算法（冒泡排序、选择排序、插入排序、快速排序、归并排序、希尔排序、计数排序、基数排序、桶排序、堆排序）的时间复杂度、空间复杂度等性质。
-                                        
-                            </div>
-                            <div class="publish-info">
-                                <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-02-16
-                        </span>
-                                <span class="publish-author">
-                            
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category" target="_blank">
-                                    算法
-                                </a>
-                            
-                            
-                        </span>
-                            </div>
+                    <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+                        <div class="article-badge left-badge text-color">
+                            <i class="fa fa-dot-circle-o"></i>&nbsp;
+                            本篇
                         </div>
-                        
-                            <div class="card-action article-tags">
-                                
-                                    <a href="/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95/" target="_blank">
-                                        <span class="chip bg-color">编程算法</span>
-                                    </a>
+                        <div class="card">
+                            <a href="/2022/04/09/bert-yu-gpt-yu-yan-mo-xing-de-shuang-zi-xing-jia-gou-jie-xi/">
+                                <div class="card-image">
                                     
-                            </div>
-                            
-                    </div>
-                </div>
-                
-                        
-                                <div class="article col s12 m6" data-aos="fade-up">
-                                    <div class="article-badge right-badge text-color">
-                                        本篇&nbsp;<i class="fa fa-dot-circle-o"></i>
-                                    </div>
-                                    <div class="card">
-                                        <a href="/2019/02/15/hello-world/">
-                                            <div class="card-image">
+                                            
+                                                <img src="https://s4.ax1x.com/2022/02/08/HlMjhD.jpg" class="responsive-img" alt="BERT与GPT：语言模型的双子星">
                                                 
-                                                        
-                                                            <img src="https://s4.ax1x.com/2022/02/08/HlMoc9.jpg" class="responsive-img" alt="New Blog">
-                                                            
-                                                                <span class="card-title">New Blog</span>
-                                            </div>
-                                        </a>
-                                        <div class="card-content article-content">
-                                            <div class="summary block-with-text">
-                                                
-                                                    博客搬家啦，服务器到期了。思来想去还是直接放在github page上面吧，静态博客放在服务器上面真是大材小用了（其实是没钱续费服务器了:)）。
-                                                        
-                                            </div>
-                                            <div class="publish-info">
-                                                <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-02-15
+                                                    <span class="card-title">BERT与GPT：语言模型的双子星</span>
+                                </div>
+                            </a>
+                            <div class="card-content article-content">
+                                <div class="summary block-with-text">
+                                    
+                                        随着论文《Attention is All You Need》的发表，常用的RNN结构逐渐被抛弃。出现了基于attention的Transformer模型架构。
+                                            
+                                </div>
+                                <div class="publish-info">
+                                    <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2022-04-09
                             </span>
-                                                <span class="publish-author">
+                                    <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E9%9A%8F%E4%BE%BF%E5%86%99%E5%86%99/" class="post-category" target="_blank">
-                                    随便写写
+                            <a href="/categories/NLP/" class="post-category" target="_blank">
+                                    NLP
                                 </a>
                             
                             
                         </span>
-                                            </div>
-                                        </div>
+                                </div>
+                            </div>
 
+                            
+                                <div class="card-action article-tags">
+                                    
+                                        <a href="/tags/Pretraining-model/" target="_blank">
+                                            <span class="chip bg-color">Pretraining model</span>
+                                        </a>
                                         
-                                            <div class="card-action article-tags">
-                                                
-                                                    <a href="/tags/%E5%8D%9A%E5%AE%A2/" target="_blank">
-                                                        <span class="chip bg-color">博客</span>
-                                                    </a>
-                                                    
-                                            </div>
-                                            
-                                    </div>
                                 </div>
                                 
+                        </div>
+                    </div>
+                    
+                        
+                            <div class="article col s12 m6" data-aos="fade-up">
+                                <div class="article-badge right-badge text-color">
+                                    下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+                                </div>
+                                <div class="card">
+                                    <a href="/2022/02/15/python-duo-jin-cheng-zhong-de-keng/">
+                                        <div class="card-image">
+                                            
+                                                    
+                                                        <img src="https://s4.ax1x.com/2022/02/08/HlMTXR.jpg" class="responsive-img" alt="python多进程中的坑">
+                                                        
+                                                            <span class="card-title">python多进程中的坑</span>
+                                        </div>
+                                    </a>
+                                    <div class="card-content article-content">
+                                        <div class="summary block-with-text">
+                                            
+                                                线上环境docker容器中使用python多进程开发时遇到另一个小坑，做一下记录。问题表现为docker容器卡死，不执行程序并且也不再消费消息队列中的任务。
+                                                    
+                                        </div>
+                                        <div class="publish-info">
+                                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2022-02-15
+                            </span>
+                                            <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/python/" class="post-category" target="_blank">
+                                    python
+                                </a>
+                            
+                            
+                        </span>
+                                        </div>
+                                    </div>
+                                    
+                                        <div class="card-action article-tags">
+                                            
+                                                <a href="/tags/%E5%A4%9A%E8%BF%9B%E7%A8%8B/" target="_blank">
+                                                    <span class="chip bg-color">多进程</span>
+                                                </a>
+                                                
+                                        </div>
+                                        
+                                </div>
+                            </div>
+                            
         </div>
     </article>
 </div>
@@ -797,6 +835,25 @@ GitHub没有这个限制，but访问的时候，可能会遇到图片加载慢�
 </main>
 
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script>
+        MathJax.Hub.Config({
+            tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+        });
+    </script>
+    
+    <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+    <!-- 代码语言 -->
+    <script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+    <!-- 代码块复制 -->
+    <script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+    <script type="text/javascript" src="/libs/codeBlock/clipboard.min.js"></script>
+    <!-- 代码块收缩 -->
+    <script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script> 
+    <!-- 代码块折行 -->
+    <style type="text/css">code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }</style>
+    
+    
                 <footer class="page-footer bg-color">
     <div class="container row center-align">
         <div class="col s12 m8 l8 copy-right">

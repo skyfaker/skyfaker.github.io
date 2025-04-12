@@ -69,7 +69,9 @@
         })();
     </script>
 
-<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="SKYFAKER" type="application/atom+xml">
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-shiki-plugin@latest/lib/codeblock.css">
+<style>:root{--hl-color:#abb2bf;--hl-bg:#282c34;--hltools-bg:#21252b;--hltools-color:#bbbbbc;--hlnumber-bg:#282c34;--hlnumber-color:#495162;--hlscrollbar-bg:#373c47;--hlexpand-bg:linear-gradient(180deg,rgba(40,44,52,0.1),rgba(40,44,52,0.9))}</style><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="SKYFAKER" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
@@ -486,7 +488,7 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.1k
+                    2.2k
                 </div>
                 
 
@@ -532,40 +534,38 @@
 <p>同样的，我们也可以降维到三维，形成空间可视化图：</p>
 <p><img src="https://z3.ax1x.com/2021/03/23/6HNTmT.jpg" alt="三维可视化效果"></p>
 <p>不过，它也不是没有缺点，首先，自编码器是数据相关的，是在给定的一组数据上进行训练的，因此它将得到与所用训练集数据相似的压缩结果，在这样的数据上表现优异，但就其通用性来说，效果并不好。比如在图像压缩领域，效果比不上JPEG这样的通用压缩技术。</p>
-<h3 id="3-常见的自编码器与代码示例"><a href="#3-常见的自编码器与代码示例" class="headerlink" title="3. 常见的自编码器与代码示例"></a>3. 常见的自编码器与代码示例</h3><h4 id="3-1-简单自编码器和深度自编码器"><a href="#3-1-简单自编码器和深度自编码器" class="headerlink" title="3.1 简单自编码器和深度自编码器"></a>3.1 简单自编码器和深度自编码器</h4><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">from</span> keras<span class="token punctuation">.</span>layers <span class="token keyword">import</span> Input<span class="token punctuation">,</span> Dense
-<span class="token keyword">from</span> keras<span class="token punctuation">.</span>models <span class="token keyword">import</span> Model
-<span class="token keyword">from</span> keras<span class="token punctuation">.</span>datasets <span class="token keyword">import</span> mnist
-<span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
-
-
-encoding_dim<span class="token operator">=</span><span class="token number">32</span>
-input_img <span class="token operator">=</span> Input<span class="token punctuation">(</span>shape<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">784</span><span class="token punctuation">,</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-encoded <span class="token operator">=</span> Dense<span class="token punctuation">(</span>encoding_dim<span class="token punctuation">,</span> activation<span class="token operator">=</span><span class="token string">'relu'</span><span class="token punctuation">)</span><span class="token punctuation">(</span>input_img<span class="token punctuation">)</span>
-decoded <span class="token operator">=</span> Dense<span class="token punctuation">(</span><span class="token number">784</span><span class="token punctuation">,</span> activation<span class="token operator">=</span><span class="token string">'sigmoid'</span><span class="token punctuation">)</span><span class="token punctuation">(</span>encoded<span class="token punctuation">)</span>
-
-autoencoder <span class="token operator">=</span> Model<span class="token punctuation">(</span>input_img<span class="token punctuation">,</span> decoded<span class="token punctuation">)</span>
-encoder <span class="token operator">=</span> Model<span class="token punctuation">(</span>input_img<span class="token punctuation">,</span> encoded<span class="token punctuation">)</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="3-常见的自编码器与代码示例"><a href="#3-常见的自编码器与代码示例" class="headerlink" title="3. 常见的自编码器与代码示例"></a>3. 常见的自编码器与代码示例</h3><h4 id="3-1-简单自编码器和深度自编码器"><a href="#3-1-简单自编码器和深度自编码器" class="headerlink" title="3.1 简单自编码器和深度自编码器"></a>3.1 简单自编码器和深度自编码器</h4><figure class="shiki python"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">from</span><span style="color: #ABB2BF"> keras.layers </span><span style="color: #C678DD">import</span><span style="color: #ABB2BF"> Input, Dense</span></span>
+<span class="line"><span style="color: #C678DD">from</span><span style="color: #ABB2BF"> keras.models </span><span style="color: #C678DD">import</span><span style="color: #ABB2BF"> Model</span></span>
+<span class="line"><span style="color: #C678DD">from</span><span style="color: #ABB2BF"> keras.datasets </span><span style="color: #C678DD">import</span><span style="color: #ABB2BF"> mnist</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #ABB2BF"> numpy </span><span style="color: #C678DD">as</span><span style="color: #ABB2BF"> np</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">encoding_dim</span><span style="color: #56B6C2">=</span><span style="color: #D19A66">32</span></span>
+<span class="line"><span style="color: #ABB2BF">input_img </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">Input</span><span style="color: #ABB2BF">(</span><span style="color: #E06C75; font-style: italic">shape</span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66">784</span><span style="color: #ABB2BF">,))</span></span>
+<span class="line"><span style="color: #ABB2BF">encoded </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">Dense</span><span style="color: #ABB2BF">(encoding_dim, </span><span style="color: #E06C75; font-style: italic">activation</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&#39;relu&#39;</span><span style="color: #ABB2BF">)(input_img)</span></span>
+<span class="line"><span style="color: #ABB2BF">decoded </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">Dense</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66">784</span><span style="color: #ABB2BF">, </span><span style="color: #E06C75; font-style: italic">activation</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&#39;sigmoid&#39;</span><span style="color: #ABB2BF">)(encoded)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">autoencoder </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">Model</span><span style="color: #ABB2BF">(input_img, decoded)</span></span>
+<span class="line"><span style="color: #ABB2BF">encoder </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">Model</span><span style="color: #ABB2BF">(input_img, encoded)</span></span></code></pre></div></div></figure>
 <p>上面这种就是自编码器是最简单的形式，其中encoder是编码器，autoencoder是整个自编码器。</p>
 <p>在这种形式中，基本上encoder的神经元个数都要少于输入的维度，因此Encoder在这里起到了降维的功能。</p>
 <p>把<code>encoding_dim=32</code>换成<code>encoding_dim=2</code>或者<code>encoding_dim=3</code>就可以满足上图的可视化数据要求。</p>
 <h4 id="3-2-稀疏自编码器"><a href="#3-2-稀疏自编码器" class="headerlink" title="3.2 稀疏自编码器"></a>3.2 稀疏自编码器</h4><p>除强加一个比输入更低维度的隐藏层外，还有其他一些方法可以限制自编码器的重构。包含正则化项的自编码器不需要通过保持编码器和解码器的浅层和程序的小体量来限制模型容量，而是使用损失函数来鼓励模型取得除了将输入复制到其输出之外的其他属性。在实践中，我们通常会使用稀疏自编码器。</p>
 <p>简而言之，稀疏自编码器就是加入了正则项的自编码器，大部分参数置为0 ，这样做可以会使我们的自编码器学习数据的稀疏表示。</p>
-<pre class="line-numbers language-python"><code class="language-python">input_size <span class="token operator">=</span> <span class="token number">784</span>
-hidden_size <span class="token operator">=</span> <span class="token number">64</span>
-output_size <span class="token operator">=</span> <span class="token number">784</span>
-
-x <span class="token operator">=</span> Input<span class="token punctuation">(</span>shape<span class="token operator">=</span><span class="token punctuation">(</span>input_size<span class="token punctuation">,</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-
-<span class="token comment" spellcheck="true"># Encoder</span>
-h <span class="token operator">=</span> Dense<span class="token punctuation">(</span>hidden_size<span class="token punctuation">,</span> activation<span class="token operator">=</span><span class="token string">'relu'</span><span class="token punctuation">,</span> activity_regularizer<span class="token operator">=</span>regularizers<span class="token punctuation">.</span>l1<span class="token punctuation">(</span><span class="token number">10e</span><span class="token operator">-</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span>
-
-<span class="token comment" spellcheck="true"># Decoder</span>
-r <span class="token operator">=</span> Dense<span class="token punctuation">(</span>output_size<span class="token punctuation">,</span> activation<span class="token operator">=</span><span class="token string">'sigmoid'</span><span class="token punctuation">)</span><span class="token punctuation">(</span>h<span class="token punctuation">)</span>
-
-autoencoder <span class="token operator">=</span> Model<span class="token punctuation">(</span>input<span class="token operator">=</span>x<span class="token punctuation">,</span> output<span class="token operator">=</span>r<span class="token punctuation">)</span>
-encoder <span class="token operator">=</span> Model<span class="token punctuation">(</span>input<span class="token operator">=</span>x<span class="token punctuation">,</span> output<span class="token operator">=</span>h<span class="token punctuation">)</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="shiki python"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #ABB2BF">input_size </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">784</span></span>
+<span class="line"><span style="color: #ABB2BF">hidden_size </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">64</span></span>
+<span class="line"><span style="color: #ABB2BF">output_size </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">784</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">x </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">Input</span><span style="color: #ABB2BF">(</span><span style="color: #E06C75; font-style: italic">shape</span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF">(input_size,))</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #7F848E; font-style: italic"># Encoder</span></span>
+<span class="line"><span style="color: #ABB2BF">h </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">Dense</span><span style="color: #ABB2BF">(hidden_size, </span><span style="color: #E06C75; font-style: italic">activation</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&#39;relu&#39;</span><span style="color: #ABB2BF">, </span><span style="color: #E06C75; font-style: italic">activity_regularizer</span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF">regularizers.</span><span style="color: #61AFEF">l1</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66">10e-5</span><span style="color: #ABB2BF">))(x)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #7F848E; font-style: italic"># Decoder</span></span>
+<span class="line"><span style="color: #ABB2BF">r </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">Dense</span><span style="color: #ABB2BF">(output_size, </span><span style="color: #E06C75; font-style: italic">activation</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&#39;sigmoid&#39;</span><span style="color: #ABB2BF">)(h)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">autoencoder </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">Model</span><span style="color: #ABB2BF">(</span><span style="color: #E06C75; font-style: italic">input</span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF">x, </span><span style="color: #E06C75; font-style: italic">output</span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF">r)</span></span>
+<span class="line"><span style="color: #ABB2BF">encoder </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">Model</span><span style="color: #ABB2BF">(</span><span style="color: #E06C75; font-style: italic">input</span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF">x, </span><span style="color: #E06C75; font-style: italic">output</span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF">h)</span></span></code></pre></div></div></figure>
 <p>在的隐藏层中，我们添加了一个l1激活值正则化矩阵（activity regularizer），它将在优化阶段对损失函数施加一个惩罚，与普通的自编码器相比，现在的表示方式更加稀疏。</p>
 <h4 id="3-3-卷积自编码器、变分自编码器（VAE）等"><a href="#3-3-卷积自编码器、变分自编码器（VAE）等" class="headerlink" title="3.3 卷积自编码器、变分自编码器（VAE）等"></a>3.3 卷积自编码器、变分自编码器（VAE）等</h4><p>如果输入的是图像，使用卷积神经网络（CNN）作为编码器和解码器是很有意义的。在实际使用中，应用于图像的自动编码器始终是卷积自动编码器 ，因为它们的性能要好得多。</p>
 <p>编码器将由Conv2D和MaxPooling2D层组成（最大池化用于下采样，以减小图像维度，降维），而解码器将由Conv2D和UpSampling2D（增加图像维度，升维）层组成。</p>
@@ -867,7 +867,7 @@ encoder <span class="token operator">=</span> Model<span class="token punctuatio
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">65k</span>
+                <span class="white-color">66.2k</span>
                 
 
                     <br>
@@ -1056,6 +1056,27 @@ $(function () {
                                                             <!-- 雪花特效 -->
                                                             
 
-    </body>
+    <!-- hexo injector body_end start -->
+  <script>
+  const CODE_CONFIG = {
+    beautify: undefined,
+    highlightCopy: undefined,
+    highlightLang: undefined,
+    highlightHeightLimit: undefined,
+    isHighlightShrink: undefined,
+    copy: {
+      success: 'undefined',
+      error: 'undefined',
+      noSupport: 'undefined',
+    }
+  };
+  console.log(
+    `%c hexo-shiki-plugin %c v1.0.27 %c https://github.com/nova1751/hexo-shiki-plugin`,
+    "color: #fff; background: #5f5f5f",
+    "color: #fff; background: #80c8f8",
+    ""
+  );
+  </script>
+  <!-- hexo injector body_end end --></body>
 
 </html>

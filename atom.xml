@@ -6,7 +6,7 @@
   <link href="https://www.skyfaker.cc/atom.xml" rel="self"/>
   
   <link href="https://www.skyfaker.cc/"/>
-  <updated>2023-05-10T07:53:49.564Z</updated>
+  <updated>2025-04-12T06:32:45.877Z</updated>
   <id>https://www.skyfaker.cc/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>BERT与GPT：语言模型的双子星</title>
+    <link href="https://www.skyfaker.cc/2022/04/09/bert-yu-gpt-yu-yan-mo-xing-de-shuang-zi-xing-jia-gou-jie-xi/"/>
+    <id>https://www.skyfaker.cc/2022/04/09/bert-yu-gpt-yu-yan-mo-xing-de-shuang-zi-xing-jia-gou-jie-xi/</id>
+    <published>2022-04-09T11:10:07.000Z</published>
+    <updated>2025-04-12T06:32:45.877Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;随着论文《Attention is All You</summary>
+        
+      
+    
+    
+    
+    <category term="NLP" scheme="https://www.skyfaker.cc/categories/NLP/"/>
+    
+    
+    <category term="Pretraining model" scheme="https://www.skyfaker.cc/tags/Pretraining-model/"/>
+    
+  </entry>
   
   <entry>
     <title>python多进程中的坑</title>
@@ -511,32 +536,6 @@
     
     
     <category term="编程算法" scheme="https://www.skyfaker.cc/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>激活函数与评价指标</title>
-    <link href="https://www.skyfaker.cc/2020/04/01/ji-huo-han-shu-yu-ping-jie-zhi-biao/"/>
-    <id>https://www.skyfaker.cc/2020/04/01/ji-huo-han-shu-yu-ping-jie-zhi-biao/</id>
-    <published>2020-04-01T03:40:29.000Z</published>
-    <updated>2023-05-02T16:11:14.035Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;本文记录了神经网络中常用的几个激活函数以及它们的导数；深度学习模型常用的一些评价指标以及它们的数学公式。&lt;/p&gt;
-&lt;h2 id=&quot;激活函数&quot;&gt;&lt;a href=&quot;#激活函数&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="深度学习" scheme="https://www.skyfaker.cc/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-    <category term="模型" scheme="https://www.skyfaker.cc/tags/%E6%A8%A1%E5%9E%8B/"/>
     
   </entry>
   

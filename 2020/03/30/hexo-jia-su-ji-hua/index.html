@@ -69,7 +69,9 @@
         })();
     </script>
 
-<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="SKYFAKER" type="application/atom+xml">
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-shiki-plugin@latest/lib/codeblock.css">
+<style>:root{--hl-color:#abb2bf;--hl-bg:#282c34;--hltools-bg:#21252b;--hltools-color:#bbbbbc;--hlnumber-bg:#282c34;--hlnumber-color:#495162;--hlscrollbar-bg:#373c47;--hlexpand-bg:linear-gradient(180deg,rgba(40,44,52,0.1),rgba(40,44,52,0.9))}</style><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="SKYFAKER" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
@@ -546,14 +548,14 @@
 <p>以我托管博客的 GitHub 仓库为例，地址是 <code>https://github.com/skyfaker/skyfaker.github.io</code>，那它里面的资源可以直接以 <code>https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/</code> + <code>仓库里的文件路径</code> 来访问。</p>
 <p>比如说，仓库中有个文件为<code>medias/banner/1.jpg</code>。</p>
 <p>而使用CDN之后，地址为：</p>
-<pre><code>https://cdn.jsdelivr.net/gh/你的用户名/你的仓库名@发布的版本号/文件路径
-</code></pre><p>对于上面图片的地址为：</p>
-<pre><code>https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/medias/banner/1.jpg
-</code></pre><p>By the way，原本图片在网络中的地址为<code>https://github.com/skyfaker/skyfaker.github.io/blob/master/medias/banner/1.jpg?raw=true</code></p>
+<figure class="shiki"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #abb2bf">https://cdn.jsdelivr.net/gh/你的用户名/你的仓库名@发布的版本号/文件路径</span></span></code></pre></div></div></figure>
+<p>对于上面图片的地址为：</p>
+<figure class="shiki"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #abb2bf">https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/medias/banner/1.jpg</span></span></code></pre></div></div></figure>
+<p>By the way，原本图片在网络中的地址为<code>https://github.com/skyfaker/skyfaker.github.io/blob/master/medias/banner/1.jpg?raw=true</code></p>
 <p>也是可以用上面这个地址直接引用的。</p>
 <p>另外，还有一些其他高级用法，比如指定tag和release：</p>
-<pre><code>https://cdn.jsdelivr.net/gh/你的用户名/你的仓库名@发布的版本号/文件路径
-</code></pre><h5 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h5><p>针对我的matery主题，虽然主页面图片很多，但所有的图片都是固定的，也就是说长期不会变动的，这个很适合放在jsdelivr上面。同样的，js文件和css文件也可以这样操作。</p>
+<figure class="shiki"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #abb2bf">https://cdn.jsdelivr.net/gh/你的用户名/你的仓库名@发布的版本号/文件路径</span></span></code></pre></div></div></figure>
+<h5 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h5><p>针对我的matery主题，虽然主页面图片很多，但所有的图片都是固定的，也就是说长期不会变动的，这个很适合放在jsdelivr上面。同样的，js文件和css文件也可以这样操作。</p>
 <p>修改页面图片主要包括2处，最上面的大图和每一个博客卡片封面的小图。</p>
 <p>大图地址为<code>hexo\themes\matery\layout\_partial\bg-cover-content.ejs</code>:</p>
 <p><img src="https://z3.ax1x.com/2021/03/26/6vWrnI.jpg" style="zoom:45%;" /></p>
@@ -863,7 +865,7 @@
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">65k</span>
+                <span class="white-color">66.2k</span>
                 
 
                     <br>
@@ -1052,6 +1054,27 @@ $(function () {
                                                             <!-- 雪花特效 -->
                                                             
 
-    </body>
+    <!-- hexo injector body_end start -->
+  <script>
+  const CODE_CONFIG = {
+    beautify: undefined,
+    highlightCopy: undefined,
+    highlightLang: undefined,
+    highlightHeightLimit: undefined,
+    isHighlightShrink: undefined,
+    copy: {
+      success: 'undefined',
+      error: 'undefined',
+      noSupport: 'undefined',
+    }
+  };
+  console.log(
+    `%c hexo-shiki-plugin %c v1.0.27 %c https://github.com/nova1751/hexo-shiki-plugin`,
+    "color: #fff; background: #5f5f5f",
+    "color: #fff; background: #80c8f8",
+    ""
+  );
+  </script>
+  <!-- hexo injector body_end end --></body>
 
 </html>

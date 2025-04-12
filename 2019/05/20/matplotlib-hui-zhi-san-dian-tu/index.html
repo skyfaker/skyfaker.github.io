@@ -73,7 +73,9 @@
         })();
     </script>
 
-<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="SKYFAKER" type="application/atom+xml">
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-shiki-plugin@latest/lib/codeblock.css">
+<style>:root{--hl-color:#abb2bf;--hl-bg:#282c34;--hltools-bg:#21252b;--hltools-color:#bbbbbc;--hlnumber-bg:#282c34;--hlnumber-color:#495162;--hlscrollbar-bg:#373c47;--hlexpand-bg:linear-gradient(180deg,rgba(40,44,52,0.1),rgba(40,44,52,0.9))}</style><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="SKYFAKER" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
@@ -490,7 +492,7 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    484
+                    493
                 </div>
                 
 
@@ -517,49 +519,44 @@
 <ul>
 <li>前排提醒：本文中代码为部分关键代码，全部代码请移步该项目的GitHub：<a target="_blank" rel="noopener" href="https://github.com/skyfaker/Autoencoder">Autoencoder实现降维与可视化</a></li>
 </ul>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 压缩特征维度至2维</span>
-encoding_dim <span class="token operator">=</span> <span class="token number">3</span>
-
-<span class="token comment" spellcheck="true"># this is our input placeholder</span>
-input_img <span class="token operator">=</span> Input<span class="token punctuation">(</span>shape<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">784</span><span class="token punctuation">,</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-
-<span class="token comment" spellcheck="true"># 编码层</span>
-encoded <span class="token operator">=</span> Dense<span class="token punctuation">(</span><span class="token number">128</span><span class="token punctuation">,</span> activation<span class="token operator">=</span><span class="token string">'relu'</span><span class="token punctuation">)</span><span class="token punctuation">(</span>input_img<span class="token punctuation">)</span>
-encoded <span class="token operator">=</span> Dense<span class="token punctuation">(</span><span class="token number">64</span><span class="token punctuation">,</span> activation<span class="token operator">=</span><span class="token string">'relu'</span><span class="token punctuation">)</span><span class="token punctuation">(</span>encoded<span class="token punctuation">)</span>
-encoded <span class="token operator">=</span> Dense<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> activation<span class="token operator">=</span><span class="token string">'relu'</span><span class="token punctuation">)</span><span class="token punctuation">(</span>encoded<span class="token punctuation">)</span>
-encoder_output <span class="token operator">=</span> Dense<span class="token punctuation">(</span>encoding_dim<span class="token punctuation">)</span><span class="token punctuation">(</span>encoded<span class="token punctuation">)</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="shiki python"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #7F848E; font-style: italic"># 压缩特征维度至2维</span></span>
+<span class="line"><span style="color: #ABB2BF">encoding_dim </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">3</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #7F848E; font-style: italic"># this is our input placeholder</span></span>
+<span class="line"><span style="color: #ABB2BF">input_img </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">Input</span><span style="color: #ABB2BF">(</span><span style="color: #E06C75; font-style: italic">shape</span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66">784</span><span style="color: #ABB2BF">,))</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #7F848E; font-style: italic"># 编码层</span></span>
+<span class="line"><span style="color: #ABB2BF">encoded </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">Dense</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66">128</span><span style="color: #ABB2BF">, </span><span style="color: #E06C75; font-style: italic">activation</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&#39;relu&#39;</span><span style="color: #ABB2BF">)(input_img)</span></span>
+<span class="line"><span style="color: #ABB2BF">encoded </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">Dense</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66">64</span><span style="color: #ABB2BF">, </span><span style="color: #E06C75; font-style: italic">activation</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&#39;relu&#39;</span><span style="color: #ABB2BF">)(encoded)</span></span>
+<span class="line"><span style="color: #ABB2BF">encoded </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">Dense</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66">10</span><span style="color: #ABB2BF">, </span><span style="color: #E06C75; font-style: italic">activation</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&#39;relu&#39;</span><span style="color: #ABB2BF">)(encoded)</span></span>
+<span class="line"><span style="color: #ABB2BF">encoder_output </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">Dense</span><span style="color: #ABB2BF">(encoding_dim)(encoded)</span></span></code></pre></div></div></figure>
 <p>如上面的代码，我们利用全连接神经网络实现了降维，降至二维。</p>
 <p>我们训练好自编码器模型后，从中获取编码模型，接下来我们会用这个编码模型对测试数据进行编码。</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># predict &amp; plotting</span>
-encoded_imgs <span class="token operator">=</span> encoder<span class="token punctuation">.</span>predict<span class="token punctuation">(</span>x_test<span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>figure<span class="token punctuation">(</span>figsize<span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 设置窗口大小</span>
-plt<span class="token punctuation">.</span>scatter<span class="token punctuation">(</span>encoded_imgs<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> encoded_imgs<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> c<span class="token operator">=</span>y_test<span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 绘制散点图</span>
-plt<span class="token punctuation">.</span>colorbar<span class="token punctuation">(</span><span class="token punctuation">)</span> 
-plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="shiki python"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #7F848E; font-style: italic"># predict &amp; plotting</span></span>
+<span class="line"><span style="color: #ABB2BF">encoded_imgs </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> encoder.</span><span style="color: #61AFEF">predict</span><span style="color: #ABB2BF">(x_test)</span></span>
+<span class="line"><span style="color: #ABB2BF">plt.</span><span style="color: #61AFEF">figure</span><span style="color: #ABB2BF">(</span><span style="color: #E06C75; font-style: italic">figsize</span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> (</span><span style="color: #D19A66">12</span><span style="color: #ABB2BF">,</span><span style="color: #D19A66">9</span><span style="color: #ABB2BF">)) </span><span style="color: #7F848E; font-style: italic"># 设置窗口大小</span></span>
+<span class="line"><span style="color: #ABB2BF">plt.</span><span style="color: #61AFEF">scatter</span><span style="color: #ABB2BF">(encoded_imgs[:, </span><span style="color: #D19A66">0</span><span style="color: #ABB2BF">], encoded_imgs[:, </span><span style="color: #D19A66">1</span><span style="color: #ABB2BF">], </span><span style="color: #E06C75; font-style: italic">c</span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF">y_test) </span><span style="color: #7F848E; font-style: italic"># 绘制散点图</span></span>
+<span class="line"><span style="color: #ABB2BF">plt.</span><span style="color: #61AFEF">colorbar</span><span style="color: #ABB2BF">() </span></span>
+<span class="line"><span style="color: #ABB2BF">plt.</span><span style="color: #61AFEF">show</span><span style="color: #ABB2BF">()</span></span></code></pre></div></div></figure>
 <p>x_test的初始shape为（10000， 784），10000表示10000张图，784为每张图片的像素点数目（28*28）。经过编码器压缩之后<code>encoder.predict()</code> 变成了（10000，2）</p>
 <p>再利用matplotlib的散点图绘制出只有二个特征的特征向量。</p>
 <p>具体效果如图：</p>
 <p><img src="2d.jpg" alt="二维的可视化效果"></p>
 <p>可以看出，自编码器的降维效果也是不错的。</p>
 <p>同样的，我们在把特征压缩到三维的时候，可以画出一个三维的散点图。绘制过程稍有点不同。</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># predict &amp; plotting</span>
-encoded_imgs <span class="token operator">=</span> encoder3D<span class="token punctuation">.</span>predict<span class="token punctuation">(</span>x_test<span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>figure<span class="token punctuation">(</span>figsize<span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-ax1 <span class="token operator">=</span> plt<span class="token punctuation">.</span>axes<span class="token punctuation">(</span>projection<span class="token operator">=</span><span class="token string">'3d'</span><span class="token punctuation">)</span>
-ax1<span class="token punctuation">.</span>scatter3D<span class="token punctuation">(</span>encoded_imgs<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> encoded_imgs<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span>encoded_imgs<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> c<span class="token operator">=</span>y_test<span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="shiki python"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #7F848E; font-style: italic"># predict &amp; plotting</span></span>
+<span class="line"><span style="color: #ABB2BF">encoded_imgs </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> encoder3D.</span><span style="color: #61AFEF">predict</span><span style="color: #ABB2BF">(x_test)</span></span>
+<span class="line"><span style="color: #ABB2BF">plt.</span><span style="color: #61AFEF">figure</span><span style="color: #ABB2BF">(</span><span style="color: #E06C75; font-style: italic">figsize</span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> (</span><span style="color: #D19A66">12</span><span style="color: #ABB2BF">,</span><span style="color: #D19A66">9</span><span style="color: #ABB2BF">))</span></span>
+<span class="line"><span style="color: #ABB2BF">ax1 </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> plt.</span><span style="color: #61AFEF">axes</span><span style="color: #ABB2BF">(</span><span style="color: #E06C75; font-style: italic">projection</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&#39;3d&#39;</span><span style="color: #ABB2BF">)</span></span>
+<span class="line"><span style="color: #ABB2BF">ax1.</span><span style="color: #61AFEF">scatter3D</span><span style="color: #ABB2BF">(encoded_imgs[:, </span><span style="color: #D19A66">0</span><span style="color: #ABB2BF">], encoded_imgs[:, </span><span style="color: #D19A66">1</span><span style="color: #ABB2BF">],encoded_imgs[:, </span><span style="color: #D19A66">2</span><span style="color: #ABB2BF">], </span><span style="color: #E06C75; font-style: italic">c</span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF">y_test)</span></span>
+<span class="line"><span style="color: #ABB2BF">plt.</span><span style="color: #61AFEF">show</span><span style="color: #ABB2BF">()</span></span></code></pre></div></div></figure>
 <p><img src="3d.jpg" alt="二维的可视化效果"></p>
 <ul>
 <li>下面记录一下散点图的用法</li>
 </ul>
 <p>文档地址：<a target="_blank" rel="noopener" href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.scatter.html#matplotlib.pyplot.scatter">scatter文档</a></p>
-<pre class="line-numbers language-python"><code class="language-python">matplotlib<span class="token punctuation">.</span>pyplot<span class="token punctuation">.</span>scatter<span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> s<span class="token operator">=</span>None<span class="token punctuation">,</span> c<span class="token operator">=</span>None<span class="token punctuation">,</span> marker<span class="token operator">=</span>None<span class="token punctuation">,</span> cmap<span class="token operator">=</span>None<span class="token punctuation">,</span> norm<span class="token operator">=</span>None<span class="token punctuation">,</span> vmin<span class="token operator">=</span>None<span class="token punctuation">,</span> vmax<span class="token operator">=</span>None<span class="token punctuation">,</span> alpha<span class="token operator">=</span>None<span class="token punctuation">,</span> linewidths<span class="token operator">=</span>None<span class="token punctuation">,</span> verts<span class="token operator">=</span><span class="token operator">&lt;</span>deprecated parameter<span class="token operator">></span><span class="token punctuation">,</span> edgecolors<span class="token operator">=</span>None<span class="token punctuation">,</span> \<span class="token operator">*</span><span class="token punctuation">,</span> plotnonfinite<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span> data<span class="token operator">=</span>None<span class="token punctuation">,</span> \<span class="token operator">*</span>\<span class="token operator">*</span>kwargs<span class="token punctuation">)</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<pre class="line-numbers language-python"><code class="language-python">scatter<span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> 点的大小<span class="token punctuation">,</span> 颜色，标记<span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 这是最主要的几个用法</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="shiki python"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #ABB2BF">matplotlib.pyplot.</span><span style="color: #61AFEF">scatter</span><span style="color: #ABB2BF">(x, y, </span><span style="color: #E06C75; font-style: italic">s</span><span style="color: #56B6C2">=</span><span style="color: #D19A66">None</span><span style="color: #ABB2BF">, </span><span style="color: #E06C75; font-style: italic">c</span><span style="color: #56B6C2">=</span><span style="color: #D19A66">None</span><span style="color: #ABB2BF">, </span><span style="color: #E06C75; font-style: italic">marker</span><span style="color: #56B6C2">=</span><span style="color: #D19A66">None</span><span style="color: #ABB2BF">, </span><span style="color: #E06C75; font-style: italic">cmap</span><span style="color: #56B6C2">=</span><span style="color: #D19A66">None</span><span style="color: #ABB2BF">, </span><span style="color: #E06C75; font-style: italic">norm</span><span style="color: #56B6C2">=</span><span style="color: #D19A66">None</span><span style="color: #ABB2BF">, </span><span style="color: #E06C75; font-style: italic">vmin</span><span style="color: #56B6C2">=</span><span style="color: #D19A66">None</span><span style="color: #ABB2BF">, </span><span style="color: #E06C75; font-style: italic">vmax</span><span style="color: #56B6C2">=</span><span style="color: #D19A66">None</span><span style="color: #ABB2BF">, </span><span style="color: #E06C75; font-style: italic">alpha</span><span style="color: #56B6C2">=</span><span style="color: #D19A66">None</span><span style="color: #ABB2BF">, </span><span style="color: #E06C75; font-style: italic">linewidths</span><span style="color: #56B6C2">=</span><span style="color: #D19A66">None</span><span style="color: #ABB2BF">, </span><span style="color: #E06C75; font-style: italic">verts</span><span style="color: #56B6C2">=&lt;</span><span style="color: #ABB2BF">deprecated parameter</span><span style="color: #56B6C2">&gt;</span><span style="color: #ABB2BF">, </span><span style="color: #E06C75; font-style: italic">edgecolors</span><span style="color: #56B6C2">=</span><span style="color: #D19A66">None</span><span style="color: #ABB2BF">, \</span><span style="color: #FFFFFF">*, plotnonfinite=False, data=None, \*\*kwargs)</span></span></code></pre></div></div></figure>
+<figure class="shiki python"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #61AFEF">scatter</span><span style="color: #ABB2BF">(x, y, 点的大小, 颜色，标记) </span><span style="color: #7F848E; font-style: italic"># 这是最主要的几个用法</span></span></code></pre></div></div></figure>
 <p>点的形状属性由marker控制，默认为。， c 控制点的颜色， norm 控制亮度</p>
 
             </div>
@@ -857,7 +854,7 @@ plt<span class="token punctuation">.</span>show<span class="token punctuation">(
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">65k</span>
+                <span class="white-color">66.2k</span>
                 
 
                     <br>
@@ -1046,6 +1043,27 @@ $(function () {
                                                             <!-- 雪花特效 -->
                                                             
 
-    </body>
+    <!-- hexo injector body_end start -->
+  <script>
+  const CODE_CONFIG = {
+    beautify: undefined,
+    highlightCopy: undefined,
+    highlightLang: undefined,
+    highlightHeightLimit: undefined,
+    isHighlightShrink: undefined,
+    copy: {
+      success: 'undefined',
+      error: 'undefined',
+      noSupport: 'undefined',
+    }
+  };
+  console.log(
+    `%c hexo-shiki-plugin %c v1.0.27 %c https://github.com/nova1751/hexo-shiki-plugin`,
+    "color: #fff; background: #5f5f5f",
+    "color: #fff; background: #80c8f8",
+    ""
+  );
+  </script>
+  <!-- hexo injector body_end end --></body>
 
 </html>

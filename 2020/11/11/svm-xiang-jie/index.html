@@ -70,7 +70,9 @@
         })();
     </script>
 
-<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="SKYFAKER" type="application/atom+xml">
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-shiki-plugin@latest/lib/codeblock.css">
+<style>:root{--hl-color:#abb2bf;--hl-bg:#282c34;--hltools-bg:#21252b;--hltools-color:#bbbbbc;--hlnumber-bg:#282c34;--hlnumber-color:#495162;--hlscrollbar-bg:#373c47;--hlexpand-bg:linear-gradient(180deg,rgba(40,44,52,0.1),rgba(40,44,52,0.9))}</style><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="SKYFAKER" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
@@ -533,7 +535,7 @@
 <p>直觉上红色的线是最优的。而其他的线，比如1号线旁边有一个黑色十字，如果黑十字旁边有一个新的稍微偏移一些的点，即蓝色十字的位置，那么1号线就会判断错误。所以看起来红色的线鲁棒性更强，不会因为一些数据的扰动而产生错误判断，这也是深度学习里面说的“泛化性”。</p>
 <p>因为由于能将样本分开的超平面可能有很多, SVM 进一步希望找到离各样本都比较远的划分超平面，也就是上述红色的直线。</p>
 <p>那么在SVM中，这个红色的线到底应该如何精确定义和求解呢？</p>
-<h3 id="超平面与间隔"><a href="#超平面与间隔" class="headerlink" title="超平面与间隔"></a>超平面与间隔</h3><h4 id="超平面"><a href="#超平面" class="headerlink" title="超平面"></a>超平面</h4><p>给定一个有n个样本的数据集$D_n = (\boldsymbol x_1,y_1),(\boldsymbol x_2,y_2) \dots (\boldsymbol x_n,y_n)$，其中$\boldsymbol x_i=(x_1,x_2\dots x_d)$是一个含有d个元素的列向量, 即$\boldsymbol x_i \in R^d$；$y_i$即标签，是标量，$y_i \in \{+1, -1\}$，$y_i = +1$时表示属于正类别，$y_i = -1$时表示负样本。</p>
+<h3 id="超平面与间隔"><a href="#超平面与间隔" class="headerlink" title="超平面与间隔"></a>超平面与间隔</h3><h4 id="超平面"><a href="#超平面" class="headerlink" title="超平面"></a>超平面</h4><p>给定一个有n个样本的数据集$D_n = (\boldsymbol x_1,y_1),(\boldsymbol x_2,y_2) \dots (\boldsymbol x_n,y_n)$，其中$\boldsymbol x_i=(x_1,x_2\dots x_d)$是一个含有d个元素的列向量, 即$\boldsymbol x_i \in R^d$；$y_i$即标签，是标量，$y_i \in {+1, -1}$，$y_i = +1$时表示属于正类别，$y_i = -1$时表示负样本。</p>
 <p>SVM考虑基于训练集$D_n$在样本空间中找到一个划分超平面，将不同类别的样本分开。<strong>在支持向量机中, 我们用间隔 （margin） 刻画划分超平面与样本之间的距离。</strong></p>
 <p>最优的超平面应该满足三点：</p>
 <ol>
@@ -613,7 +615,7 @@ L(\boldsymbol w,b,\boldsymbol \alpha) = \frac{1}{2}\boldsymbol w^T \boldsymbol w
 \frac{\partial L}{\partial b}=0 \Rightarrow \sum_{i=1}^{n}\alpha_i y_i=0
 \end{cases} \tag{9}</script><p>将求导后的公式（9）带入公式（7），将$L(\boldsymbol w,b,\boldsymbol \alpha)$中的$(\boldsymbol w,b)$消掉，则：</p>
 <script type="math/tex; mode=display">
-\min \limits_{\boldsymbol w,b} L(\boldsymbol w,b,\boldsymbol \alpha) = \sum_{i=1}^{n}\alpha_i - \frac{1}{2} \sum_{i=1}^{n}\sum_{j=1}^{n}\alpha_i\alpha_jy_iy_j \boldsymbol x_i^T \boldsymbol x_j</script><p>（2）对$\min \limits_{\boldsymbol w,b} L(\boldsymbol w,b,\boldsymbol \alpha)$求α的极大，即$\max \limits_{\alpha} \ \min \limits_{\boldsymbol w,b} L(\boldsymbol w,b,\boldsymbol \alpha)$：</p>
+\min \limits_{\boldsymbol w,b} L(\boldsymbol w,b,\boldsymbol \alpha) = \sum_{i=1}^{n}\alpha_i - \frac{1}{2} \sum_{i=1}^{n}\sum_{j=1}^{n}\alpha_i\alpha_jy_iy_j \boldsymbol x_i^T \boldsymbol x_j</script><p>（2）对$\min \limits<em>{\boldsymbol w,b} L(\boldsymbol w,b,\boldsymbol \alpha)$求α的极大，即$\max \limits</em>{\alpha} \ \min \limits_{\boldsymbol w,b} L(\boldsymbol w,b,\boldsymbol \alpha)$：</p>
 <script type="math/tex; mode=display">
 \max \limits_{\alpha} \ \min \limits_{\boldsymbol w,b} L(\boldsymbol w,b,\boldsymbol \alpha) = \max \limits_{\alpha} \quad \sum_{i=1}^{n}\alpha_i - \frac{1}{2} \sum_{i=1}^{n}\sum_{j=1}^{n}\alpha_i\alpha_jy_iy_j \boldsymbol x_i^T \boldsymbol x_j \\
 s.t. \quad \sum_{1}^{n}a_iy_i=0;\\ 
@@ -966,7 +968,7 @@ L(\boldsymbol w,b,\delta,\boldsymbol \alpha,\boldsymbol \beta) = \frac{1}{2}\bol
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">65k</span>
+                <span class="white-color">66.2k</span>
                 
 
                     <br>
@@ -1155,6 +1157,27 @@ $(function () {
                                                             <!-- 雪花特效 -->
                                                             
 
-    </body>
+    <!-- hexo injector body_end start -->
+  <script>
+  const CODE_CONFIG = {
+    beautify: undefined,
+    highlightCopy: undefined,
+    highlightLang: undefined,
+    highlightHeightLimit: undefined,
+    isHighlightShrink: undefined,
+    copy: {
+      success: 'undefined',
+      error: 'undefined',
+      noSupport: 'undefined',
+    }
+  };
+  console.log(
+    `%c hexo-shiki-plugin %c v1.0.27 %c https://github.com/nova1751/hexo-shiki-plugin`,
+    "color: #fff; background: #5f5f5f",
+    "color: #fff; background: #80c8f8",
+    ""
+  );
+  </script>
+  <!-- hexo injector body_end end --></body>
 
 </html>

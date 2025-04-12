@@ -73,7 +73,9 @@
         })();
     </script>
 
-<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="SKYFAKER" type="application/atom+xml">
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-shiki-plugin@latest/lib/codeblock.css">
+<style>:root{--hl-color:#abb2bf;--hl-bg:#282c34;--hltools-bg:#21252b;--hltools-color:#bbbbbc;--hlnumber-bg:#282c34;--hlnumber-color:#495162;--hlscrollbar-bg:#373c47;--hlexpand-bg:linear-gradient(180deg,rgba(40,44,52,0.1),rgba(40,44,52,0.9))}</style><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="SKYFAKER" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
@@ -530,22 +532,21 @@
 <p><img src="双向循环链表.png" alt="双向循环链表结构图"></p>
 <p>如果是双向循环链表的话，每个节点不仅指示下一个节点的地址，还指示了上一个节点的地址，则可以从尾节点反向依次查找，并且由于是循环链表，可以直接从头结点找到尾节点，而不需要把链表轮询一遍。</p>
 <p>则时间复杂度为$O(n)$，空间复杂度为$O(1)$。查找的空间复杂大大降低，不过由于每个节点多了一个指针域，需要消耗更多的存储空间。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># -*- coding:utf-8 -*-</span>
-<span class="token comment" spellcheck="true"># 单链表节点的类定义</span>
-<span class="token comment" spellcheck="true"># class ListNode:</span>
-<span class="token comment" spellcheck="true">#     def __init__(self, x):</span>
-<span class="token comment" spellcheck="true">#         self.val = x  # 数据域</span>
-<span class="token comment" spellcheck="true">#         self.next = None  # 指针域</span>
-
-<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token comment" spellcheck="true"># 返回从尾部到头部的列表值序列，例如[1,2,3]</span>
-    <span class="token keyword">def</span> <span class="token function">printListFromTailToHead</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> listNode<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token comment" spellcheck="true"># write code here</span>
-        <span class="token keyword">if</span> listNode <span class="token keyword">is</span> None<span class="token punctuation">:</span>
-            <span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-        <span class="token comment" spellcheck="true"># 递归运算，返回值用到了Python的特性，列表的+操作为将2个列表拼接在一起。</span>
-        <span class="token keyword">return</span> self<span class="token punctuation">.</span>printListFromTailToHead<span class="token punctuation">(</span>listNode<span class="token punctuation">.</span>next<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token punctuation">[</span>listNode<span class="token punctuation">.</span>val<span class="token punctuation">]</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="shiki python"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #7F848E; font-style: italic"># -*- coding:utf-8 -*-</span></span>
+<span class="line"><span style="color: #7F848E; font-style: italic"># 单链表节点的类定义</span></span>
+<span class="line"><span style="color: #7F848E; font-style: italic"># class ListNode:</span></span>
+<span class="line"><span style="color: #7F848E; font-style: italic">#     def __init__(self, x):</span></span>
+<span class="line"><span style="color: #7F848E; font-style: italic">#         self.val = x  # 数据域</span></span>
+<span class="line"><span style="color: #7F848E; font-style: italic">#         self.next = None  # 指针域</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C678DD">class</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Solution</span><span style="color: #ABB2BF">:</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #7F848E; font-style: italic"># 返回从尾部到头部的列表值序列，例如[1,2,3]</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #C678DD">def</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">printListFromTailToHead</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B; font-style: italic">self</span><span style="color: #ABB2BF">, </span><span style="color: #D19A66; font-style: italic">listNode</span><span style="color: #ABB2BF">):</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #7F848E; font-style: italic"># write code here</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">if</span><span style="color: #ABB2BF"> listNode </span><span style="color: #C678DD">is</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">None</span><span style="color: #ABB2BF">:</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> []</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #7F848E; font-style: italic"># 递归运算，返回值用到了Python的特性，列表的+操作为将2个列表拼接在一起。</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">self</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">printListFromTailToHead</span><span style="color: #ABB2BF">(listNode.next) </span><span style="color: #56B6C2">+</span><span style="color: #ABB2BF"> [listNode.val]</span></span></code></pre></div></div></figure>
 
             </div>
             <hr />
@@ -834,7 +835,7 @@
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">65k</span>
+                <span class="white-color">66.2k</span>
                 
 
                     <br>
@@ -1023,6 +1024,27 @@ $(function () {
                                                             <!-- 雪花特效 -->
                                                             
 
-    </body>
+    <!-- hexo injector body_end start -->
+  <script>
+  const CODE_CONFIG = {
+    beautify: undefined,
+    highlightCopy: undefined,
+    highlightLang: undefined,
+    highlightHeightLimit: undefined,
+    isHighlightShrink: undefined,
+    copy: {
+      success: 'undefined',
+      error: 'undefined',
+      noSupport: 'undefined',
+    }
+  };
+  console.log(
+    `%c hexo-shiki-plugin %c v1.0.27 %c https://github.com/nova1751/hexo-shiki-plugin`,
+    "color: #fff; background: #5f5f5f",
+    "color: #fff; background: #80c8f8",
+    ""
+  );
+  </script>
+  <!-- hexo injector body_end end --></body>
 
 </html>

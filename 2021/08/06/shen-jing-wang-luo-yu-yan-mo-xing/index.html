@@ -70,7 +70,9 @@
         })();
     </script>
 
-<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="SKYFAKER" type="application/atom+xml">
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-shiki-plugin@latest/lib/codeblock.css">
+<style>:root{--hl-color:#abb2bf;--hl-bg:#282c34;--hltools-bg:#21252b;--hltools-color:#bbbbbc;--hlnumber-bg:#282c34;--hlnumber-color:#495162;--hlscrollbar-bg:#373c47;--hlexpand-bg:linear-gradient(180deg,rgba(40,44,52,0.1),rgba(40,44,52,0.9))}</style><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="SKYFAKER" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
@@ -533,7 +535,7 @@
 <p><img src="循环神经网络按时间线展开.png" alt="循环神经网络按时间线展开" style="zoom:30%;" /></p>
 <p>x为输入向量，s表示隐藏层的值（这一层可以是多个节点），o表示输出层的值。</p>
 <p>对于上图左侧的RNN神经元，如果把右侧W去掉，它就变成了全连接神经网络中的一个神经元。循环神经网络的隐藏层的值s不仅仅取决于当前这次的输入x，还取决于上一次隐藏层的值s。隐藏层上一次的值经过权重矩阵 W之后作为这一次输入的一部分。</p>
-<p>从上图右侧可以看出，t时刻网络接收到输入 $x_t$ 之后，生成输出层结果 $o_t$，而 $o_t$ 不仅仅与输入  $x_t$  有关，也与前一时刻的隐藏层结果 $s_{t-1}$ 有关。在 $s_{t-1}$ 和 $x_t$ 的共同作用下，计算出输出结果 $o_{t}$ ，同时生成 $s_{t}$ 用于下一次计算。通过这种类似接力的方式，每一时刻可以保留部分之前时刻的信息。</p>
+<p>从上图右侧可以看出，t时刻网络接收到输入 $x<em>t$ 之后，生成输出层结果 $o_t$，而 $o_t$ 不仅仅与输入  $x_t$  有关，也与前一时刻的隐藏层结果 $s</em>{t-1}$ 有关。在 $s<em>{t-1}$ 和 $x_t$ 的共同作用下，计算出输出结果 $o</em>{t}$ ，同时生成 $s_{t}$ 用于下一次计算。通过这种类似接力的方式，每一时刻可以保留部分之前时刻的信息。</p>
 <p>通过下图可以明显看出在模型训练过程中，模型可以感受到的文档信息：</p>
 <p><img src="N-gram模型与神经网络模型上下文信息示意图.png" alt="N-gram模型与神经网络模型上下文信息示意图" style="zoom:40%;" /></p>
 <p>上图为unigram、bigram、前馈神经网络和单向循环神经网络四个模型预测“本”字在当前位置出现的概率，其中蓝框部分为网络可以感受到的字的范围。</p>
@@ -850,7 +852,7 @@
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">65k</span>
+                <span class="white-color">66.2k</span>
                 
 
                     <br>
@@ -1039,6 +1041,27 @@ $(function () {
                                                             <!-- 雪花特效 -->
                                                             
 
-    </body>
+    <!-- hexo injector body_end start -->
+  <script>
+  const CODE_CONFIG = {
+    beautify: undefined,
+    highlightCopy: undefined,
+    highlightLang: undefined,
+    highlightHeightLimit: undefined,
+    isHighlightShrink: undefined,
+    copy: {
+      success: 'undefined',
+      error: 'undefined',
+      noSupport: 'undefined',
+    }
+  };
+  console.log(
+    `%c hexo-shiki-plugin %c v1.0.27 %c https://github.com/nova1751/hexo-shiki-plugin`,
+    "color: #fff; background: #5f5f5f",
+    "color: #fff; background: #80c8f8",
+    ""
+  );
+  </script>
+  <!-- hexo injector body_end end --></body>
 
 </html>

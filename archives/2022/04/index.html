@@ -4,13 +4,11 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="New Blog, 深度学习 | 数据挖掘">
+    <meta name="keywords" content="归档: 2022/4, 深度学习 | 数据挖掘">
     <meta name="baidu-site-verification" content="fmlEuI34ir" />
     <meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48" />
     <meta name="360-site-verification" content="b7c11a830ef90fd1464ad6206bb7b6e7" />
-    <meta name="description" content="前言之前也用过hexo框架生成的博客，当时部署在了国内的coding上面，速度会稳定一些，只是要在你的博客上给coding打个广告。
-GitHub没有这个限制，but访问的时候，可能会遇到图片加载慢的问题。
-其实如果有备案好的域名，也可以直">
+    <meta name="description" content="归档: 2022/4 | SKYFAKER">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +16,7 @@ GitHub没有这个限制，but访问的时候，可能会遇到图片加载慢�
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>New Blog | SKYFAKER</title>
+    <title>归档: 2022/4 | SKYFAKER</title>
 
     <!-- 网页在浏览器上的图标 -->
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/favicon.png">
@@ -322,477 +320,216 @@ GitHub没有这个限制，but访问的时候，可能会遇到图片加载慢�
     </nav>
 
 </header>
-            
-
-
-
-<!-- 3/22: 这里修改了推荐页文章点击进去之后的图片路径 -->
-<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.iohttps://s4.ax1x.com/2022/02/08/HlMoc9.jpg');"> -->
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://s4.ax1x.com/2022/02/08/HlMoc9.jpg');">
-
+            <div class="bg-cover pd-header about-cover">
     <div class="container">
-        <div class="row">
-            <div class="col s12 m12 l12">
-                <div class="brand">
-                    <div class="description center-align post-title">
-                        New Blog
-                    </div>
-                </div>
+    <div class="row">
+    <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
+        <div class="brand">
+            <div class="title center-align">
+                <!-- 
+                    Hello，world.
+                 -->
+                
+                    归档
+                        
+            </div>
+
+            <div class="description center-align">
+                
+                    民胞物与，念兹在兹
+                        <!-- <span id="jinrishici-sentence">正在加载今日诗词...</span> -->
+                        
             </div>
         </div>
     </div>
 </div>
+<script>
+    // 每天切换 banner 图.  Switch banner image every day.
+    // $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay() + '.jpg)');
 
+    // 
+    // var random = Math.round(Math.random() * (11 - 1) + 1);
+    // console.log(random);
+    // $('.bg-cover').css('background-image', 'url(/medias/banner/' + random + '.jpg)');
 
+    // 23/3/22: 这里修改了图片路径
+    // $('.bg-cover').css('background-image', 'url(https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/medias/banner/8.jpg');
+    
+    // $('.bg-cover').css('background-image', 'url(https://s4.ax1x.com/2022/02/08/H32CNt.jpg');
 
-<main class="post-container content">
+    // aliyun oss - 25/2/7
+    $('.bg-cover').css('background-image', 'url(https://skyfaker-hexo-blog.oss-cn-shanghai.aliyuncs.com/blog-banner/8.jpg');
 
     
-    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
-<style>
-    #articleContent h1::before,
-    #articleContent h2::before,
-    #articleContent h3::before,
-    #articleContent h4::before,
-    #articleContent h5::before,
-    #articleContent h6::before {
-        display: block;
-        content: " ";
-        height: 100px;
-        margin-top: -100px;
-        visibility: hidden;
-    }
-    
-    #articleContent :focus {
-        outline: none;
-    }
-    
-    .toc-fixed {
-        position: fixed;
-        top: 64px;
-    }
-    
-    .toc-widget {
-        padding-left: 20px;
-    }
-    
-    .toc-widget .toc-title {
-        margin: 35px 0 15px 0;
-        padding-left: 17px;
-        font-size: 1.5rem;
-        font-weight: bold;
-        line-height: 1.5rem;
-    }
-    
-    .toc-widget ol {
-        padding: 0;
-        list-style: none;
-    }
-    
-    #toc-content ol {
-        padding-left: 10px;
-    }
-    
-    #toc-content ol li {
-        padding-left: 10px;
-    }
-    
-    #toc-content .toc-link:hover {
-        color: #42b983;
-        font-weight: 700;
-        text-decoration: underline;
-    }
-    
-    #toc-content .toc-link::before {
-        background-color: transparent;
-        max-height: 25px;
-    }
-    
-    #toc-content .is-active-link {
-        color: #42b983;
-    }
-    
-    #toc-content .is-active-link::before {
-        background-color: #42b983;
-    }
-    
-    #floating-toc-btn {
-        position: fixed;
-        right: 20px;
-        bottom: 76px;
-        padding-top: 15px;
-        margin-bottom: 0;
-        z-index: 998;
-    }
-    
-    #floating-toc-btn .btn-floating {
-        width: 48px;
-        height: 48px;
-    }
-    
-    #floating-toc-btn .btn-floating i {
-        line-height: 48px;
-        font-size: 1.4rem;
-    }
-</style>
 
-<!-- 单页博客页面的配置 -->
-<div class="row">
-    <div id="main-content" class="col s12 m12 l9">
-        <!-- 文章内容详情 -->
-<div id="artDetail">
+</script>
+    </div>
+</div>
+
+<main class="content">
+
+    
+    <div class="container archive-calendar">
     <div class="card">
-        <div class="card-content article-info">
-            <div class="row tag-cate">
-                <div class="col s7">
-                    
-                    <div class="article-tag">
-                        
-                        <a href="/tags/%E5%8D%9A%E5%AE%A2/" target="_blank">
-                            <span class="chip bg-color">博客</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-                <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fa fa-bookmark fa-fw icon-category"></i>
-                        
-                        <a href="/categories/%E9%9A%8F%E4%BE%BF%E5%86%99%E5%86%99/" class="post-category" target="_blank">
-                            随便写写
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-
-            <div class="post-info">
-                <div class="post-date info-break-policy">
-                    <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-02-15
-                </div>
-
-                <div class="post-author info-break-policy">
-                    <i class="fa fa-user-o fa-fw"></i>作者:&nbsp;&nbsp;
-                    
-                    文杰
-                    
-                </div>
-
-                
-                
-                <div class="info-break-policy">
-                    <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    203
-                </div>
-                
-
-                
-                <div class="info-break-policy">
-                    <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
-                </div>
-                
-                
-
-                
-                <div id="busuanzi_container_page_pv" class="info-break-policy">
-                    <i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
-                    <span id="busuanzi_value_page_pv"></span>
-                </div>
-                
-            </div>
-        </div>
-        <hr class="clearfix">
-        <div class="card-content article-card-content">
-            <div id="articleContent">
-                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>之前也用过hexo框架生成的博客，当时部署在了国内的coding上面，速度会稳定一些，只是要在你的博客上给coding打个广告。</p>
-<p>GitHub没有这个限制，but访问的时候，可能会遇到图片加载慢的问题。</p>
-<p>其实如果有备案好的域名，也可以直接把静态文件放在七牛云、腾讯上面，还可以获得CDN加速的效果，免费的流量应该也够用。可惜我懒得备案，反正现在博客访问的人也不多，等到以后内容多了，可能又要搬家了吧，maybe。</p>
-<p>放在GitHub上的静态文件，也有一些trick可以加速访问。这个放在TODO里面，以后研究一下吧。</p>
-<p>That’s all！</p>
-<p>Hello world again！</p>
-
-            </div>
-            <hr />
-
-            
-
-            <!-- 3/22: 修改了css文件路径 -->
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/share/css/share.min.css">
-
-<div id="article-share">
-    
-    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
-    
+        <div id="post-calendar" class="card-content"></div>
+    </div>
 </div>
 
-<!-- 3/22: 修改了js文件路径 -->
-<script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/share/js/social-share.min.js"></script>
+<script type="text/javascript" src="/libs/echarts/echarts.min.js"></script>
+<script type="text/javascript">
+    let myChart = echarts.init(document.getElementById('post-calendar'));
+
+    
+
+    let option = {
+        title: {
+            top: 0,
+            text: '文章日历',
+            left: 'center',
+            textStyle: {
+                color: '#3C4858'
+            }
+        },
+        tooltip: {
+            padding: 10,
+            backgroundColor: '#555',
+            borderColor: '#777',
+            borderWidth: 1,
+            formatter: function (obj) {
+                var value = obj.value;
+                return '<div style="font-size: 14px;">' + value[0] + '：' + value[1] + '</div>';
+            }
+        },
+        visualMap: {
+            show: true,
+            showLabel: true,
+            categories: [0, 1, 2, 3, 4],
+            calculable: true,
+            inRange: {
+                symbol: 'rect',
+                color: ['#ebedf0', '#c6e48b', '#7bc96f', '#239a3b', '#196127']
+            },
+            itemWidth: 12,
+            itemHeight: 12,
+            orient: 'horizontal',
+            left: 'center',
+            bottom: 0
+        },
+        calendar: [{
+            left: 'center',
+            range: ["2024-04-12", "2025-04-12"],
+            cellSize: [13, 13],
+            splitLine: {
+                show: false
+            },
+            itemStyle: {
+                borderColor: '#fff',
+                borderWidth: 2
+            },
+            yearLabel: {
+                show: false
+            },
+            monthLabel: {
+                nameMap: 'cn',
+                fontSize: 11
+            },
+            dayLabel: {
+                formatter: '{start}  1st',
+                nameMap: 'cn',
+                fontSize: 11
+            }
+        }],
+        series: [{
+            type: 'heatmap',
+            coordinateSystem: 'calendar',
+            calendarIndex: 0,
+            data: [["2024-04-12", 0], ["2024-04-13", 0], ["2024-04-14", 0], ["2024-04-15", 0], ["2024-04-16", 0], ["2024-04-17", 0], ["2024-04-18", 0], ["2024-04-19", 0], ["2024-04-20", 0], ["2024-04-21", 0], ["2024-04-22", 0], ["2024-04-23", 0], ["2024-04-24", 0], ["2024-04-25", 0], ["2024-04-26", 0], ["2024-04-27", 0], ["2024-04-28", 0], ["2024-04-29", 0], ["2024-04-30", 0], ["2024-05-01", 0], ["2024-05-02", 0], ["2024-05-03", 0], ["2024-05-04", 0], ["2024-05-05", 0], ["2024-05-06", 0], ["2024-05-07", 0], ["2024-05-08", 0], ["2024-05-09", 0], ["2024-05-10", 0], ["2024-05-11", 0], ["2024-05-12", 0], ["2024-05-13", 0], ["2024-05-14", 0], ["2024-05-15", 0], ["2024-05-16", 0], ["2024-05-17", 0], ["2024-05-18", 0], ["2024-05-19", 0], ["2024-05-20", 0], ["2024-05-21", 0], ["2024-05-22", 0], ["2024-05-23", 0], ["2024-05-24", 0], ["2024-05-25", 0], ["2024-05-26", 0], ["2024-05-27", 0], ["2024-05-28", 0], ["2024-05-29", 0], ["2024-05-30", 0], ["2024-05-31", 0], ["2024-06-01", 0], ["2024-06-02", 0], ["2024-06-03", 0], ["2024-06-04", 0], ["2024-06-05", 0], ["2024-06-06", 0], ["2024-06-07", 0], ["2024-06-08", 0], ["2024-06-09", 0], ["2024-06-10", 0], ["2024-06-11", 0], ["2024-06-12", 0], ["2024-06-13", 0], ["2024-06-14", 0], ["2024-06-15", 0], ["2024-06-16", 0], ["2024-06-17", 0], ["2024-06-18", 0], ["2024-06-19", 0], ["2024-06-20", 0], ["2024-06-21", 0], ["2024-06-22", 0], ["2024-06-23", 0], ["2024-06-24", 0], ["2024-06-25", 0], ["2024-06-26", 0], ["2024-06-27", 0], ["2024-06-28", 0], ["2024-06-29", 0], ["2024-06-30", 0], ["2024-07-01", 0], ["2024-07-02", 0], ["2024-07-03", 0], ["2024-07-04", 0], ["2024-07-05", 0], ["2024-07-06", 0], ["2024-07-07", 0], ["2024-07-08", 0], ["2024-07-09", 0], ["2024-07-10", 0], ["2024-07-11", 0], ["2024-07-12", 0], ["2024-07-13", 0], ["2024-07-14", 0], ["2024-07-15", 0], ["2024-07-16", 0], ["2024-07-17", 0], ["2024-07-18", 0], ["2024-07-19", 0], ["2024-07-20", 0], ["2024-07-21", 0], ["2024-07-22", 0], ["2024-07-23", 0], ["2024-07-24", 0], ["2024-07-25", 0], ["2024-07-26", 0], ["2024-07-27", 0], ["2024-07-28", 0], ["2024-07-29", 0], ["2024-07-30", 0], ["2024-07-31", 0], ["2024-08-01", 0], ["2024-08-02", 0], ["2024-08-03", 0], ["2024-08-04", 0], ["2024-08-05", 0], ["2024-08-06", 0], ["2024-08-07", 0], ["2024-08-08", 0], ["2024-08-09", 0], ["2024-08-10", 0], ["2024-08-11", 0], ["2024-08-12", 0], ["2024-08-13", 0], ["2024-08-14", 0], ["2024-08-15", 0], ["2024-08-16", 0], ["2024-08-17", 0], ["2024-08-18", 0], ["2024-08-19", 0], ["2024-08-20", 0], ["2024-08-21", 0], ["2024-08-22", 0], ["2024-08-23", 0], ["2024-08-24", 0], ["2024-08-25", 0], ["2024-08-26", 0], ["2024-08-27", 0], ["2024-08-28", 0], ["2024-08-29", 0], ["2024-08-30", 0], ["2024-08-31", 0], ["2024-09-01", 0], ["2024-09-02", 0], ["2024-09-03", 0], ["2024-09-04", 0], ["2024-09-05", 0], ["2024-09-06", 0], ["2024-09-07", 0], ["2024-09-08", 0], ["2024-09-09", 0], ["2024-09-10", 0], ["2024-09-11", 0], ["2024-09-12", 0], ["2024-09-13", 0], ["2024-09-14", 0], ["2024-09-15", 0], ["2024-09-16", 0], ["2024-09-17", 0], ["2024-09-18", 0], ["2024-09-19", 0], ["2024-09-20", 0], ["2024-09-21", 0], ["2024-09-22", 0], ["2024-09-23", 0], ["2024-09-24", 0], ["2024-09-25", 0], ["2024-09-26", 0], ["2024-09-27", 0], ["2024-09-28", 0], ["2024-09-29", 0], ["2024-09-30", 0], ["2024-10-01", 0], ["2024-10-02", 0], ["2024-10-03", 0], ["2024-10-04", 0], ["2024-10-05", 0], ["2024-10-06", 0], ["2024-10-07", 0], ["2024-10-08", 0], ["2024-10-09", 0], ["2024-10-10", 0], ["2024-10-11", 0], ["2024-10-12", 0], ["2024-10-13", 0], ["2024-10-14", 0], ["2024-10-15", 0], ["2024-10-16", 0], ["2024-10-17", 0], ["2024-10-18", 0], ["2024-10-19", 0], ["2024-10-20", 0], ["2024-10-21", 0], ["2024-10-22", 0], ["2024-10-23", 0], ["2024-10-24", 0], ["2024-10-25", 0], ["2024-10-26", 0], ["2024-10-27", 0], ["2024-10-28", 0], ["2024-10-29", 0], ["2024-10-30", 0], ["2024-10-31", 0], ["2024-11-01", 0], ["2024-11-02", 0], ["2024-11-03", 0], ["2024-11-04", 0], ["2024-11-05", 0], ["2024-11-06", 0], ["2024-11-07", 0], ["2024-11-08", 0], ["2024-11-09", 0], ["2024-11-10", 0], ["2024-11-11", 0], ["2024-11-12", 0], ["2024-11-13", 0], ["2024-11-14", 0], ["2024-11-15", 0], ["2024-11-16", 0], ["2024-11-17", 0], ["2024-11-18", 0], ["2024-11-19", 0], ["2024-11-20", 0], ["2024-11-21", 0], ["2024-11-22", 0], ["2024-11-23", 0], ["2024-11-24", 0], ["2024-11-25", 0], ["2024-11-26", 0], ["2024-11-27", 0], ["2024-11-28", 0], ["2024-11-29", 0], ["2024-11-30", 0], ["2024-12-01", 0], ["2024-12-02", 0], ["2024-12-03", 0], ["2024-12-04", 0], ["2024-12-05", 0], ["2024-12-06", 0], ["2024-12-07", 0], ["2024-12-08", 0], ["2024-12-09", 0], ["2024-12-10", 0], ["2024-12-11", 0], ["2024-12-12", 0], ["2024-12-13", 0], ["2024-12-14", 0], ["2024-12-15", 0], ["2024-12-16", 0], ["2024-12-17", 0], ["2024-12-18", 0], ["2024-12-19", 0], ["2024-12-20", 0], ["2024-12-21", 0], ["2024-12-22", 0], ["2024-12-23", 0], ["2024-12-24", 0], ["2024-12-25", 0], ["2024-12-26", 0], ["2024-12-27", 0], ["2024-12-28", 0], ["2024-12-29", 0], ["2024-12-30", 0], ["2024-12-31", 0], ["2025-01-01", 0], ["2025-01-02", 0], ["2025-01-03", 0], ["2025-01-04", 0], ["2025-01-05", 0], ["2025-01-06", 0], ["2025-01-07", 0], ["2025-01-08", 0], ["2025-01-09", 0], ["2025-01-10", 0], ["2025-01-11", 0], ["2025-01-12", 0], ["2025-01-13", 0], ["2025-01-14", 0], ["2025-01-15", 0], ["2025-01-16", 0], ["2025-01-17", 0], ["2025-01-18", 0], ["2025-01-19", 0], ["2025-01-20", 0], ["2025-01-21", 0], ["2025-01-22", 0], ["2025-01-23", 0], ["2025-01-24", 0], ["2025-01-25", 0], ["2025-01-26", 0], ["2025-01-27", 0], ["2025-01-28", 0], ["2025-01-29", 0], ["2025-01-30", 0], ["2025-01-31", 0], ["2025-02-01", 0], ["2025-02-02", 0], ["2025-02-03", 0], ["2025-02-04", 0], ["2025-02-05", 0], ["2025-02-06", 0], ["2025-02-07", 0], ["2025-02-08", 0], ["2025-02-09", 0], ["2025-02-10", 0], ["2025-02-11", 0], ["2025-02-12", 0], ["2025-02-13", 0], ["2025-02-14", 0], ["2025-02-15", 0], ["2025-02-16", 0], ["2025-02-17", 0], ["2025-02-18", 0], ["2025-02-19", 0], ["2025-02-20", 0], ["2025-02-21", 0], ["2025-02-22", 0], ["2025-02-23", 0], ["2025-02-24", 0], ["2025-02-25", 0], ["2025-02-26", 0], ["2025-02-27", 0], ["2025-02-28", 0], ["2025-03-01", 0], ["2025-03-02", 0], ["2025-03-03", 0], ["2025-03-04", 0], ["2025-03-05", 0], ["2025-03-06", 0], ["2025-03-07", 0], ["2025-03-08", 0], ["2025-03-09", 0], ["2025-03-10", 0], ["2025-03-11", 0], ["2025-03-12", 0], ["2025-03-13", 0], ["2025-03-14", 0], ["2025-03-15", 0], ["2025-03-16", 0], ["2025-03-17", 0], ["2025-03-18", 0], ["2025-03-19", 0], ["2025-03-20", 0], ["2025-03-21", 0], ["2025-03-22", 0], ["2025-03-23", 0], ["2025-03-24", 0], ["2025-03-25", 0], ["2025-03-26", 0], ["2025-03-27", 0], ["2025-03-28", 0], ["2025-03-29", 0], ["2025-03-30", 0], ["2025-03-31", 0], ["2025-04-01", 0], ["2025-04-02", 0], ["2025-04-03", 0], ["2025-04-04", 0], ["2025-04-05", 0], ["2025-04-06", 0], ["2025-04-07", 0], ["2025-04-08", 0], ["2025-04-09", 0], ["2025-04-10", 0], ["2025-04-11", 0], ["2025-04-12", 0]]
+        }]
+
+    };
+
+    myChart.setOption(option);
+</script>
+    
+
+    
+
+    <div id="cd-timeline" class="container">
+        
+        <div class="cd-timeline-block">
 
             
-
-
-        </div>
-    </div>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <article id="prenext-posts" class="prev-next articles">
-        <div class="row article-row">
             
-                <div class="article col s12 m6" data-aos="fade-up">
-                    <div class="article-badge left-badge text-color">
-                        <i class="fa fa-chevron-left"></i>&nbsp;
-                        上一篇
-                    </div>
+            
+            <div class="cd-timeline-img year" data-aos="zoom-in-up">
+                <a href="/archives/2022">2022</a>
+            </div>
+            
+
+            
+            
+            
+            <div class="cd-timeline-img month" data-aos="zoom-in-up">
+                <a href="/archives/2022/04">04</a>
+            </div>
+            
+
+            
+            <div class="cd-timeline-img day" data-aos="zoom-in-up">
+                <span>09</span>
+            </div>
+            <article class="cd-timeline-content" data-aos="fade-up">
+                <div class="article col s12 m6">
                     <div class="card">
-                        <a href="/2019/02/16/sort-algorithms/">
+                        <a href="/2022/04/09/bert-yu-gpt-yu-yan-mo-xing-de-shuang-zi-xing-jia-gou-jie-xi/">
                             <div class="card-image">
                                 
-                                        
+                                
 
-                                            <!-- 3/22修改： -->
-                                            <img src="https://s4.ax1x.com/2022/02/08/HlQpjA.jpg" class="responsive-img" alt="十大经典排序算法整理汇总（附代码）">
-                                            
-                                                <span class="card-title">十大经典排序算法整理汇总（附代码）</span>
+                                <!-- 3/22修改： -->
+                                <!-- <img src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.iohttps://s4.ax1x.com/2022/02/08/HlMjhD.jpg" class="responsive-img" alt="BERT与GPT：语言模型的双子星"> -->
+                                <img src="https://s4.ax1x.com/2022/02/08/HlMjhD.jpg" class="responsive-img" alt="BERT与GPT：语言模型的双子星">
+                                
+                                <span class="card-title">BERT与GPT：语言模型的双子星</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    本文整理并总结了十大经典的排序算法（冒泡排序、选择排序、插入排序、快速排序、归并排序、希尔排序、计数排序、基数排序、桶排序、堆排序）的时间复杂度、空间复杂度等性质。
-                                        
+                                随着论文《Attention is All You Need》的发表，常用的RNN结构逐渐被抛弃。出现了基于attention的Transformer模型架构。
+                                
                             </div>
                             <div class="publish-info">
                                 <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-02-16
-                        </span>
+                                    <i
+                                        class="fa fa-clock-o fa-fw icon-date"></i>2022-04-09
+                                </span>
                                 <span class="publish-author">
-                            
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category" target="_blank">
-                                    算法
-                                </a>
-                            
-                            
-                        </span>
-                            </div>
-                        </div>
-                        
-                            <div class="card-action article-tags">
-                                
-                                    <a href="/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95/" target="_blank">
-                                        <span class="chip bg-color">编程算法</span>
+                                    
+                                    <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                    
+                                    <a href="/categories/NLP/" class="post-category" target="_blank">
+                                        NLP
                                     </a>
                                     
+                                    
+                                </span>
                             </div>
+                        </div>
+
+                        
+                        <div class="card-action article-tags">
                             
+                            <a href="/tags/Pretraining-model/"><span class="chip bg-color">Pretraining model</span></a>
+                            
+                        </div>
+                        
                     </div>
                 </div>
-                
-                        
-                                <div class="article col s12 m6" data-aos="fade-up">
-                                    <div class="article-badge right-badge text-color">
-                                        本篇&nbsp;<i class="fa fa-dot-circle-o"></i>
-                                    </div>
-                                    <div class="card">
-                                        <a href="/2019/02/15/hello-world/">
-                                            <div class="card-image">
-                                                
-                                                        
-                                                            <img src="https://s4.ax1x.com/2022/02/08/HlMoc9.jpg" class="responsive-img" alt="New Blog">
-                                                            
-                                                                <span class="card-title">New Blog</span>
-                                            </div>
-                                        </a>
-                                        <div class="card-content article-content">
-                                            <div class="summary block-with-text">
-                                                
-                                                    博客搬家啦，服务器到期了。思来想去还是直接放在github page上面吧，静态博客放在服务器上面真是大材小用了（其实是没钱续费服务器了:)）。
-                                                        
-                                            </div>
-                                            <div class="publish-info">
-                                                <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-02-15
-                            </span>
-                                                <span class="publish-author">
-                            
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E9%9A%8F%E4%BE%BF%E5%86%99%E5%86%99/" class="post-category" target="_blank">
-                                    随便写写
-                                </a>
-                            
-                            
-                        </span>
-                                            </div>
-                                        </div>
-
-                                        
-                                            <div class="card-action article-tags">
-                                                
-                                                    <a href="/tags/%E5%8D%9A%E5%AE%A2/" target="_blank">
-                                                        <span class="chip bg-color">博客</span>
-                                                    </a>
-                                                    
-                                            </div>
-                                            
-                                    </div>
-                                </div>
-                                
+            </article>
         </div>
-    </article>
-</div>
-
-
-<script>
-    $('#articleContent').on('copy', function (e) {
-        // IE8 or earlier browser is 'undefined'
-        if (typeof window.getSelection === 'undefined') return;
-
-        var selection = window.getSelection();
-        // if the selection is short let's not annoy our users.
-        if (('' + selection).length < Number.parseInt('120')) {
-            return;
-        }
-
-        // create a div outside of the visible area and fill it with the selected text.
-        var bodyElement = document.getElementsByTagName('body')[0];
-        var newdiv = document.createElement('div');
-        newdiv.style.position = 'absolute';
-        newdiv.style.left = '-99999px';
-        bodyElement.appendChild(newdiv);
-        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
-
-        // we need a <pre> tag workaround.
-        // otherwise the text inside "pre" loses all the line breaks!
-        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
-            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
-        }
-
-        var url = document.location.href;
-        newdiv.innerHTML += '<br />'
-            + '来源: SKYFAKER<br />'
-            + '作者: 文杰<br />'
-            + '链接: <a href="' + url + '">' + url + '</a><br />'
-            + '本文章著作权归作者skyfaker所有，任何形式的转载都请注明出处。';
-
-        selection.selectAllChildren(newdiv);
-        window.setTimeout(function () { bodyElement.removeChild(newdiv); }, 200);
-    });
-</script>
-
+        
     </div>
-    <div id="toc-aside" class="expanded col l2 hide-on-med-and-down">
-        <div class="toc-widget">
-            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;
-                目录
-            </div>
-            <div id="toc-content"></div>
-        </div>
-    </div>
-</div>
-
-<!-- TOC 悬浮按钮. -->
-
-    <div id="floating-toc-btn" class="hide-on-med-and-down">
-        <a class="btn-floating btn-large bg-color">
-            <i class="fa fa-list"></i>
-        </a>
-    </div>
-    
-
-        <script src="/libs/tocbot/tocbot.min.js"></script>
-        <script>
-            $(function() {
-                tocbot.init({
-                    tocSelector: '#toc-content',
-                    contentSelector: '#articleContent',
-                    headingsOffset: -($(window).height() * 0.4 - 45),
-                    // headingsOffset: -205,
-                    headingSelector: 'h1, h2, h3, h4'
-                });
-
-                // modify the toc link href to support Chinese.
-                let i = 0;
-                let tocHeading = 'toc-heading-';
-                $('#toc-content a').each(function() {
-                    $(this).attr('href', '#' + tocHeading + (++i));
-                });
-
-                // modify the heading title id to support Chinese.
-                i = 0;
-                $('#articleContent').children('h1, h2, h3, h4').each(function() {
-                    $(this).attr('id', tocHeading + (++i));
-                });
-
-                // Set scroll toc fixed.
-                let tocHeight = parseInt($(window).height() * 0.4 - 64);
-                let $tocWidget = $('.toc-widget');
-                $(window).scroll(function() {
-                    let scroll = $(window).scrollTop();
-                    /* add post toc fixed. */
-                    if (scroll > tocHeight) {
-                        $tocWidget.addClass('toc-fixed');
-                    } else {
-                        $tocWidget.removeClass('toc-fixed');
-                    }
-                });
-
-                
-                /* 修复文章卡片 div 的宽度. */
-                let fixPostCardWidth = function(srcId, targetId) {
-                    let srcDiv = $('#' + srcId);
-                    if (srcDiv.length === 0) {
-                        return;
-                    }
-
-                    let w = srcDiv.width();
-                    if (w >= 450) {
-                        w = w + 21;
-                    } else if (w >= 350 && w < 450) {
-                        w = w + 18;
-                    } else if (w >= 300 && w < 350) {
-                        w = w + 16;
-                    } else {
-                        w = w + 14;
-                    }
-                    $('#' + targetId).width(w);
-                };
-
-                // 切换TOC目录展开收缩的相关操作.
-                const expandedClass = 'expanded';
-                let $tocAside = $('#toc-aside');
-                let $mainContent = $('#main-content');
-                $('#floating-toc-btn .btn-floating').click(function() {
-                    if ($tocAside.hasClass(expandedClass)) {
-                        $tocAside.removeClass(expandedClass).slideUp(500);
-                        $mainContent.removeClass('l9');
-                    } else {
-                        $tocAside.addClass(expandedClass).slideDown(500);
-                        $mainContent.addClass('l9');
-                    }
-                    fixPostCardWidth('artDetail', 'prenext-posts');
-                });
-                
-            });
-        </script>
-    
 
 </main>
 

@@ -75,7 +75,9 @@ git的架构如下图所示：
         })();
     </script>
 
-<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="SKYFAKER" type="application/atom+xml">
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-shiki-plugin@latest/lib/codeblock.css">
+<style>:root{--hl-color:#abb2bf;--hl-bg:#282c34;--hltools-bg:#21252b;--hltools-color:#bbbbbc;--hlnumber-bg:#282c34;--hlnumber-color:#495162;--hlscrollbar-bg:#373c47;--hlexpand-bg:linear-gradient(180deg,rgba(40,44,52,0.1),rgba(40,44,52,0.9))}</style><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="SKYFAKER" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
@@ -535,8 +537,7 @@ git的架构如下图所示：
 <p>版本回退一般使用 <code>git checkout</code> 、<code>git reset</code> 和<code>git revert</code>命令。</p>
 <h5 id="git-checkout"><a href="#git-checkout" class="headerlink" title="git checkout"></a>git checkout</h5><p>在<code>Git</code>里面，<code>checkout</code>用于切换分支或者恢复工作树的文件。checkout命令实际上是用来改变HEAD的指向。不会对版本库中节点做改变。 </p>
 <p>使用方式如下：</p>
-<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">git</span> checkout <span class="token punctuation">[</span><span class="token operator">&lt;</span>tree-ish<span class="token operator">></span><span class="token punctuation">]</span> <span class="token punctuation">[</span>--<span class="token punctuation">]</span> <span class="token operator">&lt;</span>pathspec<span class="token operator">></span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="shiki bash"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #61AFEF">git</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">checkout</span><span style="color: #ABB2BF"> [&lt;tree-ish&gt;] [--] &lt;pathspec&gt;</span></span></code></pre></div></div></figure>
 <p>这个命令很灵活，既可以带一个<code>commit</code>号，又可以带着一个路径。可以用来恢复分支，恢复单个文件或者恢复整个文件夹。</p>
 <p>当你想要丢弃某个文件的改动的时候，一般使用这个命令。</p>
 <ol>
@@ -576,14 +577,13 @@ git的架构如下图所示：
 <p><img src='https://z3.ax1x.com/2021/03/24/6q91Nd.png' alt='' style='zoom:50%'/></p>
 <h5 id="git-reset"><a href="#git-reset" class="headerlink" title="git reset"></a>git reset</h5><p>这个命令是git里面少有的会删除版本库节点的命令，要小心使用。</p>
 <p><code>git reset</code> 的命令使用方法如下：</p>
-<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">git</span> reset <span class="token punctuation">[</span> –-soft <span class="token operator">|</span> –-mixed <span class="token operator">|</span> –-hard<span class="token punctuation">]</span> <span class="token operator">&lt;</span>commitID<span class="token operator">></span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="shiki bash"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #61AFEF">git</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">reset</span><span style="color: #ABB2BF"> [ </span><span style="color: #98C379">–-soft</span><span style="color: #ABB2BF"> | </span><span style="color: #61AFEF">–-mixed</span><span style="color: #ABB2BF"> | </span><span style="color: #61AFEF">–-hard]</span><span style="color: #ABB2BF"> &lt;</span><span style="color: #98C379">commitI</span><span style="color: #ABB2BF">D&gt;</span></span></code></pre></div></div></figure>
 <p><code>git reset &lt;commitID&gt;</code> 的意思就是把HEAD所处的分支指向commitID，但是同时它也会改变某些commit。</p>
 <p><code>git reset</code> 命令比较特殊的一点是有三个可选参数：soft, mixed, hard</p>
-<pre><code>soft就是只动repo
-mixed就是动repo还有staging(这个是默认参数)
-hard就是动repo还有staging还有working
-</code></pre><p>同样以上面的图示举例：</p>
+<figure class="shiki"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #abb2bf">soft就是只动repo</span></span>
+<span class="line"><span style="color: #abb2bf">mixed就是动repo还有staging(这个是默认参数)</span></span>
+<span class="line"><span style="color: #abb2bf">hard就是动repo还有staging还有working</span></span></code></pre></div></div></figure>
+<p>同样以上面的图示举例：</p>
 <p>假设现在处于初始状态：</p>
 <p><img src="https://z3.ax1x.com/2021/03/24/6q9Z1x.png" style="zoom:55%;" /></p>
 <ol>
@@ -625,25 +625,23 @@ hard就是动repo还有staging还有working
 <p><code>git push origin 分支名 --force</code>可以强制使用本地仓库覆盖远程仓库，但是要非常小心。</p>
 <h4 id="PULL代码到本地"><a href="#PULL代码到本地" class="headerlink" title="PULL代码到本地"></a>PULL代码到本地</h4><p>有些时候，会先在GitHub建立仓库，或者从GitHub拉取最新的代码，这时候需要用到<code>git pull</code>命令。</p>
 <p>假如需要从已经关联的origin仓库拉取，如果你很有自信，可以直接拉取：</p>
-<pre class="line-numbers language-bash"><code class="language-bash">//查询当前远程的版本
-$ <span class="token function">git</span> remote -v
-//直接拉取并合并最新代码
-$ <span class="token function">git</span> pull origin master <span class="token punctuation">[</span>示例1：拉取远端origin/master分支并合并到当前分支<span class="token punctuation">]</span>
-$ <span class="token function">git</span> pull origin dev <span class="token punctuation">[</span>示例2：拉取远端origin/dev分支并合并到当前分支<span class="token punctuation">]</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="shiki bash"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #61AFEF">//查询当前远程的版本</span></span>
+<span class="line"><span style="color: #61AFEF">$</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">git</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">remote</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">-v</span></span>
+<span class="line"><span style="color: #61AFEF">//直接拉取并合并最新代码</span></span>
+<span class="line"><span style="color: #61AFEF">$</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">git</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">pull</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">origin</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">master</span><span style="color: #ABB2BF"> [示例1：拉取远端origin/master分支并合并到当前分支]</span></span>
+<span class="line"><span style="color: #61AFEF">$</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">git</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">pull</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">origin</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">dev</span><span style="color: #ABB2BF"> [示例2：拉取远端origin/dev分支并合并到当前分支]</span></span></code></pre></div></div></figure>
 <p>一般情况下，<strong>推荐</strong><code>git fetch + merge</code>手动合并：</p>
-<pre class="line-numbers language-bash"><code class="language-bash">//查询当前远程的版本
-$ <span class="token function">git</span> remote -v
-
-$ <span class="token function">git</span> fetch origin master  <span class="token punctuation">[</span>示例1：获取远端的origin/master分支<span class="token punctuation">]</span>
-$ <span class="token function">git</span> fetch origin dev <span class="token punctuation">[</span>示例2：获取远端的origin/dev分支<span class="token punctuation">]</span>
-//查看版本差异
-$ <span class="token function">git</span> log -p master<span class="token punctuation">..</span>origin/master <span class="token punctuation">[</span>示例1：查看本地master与远端origin/master的版本差异<span class="token punctuation">]</span>
-$ <span class="token function">git</span> log -p dev<span class="token punctuation">..</span>origin/dev   <span class="token punctuation">[</span>示例2：查看本地dev与远端origin/dev的版本差异<span class="token punctuation">]</span>
-//合并最新代码到本地分支
-$ <span class="token function">git</span> merge origin/master  <span class="token punctuation">[</span>示例1：合并远端分支origin/master到当前分支<span class="token punctuation">]</span>
-$ <span class="token function">git</span> merge origin/dev <span class="token punctuation">[</span>示例2：合并远端分支origin/dev到当前分支<span class="token punctuation">]</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="shiki bash"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #61AFEF">//查询当前远程的版本</span></span>
+<span class="line"><span style="color: #61AFEF">$</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">git</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">remote</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">-v</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #61AFEF">$</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">git</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">fetch</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">origin</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">master</span><span style="color: #ABB2BF">  [示例1：获取远端的origin/master分支]</span></span>
+<span class="line"><span style="color: #61AFEF">$</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">git</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">fetch</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">origin</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">dev</span><span style="color: #ABB2BF"> [示例2：获取远端的origin/dev分支]</span></span>
+<span class="line"><span style="color: #61AFEF">//查看版本差异</span></span>
+<span class="line"><span style="color: #61AFEF">$</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">git</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">log</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">-p</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">master..origin/master</span><span style="color: #ABB2BF"> [示例1：查看本地master与远端origin/master的版本差异]</span></span>
+<span class="line"><span style="color: #61AFEF">$</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">git</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">log</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">-p</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">dev..origin/dev</span><span style="color: #ABB2BF">   [示例2：查看本地dev与远端origin/dev的版本差异]</span></span>
+<span class="line"><span style="color: #61AFEF">//合并最新代码到本地分支</span></span>
+<span class="line"><span style="color: #61AFEF">$</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">git</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">merge</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">origin/master</span><span style="color: #ABB2BF">  [示例1：合并远端分支origin/master到当前分支]</span></span>
+<span class="line"><span style="color: #61AFEF">$</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">git</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">merge</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">origin/dev</span><span style="color: #ABB2BF"> [示例2：合并远端分支origin/dev到当前分支]</span></span></code></pre></div></div></figure>
 
             </div>
             <hr />
@@ -932,7 +930,7 @@ $ <span class="token function">git</span> merge origin/dev <span class="token pu
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">65k</span>
+                <span class="white-color">66.2k</span>
                 
 
                     <br>
@@ -1121,6 +1119,27 @@ $(function () {
                                                             <!-- 雪花特效 -->
                                                             
 
-    </body>
+    <!-- hexo injector body_end start -->
+  <script>
+  const CODE_CONFIG = {
+    beautify: undefined,
+    highlightCopy: undefined,
+    highlightLang: undefined,
+    highlightHeightLimit: undefined,
+    isHighlightShrink: undefined,
+    copy: {
+      success: 'undefined',
+      error: 'undefined',
+      noSupport: 'undefined',
+    }
+  };
+  console.log(
+    `%c hexo-shiki-plugin %c v1.0.27 %c https://github.com/nova1751/hexo-shiki-plugin`,
+    "color: #fff; background: #5f5f5f",
+    "color: #fff; background: #80c8f8",
+    ""
+  );
+  </script>
+  <!-- hexo injector body_end end --></body>
 
 </html>

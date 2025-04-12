@@ -70,7 +70,9 @@
         })();
     </script>
 
-<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="SKYFAKER" type="application/atom+xml">
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-shiki-plugin@latest/lib/codeblock.css">
+<style>:root{--hl-color:#abb2bf;--hl-bg:#282c34;--hltools-bg:#21252b;--hltools-color:#bbbbbc;--hlnumber-bg:#282c34;--hlnumber-color:#495162;--hlscrollbar-bg:#373c47;--hlexpand-bg:linear-gradient(180deg,rgba(40,44,52,0.1),rgba(40,44,52,0.9))}</style><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="SKYFAKER" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
@@ -528,14 +530,14 @@
 <p>DFS就像是一个孤军深入的莽夫，速度很快，一直向前冲，撞到南墙就回到上一步换个方向。BFS则稳扎稳打，步步为营，走得虽然很慢，但是可以找到最短路径。</p>
 <h3 id="Dijkstra算法"><a href="#Dijkstra算法" class="headerlink" title="Dijkstra算法"></a>Dijkstra算法</h3><p>Dijkstra算法用来寻找图形中从一个顶点到其余各顶点的最短路径算法，一般用来解决两点之间（带权）最短路径问题。考虑这样一种场景，在一些情况下，图形中相邻节点之间的移动代价并不相等。</p>
 <p>它既与BFS有相同之处，又与后面要介绍的贪婪最佳优先算法有一定相关性。</p>
-<p>Dijkstra算法是这样运行的：把所有的点分成2类，一类称为S，指已经确定与起点之间最短路径的点集合，一类为U，指还没有确定与起点之间最短路径的点的集合。U中的点使用<strong>优先级队列</strong>表示，优先值为点到S的距离，如x到S的距离记作 $D_{S-x}$ 。之后每次从U中取一个距离最小的点，比如n点，加入到S中&lt;并更新n在U中的邻点x的值为$D_{S-x} = \min(D_{S-x}, D_{x-n}+D_{S-n})$。依次迭代，直到U为空。</p>
+<p>Dijkstra算法是这样运行的：把所有的点分成2类，一类称为S，指已经确定与起点之间最短路径的点集合，一类为U，指还没有确定与起点之间最短路径的点的集合。U中的点使用<strong>优先级队列</strong>表示，优先值为点到S的距离，如x到S的距离记作 $D<em>{S-x}$ 。之后每次从U中取一个距离最小的点，比如n点，加入到S中&lt;并更新n在U中的邻点x的值为$D</em>{S-x} = \min(D<em>{S-x}, D</em>{x-n}+D_{S-n})$。依次迭代，直到U为空。</p>
 <p>下面举个例子，如下为带权路径图（a为起点，i为终点）：</p>
 <p><img src="https://z3.ax1x.com/2021/04/05/cQSEng.png" style="zoom:70%;" /></p>
 <p>以上图为例，计算起点a到终点i的最短路径，箭头上的数值表示两个节点间的距离。</p>
 <script type="math/tex; mode=display">
 起始状态： S = \{a:0\}, U = \{b:2, c: \infty,d: 9,e: 5,f: \infty,g: \infty,h:\infty ,i:\infty \} \quad (冒号后为该点与S的距离)</script><p>未与S中元素直接相连的点距离设置为正无穷。</p>
-<p>第一轮选点，从优先队列U中选择值最小的b点放入S，并且更新b的邻点x的值为$\min(D_{S-x}, D_{x-b}+D_{S-b})$：</p>
-<p>如邻点c，之前的$D_{S-c} = \infty$，在b加入S之后的$D_{S-c} = \min(\infty, 2+1) = 3$，故b点加入S集合之后的状态如下：</p>
+<p>第一轮选点，从优先队列U中选择值最小的b点放入S，并且更新b的邻点x的值为$\min(D<em>{S-x}, D</em>{x-b}+D_{S-b})$：</p>
+<p>如邻点c，之前的$D<em>{S-c} = \infty$，在b加入S之后的$D</em>{S-c} = \min(\infty, 2+1) = 3$，故b点加入S集合之后的状态如下：</p>
 <script type="math/tex; mode=display">
 第一轮： S = \{a:0, b:2\}, U = \{c: 3,d: 9,e: 5,f: \infty,g: \infty,h:\infty,i:\infty \}</script><p>第二轮选点，从优先队列U中选择c点放入S，并且更新c的邻点x的值：</p>
 <script type="math/tex; mode=display">
@@ -574,25 +576,24 @@
 <p>其中，若将$g(n)$置为0，则A*算法退化成贪婪最佳优先算法，若$h(n)=0$，则退化成Dijkstra算法。</p>
 <p>能否找到最优路径的关键是启发函数$h(n)$的选取，如果$h(n)$始终小于等于节点n到终点的代价，则A*算法保证一定能够找到最短路径。但是当$h(n)$的值选取不合适，会导致算法将遍历越多的节点，也就导致算法越慢。<br>由于A* 算法的启发函数是位置上的距离，因此在不带位置信息的图数据中不适用。</p>
 <p>A*算法描述如下：</p>
-<pre class="line-numbers language-text"><code class="language-text">* 初始化open_set和close_set；
-* 将起点加入open_set中，并设置优先级f(n)为0（优先级最高）；
-* 如果open_set不为空，则从open_set中选取优先级最高的节点n：
-    * 如果节点n为终点，则：
-        * 从终点开始逐步追踪parent节点，一直达到起点；
-        * 返回找到的结果路径，算法结束；
-    * 如果节点n不是终点，则：
-        * 将节点n从open_set中删除，并加入close_set中；
-        * 遍历节点n所有的邻近节点：
-            * 如果邻近节点m在open_set中，则：
-                * 比较g(n)是否比原来更小，如果更小则更新其g(n)、优先级f(n)和其父节点
-            * 如果邻近节点m在close_set中，则：
-                * 跳过，选取下一个邻近节点
-            * 如果邻近节点m不在open_set和close_set中，则：
-                * 设置节点m的parent为节点n
-                * 计算移动代价g(n)
-                * 计算节点m的优先级f(n)
-                * 将节点m加入open_set中
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="shiki text"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #abb2bf">* 初始化open_set和close_set；</span></span>
+<span class="line"><span style="color: #abb2bf">* 将起点加入open_set中，并设置优先级f(n)为0（优先级最高）；</span></span>
+<span class="line"><span style="color: #abb2bf">* 如果open_set不为空，则从open_set中选取优先级最高的节点n：</span></span>
+<span class="line"><span style="color: #abb2bf">    * 如果节点n为终点，则：</span></span>
+<span class="line"><span style="color: #abb2bf">        * 从终点开始逐步追踪parent节点，一直达到起点；</span></span>
+<span class="line"><span style="color: #abb2bf">        * 返回找到的结果路径，算法结束；</span></span>
+<span class="line"><span style="color: #abb2bf">    * 如果节点n不是终点，则：</span></span>
+<span class="line"><span style="color: #abb2bf">        * 将节点n从open_set中删除，并加入close_set中；</span></span>
+<span class="line"><span style="color: #abb2bf">        * 遍历节点n所有的邻近节点：</span></span>
+<span class="line"><span style="color: #abb2bf">        	* 如果邻近节点m在open_set中，则：</span></span>
+<span class="line"><span style="color: #abb2bf">                * 比较g(n)是否比原来更小，如果更小则更新其g(n)、优先级f(n)和其父节点</span></span>
+<span class="line"><span style="color: #abb2bf">            * 如果邻近节点m在close_set中，则：</span></span>
+<span class="line"><span style="color: #abb2bf">                * 跳过，选取下一个邻近节点</span></span>
+<span class="line"><span style="color: #abb2bf">            * 如果邻近节点m不在open_set和close_set中，则：</span></span>
+<span class="line"><span style="color: #abb2bf">                * 设置节点m的parent为节点n</span></span>
+<span class="line"><span style="color: #abb2bf">                * 计算移动代价g(n)</span></span>
+<span class="line"><span style="color: #abb2bf">                * 计算节点m的优先级f(n)</span></span>
+<span class="line"><span style="color: #abb2bf">                * 将节点m加入open_set中</span></span></code></pre></div></div></figure>
 <p>对于网格形式的图，有以下这些启发函数可以使用：</p>
 <ul>
 <li>如果图形中只允许朝上下左右四个方向移动，则可以使用曼哈顿距离（Manhattan distance）。</li>
@@ -622,7 +623,7 @@ h(n) = \sqrt{dx^2 + dy^2}</script></li>
 <p>或者，在不改变路径函数的情况下，在代价函数相同时，使用额外的约束条件。比如路径和启发函数都为曼哈顿距离，则E、B/C、A/D的代价函数相同，此时取其中到终点对角距离最小的点最为最优点即可选出B/C。</p>
 <p><strong>最短路径：</strong></p>
 <p>关于A*算法能否找到最短路径最重要的一点就是已经处于open_set的邻点的更新。也就是如果遍历到的邻点在open_set中，要比较现有路径和原路径哪一个更短，取更短的路径的上一个节点作为父节点。</p>
-<p>以下举个例子：假设在A点处遍历到邻点B，且B没有加入open_set，则的B父节点设置为A。一段时间后，在C点处也遍历到了B，则比较$g(c)+D_{C-B}$和$g(A)+D_{A-B}$，若$g(c)+D_{C-B}$更小，则应该更新B的父节点为A。</p>
+<p>以下举个例子：假设在A点处遍历到邻点B，且B没有加入open<em>set，则的B父节点设置为A。一段时间后，在C点处也遍历到了B，则比较$g(c)+D</em>{C-B}$和$g(A)+D<em>{A-B}$，若$g(c)+D</em>{C-B}$更小，则应该更新B的父节点为A。</p>
 <p>关于GBFS和A*算法在路径寻找过程中的差别可以参看下图：</p>
 <p><img src="https://z3.ax1x.com/2021/04/05/cQSnNn.jpg" style="zoom:50%;" /></p>
 <p>上图为GFBS和A*算法正有障碍路径寻找过程中，每个节点的代价函数。可以看到，使用GBFS之后，路径上的节点的代价函数随着接近终点会逐渐减小，但是却无法找到最优路径。</p>
@@ -941,7 +942,7 @@ h(n) = \sqrt{dx^2 + dy^2}</script></li>
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">65k</span>
+                <span class="white-color">66.2k</span>
                 
 
                     <br>
@@ -1130,6 +1131,27 @@ $(function () {
                                                             <!-- 雪花特效 -->
                                                             
 
-    </body>
+    <!-- hexo injector body_end start -->
+  <script>
+  const CODE_CONFIG = {
+    beautify: undefined,
+    highlightCopy: undefined,
+    highlightLang: undefined,
+    highlightHeightLimit: undefined,
+    isHighlightShrink: undefined,
+    copy: {
+      success: 'undefined',
+      error: 'undefined',
+      noSupport: 'undefined',
+    }
+  };
+  console.log(
+    `%c hexo-shiki-plugin %c v1.0.27 %c https://github.com/nova1751/hexo-shiki-plugin`,
+    "color: #fff; background: #5f5f5f",
+    "color: #fff; background: #80c8f8",
+    ""
+  );
+  </script>
+  <!-- hexo injector body_end end --></body>
 
 </html>

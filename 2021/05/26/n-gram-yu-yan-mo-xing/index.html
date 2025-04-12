@@ -69,7 +69,9 @@
         })();
     </script>
 
-<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="SKYFAKER" type="application/atom+xml">
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-shiki-plugin@latest/lib/codeblock.css">
+<style>:root{--hl-color:#abb2bf;--hl-bg:#282c34;--hltools-bg:#21252b;--hltools-color:#bbbbbc;--hlnumber-bg:#282c34;--hlnumber-color:#495162;--hlscrollbar-bg:#373c47;--hlexpand-bg:linear-gradient(180deg,rgba(40,44,52,0.1),rgba(40,44,52,0.9))}</style><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="SKYFAKER" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
@@ -520,7 +522,7 @@
 <script type="math/tex; mode=display">
 P(w_1,w_2,...,w_n) = \prod_{i=1}^nP(w_i) \tag{1}</script><p>对于bigram，当前词出现的可能性只依赖于当前词汇的前一个词，因此：</p>
 <script type="math/tex; mode=display">
-P(w_1,w_2,...,w_n) = \prod_{i=1}^{n}P(w_i|w_{i-1}) \tag{2}</script><p>其中  $P（w_i|w_i-1）$  表示在的 $w_{i-1}$的 条件下  $w_i$ 出现的概率。</p>
+P(w_1,w_2,...,w_n) = \prod_{i=1}^{n}P(w_i|w_{i-1}) \tag{2}</script><p>其中  $P（w<em>i|w_i-1）$  表示在的 $w</em>{i-1}$的 条件下  $w_i$ 出现的概率。</p>
 <p>特别的，$P（w_1|w_0） 即 P（w_1|BOS）\ （BOS表示句子开头）$ 表示 $ w_1 $ 出现在句子开头的概率。</p>
 <p>以此类推，K-gram模型概率为：</p>
 <script type="math/tex; mode=display">
@@ -880,7 +882,7 @@ P(w_{i+1} | w_{i}) = \frac{count(w_iw_{i+1})}{count(w_i)}</script><p>也就是�
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">65k</span>
+                <span class="white-color">66.2k</span>
                 
 
                     <br>
@@ -1069,6 +1071,27 @@ $(function () {
                                                             <!-- 雪花特效 -->
                                                             
 
-    </body>
+    <!-- hexo injector body_end start -->
+  <script>
+  const CODE_CONFIG = {
+    beautify: undefined,
+    highlightCopy: undefined,
+    highlightLang: undefined,
+    highlightHeightLimit: undefined,
+    isHighlightShrink: undefined,
+    copy: {
+      success: 'undefined',
+      error: 'undefined',
+      noSupport: 'undefined',
+    }
+  };
+  console.log(
+    `%c hexo-shiki-plugin %c v1.0.27 %c https://github.com/nova1751/hexo-shiki-plugin`,
+    "color: #fff; background: #5f5f5f",
+    "color: #fff; background: #80c8f8",
+    ""
+  );
+  </script>
+  <!-- hexo injector body_end end --></body>
 
 </html>

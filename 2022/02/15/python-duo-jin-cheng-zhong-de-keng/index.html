@@ -70,7 +70,9 @@
         })();
     </script>
 
-<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="SKYFAKER" type="application/atom+xml">
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-shiki-plugin@latest/lib/codeblock.css">
+<style>:root{--hl-color:#abb2bf;--hl-bg:#282c34;--hltools-bg:#21252b;--hltools-color:#bbbbbc;--hlnumber-bg:#282c34;--hlnumber-color:#495162;--hlscrollbar-bg:#373c47;--hlexpand-bg:linear-gradient(180deg,rgba(40,44,52,0.1),rgba(40,44,52,0.9))}</style><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="SKYFAKER" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
@@ -511,25 +513,24 @@
 <h3 id="debug"><a href="#debug" class="headerlink" title="debug"></a>debug</h3><p>首先把代码拉到开发集群，测试之后没有问题，所有测试用例都通过，没有卡死。没办法，只能在线上测试集群debug。</p>
 <p>查看代码，发现使用了多进程。原来该服务为了防止出现内存泄漏，每当消费一个消息，就会生成一个子进程完成数据处理和模型训练的功能。而当复现bug之后，查看进程，发现只存在一个python进程。估计是多进程中的子进程挂掉了，没有被父进程正常回收，导致的容器卡死。</p>
 <p>其中多进程使用<code>multiprocessing.Pool</code>实现，代码逻辑类似于：</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> multiprocessing
-<span class="token keyword">import</span> time
-<span class="token keyword">import</span> os
-
-<span class="token keyword">def</span> <span class="token function">subprocesses</span><span class="token punctuation">(</span>argv<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'sub-process id: '</span>os<span class="token punctuation">.</span>getpid<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-    time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 子进程处理中</span>
-    re <span class="token operator">=</span> <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;"result": argv&amp;#125;</span>
-    <span class="token keyword">return</span> re
-
-<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span>os<span class="token punctuation">.</span>getpid<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-    pool <span class="token operator">=</span> multiprocessing<span class="token punctuation">.</span>Pool<span class="token punctuation">(</span>processes<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span>
-    results <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-    msg <span class="token operator">=</span> <span class="token string">"test"</span>
-    sub_res <span class="token operator">=</span> pool<span class="token punctuation">.</span>map<span class="token punctuation">(</span>subprocesses<span class="token punctuation">,</span> <span class="token punctuation">(</span>msg<span class="token punctuation">,</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-    results<span class="token punctuation">.</span>append<span class="token punctuation">(</span>sub_res<span class="token punctuation">)</span>
-    pool<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 关闭进程池，表示不能再往进程池中添加进程，需要在join之前调用</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="shiki python"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">import</span><span style="color: #ABB2BF"> multiprocessing</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #ABB2BF"> time</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #ABB2BF"> os</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C678DD">def</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">subprocesses</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66; font-style: italic">argv</span><span style="color: #ABB2BF">):</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #56B6C2">print</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&#39;sub-process id: &#39;</span><span style="color: #ABB2BF">os.</span><span style="color: #61AFEF">getpid</span><span style="color: #ABB2BF">())</span></span>
+<span class="line"><span style="color: #ABB2BF">    time.</span><span style="color: #61AFEF">sleep</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66">10</span><span style="color: #ABB2BF">)  </span><span style="color: #7F848E; font-style: italic"># 子进程处理中</span></span>
+<span class="line"><span style="color: #ABB2BF">    re </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> {</span><span style="color: #98C379">&quot;result&quot;</span><span style="color: #ABB2BF">: argv}</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> re</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C678DD">if</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">__name__</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">==</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">&#39;__main__&#39;</span><span style="color: #ABB2BF">:</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #56B6C2">print</span><span style="color: #ABB2BF">(os.</span><span style="color: #61AFEF">getpid</span><span style="color: #ABB2BF">())</span></span>
+<span class="line"><span style="color: #ABB2BF">    pool </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> multiprocessing.</span><span style="color: #61AFEF">Pool</span><span style="color: #ABB2BF">(</span><span style="color: #E06C75; font-style: italic">processes</span><span style="color: #56B6C2">=</span><span style="color: #D19A66">1</span><span style="color: #ABB2BF">)</span></span>
+<span class="line"><span style="color: #ABB2BF">    results </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> []</span></span>
+<span class="line"><span style="color: #ABB2BF">    msg </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">&quot;test&quot;</span></span>
+<span class="line"><span style="color: #ABB2BF">    sub_res </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> pool.</span><span style="color: #61AFEF">map</span><span style="color: #ABB2BF">(subprocesses, (msg,))</span></span>
+<span class="line"><span style="color: #ABB2BF">    results.</span><span style="color: #61AFEF">append</span><span style="color: #ABB2BF">(sub_res)</span></span>
+<span class="line"><span style="color: #ABB2BF">    pool.</span><span style="color: #61AFEF">close</span><span style="color: #ABB2BF">()  </span><span style="color: #7F848E; font-style: italic"># 关闭进程池，表示不能再往进程池中添加进程，需要在join之前调用</span></span></code></pre></div></div></figure>
 <p>读者可以使用上述代码进行测试，<strong>当子进程执行时，使用kill命令（windows使用taskkill命令）杀死子进程</strong>，会发现主程序卡死，永远不会执行完成。</p>
 <p>所以问题出现在子进程执行过程中，子进程意外挂掉。</p>
 <p>进一步查看日志发现，集群测试时，使用了很大的数据规模，并且给batch_size设置了很大的值，导致在处理数据或者模型训练时，内存远远超过集群对单个服务的限制，从而导致子进程被系统kill。</p>
@@ -537,110 +538,105 @@
 <blockquote>
 <p>The signals SIGKILL and SIGSTOP cannot be caught, blocked, or ignored.</p>
 </blockquote>
-<p>所以即使子进程中增加异常捕获也是不起作用的，例如下面的写法：</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">subprocesses</span><span class="token punctuation">(</span>argv<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span>os<span class="token punctuation">.</span>getpid<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-    <span class="token keyword">try</span><span class="token punctuation">:</span>
-        time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>
-    <span class="token keyword">except</span><span class="token punctuation">:</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Error'</span><span class="token punctuation">)</span>
-    re <span class="token operator">=</span> <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;"result": argv&amp;#125;</span>
-    <span class="token keyword">return</span> re
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>所以即使子进程中增加异常捕获也是不起作用的，例如下面的写法：<br><figure class="shiki python"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">def</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">subprocesses</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66; font-style: italic">argv</span><span style="color: #ABB2BF">):</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #56B6C2">print</span><span style="color: #ABB2BF">(os.</span><span style="color: #61AFEF">getpid</span><span style="color: #ABB2BF">())</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #C678DD">try</span><span style="color: #ABB2BF">:</span></span>
+<span class="line"><span style="color: #ABB2BF">        time.</span><span style="color: #61AFEF">sleep</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66">10</span><span style="color: #ABB2BF">)</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #C678DD">except</span><span style="color: #ABB2BF">:</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #56B6C2">print</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&#39;Error&#39;</span><span style="color: #ABB2BF">)</span></span>
+<span class="line"><span style="color: #ABB2BF">    re </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> {</span><span style="color: #98C379">&quot;result&quot;</span><span style="color: #ABB2BF">: argv}</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> re</span></span></code></pre></div></div></figure></p>
 <p>或者将map方法换成<code>apply 、 apply_async、 map_async</code>方法都是一样的结果，因为<code>apply_async、map_async</code>中的<em>error_callback</em>函数同样无法捕获kill信号。</p>
 <p>例如：</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> multiprocessing
-<span class="token keyword">import</span> time
-<span class="token keyword">import</span> os
-
-<span class="token keyword">def</span> <span class="token function">subprocesses</span><span class="token punctuation">(</span>argv<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span>os<span class="token punctuation">.</span>getpid<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-    time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>
-    re <span class="token operator">=</span> <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;"result": argv&amp;#125;</span>
-    <span class="token keyword">return</span> re
-
-<span class="token keyword">def</span> <span class="token function">collect_result</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Error"</span><span class="token punctuation">)</span>
-
-<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span>os<span class="token punctuation">.</span>getpid<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-    pool <span class="token operator">=</span> multiprocessing<span class="token punctuation">.</span>Pool<span class="token punctuation">(</span>processes<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span>
-    results <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-    msg <span class="token operator">=</span> <span class="token string">"hello"</span>
-    sub_res <span class="token operator">=</span> pool<span class="token punctuation">.</span>map_async<span class="token punctuation">(</span>subprocesses<span class="token punctuation">,</span> <span class="token punctuation">(</span>msg<span class="token punctuation">,</span><span class="token punctuation">)</span><span class="token punctuation">,</span> error_callback<span class="token operator">=</span>collect_result<span class="token punctuation">)</span>
-    results<span class="token punctuation">.</span>append<span class="token punctuation">(</span>sub_res<span class="token punctuation">)</span>
-    pool<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
-    pool<span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 异步多线程需要加这一行，否则主进程会直接结束</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="shiki python"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">import</span><span style="color: #ABB2BF"> multiprocessing</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #ABB2BF"> time</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #ABB2BF"> os</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C678DD">def</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">subprocesses</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66; font-style: italic">argv</span><span style="color: #ABB2BF">):</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #56B6C2">print</span><span style="color: #ABB2BF">(os.</span><span style="color: #61AFEF">getpid</span><span style="color: #ABB2BF">())</span></span>
+<span class="line"><span style="color: #ABB2BF">    time.</span><span style="color: #61AFEF">sleep</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66">10</span><span style="color: #ABB2BF">)</span></span>
+<span class="line"><span style="color: #ABB2BF">    re </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> {</span><span style="color: #98C379">&quot;result&quot;</span><span style="color: #ABB2BF">: argv}</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> re</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C678DD">def</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">collect_result</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66; font-style: italic">result</span><span style="color: #ABB2BF">):</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #56B6C2">print</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;Error&quot;</span><span style="color: #ABB2BF">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C678DD">if</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">__name__</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">==</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">&#39;__main__&#39;</span><span style="color: #ABB2BF">:</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #56B6C2">print</span><span style="color: #ABB2BF">(os.</span><span style="color: #61AFEF">getpid</span><span style="color: #ABB2BF">())</span></span>
+<span class="line"><span style="color: #ABB2BF">    pool </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> multiprocessing.</span><span style="color: #61AFEF">Pool</span><span style="color: #ABB2BF">(</span><span style="color: #E06C75; font-style: italic">processes</span><span style="color: #56B6C2">=</span><span style="color: #D19A66">1</span><span style="color: #ABB2BF">)</span></span>
+<span class="line"><span style="color: #ABB2BF">    results </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> []</span></span>
+<span class="line"><span style="color: #ABB2BF">    msg </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">&quot;hello&quot;</span></span>
+<span class="line"><span style="color: #ABB2BF">    sub_res </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> pool.</span><span style="color: #61AFEF">map_async</span><span style="color: #ABB2BF">(subprocesses, (msg,), </span><span style="color: #E06C75; font-style: italic">error_callback</span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF">collect_result)</span></span>
+<span class="line"><span style="color: #ABB2BF">    results.</span><span style="color: #61AFEF">append</span><span style="color: #ABB2BF">(sub_res)</span></span>
+<span class="line"><span style="color: #ABB2BF">    pool.</span><span style="color: #61AFEF">close</span><span style="color: #ABB2BF">()</span></span>
+<span class="line"><span style="color: #ABB2BF">    pool.</span><span style="color: #61AFEF">join</span><span style="color: #ABB2BF">()  </span><span style="color: #7F848E; font-style: italic"># 异步多线程需要加这一行，否则主进程会直接结束</span></span></code></pre></div></div></figure>
 <p>上述代码使用<code>map_async</code>，但是子进程被kill的时候仍然触发不了<em>error_callback回调函数</em>。</p>
 <h3 id="Pool源码"><a href="#Pool源码" class="headerlink" title="Pool源码"></a>Pool源码</h3><p>既然<code>Pool</code>类的几种多进程方法都没有办法解决这个问题，这说明是<code>Pool</code>这个类的实现不支持子进程意外挂掉之后通知主进程，说以先来看看这个<code>Pool</code>的源码是怎么实现的。</p>
 <p>以下述代码为例，实例化进程池，并指定子进程数量为1：</p>
-<pre><code>pool = multiprocessing.Pool(processes=1)
-sub_res = pool.apply_async(subprocesses, error_callback=collect_result)  #以apply_async为例，apply,map,map_async结构类似
-</code></pre><p>第一行为<code>Pool的实例化</code>，在第一行代码执行之后，会生成三个队列<code>_taskqueue, _inqueue, _outqueue</code>，并生成一个<code>_cache</code>字典，之后生成指定数量的子进程加入到进程池中，最后生成三个线程<code>_worker_handler, _task_handler, _result_handler</code>。</p>
+<figure class="shiki"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #abb2bf">pool = multiprocessing.Pool(processes=1)</span></span>
+<span class="line"><span style="color: #abb2bf">sub_res = pool.apply_async(subprocesses, error_callback=collect_result)  #以apply_async为例，apply,map,map_async结构类似</span></span></code></pre></div></div></figure>
+<p>第一行为<code>Pool的实例化</code>，在第一行代码执行之后，会生成三个队列<code>_taskqueue, _inqueue, _outqueue</code>，并生成一个<code>_cache</code>字典，之后生成指定数量的子进程加入到进程池中，最后生成三个线程<code>_worker_handler, _task_handler, _result_handler</code>。</p>
 <p>以下为<strong>精简后</strong>的<code>Pool</code>类的<code>init</code>函数</p>
-<pre class="line-numbers language-python"><code class="language-python">self<span class="token punctuation">.</span>_pool <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-self<span class="token punctuation">.</span>_setup_queues<span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 在这里构造_inqueue, _outqueue队列</span>
-self<span class="token punctuation">.</span>_taskqueue <span class="token operator">=</span> queue<span class="token punctuation">.</span>SimpleQueue<span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># _taskqueue队列</span>
-self<span class="token punctuation">.</span>_cache <span class="token operator">=</span> _PoolCache<span class="token punctuation">(</span>notifier<span class="token operator">=</span>self<span class="token punctuation">.</span>_change_notifier<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 构造_cache</span>
-
-<span class="token keyword">try</span><span class="token punctuation">:</span>  <span class="token comment" spellcheck="true"># 为进程池构造子进程</span>
-    self<span class="token punctuation">.</span>_repopulate_pool<span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token keyword">except</span> Exception<span class="token punctuation">:</span>
-    <span class="token keyword">for</span> p <span class="token keyword">in</span> self<span class="token punctuation">.</span>_pool<span class="token punctuation">:</span>
-        <span class="token keyword">if</span> p<span class="token punctuation">.</span>exitcode <span class="token keyword">is</span> None<span class="token punctuation">:</span>
-            p<span class="token punctuation">.</span>terminate<span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token keyword">for</span> p <span class="token keyword">in</span> self<span class="token punctuation">.</span>_pool<span class="token punctuation">:</span>
-        p<span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token keyword">raise</span>
-
-self<span class="token punctuation">.</span>_worker_handler <span class="token operator">=</span> threading<span class="token punctuation">.</span>Thread<span class="token punctuation">(</span>  <span class="token comment" spellcheck="true"># _worker_handler线程</span>
-    target<span class="token operator">=</span>Pool<span class="token punctuation">.</span>_handle_workers<span class="token punctuation">,</span>
-    args<span class="token operator">=</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>_cache<span class="token punctuation">,</span> self<span class="token punctuation">.</span>_taskqueue<span class="token punctuation">,</span> self<span class="token punctuation">.</span>_ctx<span class="token punctuation">,</span> self<span class="token punctuation">.</span>Process<span class="token punctuation">,</span>
-          self<span class="token punctuation">.</span>_processes<span class="token punctuation">,</span> self<span class="token punctuation">.</span>_pool<span class="token punctuation">,</span> self<span class="token punctuation">.</span>_inqueue<span class="token punctuation">,</span> self<span class="token punctuation">.</span>_outqueue<span class="token punctuation">,</span>
-          self<span class="token punctuation">.</span>_initializer<span class="token punctuation">,</span> self<span class="token punctuation">.</span>_initargs<span class="token punctuation">,</span> self<span class="token punctuation">.</span>_maxtasksperchild<span class="token punctuation">,</span>
-          self<span class="token punctuation">.</span>_wrap_exception<span class="token punctuation">,</span> sentinels<span class="token punctuation">,</span> self<span class="token punctuation">.</span>_change_notifier<span class="token punctuation">)</span>
-<span class="token punctuation">)</span>
-self<span class="token punctuation">.</span>_worker_handler<span class="token punctuation">.</span>daemon <span class="token operator">=</span> <span class="token boolean">True</span>
-self<span class="token punctuation">.</span>_worker_handler<span class="token punctuation">.</span>_state <span class="token operator">=</span> RUN
-self<span class="token punctuation">.</span>_worker_handler<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span>
-
-self<span class="token punctuation">.</span>_task_handler <span class="token operator">=</span> threading<span class="token punctuation">.</span>Thread<span class="token punctuation">(</span>  <span class="token comment" spellcheck="true"># _task_handler线程</span>
-    target<span class="token operator">=</span>Pool<span class="token punctuation">.</span>_handle_tasks<span class="token punctuation">,</span>
-    args<span class="token operator">=</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>_taskqueue<span class="token punctuation">,</span> self<span class="token punctuation">.</span>_quick_put<span class="token punctuation">,</span> self<span class="token punctuation">.</span>_outqueue<span class="token punctuation">,</span>
-          self<span class="token punctuation">.</span>_pool<span class="token punctuation">,</span> self<span class="token punctuation">.</span>_cache<span class="token punctuation">)</span>
-<span class="token punctuation">)</span>
-self<span class="token punctuation">.</span>_task_handler<span class="token punctuation">.</span>daemon <span class="token operator">=</span> <span class="token boolean">True</span>
-self<span class="token punctuation">.</span>_task_handler<span class="token punctuation">.</span>_state <span class="token operator">=</span> RUN
-self<span class="token punctuation">.</span>_task_handler<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span>
-
-self<span class="token punctuation">.</span>_result_handler <span class="token operator">=</span> threading<span class="token punctuation">.</span>Thread<span class="token punctuation">(</span>  <span class="token comment" spellcheck="true"># _result_handler线程</span>
-    target<span class="token operator">=</span>Pool<span class="token punctuation">.</span>_handle_results<span class="token punctuation">,</span>
-    args<span class="token operator">=</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>_outqueue<span class="token punctuation">,</span> self<span class="token punctuation">.</span>_quick_get<span class="token punctuation">,</span> self<span class="token punctuation">.</span>_cache<span class="token punctuation">)</span>
-<span class="token punctuation">)</span>
-self<span class="token punctuation">.</span>_result_handler<span class="token punctuation">.</span>daemon <span class="token operator">=</span> <span class="token boolean">True</span>
-self<span class="token punctuation">.</span>_result_handler<span class="token punctuation">.</span>_state <span class="token operator">=</span> RUN
-self<span class="token punctuation">.</span>_result_handler<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="shiki python"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #E5C07B">self</span><span style="color: #ABB2BF">._pool </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> []</span></span>
+<span class="line"><span style="color: #E5C07B">self</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">_setup_queues</span><span style="color: #ABB2BF">()  </span><span style="color: #7F848E; font-style: italic"># 在这里构造_inqueue, _outqueue队列</span></span>
+<span class="line"><span style="color: #E5C07B">self</span><span style="color: #ABB2BF">._taskqueue </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> queue.</span><span style="color: #61AFEF">SimpleQueue</span><span style="color: #ABB2BF">()  </span><span style="color: #7F848E; font-style: italic"># _taskqueue队列</span></span>
+<span class="line"><span style="color: #E5C07B">self</span><span style="color: #ABB2BF">._cache </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">_PoolCache</span><span style="color: #ABB2BF">(</span><span style="color: #E06C75; font-style: italic">notifier</span><span style="color: #56B6C2">=</span><span style="color: #E5C07B">self</span><span style="color: #ABB2BF">._change_notifier)  </span><span style="color: #7F848E; font-style: italic"># 构造_cache</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C678DD">try</span><span style="color: #ABB2BF">:  </span><span style="color: #7F848E; font-style: italic"># 为进程池构造子进程</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #E5C07B">self</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">_repopulate_pool</span><span style="color: #ABB2BF">()</span></span>
+<span class="line"><span style="color: #C678DD">except</span><span style="color: #ABB2BF"> Exception:</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #C678DD">for</span><span style="color: #ABB2BF"> p </span><span style="color: #C678DD">in</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">self</span><span style="color: #ABB2BF">._pool:</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">if</span><span style="color: #ABB2BF"> p.exitcode </span><span style="color: #C678DD">is</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">None</span><span style="color: #ABB2BF">:</span></span>
+<span class="line"><span style="color: #ABB2BF">            p.</span><span style="color: #61AFEF">terminate</span><span style="color: #ABB2BF">()</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #C678DD">for</span><span style="color: #ABB2BF"> p </span><span style="color: #C678DD">in</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">self</span><span style="color: #ABB2BF">._pool:</span></span>
+<span class="line"><span style="color: #ABB2BF">        p.</span><span style="color: #61AFEF">join</span><span style="color: #ABB2BF">()</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #C678DD">raise</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E5C07B">self</span><span style="color: #ABB2BF">._worker_handler </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> threading.</span><span style="color: #61AFEF">Thread</span><span style="color: #ABB2BF">(  </span><span style="color: #7F848E; font-style: italic"># _worker_handler线程</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #E06C75; font-style: italic">target</span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF">Pool._handle_workers,</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #E06C75; font-style: italic">args</span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">self</span><span style="color: #ABB2BF">._cache, </span><span style="color: #E5C07B">self</span><span style="color: #ABB2BF">._taskqueue, </span><span style="color: #E5C07B">self</span><span style="color: #ABB2BF">._ctx, </span><span style="color: #E5C07B">self</span><span style="color: #ABB2BF">.Process,</span></span>
+<span class="line"><span style="color: #ABB2BF">          </span><span style="color: #E5C07B">self</span><span style="color: #ABB2BF">._processes, </span><span style="color: #E5C07B">self</span><span style="color: #ABB2BF">._pool, </span><span style="color: #E5C07B">self</span><span style="color: #ABB2BF">._inqueue, </span><span style="color: #E5C07B">self</span><span style="color: #ABB2BF">._outqueue,</span></span>
+<span class="line"><span style="color: #ABB2BF">          </span><span style="color: #E5C07B">self</span><span style="color: #ABB2BF">._initializer, </span><span style="color: #E5C07B">self</span><span style="color: #ABB2BF">._initargs, </span><span style="color: #E5C07B">self</span><span style="color: #ABB2BF">._maxtasksperchild,</span></span>
+<span class="line"><span style="color: #ABB2BF">          </span><span style="color: #E5C07B">self</span><span style="color: #ABB2BF">._wrap_exception, sentinels, </span><span style="color: #E5C07B">self</span><span style="color: #ABB2BF">._change_notifier)</span></span>
+<span class="line"><span style="color: #ABB2BF">)</span></span>
+<span class="line"><span style="color: #E5C07B">self</span><span style="color: #ABB2BF">._worker_handler.daemon </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">True</span></span>
+<span class="line"><span style="color: #E5C07B">self</span><span style="color: #ABB2BF">._worker_handler._state </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">RUN</span></span>
+<span class="line"><span style="color: #E5C07B">self</span><span style="color: #ABB2BF">._worker_handler.</span><span style="color: #61AFEF">start</span><span style="color: #ABB2BF">()</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E5C07B">self</span><span style="color: #ABB2BF">._task_handler </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> threading.</span><span style="color: #61AFEF">Thread</span><span style="color: #ABB2BF">(  </span><span style="color: #7F848E; font-style: italic"># _task_handler线程</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #E06C75; font-style: italic">target</span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF">Pool._handle_tasks,</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #E06C75; font-style: italic">args</span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">self</span><span style="color: #ABB2BF">._taskqueue, </span><span style="color: #E5C07B">self</span><span style="color: #ABB2BF">._quick_put, </span><span style="color: #E5C07B">self</span><span style="color: #ABB2BF">._outqueue,</span></span>
+<span class="line"><span style="color: #ABB2BF">          </span><span style="color: #E5C07B">self</span><span style="color: #ABB2BF">._pool, </span><span style="color: #E5C07B">self</span><span style="color: #ABB2BF">._cache)</span></span>
+<span class="line"><span style="color: #ABB2BF">)</span></span>
+<span class="line"><span style="color: #E5C07B">self</span><span style="color: #ABB2BF">._task_handler.daemon </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">True</span></span>
+<span class="line"><span style="color: #E5C07B">self</span><span style="color: #ABB2BF">._task_handler._state </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">RUN</span></span>
+<span class="line"><span style="color: #E5C07B">self</span><span style="color: #ABB2BF">._task_handler.</span><span style="color: #61AFEF">start</span><span style="color: #ABB2BF">()</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E5C07B">self</span><span style="color: #ABB2BF">._result_handler </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> threading.</span><span style="color: #61AFEF">Thread</span><span style="color: #ABB2BF">(  </span><span style="color: #7F848E; font-style: italic"># _result_handler线程</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #E06C75; font-style: italic">target</span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF">Pool._handle_results,</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #E06C75; font-style: italic">args</span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">self</span><span style="color: #ABB2BF">._outqueue, </span><span style="color: #E5C07B">self</span><span style="color: #ABB2BF">._quick_get, </span><span style="color: #E5C07B">self</span><span style="color: #ABB2BF">._cache)</span></span>
+<span class="line"><span style="color: #ABB2BF">)</span></span>
+<span class="line"><span style="color: #E5C07B">self</span><span style="color: #ABB2BF">._result_handler.daemon </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">True</span></span>
+<span class="line"><span style="color: #E5C07B">self</span><span style="color: #ABB2BF">._result_handler._state </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">RUN</span></span>
+<span class="line"><span style="color: #E5C07B">self</span><span style="color: #ABB2BF">._result_handler.</span><span style="color: #61AFEF">start</span><span style="color: #ABB2BF">()</span></span></code></pre></div></div></figure>
 <p>在第二行代码中，<code>apply_async</code>会将要执行的函数和函数参数打包放入<code>_taskqueue</code>，子进程获取任务执行。</p>
 <p><code>apply_async</code>函数代码：</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">apply_async</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> func<span class="token punctuation">,</span> args<span class="token operator">=</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> kwds<span class="token operator">=</span><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;&amp;#125;, callback=None,</span>
-        error_callback<span class="token operator">=</span>None<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    self<span class="token punctuation">.</span>_check_running<span class="token punctuation">(</span><span class="token punctuation">)</span>
-    result <span class="token operator">=</span> ApplyResult<span class="token punctuation">(</span>self<span class="token punctuation">,</span> callback<span class="token punctuation">,</span> error_callback<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 打包用户传入的任务函数，同时在_cache中添加对应记录</span>
-    self<span class="token punctuation">.</span>_taskqueue<span class="token punctuation">.</span>put<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">(</span>result<span class="token punctuation">.</span>_job<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> func<span class="token punctuation">,</span> args<span class="token punctuation">,</span> kwds<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">,</span> None<span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 任务函数等信息送入_taskqueue队列</span>
-    <span class="token keyword">return</span> result
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="shiki python"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">def</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">apply_async</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B; font-style: italic">self</span><span style="color: #ABB2BF">, </span><span style="color: #D19A66; font-style: italic">func</span><span style="color: #ABB2BF">, </span><span style="color: #D19A66; font-style: italic">args</span><span style="color: #ABB2BF">=(), </span><span style="color: #D19A66; font-style: italic">kwds</span><span style="color: #ABB2BF">={}, </span><span style="color: #D19A66; font-style: italic">callback</span><span style="color: #ABB2BF">=</span><span style="color: #D19A66">None</span><span style="color: #ABB2BF">,</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #D19A66; font-style: italic">error_callback</span><span style="color: #ABB2BF">=</span><span style="color: #D19A66">None</span><span style="color: #ABB2BF">):</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #E5C07B">self</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">_check_running</span><span style="color: #ABB2BF">()</span></span>
+<span class="line"><span style="color: #ABB2BF">    result </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">ApplyResult</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">self</span><span style="color: #ABB2BF">, callback, error_callback)  </span><span style="color: #7F848E; font-style: italic"># 打包用户传入的任务函数，同时在_cache中添加对应记录</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #E5C07B">self</span><span style="color: #ABB2BF">._taskqueue.</span><span style="color: #61AFEF">put</span><span style="color: #ABB2BF">(([(result._job, </span><span style="color: #D19A66">0</span><span style="color: #ABB2BF">, func, args, kwds)], </span><span style="color: #D19A66">None</span><span style="color: #ABB2BF">))  </span><span style="color: #7F848E; font-style: italic"># 任务函数等信息送入_taskqueue队列</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> result</span></span></code></pre></div></div></figure>
 <p>其中</p>
-<pre><code>_taskqueue: 存放用户指定子进程去执行的函数以及函数参数信息；
-_inqueue: 该队列与子进程交互，从_taskqueue取出的task，放到_inqueue，由子进程从队列中取出任务执行；
-_outqueue: 该队列与子进程交互，保存子进程的结果；
-_cache: 缓存字典，以job_id为key。
-
-_worker_handler: 维护进程数量的子线程，例如指定进程池大小为4，任务数为10，一个子进程完成任务之后销毁，进程池中进程为3，此时由这个线程生成新的进程加入到进程池；
-_task_handler: 从_taskqueue队列取任务到_inqueue队列的子线程；
-_result_handler: 从_outqueue取出结果的子线程，并将_cache中对应的记录删除。
-</code></pre><p>分析完类里面的主要变量，下面分析一下过程：</p>
+<figure class="shiki"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #abb2bf">_taskqueue: 存放用户指定子进程去执行的函数以及函数参数信息；</span></span>
+<span class="line"><span style="color: #abb2bf">_inqueue: 该队列与子进程交互，从_taskqueue取出的task，放到_inqueue，由子进程从队列中取出任务执行；</span></span>
+<span class="line"><span style="color: #abb2bf">_outqueue: 该队列与子进程交互，保存子进程的结果；</span></span>
+<span class="line"><span style="color: #abb2bf">_cache: 缓存字典，以job_id为key。</span></span>
+<span class="line"><span style="color: #abb2bf"></span></span>
+<span class="line"><span style="color: #abb2bf">_worker_handler: 维护进程数量的子线程，例如指定进程池大小为4，任务数为10，一个子进程完成任务之后销毁，进程池中进程为3，此时由这个线程生成新的进程加入到进程池；</span></span>
+<span class="line"><span style="color: #abb2bf">_task_handler: 从_taskqueue队列取任务到_inqueue队列的子线程；</span></span>
+<span class="line"><span style="color: #abb2bf">_result_handler: 从_outqueue取出结果的子线程，并将_cache中对应的记录删除。</span></span></code></pre></div></div></figure>
+<p>分析完类里面的主要变量，下面分析一下过程：</p>
 <blockquote>
 <ol>
 <li>实例化Pool类时，生成上述主要变量，生成进程池；</li>
@@ -658,41 +654,40 @@ _result_handler: 从_outqueue取出结果的子线程，并将_cache中对应的
 <p>看到这里，可以明白，<strong>使用进程池必须要能够获取到子进程的结果，而子进程被kill的时候不会产生结果，也不会通知进程池，因此这个问题对于使用进程池来实现多进程是无解的。</strong></p>
 <p>因此，当子进程任务比较复杂，存在被操作系统自动kill的可能，那么最好不要使用<code>Pool</code>。</p>
 <h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><p>上面的问题归根到底是通过Pool的方式实现多进程时，主进程不知道子进程是否已经挂掉，因此如果非要使用进程池来解决这个问题，可以从这里下手，例如下面这个不大优雅的实现：</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> multiprocessing
-<span class="token keyword">import</span> time
-<span class="token keyword">import</span> os
-
-<span class="token keyword">def</span> <span class="token function">subprocesses</span><span class="token punctuation">(</span>argv<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'sub-process id: '</span>os<span class="token punctuation">.</span>getpid<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-    time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 子进程处理中</span>
-    re <span class="token operator">=</span> <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;"result": argv&amp;#125;</span>
-    <span class="token keyword">return</span> re
-
-<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span>os<span class="token punctuation">.</span>getpid<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-    pool <span class="token operator">=</span> multiprocessing<span class="token punctuation">.</span>Pool<span class="token punctuation">(</span>processes<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span>
-    results <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-    msg <span class="token operator">=</span> <span class="token string">"test"</span>
-    sub_res <span class="token operator">=</span> pool<span class="token punctuation">.</span>map<span class="token punctuation">(</span>subprocesses<span class="token punctuation">,</span> <span class="token punctuation">(</span>msg<span class="token punctuation">,</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-    results<span class="token punctuation">.</span>append<span class="token punctuation">(</span>sub_res<span class="token punctuation">)</span>
-    pool<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 关闭进程池，表示不能再往进程池中添加进程，需要在join之前调用</span>
-
-    <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>  <span class="token comment" spellcheck="true"># 主进程轮询子进程状态，代替pool.join()</span>
-        finish_flag <span class="token operator">=</span> <span class="token boolean">True</span>  <span class="token comment" spellcheck="true"># Pool is finish(True) or not</span>
-        <span class="token keyword">for</span> sub_p <span class="token keyword">in</span> pool<span class="token punctuation">.</span>_pool<span class="token punctuation">:</span>
-            <span class="token keyword">if</span> sub_p<span class="token punctuation">.</span>is_alive<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-                finish_flag <span class="token operator">=</span> <span class="token boolean">False</span>
-                <span class="token keyword">break</span>
-        <span class="token keyword">if</span> finish_flag<span class="token punctuation">:</span>
-            error_flag <span class="token operator">=</span> <span class="token boolean">False</span>  <span class="token comment" spellcheck="true"># error(True) or not</span>
-            <span class="token keyword">for</span> sub_p <span class="token keyword">in</span> pool<span class="token punctuation">.</span>_pool<span class="token punctuation">:</span>
-                <span class="token keyword">if</span> sub_p<span class="token punctuation">.</span>exitcode <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">:</span>
-                    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Sub-processes exit error'</span><span class="token punctuation">)</span>
-                    pool<span class="token punctuation">.</span>terminate<span class="token punctuation">(</span><span class="token punctuation">)</span>
-                    flag <span class="token operator">=</span> <span class="token boolean">True</span>
-                    <span class="token keyword">break</span>
-            <span class="token keyword">break</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="shiki python"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">import</span><span style="color: #ABB2BF"> multiprocessing</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #ABB2BF"> time</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #ABB2BF"> os</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C678DD">def</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">subprocesses</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66; font-style: italic">argv</span><span style="color: #ABB2BF">):</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #56B6C2">print</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&#39;sub-process id: &#39;</span><span style="color: #ABB2BF">os.</span><span style="color: #61AFEF">getpid</span><span style="color: #ABB2BF">())</span></span>
+<span class="line"><span style="color: #ABB2BF">    time.</span><span style="color: #61AFEF">sleep</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66">10</span><span style="color: #ABB2BF">)  </span><span style="color: #7F848E; font-style: italic"># 子进程处理中</span></span>
+<span class="line"><span style="color: #ABB2BF">    re </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> {</span><span style="color: #98C379">&quot;result&quot;</span><span style="color: #ABB2BF">: argv}</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> re</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C678DD">if</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">__name__</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">==</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">&#39;__main__&#39;</span><span style="color: #ABB2BF">:</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #56B6C2">print</span><span style="color: #ABB2BF">(os.</span><span style="color: #61AFEF">getpid</span><span style="color: #ABB2BF">())</span></span>
+<span class="line"><span style="color: #ABB2BF">    pool </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> multiprocessing.</span><span style="color: #61AFEF">Pool</span><span style="color: #ABB2BF">(</span><span style="color: #E06C75; font-style: italic">processes</span><span style="color: #56B6C2">=</span><span style="color: #D19A66">1</span><span style="color: #ABB2BF">)</span></span>
+<span class="line"><span style="color: #ABB2BF">    results </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> []</span></span>
+<span class="line"><span style="color: #ABB2BF">    msg </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">&quot;test&quot;</span></span>
+<span class="line"><span style="color: #ABB2BF">    sub_res </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> pool.</span><span style="color: #61AFEF">map</span><span style="color: #ABB2BF">(subprocesses, (msg,))</span></span>
+<span class="line"><span style="color: #ABB2BF">    results.</span><span style="color: #61AFEF">append</span><span style="color: #ABB2BF">(sub_res)</span></span>
+<span class="line"><span style="color: #ABB2BF">    pool.</span><span style="color: #61AFEF">close</span><span style="color: #ABB2BF">()  </span><span style="color: #7F848E; font-style: italic"># 关闭进程池，表示不能再往进程池中添加进程，需要在join之前调用</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #C678DD">while</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">True</span><span style="color: #ABB2BF">:  </span><span style="color: #7F848E; font-style: italic"># 主进程轮询子进程状态，代替pool.join()</span></span>
+<span class="line"><span style="color: #ABB2BF">        finish_flag </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">True</span><span style="color: #ABB2BF">  </span><span style="color: #7F848E; font-style: italic"># Pool is finish(True) or not</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">for</span><span style="color: #ABB2BF"> sub_p </span><span style="color: #C678DD">in</span><span style="color: #ABB2BF"> pool._pool:</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #C678DD">if</span><span style="color: #ABB2BF"> sub_p.</span><span style="color: #61AFEF">is_alive</span><span style="color: #ABB2BF">():</span></span>
+<span class="line"><span style="color: #ABB2BF">                finish_flag </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">False</span></span>
+<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #C678DD">break</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">if</span><span style="color: #ABB2BF"> finish_flag:</span></span>
+<span class="line"><span style="color: #ABB2BF">            error_flag </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">False</span><span style="color: #ABB2BF">  </span><span style="color: #7F848E; font-style: italic"># error(True) or not</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #C678DD">for</span><span style="color: #ABB2BF"> sub_p </span><span style="color: #C678DD">in</span><span style="color: #ABB2BF"> pool._pool:</span></span>
+<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #C678DD">if</span><span style="color: #ABB2BF"> sub_p.exitcode </span><span style="color: #56B6C2">!=</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">0</span><span style="color: #ABB2BF">:</span></span>
+<span class="line"><span style="color: #ABB2BF">                    </span><span style="color: #56B6C2">print</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&#39;Sub-processes exit error&#39;</span><span style="color: #ABB2BF">)</span></span>
+<span class="line"><span style="color: #ABB2BF">                    pool.</span><span style="color: #61AFEF">terminate</span><span style="color: #ABB2BF">()</span></span>
+<span class="line"><span style="color: #ABB2BF">                    flag </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">True</span></span>
+<span class="line"><span style="color: #ABB2BF">                    </span><span style="color: #C678DD">break</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #C678DD">break</span></span></code></pre></div></div></figure>
 <blockquote>
 <p>The exit code or exit status is a number returned by a process created by a command line indicating if there was an error or not.</p>
 <ul>
@@ -702,25 +697,24 @@ _result_handler: 从_outqueue取出结果的子线程，并将_cache中对应的
 </blockquote>
 <p>上面的代码用主进程轮询子进程状态，代替<code>pool.join()</code>，先通过进程的<code>is_alive()</code>方法判断进程是否存活，当进程池中所有进程都已经退出，则通过进程的<code>exitcode</code>变量判断是否是正常退出，若存在异常退出的子进程，则手动terminate进程池，确保不会卡死。</p>
 <h4 id="Process解决"><a href="#Process解决" class="headerlink" title="Process解决"></a>Process解决</h4><p>直接不用Pool实现多进程，使用<code>multiprocessing.Process</code>实现，子进程被kill的时候会自动结束：</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> multiprocessing
-<span class="token keyword">import</span> time
-<span class="token keyword">import</span> os
-
-<span class="token keyword">def</span> <span class="token function">subprocesses</span><span class="token punctuation">(</span>argv<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'sub-process id: '</span>os<span class="token punctuation">.</span>getpid<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-    time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 子进程处理中</span>
-    re <span class="token operator">=</span> <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;"result": argv&amp;#125;</span>
-    <span class="token keyword">return</span> re
-
-<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>    process_list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        p <span class="token operator">=</span> multiprocessing<span class="token punctuation">.</span>Process<span class="token punctuation">(</span>target<span class="token operator">=</span>subprocesses<span class="token punctuation">,</span> args<span class="token operator">=</span><span class="token punctuation">(</span><span class="token string">'test_process'</span><span class="token punctuation">,</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-        p<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span>
-        process_list<span class="token punctuation">.</span>append<span class="token punctuation">(</span>p<span class="token punctuation">)</span>
-
-    <span class="token keyword">for</span> p <span class="token keyword">in</span> process_list<span class="token punctuation">:</span>
-        p<span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="shiki python"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">import</span><span style="color: #ABB2BF"> multiprocessing</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #ABB2BF"> time</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #ABB2BF"> os</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C678DD">def</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">subprocesses</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66; font-style: italic">argv</span><span style="color: #ABB2BF">):</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #56B6C2">print</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&#39;sub-process id: &#39;</span><span style="color: #ABB2BF">os.</span><span style="color: #61AFEF">getpid</span><span style="color: #ABB2BF">())</span></span>
+<span class="line"><span style="color: #ABB2BF">    time.</span><span style="color: #61AFEF">sleep</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66">10</span><span style="color: #ABB2BF">)  </span><span style="color: #7F848E; font-style: italic"># 子进程处理中</span></span>
+<span class="line"><span style="color: #ABB2BF">    re </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> {</span><span style="color: #98C379">&quot;result&quot;</span><span style="color: #ABB2BF">: argv}</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> re</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C678DD">if</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">__name__</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">==</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">&#39;__main__&#39;</span><span style="color: #ABB2BF">:    process_list </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> []</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #C678DD">for</span><span style="color: #ABB2BF"> i </span><span style="color: #C678DD">in</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">range</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66">2</span><span style="color: #ABB2BF">):</span></span>
+<span class="line"><span style="color: #ABB2BF">        p </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> multiprocessing.</span><span style="color: #61AFEF">Process</span><span style="color: #ABB2BF">(</span><span style="color: #E06C75; font-style: italic">target</span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF">subprocesses, </span><span style="color: #E06C75; font-style: italic">args</span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&#39;test_process&#39;</span><span style="color: #ABB2BF">,))</span></span>
+<span class="line"><span style="color: #ABB2BF">        p.</span><span style="color: #61AFEF">start</span><span style="color: #ABB2BF">()</span></span>
+<span class="line"><span style="color: #ABB2BF">        process_list.</span><span style="color: #61AFEF">append</span><span style="color: #ABB2BF">(p)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #C678DD">for</span><span style="color: #ABB2BF"> p </span><span style="color: #C678DD">in</span><span style="color: #ABB2BF"> process_list:</span></span>
+<span class="line"><span style="color: #ABB2BF">        p.</span><span style="color: #61AFEF">join</span><span style="color: #ABB2BF">()</span></span></code></pre></div></div></figure>
 
             </div>
             <hr />
@@ -760,56 +754,57 @@ _result_handler: 从_outqueue取出结果的子线程，并将_cache中对应的
     <article id="prenext-posts" class="prev-next articles">
         <div class="row article-row">
             
-                    <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
-                        <div class="article-badge left-badge text-color">
-                            <i class="fa fa-dot-circle-o"></i>&nbsp;
-                            本篇
-                        </div>
-                        <div class="card">
-                            <a href="/2022/02/15/python-duo-jin-cheng-zhong-de-keng/">
-                                <div class="card-image">
-                                    
+                <div class="article col s12 m6" data-aos="fade-up">
+                    <div class="article-badge left-badge text-color">
+                        <i class="fa fa-chevron-left"></i>&nbsp;
+                        上一篇
+                    </div>
+                    <div class="card">
+                        <a href="/2022/04/09/bert-yu-gpt-yu-yan-mo-xing-de-shuang-zi-xing-jia-gou-jie-xi/">
+                            <div class="card-image">
+                                
+                                        
+
+                                            <!-- 3/22修改： -->
+                                            <img src="https://s4.ax1x.com/2022/02/08/HlMjhD.jpg" class="responsive-img" alt="BERT与GPT：语言模型的双子星">
                                             
-                                                <img src="https://s4.ax1x.com/2022/02/08/HlMTXR.jpg" class="responsive-img" alt="python多进程中的坑">
-                                                
-                                                    <span class="card-title">python多进程中的坑</span>
-                                </div>
-                            </a>
-                            <div class="card-content article-content">
-                                <div class="summary block-with-text">
-                                    
-                                        线上环境docker容器中使用python多进程开发时遇到另一个小坑，做一下记录。问题表现为docker容器卡死，不执行程序并且也不再消费消息队列中的任务。
-                                            
-                                </div>
-                                <div class="publish-info">
-                                    <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2022-02-15
-                            </span>
-                                    <span class="publish-author">
+                                                <span class="card-title">BERT与GPT：语言模型的双子星</span>
+                            </div>
+                        </a>
+                        <div class="card-content article-content">
+                            <div class="summary block-with-text">
+                                
+                                    随着论文《Attention is All You Need》的发表，常用的RNN结构逐渐被抛弃。出现了基于attention的Transformer模型架构。
+                                        
+                            </div>
+                            <div class="publish-info">
+                                <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2022-04-09
+                        </span>
+                                <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/python/" class="post-category" target="_blank">
-                                    python
+                            <a href="/categories/NLP/" class="post-category" target="_blank">
+                                    NLP
                                 </a>
                             
                             
                         </span>
-                                </div>
                             </div>
-
-                            
-                                <div class="card-action article-tags">
-                                    
-                                        <a href="/tags/%E5%A4%9A%E8%BF%9B%E7%A8%8B/" target="_blank">
-                                            <span class="chip bg-color">多进程</span>
-                                        </a>
-                                        
-                                </div>
-                                
                         </div>
+                        
+                            <div class="card-action article-tags">
+                                
+                                    <a href="/tags/Pretraining-model/" target="_blank">
+                                        <span class="chip bg-color">Pretraining model</span>
+                                    </a>
+                                    
+                            </div>
+                            
                     </div>
-                    
+                </div>
+                
                         
                             <div class="article col s12 m6" data-aos="fade-up">
                                 <div class="article-badge right-badge text-color">
@@ -1027,7 +1022,7 @@ _result_handler: 从_outqueue取出结果的子线程，并将_cache中对应的
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">65k</span>
+                <span class="white-color">66.2k</span>
                 
 
                     <br>
@@ -1216,6 +1211,27 @@ $(function () {
                                                             <!-- 雪花特效 -->
                                                             
 
-    </body>
+    <!-- hexo injector body_end start -->
+  <script>
+  const CODE_CONFIG = {
+    beautify: undefined,
+    highlightCopy: undefined,
+    highlightLang: undefined,
+    highlightHeightLimit: undefined,
+    isHighlightShrink: undefined,
+    copy: {
+      success: 'undefined',
+      error: 'undefined',
+      noSupport: 'undefined',
+    }
+  };
+  console.log(
+    `%c hexo-shiki-plugin %c v1.0.27 %c https://github.com/nova1751/hexo-shiki-plugin`,
+    "color: #fff; background: #5f5f5f",
+    "color: #fff; background: #80c8f8",
+    ""
+  );
+  </script>
+  <!-- hexo injector body_end end --></body>
 
 </html>

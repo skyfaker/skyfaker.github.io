@@ -73,7 +73,9 @@
         })();
     </script>
 
-<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="SKYFAKER" type="application/atom+xml">
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-shiki-plugin@latest/lib/codeblock.css">
+<style>:root{--hl-color:#abb2bf;--hl-bg:#282c34;--hltools-bg:#21252b;--hltools-color:#bbbbbc;--hlnumber-bg:#282c34;--hlnumber-color:#495162;--hlscrollbar-bg:#373c47;--hlexpand-bg:linear-gradient(180deg,rgba(40,44,52,0.1),rgba(40,44,52,0.9))}</style><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="SKYFAKER" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
@@ -553,8 +555,8 @@
 <script type="math/tex; mode=display">
 I_t = \max_{i\in \{1,\cdots,k\}}\{\overline{X_{i,T_i(t-1)}}+c_{t-1,T_i(t-1)} \}</script><p>其中$c_{t,s}$定义如下：</p>
 <script type="math/tex; mode=display">
-c_{t,s} = \sqrt{\frac{2\ln t}{s}}</script><p>$T_i(t) = \sum_{s=1}^t if(I_s=i)$为从初始时刻到t时刻时，选择第i个赌博机的次数。</p>
-<p>$I_t$中第一项表示不同赌博机过去的奖励均值，则为了最大化$I_t$，倾向于选取之前平均收益最大的赌博机，代表利用。第二项大小与该赌博机被选择的次数有关，次数越多，则$c_{t,s}$中的s越大，则$c_{t,s}$越小，更倾向于选择之前被选次数更少的赌博机，代表探索。</p>
+c_{t,s} = \sqrt{\frac{2\ln t}{s}}</script><p>$T<em>i(t) = \sum</em>{s=1}^t if(I_s=i)$为从初始时刻到t时刻时，选择第i个赌博机的次数。</p>
+<p>$I<em>t$中第一项表示不同赌博机过去的奖励均值，则为了最大化$I_t$，倾向于选取之前平均收益最大的赌博机，代表利用。第二项大小与该赌博机被选择的次数有关，次数越多，则$c</em>{t,s}$中的s越大，则$c_{t,s}$越小，更倾向于选择之前被选次数更少的赌博机，代表探索。</p>
 <p>简化表示：</p>
 <script type="math/tex; mode=display">
 UCB= \overline X_j + c\sqrt{\frac{2\ln n}{n_j}}</script><p>$\overline X_j$为第j个赌博机过去获得的奖励的均值，$n_j$为第j个赌博机被选择的次数，c为平衡因子。</p>
@@ -902,7 +904,7 @@ UCB= \overline X_j + c\sqrt{\frac{2\ln n}{n_j}}</script><p>$\overline X_j$为第
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">65k</span>
+                <span class="white-color">66.2k</span>
                 
 
                     <br>
@@ -1091,6 +1093,27 @@ $(function () {
                                                             <!-- 雪花特效 -->
                                                             
 
-    </body>
+    <!-- hexo injector body_end start -->
+  <script>
+  const CODE_CONFIG = {
+    beautify: undefined,
+    highlightCopy: undefined,
+    highlightLang: undefined,
+    highlightHeightLimit: undefined,
+    isHighlightShrink: undefined,
+    copy: {
+      success: 'undefined',
+      error: 'undefined',
+      noSupport: 'undefined',
+    }
+  };
+  console.log(
+    `%c hexo-shiki-plugin %c v1.0.27 %c https://github.com/nova1751/hexo-shiki-plugin`,
+    "color: #fff; background: #5f5f5f",
+    "color: #fff; background: #80c8f8",
+    ""
+  );
+  </script>
+  <!-- hexo injector body_end end --></body>
 
 </html>
