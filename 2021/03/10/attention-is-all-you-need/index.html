@@ -509,7 +509,7 @@ Attention的作用在做NLP任务时">
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="对Attention的一些解读"><a href="#对Attention的一些解读" class="headerlink" title="对Attention的一些解读"></a>对Attention的一些解读</h2><p>2017年，Google发表了论文《Attention is All You Need》，在论文中，抛弃了常用的RNN结构，提出了一种比较新颖的Attention结构。</p>
-<h3 id="Attention的作用"><a href="#Attention的作用" class="headerlink" title="Attention的作用"></a>Attention的作用</h3><p>在做NLP任务时，原始数据一般是句子级别，所以需要先将句子拆分，中文通常按照词或者字级别进行拆分。以中文字拆分为例，拆分后的每个字通过字典获取这个字的唯一编号，然后将这个编号转换成对应的字向量。这样，一个句子<code>X</code>可以表示成 $X=( x<em>0,x_1, …,x_n)$，其中 $x_i$ 为该句子中第 $i$ 个字的字向量，维度为v, 即$X\in R</em>{n×d_v}$。</p>
+<h3 id="Attention的作用"><a href="#Attention的作用" class="headerlink" title="Attention的作用"></a>Attention的作用</h3><p>在做NLP任务时，原始数据一般是句子级别，所以需要先将句子拆分，中文通常按照词或者字级别进行拆分。以中文字拆分为例，拆分后的每个字通过字典获取这个字的唯一编号，然后将这个编号转换成对应的字向量。这样，一个句子<code>X</code>可以表示成 $X=( x_0,x_1, …,x_n)$，其中 $x_i$ 为该句子中第 $i$ 个字的字向量，维度为v, 即$X\in R_{n×d_v}$。</p>
 <p>将编号转换成向量的最简单方法为one-hot编码，但是这种编码方式不具备实用性，我们需要的是一种维度更低的，表达语义效果更好的向量。</p>
 <h4 id="RNN"><a href="#RNN" class="headerlink" title="RNN"></a>RNN</h4><p>在NLP领域中，最常用的编码结构为RNN结构，RNN方法的过程可以简单表示为一种递归的方式</p>
 <script type="math/tex; mode=display">
@@ -522,7 +522,7 @@ y_{t+1}=f(y_t, x_t)</script><p>这样，在改变原始字的向量维度的同�
 y_t = f(x_{t-1}, x_{t}, x_{t+1})</script><p>而对于超过了卷积核范围的其他字向量信息，可以通过层级结构，扩大感受野，获取更远距离的字符信息。</p>
 <h4 id="Attention"><a href="#Attention" class="headerlink" title="Attention"></a>Attention</h4><p>Attention Mechanism和CNN与RNN最大的不同是，在attention结构中，每一个字可以获取到所有信息。</p>
 <script type="math/tex; mode=display">
-Y = f(Q, K, X)</script><p>其中Q，K为列维度相同的矩阵，X为输入的句子的子向量，且K和X的向量个数相同，即 $Q\in R<em>{m×d_k},K\in R</em>{n×d<em>k},V\in R</em>{n×d_v}$。</p>
+Y = f(Q, K, X)</script><p>其中Q，K为列维度相同的矩阵，X为输入的句子的子向量，且K和X的向量个数相同，即 $ Q\in R_{m×d_k},K\in R_{n×d_k},V\in R_{n×d_v} $。</p>
 <p>当Q=K=X时，称为self-attention。</p>
 <p>以self-attention为例，在self-attention中，每个字都可以直接与句子中任意一个字直接连接，即这个字可以获取到句子中任意一个字的信息。</p>
 <p>下面我们详细看看，attention是怎么实现这一效果的。</p>

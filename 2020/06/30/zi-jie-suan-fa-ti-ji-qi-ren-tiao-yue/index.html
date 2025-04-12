@@ -513,7 +513,7 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>游戏中有N+1座建筑——从0到N编号，从左到右排列。编号为0的建筑高度为0个单位，编号为i的建筑的高度为H(i)个单位。 </p>
-<p>起初， 机器人在编号为0的建筑处。每一步，它跳到下一个（右边）建筑。假设机器人在第k个建筑，且它现在的能量值是E, 下一步它将跳到第个k+1建筑。它将会得到或者失去正比于与$H<em>{k+1}$与E之差的能量。如果$H</em>{k+1}$&gt; E 那么机器人就失去$H<em>{k+1}$- E 的能量值，否则它将得到 E - $H</em>{k+1}$的能量值。</p>
+<p>起初， 机器人在编号为0的建筑处。每一步，它跳到下一个（右边）建筑。假设机器人在第k个建筑，且它现在的能量值是E, 下一步它将跳到第个k+1建筑。它将会得到或者失去正比于与$H_{k+1}$与E之差的能量。如果$H_{k+1}$&gt; E 那么机器人就失去$H_{k+1}$- E 的能量值，否则它将得到 E - $H_{k+1}$的能量值。</p>
 <p>游戏目标是到达第个N建筑，在这个过程中，能量值不能为负数个单位。现在的问题是机器人以多少能量值开始游戏，才可以保证成功完成游戏？</p>
 <h3 id="输入描述"><a href="#输入描述" class="headerlink" title="输入描述:"></a>输入描述:</h3><figure class="shiki"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #abb2bf">第一行输入，表示一共有 N 组数据.</span></span>
 <span class="line"><span style="color: #abb2bf"></span></span>
@@ -532,9 +532,9 @@ E_{k} = 2E_{k-1} - H_{k}</script><p>根据这个递推公式，我们可以得�
 E_n = 2E_{n-1} - H_{n} = 2\times (2E_{n-2} - H_{n-1}) - H_n =……\\
 = 2^nE_0 -\sum_{i=1}^n 2^{n-i} H_i</script><p>题目要求$对于\ \forall n, E_n\geq 0 $，则：</p>
 <script type="math/tex; mode=display">
-对于\forall n, E_0 \geq \sum_{i=1}^{n}\frac{H_i}{2^i}</script><p>所以符合题意的最小$E<em>0 = \lceil \ \sum</em>{i=1}^{n}\frac{H_i}{2^i} \ \rceil$</p>
-<h3 id="逆推"><a href="#逆推" class="headerlink" title="逆推"></a>逆推</h3><p>想象一下，机器人从第n个建筑往前跳，则有$E<em>{n} = 2E</em>{n-1} - H_{n}$，即机器人在后一个建筑时的能量，加上建筑的高度，等于2倍的在前一个建筑时的能量，这样就可以依次获取到在前一个建筑的能量。</p>
-<p>现在要求跳到第n个建筑的时候能量不小于0，则最小为0，那么设$E<em>{n} = 0$，则$E</em>{n-1} =\lceil \frac{H<em>n}{2} \rceil, E</em>{n-2} =\lceil \frac{H<em>{n-1}\ +\ E</em>{n-1}}{2} \rceil …… E<em>{0} =\lceil \frac{H_1 \ + \ E</em>{1}}{2} \rceil$。</p>
+对于\forall n, E_0 \geq \sum_{i=1}^{n}\frac{H_i}{2^i}</script><p>所以符合题意的最小$E_0 = \lceil \ \sum_{i=1}^{n}\frac{H_i}{2^i} \ \rceil$</p>
+<h3 id="逆推"><a href="#逆推" class="headerlink" title="逆推"></a>逆推</h3><p>想象一下，机器人从第n个建筑往前跳，则有$E_{n} = 2E_{n-1} - H_{n}$，即机器人在后一个建筑时的能量，加上建筑的高度，等于2倍的在前一个建筑时的能量，这样就可以依次获取到在前一个建筑的能量。</p>
+<p>现在要求跳到第n个建筑的时候能量不小于0，则最小为0，那么设$E_{n} = 0$，则$E_{n-1} =\lceil \frac{H_n}{2} \rceil, E_{n-2} =\lceil \frac{H_{n-1}\ +\ E_{n-1}}{2} \rceil …… E_{0} =\lceil \frac{H_1 \ + \ E_{1}}{2} \rceil$。</p>
 <h3 id="模拟过程"><a href="#模拟过程" class="headerlink" title="模拟过程"></a>模拟过程</h3><p>还可以直接模拟跳跃过程，搜索最小的$E_0$。搜索过程可以使用二分查找。</p>
 <p>初始的能量只要超过全部建筑高度之和sum，则必定可以跳到最后一个建筑。则可以在 [1, sum] 使用二分查找。</p>
 <p>也可以从1开始，跳跃失败则指数增加，直到跳跃成功，然后在失败的最大值和成功值之间二分查找。例如开始$E_0 = 1$，失败则设置$E_0 = 2$、$E_0 = 4$、$E_0 = 8$，假设$E_0 = 8$成功，则在 [4,8]之间二分查找。</p>

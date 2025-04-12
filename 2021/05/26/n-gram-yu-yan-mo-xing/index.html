@@ -522,7 +522,7 @@
 <script type="math/tex; mode=display">
 P(w_1,w_2,...,w_n) = \prod_{i=1}^nP(w_i) \tag{1}</script><p>对于bigram，当前词出现的可能性只依赖于当前词汇的前一个词，因此：</p>
 <script type="math/tex; mode=display">
-P(w_1,w_2,...,w_n) = \prod_{i=1}^{n}P(w_i|w_{i-1}) \tag{2}</script><p>其中  $P（w<em>i|w_i-1）$  表示在的 $w</em>{i-1}$的 条件下  $w_i$ 出现的概率。</p>
+P(w_1,w_2,...,w_n) = \prod_{i=1}^{n}P(w_i|w_{i-1}) \tag{2}</script><p>其中  $P（w_i|w_i-1）$  表示在的 $w_{i-1}$的 条件下  $w_i$ 出现的概率。</p>
 <p>特别的，$P（w_1|w_0） 即 P（w_1|BOS）\ （BOS表示句子开头）$ 表示 $ w_1 $ 出现在句子开头的概率。</p>
 <p>以此类推，K-gram模型概率为：</p>
 <script type="math/tex; mode=display">
