@@ -1,0 +1,543 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>SKYFAKER</title>
+  
+  <subtitle>Hello，world.</subtitle>
+  <link href="https://www.skyfaker.cc/atom.xml" rel="self"/>
+  
+  <link href="https://www.skyfaker.cc/"/>
+  <updated>2023-05-10T07:53:49.564Z</updated>
+  <id>https://www.skyfaker.cc/</id>
+  
+  <author>
+    <name>文杰</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>python多进程中的坑</title>
+    <link href="https://www.skyfaker.cc/2022/02/15/python-duo-jin-cheng-zhong-de-keng/"/>
+    <id>https://www.skyfaker.cc/2022/02/15/python-duo-jin-cheng-zhong-de-keng/</id>
+    <published>2022-02-14T16:19:32.000Z</published>
+    <updated>2023-05-10T07:53:49.564Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;最近在线上的测试环境遇到一个偶发的问题，问题表现为docker容器卡死，不执行程序并且也不再消费消息队列中的任务。&lt;/p&gt;
+&lt;p&gt;线上环境使用docker集群，消息的传递使用消息队列实现。出问题的是一个下游服务，这个服务基本流程是，载入数据，处理之后进行模型训练和预测。奇怪</summary>
+        
+      
+    
+    
+    
+    <category term="python" scheme="https://www.skyfaker.cc/categories/python/"/>
+    
+    
+    <category term="多进程" scheme="https://www.skyfaker.cc/tags/%E5%A4%9A%E8%BF%9B%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Don&#39;t stop pretraining</title>
+    <link href="https://www.skyfaker.cc/2021/12/11/don-t-stop-pretraining/"/>
+    <id>https://www.skyfaker.cc/2021/12/11/don-t-stop-pretraining/</id>
+    <published>2021-12-11T06:35:21.000Z</published>
+    <updated>2025-02-06T16:47:14.682Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;如今很多NLP任务都会在Bert等预训练模型的基础上进行fine-tuning，可能很多人没有意识到在任务领域上进行新的预训练会进一步提高模型效果，下面这篇论文&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="NLP" scheme="https://www.skyfaker.cc/categories/NLP/"/>
+    
+    
+    <category term="Pretraining model" scheme="https://www.skyfaker.cc/tags/Pretraining-model/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>NER技术的探索与实践</title>
+    <link href="https://www.skyfaker.cc/2021/11/01/ner-ji-zhu-de-tan-suo-yu-shi-jian/"/>
+    <id>https://www.skyfaker.cc/2021/11/01/ner-ji-zhu-de-tan-suo-yu-shi-jian/</id>
+    <published>2021-11-01T07:15:23.000Z</published>
+    <updated>2023-05-09T03:02:22.752Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;NER概述&quot;&gt;&lt;a href=&quot;#NER概述&quot; class=&quot;headerlink&quot; title=&quot;NER概述&quot;&gt;&lt;/a&gt;NER概述&lt;/h2&gt;&lt;p&gt;命名实体识别（Named Entity</summary>
+        
+      
+    
+    
+    
+    <category term="NLP" scheme="https://www.skyfaker.cc/categories/NLP/"/>
+    
+    
+    <category term="NER" scheme="https://www.skyfaker.cc/tags/NER/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>神经网络语言模型</title>
+    <link href="https://www.skyfaker.cc/2021/08/06/shen-jing-wang-luo-yu-yan-mo-xing/"/>
+    <id>https://www.skyfaker.cc/2021/08/06/shen-jing-wang-luo-yu-yan-mo-xing/</id>
+    <published>2021-08-06T15:09:39.000Z</published>
+    <updated>2023-05-09T03:02:09.988Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;神经网络语言模型&quot;&gt;&lt;a href=&quot;#神经网络语言模型&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="NLP" scheme="https://www.skyfaker.cc/categories/NLP/"/>
+    
+    
+    <category term="语言模型" scheme="https://www.skyfaker.cc/tags/%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/"/>
+    
+    <category term="神经网络" scheme="https://www.skyfaker.cc/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>语言模型——N-gram模型</title>
+    <link href="https://www.skyfaker.cc/2021/05/26/n-gram-yu-yan-mo-xing/"/>
+    <id>https://www.skyfaker.cc/2021/05/26/n-gram-yu-yan-mo-xing/</id>
+    <published>2021-05-26T14:24:04.000Z</published>
+    <updated>2022-09-06T15:48:04.887Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;N-Gram语言模型&quot;&gt;&lt;a href=&quot;#N-Gram语言模型&quot; class=&quot;headerlink&quot; title=&quot;N-Gram语言模型&quot;&gt;&lt;/a&gt;N-Gram语言模型&lt;/h2&gt;&lt;h3 id=&quot;模型定义&quot;&gt;&lt;a href=&quot;#模型定义&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="NLP" scheme="https://www.skyfaker.cc/categories/NLP/"/>
+    
+    
+    <category term="语言模型" scheme="https://www.skyfaker.cc/tags/%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/"/>
+    
+    <category term="N-gram" scheme="https://www.skyfaker.cc/tags/N-gram/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>语言模型概述</title>
+    <link href="https://www.skyfaker.cc/2021/05/03/yu-yan-mo-xing-gai-shu/"/>
+    <id>https://www.skyfaker.cc/2021/05/03/yu-yan-mo-xing-gai-shu/</id>
+    <published>2021-05-03T14:06:17.000Z</published>
+    <updated>2023-02-10T06:50:50.924Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;语言模型基本概念&quot;&gt;&lt;a href=&quot;#语言模型基本概念&quot; class=&quot;headerlink&quot; title=&quot;语言模型基本概念&quot;&gt;&lt;/a&gt;语言模型基本概念&lt;/h2&gt;&lt;h3 id=&quot;语言模型基础&quot;&gt;&lt;a href=&quot;#语言模型基础&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="NLP" scheme="https://www.skyfaker.cc/categories/NLP/"/>
+    
+    
+    <category term="语言模型" scheme="https://www.skyfaker.cc/tags/%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/"/>
+    
+    <category term="概述" scheme="https://www.skyfaker.cc/tags/%E6%A6%82%E8%BF%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python协程入门</title>
+    <link href="https://www.skyfaker.cc/2021/04/02/python-xie-cheng/"/>
+    <id>https://www.skyfaker.cc/2021/04/02/python-xie-cheng/</id>
+    <published>2021-04-02T06:35:58.000Z</published>
+    <updated>2022-02-06T15:09:47.627Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;并发&quot;&gt;&lt;a href=&quot;#并发&quot; class=&quot;headerlink&quot; title=&quot;并发&quot;&gt;&lt;/a&gt;并发&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;并发编程是指在一台处理器上“同时”（同一个时间段）处理多个任务。&lt;/strong&gt; 并发是在同一实体上的多个事件。</summary>
+        
+      
+    
+    
+    
+    <category term="python" scheme="https://www.skyfaker.cc/categories/python/"/>
+    
+    
+    <category term="并发编程" scheme="https://www.skyfaker.cc/tags/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Attention is all you need</title>
+    <link href="https://www.skyfaker.cc/2021/03/10/attention-is-all-you-need/"/>
+    <id>https://www.skyfaker.cc/2021/03/10/attention-is-all-you-need/</id>
+    <published>2021-03-10T06:49:46.000Z</published>
+    <updated>2025-02-06T17:05:04.441Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;对Attention的一些解读&quot;&gt;&lt;a href=&quot;#对Attention的一些解读&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="NLP" scheme="https://www.skyfaker.cc/categories/NLP/"/>
+    
+    
+    <category term="Attention" scheme="https://www.skyfaker.cc/tags/Attention/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>正则表达式与python正则</title>
+    <link href="https://www.skyfaker.cc/2021/01/01/zheng-ze-biao-da-shi-yu-python-zheng-ze/"/>
+    <id>https://www.skyfaker.cc/2021/01/01/zheng-ze-biao-da-shi-yu-python-zheng-ze/</id>
+    <published>2021-01-01T15:26:47.000Z</published>
+    <updated>2022-03-13T16:37:52.201Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;正则表达式&quot;&gt;&lt;a href=&quot;#正则表达式&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="python" scheme="https://www.skyfaker.cc/categories/python/"/>
+    
+    
+    <category term="正则表达式" scheme="https://www.skyfaker.cc/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>机器学习——SVM简述</title>
+    <link href="https://www.skyfaker.cc/2020/11/11/svm-xiang-jie/"/>
+    <id>https://www.skyfaker.cc/2020/11/11/svm-xiang-jie/</id>
+    <published>2020-11-11T07:15:06.000Z</published>
+    <updated>2023-03-01T06:12:25.535Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;支持向量机（Support Vector Machine,</summary>
+        
+      
+    
+    
+    
+    <category term="机器学习" scheme="https://www.skyfaker.cc/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="SVM" scheme="https://www.skyfaker.cc/tags/SVM/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>遍历与启发式搜索</title>
+    <link href="https://www.skyfaker.cc/2020/10/06/bian-li-yu-qi-fa-shi-sou-suo/"/>
+    <id>https://www.skyfaker.cc/2020/10/06/bian-li-yu-qi-fa-shi-sou-suo/</id>
+    <published>2020-10-06T09:43:33.000Z</published>
+    <updated>2023-05-06T16:18:03.637Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;遍历算法&quot;&gt;&lt;a href=&quot;#遍历算法&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="搜索算法" scheme="https://www.skyfaker.cc/categories/%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95/"/>
+    
+    
+    <category term="启发式搜索" scheme="https://www.skyfaker.cc/tags/%E5%90%AF%E5%8F%91%E5%BC%8F%E6%90%9C%E7%B4%A2/"/>
+    
+    <category term="遍历" scheme="https://www.skyfaker.cc/tags/%E9%81%8D%E5%8E%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>搜索算法综述</title>
+    <link href="https://www.skyfaker.cc/2020/10/02/sou-suo-suan-fa-zong-shu/"/>
+    <id>https://www.skyfaker.cc/2020/10/02/sou-suo-suan-fa-zong-shu/</id>
+    <published>2020-10-02T15:31:33.000Z</published>
+    <updated>2021-04-09T14:39:00.982Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;启发式搜索&quot;&gt;&lt;a href=&quot;#启发式搜索&quot; class=&quot;headerlink&quot; title=&quot;启发式搜索&quot;&gt;&lt;/a&gt;启发式搜索&lt;/h3&gt;&lt;p&gt;关于搜索算法的具体介绍见 &lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="搜索算法" scheme="https://www.skyfaker.cc/categories/%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95/"/>
+    
+    
+    <category term="搜索求解" scheme="https://www.skyfaker.cc/tags/%E6%90%9C%E7%B4%A2%E6%B1%82%E8%A7%A3/"/>
+    
+    <category term="启发式搜索" scheme="https://www.skyfaker.cc/tags/%E5%90%AF%E5%8F%91%E5%BC%8F%E6%90%9C%E7%B4%A2/"/>
+    
+    <category term="蒙特卡洛树" scheme="https://www.skyfaker.cc/tags/%E8%92%99%E7%89%B9%E5%8D%A1%E6%B4%9B%E6%A0%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>mathjax渲染异常与hexo prism高亮无效bug</title>
+    <link href="https://www.skyfaker.cc/2020/08/20/hexo-dai-ma-gao-liang-yu-mathjax-chong-tu/"/>
+    <id>https://www.skyfaker.cc/2020/08/20/hexo-dai-ma-gao-liang-yu-mathjax-chong-tu/</id>
+    <published>2020-08-20T09:37:18.000Z</published>
+    <updated>2025-02-08T06:46:38.343Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Prism高亮&quot;&gt;&lt;a href=&quot;#Prism高亮&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="hexo" scheme="https://www.skyfaker.cc/categories/hexo/"/>
+    
+    
+    <category term="mathjax" scheme="https://www.skyfaker.cc/tags/mathjax/"/>
+    
+    <category term="hexo渲染" scheme="https://www.skyfaker.cc/tags/hexo%E6%B8%B2%E6%9F%93/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MobileNet--准确与速度的均衡</title>
+    <link href="https://www.skyfaker.cc/2020/07/27/mobilenet/"/>
+    <id>https://www.skyfaker.cc/2020/07/27/mobilenet/</id>
+    <published>2020-07-27T05:26:16.000Z</published>
+    <updated>2022-02-08T14:51:53.780Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;卷积神经网络（CNN）在计算机视觉领域产生了许多新进展也衍生出了许多新型的网络，其中MobileNet就是CNN在轻量级网络的一个非常优秀的网络架构探索。近些年，为了追求分类准确度，模型深度越来越深，模型复杂度也越来越高，如深度残差网络（ResNet）其层数已经多达152层</summary>
+        
+      
+    
+    
+    
+    <category term="深度学习" scheme="https://www.skyfaker.cc/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="CNN" scheme="https://www.skyfaker.cc/tags/CNN/"/>
+    
+    <category term="MobileNet" scheme="https://www.skyfaker.cc/tags/MobileNet/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>字节算法题——机器人跳跃</title>
+    <link href="https://www.skyfaker.cc/2020/06/30/zi-jie-suan-fa-ti-ji-qi-ren-tiao-yue/"/>
+    <id>https://www.skyfaker.cc/2020/06/30/zi-jie-suan-fa-ti-ji-qi-ren-tiao-yue/</id>
+    <published>2020-06-30T15:27:18.000Z</published>
+    <updated>2021-03-31T09:40:46.611Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot; title=&quot;题目描述&quot;&gt;&lt;/a&gt;题目描述&lt;/h2&gt;&lt;p&gt;游戏中有N+1座建筑——从0到N编号，从左到右排列。编号为0的建筑高度为0个单位，编号为i的建筑的高度为H(i)个单位。</summary>
+        
+      
+    
+    
+    
+    <category term="算法" scheme="https://www.skyfaker.cc/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+    <category term="编程算法" scheme="https://www.skyfaker.cc/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95/"/>
+    
+    <category term="字节" scheme="https://www.skyfaker.cc/tags/%E5%AD%97%E8%8A%82/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>字节算法题——连续出题问题</title>
+    <link href="https://www.skyfaker.cc/2020/06/10/zi-jie-suan-fa-ti-lian-xu-chu-ti-wen-ti/"/>
+    <id>https://www.skyfaker.cc/2020/06/10/zi-jie-suan-fa-ti-lian-xu-chu-ti-wen-ti/</id>
+    <published>2020-06-10T04:52:36.000Z</published>
+    <updated>2021-03-21T14:55:33.332Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="算法" scheme="https://www.skyfaker.cc/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+    <category term="编程算法" scheme="https://www.skyfaker.cc/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95/"/>
+    
+    <category term="字节" scheme="https://www.skyfaker.cc/tags/%E5%AD%97%E8%8A%82/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>字节算法题——字典序</title>
+    <link href="https://www.skyfaker.cc/2020/05/24/zi-jie-suan-fa-ti-zi-dian-xu/"/>
+    <id>https://www.skyfaker.cc/2020/05/24/zi-jie-suan-fa-ti-zi-dian-xu/</id>
+    <published>2020-05-24T09:46:37.000Z</published>
+    <updated>2021-03-27T03:42:35.478Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot; title=&quot;题目描述&quot;&gt;&lt;/a&gt;题目描述&lt;/h2&gt;&lt;p&gt;给定整数n和m, 将1到n的这n个整数按字典序排列之后, 求其中的第m个数。&lt;br&gt;对于n=11, m=4,</summary>
+        
+      
+    
+    
+    
+    <category term="算法" scheme="https://www.skyfaker.cc/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+    <category term="编程算法" scheme="https://www.skyfaker.cc/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95/"/>
+    
+    <category term="字节" scheme="https://www.skyfaker.cc/tags/%E5%AD%97%E8%8A%82/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>一道编程题——二叉树路径和为指定值</title>
+    <link href="https://www.skyfaker.cc/2020/05/08/yi-dao-bian-cheng-ti-er-cha-shu-lu-jing-he-wei-zhi-ding-zhi/"/>
+    <id>https://www.skyfaker.cc/2020/05/08/yi-dao-bian-cheng-ti-er-cha-shu-lu-jing-he-wei-zhi-ding-zhi/</id>
+    <published>2020-05-08T15:49:14.000Z</published>
+    <updated>2021-04-01T08:57:10.645Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot; title=&quot;题目描述&quot;&gt;&lt;/a&gt;题目描述&lt;/h2&gt;&lt;p&gt;给定一个二叉树和一个值 &lt;code&gt;sum&lt;/code&gt;，请找出所有的根节点到叶子节点的节点值之和等于</summary>
+        
+      
+    
+    
+    
+    <category term="算法" scheme="https://www.skyfaker.cc/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+    <category term="编程算法" scheme="https://www.skyfaker.cc/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>一道编程题——删除倒数第k个节点</title>
+    <link href="https://www.skyfaker.cc/2020/04/17/yi-dao-bian-cheng-ti-shan-chu-dao-shu-di-k-ge-jie-dian/"/>
+    <id>https://www.skyfaker.cc/2020/04/17/yi-dao-bian-cheng-ti-shan-chu-dao-shu-di-k-ge-jie-dian/</id>
+    <published>2020-04-17T15:14:05.000Z</published>
+    <updated>2021-03-21T14:56:05.508Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="算法" scheme="https://www.skyfaker.cc/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+    <category term="编程算法" scheme="https://www.skyfaker.cc/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>激活函数与评价指标</title>
+    <link href="https://www.skyfaker.cc/2020/04/01/ji-huo-han-shu-yu-ping-jie-zhi-biao/"/>
+    <id>https://www.skyfaker.cc/2020/04/01/ji-huo-han-shu-yu-ping-jie-zhi-biao/</id>
+    <published>2020-04-01T03:40:29.000Z</published>
+    <updated>2023-05-02T16:11:14.035Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;本文记录了神经网络中常用的几个激活函数以及它们的导数；深度学习模型常用的一些评价指标以及它们的数学公式。&lt;/p&gt;
+&lt;h2 id=&quot;激活函数&quot;&gt;&lt;a href=&quot;#激活函数&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="深度学习" scheme="https://www.skyfaker.cc/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="模型" scheme="https://www.skyfaker.cc/tags/%E6%A8%A1%E5%9E%8B/"/>
+    
+  </entry>
+  
+</feed>

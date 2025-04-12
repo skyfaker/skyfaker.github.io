@@ -1,0 +1,1135 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="遍历与启发式搜索, 深度学习 | 数据挖掘">
+    <meta name="baidu-site-verification" content="fmlEuI34ir" />
+    <meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48" />
+    <meta name="360-site-verification" content="b7c11a830ef90fd1464ad6206bb7b6e7" />
+    <meta name="description" content="遍历算法常规的遍历算法主要包括DFS和BFS。这两个算法不需要知道终结点在哪里，它会按照一定的模式挨个搜索，直到找到终结点。
+举个不恰当的例子，遍历算法相当于你蒙着眼睛站在球场上，球场有一个球，需要你找到球，因为不知道球在哪，只能挨个找完所">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>遍历与启发式搜索 | SKYFAKER</title>
+
+    <!-- 网页在浏览器上的图标 -->
+    <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.staticfile.org/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.staticfile.org/aos/2.3.4/aos.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.staticfile.org/lightgallery/1.6.11/css/lightgallery.min.css">
+    
+    <!-- 3/22: 这里修改了js文件的路径，借助jsdelivr的CDN，用法为 “https://cdn.jsdelivr.net/gh/你的用户名/你的仓库名@发布的版本号/文件路径” 其中版本号可选，不写版本号则为最新-->
+    <!-- <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/css/my.css"> -->
+
+    <!-- 22/02/06 -->
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+
+    <style type="text/css">
+        
+    </style>
+
+    <!-- 2020/03/22: 这里修改了jQuery文件的路径 -->
+    <!-- <script src="/libs/jquery/jquery-2.2.0.min.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/jquery/jquery-2.2.0.min.js"></script> -->
+    
+    <!-- 2022/02/06: 修改了jQuery文件的路径，换到七牛云的staticfile -->
+<!--    <script src="https://cdn.staticfile.org/jquery/2.2.0/jquery.min.js"></script>-->
+
+    <!-- 2025/02/07: 修改了jQuery文件的路径，换到官方 -->
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?46e79e71af0709a5b9106bf20cecc493";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+    
+
+    <script>
+        (function(){
+        var src = "https://jspassport.ssl.qhimg.com/11.0.1.js?d182b3f28525f2db83acfaaf6e696dba";
+        document.write('<script src="' + src + '" id="sozz"><\/script>');
+        })();
+    </script>
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="SKYFAKER" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+    <body>
+
+        <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    <span class="logo-span">SKYFAKER</span>
+                </a>
+                <!-- <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">SKYFAKER</span>
+                </a> -->
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>归档</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <i class="fa fa-address-book"></i>
+            
+            <span>友情链接</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/contact" class="waves-effect waves-light">
+            
+            <i class="fa fa-comments"></i>
+            
+            <span>留言板</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
+        </a>
+    </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">SKYFAKER</div>
+        <div class="logo-desc">
+            
+            民胞物与，念兹在兹
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                归档
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-address-book"></i>
+                
+                友情链接
+            </a>
+        </li>
+        
+        <li>
+            <a href="/contact" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-comments"></i>
+                
+                留言板
+            </a>
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/skyfaker" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/skyfaker" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+                
+    </nav>
+
+</header>
+            
+
+
+
+<!-- 3/22: 这里修改了推荐页文章点击进去之后的图片路径 -->
+<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.iohttps://s4.ax1x.com/2022/02/08/HlQCnI.jpg');"> -->
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://s4.ax1x.com/2022/02/08/HlQCnI.jpg');">
+
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        遍历与启发式搜索
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+    
+    #articleContent :focus {
+        outline: none;
+    }
+    
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+    
+    .toc-widget {
+        padding-left: 20px;
+    }
+    
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+    
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+    
+    #toc-content ol {
+        padding-left: 10px;
+    }
+    
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+    
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+    
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+    
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+    
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+    
+    #floating-toc-btn {
+        position: fixed;
+        right: 20px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+    
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+    
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+
+<!-- 单页博客页面的配置 -->
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                        <a href="/tags/%E5%90%AF%E5%8F%91%E5%BC%8F%E6%90%9C%E7%B4%A2/" target="_blank">
+                            <span class="chip bg-color">启发式搜索</span>
+                        </a>
+                        
+                        <a href="/tags/%E9%81%8D%E5%8E%86/" target="_blank">
+                            <span class="chip bg-color">遍历</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                        <a href="/categories/%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95/" class="post-category" target="_blank">
+                            搜索算法
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-10-06
+                </div>
+
+                <div class="post-author info-break-policy">
+                    <i class="fa fa-user-o fa-fw"></i>作者:&nbsp;&nbsp;
+                    
+                    文杰
+                    
+                </div>
+
+                
+                
+                <div class="info-break-policy">
+                    <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    4.2k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    15 分
+                </div>
+                
+                
+
+                
+                <div id="busuanzi_container_page_pv" class="info-break-policy">
+                    <i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                    <span id="busuanzi_value_page_pv"></span>
+                </div>
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="遍历算法"><a href="#遍历算法" class="headerlink" title="遍历算法"></a>遍历算法</h2><p>常规的遍历算法主要包括DFS和BFS。这两个算法不需要知道终结点在哪里，它会按照一定的模式挨个搜索，直到找到终结点。</p>
+<p>举个不恰当的例子，遍历算法相当于你蒙着眼睛站在球场上，球场有一个球，需要你找到球，因为不知道球在哪，只能挨个找完所有位置。而启发式搜索需要一个启发函数，相当于睁开了眼睛，就可以直奔着球去了。</p>
+<p>关于搜索算法的python实现已经放在了GitHub上：<a target="_blank" rel="noopener" href="https://github.com/skyfaker/search_algorithm">搜索求解算法</a></p>
+<p>具体实现是用不同的搜索算法在网格地图上寻找终点。如A*算法的实现效果如下：</p>
+<p><img src="https://z3.ax1x.com/2021/04/10/cU5Uoj.png" alt='A*算法示例' style="zoom:50%;" /></p>
+<h3 id="深度优先搜索（DFS）"><a href="#深度优先搜索（DFS）" class="headerlink" title="深度优先搜索（DFS）"></a>深度优先搜索（DFS）</h3><p>深度优先，顾名思义即深度越大的节点会被优先扩展。在DFS中，使用栈（Stack）来实现上述特性。栈的特性是先进后出、后进先出。DFS过程中，会遍历当前节点的所有邻接节点，将它们依次压入栈中，遍历结束后，取出栈中最后一个元素，也就是最后一个被访问的邻接节点，继续递归。</p>
+<p>DFS为数据结构中的基础内容，这里不再细说，遍历过程可以看下图（标号为第几轮遍历，橘黄色为寻找的路径）：</p>
+<p><img src="https://z3.ax1x.com/2021/04/05/cQSZ7j.jpg" style="zoom:40%;" /></p>
+<p>上图为DFS的遍历过程（按照左上右下遍历）与寻找到的路径。首先遍历起点的邻接节点，并标注为1（第一轮遍历），将下节点1（即栈尾）出栈，递归遍历，直到找到终点。</p>
+<h3 id="广度优先搜索（BFS）"><a href="#广度优先搜索（BFS）" class="headerlink" title="广度优先搜索（BFS）"></a>广度优先搜索（BFS）</h3><p>广度优先会遍历完同级的所有节点，再增加深度。BFS中，使用队列（Queue）实现。队列的特性是先进先出、后进后出。BFS过程中，会遍历当前节点的所有邻接节点，将它们依次放入队列中，一轮遍历结束后，取出队列中第一个一个元素，也就是第一个被访问的邻接节点。</p>
+<p>所以每一次的遍历，会遍历同一层所有节点的邻接节点。直到同一层的所有节点都已经遍历，才会遍历下一层的节点。看起来就像是一圈一圈地向外扩展。</p>
+<p>BFS遍历过程如下图（标号为第几轮遍历，橘黄色为寻找到的路径）：</p>
+<p><img src="https://z3.ax1x.com/2021/04/05/cQSmAs.jpg" style="zoom:40%;" /></p>
+<p>上图为BFS的遍历过程与寻找到的路径。首先遍历起点的邻接节点，并标注为1（第一轮遍历），将左节点1（即队首）出队列，遍历左节点1，其相邻的节点标注为2，排入队列中，直到找到终点。而在从终点向起点的回溯过程中（按照左上右下回溯），可以找到最短路径。</p>
+<p>可以看出，一般而言，DFS遍历的节点较少，在某些节点没有遍历的情况下已经达到了终点。不过，找到的路径并非是最优路径。而BFS的遍历次数较多，但是回溯的时候可以找到最短路径。</p>
+<p>DFS就像是一个孤军深入的莽夫，速度很快，一直向前冲，撞到南墙就回到上一步换个方向。BFS则稳扎稳打，步步为营，走得虽然很慢，但是可以找到最短路径。</p>
+<h3 id="Dijkstra算法"><a href="#Dijkstra算法" class="headerlink" title="Dijkstra算法"></a>Dijkstra算法</h3><p>Dijkstra算法用来寻找图形中从一个顶点到其余各顶点的最短路径算法，一般用来解决两点之间（带权）最短路径问题。考虑这样一种场景，在一些情况下，图形中相邻节点之间的移动代价并不相等。</p>
+<p>它既与BFS有相同之处，又与后面要介绍的贪婪最佳优先算法有一定相关性。</p>
+<p>Dijkstra算法是这样运行的：把所有的点分成2类，一类称为S，指已经确定与起点之间最短路径的点集合，一类为U，指还没有确定与起点之间最短路径的点的集合。U中的点使用<strong>优先级队列</strong>表示，优先值为点到S的距离，如x到S的距离记作 $D_{S-x}$ 。之后每次从U中取一个距离最小的点，比如n点，加入到S中&lt;并更新n在U中的邻点x的值为$D_{S-x} = \min(D_{S-x}, D_{x-n}+D_{S-n})$。依次迭代，直到U为空。</p>
+<p>下面举个例子，如下为带权路径图（a为起点，i为终点）：</p>
+<p><img src="https://z3.ax1x.com/2021/04/05/cQSEng.png" style="zoom:70%;" /></p>
+<p>以上图为例，计算起点a到终点i的最短路径，箭头上的数值表示两个节点间的距离。</p>
+<script type="math/tex; mode=display">
+起始状态： S = \{a:0\}, U = \{b:2, c: \infty,d: 9,e: 5,f: \infty,g: \infty,h:\infty ,i:\infty \} \quad (冒号后为该点与S的距离)</script><p>未与S中元素直接相连的点距离设置为正无穷。</p>
+<p>第一轮选点，从优先队列U中选择值最小的b点放入S，并且更新b的邻点x的值为$\min(D_{S-x}, D_{x-b}+D_{S-b})$：</p>
+<p>如邻点c，之前的$D_{S-c} = \infty$，在b加入S之后的$D_{S-c} = \min(\infty, 2+1) = 3$，故b点加入S集合之后的状态如下：</p>
+<script type="math/tex; mode=display">
+第一轮： S = \{a:0, b:2\}, U = \{c: 3,d: 9,e: 5,f: \infty,g: \infty,h:\infty,i:\infty \}</script><p>第二轮选点，从优先队列U中选择c点放入S，并且更新c的邻点x的值：</p>
+<script type="math/tex; mode=display">
+第二轮： S = \{a:0, b:2, c:3\}, U = \{d: 9,e: 4,f: \infty,g: 9,h:\infty,i:\infty \}</script><p>第三轮选点，从优先队列U中选择e点放入S，并且更新e的邻点x的值：</p>
+<script type="math/tex; mode=display">
+第三轮： S = \{a:0, b:2, c:3, e:4  \}, U = \{d: 6,f: 13,g: 9,h:11,i:\infty \}</script><p>第四轮选点，从优先队列U中选择d点放入S，并且更新d的邻点的值：</p>
+<script type="math/tex; mode=display">
+第四轮： S = \{a:0, b:2, c:3, e:4, d:6  \}, U = \{f: 13,g: 9,h:10,i:\infty \}</script><p>第五轮选点，从优先队列U中选择g点放入S，并且更新g的邻点的值:</p>
+<script type="math/tex; mode=display">
+第五轮： S = \{a:0, b:2, c:3, e:4, d:6 ,g:9  \}, U = \{f: 13,h:10,i:14 \}</script><p>第六轮选点，从优先队列U中选择h点放入S，并且更新h的邻点的值:</p>
+<script type="math/tex; mode=display">
+第六轮： S = \{a:0, b:2, c:3, e:4, d:6,g:9,h:10  \}, U = \{f: 11, i:14 \}</script><p>第七轮选点，从优先队列U中选择f点放入S，并且更新f的邻点的值:</p>
+<script type="math/tex; mode=display">
+第七轮： S = \{a:0, b:2, c:3, e:4, d:6,g:9,h:10, f:11  \}, U = \{i:12 \}</script><script type="math/tex; mode=display">
+最终结果： S = \{a:0, b:2, c:3, e:4, d:6,g:9,h:10, f:11, i:12  \}, U = \{ \}</script><p>看上去，BFS与Dijkstra算法最显著的区别在于BFS使用了队列，而Dijkstra算法使用了优先级队列。实际上，使用不同的数据结构是为了各自取下一个点的方法而服务。</p>
+<p>本质上，<strong>搜索算法和路径规划算法的目的都是如何正确地选取下一个节点</strong>。我们可以称评估如何选取下一个点的指标为<strong>代价函数$f(n)$</strong>，选取下一个点是要付出代价的，代价最小的点就是我们应该选取的点。</p>
+<p>BFS算法之所以选择队列作为数据结构，是因为它每次选取的点为当前已经遍历的点的邻点，它的代价函数是当前点与起点的遍历轮数最小值。</p>
+<p>Dijkstra算法之所以使用优先级队列，是因为它每次选取的点为从起点移动到当前点的最小值，也可以说是与已经遍历的点集合的距离最小的点。即它的代价函数是起点到当前点的移动代价。而当路径为无权时，移动代价就等于遍历轮数，即退化成了BFS。</p>
+<h2 id="启发式搜索"><a href="#启发式搜索" class="headerlink" title="启发式搜索"></a>启发式搜索</h2><p>BFS和DFS的区别主要在于节点的弹出策略，根据弹出策略的区别，分别使用了队列和栈两种数据结构，而栈和队列作为两种相当基本的容器，只将节点进入容器的顺序作为弹出节点的依据，并未考虑终点位置等因素，这就使搜索过程与终点位置无关，变得漫无目的，导致效率低下。Dijkstra算法虽然可以解决带权的路径问题，却同样没有利用到终点位置信息，它的代价函数只与起点有关。而启发式搜索借助了一个启发函数，需要提前知道终点的位置，优化代价函数与起点和终点都有关，这样可以更快达到终点。</p>
+<h3 id="贪婪最佳优先算法"><a href="#贪婪最佳优先算法" class="headerlink" title="贪婪最佳优先算法"></a>贪婪最佳优先算法</h3><p>贪婪最佳优先算法（Greedy Best First Search, GBFS）的特点是评价函数=启发函数。</p>
+<p>设评价函数为$f(n)$，启发函数为$h(n)$，那么令$f(n)=h(n)$。即从当前节点出发，寻找下一个邻接节点，邻接节点选择的依据（评价函数）为使得启发函数值最最小的节点。</p>
+<p>之所以贪婪最佳优先算法的速度一般会比较快，是因为启发函数使用了当前点与终点的信息。</p>
+<p>同样以寻找路径为例：</p>
+<p><img src="https://z3.ax1x.com/2021/04/05/cQSVBQ.jpg" alt='GBFS算法' style="zoom:40%;" /></p>
+<p>上图为使用贪婪最佳优先算法寻找的路径（橙色标注），有数值的格子表示被遍历到的节点，数值表示该点与终点的欧氏距离，即启发函数$h(n)=$欧氏距离。</p>
+<p>首先在起点处，计算邻点的$h(n)$，由于起点右侧的点距离小于其他邻点，即$h(n)$最小，又由于$f(n)=h(n)$，故该点的代价函数最小，因此选择该点作为下一个点。然后重复上述过程，直到达到终点。</p>
+<p>可以看到，由于设置代价函数=启发函数，使得寻找过程中被遍历的点减少了，也就是说，这个算法可以直奔终点快速前进。</p>
+<p>当然，这个算法也有不足之处：1.寻找的路径常常不是最优解，2.启发函数最小化这一目标对于错误的起点比较敏感，不同的起点对于路径寻找过程影响很大，甚至有可能进入死循环，3.最坏情况下复杂度很高为$O(b^m)$，b为节点分支因子数、m为搜索空间的最大深度。</p>
+<p>实际的地图中，常常会有很多障碍物，因为代价函数只与启发函数有关，而启发函数只表示当前位置与终点的关系，所以GBFS就很容易陷入局部最优的陷阱。下图的地图中有一个专门设置的局部最优陷阱，很显然GBFS虽然搜索速度够快，但是找不到最优路径。</p>
+<p><img src="https://z3.ax1x.com/2021/04/05/cQSuhq.gif" alt="有障碍GBFS" style="zoom:33%;" /></p>
+<p>针对这些不足之处，最重要的是需要设计一个良好的启发函数。</p>
+<h3 id="A-算法"><a href="#A-算法" class="headerlink" title="A*算法"></a>A*算法</h3><p>英语不错的同学可以直接看一看这篇：<a target="_blank" rel="noopener" href="https://www.redblobgames.com/pathfinding/a-star/introduction.html">Introduction to the A* Algorithm</a></p>
+<p>GBFS用节点到目标点的距离作为代价函数，将搜索方向引向目标点，搜索效率高；而Dijkstra算法采用起点到当前扩展节点的移动代价作为代价函数，能够确保路径最优。</p>
+<p>那么可不可以将两者的代价函数进行融合，从而<strong>在保证路径最优的同时提高搜索效率</strong>？答案是肯定的，融合后的算法就是<strong>A*算法</strong>。</p>
+<p>A*算法的代价函数为$f(n) = g(n) + h(n)$，g(n)为起点到当前节点的移动代价，$h(n)$为启发函数，表示从当前点到终点的距离函数。</p>
+<p>其中，若将$g(n)$置为0，则A*算法退化成贪婪最佳优先算法，若$h(n)=0$，则退化成Dijkstra算法。</p>
+<p>能否找到最优路径的关键是启发函数$h(n)$的选取，如果$h(n)$始终小于等于节点n到终点的代价，则A*算法保证一定能够找到最短路径。但是当$h(n)$的值选取不合适，会导致算法将遍历越多的节点，也就导致算法越慢。<br>由于A* 算法的启发函数是位置上的距离，因此在不带位置信息的图数据中不适用。</p>
+<p>A*算法描述如下：</p>
+<pre class="line-numbers language-text"><code class="language-text">* 初始化open_set和close_set；
+* 将起点加入open_set中，并设置优先级f(n)为0（优先级最高）；
+* 如果open_set不为空，则从open_set中选取优先级最高的节点n：
+    * 如果节点n为终点，则：
+        * 从终点开始逐步追踪parent节点，一直达到起点；
+        * 返回找到的结果路径，算法结束；
+    * 如果节点n不是终点，则：
+        * 将节点n从open_set中删除，并加入close_set中；
+        * 遍历节点n所有的邻近节点：
+            * 如果邻近节点m在open_set中，则：
+                * 比较g(n)是否比原来更小，如果更小则更新其g(n)、优先级f(n)和其父节点
+            * 如果邻近节点m在close_set中，则：
+                * 跳过，选取下一个邻近节点
+            * 如果邻近节点m不在open_set和close_set中，则：
+                * 设置节点m的parent为节点n
+                * 计算移动代价g(n)
+                * 计算节点m的优先级f(n)
+                * 将节点m加入open_set中
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>对于网格形式的图，有以下这些启发函数可以使用：</p>
+<ul>
+<li>如果图形中只允许朝上下左右四个方向移动，则可以使用曼哈顿距离（Manhattan distance）。</li>
+</ul>
+<script type="math/tex; mode=display">
+dx = abs(node.x - goal.x) \\
+dy = abs(node.y - goal.y) \\
+h(x) = dx + dy</script><ul>
+<li><p>如果图形中允许朝八个方向移动，则可以使用对角距离。</p>
+<script type="math/tex; mode=display">
+dx = abs(node.x - goal.x) \\
+dy = abs(node.y - goal.y) \\
+h(n) = dx + dy + (\sqrt{2} - 2) * min(dx, dy)</script></li>
+<li><p>如果图形中允许朝任何方向移动，则可以使用欧几里得距离（Euclidean distance）。</p>
+<script type="math/tex; mode=display">
+dx = abs(node.x - goal.x) \\
+dy = abs(node.y - goal.y) \\
+h(n) = \sqrt{dx^2 + dy^2}</script></li>
+</ul>
+<p><strong>最优遍历点：</strong></p>
+<p>对于下图：</p>
+<p><img src="https://z3.ax1x.com/2021/04/10/cU5NwQ.jpg" style="zoom:50%;" /></p>
+<p>假设路径函数$g(n)$和启发函数$h(n)$都使用曼哈顿距离，且$f(n)=g(n)+h(n)$。</p>
+<p>首先，对于B点和E点，当它们都在open_set时，应该选取哪一个点作为下一个路径点呢？E与B的代价函数f（n）相等，而直觉上应该选择B点，因为第一行第三列与E点是等价的，选择E点必然也可以选择它，而这样会大大增加遍历次数。B点的启发函数小于E，而路径函数大于E，为了使得B点可以优于E点，我们需要使得B点减少的启发函数代价要多于其增加的路径代价。</p>
+<p>其次，对于A、B、C、D四点来说，$f(A)=f(B)=f(C)=f(D)$，并且四点的启发函数也相同，那么在这种情况下，当四个点都在open_set中时，又该如何选取呢？如果我们更倾向于选择B、C，那么需要使得它们的代价更小。</p>
+<p>针对上述2点，我们可以改变路径函数，比如使用对角距离作为路径函数，则E、B/C、A/D的代价函数2+4、2.4+3、3+3（路径+启发函数），即可实现选取B/C作为更优点的目的。</p>
+<p>或者，在不改变路径函数的情况下，在代价函数相同时，使用额外的约束条件。比如路径和启发函数都为曼哈顿距离，则E、B/C、A/D的代价函数相同，此时取其中到终点对角距离最小的点最为最优点即可选出B/C。</p>
+<p><strong>最短路径：</strong></p>
+<p>关于A*算法能否找到最短路径最重要的一点就是已经处于open_set的邻点的更新。也就是如果遍历到的邻点在open_set中，要比较现有路径和原路径哪一个更短，取更短的路径的上一个节点作为父节点。</p>
+<p>以下举个例子：假设在A点处遍历到邻点B，且B没有加入open_set，则的B父节点设置为A。一段时间后，在C点处也遍历到了B，则比较$g(c)+D_{C-B}$和$g(A)+D_{A-B}$，若$g(c)+D_{C-B}$更小，则应该更新B的父节点为A。</p>
+<p>关于GBFS和A*算法在路径寻找过程中的差别可以参看下图：</p>
+<p><img src="https://z3.ax1x.com/2021/04/05/cQSnNn.jpg" style="zoom:50%;" /></p>
+<p>上图为GFBS和A*算法正有障碍路径寻找过程中，每个节点的代价函数。可以看到，使用GBFS之后，路径上的节点的代价函数随着接近终点会逐渐减小，但是却无法找到最优路径。</p>
+
+            </div>
+            <hr />
+
+            
+
+            <!-- 3/22: 修改了css文件路径 -->
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<!-- 3/22: 修改了js文件路径 -->
+<script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/share/js/social-share.min.js"></script>
+
+            
+
+
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <article id="prenext-posts" class="prev-next articles">
+        <div class="row article-row">
+            
+                <div class="article col s12 m6" data-aos="fade-up">
+                    <div class="article-badge left-badge text-color">
+                        <i class="fa fa-chevron-left"></i>&nbsp;
+                        上一篇
+                    </div>
+                    <div class="card">
+                        <a href="/2020/11/11/svm-xiang-jie/">
+                            <div class="card-image">
+                                
+                                        
+
+                                            <!-- 3/22修改： -->
+                                            <img src="https://s4.ax1x.com/2022/02/08/HlMOAK.jpg" class="responsive-img" alt="机器学习——SVM简述">
+                                            
+                                                <span class="card-title">机器学习——SVM简述</span>
+                            </div>
+                        </a>
+                        <div class="card-content article-content">
+                            <div class="summary block-with-text">
+                                
+                                    支持向量机(Support Vector Machine, SVM)是一种应用非常广泛的分类方法。传统的SVM是一种二类分类方法，适用于数据只有两类的情况。本文和接下来几篇文章将从间隔最大化开始，逐步推导SVM形成的优化问题，拉格朗日对偶问题，非线性SVM，以及训练SVM的序列最小最优化(Sequential Minimal Optimization, SMO)算法等。
+                                        
+                            </div>
+                            <div class="publish-info">
+                                <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2020-11-11
+                        </span>
+                                <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="post-category" target="_blank">
+                                    机器学习
+                                </a>
+                            
+                            
+                        </span>
+                            </div>
+                        </div>
+                        
+                            <div class="card-action article-tags">
+                                
+                                    <a href="/tags/SVM/" target="_blank">
+                                        <span class="chip bg-color">SVM</span>
+                                    </a>
+                                    
+                            </div>
+                            
+                    </div>
+                </div>
+                
+                        
+                            <div class="article col s12 m6" data-aos="fade-up">
+                                <div class="article-badge right-badge text-color">
+                                    下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+                                </div>
+                                <div class="card">
+                                    <a href="/2020/10/02/sou-suo-suan-fa-zong-shu/">
+                                        <div class="card-image">
+                                            
+                                                    
+                                                        <img src="https://s4.ax1x.com/2022/02/08/HlMz1H.jpg" class="responsive-img" alt="搜索算法综述">
+                                                        
+                                                            <span class="card-title">搜索算法综述</span>
+                                        </div>
+                                    </a>
+                                    <div class="card-content article-content">
+                                        <div class="summary block-with-text">
+                                            
+                                                本文为搜索求解算法学习笔记。主要内容为启发式搜索、对抗式搜索和蒙特卡洛树搜索。启发式搜索中包含了贪婪最佳优先和A*算法，对抗式搜索包括了最大最小搜索和以此为基础的Alpha-Bata剪枝搜索。
+                                                    
+                                        </div>
+                                        <div class="publish-info">
+                                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-10-02
+                            </span>
+                                            <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95/" class="post-category" target="_blank">
+                                    搜索算法
+                                </a>
+                            
+                            
+                        </span>
+                                        </div>
+                                    </div>
+                                    
+                                        <div class="card-action article-tags">
+                                            
+                                                <a href="/tags/%E6%90%9C%E7%B4%A2%E6%B1%82%E8%A7%A3/" target="_blank">
+                                                    <span class="chip bg-color">搜索求解</span>
+                                                </a>
+                                                
+                                                <a href="/tags/%E5%90%AF%E5%8F%91%E5%BC%8F%E6%90%9C%E7%B4%A2/" target="_blank">
+                                                    <span class="chip bg-color">启发式搜索</span>
+                                                </a>
+                                                
+                                                <a href="/tags/%E8%92%99%E7%89%B9%E5%8D%A1%E6%B4%9B%E6%A0%91/" target="_blank">
+                                                    <span class="chip bg-color">蒙特卡洛树</span>
+                                                </a>
+                                                
+                                        </div>
+                                        
+                                </div>
+                            </div>
+                            
+        </div>
+    </article>
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: SKYFAKER<br />'
+            + '作者: 文杰<br />'
+            + '链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者skyfaker所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () { bodyElement.removeChild(newdiv); }, 200);
+    });
+</script>
+
+    </div>
+    <div id="toc-aside" class="expanded col l2 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;
+                目录
+            </div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+    <div id="floating-toc-btn" class="hide-on-med-and-down">
+        <a class="btn-floating btn-large bg-color">
+            <i class="fa fa-list"></i>
+        </a>
+    </div>
+    
+
+        <script src="/libs/tocbot/tocbot.min.js"></script>
+        <script>
+            $(function() {
+                tocbot.init({
+                    tocSelector: '#toc-content',
+                    contentSelector: '#articleContent',
+                    headingsOffset: -($(window).height() * 0.4 - 45),
+                    // headingsOffset: -205,
+                    headingSelector: 'h1, h2, h3, h4'
+                });
+
+                // modify the toc link href to support Chinese.
+                let i = 0;
+                let tocHeading = 'toc-heading-';
+                $('#toc-content a').each(function() {
+                    $(this).attr('href', '#' + tocHeading + (++i));
+                });
+
+                // modify the heading title id to support Chinese.
+                i = 0;
+                $('#articleContent').children('h1, h2, h3, h4').each(function() {
+                    $(this).attr('id', tocHeading + (++i));
+                });
+
+                // Set scroll toc fixed.
+                let tocHeight = parseInt($(window).height() * 0.4 - 64);
+                let $tocWidget = $('.toc-widget');
+                $(window).scroll(function() {
+                    let scroll = $(window).scrollTop();
+                    /* add post toc fixed. */
+                    if (scroll > tocHeight) {
+                        $tocWidget.addClass('toc-fixed');
+                    } else {
+                        $tocWidget.removeClass('toc-fixed');
+                    }
+                });
+
+                
+                /* 修复文章卡片 div 的宽度. */
+                let fixPostCardWidth = function(srcId, targetId) {
+                    let srcDiv = $('#' + srcId);
+                    if (srcDiv.length === 0) {
+                        return;
+                    }
+
+                    let w = srcDiv.width();
+                    if (w >= 450) {
+                        w = w + 21;
+                    } else if (w >= 350 && w < 450) {
+                        w = w + 18;
+                    } else if (w >= 300 && w < 350) {
+                        w = w + 16;
+                    } else {
+                        w = w + 14;
+                    }
+                    $('#' + targetId).width(w);
+                };
+
+                // 切换TOC目录展开收缩的相关操作.
+                const expandedClass = 'expanded';
+                let $tocAside = $('#toc-aside');
+                let $mainContent = $('#main-content');
+                $('#floating-toc-btn .btn-floating').click(function() {
+                    if ($tocAside.hasClass(expandedClass)) {
+                        $tocAside.removeClass(expandedClass).slideUp(500);
+                        $mainContent.removeClass('l9');
+                    } else {
+                        $tocAside.addClass(expandedClass).slideDown(500);
+                        $mainContent.addClass('l9');
+                    }
+                    fixPostCardWidth('artDetail', 'prenext-posts');
+                });
+                
+            });
+        </script>
+    
+
+</main>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script>
+        MathJax.Hub.Config({
+            tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+        });
+    </script>
+    
+    <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+    <!-- 代码语言 -->
+    <script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+    <!-- 代码块复制 -->
+    <script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+    <script type="text/javascript" src="/libs/codeBlock/clipboard.min.js"></script>
+    <!-- 代码块收缩 -->
+    <script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script> 
+    <!-- 代码块折行 -->
+    <style type="text/css">code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }</style>
+    
+    
+                <footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            &copy; 2019-2020 Wenjie. 版权所有
+
+            
+                &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
+                <span class="white-color">65k</span>
+                
+
+                    <br>
+                    <span id="sitetime"></span>
+
+                    
+                        
+                            <br>
+                                
+                                    <span id="busuanzi_container_site_pv" style='display:none'>
+                <i class="fa fa-heart-o"></i>
+                本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                                    </span>
+                                    
+                                        
+                                            <span id="busuanzi_container_site_uv" style='display:none'>
+                人次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                                            </span>
+                                            
+                                                
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+            
+    <a href="https://github.com/skyfaker" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:shaowenjie1314@gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fa fa-rss"></i>
+    </a>
+
+        </div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+<!-- 不蒜子计数初始值纠正 -->
+<script>
+    $(document).ready(function() {
+
+        var int = setInterval(fixCount, 50);
+        var pvcountOffset = 8000;
+        var uvcountOffset = 2000;
+
+        function fixCount() {
+            if (document.getElementById("busuanzi_container_site_pv").style.display != "none") {
+                $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) +
+                    pvcountOffset);
+                clearInterval(int);
+            }
+            if ($("#busuanzi_container_site_pv").css("display") != "none") {
+                $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) +
+                    uvcountOffset); // 加上初始数据 
+                clearInterval(int);
+            }
+        }
+    });
+</script>
+
+<script language=javascript>
+    function siteTime() {
+        window.setTimeout("siteTime()", 1000);
+        var seconds = 1000;
+        var minutes = seconds * 60;
+        var hours = minutes * 60;
+        var days = hours * 24;
+        var years = days * 365;
+        var today = new Date();
+        var todayYear = today.getFullYear();
+        var todayMonth = today.getMonth() + 1;
+        var todayDate = today.getDate();
+        var todayHour = today.getHours();
+        var todayMinute = today.getMinutes();
+        var todaySecond = today.getSeconds();
+        /* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+        year - 作为date对象的年份，为4位年份值
+        month - 0-11之间的整数，做为date对象的月份
+        day - 1-31之间的整数，做为date对象的天数
+        hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+        minutes - 0-59之间的整数，做为date对象的分钟数
+        seconds - 0-59之间的整数，做为date对象的秒数
+        microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+        var t1 = Date.UTC(2018, 03, 11, 00, 00, 00); //北京时间2018-2-13 00:00:00
+        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+        var diff = t2 - t1;
+        var diffYears = Math.floor(diff / years);
+        var diffDays = Math.floor((diff / days) - diffYears * 365);
+        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes *
+            minutes) / seconds);
+        document.getElementById("sitetime").innerHTML = "本站已运行 " + diffYears + " 年 " + diffDays + " 天 " + diffHours +
+            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+    } /*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
+    siteTime();
+</script>
+
+                    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<!-- 3/22: 修改了js文件路径 -->
+<script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+                        <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+                        <!-- 3/22: 修改了js文件路径 --> 
+                            <script src="https://cdn.staticfile.org/materialize/1.0.0/js/materialize.js"></script>
+                            <script src="https://cdn.staticfile.org/masonry/4.0.0/masonry.pkgd.min.js"></script>
+                            <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+                            <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+                            <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+
+                            <!-- <script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/materialize/materialize.min.js"></script>
+                            <script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/masonry/masonry.pkgd.min.js"></script>
+                            <script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/aos/aos.js"></script>
+                            <script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/scrollprogress/scrollProgress.min.js"></script>
+                            <script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/lightGallery/js/lightgallery-all.min.js"></script> -->
+
+                            <!-- 2022/02/06 从jsdelivr换到staticfile(在config中修改)-->
+                         
+                            <!-- 3/22: 修改了js文件路径 -->
+                            <script src="/js/matery.js"></script>
+                            <!-- <script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/js/matery.js"></script> -->
+
+                            <script type="text/javascript">
+                                var OriginTitile = document.title,
+                                    st;
+                                document.addEventListener("visibilitychange", function() {
+                                    document.hidden ? (document.title = "(っ °Д °;)哦，崩溃啦！", clearTimeout(st)) : (document.title = "(゜▽゜*)咦，又好了！", st = setTimeout(function() {
+                                        document.title = OriginTitile
+                                    }, 3e3))
+                                })
+                            </script>
+
+                            <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+                                
+
+                                    <!-- 3/22: 修改了js文件路径 --> 
+                                    <script src="/libs/others/clicklove.js"></script>
+                                    <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/others/clicklove.js"></script> -->
+                                    
+
+                                                    
+                                                        <!-- 3/22: 修改了js文件路径 --> 
+                                                        <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+                                                        <!-- <script async src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/others/busuanzi.pure.mini.js"></script> -->
+                                                        
+
+                                                            <!-- 雪花特效 -->
+                                                            
+
+    </body>
+
+</html>

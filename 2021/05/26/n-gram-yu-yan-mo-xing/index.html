@@ -1,0 +1,1074 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="语言模型——N-gram模型, 深度学习 | 数据挖掘">
+    <meta name="baidu-site-verification" content="fmlEuI34ir" />
+    <meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48" />
+    <meta name="360-site-verification" content="b7c11a830ef90fd1464ad6206bb7b6e7" />
+    <meta name="description" content="N-Gram语言模型模型定义N-gram模型是一种基于马尔科夫假设的语言模型，简单来说，就是当前一个单词（中文中一般以字为最小单位）出现的可能性大小只与这个单词前面一个或者几个单词有关，而与这几个单词之外的其他单词无关。其中的N即表示有关联">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>语言模型——N-gram模型 | SKYFAKER</title>
+
+    <!-- 网页在浏览器上的图标 -->
+    <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.staticfile.org/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.staticfile.org/aos/2.3.4/aos.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.staticfile.org/lightgallery/1.6.11/css/lightgallery.min.css">
+    
+    <!-- 3/22: 这里修改了js文件的路径，借助jsdelivr的CDN，用法为 “https://cdn.jsdelivr.net/gh/你的用户名/你的仓库名@发布的版本号/文件路径” 其中版本号可选，不写版本号则为最新-->
+    <!-- <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/css/my.css"> -->
+
+    <!-- 22/02/06 -->
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+
+    <style type="text/css">
+        
+    </style>
+
+    <!-- 2020/03/22: 这里修改了jQuery文件的路径 -->
+    <!-- <script src="/libs/jquery/jquery-2.2.0.min.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/jquery/jquery-2.2.0.min.js"></script> -->
+    
+    <!-- 2022/02/06: 修改了jQuery文件的路径，换到七牛云的staticfile -->
+<!--    <script src="https://cdn.staticfile.org/jquery/2.2.0/jquery.min.js"></script>-->
+
+    <!-- 2025/02/07: 修改了jQuery文件的路径，换到官方 -->
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?46e79e71af0709a5b9106bf20cecc493";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+    
+
+    <script>
+        (function(){
+        var src = "https://jspassport.ssl.qhimg.com/11.0.1.js?d182b3f28525f2db83acfaaf6e696dba";
+        document.write('<script src="' + src + '" id="sozz"><\/script>');
+        })();
+    </script>
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="SKYFAKER" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+    <body>
+
+        <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    <span class="logo-span">SKYFAKER</span>
+                </a>
+                <!-- <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">SKYFAKER</span>
+                </a> -->
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>归档</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <i class="fa fa-address-book"></i>
+            
+            <span>友情链接</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/contact" class="waves-effect waves-light">
+            
+            <i class="fa fa-comments"></i>
+            
+            <span>留言板</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
+        </a>
+    </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">SKYFAKER</div>
+        <div class="logo-desc">
+            
+            民胞物与，念兹在兹
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                归档
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-address-book"></i>
+                
+                友情链接
+            </a>
+        </li>
+        
+        <li>
+            <a href="/contact" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-comments"></i>
+                
+                留言板
+            </a>
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/skyfaker" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/skyfaker" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+                
+    </nav>
+
+</header>
+            
+
+
+
+<!-- 3/22: 这里修改了推荐页文章点击进去之后的图片路径 -->
+<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.iohttps://s4.ax1x.com/2022/02/08/HlQNv9.jpg');"> -->
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://s4.ax1x.com/2022/02/08/HlQNv9.jpg');">
+
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        语言模型——N-gram模型
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+    
+    #articleContent :focus {
+        outline: none;
+    }
+    
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+    
+    .toc-widget {
+        padding-left: 20px;
+    }
+    
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+    
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+    
+    #toc-content ol {
+        padding-left: 10px;
+    }
+    
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+    
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+    
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+    
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+    
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+    
+    #floating-toc-btn {
+        position: fixed;
+        right: 20px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+    
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+    
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+
+<!-- 单页博客页面的配置 -->
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                        <a href="/tags/%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/" target="_blank">
+                            <span class="chip bg-color">语言模型</span>
+                        </a>
+                        
+                        <a href="/tags/N-gram/" target="_blank">
+                            <span class="chip bg-color">N-gram</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                        <a href="/categories/NLP/" class="post-category" target="_blank">
+                            NLP
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2021-05-26
+                </div>
+
+                <div class="post-author info-break-policy">
+                    <i class="fa fa-user-o fa-fw"></i>作者:&nbsp;&nbsp;
+                    
+                    文杰
+                    
+                </div>
+
+                
+                
+                <div class="info-break-policy">
+                    <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    1.7k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    6 分
+                </div>
+                
+                
+
+                
+                <div id="busuanzi_container_page_pv" class="info-break-policy">
+                    <i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                    <span id="busuanzi_value_page_pv"></span>
+                </div>
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="N-Gram语言模型"><a href="#N-Gram语言模型" class="headerlink" title="N-Gram语言模型"></a>N-Gram语言模型</h2><h3 id="模型定义"><a href="#模型定义" class="headerlink" title="模型定义"></a>模型定义</h3><p>N-gram模型是一种基于马尔科夫假设的语言模型，简单来说，就是当前一个单词（中文中一般以字为最小单位）出现的可能性大小只与这个单词前面一个或者几个单词有关，而与这几个单词之外的其他单词无关。其中的N即表示有关联的单词的个数（包括当前词本身）。</p>
+<p><img src="N-gram.png" alt="N-gram" style="zoom:50%;" /></p>
+<p>特别的，当N=1，即当前单词出现的可能性不依赖其他任何单词，称为unigram模型；</p>
+<p>N=2，即当前单词出现的可能性与本身和前一个单词有关，称为bigram模型；</p>
+<p>N=3，即当前单词出现的可能性与本身和前两个单词有关，称为trigram。</p>
+<p>。。。</p>
+<p>前面提到，对于一个语言序列 $w_1,w_2,…,w_n$，语言模型负责计算该序列的概率  $P（w_1,w_2,…,w_n）$。</p>
+<p>对于unigram，由于当前词出现的可能性不依赖其他任何词，因此：</p>
+<script type="math/tex; mode=display">
+P(w_1,w_2,...,w_n) = \prod_{i=1}^nP(w_i) \tag{1}</script><p>对于bigram，当前词出现的可能性只依赖于当前词汇的前一个词，因此：</p>
+<script type="math/tex; mode=display">
+P(w_1,w_2,...,w_n) = \prod_{i=1}^{n}P(w_i|w_{i-1}) \tag{2}</script><p>其中  $P（w_i|w_i-1）$  表示在的 $w_{i-1}$的 条件下  $w_i$ 出现的概率。</p>
+<p>特别的，$P（w_1|w_0） 即 P（w_1|BOS）\ （BOS表示句子开头）$ 表示 $ w_1 $ 出现在句子开头的概率。</p>
+<p>以此类推，K-gram模型概率为：</p>
+<script type="math/tex; mode=display">
+P(w_1,w_2,...,w_n) = \prod_{i=1}^{n}P(w_i|w_{i-1}) \tag{3}</script><h3 id="句子开头与结尾"><a href="#句子开头与结尾" class="headerlink" title="句子开头与结尾"></a>句子开头与结尾</h3><p>可以看出，（1）式和（2）式不太一样，变成了条件概率，并且多了 <code>BOS</code> 对于bigram来说，因为要考虑到前一个字对于当前字的影响，那么某个字出现在句子中或者句子开头的概率是不一样的。那么为了表示某个字出现在句子开头，我们添加一个特殊符号 <code>&lt;BOS&gt;（或者s）</code>。</p>
+<p>另外，为了保持所有句子出现的总的概率为1，需要人为在句尾添加一个特殊符号<code>EOS（或者\s）</code> 表示句子结束，否则所有长度为1的句子出现概率之和已经为1：$\sum_{i=1}^n P(w_i|BOS) = 1$，而添加句尾符号之后，所有的句子的概率和为1（满足一个真正的分布）。</p>
+<p>如果没有结束标签，那么N-gram系统根本没法区分一个长度为m的句子和一个长度大于m的句子中的前m个词。</p>
+<p>在实践中，一般是在词表中添加一个特殊符号表示结尾符号，一个有N个字的词表，在计算单词概率时，加入结尾符号，按照N+句子个数来计算。</p>
+<h3 id="模型计算"><a href="#模型计算" class="headerlink" title="模型计算"></a>模型计算</h3><p>之所以N-gram模型属于统计语言模型，是因为N-gram模型中，我们根据极大似然估计，由单词出现的频率来计算单词的概率。</p>
+<p>以unigram为例，因为当前单词（或者字）的出现概率与其他词无关，只与本身出现的次数有关，那么某个单词（或者字）出现的概率为</p>
+<script type="math/tex; mode=display">
+P(w_i) = \frac{count(w_i)}{T} \tag{4}</script><p>其中 $count（w_i）$ 为 $w_i$ 出现的次数， $T$ 为语料库或者说单词表中所有字的个数（加上结尾符号，结尾符号个数等于句子个数。）。</p>
+<p>以中文为例，直观解释就是，以一篇文章作为语料库，某个字出现在这篇文章的次数 $\div$ 这篇文章的总字数，就是这个字的概率。</p>
+<p>下面举个小例子：</p>
+<p>有一句话 $T$ 作为语料库：“张三喜欢写代码，张三和李四喜欢听音乐。”</p>
+<p>要求得“张三喜欢音乐”出现的概率。</p>
+<p>除去标点符号，共18个字（其中包括一个结束符号）。“张”、“三”，“喜”、“欢”出现2次，“听”、“音”、“乐”各出现一次。则：</p>
+<blockquote>
+<p>P（张）= P（三）= P（喜）= P（欢）= 1/9，P（听）= P（音）= P（乐）= 1/18。</p>
+<p>P（张三喜欢听音乐）= P（张）* P（三）* P（喜）* P（欢）* P（听）* P（音）* P（乐）= 1.31*10-8。</p>
+<p>P（张三喜欢音乐）= P（张）* P（三）* P（喜）* P（欢）* P（音）* P（乐）= 2.35*10-7。</p>
+</blockquote>
+<p>很显然，句子的长度在很大程度上会影响句子的概率，这就是之前提到的，为何计算句子困惑度需要用N次根号去解决句子长度对于句子概率的影响。</p>
+<h3 id="参数选择"><a href="#参数选择" class="headerlink" title="参数选择"></a>参数选择</h3><p>对于unigram，P（欢）= count（欢）/ count（T）= 1 / 9, 只需要遍历一次词表就可以计算出“欢”出现的概率。</p>
+<p>对于bigram，则需要使用条件概率才能计算出连续两个单词出现的概率，所以N为2时，相比N为1 的N-gram模型，计算复杂度高了一个量级。</p>
+<p>仍然以 <code>N-gram模型计算</code> 一节中的  $T$  作为语料库，此时我们使用<strong>bigram</strong>模型，此时模型计算公式为：</p>
+<script type="math/tex; mode=display">
+P(张三喜欢听音乐) = P(张|BOS) * P(三|张) * P(喜|三) * P(欢|喜) * P(听|欢) * P(音|听)  * P(乐|音) * P(EOS|乐)</script><p>计算条件概率的方法仍然是数次数，只不过此时数数过程稍有不同，以二维转移矩阵显示比较直观：</p>
+<p><img src="matrix.jpg" style="zoom:33%;" /></p>
+<p>从表中可得：</p>
+<script type="math/tex; mode=display">
+P(张三喜欢听音乐) = 1 * 1 * 0.5 * 1 * 0.5 * 1 * 1 * 1 = 0.25</script><p>很显然，bigram模型概率的计算过程与unigram模型比较相似，但是条件概率计算难度比单个字符出现概率计算难度复杂的多。举个例子：</p>
+<p>对于unigram，</p>
+<script type="math/tex; mode=display">
+P(欢)=\frac{count(欢)}{count(T)} = \frac{2}{18} = \frac{1}{9}</script><p>即只需要遍历词表一次即可输出 <strong>“欢”</strong> 出现的次数。</p>
+<p>对于bigram，</p>
+<script type="math/tex; mode=display">
+P(听|欢)=\frac{count(欢听)}{\sum_{x}count(欢x)}=\frac{1}{count(欢听)+count(欢写)} = \frac{1}{2}</script><p>计算 $P（听|欢)$ 需要先遍历除所有以 <strong>“欢”</strong> 开头的词语，再计算 <strong>“欢听”</strong> 的条件概率。</p>
+<p>更一般的：</p>
+<script type="math/tex; mode=display">
+P(w_{i+1} | w_{i}) = \frac{count(w_iw_{i+1})}{count(w_i)}</script><p>也就是说，N为2时相比N为1的N-gram模型，计算复杂度高了一个量级。</p>
+<p>N-gram模型的参数数量与N的关系成指数级，因此计算量受到N的影响很大。</p>
+<p>毫无疑问，增大N的值可以提高模型的性能，但是也会使得模型难以计算，所以实践中一般用bigram或者trigram。</p>
+<p><img src="困惑度.jpg" alt="N-gram模型困惑度" style="zoom:30%;" /></p>
+<p>N-gram模型的模型效果和计算量就像天平的两端，往往二者不可得兼，为了减少参数量，只能减小N的取值，但这样不可避免地会导致模型效果下降。一般来说，N-gram模型中的n的取值也就是3~5，而即使是N选取比较大的的值，也难以充分覆盖前文信息，因此仍然无法解决长距离依赖关系问题。</p>
+
+            </div>
+            <hr />
+
+            
+
+            <!-- 3/22: 修改了css文件路径 -->
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<!-- 3/22: 修改了js文件路径 -->
+<script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/share/js/social-share.min.js"></script>
+
+            
+
+
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <article id="prenext-posts" class="prev-next articles">
+        <div class="row article-row">
+            
+                <div class="article col s12 m6" data-aos="fade-up">
+                    <div class="article-badge left-badge text-color">
+                        <i class="fa fa-chevron-left"></i>&nbsp;
+                        上一篇
+                    </div>
+                    <div class="card">
+                        <a href="/2021/08/06/shen-jing-wang-luo-yu-yan-mo-xing/">
+                            <div class="card-image">
+                                
+                                        
+
+                                            <!-- 3/22修改： -->
+                                            <img src="https://s4.ax1x.com/2022/02/08/HlQnjs.jpg" class="responsive-img" alt="神经网络语言模型">
+                                            
+                                                <span class="card-title">神经网络语言模型</span>
+                            </div>
+                        </a>
+                        <div class="card-content article-content">
+                            <div class="summary block-with-text">
+                                
+                                    语言模型本质是计算给定序列的概率，而神经网络强大的非线性拟合能力很适合拟合概率分布。并且神经网络模型可以获取到当前词汇下文的信息，这一点是N-gram语言模型所不具备的，另外神经网络模型能够利用到的的上下文词汇长度要比N-gram模型长的多。
+                                        
+                            </div>
+                            <div class="publish-info">
+                                <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2021-08-06
+                        </span>
+                                <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/NLP/" class="post-category" target="_blank">
+                                    NLP
+                                </a>
+                            
+                            
+                        </span>
+                            </div>
+                        </div>
+                        
+                            <div class="card-action article-tags">
+                                
+                                    <a href="/tags/%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/" target="_blank">
+                                        <span class="chip bg-color">语言模型</span>
+                                    </a>
+                                    
+                                    <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" target="_blank">
+                                        <span class="chip bg-color">神经网络</span>
+                                    </a>
+                                    
+                            </div>
+                            
+                    </div>
+                </div>
+                
+                        
+                            <div class="article col s12 m6" data-aos="fade-up">
+                                <div class="article-badge right-badge text-color">
+                                    下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+                                </div>
+                                <div class="card">
+                                    <a href="/2021/05/03/yu-yan-mo-xing-gai-shu/">
+                                        <div class="card-image">
+                                            
+                                                    
+                                                        <img src="https://s4.ax1x.com/2022/02/08/HlMq76.jpg" class="responsive-img" alt="语言模型概述">
+                                                        
+                                                            <span class="card-title">语言模型概述</span>
+                                        </div>
+                                    </a>
+                                    <div class="card-content article-content">
+                                        <div class="summary block-with-text">
+                                            
+                                                语言模型（Language Model），是对语句的概率分布的建模。对于语言模型，输入为字或者单词组成的序列，输出为这个序列的概率。
+                                                    
+                                        </div>
+                                        <div class="publish-info">
+                                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-05-03
+                            </span>
+                                            <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/NLP/" class="post-category" target="_blank">
+                                    NLP
+                                </a>
+                            
+                            
+                        </span>
+                                        </div>
+                                    </div>
+                                    
+                                        <div class="card-action article-tags">
+                                            
+                                                <a href="/tags/%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/" target="_blank">
+                                                    <span class="chip bg-color">语言模型</span>
+                                                </a>
+                                                
+                                                <a href="/tags/%E6%A6%82%E8%BF%B0/" target="_blank">
+                                                    <span class="chip bg-color">概述</span>
+                                                </a>
+                                                
+                                        </div>
+                                        
+                                </div>
+                            </div>
+                            
+        </div>
+    </article>
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: SKYFAKER<br />'
+            + '作者: 文杰<br />'
+            + '链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者skyfaker所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () { bodyElement.removeChild(newdiv); }, 200);
+    });
+</script>
+
+    </div>
+    <div id="toc-aside" class="expanded col l2 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;
+                目录
+            </div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+    <div id="floating-toc-btn" class="hide-on-med-and-down">
+        <a class="btn-floating btn-large bg-color">
+            <i class="fa fa-list"></i>
+        </a>
+    </div>
+    
+
+        <script src="/libs/tocbot/tocbot.min.js"></script>
+        <script>
+            $(function() {
+                tocbot.init({
+                    tocSelector: '#toc-content',
+                    contentSelector: '#articleContent',
+                    headingsOffset: -($(window).height() * 0.4 - 45),
+                    // headingsOffset: -205,
+                    headingSelector: 'h1, h2, h3, h4'
+                });
+
+                // modify the toc link href to support Chinese.
+                let i = 0;
+                let tocHeading = 'toc-heading-';
+                $('#toc-content a').each(function() {
+                    $(this).attr('href', '#' + tocHeading + (++i));
+                });
+
+                // modify the heading title id to support Chinese.
+                i = 0;
+                $('#articleContent').children('h1, h2, h3, h4').each(function() {
+                    $(this).attr('id', tocHeading + (++i));
+                });
+
+                // Set scroll toc fixed.
+                let tocHeight = parseInt($(window).height() * 0.4 - 64);
+                let $tocWidget = $('.toc-widget');
+                $(window).scroll(function() {
+                    let scroll = $(window).scrollTop();
+                    /* add post toc fixed. */
+                    if (scroll > tocHeight) {
+                        $tocWidget.addClass('toc-fixed');
+                    } else {
+                        $tocWidget.removeClass('toc-fixed');
+                    }
+                });
+
+                
+                /* 修复文章卡片 div 的宽度. */
+                let fixPostCardWidth = function(srcId, targetId) {
+                    let srcDiv = $('#' + srcId);
+                    if (srcDiv.length === 0) {
+                        return;
+                    }
+
+                    let w = srcDiv.width();
+                    if (w >= 450) {
+                        w = w + 21;
+                    } else if (w >= 350 && w < 450) {
+                        w = w + 18;
+                    } else if (w >= 300 && w < 350) {
+                        w = w + 16;
+                    } else {
+                        w = w + 14;
+                    }
+                    $('#' + targetId).width(w);
+                };
+
+                // 切换TOC目录展开收缩的相关操作.
+                const expandedClass = 'expanded';
+                let $tocAside = $('#toc-aside');
+                let $mainContent = $('#main-content');
+                $('#floating-toc-btn .btn-floating').click(function() {
+                    if ($tocAside.hasClass(expandedClass)) {
+                        $tocAside.removeClass(expandedClass).slideUp(500);
+                        $mainContent.removeClass('l9');
+                    } else {
+                        $tocAside.addClass(expandedClass).slideDown(500);
+                        $mainContent.addClass('l9');
+                    }
+                    fixPostCardWidth('artDetail', 'prenext-posts');
+                });
+                
+            });
+        </script>
+    
+
+</main>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script>
+        MathJax.Hub.Config({
+            tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+        });
+    </script>
+    
+    <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+    <!-- 代码语言 -->
+    <script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+    <!-- 代码块复制 -->
+    <script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+    <script type="text/javascript" src="/libs/codeBlock/clipboard.min.js"></script>
+    <!-- 代码块收缩 -->
+    <script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script> 
+    <!-- 代码块折行 -->
+    <style type="text/css">code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }</style>
+    
+    
+                <footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            &copy; 2019-2020 Wenjie. 版权所有
+
+            
+                &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
+                <span class="white-color">65k</span>
+                
+
+                    <br>
+                    <span id="sitetime"></span>
+
+                    
+                        
+                            <br>
+                                
+                                    <span id="busuanzi_container_site_pv" style='display:none'>
+                <i class="fa fa-heart-o"></i>
+                本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                                    </span>
+                                    
+                                        
+                                            <span id="busuanzi_container_site_uv" style='display:none'>
+                人次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                                            </span>
+                                            
+                                                
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+            
+    <a href="https://github.com/skyfaker" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:shaowenjie1314@gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fa fa-rss"></i>
+    </a>
+
+        </div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+<!-- 不蒜子计数初始值纠正 -->
+<script>
+    $(document).ready(function() {
+
+        var int = setInterval(fixCount, 50);
+        var pvcountOffset = 8000;
+        var uvcountOffset = 2000;
+
+        function fixCount() {
+            if (document.getElementById("busuanzi_container_site_pv").style.display != "none") {
+                $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) +
+                    pvcountOffset);
+                clearInterval(int);
+            }
+            if ($("#busuanzi_container_site_pv").css("display") != "none") {
+                $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) +
+                    uvcountOffset); // 加上初始数据 
+                clearInterval(int);
+            }
+        }
+    });
+</script>
+
+<script language=javascript>
+    function siteTime() {
+        window.setTimeout("siteTime()", 1000);
+        var seconds = 1000;
+        var minutes = seconds * 60;
+        var hours = minutes * 60;
+        var days = hours * 24;
+        var years = days * 365;
+        var today = new Date();
+        var todayYear = today.getFullYear();
+        var todayMonth = today.getMonth() + 1;
+        var todayDate = today.getDate();
+        var todayHour = today.getHours();
+        var todayMinute = today.getMinutes();
+        var todaySecond = today.getSeconds();
+        /* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+        year - 作为date对象的年份，为4位年份值
+        month - 0-11之间的整数，做为date对象的月份
+        day - 1-31之间的整数，做为date对象的天数
+        hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+        minutes - 0-59之间的整数，做为date对象的分钟数
+        seconds - 0-59之间的整数，做为date对象的秒数
+        microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+        var t1 = Date.UTC(2018, 03, 11, 00, 00, 00); //北京时间2018-2-13 00:00:00
+        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+        var diff = t2 - t1;
+        var diffYears = Math.floor(diff / years);
+        var diffDays = Math.floor((diff / days) - diffYears * 365);
+        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes *
+            minutes) / seconds);
+        document.getElementById("sitetime").innerHTML = "本站已运行 " + diffYears + " 年 " + diffDays + " 天 " + diffHours +
+            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+    } /*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
+    siteTime();
+</script>
+
+                    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<!-- 3/22: 修改了js文件路径 -->
+<script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+                        <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+                        <!-- 3/22: 修改了js文件路径 --> 
+                            <script src="https://cdn.staticfile.org/materialize/1.0.0/js/materialize.js"></script>
+                            <script src="https://cdn.staticfile.org/masonry/4.0.0/masonry.pkgd.min.js"></script>
+                            <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+                            <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+                            <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+
+                            <!-- <script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/materialize/materialize.min.js"></script>
+                            <script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/masonry/masonry.pkgd.min.js"></script>
+                            <script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/aos/aos.js"></script>
+                            <script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/scrollprogress/scrollProgress.min.js"></script>
+                            <script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/lightGallery/js/lightgallery-all.min.js"></script> -->
+
+                            <!-- 2022/02/06 从jsdelivr换到staticfile(在config中修改)-->
+                         
+                            <!-- 3/22: 修改了js文件路径 -->
+                            <script src="/js/matery.js"></script>
+                            <!-- <script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/js/matery.js"></script> -->
+
+                            <script type="text/javascript">
+                                var OriginTitile = document.title,
+                                    st;
+                                document.addEventListener("visibilitychange", function() {
+                                    document.hidden ? (document.title = "(っ °Д °;)哦，崩溃啦！", clearTimeout(st)) : (document.title = "(゜▽゜*)咦，又好了！", st = setTimeout(function() {
+                                        document.title = OriginTitile
+                                    }, 3e3))
+                                })
+                            </script>
+
+                            <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+                                
+
+                                    <!-- 3/22: 修改了js文件路径 --> 
+                                    <script src="/libs/others/clicklove.js"></script>
+                                    <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/others/clicklove.js"></script> -->
+                                    
+
+                                                    
+                                                        <!-- 3/22: 修改了js文件路径 --> 
+                                                        <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+                                                        <!-- <script async src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/others/busuanzi.pure.mini.js"></script> -->
+                                                        
+
+                                                            <!-- 雪花特效 -->
+                                                            
+
+    </body>
+
+</html>

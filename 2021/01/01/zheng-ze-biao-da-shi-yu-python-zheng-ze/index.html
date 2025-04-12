@@ -1,0 +1,1136 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="正则表达式与python正则, 深度学习 | 数据挖掘">
+    <meta name="baidu-site-verification" content="fmlEuI34ir" />
+    <meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48" />
+    <meta name="360-site-verification" content="b7c11a830ef90fd1464ad6206bb7b6e7" />
+    <meta name="description" content="正则表达式正则表达式是一个特殊的字符序列，它使用单个字符串来描述、匹配一系列匹配某个句法规则的字符序列，通常被用来检索、替换那些匹配某个模式的文本。
+正则表达式是一种用来匹配字符串的强有力的武器。所以多用于字符校验，比如密码是否符合强度要求">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>正则表达式与python正则 | SKYFAKER</title>
+
+    <!-- 网页在浏览器上的图标 -->
+    <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.staticfile.org/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.staticfile.org/aos/2.3.4/aos.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.staticfile.org/lightgallery/1.6.11/css/lightgallery.min.css">
+    
+    <!-- 3/22: 这里修改了js文件的路径，借助jsdelivr的CDN，用法为 “https://cdn.jsdelivr.net/gh/你的用户名/你的仓库名@发布的版本号/文件路径” 其中版本号可选，不写版本号则为最新-->
+    <!-- <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/css/my.css"> -->
+
+    <!-- 22/02/06 -->
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+
+    <style type="text/css">
+        
+    </style>
+
+    <!-- 2020/03/22: 这里修改了jQuery文件的路径 -->
+    <!-- <script src="/libs/jquery/jquery-2.2.0.min.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/jquery/jquery-2.2.0.min.js"></script> -->
+    
+    <!-- 2022/02/06: 修改了jQuery文件的路径，换到七牛云的staticfile -->
+<!--    <script src="https://cdn.staticfile.org/jquery/2.2.0/jquery.min.js"></script>-->
+
+    <!-- 2025/02/07: 修改了jQuery文件的路径，换到官方 -->
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?46e79e71af0709a5b9106bf20cecc493";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+    
+
+    <script>
+        (function(){
+        var src = "https://jspassport.ssl.qhimg.com/11.0.1.js?d182b3f28525f2db83acfaaf6e696dba";
+        document.write('<script src="' + src + '" id="sozz"><\/script>');
+        })();
+    </script>
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="SKYFAKER" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+    <body>
+
+        <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    <span class="logo-span">SKYFAKER</span>
+                </a>
+                <!-- <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">SKYFAKER</span>
+                </a> -->
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>归档</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <i class="fa fa-address-book"></i>
+            
+            <span>友情链接</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/contact" class="waves-effect waves-light">
+            
+            <i class="fa fa-comments"></i>
+            
+            <span>留言板</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
+        </a>
+    </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">SKYFAKER</div>
+        <div class="logo-desc">
+            
+            民胞物与，念兹在兹
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                归档
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-address-book"></i>
+                
+                友情链接
+            </a>
+        </li>
+        
+        <li>
+            <a href="/contact" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-comments"></i>
+                
+                留言板
+            </a>
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/skyfaker" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/skyfaker" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+                
+    </nav>
+
+</header>
+            
+
+
+
+<!-- 3/22: 这里修改了推荐页文章点击进去之后的图片路径 -->
+<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.iohttps://s4.ax1x.com/2022/02/08/HlQNv9.jpg');"> -->
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://s4.ax1x.com/2022/02/08/HlQNv9.jpg');">
+
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        正则表达式与python正则
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+    
+    #articleContent :focus {
+        outline: none;
+    }
+    
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+    
+    .toc-widget {
+        padding-left: 20px;
+    }
+    
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+    
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+    
+    #toc-content ol {
+        padding-left: 10px;
+    }
+    
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+    
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+    
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+    
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+    
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+    
+    #floating-toc-btn {
+        position: fixed;
+        right: 20px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+    
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+    
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+
+<!-- 单页博客页面的配置 -->
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                        <a href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" target="_blank">
+                            <span class="chip bg-color">正则表达式</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                        <a href="/categories/python/" class="post-category" target="_blank">
+                            python
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2021-01-01
+                </div>
+
+                <div class="post-author info-break-policy">
+                    <i class="fa fa-user-o fa-fw"></i>作者:&nbsp;&nbsp;
+                    
+                    文杰
+                    
+                </div>
+
+                
+                
+                <div class="info-break-policy">
+                    <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    1.7k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    6 分
+                </div>
+                
+                
+
+                
+                <div id="busuanzi_container_page_pv" class="info-break-policy">
+                    <i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                    <span id="busuanzi_value_page_pv"></span>
+                </div>
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h2><p>正则表达式是一个特殊的字符序列，它使用单个字符串来描述、匹配一系列匹配某个句法规则的字符序列，通常被用来检索、替换那些匹配某个模式的文本。</p>
+<p>正则表达式是一种用来匹配字符串的强有力的武器。所以多用于字符校验，比如密码是否符合强度要求；校验电话号码或者邮箱是否合法等等。</p>
+<p>正则表达式的大致匹配过程是：依次拿出表达式和文本中的字符比较，如果每一个字符都能匹配，则匹配成功；一旦有匹配不成功的字符则匹配失败。如果表达式中有量词或边界，这个过程会稍微有一些不同。</p>
+<h3 id="常用的正则元素："><a href="#常用的正则元素：" class="headerlink" title="常用的正则元素："></a>常用的正则元素：</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>模式</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>一般字符</td>
+<td>匹配自身</td>
+</tr>
+<tr>
+<td><code>.</code></td>
+<td>匹配除了换行符之外的字符</td>
+</tr>
+<tr>
+<td><code>\d</code></td>
+<td>数字</td>
+</tr>
+<tr>
+<td><code>\D</code></td>
+<td>非数字，即\d的逆 <code>[^\d]</code></td>
+</tr>
+<tr>
+<td><code>\s</code></td>
+<td>空白字符（空格、换行、制表等）</td>
+</tr>
+<tr>
+<td><code>\S</code></td>
+<td>非空白字符</td>
+</tr>
+<tr>
+<td><code>\w</code></td>
+<td>单词字符</td>
+</tr>
+<tr>
+<td><code>\W</code></td>
+<td>非单词字符</td>
+</tr>
+<tr>
+<td>　<code>｜</code></td>
+<td>左右任意匹配一个，先左后右</td>
+</tr>
+<tr>
+<td><code>[]</code></td>
+<td>字符集，中括号内部既可以是单个字符如<code>[abc]</code>，也可以是字符范围如<code>[0-3]</code></td>
+</tr>
+<tr>
+<td><code>()</code></td>
+<td>小括号内部表示一个整体作为一个分组，并且会依次赋予一个编号</td>
+</tr>
+<tr>
+<td><code>&#123;m,n&#125;</code></td>
+<td>大括号表示前一个字符或者字符集和重复次数，包括m和n次</td>
+</tr>
+<tr>
+<td><code>*</code></td>
+<td>匹配前一个字符0到无限次</td>
+</tr>
+<tr>
+<td><code>+</code></td>
+<td>匹配前一个字符1到无限次</td>
+</tr>
+<tr>
+<td><code>?</code></td>
+<td>匹配前一个字符0次或者1次，问号加在<code>&#123;m,n&#125;,*,+,?</code>这些数量词后面，可以变成非贪婪匹配</td>
+</tr>
+<tr>
+<td><code>^</code></td>
+<td>匹配开头</td>
+</tr>
+<tr>
+<td><code>$</code></td>
+<td>匹配结尾</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>除了上面一些常用的元素外，还有一些比较强大的分组用法，比如：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>模式</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>\number</code></td>
+<td>引用编号为<code>&lt;number&gt;</code>的分组所匹配到的字符串</td>
+</tr>
+<tr>
+<td><code>(?=X)</code></td>
+<td>匹配的字符串的后面限制为X，如<code>a(?=\d)</code>匹配后面是数字的a</td>
+</tr>
+<tr>
+<td><code>(?!X)</code></td>
+<td>匹配的字符串的后面限制不为X，如<code>a(?!\d)</code>匹配后面不是数字的a</td>
+</tr>
+<tr>
+<td><code>(?&lt;=X)</code></td>
+<td>匹配的字符串的前面有限制条件，如<code>a(?&lt;=\d)</code>匹配前面是数字的a</td>
+</tr>
+<tr>
+<td><code>(?&lt;!X)</code></td>
+<td>匹配的字符串的前面有限制条件，如<code>a(?&lt;=\d)</code>匹配前面不是数字的a</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="贪婪匹配与非贪婪匹配"><a href="#贪婪匹配与非贪婪匹配" class="headerlink" title="贪婪匹配与非贪婪匹配"></a>贪婪匹配与非贪婪匹配</h3><p><strong>贪婪匹配：</strong>贪婪匹配在匹配字符串时总是尝试匹配<strong>尽可能多</strong>的字符。</p>
+<p><strong>懒惰匹配：</strong>与贪婪匹配相反，懒惰匹配在匹配字符串时总是尝试匹配<strong>尽可能少</strong>的字符。</p>
+<p>在python中默认使用的是贪婪匹配。</p>
+<p>举个例子，一个字符串<code>abcabc</code>，正则表达式为<code>a.*c</code>，那么默认的贪婪匹配匹配到的结果为<code>abcabc</code>，非贪婪匹配的结果为<code>abc</code></p>
+<p>从贪婪匹配模式改成懒惰匹配也很简单，只要在表示次数的元素<code>*、？、+、&#123;m,n&#125;</code>后面加上<code>？</code>即可。</p>
+<p><img src="re.jpg" style="zoom:50%;" /></p>
+<h2 id="python正则"><a href="#python正则" class="headerlink" title="python正则"></a>python正则</h2><p>python中的re模块是python自带的处理正则表达式的库。</p>
+<p>主要方法有</p>
+<blockquote>
+<p>re.match()，re.search()，re.compile()，re.split()，re.findall()，re.finditer()等等</p>
+</blockquote>
+<h3 id="re-compile"><a href="#re-compile" class="headerlink" title="re.compile()"></a>re.compile()</h3><p>compile 函数用于编译正则表达式，生成一个正则表达式（ Pattern ）对象，供其他函数使用。</p>
+<p>实际上compile函数返回一个正则表达式对象，和一般的类对象实例化过程不同的是，正则表达式对象只能通过compile函数生成。</p>
+<h3 id="re-match"><a href="#re-match" class="headerlink" title="re.match()"></a>re.match()</h3><p>这个函数就可以通过类方法调用也可以通过正则表达式对象的实例方法调用。者方法会从字符串的起始位置匹配一个模式，如果不是起始位置匹配成功的话，match()就返回none。</p>
+<p>匹配成功后，<code>re.match</code>方法返回一个匹配的对象，可以使用匹配对象的<code>group()</code>方法 来获取匹配到的字符串，也可以使用<code>span()</code>方法获取到匹配对象的位置。</p>
+<h3 id="re-search"><a href="#re-search" class="headerlink" title="re.search()"></a>re.search()</h3><p>这个函数扫描整个字符串并返回第一个成功的匹配对象。</p>
+<p>search和match的区别是：<code>re.match</code> 只匹配字符串的开始，如果字符串开始不符合正则表达式，则匹配失败，函数返回 None，而 <code>re.search</code> 匹配整个字符串，直到找到一个匹配。</p>
+<h3 id="re-findall"><a href="#re-findall" class="headerlink" title="re.findall()"></a>re.findall()</h3><p>search和match只会找出一个匹配结果，而很多情况下，我们需要找到所有匹配的结果，这时候就需要用findall方法。</p>
+<p>该方法找到正则表达式所匹配的所有子串，并返回一个字符串列表，如果有多个匹配模式，则返回元组列表，如果没有找到匹配的，则返回空列表。</p>
+<h3 id="re-finditer"><a href="#re-finditer" class="headerlink" title="re.finditer()"></a>re.finditer()</h3><p>在字符串中找到正则表达式所匹配的所有子串，不过返回的是一个迭代器。</p>
+<h3 id="re-split"><a href="#re-split" class="headerlink" title="re.split()"></a>re.split()</h3><p>split 方法按照能够匹配的子串将字符串分割后返回列表，可以代替字符串的<code>split</code>方法。</p>
+<blockquote>
+<p>Notice:</p>
+<p>match(), search(), finditer()返回的都是匹配对象，匹配对象可以通过group方法和span方法获取到匹配的表达式和位置</p>
+<p>findall()方法返回的是一个列表，里面只有匹配到的字符串。</p>
+</blockquote>
+<h2 id="正则原理与问题点"><a href="#正则原理与问题点" class="headerlink" title="正则原理与问题点"></a>正则原理与问题点</h2><p>实现正则表达式引擎的有两种方式：<strong>DFA 自动机</strong>（Deterministic Final Automata 确定型有穷自动机）和 <strong>NFA 自动机</strong>（Non deterministic Finite Automaton 不确定型有穷自动机）。</p>
+<p>DFA 自动机的时间复杂度是线性的，更加稳定，但是功能有限。</p>
+<p>而 NFA 的时间复杂度比较不稳定，有时候很好，有时候不怎么好，好不好取决于你写的正则表达式，但是 NFA 的功能更加强大。</p>
+<p>Python中使用的是NFA。</p>
+<p>NFA自动机消耗输入符号的字符串。对每个输入符号它变换到一个新状态直到所有输入符号到被耗尽。整个过程比较复杂，这里不赘述，需要注意的是自动机的<strong>回溯</strong>过程。</p>
+<p><strong>匹配过程导致 CPU 使用率高</strong>的主要原因就是自动机的回溯过程。上文已经提到了正则匹配的贪婪模式，一般来说，贪婪匹配更容易发生回溯的问题。还有一种模式被称为<strong>独占模式</strong>，在表示次数的元素<code>*、？、+、&#123;m,n&#125;</code>后面加上<code>+</code>，匹配时会尽可能多的匹配，但是不回溯。如果写正则表达式的时候发现匹配时间久，CPU使用率长时间居高不下，可以试着分析是否是正则表达式写的有问题，导致的回溯过多。</p>
+
+            </div>
+            <hr />
+
+            
+
+            <!-- 3/22: 修改了css文件路径 -->
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<!-- 3/22: 修改了js文件路径 -->
+<script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/share/js/social-share.min.js"></script>
+
+            
+
+
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <article id="prenext-posts" class="prev-next articles">
+        <div class="row article-row">
+            
+                <div class="article col s12 m6" data-aos="fade-up">
+                    <div class="article-badge left-badge text-color">
+                        <i class="fa fa-chevron-left"></i>&nbsp;
+                        上一篇
+                    </div>
+                    <div class="card">
+                        <a href="/2021/03/10/attention-is-all-you-need/">
+                            <div class="card-image">
+                                
+                                        
+
+                                            <!-- 3/22修改： -->
+                                            <img src="https://s4.ax1x.com/2022/02/08/HlQZ9g.jpg" class="responsive-img" alt="Attention is all you need">
+                                            
+                                                <span class="card-title">Attention is all you need</span>
+                            </div>
+                        </a>
+                        <div class="card-content article-content">
+                            <div class="summary block-with-text">
+                                
+                                    这是Google公司在2017年发表的一篇论文，论文提出了一种新的结构来“代替”RNN或者CNN的结构，确实是一种比较新颖而且有效的操作。
+                                        
+                            </div>
+                            <div class="publish-info">
+                                <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2021-03-10
+                        </span>
+                                <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/NLP/" class="post-category" target="_blank">
+                                    NLP
+                                </a>
+                            
+                            
+                        </span>
+                            </div>
+                        </div>
+                        
+                            <div class="card-action article-tags">
+                                
+                                    <a href="/tags/Attention/" target="_blank">
+                                        <span class="chip bg-color">Attention</span>
+                                    </a>
+                                    
+                            </div>
+                            
+                    </div>
+                </div>
+                
+                        
+                            <div class="article col s12 m6" data-aos="fade-up">
+                                <div class="article-badge right-badge text-color">
+                                    下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+                                </div>
+                                <div class="card">
+                                    <a href="/2020/11/11/svm-xiang-jie/">
+                                        <div class="card-image">
+                                            
+                                                    
+                                                        <img src="https://s4.ax1x.com/2022/02/08/HlMOAK.jpg" class="responsive-img" alt="机器学习——SVM简述">
+                                                        
+                                                            <span class="card-title">机器学习——SVM简述</span>
+                                        </div>
+                                    </a>
+                                    <div class="card-content article-content">
+                                        <div class="summary block-with-text">
+                                            
+                                                支持向量机(Support Vector Machine, SVM)是一种应用非常广泛的分类方法。传统的SVM是一种二类分类方法，适用于数据只有两类的情况。本文和接下来几篇文章将从间隔最大化开始，逐步推导SVM形成的优化问题，拉格朗日对偶问题，非线性SVM，以及训练SVM的序列最小最优化(Sequential Minimal Optimization, SMO)算法等。
+                                                    
+                                        </div>
+                                        <div class="publish-info">
+                                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-11-11
+                            </span>
+                                            <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="post-category" target="_blank">
+                                    机器学习
+                                </a>
+                            
+                            
+                        </span>
+                                        </div>
+                                    </div>
+                                    
+                                        <div class="card-action article-tags">
+                                            
+                                                <a href="/tags/SVM/" target="_blank">
+                                                    <span class="chip bg-color">SVM</span>
+                                                </a>
+                                                
+                                        </div>
+                                        
+                                </div>
+                            </div>
+                            
+        </div>
+    </article>
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: SKYFAKER<br />'
+            + '作者: 文杰<br />'
+            + '链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者skyfaker所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () { bodyElement.removeChild(newdiv); }, 200);
+    });
+</script>
+
+    </div>
+    <div id="toc-aside" class="expanded col l2 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;
+                目录
+            </div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+    <div id="floating-toc-btn" class="hide-on-med-and-down">
+        <a class="btn-floating btn-large bg-color">
+            <i class="fa fa-list"></i>
+        </a>
+    </div>
+    
+
+        <script src="/libs/tocbot/tocbot.min.js"></script>
+        <script>
+            $(function() {
+                tocbot.init({
+                    tocSelector: '#toc-content',
+                    contentSelector: '#articleContent',
+                    headingsOffset: -($(window).height() * 0.4 - 45),
+                    // headingsOffset: -205,
+                    headingSelector: 'h1, h2, h3, h4'
+                });
+
+                // modify the toc link href to support Chinese.
+                let i = 0;
+                let tocHeading = 'toc-heading-';
+                $('#toc-content a').each(function() {
+                    $(this).attr('href', '#' + tocHeading + (++i));
+                });
+
+                // modify the heading title id to support Chinese.
+                i = 0;
+                $('#articleContent').children('h1, h2, h3, h4').each(function() {
+                    $(this).attr('id', tocHeading + (++i));
+                });
+
+                // Set scroll toc fixed.
+                let tocHeight = parseInt($(window).height() * 0.4 - 64);
+                let $tocWidget = $('.toc-widget');
+                $(window).scroll(function() {
+                    let scroll = $(window).scrollTop();
+                    /* add post toc fixed. */
+                    if (scroll > tocHeight) {
+                        $tocWidget.addClass('toc-fixed');
+                    } else {
+                        $tocWidget.removeClass('toc-fixed');
+                    }
+                });
+
+                
+                /* 修复文章卡片 div 的宽度. */
+                let fixPostCardWidth = function(srcId, targetId) {
+                    let srcDiv = $('#' + srcId);
+                    if (srcDiv.length === 0) {
+                        return;
+                    }
+
+                    let w = srcDiv.width();
+                    if (w >= 450) {
+                        w = w + 21;
+                    } else if (w >= 350 && w < 450) {
+                        w = w + 18;
+                    } else if (w >= 300 && w < 350) {
+                        w = w + 16;
+                    } else {
+                        w = w + 14;
+                    }
+                    $('#' + targetId).width(w);
+                };
+
+                // 切换TOC目录展开收缩的相关操作.
+                const expandedClass = 'expanded';
+                let $tocAside = $('#toc-aside');
+                let $mainContent = $('#main-content');
+                $('#floating-toc-btn .btn-floating').click(function() {
+                    if ($tocAside.hasClass(expandedClass)) {
+                        $tocAside.removeClass(expandedClass).slideUp(500);
+                        $mainContent.removeClass('l9');
+                    } else {
+                        $tocAside.addClass(expandedClass).slideDown(500);
+                        $mainContent.addClass('l9');
+                    }
+                    fixPostCardWidth('artDetail', 'prenext-posts');
+                });
+                
+            });
+        </script>
+    
+
+</main>
+
+
+                <footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            &copy; 2019-2020 Wenjie. 版权所有
+
+            
+                &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
+                <span class="white-color">65k</span>
+                
+
+                    <br>
+                    <span id="sitetime"></span>
+
+                    
+                        
+                            <br>
+                                
+                                    <span id="busuanzi_container_site_pv" style='display:none'>
+                <i class="fa fa-heart-o"></i>
+                本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                                    </span>
+                                    
+                                        
+                                            <span id="busuanzi_container_site_uv" style='display:none'>
+                人次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                                            </span>
+                                            
+                                                
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+            
+    <a href="https://github.com/skyfaker" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:shaowenjie1314@gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fa fa-rss"></i>
+    </a>
+
+        </div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+<!-- 不蒜子计数初始值纠正 -->
+<script>
+    $(document).ready(function() {
+
+        var int = setInterval(fixCount, 50);
+        var pvcountOffset = 8000;
+        var uvcountOffset = 2000;
+
+        function fixCount() {
+            if (document.getElementById("busuanzi_container_site_pv").style.display != "none") {
+                $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) +
+                    pvcountOffset);
+                clearInterval(int);
+            }
+            if ($("#busuanzi_container_site_pv").css("display") != "none") {
+                $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) +
+                    uvcountOffset); // 加上初始数据 
+                clearInterval(int);
+            }
+        }
+    });
+</script>
+
+<script language=javascript>
+    function siteTime() {
+        window.setTimeout("siteTime()", 1000);
+        var seconds = 1000;
+        var minutes = seconds * 60;
+        var hours = minutes * 60;
+        var days = hours * 24;
+        var years = days * 365;
+        var today = new Date();
+        var todayYear = today.getFullYear();
+        var todayMonth = today.getMonth() + 1;
+        var todayDate = today.getDate();
+        var todayHour = today.getHours();
+        var todayMinute = today.getMinutes();
+        var todaySecond = today.getSeconds();
+        /* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+        year - 作为date对象的年份，为4位年份值
+        month - 0-11之间的整数，做为date对象的月份
+        day - 1-31之间的整数，做为date对象的天数
+        hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+        minutes - 0-59之间的整数，做为date对象的分钟数
+        seconds - 0-59之间的整数，做为date对象的秒数
+        microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+        var t1 = Date.UTC(2018, 03, 11, 00, 00, 00); //北京时间2018-2-13 00:00:00
+        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+        var diff = t2 - t1;
+        var diffYears = Math.floor(diff / years);
+        var diffDays = Math.floor((diff / days) - diffYears * 365);
+        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes *
+            minutes) / seconds);
+        document.getElementById("sitetime").innerHTML = "本站已运行 " + diffYears + " 年 " + diffDays + " 天 " + diffHours +
+            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+    } /*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
+    siteTime();
+</script>
+
+                    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<!-- 3/22: 修改了js文件路径 -->
+<script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+                        <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+                        <!-- 3/22: 修改了js文件路径 --> 
+                            <script src="https://cdn.staticfile.org/materialize/1.0.0/js/materialize.js"></script>
+                            <script src="https://cdn.staticfile.org/masonry/4.0.0/masonry.pkgd.min.js"></script>
+                            <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+                            <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+                            <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+
+                            <!-- <script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/materialize/materialize.min.js"></script>
+                            <script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/masonry/masonry.pkgd.min.js"></script>
+                            <script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/aos/aos.js"></script>
+                            <script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/scrollprogress/scrollProgress.min.js"></script>
+                            <script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/lightGallery/js/lightgallery-all.min.js"></script> -->
+
+                            <!-- 2022/02/06 从jsdelivr换到staticfile(在config中修改)-->
+                         
+                            <!-- 3/22: 修改了js文件路径 -->
+                            <script src="/js/matery.js"></script>
+                            <!-- <script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/js/matery.js"></script> -->
+
+                            <script type="text/javascript">
+                                var OriginTitile = document.title,
+                                    st;
+                                document.addEventListener("visibilitychange", function() {
+                                    document.hidden ? (document.title = "(っ °Д °;)哦，崩溃啦！", clearTimeout(st)) : (document.title = "(゜▽゜*)咦，又好了！", st = setTimeout(function() {
+                                        document.title = OriginTitile
+                                    }, 3e3))
+                                })
+                            </script>
+
+                            <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+                                
+
+                                    <!-- 3/22: 修改了js文件路径 --> 
+                                    <script src="/libs/others/clicklove.js"></script>
+                                    <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/others/clicklove.js"></script> -->
+                                    
+
+                                                    
+                                                        <!-- 3/22: 修改了js文件路径 --> 
+                                                        <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+                                                        <!-- <script async src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/others/busuanzi.pure.mini.js"></script> -->
+                                                        
+
+                                                            <!-- 雪花特效 -->
+                                                            
+
+    </body>
+
+</html>
