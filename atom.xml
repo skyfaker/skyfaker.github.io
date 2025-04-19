@@ -6,7 +6,7 @@
   <link href="https://www.skyfaker.cc/atom.xml" rel="self"/>
   
   <link href="https://www.skyfaker.cc/"/>
-  <updated>2025-04-12T06:32:45.877Z</updated>
+  <updated>2025-04-19T08:10:11.551Z</updated>
   <id>https://www.skyfaker.cc/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Python包管理工具深度解析：venv、conda、poetry与uv</title>
+    <link href="https://www.skyfaker.cc/2024/04/19/python-bao-guan-li-gong-ju-shen-du-jie-xi-venv-conda-poetry-yu-uv/"/>
+    <id>https://www.skyfaker.cc/2024/04/19/python-bao-guan-li-gong-ju-shen-du-jie-xi-venv-conda-poetry-yu-uv/</id>
+    <published>2024-04-19T07:05:11.000Z</published>
+    <updated>2025-04-19T08:10:11.551Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Python开发者或多或少都会遇到Python包的依赖问题：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;安装一个新的包时，与已有的包冲突；&lt;/li&gt;
+&lt;li&gt;安装一个新的包时，这个包的依赖与现有的包冲突；&lt;/li&gt;
+&lt;li&gt;开发时需要许多线上环境不需要的包，必须同时维护两套Requirem</summary>
+        
+      
+    
+    
+    
+    <category term="python" scheme="https://www.skyfaker.cc/categories/python/"/>
+    
+    
+    <category term="uv" scheme="https://www.skyfaker.cc/tags/uv/"/>
+    
+  </entry>
   
   <entry>
     <title>BERT与GPT：语言模型的双子星</title>
@@ -502,31 +531,6 @@
         
         
     <summary type="html">&lt;h2 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot; title=&quot;题目描述&quot;&gt;&lt;/a&gt;题目描述&lt;/h2&gt;&lt;p&gt;给定一个二叉树和一个值 &lt;code&gt;sum&lt;/code&gt;，请找出所有的根节点到叶子节点的节点值之和等于</summary>
-        
-      
-    
-    
-    
-    <category term="算法" scheme="https://www.skyfaker.cc/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-    <category term="编程算法" scheme="https://www.skyfaker.cc/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>一道编程题——删除倒数第k个节点</title>
-    <link href="https://www.skyfaker.cc/2020/04/17/yi-dao-bian-cheng-ti-shan-chu-dao-shu-di-k-ge-jie-dian/"/>
-    <id>https://www.skyfaker.cc/2020/04/17/yi-dao-bian-cheng-ti-shan-chu-dao-shu-di-k-ge-jie-dian/</id>
-    <published>2020-04-17T15:14:05.000Z</published>
-    <updated>2021-03-21T14:56:05.508Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot;</summary>
         
       
     
