@@ -1,0 +1,1189 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="uv教程, 深度学习 | 数据挖掘">
+    <meta name="baidu-site-verification" content="fmlEuI34ir" />
+    <meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48" />
+    <meta name="360-site-verification" content="b7c11a830ef90fd1464ad6206bb7b6e7" />
+    <meta name="description" content="一、 uv简介相比 pip 与 venv 的使用，uv确实有一定的学习门槛。熟悉前端nodejs的同学应该会比较熟悉。
+在介绍uv之前，先简单介绍一下python依赖等概念。
+模块管理、模块依赖管理模块是指虚拟环境中安装的第三方模块及其版本">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>uv教程 | SKYFAKER</title>
+
+    <!-- 网页在浏览器上的图标 -->
+    <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.staticfile.org/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.staticfile.org/aos/2.3.4/aos.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.staticfile.org/lightgallery/1.6.11/css/lightgallery.min.css">
+    
+    <!-- 3/22: 这里修改了js文件的路径，借助jsdelivr的CDN，用法为 “https://cdn.jsdelivr.net/gh/你的用户名/你的仓库名@发布的版本号/文件路径” 其中版本号可选，不写版本号则为最新-->
+    <!-- <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/css/my.css"> -->
+
+    <!-- 22/02/06 -->
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+
+    <style type="text/css">
+        
+    </style>
+
+    <!-- 2020/03/22: 这里修改了jQuery文件的路径 -->
+    <!-- <script src="/libs/jquery/jquery-2.2.0.min.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/jquery/jquery-2.2.0.min.js"></script> -->
+    
+    <!-- 2022/02/06: 修改了jQuery文件的路径，换到七牛云的staticfile -->
+<!--    <script src="https://cdn.staticfile.org/jquery/2.2.0/jquery.min.js"></script>-->
+
+    <!-- 2025/02/07: 修改了jQuery文件的路径，换到官方 -->
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?46e79e71af0709a5b9106bf20cecc493";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+    
+
+    <script>
+        (function(){
+        var src = "https://jspassport.ssl.qhimg.com/11.0.1.js?d182b3f28525f2db83acfaaf6e696dba";
+        document.write('<script src="' + src + '" id="sozz"><\/script>');
+        })();
+    </script>
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-shiki-plugin@latest/lib/codeblock.css">
+<style>:root{--hl-color:#abb2bf;--hl-bg:#282c34;--hltools-bg:#21252b;--hltools-color:#bbbbbc;--hlnumber-bg:#282c34;--hlnumber-color:#495162;--hlscrollbar-bg:#373c47;--hlexpand-bg:linear-gradient(180deg,rgba(40,44,52,0.1),rgba(40,44,52,0.9))}</style><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="SKYFAKER" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+    <body>
+
+        <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    <span class="logo-span">SKYFAKER</span>
+                </a>
+                <!-- <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">SKYFAKER</span>
+                </a> -->
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>归档</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <i class="fa fa-address-book"></i>
+            
+            <span>友情链接</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/contact" class="waves-effect waves-light">
+            
+            <i class="fa fa-comments"></i>
+            
+            <span>留言板</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
+        </a>
+    </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">SKYFAKER</div>
+        <div class="logo-desc">
+            
+            民胞物与，念兹在兹
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                归档
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-address-book"></i>
+                
+                友情链接
+            </a>
+        </li>
+        
+        <li>
+            <a href="/contact" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-comments"></i>
+                
+                留言板
+            </a>
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/skyfaker" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/skyfaker" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+                
+    </nav>
+
+</header>
+            
+
+
+
+<!-- 3/22: 这里修改了推荐页文章点击进去之后的图片路径 -->
+<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.iohttps://s4.ax1x.com/2022/02/08/HlQZ9g.jpg');"> -->
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://s4.ax1x.com/2022/02/08/HlQZ9g.jpg');">
+
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        uv教程
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+    
+    #articleContent :focus {
+        outline: none;
+    }
+    
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+    
+    .toc-widget {
+        padding-left: 20px;
+    }
+    
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+    
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+    
+    #toc-content ol {
+        padding-left: 10px;
+    }
+    
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+    
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+    
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+    
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+    
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+    
+    #floating-toc-btn {
+        position: fixed;
+        right: 20px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+    
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+    
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+
+<!-- 单页博客页面的配置 -->
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                        <a href="/tags/uv/" target="_blank">
+                            <span class="chip bg-color">uv</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                        <a href="/categories/python/" class="post-category" target="_blank">
+                            python
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2025-04-19
+                </div>
+
+                <div class="post-author info-break-policy">
+                    <i class="fa fa-user-o fa-fw"></i>作者:&nbsp;&nbsp;
+                    
+                    文杰
+                    
+                </div>
+
+                
+                
+                <div class="info-break-policy">
+                    <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    1.5k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    6 分
+                </div>
+                
+                
+
+                
+                <div id="busuanzi_container_page_pv" class="info-break-policy">
+                    <i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                    <span id="busuanzi_value_page_pv"></span>
+                </div>
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="一、-uv简介"><a href="#一、-uv简介" class="headerlink" title="一、 uv简介"></a>一、 uv简介</h2><p>相比 pip 与 venv 的使用，uv确实有一定的学习门槛。熟悉前端nodejs的同学应该会比较熟悉。</p>
+<p>在介绍uv之前，先简单介绍一下python依赖等概念。</p>
+<h3 id="模块管理、模块依赖管理"><a href="#模块管理、模块依赖管理" class="headerlink" title="模块管理、模块依赖管理"></a>模块管理、模块依赖管理</h3><p>模块是指虚拟环境中安装的第三方模块及其版本。大多数项目对第三方库的版本都是有特定要求，如果对旧版本的项目使用新版本的依赖，可能会报很奇怪的错误。</p>
+<p>当安装第三方模块时，第三方模块可能会安装自己依赖的模块。当安装两个以上模块时，就可能出现第三方模块的依赖出现冲突。这种情况一般是依赖的版本冲突。这种就叫做相关性依赖</p>
+<h3 id="pip-的不足"><a href="#pip-的不足" class="headerlink" title="pip 的不足"></a>pip 的不足</h3><p>pip 是 python 内置的依赖管理工具，它应该会是python开发者最常用的包管理命令。</p>
+<p>而pip最大的不足在于 <code>第三方模块的相关性依赖管理</code> 的能力不足。尤其是在删除第三方模块是的依赖解析。</p>
+<p>举个例子：安装python包A时，A需要先安装B，C。而在删除A时，pip并不知道A和B，C之间的关系，所以只会删除A，而不会处理B，C。</p>
+<h3 id="uv的管理方式"><a href="#uv的管理方式" class="headerlink" title="uv的管理方式"></a>uv的管理方式</h3><p>uv的管理方式类似于poetry，它依靠自动生成的<code>pyproject.toml</code>和<code>uv.lock</code>文件管理依赖。</p>
+<ul>
+<li><code>pyproject.toml</code>：定义项目的主要依赖，包括项目名称、版本、描述、支持的 <code>Python</code> 版本等信息</li>
+<li><code>uv.lock</code>：记录项目的所有依赖，包括依赖的依赖，且跨平台，确保在不同环境下安装的一致性。这个文件不要手动编辑。</li>
+</ul>
+<p>运行初始化命令<code>uv init</code>，会自动创建<code>pyproject.toml</code>文件。需要注意的是，虚拟环境目录<code>.venv</code>和lock文件<code>uv.lock</code>此时不会创建。</p>
+<p>运行<code>uv add &lt;package&gt;</code>， 会做三件事：</p>
+<ol>
+<li>将你指定的package添加到pyproject.toml文件的<code>[dependencies]</code>下面；</li>
+<li>同时修改<code>uv.lock</code>；</li>
+<li>根据<code>uv.lock</code>，更新虚拟环境。</li>
+</ol>
+<p>所以基本上uv的使用过程就是：使用命令修改<code>pyproject.toml</code>，uv自动根据pyproject.toml修改<code>uv.lock</code>，uv根据<code>uv.lock</code>管理依赖。</p>
+<h2 id="二、-uv教程"><a href="#二、-uv教程" class="headerlink" title="二、 uv教程"></a>二、 uv教程</h2><h3 id="（一）安装与环境配置"><a href="#（一）安装与环境配置" class="headerlink" title="（一）安装与环境配置"></a><strong>（一）安装与环境配置</strong></h3><h4 id="1-全平台一键安装（推荐方式）"><a href="#1-全平台一键安装（推荐方式）" class="headerlink" title="1. 全平台一键安装（推荐方式）"></a>1. 全平台一键安装（推荐方式）</h4><figure class="shiki bash"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #61AFEF">BASH#</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">使用Astral官方安装脚本</span></span>
+<span class="line"><span style="color: #7F848E; font-style: italic"># On macOS and Linux.</span></span>
+<span class="line"><span style="color: #61AFEF">curl</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">-LsSf</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">https://astral.sh/uv/install.sh</span><span style="color: #ABB2BF"> | </span><span style="color: #61AFEF">sh</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #7F848E; font-style: italic"># On Windows.</span></span>
+<span class="line"><span style="color: #61AFEF">powershell</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">-ExecutionPolicy</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">ByPass</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">-c</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">&quot;irm https://astral.sh/uv/install.ps1 | iex&quot;</span></span></code></pre></div></div></figure>
+<h4 id="2-pip-安装"><a href="#2-pip-安装" class="headerlink" title="2. pip 安装"></a>2. pip 安装</h4><figure class="shiki bash"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #7F848E; font-style: italic"># 将uv安装到当前python环境</span></span>
+<span class="line"><span style="color: #61AFEF">pip</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">install</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">uv</span></span></code></pre></div></div></figure>
+<p><em>输出示例</em>：</p>
+<figure class="shiki bash"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #61AFEF">✅</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">已安装uv</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">v0.18.0到</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">/home/user/.local/bin</span><span style="color: #ABB2BF">  </span></span>
+<span class="line"><span style="color: #61AFEF">运行</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">`</span><span style="color: #61AFEF">uv</span><span style="color: #98C379"> </span><span style="color: #D19A66">--version</span><span style="color: #98C379">`</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">验证安装</span></span></code></pre></div></div></figure>
+<h4 id="2-环境变量配置（可选）"><a href="#2-环境变量配置（可选）" class="headerlink" title="2. 环境变量配置（可选）"></a>2. 环境变量配置（可选）</h4><figure class="shiki bash"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #61AFEF">BASH#</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">将uv加入PATH（针对zsh/bash）</span></span>
+<span class="line"><span style="color: #56B6C2">echo</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">&#39;export PATH=&quot;$HOME/.local/bin:$PATH&quot;&#39;</span><span style="color: #ABB2BF"> &gt;&gt; </span><span style="color: #98C379">~/.zshrc</span><span style="color: #ABB2BF">  </span></span>
+<span class="line"><span style="color: #56B6C2">source</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">~/.zshrc</span></span></code></pre></div></div></figure>
+<h4 id="3-版本升级与维护"><a href="#3-版本升级与维护" class="headerlink" title="3. 版本升级与维护"></a>3. 版本升级与维护</h4><figure class="shiki bash"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #61AFEF">BASH#</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">检查更新通道</span></span>
+<span class="line"><span style="color: #61AFEF">uv</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">self</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">upgrade</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">--channel=nightly</span><span style="color: #ABB2BF">  </span><span style="color: #7F848E; font-style: italic"># 尝鲜版</span></span>
+<span class="line"><span style="color: #61AFEF">uv</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">self</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">upgrade</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">--channel=stable</span><span style="color: #ABB2BF">   </span><span style="color: #7F848E; font-style: italic"># 稳定版</span></span></code></pre></div></div></figure>
+<h4 id="4-uv移除"><a href="#4-uv移除" class="headerlink" title="4. uv移除"></a>4. uv移除</h4><figure class="shiki bash"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #7F848E; font-style: italic"># 清楚缓存和工具（可选）</span></span>
+<span class="line"><span style="color: #61AFEF">uv</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">cache</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">clean</span></span>
+<span class="line"><span style="color: #61AFEF">rm</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">-r</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">&quot;$(</span><span style="color: #61AFEF">uv</span><span style="color: #98C379"> python dir)&quot;</span></span>
+<span class="line"><span style="color: #61AFEF">rm</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">-r</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">&quot;$(</span><span style="color: #61AFEF">uv</span><span style="color: #98C379"> tool dir)&quot;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #7F848E; font-style: italic"># 移除</span></span>
+<span class="line"><span style="color: #7F848E; font-style: italic"># On macOS and Linux.</span></span>
+<span class="line"><span style="color: #61AFEF">rm</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">~/.local/bin/uv</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">~/.local/bin/uvx</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #7F848E; font-style: italic">#On windows</span></span>
+<span class="line"><span style="color: #61AFEF">rm</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">$HOME</span><span style="color: #56B6C2">\.</span><span style="color: #98C379">local</span><span style="color: #56B6C2">\b</span><span style="color: #98C379">in</span><span style="color: #56B6C2">\u</span><span style="color: #98C379">v.exe</span></span>
+<span class="line"><span style="color: #61AFEF">rm</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">$HOME</span><span style="color: #56B6C2">\.</span><span style="color: #98C379">local</span><span style="color: #56B6C2">\b</span><span style="color: #98C379">in</span><span style="color: #56B6C2">\u</span><span style="color: #98C379">vx.exe</span></span></code></pre></div></div></figure>
+<hr>
+<h3 id="（二）uv核心语法详解"><a href="#（二）uv核心语法详解" class="headerlink" title="（二）uv核心语法详解"></a><strong>（二）uv核心语法详解</strong></h3><h5 id="1-包管理基础命令"><a href="#1-包管理基础命令" class="headerlink" title="1. 包管理基础命令"></a>1. 包管理基础命令</h5><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">命令格式</th>
+<th style="text-align:left">作用描述</th>
+<th style="text-align:left">示例场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">uv init</td>
+<td style="text-align:left">初始化，创建pyproject.toml</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">uv add <package></td>
+<td style="text-align:left">修改pyproject.toml和uv.lock，安装<package></td>
+<td style="text-align:left">uv add transformer</td>
+</tr>
+<tr>
+<td style="text-align:left">uv sync</td>
+<td style="text-align:left">根据uv.lock，配置环境，安装uv.lock中所有的依赖</td>
+<td style="text-align:left">拿到一个开源项目，按照开源项目配置的环境，配置一个一模一样的本地环境</td>
+</tr>
+<tr>
+<td style="text-align:left">uv lock</td>
+<td style="text-align:left">创建uv.lock（如果没有），根据pyproject.toml更新uv.lock</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">uv export</td>
+<td style="text-align:left">把uv.lock中的配置导出为requirements.txt</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>高频参数解析</strong>：</p>
+<ul>
+<li>—no-deps: 跳过依赖安装（仅安装主包）</li>
+<li>—index-url: 指定私有PyPI源地址</li>
+<li>—timeout: 设置超时时间（默认120秒）</li>
+<li>—pre: 允许安装预发布版本</li>
+</ul>
+<h5 id="2-虚拟环境管理"><a href="#2-虚拟环境管理" class="headerlink" title="2. 虚拟环境管理"></a>2. 虚拟环境管理</h5><figure class="shiki"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #abb2bf">BASH# 创建并激活虚拟环境（兼容venv语法）</span></span>
+<span class="line"><span style="color: #abb2bf">uv venv .venv             # 创建环境目录</span></span>
+<span class="line"><span style="color: #abb2bf">source .venv/bin/activate # 激活环境（Linux/macOS）</span></span>
+<span class="line"><span style="color: #abb2bf">.venv\Scripts\activate    # 激活环境（Windows）</span></span>
+<span class="line"><span style="color: #abb2bf"></span></span>
+<span class="line"><span style="color: #abb2bf"># 导出环境依赖</span></span>
+<span class="line"><span style="color: #abb2bf">uv pip freeze &gt; requirements.txt  # 生成精确版本列表</span></span>
+<span class="line"><span style="color: #abb2bf"></span></span>
+<span class="line"><span style="color: #abb2bf"># 跨平台环境复制</span></span>
+<span class="line"><span style="color: #abb2bf">uv pip sync requirements.txt --python=3.11  # 强制指定Python版本</span></span></code></pre></div></div></figure>
+<h5 id="3-高级依赖控制"><a href="#3-高级依赖控制" class="headerlink" title="3. 高级依赖控制"></a>3. 高级依赖控制</h5><figure class="shiki"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #abb2bf">BASH# 版本锁定与更新</span></span>
+<span class="line"><span style="color: #abb2bf">uv lock                   # 生成uv.lock文件（替代poetry.lock）</span></span>
+<span class="line"><span style="color: #abb2bf">uv update                 # 更新所有依赖到最新兼容版本</span></span>
+<span class="line"><span style="color: #abb2bf">uv update &lt;package&gt;       # 指定包更新</span></span>
+<span class="line"><span style="color: #abb2bf"></span></span>
+<span class="line"><span style="color: #abb2bf"># 依赖树分析（可视化冲突解决）</span></span>
+<span class="line"><span style="color: #abb2bf">uv tree --format=graph   # 生成依赖关系图（需安装graphviz）</span></span>
+<span class="line"><span style="color: #abb2bf">uv dep conflicts         # 快速定位版本冲突</span></span></code></pre></div></div></figure>
+<hr>
+<h3 id="（三）性能调优与最佳实践"><a href="#（三）性能调优与最佳实践" class="headerlink" title="（三）性能调优与最佳实践"></a><strong>（三）性能调优与最佳实践</strong></h3><h5 id="1-缓存优化技巧"><a href="#1-缓存优化技巧" class="headerlink" title="1. 缓存优化技巧"></a>1. 缓存优化技巧</h5><figure class="shiki"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #abb2bf">BASH# 查看缓存统计</span></span>
+<span class="line"><span style="color: #abb2bf">uv cache info  </span></span>
+<span class="line"><span style="color: #abb2bf"></span></span>
+<span class="line"><span style="color: #abb2bf"># 清理过期缓存（30天前）</span></span>
+<span class="line"><span style="color: #abb2bf">uv cache prune --keep-within 30d</span></span>
+<span class="line"><span style="color: #abb2bf"></span></span>
+<span class="line"><span style="color: #abb2bf"># 指定自定义缓存路径</span></span>
+<span class="line"><span style="color: #abb2bf">export UV_CACHE_DIR=/mnt/ssd_cache/uv  </span></span>
+<span class="line"><span style="color: #abb2bf">uv install --cache-dir /mnt/ssd_cache/uv</span></span></code></pre></div></div></figure>
+<h5 id="2-多线程加速"><a href="#2-多线程加速" class="headerlink" title="2. 多线程加速"></a>2. 多线程加速</h5><figure class="shiki"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #abb2bf">BASH# 根据CPU核心数自动分配线程（实测8核提升3倍速度）</span></span>
+<span class="line"><span style="color: #abb2bf">uv install --threads $(nproc)  </span></span>
+<span class="line"><span style="color: #abb2bf"></span></span>
+<span class="line"><span style="color: #abb2bf"># 限制最大线程数（避免资源争抢）</span></span>
+<span class="line"><span style="color: #abb2bf">uv install --threads 4</span></span></code></pre></div></div></figure>
+<h5 id="3-依赖安装策略对比"><a href="#3-依赖安装策略对比" class="headerlink" title="3. 依赖安装策略对比"></a>3. 依赖安装策略对比</h5><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">策略</th>
+<th style="text-align:left">命令参数</th>
+<th style="text-align:left">适用场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">极速模式</td>
+<td style="text-align:left">—strategy=unpack</td>
+<td style="text-align:left">跳过完整性校验（仅限可信源）</td>
+</tr>
+<tr>
+<td style="text-align:left">安全模式</td>
+<td style="text-align:left">—strategy=copy</td>
+<td style="text-align:left">企业内网严格审计环境</td>
+</tr>
+<tr>
+<td style="text-align:left">空间优化</td>
+<td style="text-align:left">—strategy=link</td>
+<td style="text-align:left">硬盘空间有限时使用符号链接</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+<h3 id="（四）常见问题排查指南"><a href="#（四）常见问题排查指南" class="headerlink" title="（四）常见问题排查指南"></a><strong>（四）常见问题排查指南</strong></h3><h5 id="问题1：依赖版本冲突"><a href="#问题1：依赖版本冲突" class="headerlink" title="问题1：依赖版本冲突"></a>问题1：依赖版本冲突</h5><figure class="shiki"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #abb2bf">BASH# 步骤1：生成冲突报告</span></span>
+<span class="line"><span style="color: #abb2bf">uv dep conflicts --markdown &gt; conflicts.md</span></span>
+<span class="line"><span style="color: #abb2bf"></span></span>
+<span class="line"><span style="color: #abb2bf"># 步骤2：手动指定版本</span></span>
+<span class="line"><span style="color: #abb2bf">uv install &quot;pandas==2.2.0&quot; &quot;numpy&lt;1.25&quot;</span></span>
+<span class="line"><span style="color: #abb2bf"></span></span>
+<span class="line"><span style="color: #abb2bf"># 步骤3：强制覆盖安装（慎用）</span></span>
+<span class="line"><span style="color: #abb2bf">uv install --resolution=highest</span></span></code></pre></div></div></figure>
+<h5 id="问题2：私有仓库认证失败"><a href="#问题2：私有仓库认证失败" class="headerlink" title="问题2：私有仓库认证失败"></a>问题2：私有仓库认证失败</h5><figure class="shiki"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #abb2bf">TOML# 在项目根目录创建 uv.toml</span></span>
+<span class="line"><span style="color: #abb2bf">[auth.private-repo]</span></span>
+<span class="line"><span style="color: #abb2bf">type = &quot;basic&quot;</span></span>
+<span class="line"><span style="color: #abb2bf">username = &quot;$UV_USER&quot;  # 从环境变量读取</span></span>
+<span class="line"><span style="color: #abb2bf">password = &quot;$UV_TOKEN&quot;</span></span></code></pre></div></div></figure>
+<h5 id="问题3：跨平台环境不一致"><a href="#问题3：跨平台环境不一致" class="headerlink" title="问题3：跨平台环境不一致"></a>问题3：跨平台环境不一致</h5><figure class="shiki"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #abb2bf">BASH# 生成平台锁定文件</span></span>
+<span class="line"><span style="color: #abb2bf">uv lock --platform linux-x86_64 --platform macos-arm64</span></span>
+<span class="line"><span style="color: #abb2bf"></span></span>
+<span class="line"><span style="color: #abb2bf"># 安装时指定目标平台</span></span>
+<span class="line"><span style="color: #abb2bf">uv install --target-platform win-amd64</span></span></code></pre></div></div></figure>
+
+            </div>
+            <hr />
+
+            
+
+            <!-- 3/22: 修改了css文件路径 -->
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<!-- 3/22: 修改了js文件路径 -->
+<script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/share/js/social-share.min.js"></script>
+
+            
+
+
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <article id="prenext-posts" class="prev-next articles">
+        <div class="row article-row">
+            
+                    <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+                        <div class="article-badge left-badge text-color">
+                            <i class="fa fa-dot-circle-o"></i>&nbsp;
+                            本篇
+                        </div>
+                        <div class="card">
+                            <a href="/2025/04/19/uv-jiao-cheng/">
+                                <div class="card-image">
+                                    
+                                            
+                                                <img src="https://s4.ax1x.com/2022/02/08/HlQZ9g.jpg" class="responsive-img" alt="uv教程">
+                                                
+                                                    <span class="card-title">uv教程</span>
+                                </div>
+                            </a>
+                            <div class="card-content article-content">
+                                <div class="summary block-with-text">
+                                    
+                                        作为Astral团队推出的下一代Python工具链，uv凭借Rust底层架构和极致性能，正在重构全球数百万开发者的工作流。本文将从零开始详解uv的核心语法、进阶技巧.
+                                            
+                                </div>
+                                <div class="publish-info">
+                                    <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2025-04-19
+                            </span>
+                                    <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/python/" class="post-category" target="_blank">
+                                    python
+                                </a>
+                            
+                            
+                        </span>
+                                </div>
+                            </div>
+
+                            
+                                <div class="card-action article-tags">
+                                    
+                                        <a href="/tags/uv/" target="_blank">
+                                            <span class="chip bg-color">uv</span>
+                                        </a>
+                                        
+                                </div>
+                                
+                        </div>
+                    </div>
+                    
+                        
+                            <div class="article col s12 m6" data-aos="fade-up">
+                                <div class="article-badge right-badge text-color">
+                                    下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+                                </div>
+                                <div class="card">
+                                    <a href="/2024/04/19/python-bao-guan-li-gong-ju-shen-du-jie-xi-venv-conda-poetry-yu-uv/">
+                                        <div class="card-image">
+                                            
+                                                    
+                                                        <img src="https://s4.ax1x.com/2022/02/08/HlMz1H.jpg" class="responsive-img" alt="Python包管理工具深度解析：venv、conda、poetry与uv">
+                                                        
+                                                            <span class="card-title">Python包管理工具深度解析：venv、conda、poetry与uv</span>
+                                        </div>
+                                    </a>
+                                    <div class="card-content article-content">
+                                        <div class="summary block-with-text">
+                                            
+                                                在Python开发中，包管理工具的选择直接影响项目的可维护性、依赖隔离和协作效率。本文将从核心功能、适用场景、操作实践等角度，全面解析四大主流工具：**venv**、**conda**、**poetry**和**uv**，并对比其优缺点，助你找到最适合项目的解决方案。
+                                                    
+                                        </div>
+                                        <div class="publish-info">
+                                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2024-04-19
+                            </span>
+                                            <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/python/" class="post-category" target="_blank">
+                                    python
+                                </a>
+                            
+                            
+                        </span>
+                                        </div>
+                                    </div>
+                                    
+                                        <div class="card-action article-tags">
+                                            
+                                                <a href="/tags/uv/" target="_blank">
+                                                    <span class="chip bg-color">uv</span>
+                                                </a>
+                                                
+                                                <a href="/tags/poetry/" target="_blank">
+                                                    <span class="chip bg-color">poetry</span>
+                                                </a>
+                                                
+                                        </div>
+                                        
+                                </div>
+                            </div>
+                            
+        </div>
+    </article>
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: SKYFAKER<br />'
+            + '作者: 文杰<br />'
+            + '链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者skyfaker所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () { bodyElement.removeChild(newdiv); }, 200);
+    });
+</script>
+
+    </div>
+    <div id="toc-aside" class="expanded col l2 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;
+                目录
+            </div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+    <div id="floating-toc-btn" class="hide-on-med-and-down">
+        <a class="btn-floating btn-large bg-color">
+            <i class="fa fa-list"></i>
+        </a>
+    </div>
+    
+
+        <script src="/libs/tocbot/tocbot.min.js"></script>
+        <script>
+            $(function() {
+                tocbot.init({
+                    tocSelector: '#toc-content',
+                    contentSelector: '#articleContent',
+                    headingsOffset: -($(window).height() * 0.4 - 45),
+                    // headingsOffset: -205,
+                    headingSelector: 'h1, h2, h3, h4'
+                });
+
+                // modify the toc link href to support Chinese.
+                let i = 0;
+                let tocHeading = 'toc-heading-';
+                $('#toc-content a').each(function() {
+                    $(this).attr('href', '#' + tocHeading + (++i));
+                });
+
+                // modify the heading title id to support Chinese.
+                i = 0;
+                $('#articleContent').children('h1, h2, h3, h4').each(function() {
+                    $(this).attr('id', tocHeading + (++i));
+                });
+
+                // Set scroll toc fixed.
+                let tocHeight = parseInt($(window).height() * 0.4 - 64);
+                let $tocWidget = $('.toc-widget');
+                $(window).scroll(function() {
+                    let scroll = $(window).scrollTop();
+                    /* add post toc fixed. */
+                    if (scroll > tocHeight) {
+                        $tocWidget.addClass('toc-fixed');
+                    } else {
+                        $tocWidget.removeClass('toc-fixed');
+                    }
+                });
+
+                
+                /* 修复文章卡片 div 的宽度. */
+                let fixPostCardWidth = function(srcId, targetId) {
+                    let srcDiv = $('#' + srcId);
+                    if (srcDiv.length === 0) {
+                        return;
+                    }
+
+                    let w = srcDiv.width();
+                    if (w >= 450) {
+                        w = w + 21;
+                    } else if (w >= 350 && w < 450) {
+                        w = w + 18;
+                    } else if (w >= 300 && w < 350) {
+                        w = w + 16;
+                    } else {
+                        w = w + 14;
+                    }
+                    $('#' + targetId).width(w);
+                };
+
+                // 切换TOC目录展开收缩的相关操作.
+                const expandedClass = 'expanded';
+                let $tocAside = $('#toc-aside');
+                let $mainContent = $('#main-content');
+                $('#floating-toc-btn .btn-floating').click(function() {
+                    if ($tocAside.hasClass(expandedClass)) {
+                        $tocAside.removeClass(expandedClass).slideUp(500);
+                        $mainContent.removeClass('l9');
+                    } else {
+                        $tocAside.addClass(expandedClass).slideDown(500);
+                        $mainContent.addClass('l9');
+                    }
+                    fixPostCardWidth('artDetail', 'prenext-posts');
+                });
+                
+            });
+        </script>
+    
+
+</main>
+
+
+                <footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            &copy; 2019-2020 Wenjie. 版权所有
+
+            
+                &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
+                <span class="white-color">69.1k</span>
+                
+
+                    <br>
+                    <span id="sitetime"></span>
+
+                    
+                        
+                            <br>
+                                
+                                    <span id="busuanzi_container_site_pv" style='display:none'>
+                <i class="fa fa-heart-o"></i>
+                本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                                    </span>
+                                    
+                                        
+                                            <span id="busuanzi_container_site_uv" style='display:none'>
+                人次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                                            </span>
+                                            
+                                                
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+            
+    <a href="https://github.com/skyfaker" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:shaowenjie1314@gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fa fa-rss"></i>
+    </a>
+
+        </div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+<!-- 不蒜子计数初始值纠正 -->
+<script>
+    $(document).ready(function() {
+
+        var int = setInterval(fixCount, 50);
+        var pvcountOffset = 8000;
+        var uvcountOffset = 2000;
+
+        function fixCount() {
+            if (document.getElementById("busuanzi_container_site_pv").style.display != "none") {
+                $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) +
+                    pvcountOffset);
+                clearInterval(int);
+            }
+            if ($("#busuanzi_container_site_pv").css("display") != "none") {
+                $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) +
+                    uvcountOffset); // 加上初始数据 
+                clearInterval(int);
+            }
+        }
+    });
+</script>
+
+<script language=javascript>
+    function siteTime() {
+        window.setTimeout("siteTime()", 1000);
+        var seconds = 1000;
+        var minutes = seconds * 60;
+        var hours = minutes * 60;
+        var days = hours * 24;
+        var years = days * 365;
+        var today = new Date();
+        var todayYear = today.getFullYear();
+        var todayMonth = today.getMonth() + 1;
+        var todayDate = today.getDate();
+        var todayHour = today.getHours();
+        var todayMinute = today.getMinutes();
+        var todaySecond = today.getSeconds();
+        /* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+        year - 作为date对象的年份，为4位年份值
+        month - 0-11之间的整数，做为date对象的月份
+        day - 1-31之间的整数，做为date对象的天数
+        hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+        minutes - 0-59之间的整数，做为date对象的分钟数
+        seconds - 0-59之间的整数，做为date对象的秒数
+        microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+        var t1 = Date.UTC(2018, 03, 11, 00, 00, 00); //北京时间2018-2-13 00:00:00
+        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+        var diff = t2 - t1;
+        var diffYears = Math.floor(diff / years);
+        var diffDays = Math.floor((diff / days) - diffYears * 365);
+        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes *
+            minutes) / seconds);
+        document.getElementById("sitetime").innerHTML = "本站已运行 " + diffYears + " 年 " + diffDays + " 天 " + diffHours +
+            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+    } /*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
+    siteTime();
+</script>
+
+                    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<!-- 3/22: 修改了js文件路径 -->
+<script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+                        <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+                        <!-- 3/22: 修改了js文件路径 --> 
+                            <script src="https://cdn.staticfile.org/materialize/1.0.0/js/materialize.js"></script>
+                            <script src="https://cdn.staticfile.org/masonry/4.0.0/masonry.pkgd.min.js"></script>
+                            <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+                            <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+                            <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+
+                            <!-- <script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/materialize/materialize.min.js"></script>
+                            <script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/masonry/masonry.pkgd.min.js"></script>
+                            <script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/aos/aos.js"></script>
+                            <script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/scrollprogress/scrollProgress.min.js"></script>
+                            <script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/lightGallery/js/lightgallery-all.min.js"></script> -->
+
+                            <!-- 2022/02/06 从jsdelivr换到staticfile(在config中修改)-->
+                         
+                            <!-- 3/22: 修改了js文件路径 -->
+                            <script src="/js/matery.js"></script>
+                            <!-- <script src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/js/matery.js"></script> -->
+
+                            <script type="text/javascript">
+                                var OriginTitile = document.title,
+                                    st;
+                                document.addEventListener("visibilitychange", function() {
+                                    document.hidden ? (document.title = "(っ °Д °;)哦，崩溃啦！", clearTimeout(st)) : (document.title = "(゜▽゜*)咦，又好了！", st = setTimeout(function() {
+                                        document.title = OriginTitile
+                                    }, 3e3))
+                                })
+                            </script>
+
+                            <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+                                
+
+                                    <!-- 3/22: 修改了js文件路径 --> 
+                                    <script src="/libs/others/clicklove.js"></script>
+                                    <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/others/clicklove.js"></script> -->
+                                    
+
+                                                    
+                                                        <!-- 3/22: 修改了js文件路径 --> 
+                                                        <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+                                                        <!-- <script async src="https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.io/libs/others/busuanzi.pure.mini.js"></script> -->
+                                                        
+
+                                                            <!-- 雪花特效 -->
+                                                            
+
+    <!-- hexo injector body_end start -->
+  <script>
+  const CODE_CONFIG = {
+    beautify: undefined,
+    highlightCopy: undefined,
+    highlightLang: undefined,
+    highlightHeightLimit: undefined,
+    isHighlightShrink: undefined,
+    copy: {
+      success: 'undefined',
+      error: 'undefined',
+      noSupport: 'undefined',
+    }
+  };
+  console.log(
+    `%c hexo-shiki-plugin %c v1.0.27 %c https://github.com/nova1751/hexo-shiki-plugin`,
+    "color: #fff; background: #5f5f5f",
+    "color: #fff; background: #80c8f8",
+    ""
+  );
+  </script>
+  <!-- hexo injector body_end end --></body>
+
+</html>
