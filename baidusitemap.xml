@@ -1,16 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://www.skyfaker.cc/2024/06/20/redis-jian-jie/</loc>
+    <lastmod>2025-06-22</lastmod>
+  </url>
+  <url>
+    <loc>https://www.skyfaker.cc/2021/05/03/yu-yan-mo-xing-gai-shu/</loc>
+    <lastmod>2025-06-20</lastmod>
+  </url>
+  <url>
+    <loc>https://www.skyfaker.cc/2021/01/01/zheng-ze-biao-da-shi-yu-python-zheng-ze/</loc>
+    <lastmod>2025-06-20</lastmod>
+  </url>
+  <url>
+    <loc>https://www.skyfaker.cc/2021/03/10/attention-is-all-you-need/</loc>
+    <lastmod>2025-06-20</lastmod>
+  </url>
+  <url>
     <loc>https://www.skyfaker.cc/2024/04/21/uv-jiao-cheng/</loc>
-    <lastmod>2025-05-22</lastmod>
+    <lastmod>2025-06-20</lastmod>
   </url>
   <url>
     <loc>https://www.skyfaker.cc/2024/04/19/python-bao-guan-li-gong-ju-shen-du-jie-xi-venv-conda-poetry-yu-uv/</loc>
     <lastmod>2025-04-19</lastmod>
-  </url>
-  <url>
-    <loc>https://www.skyfaker.cc/2021/03/10/attention-is-all-you-need/</loc>
-    <lastmod>2025-04-12</lastmod>
   </url>
   <url>
     <loc>https://www.skyfaker.cc/2022/04/09/bert-yu-gpt-yu-yan-mo-xing-de-shuang-zi-xing-jia-gou-jie-xi/</loc>
@@ -53,16 +65,8 @@
     <lastmod>2023-03-01</lastmod>
   </url>
   <url>
-    <loc>https://www.skyfaker.cc/2021/05/03/yu-yan-mo-xing-gai-shu/</loc>
-    <lastmod>2023-02-10</lastmod>
-  </url>
-  <url>
     <loc>https://www.skyfaker.cc/2021/05/26/n-gram-yu-yan-mo-xing/</loc>
     <lastmod>2022-09-06</lastmod>
-  </url>
-  <url>
-    <loc>https://www.skyfaker.cc/2021/01/01/zheng-ze-biao-da-shi-yu-python-zheng-ze/</loc>
-    <lastmod>2022-03-13</lastmod>
   </url>
   <url>
     <loc>https://www.skyfaker.cc/2020/07/27/mobilenet/</loc>

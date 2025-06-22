@@ -6,7 +6,7 @@
   <link href="https://www.skyfaker.cc/atom.xml" rel="self"/>
   
   <link href="https://www.skyfaker.cc/"/>
-  <updated>2025-05-22T07:33:49.577Z</updated>
+  <updated>2025-06-22T16:20:54.172Z</updated>
   <id>https://www.skyfaker.cc/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>redis简介</title>
+    <link href="https://www.skyfaker.cc/2024/06/20/redis-jian-jie/"/>
+    <id>https://www.skyfaker.cc/2024/06/20/redis-jian-jie/</id>
+    <published>2024-06-20T15:40:43.000Z</published>
+    <updated>2025-06-22T16:20:54.172Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Redis（全称为Remote Dictionary Server）是一个开源的高性能键值对存储系统，具有快速、灵活和可扩展的特性。它是一个基于内存的数据结构存储系统，可以用作数据库、缓存和消息代理。&lt;/p&gt;
+&lt;h2 id=&quot;Redis-的主要特点和用途：&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="工具方法" scheme="https://www.skyfaker.cc/categories/%E5%B7%A5%E5%85%B7%E6%96%B9%E6%B3%95/"/>
+    
+    
+    <category term="redis" scheme="https://www.skyfaker.cc/tags/redis/"/>
+    
+  </entry>
+  
+  <entry>
     <title>uv教程</title>
     <link href="https://www.skyfaker.cc/2024/04/21/uv-jiao-cheng/"/>
     <id>https://www.skyfaker.cc/2024/04/21/uv-jiao-cheng/</id>
     <published>2024-04-21T08:12:21.000Z</published>
-    <updated>2025-05-22T07:33:49.577Z</updated>
+    <updated>2025-06-20T15:40:09.852Z</updated>
     
     
       
@@ -232,7 +258,7 @@
     <link href="https://www.skyfaker.cc/2021/05/03/yu-yan-mo-xing-gai-shu/"/>
     <id>https://www.skyfaker.cc/2021/05/03/yu-yan-mo-xing-gai-shu/</id>
     <published>2021-05-03T14:06:17.000Z</published>
-    <updated>2023-02-10T06:50:50.924Z</updated>
+    <updated>2025-06-20T15:42:45.295Z</updated>
     
     
       
@@ -245,12 +271,14 @@
     
     
     
-    <category term="NLP" scheme="https://www.skyfaker.cc/categories/NLP/"/>
+    <category term="深度学习" scheme="https://www.skyfaker.cc/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
     
     <category term="语言模型" scheme="https://www.skyfaker.cc/tags/%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/"/>
     
     <category term="概述" scheme="https://www.skyfaker.cc/tags/%E6%A6%82%E8%BF%B0/"/>
+    
+    <category term="NLP" scheme="https://www.skyfaker.cc/tags/NLP/"/>
     
   </entry>
   
@@ -284,7 +312,7 @@
     <link href="https://www.skyfaker.cc/2021/03/10/attention-is-all-you-need/"/>
     <id>https://www.skyfaker.cc/2021/03/10/attention-is-all-you-need/</id>
     <published>2021-03-10T06:49:46.000Z</published>
-    <updated>2025-04-12T10:45:27.418Z</updated>
+    <updated>2025-06-20T15:42:17.522Z</updated>
     
     
       
@@ -297,10 +325,12 @@
     
     
     
-    <category term="NLP" scheme="https://www.skyfaker.cc/categories/NLP/"/>
+    <category term="深度学习" scheme="https://www.skyfaker.cc/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
     
     <category term="Attention" scheme="https://www.skyfaker.cc/tags/Attention/"/>
+    
+    <category term="NLP" scheme="https://www.skyfaker.cc/tags/NLP/"/>
     
   </entry>
   
@@ -309,7 +339,7 @@
     <link href="https://www.skyfaker.cc/2021/01/01/zheng-ze-biao-da-shi-yu-python-zheng-ze/"/>
     <id>https://www.skyfaker.cc/2021/01/01/zheng-ze-biao-da-shi-yu-python-zheng-ze/</id>
     <published>2021-01-01T15:26:47.000Z</published>
-    <updated>2022-03-13T16:37:52.201Z</updated>
+    <updated>2025-06-20T15:42:32.339Z</updated>
     
     
       
@@ -504,33 +534,6 @@
         
         
     <summary type="html">&lt;h2 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="算法" scheme="https://www.skyfaker.cc/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-    <category term="编程算法" scheme="https://www.skyfaker.cc/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95/"/>
-    
-    <category term="字节" scheme="https://www.skyfaker.cc/tags/%E5%AD%97%E8%8A%82/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>字节算法题——字典序</title>
-    <link href="https://www.skyfaker.cc/2020/05/24/zi-jie-suan-fa-ti-zi-dian-xu/"/>
-    <id>https://www.skyfaker.cc/2020/05/24/zi-jie-suan-fa-ti-zi-dian-xu/</id>
-    <published>2020-05-24T09:46:37.000Z</published>
-    <updated>2021-03-27T03:42:35.478Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot; title=&quot;题目描述&quot;&gt;&lt;/a&gt;题目描述&lt;/h2&gt;&lt;p&gt;给定整数n和m, 将1到n的这n个整数按字典序排列之后, 求其中的第m个数。&lt;br&gt;对于n=11, m=4,</summary>
         
       
     
