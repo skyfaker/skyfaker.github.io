@@ -530,7 +530,7 @@ Redis 的主要特点和用途：
 </ul>
 <p><code>redis-server</code> 是 <strong>Redis 服务器程序</strong>，也就是启动 Redis 服务的命令。作用是启动 Redis 服务，负责数据的存储和管理。客户端、服务器可以位于同一台计算机或两台不同的计算机中。Redis-server运行后会开启一个 Redis 实例，监听客户端连接，处理读写请求、持久化、订阅发布等功能。</p>
 <p><code>redis-cli</code> 是 <strong>Redis 官方的命令行工具</strong>，用来连接 Redis 服务器并与之交互。你可以用它执行 Redis 命令，比如 <code>get</code>、<code>set</code>、<code>keys</code>、<code>flushall</code> 等。作用是连接 Redis 服务器并发送命令进行调试或操作。</p>
-<p>一般在项目中，我们不会直接使用redis-cli，而是会使用编程语言的redis模块作为客户端，直接和redis-server交互。例如python中，会使用python的redis模块。或者使用celery这样的消息队列模块，将redis-server作为消息后端。</p>
+<p>一般在项目中，我们不会直接使用redis-cli，而是会使用编程语言的redis模块作为客户端，直接和redis-server交互。例如python中，会使用python的redis模块。或者使用celery这样的任务队列，将redis-server作为消息后端。</p>
 <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="windows下安装"><a href="#windows下安装" class="headerlink" title="windows下安装"></a>windows下安装</h3><p>Redis 官方不建议在 windows 下使用 Redis，所以官网没有 windows 版本可以下载。如果你必须要在windows下使用redis，微软团队维护了开源的 windows 版本。尽管如此，windows系统下更推荐使用wsl +Redis。</p>
 <h3 id="Ubuntu下安装"><a href="#Ubuntu下安装" class="headerlink" title="Ubuntu下安装"></a>Ubuntu下安装</h3><p>在 Ubuntu 系统安装 Redi 可以使用以下命令:</p>
 <figure class="shiki bash"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #61AFEF">sudo</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">apt-get</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">update</span></span>
