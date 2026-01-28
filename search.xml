@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>LLM中的Tokenizer</title>
+      <link href="/2024/08/28/llm-zhong-de-tokenizer/"/>
+      <url>/2024/08/28/llm-zhong-de-tokenizer/</url>
+      
+        <content type="html"><![CDATA[<p>既然 LLM 最终处理的是数字，为什么我们不直接把文字转成 ASCII 码或者二进制发给它，非要搞一个复杂的 Tokenizer（分词器）中间层呢？</p><h2 id="为什么需要Tokenizer"><a href="#为什么需要Tokenizer" class="headerlink" title="为什么需要Tokenizer"></a>为什么需要Tokenizer</h2><p>本质上，Tokenizer 是为了解决<strong>计算效率、语义表达</strong>与<strong>内存占用</strong>之间的矛盾。</p><h3 id="1-压缩效率：节省“上下文窗口”"><a href="#1-压缩效率：节省“上下文窗口”" class="headerlink" title="1. 压缩效率：节省“上下文窗口”"></a>1. 压缩效率：节省“上下文窗口”</h3><p>LLM 的输入长度是昂贵的资源：</p><ul><li><strong>字符级输入：</strong> 如果直接按字母输入，<code>&quot;Understanding&quot;</code> 这个词需要 13 个位置。</li><li><strong>Token 级输入：</strong> 经过 Tokenizer 处理，它可能只需要 1 个 Token。</li></ul><p><strong>结论：</strong> Tokenizer 就像一种“文字压缩算法”。同样的 8k 上下文窗口，使用 Tokenizer 可以读完一章小说，而按字符读取可能只能读几页。</p><h3 id="2-帮助模型捕捉“语义块”-Meaningful-Units"><a href="#2-帮助模型捕捉“语义块”-Meaningful-Units" class="headerlink" title="2. 帮助模型捕捉“语义块” (Meaningful Units)"></a>2. 帮助模型捕捉“语义块” (Meaningful Units)</h3><p>单个字母或字节通常不具备语义。</p><ul><li>字母 <code>t</code> 在 <code>table</code> 和 <code>the</code> 中没有任何共同含义。</li><li>但是，子词 Token（如 <code>ing</code>, <code>pre</code>, <code>multi</code>）携带了跨词的语义信息。</li></ul><p>Tokenizer 通过将常见的字符组合（子词）聚合成一个单位，让模型更容易学习到这些词根、词缀的含义，而不是从零开始去猜测字母之间虚无缥缈的联系。</p><h3 id="3-解决显存爆炸：控制词表大小"><a href="#3-解决显存爆炸：控制词表大小" class="headerlink" title="3. 解决显存爆炸：控制词表大小"></a>3. 解决显存爆炸：控制词表大小</h3><p>这是最工程化的原因。如果模型直接以“单词”为单位（词典里每个词给一个编号）：</p><ul><li><strong>全词表：</strong> 英语有几十万个词，中文有数万个汉字。如果加上各种组合，词表会轻松突破百万级。</li><li><strong>参数量问题：</strong> 模型的输入层是一个巨大的矩阵 $V \times d$（$V$ 是词表大小，$d$ 是维度）。如果词表太大，模型大部分参数都会被浪费在“记名字”上，而不是“学逻辑”上。</li></ul><p><strong>Tokenizer 的折中方案：</strong></p><p>通过 BPE 等算法，将词表控制在 <strong>3万到12万</strong> 之间。既能涵盖所有常见词，又能通过“拼凑”处理不常见的词。</p><h3 id="4-消除“噪音”：处理空格和特殊符号"><a href="#4-消除“噪音”：处理空格和特殊符号" class="headerlink" title="4. 消除“噪音”：处理空格和特殊符号"></a>4. 消除“噪音”：处理空格和特殊符号</h3><p>文本中充满了空格、换行符、缩进（尤其是代码）。</p><ul><li>在 Python 代码中，4 个空格和 1 个 Tab 意义相同。</li><li>Tokenizer 会将这些格式化的符号统一处理，减少模型在理解结构时的计算负担，让模型把注意力集中在核心逻辑上。</li></ul><h2 id="BPE-Byte-Pair-Encoding-算法"><a href="#BPE-Byte-Pair-Encoding-算法" class="headerlink" title="BPE (Byte Pair Encoding) 算法"></a>BPE (Byte Pair Encoding) 算法</h2><p>BPE是目前大模型主流的两种分词法之一，核心逻辑是：<strong>不断将序列中出现频率最高的两个相邻单位（字符或子词）合并成一个新的单位。</strong></p><h4 id="运作流程："><a href="#运作流程：" class="headerlink" title="运作流程："></a><strong>运作流程：</strong></h4><ol><li><strong>初始化：</strong> 将文本拆分为单个字符（例如：<code>h, u, g, g, i, n, g</code>）。</li><li><strong>统计频率：</strong> 扫描整个语料库，统计所有相邻单位对的出现次数。</li><li><strong>合并：</strong> 找出频率最高的组合（假设是 <code>g</code> 和 <code>g</code>），将它们合并为一个新词元 <code>gg</code>。</li><li><strong>循环：</strong> 重复此过程，直到达到预设的词表大小（例如 50,000 个词元）。</li></ol><blockquote><p><strong>优点：</strong> 能够处理词形变化（如 <code>look</code>, <code>looking</code>, <code>looked</code> 共享共同的词根 <code>look</code>），有效缩小词表规模。</p><p><strong>缺点：</strong> 无法处理“从未见过”的字符（OOV问题）。如果在训练语料里没见过希腊字母 $\alpha$，模型就彻底“瞎”了。</p></blockquote><h2 id="BBPE-Byte-level-BPE"><a href="#BBPE-Byte-level-BPE" class="headerlink" title="BBPE(Byte-level BPE)"></a>BBPE(Byte-level BPE)</h2><p>为了解决 BPE 无法处理生僻字符的问题，GPT-2 开始引入了 <strong>BBPE</strong>。这是目前 Llama、GPT-4 等主流模型都在使用的技术。</p><h4 id="核心改进："><a href="#核心改进：" class="headerlink" title="核心改进："></a><strong>核心改进：</strong></h4><p>BBPE 不再从“字符”开始合并，而是从 <strong>“字节（Bytes）”</strong> 开始合并。例如，“中国”的“中”先转换成UTF-8字节’\xe4\xb8\xad’，然后进行合并。</p><ul><li><strong>万物皆字节：</strong> 任何文字（中文、英文、Emoji）在计算机底层都是由 UTF-8 编码的字节组成的。</li><li><strong>基础词表极小：</strong> 无论哪种语言，基础单位只有 256 个字节（0-255）。BBPE 的初始词表就是这 256 个字节。</li><li><strong>强制合并：</strong> 即使是一个非常生僻的中文汉字，在 BBPE 眼中也只是 3 个字节。模型可以通过合并这些字节来表示它，而不会出现“无法识别”的情况。</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> LLM </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>redis简介</title>
       <link href="/2024/06/20/redis-jian-jie/"/>
       <url>/2024/06/20/redis-jian-jie/</url>

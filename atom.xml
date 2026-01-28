@@ -6,7 +6,7 @@
   <link href="https://www.skyfaker.cc/atom.xml" rel="self"/>
   
   <link href="https://www.skyfaker.cc/"/>
-  <updated>2025-06-23T08:00:51.561Z</updated>
+  <updated>2026-01-28T15:52:48.684Z</updated>
   <id>https://www.skyfaker.cc/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>LLM中的Tokenizer</title>
+    <link href="https://www.skyfaker.cc/2024/08/28/llm-zhong-de-tokenizer/"/>
+    <id>https://www.skyfaker.cc/2024/08/28/llm-zhong-de-tokenizer/</id>
+    <published>2024-08-28T14:37:51.000Z</published>
+    <updated>2026-01-28T15:52:48.684Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;既然 LLM 最终处理的是数字，为什么我们不直接把文字转成 ASCII 码或者二进制发给它，非要搞一个复杂的 Tokenizer（分词器）中间层呢？&lt;/p&gt;
+&lt;h2 id=&quot;为什么需要Tokenizer&quot;&gt;&lt;a href=&quot;#为什么需要Tokenizer&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="算法" scheme="https://www.skyfaker.cc/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+    <category term="LLM" scheme="https://www.skyfaker.cc/tags/LLM/"/>
+    
+  </entry>
   
   <entry>
     <title>redis简介</title>
@@ -507,33 +533,6 @@
         
         
     <summary type="html">&lt;h2 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot; title=&quot;题目描述&quot;&gt;&lt;/a&gt;题目描述&lt;/h2&gt;&lt;p&gt;游戏中有N+1座建筑——从0到N编号，从左到右排列。编号为0的建筑高度为0个单位，编号为i的建筑的高度为H(i)个单位。</summary>
-        
-      
-    
-    
-    
-    <category term="算法" scheme="https://www.skyfaker.cc/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-    <category term="编程算法" scheme="https://www.skyfaker.cc/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95/"/>
-    
-    <category term="字节" scheme="https://www.skyfaker.cc/tags/%E5%AD%97%E8%8A%82/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>字节算法题——连续出题问题</title>
-    <link href="https://www.skyfaker.cc/2020/06/10/zi-jie-suan-fa-ti-lian-xu-chu-ti-wen-ti/"/>
-    <id>https://www.skyfaker.cc/2020/06/10/zi-jie-suan-fa-ti-lian-xu-chu-ti-wen-ti/</id>
-    <published>2020-06-10T04:52:36.000Z</published>
-    <updated>2021-03-21T14:55:33.332Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot;</summary>
         
       
     
