@@ -50,15 +50,17 @@
     <!-- 2025/02/07: 修改了jQuery文件的路径，换到官方 -->
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
     <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-    <script>
-        var _hmt = _hmt || [];
-        (function () {
-            var hm = document.createElement("script");
-            hm.src = "https://hm.baidu.com/hm.js?46e79e71af0709a5b9106bf20cecc493";
-            var s = document.getElementsByTagName("script")[0];
-            s.parentNode.insertBefore(hm, s);
-        })();
-    </script>
+
+<!--    baidu引擎，加速对网站内容的抓取和索引-->
+<!--    <script>-->
+<!--        var _hmt = _hmt || [];-->
+<!--        (function () {-->
+<!--            var hm = document.createElement("script");-->
+<!--            hm.src = "https://hm.baidu.com/hm.js?46e79e71af0709a5b9106bf20cecc493";-->
+<!--            var s = document.getElementsByTagName("script")[0];-->
+<!--            s.parentNode.insertBefore(hm, s);-->
+<!--        })();-->
+<!--    </script>-->
 
     
 
@@ -592,7 +594,7 @@
                 type: 'pie',
                 radius: '50%',
                 color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
-                data: [{"name":"NLP","value":5},{"name":"随便写写","value":1},{"name":"深度学习","value":6},{"name":"python","value":5},{"name":"工具方法","value":3},{"name":"hexo","value":2},{"name":"前端","value":1},{"name":"算法","value":18},{"name":"机器学习","value":1},{"name":"搜索算法","value":2},{"name":"图像处理","value":1}],
+                data: [{"name":"深度学习","value":6},{"name":"NLP","value":5},{"name":"随便写写","value":1},{"name":"工具方法","value":3},{"name":"python","value":5},{"name":"机器学习","value":1},{"name":"算法","value":18},{"name":"hexo","value":2},{"name":"前端","value":1},{"name":"搜索算法","value":2},{"name":"图像处理","value":1}],
                 itemStyle: {
                     emphasis: {
                         shadowBlur: 10,
@@ -616,7 +618,7 @@
         xAxis: [
             {
                 type: 'category',
-                data: ["编程算法","语言模型","字节","Pretraining model","uv","Python","NLP","启发式搜索","博客","N-gram"]
+                data: ["编程算法","语言模型","字节","Pretraining model","Python","uv","NLP","启发式搜索","AutoEncoder","全连接神经网络"]
             }
         ],
         yAxis: [
@@ -800,6 +802,18 @@
         <div class="tag-chips center-align">
             
             
+            <a href="/tags/AutoEncoder/" target="_blank">
+                <span class="chip center-align waves-effect waves-light chip-default">AutoEncoder</span>
+            </a>
+            
+            
+            
+            <a href="/tags/%E5%85%A8%E8%BF%9E%E6%8E%A5%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" target="_blank">
+                <span class="chip center-align waves-effect waves-light chip-default">全连接神经网络</span>
+            </a>
+            
+            
+            
             <a href="/tags/Pretraining-model/" target="_blank">
                 <span class="chip center-align waves-effect waves-light chip-default">Pretraining model</span>
             </a>
@@ -808,6 +822,14 @@
             
             <a href="/tags/%E5%8D%9A%E5%AE%A2/" target="_blank">
                 <span class="chip center-align waves-effect waves-light chip-default">博客</span>
+            </a>
+            
+            
+            
+            
+            
+            <a href="/tags/matplotlib/" target="_blank">
+                <span class="chip center-align waves-effect waves-light chip-default">matplotlib</span>
             </a>
             
             
@@ -824,14 +846,8 @@
             
             
             
-            <a href="/tags/AutoEncoder/" target="_blank">
-                <span class="chip center-align waves-effect waves-light chip-default">AutoEncoder</span>
-            </a>
-            
-            
-            
-            <a href="/tags/%E5%85%A8%E8%BF%9E%E6%8E%A5%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" target="_blank">
-                <span class="chip center-align waves-effect waves-light chip-default">全连接神经网络</span>
+            <a href="/tags/NER/" target="_blank">
+                <span class="chip center-align waves-effect waves-light chip-default">NER</span>
             </a>
             
             
@@ -848,16 +864,8 @@
             
             
             
-            <a href="/tags/NER/" target="_blank">
-                <span class="chip center-align waves-effect waves-light chip-default">NER</span>
-            </a>
-            
-            
-            
-            
-            
-            <a href="/tags/matplotlib/" target="_blank">
-                <span class="chip center-align waves-effect waves-light chip-default">matplotlib</span>
+            <a href="/tags/SVM/" target="_blank">
+                <span class="chip center-align waves-effect waves-light chip-default">SVM</span>
             </a>
             
             
@@ -870,6 +878,12 @@
             
             <a href="/tags/NLP/" target="_blank">
                 <span class="chip center-align waves-effect waves-light chip-default">NLP</span>
+            </a>
+            
+            
+            
+            <a href="/tags/LLM/" target="_blank">
+                <span class="chip center-align waves-effect waves-light chip-default">LLM</span>
             </a>
             
             
@@ -896,6 +910,12 @@
             
             <a href="/tags/Node-js/" target="_blank">
                 <span class="chip center-align waves-effect waves-light chip-default">Node.js</span>
+            </a>
+            
+            
+            
+            <a href="/tags/%E5%A4%9A%E8%BF%9B%E7%A8%8B/" target="_blank">
+                <span class="chip center-align waves-effect waves-light chip-default">多进程</span>
             </a>
             
             
@@ -930,32 +950,14 @@
             
             
             
-            <a href="/tags/%E5%A4%9A%E8%BF%9B%E7%A8%8B/" target="_blank">
-                <span class="chip center-align waves-effect waves-light chip-default">多进程</span>
-            </a>
-            
-            
-            
-            <a href="/tags/redis/" target="_blank">
-                <span class="chip center-align waves-effect waves-light chip-default">redis</span>
-            </a>
-            
-            
-            
             <a href="/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95/" target="_blank">
                 <span class="chip center-align waves-effect waves-light chip-default">编程算法</span>
             </a>
             
             
             
-            <a href="/tags/SVM/" target="_blank">
-                <span class="chip center-align waves-effect waves-light chip-default">SVM</span>
-            </a>
-            
-            
-            
-            <a href="/tags/%E5%AD%97%E8%8A%82/" target="_blank">
-                <span class="chip center-align waves-effect waves-light chip-default">字节</span>
+            <a href="/tags/redis/" target="_blank">
+                <span class="chip center-align waves-effect waves-light chip-default">redis</span>
             </a>
             
             
@@ -968,6 +970,12 @@
             
             <a href="/tags/%E4%B8%89%E5%85%83%E7%BB%84%E6%8D%9F%E5%A4%B1/" target="_blank">
                 <span class="chip center-align waves-effect waves-light chip-default">三元组损失</span>
+            </a>
+            
+            
+            
+            <a href="/tags/%E5%AD%97%E8%8A%82/" target="_blank">
+                <span class="chip center-align waves-effect waves-light chip-default">字节</span>
             </a>
             
             
@@ -990,14 +998,14 @@
             
             
             
-            <a href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" target="_blank">
-                <span class="chip center-align waves-effect waves-light chip-default">正则表达式</span>
+            <a href="/tags/%E5%BD%A2%E6%80%81%E5%AD%A6/" target="_blank">
+                <span class="chip center-align waves-effect waves-light chip-default">形态学</span>
             </a>
             
             
             
-            <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" target="_blank">
-                <span class="chip center-align waves-effect waves-light chip-default">神经网络</span>
+            <a href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" target="_blank">
+                <span class="chip center-align waves-effect waves-light chip-default">正则表达式</span>
             </a>
             
             
@@ -1008,8 +1016,8 @@
             
             
             
-            <a href="/tags/%E5%BD%A2%E6%80%81%E5%AD%A6/" target="_blank">
-                <span class="chip center-align waves-effect waves-light chip-default">形态学</span>
+            <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" target="_blank">
+                <span class="chip center-align waves-effect waves-light chip-default">神经网络</span>
             </a>
             
             
@@ -1022,12 +1030,6 @@
             
             <a href="/tags/%E9%81%8D%E5%8E%86/" target="_blank">
                 <span class="chip center-align waves-effect waves-light chip-default">遍历</span>
-            </a>
-            
-            
-            
-            <a href="/tags/LLM/" target="_blank">
-                <span class="chip center-align waves-effect waves-light chip-default">LLM</span>
             </a>
             
             
@@ -1205,7 +1207,7 @@ $(function () {
 
                         <!-- 3/22: 修改了js文件路径 --> 
                             <script src="https://cdn.staticfile.org/materialize/1.0.0/js/materialize.js"></script>
-                            <script src="https://cdn.staticfile.org/masonry/4.0.0/masonry.pkgd.min.js"></script>
+                            <script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/4.0.0/masonry.pkgd.min.js"></script>
                             <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
                             <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
                             <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>

@@ -50,15 +50,17 @@
     <!-- 2025/02/07: 修改了jQuery文件的路径，换到官方 -->
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
     <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-    <script>
-        var _hmt = _hmt || [];
-        (function () {
-            var hm = document.createElement("script");
-            hm.src = "https://hm.baidu.com/hm.js?46e79e71af0709a5b9106bf20cecc493";
-            var s = document.getElementsByTagName("script")[0];
-            s.parentNode.insertBefore(hm, s);
-        })();
-    </script>
+
+<!--    baidu引擎，加速对网站内容的抓取和索引-->
+<!--    <script>-->
+<!--        var _hmt = _hmt || [];-->
+<!--        (function () {-->
+<!--            var hm = document.createElement("script");-->
+<!--            hm.src = "https://hm.baidu.com/hm.js?46e79e71af0709a5b9106bf20cecc493";-->
+<!--            var s = document.getElementsByTagName("script")[0];-->
+<!--            s.parentNode.insertBefore(hm, s);-->
+<!--        })();-->
+<!--    </script>-->
 
     
 
@@ -624,34 +626,6 @@
     <div class="col s12 m6" >
 
         <!-- 3/22: 这里修改了主页推荐卡片的图片路径 -->
-        <div class="post-card" style="background-image: url('https://s4.ax1x.com/2022/02/08/HlMq76.jpg')">
-        <!-- <div class="post-card" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.iohttps://s4.ax1x.com/2022/02/08/HlMq76.jpg');"> -->
-            <div class="post-body">
-                <div class="post-categories">
-                    
-                    <a href="/categories/NLP/" class="category" target="_blank">NLP</a>
-                    
-                </div>
-                <a href="/2021/12/11/don-t-stop-pretraining/" target="_blank">
-                    <h3 class="post-title">Don't stop pretraining</h3>
-                </a>
-                <p class="post-description">
-                    
-                        如今很多NLP任务都会在Bert等预训练模型的基础上进行fine-tuning，可能很多人没有意识到在任务领域上进行新的预训练会进一步提高模型效果，下面这篇论文就从多个实践角度证明了这种方法的可行性。
-                    
-                </p>
-                <a href="/2021/12/11/don-t-stop-pretraining/" target="_blank"
-                        class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #FF5E3A 0%, #FF2A68 100%)">
-                    <i class="icon fa fa-eye fa-fw"></i>阅读更多
-                </a>
-            </div>
-        </div>
-    </div>
-    
-    
-    <div class="col s12 m6" >
-
-        <!-- 3/22: 这里修改了主页推荐卡片的图片路径 -->
         <div class="post-card" style="background-image: url('https://s4.ax1x.com/2022/02/08/HlMXtO.jpg')">
         <!-- <div class="post-card" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.iohttps://s4.ax1x.com/2022/02/08/HlMXtO.jpg');"> -->
             <div class="post-body">
@@ -669,6 +643,34 @@
                     
                 </p>
                 <a href="/2019/04/16/autoencoder/" target="_blank"
+                        class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #FF5E3A 0%, #FF2A68 100%)">
+                    <i class="icon fa fa-eye fa-fw"></i>阅读更多
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="col s12 m6" >
+
+        <!-- 3/22: 这里修改了主页推荐卡片的图片路径 -->
+        <div class="post-card" style="background-image: url('https://s4.ax1x.com/2022/02/08/HlMq76.jpg')">
+        <!-- <div class="post-card" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.iohttps://s4.ax1x.com/2022/02/08/HlMq76.jpg');"> -->
+            <div class="post-body">
+                <div class="post-categories">
+                    
+                    <a href="/categories/NLP/" class="category" target="_blank">NLP</a>
+                    
+                </div>
+                <a href="/2021/12/11/don-t-stop-pretraining/" target="_blank">
+                    <h3 class="post-title">Don't stop pretraining</h3>
+                </a>
+                <p class="post-description">
+                    
+                        如今很多NLP任务都会在Bert等预训练模型的基础上进行fine-tuning，可能很多人没有意识到在任务领域上进行新的预训练会进一步提高模型效果，下面这篇论文就从多个实践角度证明了这种方法的可行性。
+                    
+                </p>
+                <a href="/2021/12/11/don-t-stop-pretraining/" target="_blank"
                         class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #EF4DB6 0%, #C643FC 100%)">
                     <i class="icon fa fa-eye fa-fw"></i>阅读更多
                 </a>
@@ -1704,7 +1706,7 @@ $(function () {
 
                         <!-- 3/22: 修改了js文件路径 --> 
                             <script src="https://cdn.staticfile.org/materialize/1.0.0/js/materialize.js"></script>
-                            <script src="https://cdn.staticfile.org/masonry/4.0.0/masonry.pkgd.min.js"></script>
+                            <script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/4.0.0/masonry.pkgd.min.js"></script>
                             <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
                             <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
                             <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>

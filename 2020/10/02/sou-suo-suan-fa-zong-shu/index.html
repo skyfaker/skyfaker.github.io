@@ -54,15 +54,17 @@
     <!-- 2025/02/07: 修改了jQuery文件的路径，换到官方 -->
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
     <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-    <script>
-        var _hmt = _hmt || [];
-        (function () {
-            var hm = document.createElement("script");
-            hm.src = "https://hm.baidu.com/hm.js?46e79e71af0709a5b9106bf20cecc493";
-            var s = document.getElementsByTagName("script")[0];
-            s.parentNode.insertBefore(hm, s);
-        })();
-    </script>
+
+<!--    baidu引擎，加速对网站内容的抓取和索引-->
+<!--    <script>-->
+<!--        var _hmt = _hmt || [];-->
+<!--        (function () {-->
+<!--            var hm = document.createElement("script");-->
+<!--            hm.src = "https://hm.baidu.com/hm.js?46e79e71af0709a5b9106bf20cecc493";-->
+<!--            var s = document.getElementsByTagName("script")[0];-->
+<!--            s.parentNode.insertBefore(hm, s);-->
+<!--        })();-->
+<!--    </script>-->
 
     
 
@@ -555,8 +557,8 @@
 <script type="math/tex; mode=display">
 I_t = \max_{i\in \{1,\cdots,k\}}\{\overline{X_{i,T_i(t-1)}}+c_{t-1,T_i(t-1)} \}</script><p>其中$c_{t,s}$定义如下：</p>
 <script type="math/tex; mode=display">
-c_{t,s} = \sqrt{\frac{2\ln t}{s}}</script><p>$T_i(t) = \sum_{s=1}^t if(I_s=i)$为从初始时刻到t时刻时，选择第i个赌博机的次数。</p>
-<p>$I_t$中第一项表示不同赌博机过去的奖励均值，则为了最大化$I_t$，倾向于选取之前平均收益最大的赌博机，代表利用。第二项大小与该赌博机被选择的次数有关，次数越多，则$c_{t,s}$中的s越大，则$c_{t,s}$越小，更倾向于选择之前被选次数更少的赌博机，代表探索。</p>
+c_{t,s} = \sqrt{\frac{2\ln t}{s}}</script><p>$T<em>i(t) = \sum</em>{s=1}^t if(I_s=i)$为从初始时刻到t时刻时，选择第i个赌博机的次数。</p>
+<p>$I<em>t$中第一项表示不同赌博机过去的奖励均值，则为了最大化$I_t$，倾向于选取之前平均收益最大的赌博机，代表利用。第二项大小与该赌博机被选择的次数有关，次数越多，则$c</em>{t,s}$中的s越大，则$c_{t,s}$越小，更倾向于选择之前被选次数更少的赌博机，代表探索。</p>
 <p>简化表示：</p>
 <script type="math/tex; mode=display">
 UCB= \overline X_j + c\sqrt{\frac{2\ln n}{n_j}}</script><p>$\overline X_j$为第j个赌博机过去获得的奖励的均值，$n_j$为第j个赌博机被选择的次数，c为平衡因子。</p>
@@ -1046,7 +1048,7 @@ $(function () {
 
                         <!-- 3/22: 修改了js文件路径 --> 
                             <script src="https://cdn.staticfile.org/materialize/1.0.0/js/materialize.js"></script>
-                            <script src="https://cdn.staticfile.org/masonry/4.0.0/masonry.pkgd.min.js"></script>
+                            <script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/4.0.0/masonry.pkgd.min.js"></script>
                             <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
                             <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
                             <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>

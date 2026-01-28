@@ -51,15 +51,17 @@
     <!-- 2025/02/07: 修改了jQuery文件的路径，换到官方 -->
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
     <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-    <script>
-        var _hmt = _hmt || [];
-        (function () {
-            var hm = document.createElement("script");
-            hm.src = "https://hm.baidu.com/hm.js?46e79e71af0709a5b9106bf20cecc493";
-            var s = document.getElementsByTagName("script")[0];
-            s.parentNode.insertBefore(hm, s);
-        })();
-    </script>
+
+<!--    baidu引擎，加速对网站内容的抓取和索引-->
+<!--    <script>-->
+<!--        var _hmt = _hmt || [];-->
+<!--        (function () {-->
+<!--            var hm = document.createElement("script");-->
+<!--            hm.src = "https://hm.baidu.com/hm.js?46e79e71af0709a5b9106bf20cecc493";-->
+<!--            var s = document.getElementsByTagName("script")[0];-->
+<!--            s.parentNode.insertBefore(hm, s);-->
+<!--        })();-->
+<!--    </script>-->
 
     
 
@@ -615,7 +617,7 @@ L(\boldsymbol w,b,\boldsymbol \alpha) = \frac{1}{2}\boldsymbol w^T \boldsymbol w
 \frac{\partial L}{\partial b}=0 \Rightarrow \sum_{i=1}^{n}\alpha_i y_i=0
 \end{cases} \tag{9}</script><p>将求导后的公式（9）带入公式（7），将$L(\boldsymbol w,b,\boldsymbol \alpha)$中的$(\boldsymbol w,b)$消掉，则：</p>
 <script type="math/tex; mode=display">
-\min \limits_{\boldsymbol w,b} L(\boldsymbol w,b,\boldsymbol \alpha) = \sum_{i=1}^{n}\alpha_i - \frac{1}{2} \sum_{i=1}^{n}\sum_{j=1}^{n}\alpha_i\alpha_jy_iy_j \boldsymbol x_i^T \boldsymbol x_j</script><p>（2）对$\min \limits_{\boldsymbol w,b} L(\boldsymbol w,b,\boldsymbol \alpha)$求α的极大，即$\max \limits_{\alpha} \ \min \limits_{\boldsymbol w,b} L(\boldsymbol w,b,\boldsymbol \alpha)$：</p>
+\min \limits_{\boldsymbol w,b} L(\boldsymbol w,b,\boldsymbol \alpha) = \sum_{i=1}^{n}\alpha_i - \frac{1}{2} \sum_{i=1}^{n}\sum_{j=1}^{n}\alpha_i\alpha_jy_iy_j \boldsymbol x_i^T \boldsymbol x_j</script><p>（2）对$\min \limits<em>{\boldsymbol w,b} L(\boldsymbol w,b,\boldsymbol \alpha)$求α的极大，即$\max \limits</em>{\alpha} \ \min \limits_{\boldsymbol w,b} L(\boldsymbol w,b,\boldsymbol \alpha)$：</p>
 <script type="math/tex; mode=display">
 \max \limits_{\alpha} \ \min \limits_{\boldsymbol w,b} L(\boldsymbol w,b,\boldsymbol \alpha) = \max \limits_{\alpha} \quad \sum_{i=1}^{n}\alpha_i - \frac{1}{2} \sum_{i=1}^{n}\sum_{j=1}^{n}\alpha_i\alpha_jy_iy_j \boldsymbol x_i^T \boldsymbol x_j \\
 s.t. \quad \sum_{1}^{n}a_iy_i=0;\\ 
@@ -1110,7 +1112,7 @@ $(function () {
 
                         <!-- 3/22: 修改了js文件路径 --> 
                             <script src="https://cdn.staticfile.org/materialize/1.0.0/js/materialize.js"></script>
-                            <script src="https://cdn.staticfile.org/masonry/4.0.0/masonry.pkgd.min.js"></script>
+                            <script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/4.0.0/masonry.pkgd.min.js"></script>
                             <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
                             <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
                             <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>

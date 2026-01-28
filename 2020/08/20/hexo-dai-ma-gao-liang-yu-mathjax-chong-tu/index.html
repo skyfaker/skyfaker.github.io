@@ -53,15 +53,17 @@ npm i -S hexo-pri">
     <!-- 2025/02/07: 修改了jQuery文件的路径，换到官方 -->
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
     <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-    <script>
-        var _hmt = _hmt || [];
-        (function () {
-            var hm = document.createElement("script");
-            hm.src = "https://hm.baidu.com/hm.js?46e79e71af0709a5b9106bf20cecc493";
-            var s = document.getElementsByTagName("script")[0];
-            s.parentNode.insertBefore(hm, s);
-        })();
-    </script>
+
+<!--    baidu引擎，加速对网站内容的抓取和索引-->
+<!--    <script>-->
+<!--        var _hmt = _hmt || [];-->
+<!--        (function () {-->
+<!--            var hm = document.createElement("script");-->
+<!--            hm.src = "https://hm.baidu.com/hm.js?46e79e71af0709a5b9106bf20cecc493";-->
+<!--            var s = document.getElementsByTagName("script")[0];-->
+<!--            s.parentNode.insertBefore(hm, s);-->
+<!--        })();-->
+<!--    </script>-->
 
     
 
@@ -573,7 +575,7 @@ npm i -S hexo-pri">
 <p>我们输入以下图片中的公式，发现可以正常显示：</p>
 <p><img src="https://z3.ax1x.com/2021/03/23/6HGfsS.jpg" alt='公式代码' style="zoom:38%;" /></p>
 <p>显示效果：</p>
-<p>$ a_0\b_{12} $</p>
+<p>$ a<em>0\b</em>{12} $</p>
 <script type="math/tex; mode=display">
 a_0\\
 b_{12}</script><p>总结：</p>
@@ -1061,7 +1063,7 @@ $(function () {
 
                         <!-- 3/22: 修改了js文件路径 --> 
                             <script src="https://cdn.staticfile.org/materialize/1.0.0/js/materialize.js"></script>
-                            <script src="https://cdn.staticfile.org/masonry/4.0.0/masonry.pkgd.min.js"></script>
+                            <script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/4.0.0/masonry.pkgd.min.js"></script>
                             <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
                             <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
                             <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
