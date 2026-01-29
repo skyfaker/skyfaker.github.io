@@ -6,7 +6,7 @@
   <link href="https://www.skyfaker.cc/atom.xml" rel="self"/>
   
   <link href="https://www.skyfaker.cc/"/>
-  <updated>2026-01-28T15:52:48.684Z</updated>
+  <updated>2026-01-29T11:45:44.198Z</updated>
   <id>https://www.skyfaker.cc/</id>
   
   <author>
@@ -21,15 +21,15 @@
     <link href="https://www.skyfaker.cc/2024/08/28/llm-zhong-de-tokenizer/"/>
     <id>https://www.skyfaker.cc/2024/08/28/llm-zhong-de-tokenizer/</id>
     <published>2024-08-28T14:37:51.000Z</published>
-    <updated>2026-01-28T15:52:48.684Z</updated>
+    <updated>2026-01-29T11:45:44.198Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;既然 LLM 最终处理的是数字，为什么我们不直接把文字转成 ASCII 码或者二进制发给它，非要搞一个复杂的 Tokenizer（分词器）中间层呢？&lt;/p&gt;
-&lt;h2 id=&quot;为什么需要Tokenizer&quot;&gt;&lt;a href=&quot;#为什么需要Tokenizer&quot;</summary>
+    <summary type="html">&lt;p&gt;在现代计算语言学和大规模语言模型（LLM）的架构体系中，分词器（Tokenizer）是连接人类自然语言与机器数值计算的唯一底层接口。分词器不仅是文本预处理的一个步骤，更是决定模型理解精度、计算效率、跨语言公平性乃至商业成本的核心支柱 。&lt;/p&gt;
+&lt;h2</summary>
         
       
     
