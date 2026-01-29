@@ -542,7 +542,7 @@
 <h3 id="词级分词"><a href="#词级分词" class="headerlink" title="词级分词"></a>词级分词</h3><p>词级分词通过空格和标点符号将文本划分为完整的单词。其优点是简单直观，能够很好地保持单词的语义完整性 。然而，对于形态丰富的语言（如土耳其语或德语）或词汇量巨大的语言（如英语），词级分词面临严重的“维度灾难” 。英语中仅基本词汇就超过 50 万个，如果为每个单词分配唯一 ID，词表将变得不可管理，导致内存占用激增 。此外，词级分词无法处理未登录词（OOV），任何训练期间未见过的词（如新词或拼写错误）都会被标记为特殊的 [UNK] 符号，造成信息的彻底丢失 。更严重的是，它无法捕捉词形变化之间的关联，模型会将 “dog” 和 “dogs” 视为完全独立的实体 。  </p>
 <h3 id="字符级分词"><a href="#字符级分词" class="headerlink" title="字符级分词"></a>字符级分词</h3><p>字符级分词将每个字符视为一个标记。这种方法彻底解决了 OOV 问题，因为任何单词都可以通过字符重组而成，且词表极小 。然而，字符级分词导致输入序列变得极长，大幅增加了计算负担 。在 Transformer 架构中，自注意力机制的计算复杂度与序列长度呈平方关系，过长的序列会迅速耗尽显存并降低推理速度 。此外，单个字符（如 ‘a’ 或 ‘t’）本身往往缺乏足够的语义信息，迫使模型在极长的序列中捕捉长程依赖关系，从而增加了训练难度 。  </p>
 <h3 id="子词分词"><a href="#子词分词" class="headerlink" title="子词分词"></a>子词分词</h3><p>子词分词技术（Subword Tokenization）是目前 LLM 的行业标准，它在单词和字符之间找到了最佳折中方案 。其基本逻辑是将高频出现的词汇保持完整，而将低频或复杂的词汇拆分为更常见的子单位。例如，”unhappiness” 可能被拆分为 “un”、”happi” 和 “ness” 。这种方法极大地缩小了词表规模（通常为 3k 到 100k），同时几乎消除了 [UNK] 标记，因为模型总是可以回退到字符级别来表示罕见词 。</p>
-<h2 id="常用分词算法"><a href="#常用分词算法" class="headerlink" title="常用分词算法"></a>常用分词算法</h2><h3 id="BPE-Byte-Pair-Encoding-算法"><a href="#BPE-Byte-Pair-Encoding-算法" class="headerlink" title="BPE (Byte Pair Encoding) 算法"></a>BPE (Byte Pair Encoding) 算法</h3><p>BPE 最初是一种数据压缩算法，后来被引入 NLP 领域用于构建动态词表。其工作原理是贪婪地迭代合并语料库中最频繁出现的相邻字符对或子词对 。BPE 的训练过程是自底向上的：它从字符表开始，不断进行合并操作，直到达到预设的词表大小。在推理阶段，BPE 采用最大匹配策略对文本进行切分 。BPE 的主要优势在于其确定性和高效性，且在处理英语等具有清晰形态结构的语言时表现出色，它是 GPT 系列和 Llama 模型的核心技术 。</p>
+<h2 id="常用分词算法"><a href="#常用分词算法" class="headerlink" title="常用分词算法"></a>常用分词算法</h2><h3 id="BPE-（Byte-Pair-Encoding）算法"><a href="#BPE-（Byte-Pair-Encoding）算法" class="headerlink" title="BPE （Byte Pair Encoding）算法"></a>BPE （Byte Pair Encoding）算法</h3><p>BPE 最初是一种数据压缩算法，后来被引入 NLP 领域用于构建动态词表。其工作原理是贪婪地迭代合并语料库中最频繁出现的相邻字符对或子词对 。BPE 的训练过程是自底向上的：它从字符表开始，不断进行合并操作，直到达到预设的词表大小。在推理阶段，BPE 采用最大匹配策略对文本进行切分 。BPE 的主要优势在于其确定性和高效性，且在处理英语等具有清晰形态结构的语言时表现出色，它是 GPT 系列和 Llama 模型的核心技术 。</p>
 <h4 id="运作流程："><a href="#运作流程：" class="headerlink" title="运作流程："></a><strong>运作流程：</strong></h4><ol>
 <li><strong>初始化：</strong> 将文本拆分为单个字符（例如：<code>h, u, g, g, i, n, g</code>）。</li>
 <li><strong>统计频率：</strong> 扫描整个语料库，统计所有相邻单位对的出现次数。</li>
@@ -553,7 +553,7 @@
 <p><strong>优点：</strong> 能够处理词形变化（如 <code>look</code>, <code>looking</code>, <code>looked</code> 共享共同的词根 <code>look</code>），有效缩小词表规模。</p>
 <p><strong>缺点：</strong> 无法处理“从未见过”的字符（OOV问题）。如果在训练语料里没见过希腊字母 $\alpha$，模型就彻底“瞎”了。</p>
 </blockquote>
-<h3 id="BBPE-Byte-level-BPE"><a href="#BBPE-Byte-level-BPE" class="headerlink" title="BBPE(Byte-level BPE)"></a>BBPE(Byte-level BPE)</h3><p>为了解决 BPE 无法处理生僻字符的问题，GPT-2 开始引入了 <strong>BBPE</strong>。这是目前 Llama、GPT-4 等主流模型都在使用的技术。</p>
+<h3 id="BBPE（Byte-level-BPE）"><a href="#BBPE（Byte-level-BPE）" class="headerlink" title="BBPE（Byte-level BPE）"></a>BBPE（Byte-level BPE）</h3><p>为了解决 BPE 无法处理生僻字符的问题，GPT-2 开始引入了 <strong>BBPE</strong>。这是目前 Llama、GPT-4 等主流模型都在使用的技术。</p>
 <h4 id="核心改进："><a href="#核心改进：" class="headerlink" title="核心改进："></a><strong>核心改进：</strong></h4><p>BBPE 不再从“字符”开始合并，而是从 <strong>“字节（Bytes）”</strong> 开始合并。例如，“中国”的“中”先转换成UTF-8字节’\xe4\xb8\xad’，然后进行合并。</p>
 <ul>
 <li><strong>万物皆字节：</strong> 任何文字（中文、英文、Emoji）在计算机底层都是由 UTF-8 编码的字节组成的。</li>
@@ -561,7 +561,7 @@
 <li><strong>强制合并：</strong> 即使是一个非常生僻的中文汉字，在 BBPE 眼中也只是 3 个字节。模型可以通过合并这些字节来表示它，而不会出现“无法识别”的情况。</li>
 </ul>
 <h2 id="无分词器（Token-free）架构的兴起"><a href="#无分词器（Token-free）架构的兴起" class="headerlink" title="无分词器（Token-free）架构的兴起"></a>无分词器（Token-free）架构的兴起</h2><p>鉴于分词器带来的种种局限，学术界正在积极探索摆脱离散标记、直接处理字节流或字符流的端到端架构。</p>
-<h3 id="字节潜空间变换器-Byte-Latent-Transformer-BLT"><a href="#字节潜空间变换器-Byte-Latent-Transformer-BLT" class="headerlink" title="字节潜空间变换器 (Byte Latent Transformer, BLT)"></a>字节潜空间变换器 (Byte Latent Transformer, BLT)</h3><p>BLT 是一种革命性的架构，它完全取消了固定词表的分词过程。BLT 通过一个轻量级的局部编码器将原始字节流动态地组合成“补丁”（Patches），然后在补丁级别进行全局计算 。  </p>
+<h3 id="字节潜空间变换器-（Byte-Latent-Transformer-BLT）"><a href="#字节潜空间变换器-（Byte-Latent-Transformer-BLT）" class="headerlink" title="字节潜空间变换器 （Byte Latent Transformer, BLT）"></a>字节潜空间变换器 （Byte Latent Transformer, BLT）</h3><p>BLT 是一种革命性的架构，它完全取消了固定词表的分词过程。BLT 通过一个轻量级的局部编码器将原始字节流动态地组合成“补丁”（Patches），然后在补丁级别进行全局计算 。  </p>
 <ul>
 <li><strong>动态计算分配：</strong> BLT 根据文本输入的复杂度（基于熵的预测）动态调整计算资源的分配。对于复杂的字符组合分配更多计算力，而对于可预测的简单片段则减少计算量 。  </li>
 <li><strong>跨语言公平性：</strong> 由于直接操作字节，BLT 消除了针对不同语言的词表偏见，实现了真正意义上的语言中立 。  </li>
