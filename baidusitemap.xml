@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://www.skyfaker.cc/2024/09/13/flask-sqlalchemy-he-migrate/</loc>
+    <lastmod>2026-02-07</lastmod>
+  </url>
+  <url>
+    <loc>https://www.skyfaker.cc/2020/01/30/git-jian-ming-jiao-cheng-yu-ming-ling/</loc>
+    <lastmod>2026-02-04</lastmod>
+  </url>
+  <url>
+    <loc>https://www.skyfaker.cc/2019/04/16/autoencoder/</loc>
+    <lastmod>2026-02-04</lastmod>
+  </url>
+  <url>
     <loc>https://www.skyfaker.cc/2024/08/28/llm-zhong-de-tokenizer/</loc>
     <lastmod>2026-01-29</lastmod>
   </url>
@@ -81,10 +93,6 @@
     <lastmod>2022-02-06</lastmod>
   </url>
   <url>
-    <loc>https://www.skyfaker.cc/2020/01/30/git-jian-ming-jiao-cheng-yu-ming-ling/</loc>
-    <lastmod>2022-01-01</lastmod>
-  </url>
-  <url>
     <loc>https://www.skyfaker.cc/2020/03/30/hexo-jia-su-ji-hua/</loc>
     <lastmod>2021-04-14</lastmod>
   </url>
@@ -99,10 +107,6 @@
   <url>
     <loc>https://www.skyfaker.cc/2020/06/30/zi-jie-suan-fa-ti-ji-qi-ren-tiao-yue/</loc>
     <lastmod>2021-03-31</lastmod>
-  </url>
-  <url>
-    <loc>https://www.skyfaker.cc/2019/04/16/autoencoder/</loc>
-    <lastmod>2021-03-30</lastmod>
   </url>
   <url>
     <loc>https://www.skyfaker.cc/2020/02/17/shu-zi-tu-xiang-chu-li-xing-tai-xue/</loc>
