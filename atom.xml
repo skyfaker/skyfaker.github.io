@@ -6,7 +6,7 @@
   <link href="https://www.skyfaker.cc/atom.xml" rel="self"/>
   
   <link href="https://www.skyfaker.cc/"/>
-  <updated>2026-02-07T15:12:16.449Z</updated>
+  <updated>2026-02-27T14:17:24.647Z</updated>
   <id>https://www.skyfaker.cc/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>RAG(检索增强生成)</title>
+    <link href="https://www.skyfaker.cc/2024/12/24/rag-jian-suo-zeng-qiang-sheng-cheng/"/>
+    <id>https://www.skyfaker.cc/2024/12/24/rag-jian-suo-zeng-qiang-sheng-cheng/</id>
+    <published>2024-12-24T08:38:39.000Z</published>
+    <updated>2026-02-27T14:17:24.647Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;2024 年以“Retrieval Augmented Generation”为关键词的论文超过了一千篇，相比2023年增长了近10倍。这种指数级增长背后，是 RAG 从学术概念快速演进为企业级 AI 落地的核心技术范式。&lt;br&gt;去前，RAG</summary>
+        
+      
+    
+    
+    
+    <category term="AI" scheme="https://www.skyfaker.cc/categories/AI/"/>
+    
+    
+    <category term="技术路线" scheme="https://www.skyfaker.cc/tags/%E6%8A%80%E6%9C%AF%E8%B7%AF%E7%BA%BF/"/>
+    
+    <category term="RAG" scheme="https://www.skyfaker.cc/tags/RAG/"/>
+    
+  </entry>
   
   <entry>
     <title>Flask、SQLAlchemy和Migrate</title>
@@ -515,33 +542,6 @@
     <category term="mathjax" scheme="https://www.skyfaker.cc/tags/mathjax/"/>
     
     <category term="hexo渲染" scheme="https://www.skyfaker.cc/tags/hexo%E6%B8%B2%E6%9F%93/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>MobileNet--准确与速度的均衡</title>
-    <link href="https://www.skyfaker.cc/2020/07/27/mobilenet/"/>
-    <id>https://www.skyfaker.cc/2020/07/27/mobilenet/</id>
-    <published>2020-07-27T05:26:16.000Z</published>
-    <updated>2022-02-08T14:51:53.780Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;卷积神经网络（CNN）在计算机视觉领域产生了许多新进展也衍生出了许多新型的网络，其中MobileNet就是CNN在轻量级网络的一个非常优秀的网络架构探索。近些年，为了追求分类准确度，模型深度越来越深，模型复杂度也越来越高，如深度残差网络（ResNet）其层数已经多达152层</summary>
-        
-      
-    
-    
-    
-    <category term="深度学习" scheme="https://www.skyfaker.cc/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-    <category term="CNN" scheme="https://www.skyfaker.cc/tags/CNN/"/>
-    
-    <category term="MobileNet" scheme="https://www.skyfaker.cc/tags/MobileNet/"/>
     
   </entry>
   
