@@ -650,22 +650,22 @@
 <h2 id="RAG未来发展"><a href="#RAG未来发展" class="headerlink" title="RAG未来发展"></a>RAG未来发展</h2><p>2023年刚开始发展时，RAG面临的一大问题是上下文窗口太小了，只有8K或者16K的上下文窗口导致无法放入太多的检索结果，这对于检索方式有很高的要求。</p>
 <p>而随着如今模型上下文窗口的扩展，已经有模型支持长达128K的上下文了，很多时候可以不太依赖RAG，而是依靠长上下文，让模型自己从上下文中选取关联的数据。从这个角度看，似乎RAG的用武之地没那么大了。</p>
 <p>但是从实践来看，我们还离不开检索增强的方法。随着Agent的发展，RAG可能会成为Agent的一个模块或者工具，即Agentic RAG 系统。随着AI Agent的兴起，RAG的功能逐渐从<strong>检索增强生成”</strong>变成了<strong>上下文工程</strong>，Agent需要组装三类上下文:</p>
-<p><strong>1. 领域知识(Knowledge)</strong></p>
+<p><strong>1. 领域知识（Knowledge） </strong></p>
 <ul>
 <li>企业内部文档、产品手册、历史案例</li>
 <li>这就是传统RAG的强项</li>
 </ul>
-<p><strong>2. 工具描述(Tools)</strong></p>
+<p><strong>2. 工具描述（Tools）</strong></p>
 <ul>
 <li>API文档、函数说明、调用示例</li>
 <li>当工具数量&gt;100个,如何选择成为大问题</li>
 </ul>
-<p><strong>3. 交互历史(Memory)</strong></p>
+<p><strong>3. 交互历史（Memory）</strong></p>
 <ul>
 <li>对话历史、用户偏好、任务状态</li>
 <li>本质也是一种检索问题</li>
 </ul>
-<p><strong>这三类数据的管理,本质上都是检索问题</strong>。RAG的技术栈(向量索引、混合检索、重排序)可以完美复用。</p>
+<p><strong>这三类数据的管理,本质上都是检索问题</strong>。RAG的技术栈（向量索引、混合检索、重排序）可以完美复用。</p>
 
             </div>
             <hr />
