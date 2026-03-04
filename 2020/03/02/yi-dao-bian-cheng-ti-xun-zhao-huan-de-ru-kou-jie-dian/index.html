@@ -74,11 +74,8 @@
 <!--        })();-->
 <!--    </script>-->
 
-<!-- hexo injector head_end start -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-shiki-plugin@latest/lib/codeblock.css">
-<style>:root{--hl-color:#abb2bf;--hl-bg:#282c34;--hltools-bg:#21252b;--hltools-color:#bbbbbc;--hlnumber-bg:#282c34;--hlnumber-color:#495162;--hlscrollbar-bg:#373c47;--hlexpand-bg:linear-gradient(180deg,rgba(40,44,52,0.1),rgba(40,44,52,0.9))}</style><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="SKYFAKER" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><link rel="alternate" href="/atom.xml" title="SKYFAKER" type="application/atom+xml">
+</head>
 
     <body>
 
@@ -330,8 +327,8 @@
 
 
 <!-- 3/22: 这里修改了推荐页文章点击进去之后的图片路径 -->
-<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.iohttps://s4.ax1x.com/2022/02/08/HlMz1H.jpg');"> -->
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://s4.ax1x.com/2022/02/08/HlMz1H.jpg');">
+<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.iohttps://s4.ax1x.com/2022/02/08/HlMjhD.jpg');"> -->
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://s4.ax1x.com/2022/02/08/HlMjhD.jpg');">
 
     <div class="container">
         <div class="row">
@@ -489,14 +486,14 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    673
+                    717
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    3 分
                 </div>
                 
                 
@@ -522,60 +519,60 @@
 <p>由于快慢指针相遇到Z点，可知慢指针行进距离为 $a+b$，又由于快指针的速度是慢指针的2倍，所以快指针的行进距离为 $2*(a+b)$。 并且由于快指针最终也停在了Z点（假设绕环n次），则可知 $2*(a+b)= a + b + k*n$ ，即 $a+b = k*n$ 。</p>
 <p>现在我们已经获得了两个节点X，Z的位置了，从这两个节点到入口节点Y的路程分别为 a 和 $k*n -b$ ，并且a = $k*n - b$。</p>
 <p>所以，可以通过设置一个指针从X开始，另外一个指针从Z，同时以相同的速度前进，当他们相遇时，正好在入口节点上。</p>
-<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><h3 id="python实现"><a href="#python实现" class="headerlink" title="python实现"></a>python实现</h3><figure class="shiki python"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">class</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Solution</span><span style="color: #ABB2BF">:</span></span>
-<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #C678DD">def</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">detectCycle</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B; font-style: italic">self</span><span style="color: #ABB2BF"> , </span><span style="color: #D19A66; font-style: italic">head</span><span style="color: #ABB2BF"> ):</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #7F848E; font-style: italic"># write code here</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">if</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">not</span><span style="color: #ABB2BF"> head </span><span style="color: #C678DD">or</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">not</span><span style="color: #ABB2BF"> head.next:</span></span>
-<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">None</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #7F848E; font-style: italic"># 判断是否存在环</span></span>
-<span class="line"><span style="color: #ABB2BF">        node </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">self</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">find_circle</span><span style="color: #ABB2BF">(head)</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">if</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">not</span><span style="color: #ABB2BF"> node:</span></span>
-<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">None</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #7F848E; font-style: italic"># 存在环，则设置一个从头节点开始的慢指针，两个慢指针再次相遇时即为换的入口</span></span>
-<span class="line"><span style="color: #ABB2BF">        s </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> head</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">while</span><span style="color: #ABB2BF">(s</span><span style="color: #56B6C2">!=</span><span style="color: #ABB2BF">node):</span></span>
-<span class="line"><span style="color: #ABB2BF">            s </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> s.next</span></span>
-<span class="line"><span style="color: #ABB2BF">            node </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> node.next</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> node</span></span>
-<span class="line"></span>
-<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #7F848E; font-style: italic">#  判断是否存在环，存在则返回快慢指针相遇的节点</span></span>
-<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #C678DD">def</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">find_circle</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B; font-style: italic">self</span><span style="color: #ABB2BF">, </span><span style="color: #D19A66; font-style: italic">head</span><span style="color: #ABB2BF">):</span></span>
-<span class="line"><span style="color: #ABB2BF">        f </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> head</span></span>
-<span class="line"><span style="color: #ABB2BF">        s </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> head</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">while</span><span style="color: #ABB2BF">(f </span><span style="color: #C678DD">and</span><span style="color: #ABB2BF"> f.next):</span></span>
-<span class="line"><span style="color: #ABB2BF">            s </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> s.next</span></span>
-<span class="line"><span style="color: #ABB2BF">            f </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> f.next.next</span></span>
-<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #C678DD">if</span><span style="color: #ABB2BF"> s</span><span style="color: #56B6C2">==</span><span style="color: #ABB2BF">f:</span></span>
-<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> s</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">None</span></span></code></pre></div></div></figure>
-<h3 id="C-实现"><a href="#C-实现" class="headerlink" title="C++实现"></a>C++实现</h3><figure class="shiki cpp"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">class</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Solution</span><span style="color: #ABB2BF"> {</span></span>
-<span class="line"><span style="color: #C678DD">public:</span></span>
-<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #E5C07B">ListNode</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">*</span><span style="color: #61AFEF">detectCycle</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">ListNode</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">*</span><span style="color: #E06C75; font-style: italic">head</span><span style="color: #ABB2BF">) {</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">if</span><span style="color: #ABB2BF">(head</span><span style="color: #C678DD">==</span><span style="color: #D19A66">NULL</span><span style="color: #ABB2BF">) </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">NULL</span><span style="color: #ABB2BF">;</span></span>
-<span class="line"><span style="color: #7F848E; font-style: italic">        // 判断是否存在环</span></span>
-<span class="line"><span style="color: #ABB2BF">        ListNode </span><span style="color: #56B6C2">*</span><span style="color: #ABB2BF">node </span><span style="color: #C678DD">=</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">find_circle</span><span style="color: #ABB2BF">(head);</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">if</span><span style="color: #ABB2BF">(node</span><span style="color: #C678DD">==</span><span style="color: #D19A66">NULL</span><span style="color: #ABB2BF">) </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">NULL</span><span style="color: #ABB2BF">;</span></span>
-<span class="line"><span style="color: #7F848E; font-style: italic">        // 设置一个从头节点开始的慢指针，两个慢指针再次相遇时即为换的入口</span></span>
-<span class="line"><span style="color: #ABB2BF">        ListNode </span><span style="color: #56B6C2">*</span><span style="color: #ABB2BF">s </span><span style="color: #C678DD">=</span><span style="color: #ABB2BF"> head;</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">while</span><span style="color: #ABB2BF">(s</span><span style="color: #C678DD">!=</span><span style="color: #ABB2BF">node){</span></span>
-<span class="line"><span style="color: #ABB2BF">            s </span><span style="color: #C678DD">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">s</span><span style="color: #ABB2BF">-&gt;</span><span style="color: #E06C75">next</span><span style="color: #ABB2BF">;</span></span>
-<span class="line"><span style="color: #ABB2BF">            node </span><span style="color: #C678DD">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">node</span><span style="color: #ABB2BF">-&gt;</span><span style="color: #E06C75">next</span><span style="color: #ABB2BF">;</span></span>
-<span class="line"><span style="color: #ABB2BF">        }</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> node;</span></span>
-<span class="line"><span style="color: #ABB2BF">    }</span></span>
-<span class="line"><span style="color: #ABB2BF">    </span></span>
-<span class="line"><span style="color: #7F848E; font-style: italic">    // 判断是否存在环，存在则返回快慢指针相遇的节点</span></span>
-<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #E5C07B">ListNode</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">*</span><span style="color: #61AFEF">find_circle</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">ListNode</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">*</span><span style="color: #E06C75; font-style: italic">head</span><span style="color: #ABB2BF">){</span></span>
-<span class="line"><span style="color: #ABB2BF">        ListNode </span><span style="color: #56B6C2">*</span><span style="color: #ABB2BF"> s </span><span style="color: #C678DD">=</span><span style="color: #ABB2BF"> head;</span></span>
-<span class="line"><span style="color: #ABB2BF">        ListNode </span><span style="color: #56B6C2">*</span><span style="color: #ABB2BF"> f </span><span style="color: #C678DD">=</span><span style="color: #ABB2BF"> head;</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">while</span><span style="color: #ABB2BF">(f</span><span style="color: #C678DD">!=</span><span style="color: #D19A66">NULL</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">&amp;&amp;</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">f</span><span style="color: #ABB2BF">-&gt;</span><span style="color: #E06C75">next</span><span style="color: #C678DD">!=</span><span style="color: #D19A66">NULL</span><span style="color: #ABB2BF">){</span></span>
-<span class="line"><span style="color: #ABB2BF">            s </span><span style="color: #C678DD">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">s</span><span style="color: #ABB2BF">-&gt;</span><span style="color: #E06C75">next</span><span style="color: #ABB2BF">;</span></span>
-<span class="line"><span style="color: #ABB2BF">            f </span><span style="color: #C678DD">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">f</span><span style="color: #ABB2BF">-&gt;</span><span style="color: #E5C07B">next</span><span style="color: #ABB2BF">-&gt;</span><span style="color: #E06C75">next</span><span style="color: #ABB2BF">;</span></span>
-<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #C678DD">if</span><span style="color: #ABB2BF">(s</span><span style="color: #C678DD">==</span><span style="color: #ABB2BF">f) </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> s;</span></span>
-<span class="line"><span style="color: #ABB2BF">        }</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">NULL</span><span style="color: #ABB2BF">;</span></span>
-<span class="line"><span style="color: #ABB2BF">    }</span></span>
-<span class="line"><span style="color: #ABB2BF">};</span></span></code></pre></div></div></figure>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><h3 id="python实现"><a href="#python实现" class="headerlink" title="python实现"></a>python实现</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">class Solution:
+    def detectCycle(self , head ):
+        # write code here
+        if not head or not head.next:
+            return None
+        # 判断是否存在环
+        node &#x3D; self.find_circle(head)
+        if not node:
+            return None
+        # 存在环，则设置一个从头节点开始的慢指针，两个慢指针再次相遇时即为换的入口
+        s &#x3D; head
+        while(s!&#x3D;node):
+            s &#x3D; s.next
+            node &#x3D; node.next
+        return node
+
+    #  判断是否存在环，存在则返回快慢指针相遇的节点
+    def find_circle(self, head):
+        f &#x3D; head
+        s &#x3D; head
+        while(f and f.next):
+            s &#x3D; s.next
+            f &#x3D; f.next.next
+            if s&#x3D;&#x3D;f:
+                return s
+        return None<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="C-实现"><a href="#C-实现" class="headerlink" title="C++实现"></a>C++实现</h3><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">class Solution &#123;
+public:
+    ListNode *detectCycle(ListNode *head) &#123;
+        if(head&#x3D;&#x3D;NULL) return NULL;
+        &#x2F;&#x2F; 判断是否存在环
+        ListNode *node &#x3D; find_circle(head);
+        if(node&#x3D;&#x3D;NULL) return NULL;
+        &#x2F;&#x2F; 设置一个从头节点开始的慢指针，两个慢指针再次相遇时即为换的入口
+        ListNode *s &#x3D; head;
+        while(s!&#x3D;node)&#123;
+            s &#x3D; s-&gt;next;
+            node &#x3D; node-&gt;next;
+        &#125;
+        return node;
+    &#125;
+    
+    &#x2F;&#x2F; 判断是否存在环，存在则返回快慢指针相遇的节点
+    ListNode *find_circle(ListNode *head)&#123;
+        ListNode * s &#x3D; head;
+        ListNode * f &#x3D; head;
+        while(f!&#x3D;NULL &amp;&amp; f-&gt;next!&#x3D;NULL)&#123;
+            s &#x3D; s-&gt;next;
+            f &#x3D; f-&gt;next-&gt;next;
+            if(s&#x3D;&#x3D;f) return s;
+        &#125;
+        return NULL;
+    &#125;
+&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr />
@@ -627,7 +624,7 @@
                                         
 
                                             <!-- 3/22修改： -->
-                                            <img src="https://s4.ax1x.com/2022/02/08/HlMTXR.jpg" class="responsive-img" alt="一道编程题——合并K个有序链表">
+                                            <img src="https://s4.ax1x.com/2022/02/08/HlMb0x.jpg" class="responsive-img" alt="一道编程题——合并K个有序链表">
                                             
                                                 <span class="card-title">一道编程题——合并K个有序链表</span>
                             </div>
@@ -676,7 +673,7 @@
                                         <div class="card-image">
                                             
                                                     
-                                                        <img src="https://s4.ax1x.com/2022/02/08/HlQmcj.jpg" class="responsive-img" alt="数字图像处理——形态学">
+                                                        <img src="https://s4.ax1x.com/2022/02/08/HlQKun.jpg" class="responsive-img" alt="数字图像处理——形态学">
                                                         
                                                             <span class="card-title">数字图像处理——形态学</span>
                                         </div>
@@ -864,7 +861,7 @@
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">87.4k</span>
+                <span class="white-color">91.3k</span>
                 
 
                     <br>
@@ -1053,27 +1050,6 @@ $(function () {
                                                             <!-- 雪花特效 -->
                                                             
 
-    <!-- hexo injector body_end start -->
-  <script>
-  const CODE_CONFIG = {
-    beautify: undefined,
-    highlightCopy: undefined,
-    highlightLang: undefined,
-    highlightHeightLimit: undefined,
-    isHighlightShrink: undefined,
-    copy: {
-      success: 'undefined',
-      error: 'undefined',
-      noSupport: 'undefined',
-    }
-  };
-  console.log(
-    `%c hexo-shiki-plugin %c v1.0.27 %c https://github.com/nova1751/hexo-shiki-plugin`,
-    "color: #fff; background: #5f5f5f",
-    "color: #fff; background: #80c8f8",
-    ""
-  );
-  </script>
-  <!-- hexo injector body_end end --></body>
+    </body>
 
 </html>

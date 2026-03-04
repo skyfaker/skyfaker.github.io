@@ -74,11 +74,8 @@
 <!--        })();-->
 <!--    </script>-->
 
-<!-- hexo injector head_end start -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-shiki-plugin@latest/lib/codeblock.css">
-<style>:root{--hl-color:#abb2bf;--hl-bg:#282c34;--hltools-bg:#21252b;--hltools-color:#bbbbbc;--hlnumber-bg:#282c34;--hlnumber-color:#495162;--hlscrollbar-bg:#373c47;--hlexpand-bg:linear-gradient(180deg,rgba(40,44,52,0.1),rgba(40,44,52,0.9))}</style><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="SKYFAKER" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><link rel="alternate" href="/atom.xml" title="SKYFAKER" type="application/atom+xml">
+</head>
 
     <body>
 
@@ -330,8 +327,8 @@
 
 
 <!-- 3/22: 这里修改了推荐页文章点击进去之后的图片路径 -->
-<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.iohttps://s4.ax1x.com/2022/02/08/HlQNv9.jpg');"> -->
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://s4.ax1x.com/2022/02/08/HlQNv9.jpg');">
+<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.iohttps://s4.ax1x.com/2022/02/08/HlQY34.jpg');"> -->
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://s4.ax1x.com/2022/02/08/HlQY34.jpg');">
 
     <div class="container">
         <div class="row">
@@ -489,7 +486,7 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    673
+                    710
                 </div>
                 
 
@@ -517,80 +514,80 @@
 <p>返回结果：[[5,4,11,2], [5,8,9]]</p>
 <h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>本题涉及二叉树的遍历，需要注意的是题目中所需要的路径为根节点到叶子节点，所以即使路径和已经为 <code>sum</code> ，也是不符合题目要求的路径。</p>
 <p>二叉树的遍历既可以使用 <code>DFS</code> 也可以用  <code>BFS</code> 。<code>DFS</code> 的话需要使用递归，终止递归的条件为节点不存在，在递归的过程中，如果遇到节点为叶子节点并且路径和为所给定的值，则将这个路径保存下来，所以我们需要两个数组，一个数组用来暂存每一个遍历的路径，另外一个用来保存满足条件的路径。</p>
-<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><h3 id="python实现"><a href="#python实现" class="headerlink" title="python实现"></a>python实现</h3><h4 id="DFS-递归"><a href="#DFS-递归" class="headerlink" title="DFS/递归"></a>DFS/递归</h4><figure class="shiki python"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #7F848E; font-style: italic"># class TreeNode:</span></span>
-<span class="line"><span style="color: #7F848E; font-style: italic">#     def __init__(self, x):</span></span>
-<span class="line"><span style="color: #7F848E; font-style: italic">#         self.val = x</span></span>
-<span class="line"><span style="color: #7F848E; font-style: italic">#         self.left = None</span></span>
-<span class="line"><span style="color: #7F848E; font-style: italic">#         self.right = None</span></span>
-<span class="line"><span style="color: #C678DD">import</span><span style="color: #ABB2BF"> copy</span></span>
-<span class="line"><span style="color: #C678DD">class</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Solution</span><span style="color: #ABB2BF">:</span></span>
-<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #C678DD">def</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">__init__</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B; font-style: italic">self</span><span style="color: #ABB2BF">):</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">self</span><span style="color: #ABB2BF">.re </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> []</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span></span>
-<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #C678DD">def</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">pathSum</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B; font-style: italic">self</span><span style="color: #ABB2BF"> , </span><span style="color: #D19A66; font-style: italic">root</span><span style="color: #ABB2BF"> , </span><span style="color: #D19A66; font-style: italic">sum</span><span style="color: #ABB2BF"> ):</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #7F848E; font-style: italic"># write code here</span></span>
-<span class="line"><span style="color: #ABB2BF">        tmp </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> []</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">self</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">findPath</span><span style="color: #ABB2BF">(root, </span><span style="color: #56B6C2">sum</span><span style="color: #ABB2BF">, tmp)</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">self</span><span style="color: #ABB2BF">.re</span></span>
-<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #7F848E; font-style: italic"># python函数传参形参为数组时传的是引用</span></span>
-<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #C678DD">def</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">findPath</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B; font-style: italic">self</span><span style="color: #ABB2BF">, </span><span style="color: #D19A66; font-style: italic">root</span><span style="color: #ABB2BF">, </span><span style="color: #D19A66; font-style: italic">sum</span><span style="color: #ABB2BF">, </span><span style="color: #D19A66; font-style: italic">tmp</span><span style="color: #ABB2BF">):</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #7F848E; font-style: italic"># 递归终止条件：节点为空</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">if</span><span style="color: #ABB2BF">(</span><span style="color: #C678DD">not</span><span style="color: #ABB2BF"> root):</span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">None</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #7F848E; font-style: italic"># 节点存在则加入到路径中</span></span>
-<span class="line"><span style="color: #ABB2BF">        tmp.</span><span style="color: #61AFEF">append</span><span style="color: #ABB2BF">(root.val)</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">if</span><span style="color: #ABB2BF">(</span><span style="color: #C678DD">not</span><span style="color: #ABB2BF"> root.left </span><span style="color: #C678DD">and</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">not</span><span style="color: #ABB2BF"> root.right </span><span style="color: #C678DD">and</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">sum==</span><span style="color: #ABB2BF">root.val):</span></span>
-<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #7F848E; font-style: italic"># 这里需要用到深拷贝，否则tmp数组被加入到re中之后，仍然会被改变</span></span>
-<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #E5C07B">self</span><span style="color: #ABB2BF">.re.</span><span style="color: #61AFEF">append</span><span style="color: #ABB2BF">(copy.</span><span style="color: #61AFEF">deepcopy</span><span style="color: #ABB2BF">(tmp))</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #7F848E; font-style: italic"># 递归左右子树</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">self</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">findPath</span><span style="color: #ABB2BF">(root.left, </span><span style="color: #56B6C2">sum-</span><span style="color: #ABB2BF">root.val, tmp)</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">self</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">findPath</span><span style="color: #ABB2BF">(root.right, </span><span style="color: #56B6C2">sum-</span><span style="color: #ABB2BF">root.val, tmp)</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #7F848E; font-style: italic"># 出递归，删去末尾节点，以便递归另外一个方向</span></span>
-<span class="line"><span style="color: #ABB2BF">        tmp.</span><span style="color: #61AFEF">pop</span><span style="color: #ABB2BF">()</span></span></code></pre></div></div></figure>
-<h4 id="BFS"><a href="#BFS" class="headerlink" title="BFS"></a>BFS</h4><figure class="shiki python"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #7F848E; font-style: italic"># BFS</span></span>
-<span class="line"><span style="color: #C678DD">class</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Solution2</span><span style="color: #ABB2BF">:</span></span>
-<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #C678DD">def</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">pathSum</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B; font-style: italic">self</span><span style="color: #ABB2BF"> , </span><span style="color: #D19A66; font-style: italic">root</span><span style="color: #ABB2BF"> , </span><span style="color: #D19A66; font-style: italic">ssum</span><span style="color: #ABB2BF"> ):</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #7F848E; font-style: italic"># write code here</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">if</span><span style="color: #ABB2BF">(</span><span style="color: #C678DD">not</span><span style="color: #ABB2BF"> root):</span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">None</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #7F848E; font-style: italic"># path数组保存根节点到当前节点的路径值</span></span>
-<span class="line"><span style="color: #ABB2BF">        path </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> [root.val]</span></span>
-<span class="line"><span style="color: #ABB2BF">        tmp </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> [[root, path]]</span></span>
-<span class="line"><span style="color: #ABB2BF">        re </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> []</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">while</span><span style="color: #ABB2BF"> tmp:</span></span>
-<span class="line"><span style="color: #ABB2BF">            node, path </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> tmp.</span><span style="color: #61AFEF">pop</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66">0</span><span style="color: #ABB2BF">)</span></span>
-<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #C678DD">if</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">not</span><span style="color: #ABB2BF"> node.left </span><span style="color: #C678DD">and</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">not</span><span style="color: #ABB2BF"> node.right </span><span style="color: #C678DD">and</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">sum</span><span style="color: #ABB2BF">(path) </span><span style="color: #56B6C2">==</span><span style="color: #ABB2BF"> ssum:</span></span>
-<span class="line"><span style="color: #ABB2BF">                re.</span><span style="color: #61AFEF">append</span><span style="color: #ABB2BF">(path)</span></span>
-<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #C678DD">if</span><span style="color: #ABB2BF"> node.left:</span></span>
-<span class="line"><span style="color: #ABB2BF">                tmp.</span><span style="color: #61AFEF">append</span><span style="color: #ABB2BF">([node.left, path</span><span style="color: #56B6C2">+</span><span style="color: #ABB2BF">[node.left.val]])</span></span>
-<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #C678DD">if</span><span style="color: #ABB2BF"> node.right:</span></span>
-<span class="line"><span style="color: #ABB2BF">                tmp.</span><span style="color: #61AFEF">append</span><span style="color: #ABB2BF">([node.right, path</span><span style="color: #56B6C2">+</span><span style="color: #ABB2BF">[node.right.val]])</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> re</span></span></code></pre></div></div></figure>
-<h3 id="C-实现"><a href="#C-实现" class="headerlink" title="C++实现"></a>C++实现</h3><h4 id="DFS-递归-1"><a href="#DFS-递归-1" class="headerlink" title="DFS/递归"></a>DFS/递归</h4><figure class="shiki cpp"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">class</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Solution</span><span style="color: #ABB2BF"> {</span></span>
-<span class="line"><span style="color: #C678DD">public:</span></span>
-<span class="line"><span style="color: #7F848E; font-style: italic">    /**</span></span>
-<span class="line"><span style="color: #7F848E; font-style: italic">     * </span></span>
-<span class="line"><span style="color: #7F848E; font-style: italic">     * </span><span style="color: #C678DD; font-style: italic">@param</span><span style="color: #7F848E; font-style: italic"> </span><span style="color: #E06C75; font-style: italic">root</span><span style="color: #7F848E; font-style: italic"> TreeNode类 </span></span>
-<span class="line"><span style="color: #7F848E; font-style: italic">     * </span><span style="color: #C678DD; font-style: italic">@param</span><span style="color: #7F848E; font-style: italic"> </span><span style="color: #E06C75; font-style: italic">sum</span><span style="color: #7F848E; font-style: italic"> int整型 </span></span>
-<span class="line"><span style="color: #7F848E; font-style: italic">     * </span><span style="color: #C678DD; font-style: italic">@return</span><span style="color: #7F848E; font-style: italic"> int整型vector&lt;vector&lt;&gt;&gt;</span></span>
-<span class="line"><span style="color: #7F848E; font-style: italic">     */</span></span>
-<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #E5C07B">vector</span><span style="color: #ABB2BF">&lt;</span><span style="color: #E5C07B">vector</span><span style="color: #ABB2BF">&lt;</span><span style="color: #C678DD">int</span><span style="color: #ABB2BF">&gt; &gt; </span><span style="color: #61AFEF">pathSum</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">TreeNode</span><span style="color: #C678DD">*</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">root</span><span style="color: #ABB2BF">, </span><span style="color: #C678DD">int</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">sum</span><span style="color: #ABB2BF">) {</span></span>
-<span class="line"><span style="color: #7F848E; font-style: italic">        // write code here</span></span>
-<span class="line"><span style="color: #ABB2BF">        vector</span><span style="color: #C678DD">&lt;</span><span style="color: #ABB2BF">vector</span><span style="color: #C678DD">&lt;int&gt;&gt;</span><span style="color: #ABB2BF"> result;</span></span>
-<span class="line"><span style="color: #ABB2BF">        vector</span><span style="color: #C678DD">&lt;int&gt;</span><span style="color: #ABB2BF"> tmp;</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #61AFEF">findPath</span><span style="color: #ABB2BF">(root,sum, result, tmp);</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> result;</span></span>
-<span class="line"><span style="color: #ABB2BF">    }</span></span>
-<span class="line"><span style="color: #ABB2BF">    </span></span>
-<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #C678DD">void</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">findPath</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">TreeNode</span><span style="color: #C678DD">*</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">root</span><span style="color: #ABB2BF">, </span><span style="color: #C678DD">int</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">sum</span><span style="color: #ABB2BF">, </span><span style="color: #E5C07B">vector</span><span style="color: #ABB2BF">&lt;</span><span style="color: #E5C07B">vector</span><span style="color: #ABB2BF">&lt;</span><span style="color: #C678DD">int</span><span style="color: #ABB2BF">&gt;&gt; </span><span style="color: #C678DD">&amp;</span><span style="color: #E06C75; font-style: italic">re</span><span style="color: #ABB2BF">, </span><span style="color: #E5C07B">vector</span><span style="color: #ABB2BF">&lt;</span><span style="color: #C678DD">int</span><span style="color: #ABB2BF">&gt; </span><span style="color: #E06C75; font-style: italic">tmp</span><span style="color: #ABB2BF">){</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">if</span><span style="color: #ABB2BF">(root </span><span style="color: #C678DD">==</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">NULL</span><span style="color: #ABB2BF">)</span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> ;</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">tmp</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">push_back</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">root</span><span style="color: #ABB2BF">-&gt;</span><span style="color: #E06C75">val</span><span style="color: #ABB2BF">);</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">if</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">root</span><span style="color: #ABB2BF">-&gt;</span><span style="color: #E06C75">left</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">==</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">NULL</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">&amp;&amp;</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">root</span><span style="color: #ABB2BF">-&gt;</span><span style="color: #E06C75">right</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">==</span><span style="color: #D19A66">NULL</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">&amp;&amp;</span><span style="color: #ABB2BF"> sum </span><span style="color: #C678DD">==</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">root</span><span style="color: #ABB2BF">-&gt;</span><span style="color: #E06C75">val</span><span style="color: #ABB2BF">){</span></span>
-<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #E5C07B">re</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">push_back</span><span style="color: #ABB2BF">(tmp);</span></span>
-<span class="line"><span style="color: #ABB2BF">        }</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #61AFEF">findPath</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">root</span><span style="color: #ABB2BF">-&gt;</span><span style="color: #E06C75">left</span><span style="color: #ABB2BF">, sum</span><span style="color: #56B6C2">-</span><span style="color: #E5C07B">root</span><span style="color: #ABB2BF">-&gt;</span><span style="color: #E06C75">val</span><span style="color: #ABB2BF">, re, tmp);</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #61AFEF">findPath</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">root</span><span style="color: #ABB2BF">-&gt;</span><span style="color: #E06C75">right</span><span style="color: #ABB2BF">, sum</span><span style="color: #56B6C2">-</span><span style="color: #E5C07B">root</span><span style="color: #ABB2BF">-&gt;</span><span style="color: #E06C75">val</span><span style="color: #ABB2BF">, re, tmp);</span></span>
-<span class="line"><span style="color: #7F848E; font-style: italic">        //tmp.pop_back(); // tmp数组传引用的话需要pop_back()</span></span>
-<span class="line"><span style="color: #ABB2BF">    }</span></span>
-<span class="line"><span style="color: #ABB2BF">};</span></span></code></pre></div></div></figure>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><h3 id="python实现"><a href="#python实现" class="headerlink" title="python实现"></a>python实现</h3><h4 id="DFS-递归"><a href="#DFS-递归" class="headerlink" title="DFS/递归"></a>DFS/递归</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python"># class TreeNode:
+#     def __init__(self, x):
+#         self.val &#x3D; x
+#         self.left &#x3D; None
+#         self.right &#x3D; None
+import copy
+class Solution:
+    def __init__(self):
+        self.re &#x3D; []
+        
+    def pathSum(self , root , sum ):
+        # write code here
+        tmp &#x3D; []
+        self.findPath(root, sum, tmp)
+        return self.re
+    # python函数传参形参为数组时传的是引用
+    def findPath(self, root, sum, tmp):
+        # 递归终止条件：节点为空
+        if(not root):return None
+        # 节点存在则加入到路径中
+        tmp.append(root.val)
+        if(not root.left and not root.right and sum&#x3D;&#x3D;root.val):
+            # 这里需要用到深拷贝，否则tmp数组被加入到re中之后，仍然会被改变
+            self.re.append(copy.deepcopy(tmp))
+        # 递归左右子树
+        self.findPath(root.left, sum-root.val, tmp)
+        self.findPath(root.right, sum-root.val, tmp)
+        # 出递归，删去末尾节点，以便递归另外一个方向
+        tmp.pop()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="BFS"><a href="#BFS" class="headerlink" title="BFS"></a>BFS</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python"># BFS
+class Solution2:
+    def pathSum(self , root , ssum ):
+        # write code here
+        if(not root):return None
+        # path数组保存根节点到当前节点的路径值
+        path &#x3D; [root.val]
+        tmp &#x3D; [[root, path]]
+        re &#x3D; []
+        while tmp:
+            node, path &#x3D; tmp.pop(0)
+            if not node.left and not node.right and sum(path) &#x3D;&#x3D; ssum:
+                re.append(path)
+            if node.left:
+                tmp.append([node.left, path+[node.left.val]])
+            if node.right:
+                tmp.append([node.right, path+[node.right.val]])
+        return re<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="C-实现"><a href="#C-实现" class="headerlink" title="C++实现"></a>C++实现</h3><h4 id="DFS-递归-1"><a href="#DFS-递归-1" class="headerlink" title="DFS/递归"></a>DFS/递归</h4><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">class Solution &#123;
+public:
+    &#x2F;**
+     * 
+     * @param root TreeNode类 
+     * @param sum int整型 
+     * @return int整型vector&lt;vector&lt;&gt;&gt;
+     *&#x2F;
+    vector&lt;vector&lt;int&gt; &gt; pathSum(TreeNode* root, int sum) &#123;
+        &#x2F;&#x2F; write code here
+        vector&lt;vector&lt;int&gt;&gt; result;
+        vector&lt;int&gt; tmp;
+        findPath(root,sum, result, tmp);
+        return result;
+    &#125;
+    
+    void findPath(TreeNode* root, int sum, vector&lt;vector&lt;int&gt;&gt; &amp;re, vector&lt;int&gt; tmp)&#123;
+        if(root &#x3D;&#x3D; NULL)return ;
+        tmp.push_back(root-&gt;val);
+        if(root-&gt;left &#x3D;&#x3D; NULL &amp;&amp; root-&gt;right &#x3D;&#x3D;NULL &amp;&amp; sum &#x3D;&#x3D; root-&gt;val)&#123;
+            re.push_back(tmp);
+        &#125;
+        findPath(root-&gt;left, sum-root-&gt;val, re, tmp);
+        findPath(root-&gt;right, sum-root-&gt;val, re, tmp);
+        &#x2F;&#x2F;tmp.pop_back(); &#x2F;&#x2F; tmp数组传引用的话需要pop_back()
+    &#125;
+&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr />
@@ -642,7 +639,7 @@
                                         
 
                                             <!-- 3/22修改： -->
-                                            <img src="https://s4.ax1x.com/2022/02/08/HlQZ9g.jpg" class="responsive-img" alt="字节算法题——字典序">
+                                            <img src="https://s4.ax1x.com/2022/02/08/HlQmcj.jpg" class="responsive-img" alt="字节算法题——字典序">
                                             
                                                 <span class="card-title">字节算法题——字典序</span>
                             </div>
@@ -695,7 +692,7 @@
                                         <div class="card-image">
                                             
                                                     
-                                                        <img src="https://s4.ax1x.com/2022/02/08/HlQ1EV.jpg" class="responsive-img" alt="一道编程题——删除倒数第k个节点">
+                                                        <img src="https://s4.ax1x.com/2022/02/08/HlQMBq.jpg" class="responsive-img" alt="一道编程题——删除倒数第k个节点">
                                                         
                                                             <span class="card-title">一道编程题——删除倒数第k个节点</span>
                                         </div>
@@ -883,7 +880,7 @@
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">87.4k</span>
+                <span class="white-color">91.3k</span>
                 
 
                     <br>
@@ -1072,27 +1069,6 @@ $(function () {
                                                             <!-- 雪花特效 -->
                                                             
 
-    <!-- hexo injector body_end start -->
-  <script>
-  const CODE_CONFIG = {
-    beautify: undefined,
-    highlightCopy: undefined,
-    highlightLang: undefined,
-    highlightHeightLimit: undefined,
-    isHighlightShrink: undefined,
-    copy: {
-      success: 'undefined',
-      error: 'undefined',
-      noSupport: 'undefined',
-    }
-  };
-  console.log(
-    `%c hexo-shiki-plugin %c v1.0.27 %c https://github.com/nova1751/hexo-shiki-plugin`,
-    "color: #fff; background: #5f5f5f",
-    "color: #fff; background: #80c8f8",
-    ""
-  );
-  </script>
-  <!-- hexo injector body_end end --></body>
+    </body>
 
 </html>

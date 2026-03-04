@@ -73,11 +73,8 @@
 <!--        })();-->
 <!--    </script>-->
 
-<!-- hexo injector head_end start -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-shiki-plugin@latest/lib/codeblock.css">
-<style>:root{--hl-color:#abb2bf;--hl-bg:#282c34;--hltools-bg:#21252b;--hltools-color:#bbbbbc;--hlnumber-bg:#282c34;--hlnumber-color:#495162;--hlscrollbar-bg:#373c47;--hlexpand-bg:linear-gradient(180deg,rgba(40,44,52,0.1),rgba(40,44,52,0.9))}</style><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="SKYFAKER" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><link rel="alternate" href="/atom.xml" title="SKYFAKER" type="application/atom+xml">
+</head>
 
     <body>
 
@@ -329,8 +326,8 @@
 
 
 <!-- 3/22: 这里修改了推荐页文章点击进去之后的图片路径 -->
-<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.iohttps://s4.ax1x.com/2022/02/08/HlQKun.jpg');"> -->
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://s4.ax1x.com/2022/02/08/HlQKun.jpg');">
+<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.iohttps://s4.ax1x.com/2022/02/08/HlQmcj.jpg');"> -->
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://s4.ax1x.com/2022/02/08/HlQmcj.jpg');">
 
     <div class="container">
         <div class="row">
@@ -531,35 +528,35 @@
 <li>根据<code>uv.lock</code>，更新虚拟环境。</li>
 </ol>
 <p>所以基本上uv的使用过程就是：使用命令修改<code>pyproject.toml</code>，uv自动根据pyproject.toml修改<code>uv.lock</code>，uv根据<code>uv.lock</code>管理依赖。</p>
-<h2 id="二、-uv教程"><a href="#二、-uv教程" class="headerlink" title="二、 uv教程"></a>二、 uv教程</h2><h3 id="（一）安装与环境配置"><a href="#（一）安装与环境配置" class="headerlink" title="（一）安装与环境配置"></a><strong>（一）安装与环境配置</strong></h3><h4 id="1-全平台一键安装（推荐方式）"><a href="#1-全平台一键安装（推荐方式）" class="headerlink" title="1. 全平台一键安装（推荐方式）"></a>1. 全平台一键安装（推荐方式）</h4><figure class="shiki bash"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #61AFEF">BASH#</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">使用Astral官方安装脚本</span></span>
-<span class="line"><span style="color: #7F848E; font-style: italic"># On macOS and Linux.</span></span>
-<span class="line"><span style="color: #61AFEF">curl</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">-LsSf</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">https://astral.sh/uv/install.sh</span><span style="color: #ABB2BF"> | </span><span style="color: #61AFEF">sh</span></span>
-<span class="line"></span>
-<span class="line"><span style="color: #7F848E; font-style: italic"># On Windows.</span></span>
-<span class="line"><span style="color: #61AFEF">powershell</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">-ExecutionPolicy</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">ByPass</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">-c</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">&quot;irm https://astral.sh/uv/install.ps1 | iex&quot;</span></span></code></pre></div></div></figure>
-<h4 id="2-pip-安装"><a href="#2-pip-安装" class="headerlink" title="2. pip 安装"></a>2. pip 安装</h4><figure class="shiki bash"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #7F848E; font-style: italic"># 将uv安装到当前python环境</span></span>
-<span class="line"><span style="color: #61AFEF">pip</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">install</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">uv</span></span></code></pre></div></div></figure>
+<h2 id="二、-uv教程"><a href="#二、-uv教程" class="headerlink" title="二、 uv教程"></a>二、 uv教程</h2><h3 id="（一）安装与环境配置"><a href="#（一）安装与环境配置" class="headerlink" title="（一）安装与环境配置"></a><strong>（一）安装与环境配置</strong></h3><h4 id="1-全平台一键安装（推荐方式）"><a href="#1-全平台一键安装（推荐方式）" class="headerlink" title="1. 全平台一键安装（推荐方式）"></a>1. 全平台一键安装（推荐方式）</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">BASH# 使用Astral官方安装脚本
+# On macOS and Linux.
+curl -LsSf https:&#x2F;&#x2F;astral.sh&#x2F;uv&#x2F;install.sh | sh
+
+# On Windows.
+powershell -ExecutionPolicy ByPass -c &quot;irm https:&#x2F;&#x2F;astral.sh&#x2F;uv&#x2F;install.ps1 | iex&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="2-pip-安装"><a href="#2-pip-安装" class="headerlink" title="2. pip 安装"></a>2. pip 安装</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># 将uv安装到当前python环境
+pip install uv<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p><em>输出示例</em>：</p>
-<figure class="shiki bash"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #61AFEF">✅</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">已安装uv</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">v0.18.0到</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">/home/user/.local/bin</span><span style="color: #ABB2BF">  </span></span>
-<span class="line"><span style="color: #61AFEF">运行</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">`</span><span style="color: #61AFEF">uv</span><span style="color: #98C379"> </span><span style="color: #D19A66">--version</span><span style="color: #98C379">`</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">验证安装</span></span></code></pre></div></div></figure>
-<h4 id="2-环境变量配置（可选）"><a href="#2-环境变量配置（可选）" class="headerlink" title="2. 环境变量配置（可选）"></a>2. 环境变量配置（可选）</h4><figure class="shiki bash"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #61AFEF">BASH#</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">将uv加入PATH（针对zsh/bash）</span></span>
-<span class="line"><span style="color: #56B6C2">echo</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">&#39;export PATH=&quot;$HOME/.local/bin:$PATH&quot;&#39;</span><span style="color: #ABB2BF"> &gt;&gt; </span><span style="color: #98C379">~/.zshrc</span><span style="color: #ABB2BF">  </span></span>
-<span class="line"><span style="color: #56B6C2">source</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">~/.zshrc</span></span></code></pre></div></div></figure>
-<h4 id="3-版本升级与维护"><a href="#3-版本升级与维护" class="headerlink" title="3. 版本升级与维护"></a>3. 版本升级与维护</h4><figure class="shiki bash"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #61AFEF">BASH#</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">检查更新</span></span>
-<span class="line"><span style="color: #61AFEF">uv</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">self</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">upgrade</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">--channel=nightly</span><span style="color: #ABB2BF">  </span><span style="color: #7F848E; font-style: italic"># 尝鲜版</span></span>
-<span class="line"><span style="color: #61AFEF">uv</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">self</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">upgrade</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">--channel=stable</span><span style="color: #ABB2BF">   </span><span style="color: #7F848E; font-style: italic"># 稳定版</span></span></code></pre></div></div></figure>
-<h4 id="4-uv移除"><a href="#4-uv移除" class="headerlink" title="4. uv移除"></a>4. uv移除</h4><figure class="shiki bash"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #7F848E; font-style: italic"># 清楚缓存和工具（可选）</span></span>
-<span class="line"><span style="color: #61AFEF">uv</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">cache</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">clean</span></span>
-<span class="line"><span style="color: #61AFEF">rm</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">-r</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">&quot;$(</span><span style="color: #61AFEF">uv</span><span style="color: #98C379"> python dir)&quot;</span></span>
-<span class="line"><span style="color: #61AFEF">rm</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">-r</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">&quot;$(</span><span style="color: #61AFEF">uv</span><span style="color: #98C379"> tool dir)&quot;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color: #7F848E; font-style: italic"># 移除</span></span>
-<span class="line"><span style="color: #7F848E; font-style: italic"># On macOS and Linux.</span></span>
-<span class="line"><span style="color: #61AFEF">rm</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">~/.local/bin/uv</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">~/.local/bin/uvx</span></span>
-<span class="line"></span>
-<span class="line"><span style="color: #7F848E; font-style: italic">#On windows</span></span>
-<span class="line"><span style="color: #61AFEF">rm</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">$HOME</span><span style="color: #56B6C2">\.</span><span style="color: #98C379">local</span><span style="color: #56B6C2">\b</span><span style="color: #98C379">in</span><span style="color: #56B6C2">\u</span><span style="color: #98C379">v.exe</span></span>
-<span class="line"><span style="color: #61AFEF">rm</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">$HOME</span><span style="color: #56B6C2">\.</span><span style="color: #98C379">local</span><span style="color: #56B6C2">\b</span><span style="color: #98C379">in</span><span style="color: #56B6C2">\u</span><span style="color: #98C379">vx.exe</span></span></code></pre></div></div></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">✅ 已安装uv v0.18.0到 &#x2F;home&#x2F;user&#x2F;.local&#x2F;bin  
+运行 &#96;uv --version&#96; 验证安装<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h4 id="2-环境变量配置（可选）"><a href="#2-环境变量配置（可选）" class="headerlink" title="2. 环境变量配置（可选）"></a>2. 环境变量配置（可选）</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">BASH# 将uv加入PATH（针对zsh&#x2F;bash）
+echo &#39;export PATH&#x3D;&quot;$HOME&#x2F;.local&#x2F;bin:$PATH&quot;&#39; &gt;&gt; ~&#x2F;.zshrc  
+source ~&#x2F;.zshrc<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h4 id="3-版本升级与维护"><a href="#3-版本升级与维护" class="headerlink" title="3. 版本升级与维护"></a>3. 版本升级与维护</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">BASH# 检查更新
+uv self upgrade --channel&#x3D;nightly  # 尝鲜版
+uv self upgrade --channel&#x3D;stable   # 稳定版<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h4 id="4-uv移除"><a href="#4-uv移除" class="headerlink" title="4. uv移除"></a>4. uv移除</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># 清楚缓存和工具（可选）
+uv cache clean
+rm -r &quot;$(uv python dir)&quot;
+rm -r &quot;$(uv tool dir)&quot;
+
+# 移除
+# On macOS and Linux.
+rm ~&#x2F;.local&#x2F;bin&#x2F;uv ~&#x2F;.local&#x2F;bin&#x2F;uvx
+
+#On windows
+rm $HOME\.local\bin\uv.exe
+rm $HOME\.local\bin\uvx.exe<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <hr>
 <h3 id="（二）uv核心语法详解"><a href="#（二）uv核心语法详解" class="headerlink" title="（二）uv核心语法详解"></a><strong>（二）uv核心语法详解</strong></h3><h5 id="1-包管理基础命令"><a href="#1-包管理基础命令" class="headerlink" title="1. 包管理基础命令"></a>1. 包管理基础命令</h5><div class="table-container">
 <table>
@@ -630,49 +627,49 @@
 <li>—timeout: 设置超时时间（默认120秒）</li>
 <li>—pre: 允许安装预发布版本</li>
 </ul>
-<h5 id="2-虚拟环境管理"><a href="#2-虚拟环境管理" class="headerlink" title="2. 虚拟环境管理"></a>2. 虚拟环境管理</h5><figure class="shiki"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #abb2bf">BASH# 创建并激活虚拟环境（兼容venv语法）</span></span>
-<span class="line"><span style="color: #abb2bf">uv venv .venv             # 创建环境目录</span></span>
-<span class="line"><span style="color: #abb2bf">source .venv/bin/activate # 激活环境（Linux/macOS）</span></span>
-<span class="line"><span style="color: #abb2bf">.venv\Scripts\activate    # 激活环境（Windows）</span></span>
-<span class="line"><span style="color: #abb2bf"></span></span>
-<span class="line"><span style="color: #abb2bf"># 导出环境依赖</span></span>
-<span class="line"><span style="color: #abb2bf">uv pip freeze &gt; requirements.txt  # 生成精确版本列表</span></span>
-<span class="line"><span style="color: #abb2bf"></span></span>
-<span class="line"><span style="color: #abb2bf"># 跨平台环境复制</span></span>
-<span class="line"><span style="color: #abb2bf">uv pip sync requirements.txt --python=3.11  # 强制指定Python版本</span></span></code></pre></div></div></figure>
-<h5 id="3-高级依赖控制"><a href="#3-高级依赖控制" class="headerlink" title="3. 高级依赖控制"></a>3. 高级依赖控制</h5><figure class="shiki"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #abb2bf">BASH# 版本锁定与更新</span></span>
-<span class="line"><span style="color: #abb2bf">uv lock                   # 生成uv.lock文件（替代poetry.lock）</span></span>
-<span class="line"><span style="color: #abb2bf">uv update                 # 更新所有依赖到最新兼容版本</span></span>
-<span class="line"><span style="color: #abb2bf">uv update &lt;package&gt;       # 指定包更新</span></span>
-<span class="line"><span style="color: #abb2bf"></span></span>
-<span class="line"><span style="color: #abb2bf"># 依赖树分析（可视化冲突解决）</span></span>
-<span class="line"><span style="color: #abb2bf">uv tree --format=graph   # 生成依赖关系图（需安装graphviz）</span></span>
-<span class="line"><span style="color: #abb2bf">uv dep conflicts         # 快速定位版本冲突</span></span></code></pre></div></div></figure>
+<h5 id="2-虚拟环境管理"><a href="#2-虚拟环境管理" class="headerlink" title="2. 虚拟环境管理"></a>2. 虚拟环境管理</h5><pre class="line-numbers language-none"><code class="language-none">BASH# 创建并激活虚拟环境（兼容venv语法）
+uv venv .venv             # 创建环境目录
+source .venv&#x2F;bin&#x2F;activate # 激活环境（Linux&#x2F;macOS）
+.venv\Scripts\activate    # 激活环境（Windows）
+
+# 导出环境依赖
+uv pip freeze &gt; requirements.txt  # 生成精确版本列表
+
+# 跨平台环境复制
+uv pip sync requirements.txt --python&#x3D;3.11  # 强制指定Python版本<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h5 id="3-高级依赖控制"><a href="#3-高级依赖控制" class="headerlink" title="3. 高级依赖控制"></a>3. 高级依赖控制</h5><pre class="line-numbers language-none"><code class="language-none">BASH# 版本锁定与更新
+uv lock                   # 生成uv.lock文件（替代poetry.lock）
+uv update                 # 更新所有依赖到最新兼容版本
+uv update &lt;package&gt;       # 指定包更新
+
+# 依赖树分析（可视化冲突解决）
+uv tree --format&#x3D;graph   # 生成依赖关系图（需安装graphviz）
+uv dep conflicts         # 快速定位版本冲突<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <hr>
-<h3 id="（三）性能调优与最佳实践"><a href="#（三）性能调优与最佳实践" class="headerlink" title="（三）性能调优与最佳实践"></a><strong>（三）性能调优与最佳实践</strong></h3><h4 id="最佳实践"><a href="#最佳实践" class="headerlink" title="最佳实践"></a>最佳实践</h4><h5 id="1-新环境直接使用uv"><a href="#1-新环境直接使用uv" class="headerlink" title="1. 新环境直接使用uv"></a>1. 新环境直接使用uv</h5><figure class="shiki bash"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #61AFEF">uv</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">init</span><span style="color: #ABB2BF">  </span><span style="color: #7F848E; font-style: italic"># 初始化</span></span>
-<span class="line"><span style="color: #61AFEF">uv</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">add</span><span style="color: #ABB2BF"> &lt;</span><span style="color: #98C379">packag</span><span style="color: #ABB2BF">e&gt;  </span><span style="color: #7F848E; font-style: italic"># 开发过程中安装包</span></span>
-<span class="line"><span style="color: #61AFEF">uv</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">lock</span><span style="color: #ABB2BF">  </span><span style="color: #7F848E; font-style: italic"># 锁定配置</span></span></code></pre></div></div></figure>
+<h3 id="（三）性能调优与最佳实践"><a href="#（三）性能调优与最佳实践" class="headerlink" title="（三）性能调优与最佳实践"></a><strong>（三）性能调优与最佳实践</strong></h3><h4 id="最佳实践"><a href="#最佳实践" class="headerlink" title="最佳实践"></a>最佳实践</h4><h5 id="1-新环境直接使用uv"><a href="#1-新环境直接使用uv" class="headerlink" title="1. 新环境直接使用uv"></a>1. 新环境直接使用uv</h5><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">uv init  # 初始化
+uv add &lt;package&gt;  # 开发过程中安装包
+uv lock  # 锁定配置<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <h5 id="2-已有uv项目配置新环境（为开源项目配置环境等）"><a href="#2-已有uv项目配置新环境（为开源项目配置环境等）" class="headerlink" title="2. 已有uv项目配置新环境（为开源项目配置环境等）"></a>2. 已有uv项目配置新环境（为开源项目配置环境等）</h5><ul>
 <li>项目中已有uv环境的包配置</li>
 </ul>
-<figure class="shiki"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #abb2bf">uv sync  # 根据lock文件安装包</span></span></code></pre></div></div></figure>
-<h5 id="3-pip项目迁移到uv"><a href="#3-pip项目迁移到uv" class="headerlink" title="3. pip项目迁移到uv"></a>3. pip项目迁移到uv</h5><figure class="shiki"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #abb2bf">uv init</span></span>
-<span class="line"><span style="color: #abb2bf">uv add -r requirements.txt</span></span>
-<span class="line"><span style="color: #abb2bf">uv lock  # 锁定配置</span></span></code></pre></div></div></figure>
-<h4 id="性能调优"><a href="#性能调优" class="headerlink" title="性能调优"></a>性能调优</h4><h5 id="1-缓存优化技巧"><a href="#1-缓存优化技巧" class="headerlink" title="1. 缓存优化技巧"></a>1. 缓存优化技巧</h5><figure class="shiki"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #abb2bf">BASH# 查看缓存统计</span></span>
-<span class="line"><span style="color: #abb2bf">uv cache info  </span></span>
-<span class="line"><span style="color: #abb2bf"></span></span>
-<span class="line"><span style="color: #abb2bf"># 清理过期缓存（30天前）</span></span>
-<span class="line"><span style="color: #abb2bf">uv cache prune --keep-within 30d</span></span>
-<span class="line"><span style="color: #abb2bf"></span></span>
-<span class="line"><span style="color: #abb2bf"># 指定自定义缓存路径</span></span>
-<span class="line"><span style="color: #abb2bf">export UV_CACHE_DIR=/mnt/ssd_cache/uv  </span></span>
-<span class="line"><span style="color: #abb2bf">uv install --cache-dir /mnt/ssd_cache/uv</span></span></code></pre></div></div></figure>
-<h5 id="2-多线程加速"><a href="#2-多线程加速" class="headerlink" title="2. 多线程加速"></a>2. 多线程加速</h5><figure class="shiki"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #abb2bf">BASH# 根据CPU核心数自动分配线程（实测8核提升3倍速度）</span></span>
-<span class="line"><span style="color: #abb2bf">uv install --threads $(nproc)  </span></span>
-<span class="line"><span style="color: #abb2bf"></span></span>
-<span class="line"><span style="color: #abb2bf"># 限制最大线程数（避免资源争抢）</span></span>
-<span class="line"><span style="color: #abb2bf">uv install --threads 4</span></span></code></pre></div></div></figure>
+<pre class="line-numbers language-none"><code class="language-none">uv sync  # 根据lock文件安装包<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h5 id="3-pip项目迁移到uv"><a href="#3-pip项目迁移到uv" class="headerlink" title="3. pip项目迁移到uv"></a>3. pip项目迁移到uv</h5><pre class="line-numbers language-none"><code class="language-none">uv init
+uv add -r requirements.txt
+uv lock  # 锁定配置<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h4 id="性能调优"><a href="#性能调优" class="headerlink" title="性能调优"></a>性能调优</h4><h5 id="1-缓存优化技巧"><a href="#1-缓存优化技巧" class="headerlink" title="1. 缓存优化技巧"></a>1. 缓存优化技巧</h5><pre class="line-numbers language-none"><code class="language-none">BASH# 查看缓存统计
+uv cache info  
+
+# 清理过期缓存（30天前）
+uv cache prune --keep-within 30d
+
+# 指定自定义缓存路径
+export UV_CACHE_DIR&#x3D;&#x2F;mnt&#x2F;ssd_cache&#x2F;uv  
+uv install --cache-dir &#x2F;mnt&#x2F;ssd_cache&#x2F;uv<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h5 id="2-多线程加速"><a href="#2-多线程加速" class="headerlink" title="2. 多线程加速"></a>2. 多线程加速</h5><pre class="line-numbers language-none"><code class="language-none">BASH# 根据CPU核心数自动分配线程（实测8核提升3倍速度）
+uv install --threads $(nproc)  
+
+# 限制最大线程数（避免资源争抢）
+uv install --threads 4<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h5 id="3-依赖安装策略对比"><a href="#3-依赖安装策略对比" class="headerlink" title="3. 依赖安装策略对比"></a>3. 依赖安装策略对比</h5><div class="table-container">
 <table>
 <thead>
@@ -702,24 +699,24 @@
 </table>
 </div>
 <hr>
-<h3 id="（四）常见问题排查指南"><a href="#（四）常见问题排查指南" class="headerlink" title="（四）常见问题排查指南"></a><strong>（四）常见问题排查指南</strong></h3><h5 id="问题1：依赖版本冲突"><a href="#问题1：依赖版本冲突" class="headerlink" title="问题1：依赖版本冲突"></a>问题1：依赖版本冲突</h5><figure class="shiki"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #abb2bf">BASH# 步骤1：生成冲突报告</span></span>
-<span class="line"><span style="color: #abb2bf">uv dep conflicts --markdown &gt; conflicts.md</span></span>
-<span class="line"><span style="color: #abb2bf"></span></span>
-<span class="line"><span style="color: #abb2bf"># 步骤2：手动指定版本</span></span>
-<span class="line"><span style="color: #abb2bf">uv install &quot;pandas==2.2.0&quot; &quot;numpy&lt;1.25&quot;</span></span>
-<span class="line"><span style="color: #abb2bf"></span></span>
-<span class="line"><span style="color: #abb2bf"># 步骤3：强制覆盖安装（慎用）</span></span>
-<span class="line"><span style="color: #abb2bf">uv install --resolution=highest</span></span></code></pre></div></div></figure>
-<h5 id="问题2：私有仓库认证失败"><a href="#问题2：私有仓库认证失败" class="headerlink" title="问题2：私有仓库认证失败"></a>问题2：私有仓库认证失败</h5><figure class="shiki"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #abb2bf">TOML# 在项目根目录创建 uv.toml</span></span>
-<span class="line"><span style="color: #abb2bf">[auth.private-repo]</span></span>
-<span class="line"><span style="color: #abb2bf">type = &quot;basic&quot;</span></span>
-<span class="line"><span style="color: #abb2bf">username = &quot;$UV_USER&quot;  # 从环境变量读取</span></span>
-<span class="line"><span style="color: #abb2bf">password = &quot;$UV_TOKEN&quot;</span></span></code></pre></div></div></figure>
-<h5 id="问题3：跨平台环境不一致"><a href="#问题3：跨平台环境不一致" class="headerlink" title="问题3：跨平台环境不一致"></a>问题3：跨平台环境不一致</h5><figure class="shiki"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #abb2bf">BASH# 生成平台锁定文件</span></span>
-<span class="line"><span style="color: #abb2bf">uv lock --platform linux-x86_64 --platform macos-arm64</span></span>
-<span class="line"><span style="color: #abb2bf"></span></span>
-<span class="line"><span style="color: #abb2bf"># 安装时指定目标平台</span></span>
-<span class="line"><span style="color: #abb2bf">uv install --target-platform win-amd64</span></span></code></pre></div></div></figure>
+<h3 id="（四）常见问题排查指南"><a href="#（四）常见问题排查指南" class="headerlink" title="（四）常见问题排查指南"></a><strong>（四）常见问题排查指南</strong></h3><h5 id="问题1：依赖版本冲突"><a href="#问题1：依赖版本冲突" class="headerlink" title="问题1：依赖版本冲突"></a>问题1：依赖版本冲突</h5><pre class="line-numbers language-none"><code class="language-none">BASH# 步骤1：生成冲突报告
+uv dep conflicts --markdown &gt; conflicts.md
+
+# 步骤2：手动指定版本
+uv install &quot;pandas&#x3D;&#x3D;2.2.0&quot; &quot;numpy&lt;1.25&quot;
+
+# 步骤3：强制覆盖安装（慎用）
+uv install --resolution&#x3D;highest<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h5 id="问题2：私有仓库认证失败"><a href="#问题2：私有仓库认证失败" class="headerlink" title="问题2：私有仓库认证失败"></a>问题2：私有仓库认证失败</h5><pre class="line-numbers language-none"><code class="language-none">TOML# 在项目根目录创建 uv.toml
+[auth.private-repo]
+type &#x3D; &quot;basic&quot;
+username &#x3D; &quot;$UV_USER&quot;  # 从环境变量读取
+password &#x3D; &quot;$UV_TOKEN&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h5 id="问题3：跨平台环境不一致"><a href="#问题3：跨平台环境不一致" class="headerlink" title="问题3：跨平台环境不一致"></a>问题3：跨平台环境不一致</h5><pre class="line-numbers language-none"><code class="language-none">BASH# 生成平台锁定文件
+uv lock --platform linux-x86_64 --platform macos-arm64
+
+# 安装时指定目标平台
+uv install --target-platform win-amd64<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr />
@@ -771,7 +768,7 @@
                                         
 
                                             <!-- 3/22修改： -->
-                                            <img src="https://s4.ax1x.com/2022/02/08/HlQmcj.jpg" class="responsive-img" alt="redis简介">
+                                            <img src="https://s4.ax1x.com/2022/02/08/HlQZ9g.jpg" class="responsive-img" alt="redis简介">
                                             
                                                 <span class="card-title">redis简介</span>
                             </div>
@@ -820,7 +817,7 @@
                                         <div class="card-image">
                                             
                                                     
-                                                        <img src="https://s4.ax1x.com/2022/02/08/HlMOAK.jpg" class="responsive-img" alt="Python包管理工具深度解析：venv、conda、poetry与uv">
+                                                        <img src="https://s4.ax1x.com/2022/02/08/HlMjhD.jpg" class="responsive-img" alt="Python包管理工具深度解析：venv、conda、poetry与uv">
                                                         
                                                             <span class="card-title">Python包管理工具深度解析：venv、conda、poetry与uv</span>
                                         </div>
@@ -1012,7 +1009,7 @@
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">87.4k</span>
+                <span class="white-color">91.3k</span>
                 
 
                     <br>
@@ -1201,27 +1198,6 @@ $(function () {
                                                             <!-- 雪花特效 -->
                                                             
 
-    <!-- hexo injector body_end start -->
-  <script>
-  const CODE_CONFIG = {
-    beautify: undefined,
-    highlightCopy: undefined,
-    highlightLang: undefined,
-    highlightHeightLimit: undefined,
-    isHighlightShrink: undefined,
-    copy: {
-      success: 'undefined',
-      error: 'undefined',
-      noSupport: 'undefined',
-    }
-  };
-  console.log(
-    `%c hexo-shiki-plugin %c v1.0.27 %c https://github.com/nova1751/hexo-shiki-plugin`,
-    "color: #fff; background: #5f5f5f",
-    "color: #fff; background: #80c8f8",
-    ""
-  );
-  </script>
-  <!-- hexo injector body_end end --></body>
+    </body>
 
 </html>

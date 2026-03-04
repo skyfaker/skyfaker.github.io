@@ -73,11 +73,8 @@ Redis 的主要特点和用途：
 <!--        })();-->
 <!--    </script>-->
 
-<!-- hexo injector head_end start -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-shiki-plugin@latest/lib/codeblock.css">
-<style>:root{--hl-color:#abb2bf;--hl-bg:#282c34;--hltools-bg:#21252b;--hltools-color:#bbbbbc;--hlnumber-bg:#282c34;--hlnumber-color:#495162;--hlscrollbar-bg:#373c47;--hlexpand-bg:linear-gradient(180deg,rgba(40,44,52,0.1),rgba(40,44,52,0.9))}</style><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="SKYFAKER" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><link rel="alternate" href="/atom.xml" title="SKYFAKER" type="application/atom+xml">
+</head>
 
     <body>
 
@@ -329,8 +326,8 @@ Redis 的主要特点和用途：
 
 
 <!-- 3/22: 这里修改了推荐页文章点击进去之后的图片路径 -->
-<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.iohttps://s4.ax1x.com/2022/02/08/HlQmcj.jpg');"> -->
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://s4.ax1x.com/2022/02/08/HlQmcj.jpg');">
+<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.iohttps://s4.ax1x.com/2022/02/08/HlQZ9g.jpg');"> -->
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://s4.ax1x.com/2022/02/08/HlQZ9g.jpg');">
 
     <div class="container">
         <div class="row">
@@ -535,48 +532,48 @@ Redis 的主要特点和用途：
 <p>一般在项目中，我们不会直接使用redis-cli，而是会使用编程语言的redis模块作为客户端，直接和redis-server交互。例如python中，会使用python的redis模块。或者使用celery这样的任务队列，将redis-server作为消息后端。</p>
 <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="windows下安装"><a href="#windows下安装" class="headerlink" title="windows下安装"></a>windows下安装</h3><p>Redis 官方不建议在 windows 下使用 Redis，所以官网没有 windows 版本可以下载。如果你必须要在windows下使用redis，微软团队维护了开源的 windows 版本。尽管如此，windows系统下更推荐使用wsl +Redis。</p>
 <h3 id="Ubuntu下安装"><a href="#Ubuntu下安装" class="headerlink" title="Ubuntu下安装"></a>Ubuntu下安装</h3><p>在 Ubuntu 系统安装 Redi 可以使用以下命令:</p>
-<figure class="shiki bash"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #61AFEF">sudo</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">apt-get</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">update</span></span>
-<span class="line"><span style="color: #61AFEF">sudo</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">apt-get</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">install</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">redis-server</span></span></code></pre></div></div></figure>
-<h4 id="启动-Redis"><a href="#启动-Redis" class="headerlink" title="启动 Redis"></a>启动 Redis</h4><figure class="shiki bash"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #61AFEF">redis-server</span></span></code></pre></div></div></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">sudo apt-get update
+sudo apt-get install redis-server<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h4 id="启动-Redis"><a href="#启动-Redis" class="headerlink" title="启动 Redis"></a>启动 Redis</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">redis-server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h4 id="查看-redis-是否启动"><a href="#查看-redis-是否启动" class="headerlink" title="查看 redis 是否启动"></a>查看 redis 是否启动</h4><p>启动redis服务进程后，就可以使用测试客户端程序redis-cli和redis服务交互了。</p>
-<figure class="shiki bash"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #61AFEF">redis-cli</span></span></code></pre></div></div></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">redis-cli<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>以上命令将打开以下终端：</p>
-<figure class="shiki bash"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #61AFEF">redis</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">127.0</span><span style="color: #98C379">.0.1:637</span><span style="color: #ABB2BF">9&gt;</span></span></code></pre></div></div></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">redis 127.0.0.1:6379&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>127.0.0.1 是本机 IP ，6379 是 redis 服务端口。现在我们输入 PING 命令。</p>
-<figure class="shiki bash"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #61AFEF">redis</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">127.0</span><span style="color: #98C379">.0.1:637</span><span style="color: #ABB2BF">9&gt; </span><span style="color: #98C379">ping</span></span>
-<span class="line"><span style="color: #61AFEF">PONG</span></span></code></pre></div></div></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">redis 127.0.0.1:6379&gt; ping
+PONG<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>以上说明我们已经成功安装了redis。</p>
-<h3 id="Docker安装（推荐）"><a href="#Docker安装（推荐）" class="headerlink" title="Docker安装（推荐）"></a>Docker安装（推荐）</h3><h4 id="拉取最新镜像"><a href="#拉取最新镜像" class="headerlink" title="拉取最新镜像"></a>拉取最新镜像</h4><figure class="shiki bash"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #7F848E; font-style: italic"># 拉取官方的最新版本的镜像：</span></span>
-<span class="line"><span style="color: #61AFEF">docker</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">pull</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">redis:latest</span></span>
-<span class="line"></span>
-<span class="line"><span style="color: #7F848E; font-style: italic"># 查看是否已安装了 redis：</span></span>
-<span class="line"><span style="color: #61AFEF">docker</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">images</span></span></code></pre></div></div></figure>
-<h4 id="运行redis容器"><a href="#运行redis容器" class="headerlink" title="运行redis容器"></a>运行redis容器</h4><figure class="shiki"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #abb2bf">docker run -d --name redis-test -p 6379:6379 redis</span></span></code></pre></div></div></figure>
-<h4 id="基于配置文件运行redis容器"><a href="#基于配置文件运行redis容器" class="headerlink" title="基于配置文件运行redis容器"></a>基于配置文件运行redis容器</h4><h5 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h5><figure class="shiki"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #abb2bf"># 限制redis只能本地访问</span></span>
-<span class="line"><span style="color: #abb2bf"># bind 127.0.0.1 -::1</span></span>
-<span class="line"><span style="color: #abb2bf"> </span></span>
-<span class="line"><span style="color: #abb2bf">protected-mode yes # 默认 yes，开启保护模式，限制为本地访问</span></span>
-<span class="line"><span style="color: #abb2bf"> </span></span>
-<span class="line"><span style="color: #abb2bf">daemonize no # 默认no，改为yes意为以守护进程方式启动，可后台运行，除非kill进程，改为yes会使配置文件方式启动redis失败</span></span>
-<span class="line"><span style="color: #abb2bf"># 【强制建议】 将 daemonize yes 注释起来或 daemonize no设置，因为该配置和docker run中 -d 参数冲突，会导致容器一直启动失败</span></span>
-<span class="line"><span style="color: #abb2bf"> </span></span>
-<span class="line"><span style="color: #abb2bf">databases 16 # 数据库个数（可选）</span></span>
-<span class="line"><span style="color: #abb2bf"> </span></span>
-<span class="line"><span style="color: #abb2bf">dir  ./ # 输入本地redis数据库存放文件夹，默认即 ./（可选）</span></span>
-<span class="line"><span style="color: #abb2bf"> </span></span>
-<span class="line"><span style="color: #abb2bf">appendonly yes # redis持久化，默认：no（可选）</span></span>
-<span class="line"><span style="color: #abb2bf"> </span></span>
-<span class="line"><span style="color: #abb2bf">logfile &quot;redis.log&quot; # 日志文件，默认 &quot;&quot;。 &quot;redis.log&quot; 对应的物理存储目录: /data/redis/data/redis.log | Specify the log file name. Also the empty string can be used to force . Redis to log on the standard output. Note that if you use standard output for logging but daemonize, logs will be sent to /dev/null</span></span>
-<span class="line"><span style="color: #abb2bf"> </span></span>
-<span class="line"><span style="color: #abb2bf">requirepass 123456 # 设置密码。</span></span></code></pre></div></div></figure>
-<h5 id="启动容器"><a href="#启动容器" class="headerlink" title="启动容器"></a>启动容器</h5><figure class="shiki"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #abb2bf">docker run \</span></span>
-<span class="line"><span style="color: #abb2bf">--restart always \</span></span>
-<span class="line"><span style="color: #abb2bf">-p 6379:6379 --name redis \</span></span>
-<span class="line"><span style="color: #abb2bf">--privileged=true \</span></span>
-<span class="line"><span style="color: #abb2bf">-v /data/redis/redis.conf:/etc/redis/redis.conf \</span></span>
-<span class="line"><span style="color: #abb2bf">-v /data/redis/data:/data:rw \</span></span>
-<span class="line"><span style="color: #abb2bf">-d redis redis-server /etc/redis/redis.conf \</span></span>
-<span class="line"><span style="color: #abb2bf">--appendonly yes</span></span></code></pre></div></div></figure>
+<h3 id="Docker安装（推荐）"><a href="#Docker安装（推荐）" class="headerlink" title="Docker安装（推荐）"></a>Docker安装（推荐）</h3><h4 id="拉取最新镜像"><a href="#拉取最新镜像" class="headerlink" title="拉取最新镜像"></a>拉取最新镜像</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># 拉取官方的最新版本的镜像：
+docker pull redis:latest
+
+# 查看是否已安装了 redis：
+docker images<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="运行redis容器"><a href="#运行redis容器" class="headerlink" title="运行redis容器"></a>运行redis容器</h4><pre class="line-numbers language-none"><code class="language-none">docker run -d --name redis-test -p 6379:6379 redis<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h4 id="基于配置文件运行redis容器"><a href="#基于配置文件运行redis容器" class="headerlink" title="基于配置文件运行redis容器"></a>基于配置文件运行redis容器</h4><h5 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h5><pre class="line-numbers language-none"><code class="language-none"># 限制redis只能本地访问
+# bind 127.0.0.1 -::1
+ 
+protected-mode yes # 默认 yes，开启保护模式，限制为本地访问
+ 
+daemonize no # 默认no，改为yes意为以守护进程方式启动，可后台运行，除非kill进程，改为yes会使配置文件方式启动redis失败
+# 【强制建议】 将 daemonize yes 注释起来或 daemonize no设置，因为该配置和docker run中 -d 参数冲突，会导致容器一直启动失败
+ 
+databases 16 # 数据库个数（可选）
+ 
+dir  .&#x2F; # 输入本地redis数据库存放文件夹，默认即 .&#x2F;（可选）
+ 
+appendonly yes # redis持久化，默认：no（可选）
+ 
+logfile &quot;redis.log&quot; # 日志文件，默认 &quot;&quot;。 &quot;redis.log&quot; 对应的物理存储目录: &#x2F;data&#x2F;redis&#x2F;data&#x2F;redis.log | Specify the log file name. Also the empty string can be used to force . Redis to log on the standard output. Note that if you use standard output for logging but daemonize, logs will be sent to &#x2F;dev&#x2F;null
+ 
+requirepass 123456 # 设置密码。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h5 id="启动容器"><a href="#启动容器" class="headerlink" title="启动容器"></a>启动容器</h5><pre class="line-numbers language-none"><code class="language-none">docker run \
+--restart always \
+-p 6379:6379 --name redis \
+--privileged&#x3D;true \
+-v &#x2F;data&#x2F;redis&#x2F;redis.conf:&#x2F;etc&#x2F;redis&#x2F;redis.conf \
+-v &#x2F;data&#x2F;redis&#x2F;data:&#x2F;data:rw \
+-d redis redis-server &#x2F;etc&#x2F;redis&#x2F;redis.conf \
+--appendonly yes<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <blockquote>
 <ul>
 <li><code>-p 6379:6379</code> : 第1个 6379 端口：是指宿主机的映射端口 ; 第2个 6379 端口：是指容器的被映射端口</li>
@@ -586,19 +583,19 @@ Redis 的主要特点和用途：
 <li><code>--requirepass &quot;123456&quot;</code> : 设置认证密码 【此处没选择这种方式】</li>
 </ul>
 </blockquote>
-<h5 id="检查启动日志"><a href="#检查启动日志" class="headerlink" title="检查启动日志"></a>检查启动日志</h5><figure class="shiki"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #abb2bf">docker logs redis-test</span></span></code></pre></div></div></figure>
+<h5 id="检查启动日志"><a href="#检查启动日志" class="headerlink" title="检查启动日志"></a>检查启动日志</h5><pre class="line-numbers language-none"><code class="language-none">docker logs redis-test<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h2 id="Python-Redis"><a href="#Python-Redis" class="headerlink" title="Python Redis"></a>Python Redis</h2><h3 id="安装redis模块"><a href="#安装redis模块" class="headerlink" title="安装redis模块"></a>安装redis模块</h3><p>在开始之前，请确保已经安装好了Redis及RedisPy库。</p>
 <p>在此之前，我们已经通过Docker安装并启动了Redis，因此还需要安装python的redis 模块。</p>
-<figure class="shiki"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #abb2bf">pip install redis</span></span></code></pre></div></div></figure>
+<pre class="line-numbers language-none"><code class="language-none">pip install redis<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>redis模块提供两个类<code>Redis</code>和<code>StrictRedis</code>来实现Redis的命令操作。官方推荐使用<code>StrictRedis</code>，所以本节中我们也用<code>StrictRedis类</code>的相关方法作演示。</p>
 <h3 id="连接Redis"><a href="#连接Redis" class="headerlink" title="连接Redis"></a>连接Redis</h3><p>现在我们已经在本地安装了Redis并运行在6379端口，密码设置为foobared。那么，可以用如下示例连接Redis并测试：</p>
-<figure class="shiki"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #abb2bf">from redis import StrictRedis</span></span>
-<span class="line"><span style="color: #abb2bf">redis = StrictRedis(host=&#39;localhost&#39;, port=6379, db=0)  </span></span>
-<span class="line"><span style="color: #abb2bf"># 存在密码的话：可以设定password=&#39;yourpassword&#39;</span></span>
-<span class="line"><span style="color: #abb2bf"># redis 取出的结果默认是字节，可以设定 decode_responses=True 改成字符串。</span></span>
-<span class="line"><span style="color: #abb2bf"></span></span>
-<span class="line"><span style="color: #abb2bf">redis.set(&#39;name&#39;, &#39;Bob&#39;)</span></span>
-<span class="line"><span style="color: #abb2bf">print(redis.get(&#39;name&#39;))</span></span></code></pre></div></div></figure>
+<pre class="line-numbers language-none"><code class="language-none">from redis import StrictRedis
+redis &#x3D; StrictRedis(host&#x3D;&#39;localhost&#39;, port&#x3D;6379, db&#x3D;0)  
+# 存在密码的话：可以设定password&#x3D;&#39;yourpassword&#39;
+# redis 取出的结果默认是字节，可以设定 decode_responses&#x3D;True 改成字符串。
+
+redis.set(&#39;name&#39;, &#39;Bob&#39;)
+print(redis.get(&#39;name&#39;))<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><img src="https://skyfaker-hexo-blog.oss-cn-shanghai.aliyuncs.com/post-image/redis%E7%AE%80%E4%BB%8B/python-redis.png" style="zoom:50%;" alt="python-redis" /></p>
 <h3 id="redis操作"><a href="#redis操作" class="headerlink" title="redis操作"></a>redis操作</h3><h4 id="键操作"><a href="#键操作" class="headerlink" title="键操作"></a>键操作</h4><p>redis是一个键值对存储系统，对于键的常用操作如下：</p>
 <div class="table-container">
@@ -1376,7 +1373,7 @@ Redis 的主要特点和用途：
                                         
 
                                             <!-- 3/22修改： -->
-                                            <img src="https://s4.ax1x.com/2022/02/08/HlMjhD.jpg" class="responsive-img" alt="LLM中的Tokenizer">
+                                            <img src="https://s4.ax1x.com/2022/02/08/HlMOAK.jpg" class="responsive-img" alt="LLM中的Tokenizer">
                                             
                                                 <span class="card-title">LLM中的Tokenizer</span>
                             </div>
@@ -1425,7 +1422,7 @@ Redis 的主要特点和用途：
                                         <div class="card-image">
                                             
                                                     
-                                                        <img src="https://s4.ax1x.com/2022/02/08/HlQKun.jpg" class="responsive-img" alt="uv教程">
+                                                        <img src="https://s4.ax1x.com/2022/02/08/HlQmcj.jpg" class="responsive-img" alt="uv教程">
                                                         
                                                             <span class="card-title">uv教程</span>
                                         </div>
@@ -1613,7 +1610,7 @@ Redis 的主要特点和用途：
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">87.4k</span>
+                <span class="white-color">91.3k</span>
                 
 
                     <br>
@@ -1802,27 +1799,6 @@ $(function () {
                                                             <!-- 雪花特效 -->
                                                             
 
-    <!-- hexo injector body_end start -->
-  <script>
-  const CODE_CONFIG = {
-    beautify: undefined,
-    highlightCopy: undefined,
-    highlightLang: undefined,
-    highlightHeightLimit: undefined,
-    isHighlightShrink: undefined,
-    copy: {
-      success: 'undefined',
-      error: 'undefined',
-      noSupport: 'undefined',
-    }
-  };
-  console.log(
-    `%c hexo-shiki-plugin %c v1.0.27 %c https://github.com/nova1751/hexo-shiki-plugin`,
-    "color: #fff; background: #5f5f5f",
-    "color: #fff; background: #80c8f8",
-    ""
-  );
-  </script>
-  <!-- hexo injector body_end end --></body>
+    </body>
 
 </html>

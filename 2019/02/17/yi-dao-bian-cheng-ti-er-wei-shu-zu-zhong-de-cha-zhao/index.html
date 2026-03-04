@@ -72,11 +72,8 @@
 <!--        })();-->
 <!--    </script>-->
 
-<!-- hexo injector head_end start -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-shiki-plugin@latest/lib/codeblock.css">
-<style>:root{--hl-color:#abb2bf;--hl-bg:#282c34;--hltools-bg:#21252b;--hltools-color:#bbbbbc;--hlnumber-bg:#282c34;--hlnumber-color:#495162;--hlscrollbar-bg:#373c47;--hlexpand-bg:linear-gradient(180deg,rgba(40,44,52,0.1),rgba(40,44,52,0.9))}</style><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="SKYFAKER" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><link rel="alternate" href="/atom.xml" title="SKYFAKER" type="application/atom+xml">
+</head>
 
     <body>
 
@@ -328,8 +325,8 @@
 
 
 <!-- 3/22: 这里修改了推荐页文章点击进去之后的图片路径 -->
-<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.iohttps://s4.ax1x.com/2022/02/08/HlQdD1.jpg');"> -->
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://s4.ax1x.com/2022/02/08/HlQdD1.jpg');">
+<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.iohttps://s4.ax1x.com/2022/02/08/HlQtgJ.jpg');"> -->
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://s4.ax1x.com/2022/02/08/HlQtgJ.jpg');">
 
     <div class="container">
         <div class="row">
@@ -537,25 +534,25 @@
 <p>对于二维矩阵A，假设我们以左上角作为起点，开始查找，则开始的位置处于递增一维有序数组的开头，而当我们从左下角开始查找，开始的位置处于一维有序数组的中间位置，比对一次后，便可以排除最多n个元素。然后相应地移动到另外一个一维有序数组中进行比对。</p>
 <p>比如上图的矩阵，m先与左下角的4比对，对应的一维有序数组为红色框的数组，m小于4,则比对位置移动至上一行的3，对应的一维有序数组为蓝色框的数组。在这一步过程中，排除掉了最后一行的n个元素。</p>
 <p>相比之下，逐点比对，每一次比对只能排除掉一个元素。因此大大降低列时间复杂度。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="shiki python"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #7F848E; font-style: italic"># -*- coding:utf-8 -*-</span></span>
-<span class="line"><span style="color: #C678DD">class</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Solution</span><span style="color: #ABB2BF">:</span></span>
-<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #7F848E; font-style: italic"># array 二维列表</span></span>
-<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #C678DD">def</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">Find</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B; font-style: italic">self</span><span style="color: #ABB2BF">, </span><span style="color: #D19A66; font-style: italic">target</span><span style="color: #ABB2BF">, </span><span style="color: #D19A66; font-style: italic">array</span><span style="color: #ABB2BF">):</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #7F848E; font-style: italic"># write code here</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #7F848E; font-style: italic"># 从右上角开始查找</span></span>
-<span class="line"><span style="color: #ABB2BF">        i </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">0</span></span>
-<span class="line"><span style="color: #ABB2BF">        j </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">len</span><span style="color: #ABB2BF">(array[</span><span style="color: #D19A66">0</span><span style="color: #ABB2BF">])</span><span style="color: #56B6C2">-</span><span style="color: #D19A66">1</span><span style="color: #ABB2BF"> </span></span>
-<span class="line"><span style="color: #ABB2BF">        row </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">len</span><span style="color: #ABB2BF">(array)  </span><span style="color: #7F848E; font-style: italic">#获取矩阵的shape</span></span>
-<span class="line"><span style="color: #ABB2BF">        flag </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">False</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">while</span><span style="color: #ABB2BF"> i</span><span style="color: #56B6C2">&lt;</span><span style="color: #ABB2BF">row </span><span style="color: #C678DD">and</span><span style="color: #ABB2BF"> j</span><span style="color: #56B6C2">&gt;=</span><span style="color: #D19A66">0</span><span style="color: #ABB2BF">:</span></span>
-<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #C678DD">if</span><span style="color: #ABB2BF"> target</span><span style="color: #56B6C2">&gt;</span><span style="color: #ABB2BF">array[i][j]:</span></span>
-<span class="line"><span style="color: #ABB2BF">                i</span><span style="color: #56B6C2">+=</span><span style="color: #D19A66">1</span></span>
-<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #C678DD">elif</span><span style="color: #ABB2BF"> target</span><span style="color: #56B6C2">&lt;</span><span style="color: #ABB2BF">array[i][j]:</span></span>
-<span class="line"><span style="color: #ABB2BF">                j</span><span style="color: #56B6C2">-=</span><span style="color: #D19A66">1</span></span>
-<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #C678DD">elif</span><span style="color: #ABB2BF"> target </span><span style="color: #56B6C2">==</span><span style="color: #ABB2BF"> array[i][j]:</span></span>
-<span class="line"><span style="color: #ABB2BF">                flag </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">True</span></span>
-<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #C678DD">break</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> flag</span></span></code></pre></div></div></figure>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"># -*- coding:utf-8 -*-
+class Solution:
+    # array 二维列表
+    def Find(self, target, array):
+        # write code here
+        # 从右上角开始查找
+        i &#x3D; 0
+        j &#x3D; len(array[0])-1 
+        row &#x3D; len(array)  #获取矩阵的shape
+        flag &#x3D; False
+        while i&lt;row and j&gt;&#x3D;0:
+            if target&gt;array[i][j]:
+                i+&#x3D;1
+            elif target&lt;array[i][j]:
+                j-&#x3D;1
+            elif target &#x3D;&#x3D; array[i][j]:
+                flag &#x3D; True
+                break
+        return flag<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr />
@@ -607,7 +604,7 @@
                                         
 
                                             <!-- 3/22修改： -->
-                                            <img src="https://s4.ax1x.com/2022/02/08/HlMXtO.jpg" class="responsive-img" alt="一道编程题——反向打印链表">
+                                            <img src="https://s4.ax1x.com/2022/02/08/HlMx9e.jpg" class="responsive-img" alt="一道编程题——反向打印链表">
                                             
                                                 <span class="card-title">一道编程题——反向打印链表</span>
                             </div>
@@ -656,7 +653,7 @@
                                         <div class="card-image">
                                             
                                                     
-                                                        <img src="https://s4.ax1x.com/2022/02/08/HlQkAf.jpg" class="responsive-img" alt="十大经典排序算法整理汇总（附代码）">
+                                                        <img src="https://s4.ax1x.com/2022/02/08/HlQPBt.jpg" class="responsive-img" alt="十大经典排序算法整理汇总（附代码）">
                                                         
                                                             <span class="card-title">十大经典排序算法整理汇总（附代码）</span>
                                         </div>
@@ -844,7 +841,7 @@
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">87.4k</span>
+                <span class="white-color">91.3k</span>
                 
 
                     <br>
@@ -1033,27 +1030,6 @@ $(function () {
                                                             <!-- 雪花特效 -->
                                                             
 
-    <!-- hexo injector body_end start -->
-  <script>
-  const CODE_CONFIG = {
-    beautify: undefined,
-    highlightCopy: undefined,
-    highlightLang: undefined,
-    highlightHeightLimit: undefined,
-    isHighlightShrink: undefined,
-    copy: {
-      success: 'undefined',
-      error: 'undefined',
-      noSupport: 'undefined',
-    }
-  };
-  console.log(
-    `%c hexo-shiki-plugin %c v1.0.27 %c https://github.com/nova1751/hexo-shiki-plugin`,
-    "color: #fff; background: #5f5f5f",
-    "color: #fff; background: #80c8f8",
-    ""
-  );
-  </script>
-  <!-- hexo injector body_end end --></body>
+    </body>
 
 </html>

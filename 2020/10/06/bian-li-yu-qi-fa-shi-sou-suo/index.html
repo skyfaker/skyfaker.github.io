@@ -72,11 +72,8 @@
 <!--        })();-->
 <!--    </script>-->
 
-<!-- hexo injector head_end start -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-shiki-plugin@latest/lib/codeblock.css">
-<style>:root{--hl-color:#abb2bf;--hl-bg:#282c34;--hltools-bg:#21252b;--hltools-color:#bbbbbc;--hlnumber-bg:#282c34;--hlnumber-color:#495162;--hlscrollbar-bg:#373c47;--hlexpand-bg:linear-gradient(180deg,rgba(40,44,52,0.1),rgba(40,44,52,0.9))}</style><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="SKYFAKER" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><link rel="alternate" href="/atom.xml" title="SKYFAKER" type="application/atom+xml">
+</head>
 
     <body>
 
@@ -328,8 +325,8 @@
 
 
 <!-- 3/22: 这里修改了推荐页文章点击进去之后的图片路径 -->
-<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.iohttps://s4.ax1x.com/2022/02/08/HlQAN8.jpg');"> -->
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://s4.ax1x.com/2022/02/08/HlQAN8.jpg');">
+<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.iohttps://s4.ax1x.com/2022/02/08/HlQiHP.jpg');"> -->
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://s4.ax1x.com/2022/02/08/HlQiHP.jpg');">
 
     <div class="container">
         <div class="row">
@@ -578,24 +575,24 @@
 <p>其中，若将$g(n)$置为0，则A*算法退化成贪婪最佳优先算法，若$h(n)=0$，则退化成Dijkstra算法。</p>
 <p>能否找到最优路径的关键是启发函数$h(n)$的选取，如果$h(n)$始终小于等于节点n到终点的代价，则A*算法保证一定能够找到最短路径。但是当$h(n)$的值选取不合适，会导致算法将遍历越多的节点，也就导致算法越慢。<br>由于A* 算法的启发函数是位置上的距离，因此在不带位置信息的图数据中不适用。</p>
 <p>A*算法描述如下：</p>
-<figure class="shiki text"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #abb2bf">* 初始化open_set和close_set；</span></span>
-<span class="line"><span style="color: #abb2bf">* 将起点加入open_set中，并设置优先级f(n)为0（优先级最高）；</span></span>
-<span class="line"><span style="color: #abb2bf">* 如果open_set不为空，则从open_set中选取优先级最高的节点n：</span></span>
-<span class="line"><span style="color: #abb2bf">    * 如果节点n为终点，则：</span></span>
-<span class="line"><span style="color: #abb2bf">        * 从终点开始逐步追踪parent节点，一直达到起点；</span></span>
-<span class="line"><span style="color: #abb2bf">        * 返回找到的结果路径，算法结束；</span></span>
-<span class="line"><span style="color: #abb2bf">    * 如果节点n不是终点，则：</span></span>
-<span class="line"><span style="color: #abb2bf">        * 将节点n从open_set中删除，并加入close_set中；</span></span>
-<span class="line"><span style="color: #abb2bf">        * 遍历节点n所有的邻近节点：</span></span>
-<span class="line"><span style="color: #abb2bf">        	* 如果邻近节点m在open_set中，则：</span></span>
-<span class="line"><span style="color: #abb2bf">                * 比较g(n)是否比原来更小，如果更小则更新其g(n)、优先级f(n)和其父节点</span></span>
-<span class="line"><span style="color: #abb2bf">            * 如果邻近节点m在close_set中，则：</span></span>
-<span class="line"><span style="color: #abb2bf">                * 跳过，选取下一个邻近节点</span></span>
-<span class="line"><span style="color: #abb2bf">            * 如果邻近节点m不在open_set和close_set中，则：</span></span>
-<span class="line"><span style="color: #abb2bf">                * 设置节点m的parent为节点n</span></span>
-<span class="line"><span style="color: #abb2bf">                * 计算移动代价g(n)</span></span>
-<span class="line"><span style="color: #abb2bf">                * 计算节点m的优先级f(n)</span></span>
-<span class="line"><span style="color: #abb2bf">                * 将节点m加入open_set中</span></span></code></pre></div></div></figure>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">* 初始化open_set和close_set；
+* 将起点加入open_set中，并设置优先级f(n)为0（优先级最高）；
+* 如果open_set不为空，则从open_set中选取优先级最高的节点n：
+    * 如果节点n为终点，则：
+        * 从终点开始逐步追踪parent节点，一直达到起点；
+        * 返回找到的结果路径，算法结束；
+    * 如果节点n不是终点，则：
+        * 将节点n从open_set中删除，并加入close_set中；
+        * 遍历节点n所有的邻近节点：
+        	* 如果邻近节点m在open_set中，则：
+                * 比较g(n)是否比原来更小，如果更小则更新其g(n)、优先级f(n)和其父节点
+            * 如果邻近节点m在close_set中，则：
+                * 跳过，选取下一个邻近节点
+            * 如果邻近节点m不在open_set和close_set中，则：
+                * 设置节点m的parent为节点n
+                * 计算移动代价g(n)
+                * 计算节点m的优先级f(n)
+                * 将节点m加入open_set中<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>对于网格形式的图，有以下这些启发函数可以使用：</p>
 <ul>
 <li>如果图形中只允许朝上下左右四个方向移动，则可以使用曼哈顿距离（Manhattan distance）。</li>
@@ -680,7 +677,7 @@ h(n) = \sqrt{dx^2 + dy^2}</script></li>
                                         
 
                                             <!-- 3/22修改： -->
-                                            <img src="https://s4.ax1x.com/2022/02/08/HlMz1H.jpg" class="responsive-img" alt="机器学习——SVM简述">
+                                            <img src="https://s4.ax1x.com/2022/02/08/HlMjhD.jpg" class="responsive-img" alt="机器学习——SVM简述">
                                             
                                                 <span class="card-title">机器学习——SVM简述</span>
                             </div>
@@ -729,7 +726,7 @@ h(n) = \sqrt{dx^2 + dy^2}</script></li>
                                         <div class="card-image">
                                             
                                                     
-                                                        <img src="https://s4.ax1x.com/2022/02/08/HlMOAK.jpg" class="responsive-img" alt="搜索算法综述">
+                                                        <img src="https://s4.ax1x.com/2022/02/08/HlMjhD.jpg" class="responsive-img" alt="搜索算法综述">
                                                         
                                                             <span class="card-title">搜索算法综述</span>
                                         </div>
@@ -944,7 +941,7 @@ h(n) = \sqrt{dx^2 + dy^2}</script></li>
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">87.4k</span>
+                <span class="white-color">91.3k</span>
                 
 
                     <br>
@@ -1133,27 +1130,6 @@ $(function () {
                                                             <!-- 雪花特效 -->
                                                             
 
-    <!-- hexo injector body_end start -->
-  <script>
-  const CODE_CONFIG = {
-    beautify: undefined,
-    highlightCopy: undefined,
-    highlightLang: undefined,
-    highlightHeightLimit: undefined,
-    isHighlightShrink: undefined,
-    copy: {
-      success: 'undefined',
-      error: 'undefined',
-      noSupport: 'undefined',
-    }
-  };
-  console.log(
-    `%c hexo-shiki-plugin %c v1.0.27 %c https://github.com/nova1751/hexo-shiki-plugin`,
-    "color: #fff; background: #5f5f5f",
-    "color: #fff; background: #80c8f8",
-    ""
-  );
-  </script>
-  <!-- hexo injector body_end end --></body>
+    </body>
 
 </html>

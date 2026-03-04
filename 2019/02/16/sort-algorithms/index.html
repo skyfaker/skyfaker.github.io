@@ -72,11 +72,8 @@
 <!--        })();-->
 <!--    </script>-->
 
-<!-- hexo injector head_end start -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-shiki-plugin@latest/lib/codeblock.css">
-<style>:root{--hl-color:#abb2bf;--hl-bg:#282c34;--hltools-bg:#21252b;--hltools-color:#bbbbbc;--hlnumber-bg:#282c34;--hlnumber-color:#495162;--hlscrollbar-bg:#373c47;--hlexpand-bg:linear-gradient(180deg,rgba(40,44,52,0.1),rgba(40,44,52,0.9))}</style><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="SKYFAKER" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><link rel="alternate" href="/atom.xml" title="SKYFAKER" type="application/atom+xml">
+</head>
 
     <body>
 
@@ -328,8 +325,8 @@
 
 
 <!-- 3/22: 这里修改了推荐页文章点击进去之后的图片路径 -->
-<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.iohttps://s4.ax1x.com/2022/02/08/HlQkAf.jpg');"> -->
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://s4.ax1x.com/2022/02/08/HlQkAf.jpg');">
+<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.iohttps://s4.ax1x.com/2022/02/08/HlQPBt.jpg');"> -->
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://s4.ax1x.com/2022/02/08/HlQPBt.jpg');">
 
     <div class="container">
         <div class="row">
@@ -487,14 +484,14 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.7k
+                    1.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    8 分
+                    10 分
                 </div>
                 
                 
@@ -640,241 +637,241 @@
 <p><strong>堆排序</strong><br><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Heapsort">https://en.wikipedia.org/wiki/Heapsort</a></p>
 <h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><p>所有的排序算法接口都是相同的，也就是 <code>vector&lt;int&gt; xxxSort(vector&lt;int&gt;&amp; nums)</code> 。只需要你传入一个 <code>vector&lt;int&gt;</code> 类型的数组，就能返回排序后的结果。</p>
 <p>运行下来可以发现，桶排序速度是比较快的。而冒泡排序、选择排序和插入排序因为时间复杂度太高无法通过本题，基数排序因为无法处理负数也不能通过本题。</p>
-<figure class="shiki cpp"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">class</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Solution</span><span style="color: #ABB2BF"> {</span></span>
-<span class="line"><span style="color: #C678DD">public:</span></span>
-<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #E5C07B">vector</span><span style="color: #ABB2BF">&lt;</span><span style="color: #C678DD">int</span><span style="color: #ABB2BF">&gt; </span><span style="color: #61AFEF">sortArray</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">vector</span><span style="color: #ABB2BF">&lt;</span><span style="color: #C678DD">int</span><span style="color: #ABB2BF">&gt;</span><span style="color: #C678DD">&amp;</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">nums</span><span style="color: #ABB2BF">) {</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">quickSort</span><span style="color: #ABB2BF">(nums);</span></span>
-<span class="line"><span style="color: #ABB2BF">    }</span></span>
-<span class="line"></span>
-<span class="line"><span style="color: #7F848E; font-style: italic">    // 冒泡排序（超时）</span></span>
-<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #E5C07B">vector</span><span style="color: #ABB2BF">&lt;</span><span style="color: #C678DD">int</span><span style="color: #ABB2BF">&gt; </span><span style="color: #61AFEF">bubbleSort</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">vector</span><span style="color: #ABB2BF">&lt;</span><span style="color: #C678DD">int</span><span style="color: #ABB2BF">&gt;</span><span style="color: #C678DD">&amp;</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">nums</span><span style="color: #ABB2BF">) {</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">int</span><span style="color: #ABB2BF"> n </span><span style="color: #C678DD">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">nums</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">size</span><span style="color: #ABB2BF">();</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">for</span><span style="color: #ABB2BF"> (</span><span style="color: #C678DD">int</span><span style="color: #ABB2BF"> i </span><span style="color: #C678DD">=</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">0</span><span style="color: #ABB2BF">; i </span><span style="color: #C678DD">&lt;</span><span style="color: #ABB2BF"> n; </span><span style="color: #C678DD">++</span><span style="color: #ABB2BF">i) {</span></span>
-<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #C678DD">for</span><span style="color: #ABB2BF"> (</span><span style="color: #C678DD">int</span><span style="color: #ABB2BF"> j </span><span style="color: #C678DD">=</span><span style="color: #ABB2BF"> n</span><span style="color: #56B6C2">-</span><span style="color: #D19A66">2</span><span style="color: #ABB2BF">; j </span><span style="color: #C678DD">&gt;=</span><span style="color: #ABB2BF"> i; </span><span style="color: #C678DD">--</span><span style="color: #ABB2BF">j) {</span></span>
-<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #C678DD">if</span><span style="color: #ABB2BF"> (</span><span style="color: #E5C07B">nums</span><span style="color: #ABB2BF">[j] </span><span style="color: #C678DD">&gt;</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">nums</span><span style="color: #ABB2BF">[j</span><span style="color: #56B6C2">+</span><span style="color: #D19A66">1</span><span style="color: #ABB2BF">]) {</span></span>
-<span class="line"><span style="color: #ABB2BF">                    </span><span style="color: #61AFEF">swap</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">nums</span><span style="color: #ABB2BF">[j], </span><span style="color: #E5C07B">nums</span><span style="color: #ABB2BF">[j</span><span style="color: #56B6C2">+</span><span style="color: #D19A66">1</span><span style="color: #ABB2BF">]);</span></span>
-<span class="line"><span style="color: #ABB2BF">                }</span></span>
-<span class="line"><span style="color: #ABB2BF">            }</span></span>
-<span class="line"><span style="color: #ABB2BF">        }</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> nums;</span></span>
-<span class="line"><span style="color: #ABB2BF">    }</span></span>
-<span class="line"></span>
-<span class="line"><span style="color: #7F848E; font-style: italic">    // 选择排序（超时）</span></span>
-<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #E5C07B">vector</span><span style="color: #ABB2BF">&lt;</span><span style="color: #C678DD">int</span><span style="color: #ABB2BF">&gt; </span><span style="color: #61AFEF">selectSort</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">vector</span><span style="color: #ABB2BF">&lt;</span><span style="color: #C678DD">int</span><span style="color: #ABB2BF">&gt;</span><span style="color: #C678DD">&amp;</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">nums</span><span style="color: #ABB2BF">) {</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">int</span><span style="color: #ABB2BF"> n </span><span style="color: #C678DD">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">nums</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">size</span><span style="color: #ABB2BF">();</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">for</span><span style="color: #ABB2BF"> (</span><span style="color: #C678DD">int</span><span style="color: #ABB2BF"> i </span><span style="color: #C678DD">=</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">0</span><span style="color: #ABB2BF">; i </span><span style="color: #C678DD">&lt;</span><span style="color: #ABB2BF"> n; </span><span style="color: #C678DD">++</span><span style="color: #ABB2BF">i) {</span></span>
-<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #C678DD">int</span><span style="color: #ABB2BF"> idx </span><span style="color: #C678DD">=</span><span style="color: #ABB2BF"> i;</span></span>
-<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #C678DD">for</span><span style="color: #ABB2BF"> (</span><span style="color: #C678DD">int</span><span style="color: #ABB2BF"> j </span><span style="color: #C678DD">=</span><span style="color: #ABB2BF"> i; j </span><span style="color: #C678DD">&lt;</span><span style="color: #ABB2BF"> n; </span><span style="color: #C678DD">++</span><span style="color: #ABB2BF">j) {</span></span>
-<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #C678DD">if</span><span style="color: #ABB2BF"> (</span><span style="color: #E5C07B">nums</span><span style="color: #ABB2BF">[j] </span><span style="color: #C678DD">&lt;</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">nums</span><span style="color: #ABB2BF">[idx]) {</span></span>
-<span class="line"><span style="color: #ABB2BF">                    idx </span><span style="color: #C678DD">=</span><span style="color: #ABB2BF"> j;</span></span>
-<span class="line"><span style="color: #ABB2BF">                }</span></span>
-<span class="line"><span style="color: #ABB2BF">            }</span></span>
-<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #61AFEF">swap</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">nums</span><span style="color: #ABB2BF">[i], </span><span style="color: #E5C07B">nums</span><span style="color: #ABB2BF">[idx]);</span></span>
-<span class="line"><span style="color: #ABB2BF">        }</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> nums;</span></span>
-<span class="line"><span style="color: #ABB2BF">    }</span></span>
-<span class="line"></span>
-<span class="line"><span style="color: #7F848E; font-style: italic">    // 插入排序（超时）</span></span>
-<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #E5C07B">vector</span><span style="color: #ABB2BF">&lt;</span><span style="color: #C678DD">int</span><span style="color: #ABB2BF">&gt; </span><span style="color: #61AFEF">insertSort</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">vector</span><span style="color: #ABB2BF">&lt;</span><span style="color: #C678DD">int</span><span style="color: #ABB2BF">&gt;</span><span style="color: #C678DD">&amp;</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">nums</span><span style="color: #ABB2BF">) {</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">int</span><span style="color: #ABB2BF"> n </span><span style="color: #C678DD">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">nums</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">size</span><span style="color: #ABB2BF">();</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">for</span><span style="color: #ABB2BF"> (</span><span style="color: #C678DD">int</span><span style="color: #ABB2BF"> i </span><span style="color: #C678DD">=</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">0</span><span style="color: #ABB2BF">; i </span><span style="color: #C678DD">&lt;</span><span style="color: #ABB2BF"> n; </span><span style="color: #C678DD">++</span><span style="color: #ABB2BF">i) {</span></span>
-<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #C678DD">for</span><span style="color: #ABB2BF"> (</span><span style="color: #C678DD">int</span><span style="color: #ABB2BF"> j </span><span style="color: #C678DD">=</span><span style="color: #ABB2BF"> i; j </span><span style="color: #C678DD">&gt;</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">0</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">&amp;&amp;</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">nums</span><span style="color: #ABB2BF">[j] </span><span style="color: #C678DD">&lt;</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">nums</span><span style="color: #ABB2BF">[j</span><span style="color: #56B6C2">-</span><span style="color: #D19A66">1</span><span style="color: #ABB2BF">]; </span><span style="color: #C678DD">--</span><span style="color: #ABB2BF">j) {</span></span>
-<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #61AFEF">swap</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">nums</span><span style="color: #ABB2BF">[j], </span><span style="color: #E5C07B">nums</span><span style="color: #ABB2BF">[j</span><span style="color: #56B6C2">-</span><span style="color: #D19A66">1</span><span style="color: #ABB2BF">]);</span></span>
-<span class="line"><span style="color: #ABB2BF">            }</span></span>
-<span class="line"><span style="color: #ABB2BF">        }</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> nums;</span></span>
-<span class="line"><span style="color: #ABB2BF">    }</span></span>
-<span class="line"></span>
-<span class="line"><span style="color: #7F848E; font-style: italic">    // 快速排序（24 ms）</span></span>
-<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #C678DD">void</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">qSort</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">vector</span><span style="color: #ABB2BF">&lt;</span><span style="color: #C678DD">int</span><span style="color: #ABB2BF">&gt;</span><span style="color: #C678DD">&amp;</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">nums</span><span style="color: #ABB2BF">, </span><span style="color: #C678DD">int</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">l</span><span style="color: #ABB2BF">, </span><span style="color: #C678DD">int</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">r</span><span style="color: #ABB2BF">) {</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">if</span><span style="color: #ABB2BF"> (l </span><span style="color: #C678DD">&gt;=</span><span style="color: #ABB2BF"> r) </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF">;</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">int</span><span style="color: #ABB2BF"> m </span><span style="color: #C678DD">=</span><span style="color: #ABB2BF"> l;</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">for</span><span style="color: #ABB2BF"> (</span><span style="color: #C678DD">int</span><span style="color: #ABB2BF"> i </span><span style="color: #C678DD">=</span><span style="color: #ABB2BF"> l; i </span><span style="color: #C678DD">&lt;</span><span style="color: #ABB2BF"> r; </span><span style="color: #C678DD">++</span><span style="color: #ABB2BF">i) {</span></span>
-<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #C678DD">if</span><span style="color: #ABB2BF"> (</span><span style="color: #E5C07B">nums</span><span style="color: #ABB2BF">[i] </span><span style="color: #C678DD">&lt;</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">nums</span><span style="color: #ABB2BF">[r]) {</span></span>
-<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #61AFEF">swap</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">nums</span><span style="color: #ABB2BF">[m</span><span style="color: #C678DD">++</span><span style="color: #ABB2BF">], </span><span style="color: #E5C07B">nums</span><span style="color: #ABB2BF">[i]);</span></span>
-<span class="line"><span style="color: #ABB2BF">            }</span></span>
-<span class="line"><span style="color: #ABB2BF">        }</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #61AFEF">swap</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">nums</span><span style="color: #ABB2BF">[m], </span><span style="color: #E5C07B">nums</span><span style="color: #ABB2BF">[r]);</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #61AFEF">qSort</span><span style="color: #ABB2BF">(nums, l, m</span><span style="color: #56B6C2">-</span><span style="color: #D19A66">1</span><span style="color: #ABB2BF">);</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #61AFEF">qSort</span><span style="color: #ABB2BF">(nums, m</span><span style="color: #56B6C2">+</span><span style="color: #D19A66">1</span><span style="color: #ABB2BF">, r);</span></span>
-<span class="line"><span style="color: #ABB2BF">    }</span></span>
-<span class="line"></span>
-<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #E5C07B">vector</span><span style="color: #ABB2BF">&lt;</span><span style="color: #C678DD">int</span><span style="color: #ABB2BF">&gt; </span><span style="color: #61AFEF">quickSort</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">vector</span><span style="color: #ABB2BF">&lt;</span><span style="color: #C678DD">int</span><span style="color: #ABB2BF">&gt;</span><span style="color: #C678DD">&amp;</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">nums</span><span style="color: #ABB2BF">) {</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">int</span><span style="color: #ABB2BF"> n </span><span style="color: #C678DD">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">nums</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">size</span><span style="color: #ABB2BF">();</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #61AFEF">qSort</span><span style="color: #ABB2BF">(nums, </span><span style="color: #D19A66">0</span><span style="color: #ABB2BF">, n</span><span style="color: #56B6C2">-</span><span style="color: #D19A66">1</span><span style="color: #ABB2BF">);</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> nums;</span></span>
-<span class="line"><span style="color: #ABB2BF">    }</span></span>
-<span class="line"></span>
-<span class="line"><span style="color: #7F848E; font-style: italic">    // 归并排序（192 ms）</span></span>
-<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #E5C07B">vector</span><span style="color: #ABB2BF">&lt;</span><span style="color: #C678DD">int</span><span style="color: #ABB2BF">&gt; </span><span style="color: #61AFEF">mSort</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">vector</span><span style="color: #ABB2BF">&lt;</span><span style="color: #C678DD">int</span><span style="color: #ABB2BF">&gt;</span><span style="color: #C678DD">&amp;</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">nums</span><span style="color: #ABB2BF">, </span><span style="color: #C678DD">int</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">l</span><span style="color: #ABB2BF">, </span><span style="color: #C678DD">int</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">r</span><span style="color: #ABB2BF">) {</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">if</span><span style="color: #ABB2BF"> (l </span><span style="color: #C678DD">&gt;=</span><span style="color: #ABB2BF"> r) </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> {</span><span style="color: #E5C07B">nums</span><span style="color: #ABB2BF">[l]};</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">int</span><span style="color: #ABB2BF"> m </span><span style="color: #C678DD">=</span><span style="color: #ABB2BF"> l</span><span style="color: #56B6C2">+</span><span style="color: #ABB2BF">(r</span><span style="color: #56B6C2">-</span><span style="color: #ABB2BF">l)</span><span style="color: #56B6C2">/</span><span style="color: #D19A66">2</span><span style="color: #ABB2BF">;</span></span>
-<span class="line"><span style="color: #ABB2BF">        vector</span><span style="color: #C678DD">&lt;int&gt;</span><span style="color: #ABB2BF"> lnums </span><span style="color: #C678DD">=</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">mSort</span><span style="color: #ABB2BF">(nums, l, m);</span></span>
-<span class="line"><span style="color: #ABB2BF">        vector</span><span style="color: #C678DD">&lt;int&gt;</span><span style="color: #ABB2BF"> rnums </span><span style="color: #C678DD">=</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">mSort</span><span style="color: #ABB2BF">(nums, m</span><span style="color: #56B6C2">+</span><span style="color: #D19A66">1</span><span style="color: #ABB2BF">, r);</span></span>
-<span class="line"><span style="color: #ABB2BF">        vector</span><span style="color: #C678DD">&lt;int&gt;</span><span style="color: #ABB2BF"> res;</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">int</span><span style="color: #ABB2BF"> i </span><span style="color: #C678DD">=</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">0</span><span style="color: #ABB2BF">, j </span><span style="color: #C678DD">=</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">0</span><span style="color: #ABB2BF">;</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">while</span><span style="color: #ABB2BF"> (i </span><span style="color: #C678DD">&lt;=</span><span style="color: #ABB2BF"> m</span><span style="color: #56B6C2">-</span><span style="color: #ABB2BF">l </span><span style="color: #56B6C2">&amp;&amp;</span><span style="color: #ABB2BF"> j </span><span style="color: #C678DD">&lt;=</span><span style="color: #ABB2BF"> r</span><span style="color: #56B6C2">-</span><span style="color: #ABB2BF">m</span><span style="color: #56B6C2">-</span><span style="color: #D19A66">1</span><span style="color: #ABB2BF">) {</span></span>
-<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #C678DD">if</span><span style="color: #ABB2BF"> (</span><span style="color: #E5C07B">lnums</span><span style="color: #ABB2BF">[i] </span><span style="color: #C678DD">&lt;</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">rnums</span><span style="color: #ABB2BF">[j]) {</span></span>
-<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #E5C07B">res</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">push_back</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">lnums</span><span style="color: #ABB2BF">[i</span><span style="color: #C678DD">++</span><span style="color: #ABB2BF">]);</span></span>
-<span class="line"><span style="color: #ABB2BF">            } </span><span style="color: #C678DD">else</span><span style="color: #ABB2BF"> {</span></span>
-<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #E5C07B">res</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">push_back</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">rnums</span><span style="color: #ABB2BF">[j</span><span style="color: #C678DD">++</span><span style="color: #ABB2BF">]);</span></span>
-<span class="line"><span style="color: #ABB2BF">            }</span></span>
-<span class="line"><span style="color: #ABB2BF">        }</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">while</span><span style="color: #ABB2BF"> (i </span><span style="color: #C678DD">&lt;=</span><span style="color: #ABB2BF"> m</span><span style="color: #56B6C2">-</span><span style="color: #ABB2BF">l) {</span></span>
-<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #E5C07B">res</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">push_back</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">lnums</span><span style="color: #ABB2BF">[i</span><span style="color: #C678DD">++</span><span style="color: #ABB2BF">]);</span></span>
-<span class="line"><span style="color: #ABB2BF">        }</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">while</span><span style="color: #ABB2BF"> (j </span><span style="color: #C678DD">&lt;=</span><span style="color: #ABB2BF"> r</span><span style="color: #56B6C2">-</span><span style="color: #ABB2BF">m</span><span style="color: #56B6C2">-</span><span style="color: #D19A66">1</span><span style="color: #ABB2BF">) {</span></span>
-<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #E5C07B">res</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">push_back</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">rnums</span><span style="color: #ABB2BF">[j</span><span style="color: #C678DD">++</span><span style="color: #ABB2BF">]);</span></span>
-<span class="line"><span style="color: #ABB2BF">        }</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> res;</span></span>
-<span class="line"><span style="color: #ABB2BF">    }</span></span>
-<span class="line"></span>
-<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #E5C07B">vector</span><span style="color: #ABB2BF">&lt;</span><span style="color: #C678DD">int</span><span style="color: #ABB2BF">&gt; </span><span style="color: #61AFEF">mergeSort</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">vector</span><span style="color: #ABB2BF">&lt;</span><span style="color: #C678DD">int</span><span style="color: #ABB2BF">&gt;</span><span style="color: #C678DD">&amp;</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">nums</span><span style="color: #ABB2BF">) {</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">int</span><span style="color: #ABB2BF"> n </span><span style="color: #C678DD">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">nums</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">size</span><span style="color: #ABB2BF">();</span></span>
-<span class="line"><span style="color: #ABB2BF">        nums </span><span style="color: #C678DD">=</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">mSort</span><span style="color: #ABB2BF">(nums, </span><span style="color: #D19A66">0</span><span style="color: #ABB2BF">, n</span><span style="color: #56B6C2">-</span><span style="color: #D19A66">1</span><span style="color: #ABB2BF">);</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> nums;</span></span>
-<span class="line"><span style="color: #ABB2BF">    }</span></span>
-<span class="line"></span>
-<span class="line"><span style="color: #7F848E; font-style: italic">    // 归并排序 + 非递归（80 ms）</span></span>
-<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #E5C07B">vector</span><span style="color: #ABB2BF">&lt;</span><span style="color: #C678DD">int</span><span style="color: #ABB2BF">&gt; </span><span style="color: #61AFEF">mergeSortNR</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">vector</span><span style="color: #ABB2BF">&lt;</span><span style="color: #C678DD">int</span><span style="color: #ABB2BF">&gt;</span><span style="color: #C678DD">&amp;</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">nums</span><span style="color: #ABB2BF">) {</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">int</span><span style="color: #ABB2BF"> n </span><span style="color: #C678DD">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">nums</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">size</span><span style="color: #ABB2BF">();</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">for</span><span style="color: #ABB2BF"> (</span><span style="color: #C678DD">int</span><span style="color: #ABB2BF"> len </span><span style="color: #C678DD">=</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">1</span><span style="color: #ABB2BF">; len </span><span style="color: #C678DD">&lt;</span><span style="color: #ABB2BF"> n; len </span><span style="color: #C678DD">&lt;&lt;=</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">1</span><span style="color: #ABB2BF">) {</span></span>
-<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #C678DD">for</span><span style="color: #ABB2BF"> (</span><span style="color: #C678DD">int</span><span style="color: #ABB2BF"> l </span><span style="color: #C678DD">=</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">0</span><span style="color: #ABB2BF">; l </span><span style="color: #C678DD">&lt;</span><span style="color: #ABB2BF"> n</span><span style="color: #56B6C2">-</span><span style="color: #ABB2BF">len; l </span><span style="color: #C678DD">+=</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">2</span><span style="color: #56B6C2">*</span><span style="color: #ABB2BF">len) {</span></span>
-<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #C678DD">int</span><span style="color: #ABB2BF"> m </span><span style="color: #C678DD">=</span><span style="color: #ABB2BF"> l</span><span style="color: #56B6C2">+</span><span style="color: #ABB2BF">len</span><span style="color: #56B6C2">-</span><span style="color: #D19A66">1</span><span style="color: #ABB2BF">;</span></span>
-<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #C678DD">int</span><span style="color: #ABB2BF"> r </span><span style="color: #C678DD">=</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">min</span><span style="color: #ABB2BF">(n</span><span style="color: #56B6C2">-</span><span style="color: #D19A66">1</span><span style="color: #ABB2BF">, l</span><span style="color: #56B6C2">+</span><span style="color: #D19A66">2</span><span style="color: #56B6C2">*</span><span style="color: #ABB2BF">len</span><span style="color: #56B6C2">-</span><span style="color: #D19A66">1</span><span style="color: #ABB2BF">);</span></span>
-<span class="line"><span style="color: #ABB2BF">                vector</span><span style="color: #C678DD">&lt;int&gt;</span><span style="color: #ABB2BF"> res;</span></span>
-<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #C678DD">int</span><span style="color: #ABB2BF"> i </span><span style="color: #C678DD">=</span><span style="color: #ABB2BF"> l, j </span><span style="color: #C678DD">=</span><span style="color: #ABB2BF"> m</span><span style="color: #56B6C2">+</span><span style="color: #D19A66">1</span><span style="color: #ABB2BF">;</span></span>
-<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #C678DD">while</span><span style="color: #ABB2BF"> (i </span><span style="color: #C678DD">&lt;=</span><span style="color: #ABB2BF"> m </span><span style="color: #56B6C2">&amp;&amp;</span><span style="color: #ABB2BF"> j </span><span style="color: #C678DD">&lt;=</span><span style="color: #ABB2BF"> r) {</span></span>
-<span class="line"><span style="color: #ABB2BF">                    </span><span style="color: #C678DD">if</span><span style="color: #ABB2BF"> (</span><span style="color: #E5C07B">nums</span><span style="color: #ABB2BF">[i] </span><span style="color: #C678DD">&lt;</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">nums</span><span style="color: #ABB2BF">[j]) {</span></span>
-<span class="line"><span style="color: #ABB2BF">                        </span><span style="color: #E5C07B">res</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">push_back</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">nums</span><span style="color: #ABB2BF">[i</span><span style="color: #C678DD">++</span><span style="color: #ABB2BF">]);</span></span>
-<span class="line"><span style="color: #ABB2BF">                    } </span><span style="color: #C678DD">else</span><span style="color: #ABB2BF"> {</span></span>
-<span class="line"><span style="color: #ABB2BF">                        </span><span style="color: #E5C07B">res</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">push_back</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">nums</span><span style="color: #ABB2BF">[j</span><span style="color: #C678DD">++</span><span style="color: #ABB2BF">]);</span></span>
-<span class="line"><span style="color: #ABB2BF">                    }</span></span>
-<span class="line"><span style="color: #ABB2BF">                }</span></span>
-<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #C678DD">while</span><span style="color: #ABB2BF"> (i </span><span style="color: #C678DD">&lt;=</span><span style="color: #ABB2BF"> m) {</span></span>
-<span class="line"><span style="color: #ABB2BF">                    </span><span style="color: #E5C07B">res</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">push_back</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">nums</span><span style="color: #ABB2BF">[i</span><span style="color: #C678DD">++</span><span style="color: #ABB2BF">]);</span></span>
-<span class="line"><span style="color: #ABB2BF">                }</span></span>
-<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #C678DD">while</span><span style="color: #ABB2BF"> (j </span><span style="color: #C678DD">&lt;=</span><span style="color: #ABB2BF"> r) {</span></span>
-<span class="line"><span style="color: #ABB2BF">                    </span><span style="color: #E5C07B">res</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">push_back</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">nums</span><span style="color: #ABB2BF">[j</span><span style="color: #C678DD">++</span><span style="color: #ABB2BF">]);</span></span>
-<span class="line"><span style="color: #ABB2BF">                }</span></span>
-<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #C678DD">for</span><span style="color: #ABB2BF"> (</span><span style="color: #C678DD">int</span><span style="color: #ABB2BF"> i </span><span style="color: #C678DD">=</span><span style="color: #ABB2BF"> l; i </span><span style="color: #C678DD">&lt;=</span><span style="color: #ABB2BF"> r; </span><span style="color: #C678DD">++</span><span style="color: #ABB2BF">i) {</span></span>
-<span class="line"><span style="color: #ABB2BF">                    </span><span style="color: #E5C07B">nums</span><span style="color: #ABB2BF">[i] </span><span style="color: #C678DD">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">res</span><span style="color: #ABB2BF">[i</span><span style="color: #56B6C2">-</span><span style="color: #ABB2BF">l];</span></span>
-<span class="line"><span style="color: #ABB2BF">                }</span></span>
-<span class="line"><span style="color: #ABB2BF">            }</span></span>
-<span class="line"><span style="color: #ABB2BF">        }</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> nums;</span></span>
-<span class="line"><span style="color: #ABB2BF">    }</span></span>
-<span class="line"></span>
-<span class="line"><span style="color: #7F848E; font-style: italic">    // 希尔排序（40 ms）</span></span>
-<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #E5C07B">vector</span><span style="color: #ABB2BF">&lt;</span><span style="color: #C678DD">int</span><span style="color: #ABB2BF">&gt; </span><span style="color: #61AFEF">shellSort</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">vector</span><span style="color: #ABB2BF">&lt;</span><span style="color: #C678DD">int</span><span style="color: #ABB2BF">&gt;</span><span style="color: #C678DD">&amp;</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">nums</span><span style="color: #ABB2BF">) {</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">int</span><span style="color: #ABB2BF"> n </span><span style="color: #C678DD">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">nums</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">size</span><span style="color: #ABB2BF">();</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">for</span><span style="color: #ABB2BF"> (</span><span style="color: #C678DD">int</span><span style="color: #ABB2BF"> gap </span><span style="color: #C678DD">=</span><span style="color: #ABB2BF"> n</span><span style="color: #56B6C2">/</span><span style="color: #D19A66">2</span><span style="color: #ABB2BF">; gap </span><span style="color: #C678DD">&gt;</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">0</span><span style="color: #ABB2BF">; gap </span><span style="color: #C678DD">/=</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">2</span><span style="color: #ABB2BF">) {</span></span>
-<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #C678DD">for</span><span style="color: #ABB2BF"> (</span><span style="color: #C678DD">int</span><span style="color: #ABB2BF"> i </span><span style="color: #C678DD">=</span><span style="color: #ABB2BF"> gap; i </span><span style="color: #C678DD">&lt;</span><span style="color: #ABB2BF"> n; </span><span style="color: #C678DD">++</span><span style="color: #ABB2BF">i) {</span></span>
-<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #C678DD">for</span><span style="color: #ABB2BF"> (</span><span style="color: #C678DD">int</span><span style="color: #ABB2BF"> j </span><span style="color: #C678DD">=</span><span style="color: #ABB2BF"> i; j</span><span style="color: #56B6C2">-</span><span style="color: #ABB2BF">gap </span><span style="color: #C678DD">&gt;=</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">0</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">&amp;&amp;</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">nums</span><span style="color: #ABB2BF">[j</span><span style="color: #56B6C2">-</span><span style="color: #ABB2BF">gap] </span><span style="color: #C678DD">&gt;</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">nums</span><span style="color: #ABB2BF">[j]; j </span><span style="color: #C678DD">-=</span><span style="color: #ABB2BF"> gap) {</span></span>
-<span class="line"><span style="color: #ABB2BF">                    </span><span style="color: #61AFEF">swap</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">nums</span><span style="color: #ABB2BF">[j</span><span style="color: #56B6C2">-</span><span style="color: #ABB2BF">gap], </span><span style="color: #E5C07B">nums</span><span style="color: #ABB2BF">[j]);</span></span>
-<span class="line"><span style="color: #ABB2BF">                }</span></span>
-<span class="line"><span style="color: #ABB2BF">            }</span></span>
-<span class="line"><span style="color: #ABB2BF">        }</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> nums;</span></span>
-<span class="line"><span style="color: #ABB2BF">    }</span></span>
-<span class="line"></span>
-<span class="line"><span style="color: #7F848E; font-style: italic">    // 计数排序（32 ms）</span></span>
-<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #E5C07B">vector</span><span style="color: #ABB2BF">&lt;</span><span style="color: #C678DD">int</span><span style="color: #ABB2BF">&gt; </span><span style="color: #61AFEF">countSort</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">vector</span><span style="color: #ABB2BF">&lt;</span><span style="color: #C678DD">int</span><span style="color: #ABB2BF">&gt;</span><span style="color: #C678DD">&amp;</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">nums</span><span style="color: #ABB2BF">) {</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">int</span><span style="color: #ABB2BF"> n </span><span style="color: #C678DD">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">nums</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">size</span><span style="color: #ABB2BF">();</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">if</span><span style="color: #ABB2BF"> (</span><span style="color: #56B6C2">!</span><span style="color: #ABB2BF">n) </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> {};</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">int</span><span style="color: #ABB2BF"> minv </span><span style="color: #C678DD">=</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">*</span><span style="color: #61AFEF">min_element</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">nums</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">begin</span><span style="color: #ABB2BF">(), </span><span style="color: #E5C07B">nums</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">end</span><span style="color: #ABB2BF">());</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">int</span><span style="color: #ABB2BF"> maxv </span><span style="color: #C678DD">=</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">*</span><span style="color: #61AFEF">max_element</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">nums</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">begin</span><span style="color: #ABB2BF">(), </span><span style="color: #E5C07B">nums</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">end</span><span style="color: #ABB2BF">());</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">int</span><span style="color: #ABB2BF"> m </span><span style="color: #C678DD">=</span><span style="color: #ABB2BF"> maxv</span><span style="color: #56B6C2">-</span><span style="color: #ABB2BF">minv</span><span style="color: #56B6C2">+</span><span style="color: #D19A66">1</span><span style="color: #ABB2BF">;</span></span>
-<span class="line"><span style="color: #ABB2BF">        vector</span><span style="color: #C678DD">&lt;int&gt;</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">count</span><span style="color: #ABB2BF">(m, </span><span style="color: #D19A66">0</span><span style="color: #ABB2BF">);</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">for</span><span style="color: #ABB2BF"> (</span><span style="color: #C678DD">int</span><span style="color: #ABB2BF"> i </span><span style="color: #C678DD">=</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">0</span><span style="color: #ABB2BF">; i </span><span style="color: #C678DD">&lt;</span><span style="color: #ABB2BF"> n; </span><span style="color: #C678DD">++</span><span style="color: #ABB2BF">i) {</span></span>
-<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #E5C07B">count</span><span style="color: #ABB2BF">[</span><span style="color: #E5C07B">nums</span><span style="color: #ABB2BF">[i]</span><span style="color: #56B6C2">-</span><span style="color: #ABB2BF">minv]</span><span style="color: #C678DD">++</span><span style="color: #ABB2BF">;</span></span>
-<span class="line"><span style="color: #ABB2BF">        }</span></span>
-<span class="line"><span style="color: #ABB2BF">        vector</span><span style="color: #C678DD">&lt;int&gt;</span><span style="color: #ABB2BF"> res;</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">for</span><span style="color: #ABB2BF"> (</span><span style="color: #C678DD">int</span><span style="color: #ABB2BF"> i </span><span style="color: #C678DD">=</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">0</span><span style="color: #ABB2BF">; i </span><span style="color: #C678DD">&lt;</span><span style="color: #ABB2BF"> m; </span><span style="color: #C678DD">++</span><span style="color: #ABB2BF">i) {</span></span>
-<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #C678DD">for</span><span style="color: #ABB2BF"> (</span><span style="color: #C678DD">int</span><span style="color: #ABB2BF"> j </span><span style="color: #C678DD">=</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">0</span><span style="color: #ABB2BF">; j </span><span style="color: #C678DD">&lt;</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">count</span><span style="color: #ABB2BF">[i]; </span><span style="color: #C678DD">++</span><span style="color: #ABB2BF">j) {</span></span>
-<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #E5C07B">res</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">push_back</span><span style="color: #ABB2BF">(i</span><span style="color: #56B6C2">+</span><span style="color: #ABB2BF">minv);</span></span>
-<span class="line"><span style="color: #ABB2BF">            }</span></span>
-<span class="line"><span style="color: #ABB2BF">        }</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> res;</span></span>
-<span class="line"><span style="color: #ABB2BF">    }</span></span>
-<span class="line"></span>
-<span class="line"><span style="color: #7F848E; font-style: italic">    // 基数排序（不适用于负数）</span></span>
-<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #E5C07B">vector</span><span style="color: #ABB2BF">&lt;</span><span style="color: #C678DD">int</span><span style="color: #ABB2BF">&gt; </span><span style="color: #61AFEF">radixSort</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">vector</span><span style="color: #ABB2BF">&lt;</span><span style="color: #C678DD">int</span><span style="color: #ABB2BF">&gt;</span><span style="color: #C678DD">&amp;</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">nums</span><span style="color: #ABB2BF">) {</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">int</span><span style="color: #ABB2BF"> n </span><span style="color: #C678DD">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">nums</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">size</span><span style="color: #ABB2BF">();</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">int</span><span style="color: #ABB2BF"> maxv </span><span style="color: #C678DD">=</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">*</span><span style="color: #61AFEF">max_element</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">nums</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">begin</span><span style="color: #ABB2BF">(), </span><span style="color: #E5C07B">nums</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">end</span><span style="color: #ABB2BF">());</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">int</span><span style="color: #ABB2BF"> maxd </span><span style="color: #C678DD">=</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">0</span><span style="color: #ABB2BF">;</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">while</span><span style="color: #ABB2BF"> (maxv </span><span style="color: #C678DD">&gt;</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">0</span><span style="color: #ABB2BF">) {</span></span>
-<span class="line"><span style="color: #ABB2BF">            maxv </span><span style="color: #C678DD">/=</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">10</span><span style="color: #ABB2BF">;</span></span>
-<span class="line"><span style="color: #ABB2BF">            maxd</span><span style="color: #C678DD">++</span><span style="color: #ABB2BF">;</span></span>
-<span class="line"><span style="color: #ABB2BF">        }</span></span>
-<span class="line"><span style="color: #ABB2BF">        vector</span><span style="color: #C678DD">&lt;int&gt;</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">count</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66">10</span><span style="color: #ABB2BF">, </span><span style="color: #D19A66">0</span><span style="color: #ABB2BF">), </span><span style="color: #61AFEF">rank</span><span style="color: #ABB2BF">(n, </span><span style="color: #D19A66">0</span><span style="color: #ABB2BF">);</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">int</span><span style="color: #ABB2BF"> base </span><span style="color: #C678DD">=</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">1</span><span style="color: #ABB2BF">;</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">while</span><span style="color: #ABB2BF"> (maxd </span><span style="color: #C678DD">&gt;</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">0</span><span style="color: #ABB2BF">) {</span></span>
-<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #E5C07B">count</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">assign</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66">10</span><span style="color: #ABB2BF">, </span><span style="color: #D19A66">0</span><span style="color: #ABB2BF">);</span></span>
-<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #C678DD">for</span><span style="color: #ABB2BF"> (</span><span style="color: #C678DD">int</span><span style="color: #ABB2BF"> i </span><span style="color: #C678DD">=</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">0</span><span style="color: #ABB2BF">; i </span><span style="color: #C678DD">&lt;</span><span style="color: #ABB2BF"> n; </span><span style="color: #C678DD">++</span><span style="color: #ABB2BF">i) {</span></span>
-<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #E5C07B">count</span><span style="color: #ABB2BF">[(</span><span style="color: #E5C07B">nums</span><span style="color: #ABB2BF">[i]</span><span style="color: #56B6C2">/</span><span style="color: #ABB2BF">base)</span><span style="color: #56B6C2">%</span><span style="color: #D19A66">10</span><span style="color: #ABB2BF">]</span><span style="color: #C678DD">++</span><span style="color: #ABB2BF">;</span></span>
-<span class="line"><span style="color: #ABB2BF">            }</span></span>
-<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #C678DD">for</span><span style="color: #ABB2BF"> (</span><span style="color: #C678DD">int</span><span style="color: #ABB2BF"> i </span><span style="color: #C678DD">=</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">1</span><span style="color: #ABB2BF">; i </span><span style="color: #C678DD">&lt;</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">10</span><span style="color: #ABB2BF">; </span><span style="color: #C678DD">++</span><span style="color: #ABB2BF">i) {</span></span>
-<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #E5C07B">count</span><span style="color: #ABB2BF">[i] </span><span style="color: #C678DD">+=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">count</span><span style="color: #ABB2BF">[i</span><span style="color: #56B6C2">-</span><span style="color: #D19A66">1</span><span style="color: #ABB2BF">];</span></span>
-<span class="line"><span style="color: #ABB2BF">            }</span></span>
-<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #C678DD">for</span><span style="color: #ABB2BF"> (</span><span style="color: #C678DD">int</span><span style="color: #ABB2BF"> i </span><span style="color: #C678DD">=</span><span style="color: #ABB2BF"> n</span><span style="color: #56B6C2">-</span><span style="color: #D19A66">1</span><span style="color: #ABB2BF">; i </span><span style="color: #C678DD">&gt;=</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">0</span><span style="color: #ABB2BF">; </span><span style="color: #C678DD">--</span><span style="color: #ABB2BF">i) {</span></span>
-<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #E5C07B">rank</span><span style="color: #ABB2BF">[</span><span style="color: #C678DD">--</span><span style="color: #E5C07B">count</span><span style="color: #ABB2BF">[(</span><span style="color: #E5C07B">nums</span><span style="color: #ABB2BF">[i]</span><span style="color: #56B6C2">/</span><span style="color: #ABB2BF">base)</span><span style="color: #56B6C2">%</span><span style="color: #D19A66">10</span><span style="color: #ABB2BF">]] </span><span style="color: #C678DD">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">nums</span><span style="color: #ABB2BF">[i];</span></span>
-<span class="line"><span style="color: #ABB2BF">            }</span></span>
-<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #C678DD">for</span><span style="color: #ABB2BF"> (</span><span style="color: #C678DD">int</span><span style="color: #ABB2BF"> i </span><span style="color: #C678DD">=</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">0</span><span style="color: #ABB2BF">; i </span><span style="color: #C678DD">&lt;</span><span style="color: #ABB2BF"> n; </span><span style="color: #C678DD">++</span><span style="color: #ABB2BF">i) {</span></span>
-<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #E5C07B">nums</span><span style="color: #ABB2BF">[i] </span><span style="color: #C678DD">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">rank</span><span style="color: #ABB2BF">[i];</span></span>
-<span class="line"><span style="color: #ABB2BF">            }</span></span>
-<span class="line"><span style="color: #ABB2BF">            maxd</span><span style="color: #C678DD">--</span><span style="color: #ABB2BF">;</span></span>
-<span class="line"><span style="color: #ABB2BF">            base </span><span style="color: #C678DD">*=</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">10</span><span style="color: #ABB2BF">;</span></span>
-<span class="line"><span style="color: #ABB2BF">        }</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> nums;</span></span>
-<span class="line"><span style="color: #ABB2BF">    }</span></span>
-<span class="line"></span>
-<span class="line"><span style="color: #7F848E; font-style: italic">    // 桶排序 (20 ms)</span></span>
-<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #E5C07B">vector</span><span style="color: #ABB2BF">&lt;</span><span style="color: #C678DD">int</span><span style="color: #ABB2BF">&gt; </span><span style="color: #61AFEF">bucketSort</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">vector</span><span style="color: #ABB2BF">&lt;</span><span style="color: #C678DD">int</span><span style="color: #ABB2BF">&gt;</span><span style="color: #C678DD">&amp;</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">nums</span><span style="color: #ABB2BF">) {</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">int</span><span style="color: #ABB2BF"> n </span><span style="color: #C678DD">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">nums</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">size</span><span style="color: #ABB2BF">();</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">int</span><span style="color: #ABB2BF"> maxv </span><span style="color: #C678DD">=</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">*</span><span style="color: #61AFEF">max_element</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">nums</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">begin</span><span style="color: #ABB2BF">(), </span><span style="color: #E5C07B">nums</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">end</span><span style="color: #ABB2BF">());</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">int</span><span style="color: #ABB2BF"> minv </span><span style="color: #C678DD">=</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">*</span><span style="color: #61AFEF">min_element</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">nums</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">begin</span><span style="color: #ABB2BF">(), </span><span style="color: #E5C07B">nums</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">end</span><span style="color: #ABB2BF">());</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">int</span><span style="color: #ABB2BF"> bs </span><span style="color: #C678DD">=</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">1000</span><span style="color: #ABB2BF">;</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">int</span><span style="color: #ABB2BF"> m </span><span style="color: #C678DD">=</span><span style="color: #ABB2BF"> (maxv</span><span style="color: #56B6C2">-</span><span style="color: #ABB2BF">minv)</span><span style="color: #56B6C2">/</span><span style="color: #ABB2BF">bs</span><span style="color: #56B6C2">+</span><span style="color: #D19A66">1</span><span style="color: #ABB2BF">;</span></span>
-<span class="line"><span style="color: #ABB2BF">        vector</span><span style="color: #C678DD">&lt;</span><span style="color: #ABB2BF">vector</span><span style="color: #C678DD">&lt;int&gt;</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">&gt;</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">bucket</span><span style="color: #ABB2BF">(m);</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">for</span><span style="color: #ABB2BF"> (</span><span style="color: #C678DD">int</span><span style="color: #ABB2BF"> i </span><span style="color: #C678DD">=</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">0</span><span style="color: #ABB2BF">; i </span><span style="color: #C678DD">&lt;</span><span style="color: #ABB2BF"> n; </span><span style="color: #C678DD">++</span><span style="color: #ABB2BF">i) {</span></span>
-<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #E5C07B">bucket</span><span style="color: #ABB2BF">[(</span><span style="color: #E5C07B">nums</span><span style="color: #ABB2BF">[i]</span><span style="color: #56B6C2">-</span><span style="color: #ABB2BF">minv)</span><span style="color: #56B6C2">/</span><span style="color: #ABB2BF">bs].</span><span style="color: #61AFEF">push_back</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">nums</span><span style="color: #ABB2BF">[i]);</span></span>
-<span class="line"><span style="color: #ABB2BF">        }</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">int</span><span style="color: #ABB2BF"> idx </span><span style="color: #C678DD">=</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">0</span><span style="color: #ABB2BF">;</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">for</span><span style="color: #ABB2BF"> (</span><span style="color: #C678DD">int</span><span style="color: #ABB2BF"> i </span><span style="color: #C678DD">=</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">0</span><span style="color: #ABB2BF">; i </span><span style="color: #C678DD">&lt;</span><span style="color: #ABB2BF"> m; </span><span style="color: #C678DD">++</span><span style="color: #ABB2BF">i) {</span></span>
-<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #C678DD">int</span><span style="color: #ABB2BF"> sz </span><span style="color: #C678DD">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">bucket</span><span style="color: #ABB2BF">[i].</span><span style="color: #61AFEF">size</span><span style="color: #ABB2BF">();</span></span>
-<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #E5C07B">bucket</span><span style="color: #ABB2BF">[i] </span><span style="color: #C678DD">=</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">quickSort</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">bucket</span><span style="color: #ABB2BF">[i]);</span></span>
-<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #C678DD">for</span><span style="color: #ABB2BF"> (</span><span style="color: #C678DD">int</span><span style="color: #ABB2BF"> j </span><span style="color: #C678DD">=</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">0</span><span style="color: #ABB2BF">; j </span><span style="color: #C678DD">&lt;</span><span style="color: #ABB2BF"> sz; </span><span style="color: #C678DD">++</span><span style="color: #ABB2BF">j) {</span></span>
-<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #E5C07B">nums</span><span style="color: #ABB2BF">[idx</span><span style="color: #C678DD">++</span><span style="color: #ABB2BF">] </span><span style="color: #C678DD">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">bucket</span><span style="color: #ABB2BF">[i][j];</span></span>
-<span class="line"><span style="color: #ABB2BF">            }</span></span>
-<span class="line"><span style="color: #ABB2BF">        }</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> nums;</span></span>
-<span class="line"><span style="color: #ABB2BF">    }</span></span>
-<span class="line"></span>
-<span class="line"><span style="color: #7F848E; font-style: italic">    // 堆排序（32 ms）</span></span>
-<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #C678DD">void</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">adjust</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">vector</span><span style="color: #ABB2BF">&lt;</span><span style="color: #C678DD">int</span><span style="color: #ABB2BF">&gt;</span><span style="color: #C678DD">&amp;</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">nums</span><span style="color: #ABB2BF">, </span><span style="color: #C678DD">int</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">p</span><span style="color: #ABB2BF">, </span><span style="color: #C678DD">int</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">s</span><span style="color: #ABB2BF">) {</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">while</span><span style="color: #ABB2BF"> (</span><span style="color: #D19A66">2</span><span style="color: #56B6C2">*</span><span style="color: #ABB2BF">p</span><span style="color: #56B6C2">+</span><span style="color: #D19A66">1</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">&lt;</span><span style="color: #ABB2BF"> s) {</span></span>
-<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #C678DD">int</span><span style="color: #ABB2BF"> c1 </span><span style="color: #C678DD">=</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">2</span><span style="color: #56B6C2">*</span><span style="color: #ABB2BF">p</span><span style="color: #56B6C2">+</span><span style="color: #D19A66">1</span><span style="color: #ABB2BF">;</span></span>
-<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #C678DD">int</span><span style="color: #ABB2BF"> c2 </span><span style="color: #C678DD">=</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">2</span><span style="color: #56B6C2">*</span><span style="color: #ABB2BF">p</span><span style="color: #56B6C2">+</span><span style="color: #D19A66">2</span><span style="color: #ABB2BF">;</span></span>
-<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #C678DD">int</span><span style="color: #ABB2BF"> c </span><span style="color: #C678DD">=</span><span style="color: #ABB2BF"> (c2</span><span style="color: #C678DD">&lt;</span><span style="color: #ABB2BF">s </span><span style="color: #56B6C2">&amp;&amp;</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">nums</span><span style="color: #ABB2BF">[c2]</span><span style="color: #C678DD">&gt;</span><span style="color: #E5C07B">nums</span><span style="color: #ABB2BF">[c1]) </span><span style="color: #C678DD">?</span><span style="color: #ABB2BF"> c2 </span><span style="color: #C678DD">:</span><span style="color: #ABB2BF"> c1;</span></span>
-<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #C678DD">if</span><span style="color: #ABB2BF"> (</span><span style="color: #E5C07B">nums</span><span style="color: #ABB2BF">[c] </span><span style="color: #C678DD">&gt;</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">nums</span><span style="color: #ABB2BF">[p]) </span><span style="color: #61AFEF">swap</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">nums</span><span style="color: #ABB2BF">[c], </span><span style="color: #E5C07B">nums</span><span style="color: #ABB2BF">[p]);</span></span>
-<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #C678DD">else</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">break</span><span style="color: #ABB2BF">;</span></span>
-<span class="line"><span style="color: #ABB2BF">            p </span><span style="color: #C678DD">=</span><span style="color: #ABB2BF"> c;</span></span>
-<span class="line"><span style="color: #ABB2BF">        }</span></span>
-<span class="line"><span style="color: #ABB2BF">    }</span></span>
-<span class="line"></span>
-<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #E5C07B">vector</span><span style="color: #ABB2BF">&lt;</span><span style="color: #C678DD">int</span><span style="color: #ABB2BF">&gt; </span><span style="color: #61AFEF">heapSort</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">vector</span><span style="color: #ABB2BF">&lt;</span><span style="color: #C678DD">int</span><span style="color: #ABB2BF">&gt;</span><span style="color: #C678DD">&amp;</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">nums</span><span style="color: #ABB2BF">) {</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">int</span><span style="color: #ABB2BF"> n </span><span style="color: #C678DD">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">nums</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">size</span><span style="color: #ABB2BF">();</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">for</span><span style="color: #ABB2BF"> (</span><span style="color: #C678DD">int</span><span style="color: #ABB2BF"> i </span><span style="color: #C678DD">=</span><span style="color: #ABB2BF"> n</span><span style="color: #56B6C2">/</span><span style="color: #D19A66">2</span><span style="color: #56B6C2">-</span><span style="color: #D19A66">1</span><span style="color: #ABB2BF">; i </span><span style="color: #C678DD">&gt;=</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">0</span><span style="color: #ABB2BF">; </span><span style="color: #C678DD">--</span><span style="color: #ABB2BF">i) {</span></span>
-<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #61AFEF">adjust</span><span style="color: #ABB2BF">(nums, i, n);</span></span>
-<span class="line"><span style="color: #ABB2BF">        }</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">for</span><span style="color: #ABB2BF"> (</span><span style="color: #C678DD">int</span><span style="color: #ABB2BF"> i </span><span style="color: #C678DD">=</span><span style="color: #ABB2BF"> n</span><span style="color: #56B6C2">-</span><span style="color: #D19A66">1</span><span style="color: #ABB2BF">; i </span><span style="color: #C678DD">&gt;</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">0</span><span style="color: #ABB2BF">; </span><span style="color: #C678DD">--</span><span style="color: #ABB2BF">i) {</span></span>
-<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #61AFEF">swap</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">nums</span><span style="color: #ABB2BF">[</span><span style="color: #D19A66">0</span><span style="color: #ABB2BF">], </span><span style="color: #E5C07B">nums</span><span style="color: #ABB2BF">[i]);</span></span>
-<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #61AFEF">adjust</span><span style="color: #ABB2BF">(nums, </span><span style="color: #D19A66">0</span><span style="color: #ABB2BF">, i);</span></span>
-<span class="line"><span style="color: #ABB2BF">        }</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> nums;</span></span>
-<span class="line"><span style="color: #ABB2BF">    }</span></span>
-<span class="line"><span style="color: #ABB2BF">};</span></span></code></pre></div></div></figure>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">class Solution &#123;
+public:
+    vector&lt;int&gt; sortArray(vector&lt;int&gt;&amp; nums) &#123;
+        return quickSort(nums);
+    &#125;
+
+    &#x2F;&#x2F; 冒泡排序（超时）
+    vector&lt;int&gt; bubbleSort(vector&lt;int&gt;&amp; nums) &#123;
+        int n &#x3D; nums.size();
+        for (int i &#x3D; 0; i &lt; n; ++i) &#123;
+            for (int j &#x3D; n-2; j &gt;&#x3D; i; --j) &#123;
+                if (nums[j] &gt; nums[j+1]) &#123;
+                    swap(nums[j], nums[j+1]);
+                &#125;
+            &#125;
+        &#125;
+        return nums;
+    &#125;
+
+    &#x2F;&#x2F; 选择排序（超时）
+    vector&lt;int&gt; selectSort(vector&lt;int&gt;&amp; nums) &#123;
+        int n &#x3D; nums.size();
+        for (int i &#x3D; 0; i &lt; n; ++i) &#123;
+            int idx &#x3D; i;
+            for (int j &#x3D; i; j &lt; n; ++j) &#123;
+                if (nums[j] &lt; nums[idx]) &#123;
+                    idx &#x3D; j;
+                &#125;
+            &#125;
+            swap(nums[i], nums[idx]);
+        &#125;
+        return nums;
+    &#125;
+
+    &#x2F;&#x2F; 插入排序（超时）
+    vector&lt;int&gt; insertSort(vector&lt;int&gt;&amp; nums) &#123;
+        int n &#x3D; nums.size();
+        for (int i &#x3D; 0; i &lt; n; ++i) &#123;
+            for (int j &#x3D; i; j &gt; 0 &amp;&amp; nums[j] &lt; nums[j-1]; --j) &#123;
+                swap(nums[j], nums[j-1]);
+            &#125;
+        &#125;
+        return nums;
+    &#125;
+
+    &#x2F;&#x2F; 快速排序（24 ms）
+    void qSort(vector&lt;int&gt;&amp; nums, int l, int r) &#123;
+        if (l &gt;&#x3D; r) return;
+        int m &#x3D; l;
+        for (int i &#x3D; l; i &lt; r; ++i) &#123;
+            if (nums[i] &lt; nums[r]) &#123;
+                swap(nums[m++], nums[i]);
+            &#125;
+        &#125;
+        swap(nums[m], nums[r]);
+        qSort(nums, l, m-1);
+        qSort(nums, m+1, r);
+    &#125;
+
+    vector&lt;int&gt; quickSort(vector&lt;int&gt;&amp; nums) &#123;
+        int n &#x3D; nums.size();
+        qSort(nums, 0, n-1);
+        return nums;
+    &#125;
+
+    &#x2F;&#x2F; 归并排序（192 ms）
+    vector&lt;int&gt; mSort(vector&lt;int&gt;&amp; nums, int l, int r) &#123;
+        if (l &gt;&#x3D; r) return &#123;nums[l]&#125;;
+        int m &#x3D; l+(r-l)&#x2F;2;
+        vector&lt;int&gt; lnums &#x3D; mSort(nums, l, m);
+        vector&lt;int&gt; rnums &#x3D; mSort(nums, m+1, r);
+        vector&lt;int&gt; res;
+        int i &#x3D; 0, j &#x3D; 0;
+        while (i &lt;&#x3D; m-l &amp;&amp; j &lt;&#x3D; r-m-1) &#123;
+            if (lnums[i] &lt; rnums[j]) &#123;
+                res.push_back(lnums[i++]);
+            &#125; else &#123;
+                res.push_back(rnums[j++]);
+            &#125;
+        &#125;
+        while (i &lt;&#x3D; m-l) &#123;
+            res.push_back(lnums[i++]);
+        &#125;
+        while (j &lt;&#x3D; r-m-1) &#123;
+            res.push_back(rnums[j++]);
+        &#125;
+        return res;
+    &#125;
+
+    vector&lt;int&gt; mergeSort(vector&lt;int&gt;&amp; nums) &#123;
+        int n &#x3D; nums.size();
+        nums &#x3D; mSort(nums, 0, n-1);
+        return nums;
+    &#125;
+
+    &#x2F;&#x2F; 归并排序 + 非递归（80 ms）
+    vector&lt;int&gt; mergeSortNR(vector&lt;int&gt;&amp; nums) &#123;
+        int n &#x3D; nums.size();
+        for (int len &#x3D; 1; len &lt; n; len &lt;&lt;&#x3D; 1) &#123;
+            for (int l &#x3D; 0; l &lt; n-len; l +&#x3D; 2*len) &#123;
+                int m &#x3D; l+len-1;
+                int r &#x3D; min(n-1, l+2*len-1);
+                vector&lt;int&gt; res;
+                int i &#x3D; l, j &#x3D; m+1;
+                while (i &lt;&#x3D; m &amp;&amp; j &lt;&#x3D; r) &#123;
+                    if (nums[i] &lt; nums[j]) &#123;
+                        res.push_back(nums[i++]);
+                    &#125; else &#123;
+                        res.push_back(nums[j++]);
+                    &#125;
+                &#125;
+                while (i &lt;&#x3D; m) &#123;
+                    res.push_back(nums[i++]);
+                &#125;
+                while (j &lt;&#x3D; r) &#123;
+                    res.push_back(nums[j++]);
+                &#125;
+                for (int i &#x3D; l; i &lt;&#x3D; r; ++i) &#123;
+                    nums[i] &#x3D; res[i-l];
+                &#125;
+            &#125;
+        &#125;
+        return nums;
+    &#125;
+
+    &#x2F;&#x2F; 希尔排序（40 ms）
+    vector&lt;int&gt; shellSort(vector&lt;int&gt;&amp; nums) &#123;
+        int n &#x3D; nums.size();
+        for (int gap &#x3D; n&#x2F;2; gap &gt; 0; gap &#x2F;&#x3D; 2) &#123;
+            for (int i &#x3D; gap; i &lt; n; ++i) &#123;
+                for (int j &#x3D; i; j-gap &gt;&#x3D; 0 &amp;&amp; nums[j-gap] &gt; nums[j]; j -&#x3D; gap) &#123;
+                    swap(nums[j-gap], nums[j]);
+                &#125;
+            &#125;
+        &#125;
+        return nums;
+    &#125;
+
+    &#x2F;&#x2F; 计数排序（32 ms）
+    vector&lt;int&gt; countSort(vector&lt;int&gt;&amp; nums) &#123;
+        int n &#x3D; nums.size();
+        if (!n) return &#123;&#125;;
+        int minv &#x3D; *min_element(nums.begin(), nums.end());
+        int maxv &#x3D; *max_element(nums.begin(), nums.end());
+        int m &#x3D; maxv-minv+1;
+        vector&lt;int&gt; count(m, 0);
+        for (int i &#x3D; 0; i &lt; n; ++i) &#123;
+            count[nums[i]-minv]++;
+        &#125;
+        vector&lt;int&gt; res;
+        for (int i &#x3D; 0; i &lt; m; ++i) &#123;
+            for (int j &#x3D; 0; j &lt; count[i]; ++j) &#123;
+                res.push_back(i+minv);
+            &#125;
+        &#125;
+        return res;
+    &#125;
+
+    &#x2F;&#x2F; 基数排序（不适用于负数）
+    vector&lt;int&gt; radixSort(vector&lt;int&gt;&amp; nums) &#123;
+        int n &#x3D; nums.size();
+        int maxv &#x3D; *max_element(nums.begin(), nums.end());
+        int maxd &#x3D; 0;
+        while (maxv &gt; 0) &#123;
+            maxv &#x2F;&#x3D; 10;
+            maxd++;
+        &#125;
+        vector&lt;int&gt; count(10, 0), rank(n, 0);
+        int base &#x3D; 1;
+        while (maxd &gt; 0) &#123;
+            count.assign(10, 0);
+            for (int i &#x3D; 0; i &lt; n; ++i) &#123;
+                count[(nums[i]&#x2F;base)%10]++;
+            &#125;
+            for (int i &#x3D; 1; i &lt; 10; ++i) &#123;
+                count[i] +&#x3D; count[i-1];
+            &#125;
+            for (int i &#x3D; n-1; i &gt;&#x3D; 0; --i) &#123;
+                rank[--count[(nums[i]&#x2F;base)%10]] &#x3D; nums[i];
+            &#125;
+            for (int i &#x3D; 0; i &lt; n; ++i) &#123;
+                nums[i] &#x3D; rank[i];
+            &#125;
+            maxd--;
+            base *&#x3D; 10;
+        &#125;
+        return nums;
+    &#125;
+
+    &#x2F;&#x2F; 桶排序 (20 ms)
+    vector&lt;int&gt; bucketSort(vector&lt;int&gt;&amp; nums) &#123;
+        int n &#x3D; nums.size();
+        int maxv &#x3D; *max_element(nums.begin(), nums.end());
+        int minv &#x3D; *min_element(nums.begin(), nums.end());
+        int bs &#x3D; 1000;
+        int m &#x3D; (maxv-minv)&#x2F;bs+1;
+        vector&lt;vector&lt;int&gt; &gt; bucket(m);
+        for (int i &#x3D; 0; i &lt; n; ++i) &#123;
+            bucket[(nums[i]-minv)&#x2F;bs].push_back(nums[i]);
+        &#125;
+        int idx &#x3D; 0;
+        for (int i &#x3D; 0; i &lt; m; ++i) &#123;
+            int sz &#x3D; bucket[i].size();
+            bucket[i] &#x3D; quickSort(bucket[i]);
+            for (int j &#x3D; 0; j &lt; sz; ++j) &#123;
+                nums[idx++] &#x3D; bucket[i][j];
+            &#125;
+        &#125;
+        return nums;
+    &#125;
+
+    &#x2F;&#x2F; 堆排序（32 ms）
+    void adjust(vector&lt;int&gt;&amp; nums, int p, int s) &#123;
+        while (2*p+1 &lt; s) &#123;
+            int c1 &#x3D; 2*p+1;
+            int c2 &#x3D; 2*p+2;
+            int c &#x3D; (c2&lt;s &amp;&amp; nums[c2]&gt;nums[c1]) ? c2 : c1;
+            if (nums[c] &gt; nums[p]) swap(nums[c], nums[p]);
+            else break;
+            p &#x3D; c;
+        &#125;
+    &#125;
+
+    vector&lt;int&gt; heapSort(vector&lt;int&gt;&amp; nums) &#123;
+        int n &#x3D; nums.size();
+        for (int i &#x3D; n&#x2F;2-1; i &gt;&#x3D; 0; --i) &#123;
+            adjust(nums, i, n);
+        &#125;
+        for (int i &#x3D; n-1; i &gt; 0; --i) &#123;
+            swap(nums[0], nums[i]);
+            adjust(nums, 0, i);
+        &#125;
+        return nums;
+    &#125;
+&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
             </div>
             <hr />
 
@@ -925,7 +922,7 @@
                                         
 
                                             <!-- 3/22修改： -->
-                                            <img src="https://s4.ax1x.com/2022/02/08/HlQdD1.jpg" class="responsive-img" alt="一道编程题——二维数组的查找">
+                                            <img src="https://s4.ax1x.com/2022/02/08/HlQtgJ.jpg" class="responsive-img" alt="一道编程题——二维数组的查找">
                                             
                                                 <span class="card-title">一道编程题——二维数组的查找</span>
                             </div>
@@ -974,7 +971,7 @@
                                         <div class="card-image">
                                             
                                                     
-                                                        <img src="https://s4.ax1x.com/2022/02/08/HlMq76.jpg" class="responsive-img" alt="New Blog">
+                                                        <img src="https://s4.ax1x.com/2022/02/08/HlMHn1.jpg" class="responsive-img" alt="New Blog">
                                                         
                                                             <span class="card-title">New Blog</span>
                                         </div>
@@ -1181,7 +1178,7 @@
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">87.4k</span>
+                <span class="white-color">91.3k</span>
                 
 
                     <br>
@@ -1370,27 +1367,6 @@ $(function () {
                                                             <!-- 雪花特效 -->
                                                             
 
-    <!-- hexo injector body_end start -->
-  <script>
-  const CODE_CONFIG = {
-    beautify: undefined,
-    highlightCopy: undefined,
-    highlightLang: undefined,
-    highlightHeightLimit: undefined,
-    isHighlightShrink: undefined,
-    copy: {
-      success: 'undefined',
-      error: 'undefined',
-      noSupport: 'undefined',
-    }
-  };
-  console.log(
-    `%c hexo-shiki-plugin %c v1.0.27 %c https://github.com/nova1751/hexo-shiki-plugin`,
-    "color: #fff; background: #5f5f5f",
-    "color: #fff; background: #80c8f8",
-    ""
-  );
-  </script>
-  <!-- hexo injector body_end end --></body>
+    </body>
 
 </html>

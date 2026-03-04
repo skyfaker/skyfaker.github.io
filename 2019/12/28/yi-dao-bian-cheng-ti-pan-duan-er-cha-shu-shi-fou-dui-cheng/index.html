@@ -76,11 +76,8 @@
 <!--        })();-->
 <!--    </script>-->
 
-<!-- hexo injector head_end start -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-shiki-plugin@latest/lib/codeblock.css">
-<style>:root{--hl-color:#abb2bf;--hl-bg:#282c34;--hltools-bg:#21252b;--hltools-color:#bbbbbc;--hlnumber-bg:#282c34;--hlnumber-color:#495162;--hlscrollbar-bg:#373c47;--hlexpand-bg:linear-gradient(180deg,rgba(40,44,52,0.1),rgba(40,44,52,0.9))}</style><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="SKYFAKER" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><link rel="alternate" href="/atom.xml" title="SKYFAKER" type="application/atom+xml">
+</head>
 
     <body>
 
@@ -332,8 +329,8 @@
 
 
 <!-- 3/22: 这里修改了推荐页文章点击进去之后的图片路径 -->
-<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.iohttps://s4.ax1x.com/2022/02/08/HlMq76.jpg');"> -->
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://s4.ax1x.com/2022/02/08/HlMq76.jpg');">
+<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.iohttps://s4.ax1x.com/2022/02/08/HlMHn1.jpg');"> -->
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://s4.ax1x.com/2022/02/08/HlMHn1.jpg');">
 
     <div class="container">
         <div class="row">
@@ -491,7 +488,7 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    646
+                    667
                 </div>
                 
 
@@ -523,75 +520,75 @@
 <p>所以递归公式为：<code>checkout(root1.left, root2.right) and checkout(root1.right, root2.left)</code></p>
 <p>即左子树的左子树应该等于右子树的右子树，并且左子树的右子树等于右子树的左子树。</p>
 <p>递归过程实际上类似为左子树前序遍历（中、左、右），右子树反向前序遍历（中、右、左），然后判断这两个遍历过程是否相等。</p>
-<h4 id="python实现"><a href="#python实现" class="headerlink" title="python实现"></a>python实现</h4><figure class="shiki python"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #7F848E; font-style: italic"># 递归</span></span>
-<span class="line"><span style="color: #C678DD">class</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Solution</span><span style="color: #ABB2BF">:</span></span>
-<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #C678DD">def</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">isSymmetric</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B; font-style: italic">self</span><span style="color: #ABB2BF"> , </span><span style="color: #D19A66; font-style: italic">root</span><span style="color: #ABB2BF"> ):</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #7F848E; font-style: italic"># write code here</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">if</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">not</span><span style="color: #ABB2BF"> root:</span></span>
-<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">True</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">self</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">checkout</span><span style="color: #ABB2BF">(root.left, root.right)</span></span>
-<span class="line"><span style="color: #ABB2BF">    </span></span>
-<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #C678DD">def</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">checkout</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B; font-style: italic">self</span><span style="color: #ABB2BF">, </span><span style="color: #D19A66; font-style: italic">root1</span><span style="color: #ABB2BF">, </span><span style="color: #D19A66; font-style: italic">root2</span><span style="color: #ABB2BF">):</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #7F848E; font-style: italic"># 左右对应位置的节点都为空，对称</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">if</span><span style="color: #ABB2BF"> (</span><span style="color: #C678DD">not</span><span style="color: #ABB2BF"> root1 </span><span style="color: #C678DD">and</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">not</span><span style="color: #ABB2BF"> root2):</span></span>
-<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">True</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #7F848E; font-style: italic"># 有一个节点为空，则不对称</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">elif</span><span style="color: #ABB2BF">(</span><span style="color: #C678DD">not</span><span style="color: #ABB2BF"> root1 </span><span style="color: #C678DD">or</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">not</span><span style="color: #ABB2BF"> root2):</span></span>
-<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">False</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #7F848E; font-style: italic"># 节点值不等，不对称</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">elif</span><span style="color: #ABB2BF">(root1.val</span><span style="color: #56B6C2">!=</span><span style="color: #ABB2BF">root2.val):</span></span>
-<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">False</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #7F848E; font-style: italic"># 继续递归</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">else</span><span style="color: #ABB2BF">:</span></span>
-<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">self</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">checkout</span><span style="color: #ABB2BF">(root1.left, root2.right) </span><span style="color: #C678DD">and</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">self</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">checkout</span><span style="color: #ABB2BF">(root1.right, root2.left)</span></span></code></pre></div></div></figure>
-<h4 id="C-实现"><a href="#C-实现" class="headerlink" title="C++实现"></a>C++实现</h4><figure class="shiki cpp"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #7F848E; font-style: italic">// 递归</span></span>
-<span class="line"><span style="color: #C678DD">class</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Solution</span><span style="color: #ABB2BF"> {</span></span>
-<span class="line"><span style="color: #C678DD">public:</span></span>
-<span class="line"><span style="color: #7F848E; font-style: italic">    /**</span></span>
-<span class="line"><span style="color: #7F848E; font-style: italic">     * </span></span>
-<span class="line"><span style="color: #7F848E; font-style: italic">     * </span><span style="color: #C678DD; font-style: italic">@param</span><span style="color: #7F848E; font-style: italic"> </span><span style="color: #E06C75; font-style: italic">root</span><span style="color: #7F848E; font-style: italic"> TreeNode类 </span></span>
-<span class="line"><span style="color: #7F848E; font-style: italic">     * </span><span style="color: #C678DD; font-style: italic">@return</span><span style="color: #7F848E; font-style: italic"> bool布尔型</span></span>
-<span class="line"><span style="color: #7F848E; font-style: italic">     */</span></span>
-<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #C678DD">bool</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">isSymmetric</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">TreeNode</span><span style="color: #C678DD">*</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">root</span><span style="color: #ABB2BF">) {</span></span>
-<span class="line"><span style="color: #7F848E; font-style: italic">        // write code here</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">if</span><span style="color: #ABB2BF">(</span><span style="color: #56B6C2">!</span><span style="color: #ABB2BF">root){</span></span>
-<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">true</span><span style="color: #ABB2BF">;</span></span>
-<span class="line"><span style="color: #ABB2BF">        }</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">check</span><span style="color: #ABB2BF">(root, root);</span></span>
-<span class="line"><span style="color: #ABB2BF">    }</span></span>
-<span class="line"><span style="color: #ABB2BF">    </span></span>
-<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #C678DD">bool</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">check</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">TreeNode</span><span style="color: #C678DD">*</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">root1</span><span style="color: #ABB2BF">, </span><span style="color: #E5C07B">TreeNode</span><span style="color: #C678DD">*</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">root2</span><span style="color: #ABB2BF">){</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">if</span><span style="color: #ABB2BF">(</span><span style="color: #56B6C2">!</span><span style="color: #ABB2BF">root1 </span><span style="color: #56B6C2">&amp;&amp;</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">!</span><span style="color: #ABB2BF">root2) </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">true</span><span style="color: #ABB2BF">;</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">else</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">if</span><span style="color: #ABB2BF">(</span><span style="color: #56B6C2">!</span><span style="color: #ABB2BF">root1 </span><span style="color: #56B6C2">||</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">!</span><span style="color: #ABB2BF">root2) </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">false</span><span style="color: #ABB2BF">;</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">else</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">if</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">root1</span><span style="color: #ABB2BF">-&gt;</span><span style="color: #E06C75">val</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">!=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">root2</span><span style="color: #ABB2BF">-&gt;</span><span style="color: #E06C75">val</span><span style="color: #ABB2BF">) </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">false</span><span style="color: #ABB2BF">;</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">check</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">root1</span><span style="color: #ABB2BF">-&gt;</span><span style="color: #E06C75">left</span><span style="color: #ABB2BF">, </span><span style="color: #E5C07B">root2</span><span style="color: #ABB2BF">-&gt;</span><span style="color: #E06C75">right</span><span style="color: #ABB2BF">) </span><span style="color: #56B6C2">&amp;&amp;</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">check</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">root1</span><span style="color: #ABB2BF">-&gt;</span><span style="color: #E06C75">right</span><span style="color: #ABB2BF">, </span><span style="color: #E5C07B">root2</span><span style="color: #ABB2BF">-&gt;</span><span style="color: #E06C75">left</span><span style="color: #ABB2BF">);</span></span>
-<span class="line"><span style="color: #ABB2BF">    }</span></span>
-<span class="line"><span style="color: #ABB2BF">};</span></span></code></pre></div></div></figure>
+<h4 id="python实现"><a href="#python实现" class="headerlink" title="python实现"></a>python实现</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python"># 递归
+class Solution:
+    def isSymmetric(self , root ):
+        # write code here
+        if not root:
+            return True
+        return self.checkout(root.left, root.right)
+    
+    def checkout(self, root1, root2):
+        # 左右对应位置的节点都为空，对称
+        if (not root1 and not root2):
+            return True
+        # 有一个节点为空，则不对称
+        elif(not root1 or not root2):
+            return False
+        # 节点值不等，不对称
+        elif(root1.val!&#x3D;root2.val):
+            return False
+        # 继续递归
+        else:
+            return self.checkout(root1.left, root2.right) and self.checkout(root1.right, root2.left)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="C-实现"><a href="#C-实现" class="headerlink" title="C++实现"></a>C++实现</h4><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">&#x2F;&#x2F; 递归
+class Solution &#123;
+public:
+    &#x2F;**
+     * 
+     * @param root TreeNode类 
+     * @return bool布尔型
+     *&#x2F;
+    bool isSymmetric(TreeNode* root) &#123;
+        &#x2F;&#x2F; write code here
+        if(!root)&#123;
+            return true;
+        &#125;
+        return check(root, root);
+    &#125;
+    
+    bool check(TreeNode* root1, TreeNode* root2)&#123;
+        if(!root1 &amp;&amp; !root2) return true;
+        else if(!root1 || !root2) return false;
+        else if(root1-&gt;val !&#x3D; root2-&gt;val) return false;
+        return check(root1-&gt;left, root2-&gt;right) &amp;&amp; check(root1-&gt;right, root2-&gt;left);
+    &#125;
+&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="迭代："><a href="#迭代：" class="headerlink" title="迭代："></a>迭代：</h3><p>类似于BFS，逐层遍历节点入栈（或者队列），只不过入栈的顺序与层次遍历不太一样。</p>
 <p>栈中元素为：<code>[左子树，右子树] -&gt;  [左子树的左子树，右子树的右子树，左子树的右子树，右子树的左子树]</code></p>
 <p>这样，只要比较栈中的成对的两个元素，直到栈为空。</p>
-<h4 id="python实现-1"><a href="#python实现-1" class="headerlink" title="python实现"></a>python实现</h4><figure class="shiki python"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #7F848E; font-style: italic"># 迭代</span></span>
-<span class="line"><span style="color: #C678DD">class</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Solution2</span><span style="color: #ABB2BF">:</span></span>
-<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #C678DD">def</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">isSymmetric</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B; font-style: italic">self</span><span style="color: #ABB2BF"> , </span><span style="color: #D19A66; font-style: italic">root</span><span style="color: #ABB2BF"> ):</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #7F848E; font-style: italic"># write code here</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">if</span><span style="color: #ABB2BF"> (</span><span style="color: #C678DD">not</span><span style="color: #ABB2BF"> root) </span><span style="color: #C678DD">or</span><span style="color: #ABB2BF"> (</span><span style="color: #C678DD">not</span><span style="color: #ABB2BF"> root.left </span><span style="color: #C678DD">and</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">not</span><span style="color: #ABB2BF"> root.right): </span></span>
-<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">True</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">if</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">not</span><span style="color: #ABB2BF"> root.left </span><span style="color: #C678DD">or</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">not</span><span style="color: #ABB2BF"> root.right:</span></span>
-<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">False</span></span>
-<span class="line"><span style="color: #ABB2BF">        stack </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> [root.left, root.right]</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">while</span><span style="color: #ABB2BF">(stack):</span></span>
-<span class="line"><span style="color: #ABB2BF">            right_node </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> stack.</span><span style="color: #61AFEF">pop</span><span style="color: #ABB2BF">()</span></span>
-<span class="line"><span style="color: #ABB2BF">            left_node </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> stack.</span><span style="color: #61AFEF">pop</span><span style="color: #ABB2BF">()</span></span>
-<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #7F848E; font-style: italic"># 左右节点均为空</span></span>
-<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #C678DD">if</span><span style="color: #ABB2BF"> (</span><span style="color: #C678DD">not</span><span style="color: #ABB2BF"> left_node </span><span style="color: #C678DD">and</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">not</span><span style="color: #ABB2BF"> right_node):</span></span>
-<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #C678DD">continue</span></span>
-<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #7F848E; font-style: italic"># 左右节点均存在且相等，则继续加入到栈</span></span>
-<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #C678DD">if</span><span style="color: #ABB2BF"> (left_node </span><span style="color: #C678DD">and</span><span style="color: #ABB2BF"> right_node) </span><span style="color: #C678DD">and</span><span style="color: #ABB2BF"> (left_node.val </span><span style="color: #56B6C2">==</span><span style="color: #ABB2BF"> right_node.val):</span></span>
-<span class="line"><span style="color: #ABB2BF">                stack.</span><span style="color: #61AFEF">extend</span><span style="color: #ABB2BF">([left_node.left, right_node.right, left_node.right, right_node.left])</span></span>
-<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #7F848E; font-style: italic"># 左右节点只有一个存在或者左右节点的值不等</span></span>
-<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #C678DD">else</span><span style="color: #ABB2BF">:</span></span>
-<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">False</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">True</span></span></code></pre></div></div></figure>
+<h4 id="python实现-1"><a href="#python实现-1" class="headerlink" title="python实现"></a>python实现</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python"># 迭代
+class Solution2:
+    def isSymmetric(self , root ):
+        # write code here
+        if (not root) or (not root.left and not root.right): 
+            return True
+        if not root.left or not root.right:
+            return False
+        stack &#x3D; [root.left, root.right]
+        while(stack):
+            right_node &#x3D; stack.pop()
+            left_node &#x3D; stack.pop()
+            # 左右节点均为空
+            if (not left_node and not right_node):
+                continue
+            # 左右节点均存在且相等，则继续加入到栈
+            if (left_node and right_node) and (left_node.val &#x3D;&#x3D; right_node.val):
+                stack.extend([left_node.left, right_node.right, left_node.right, right_node.left])
+            # 左右节点只有一个存在或者左右节点的值不等
+            else:
+                return False
+        return True<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr />
@@ -643,7 +640,7 @@
                                         
 
                                             <!-- 3/22修改： -->
-                                            <img src="https://s4.ax1x.com/2022/02/08/HlMoc9.jpg" class="responsive-img" alt="git 简明教程与命令">
+                                            <img src="https://s4.ax1x.com/2022/02/08/HlQdD1.jpg" class="responsive-img" alt="git 简明教程与命令">
                                             
                                                 <span class="card-title">git 简明教程与命令</span>
                             </div>
@@ -692,7 +689,7 @@
                                         <div class="card-image">
                                             
                                                     
-                                                        <img src="https://s4.ax1x.com/2022/02/08/HlQCnI.jpg" class="responsive-img" alt="一道编程题——判断链表是否有环">
+                                                        <img src="https://s4.ax1x.com/2022/02/08/HlQScd.jpg" class="responsive-img" alt="一道编程题——判断链表是否有环">
                                                         
                                                             <span class="card-title">一道编程题——判断链表是否有环</span>
                                         </div>
@@ -880,7 +877,7 @@
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">87.4k</span>
+                <span class="white-color">91.3k</span>
                 
 
                     <br>
@@ -1069,27 +1066,6 @@ $(function () {
                                                             <!-- 雪花特效 -->
                                                             
 
-    <!-- hexo injector body_end start -->
-  <script>
-  const CODE_CONFIG = {
-    beautify: undefined,
-    highlightCopy: undefined,
-    highlightLang: undefined,
-    highlightHeightLimit: undefined,
-    isHighlightShrink: undefined,
-    copy: {
-      success: 'undefined',
-      error: 'undefined',
-      noSupport: 'undefined',
-    }
-  };
-  console.log(
-    `%c hexo-shiki-plugin %c v1.0.27 %c https://github.com/nova1751/hexo-shiki-plugin`,
-    "color: #fff; background: #5f5f5f",
-    "color: #fff; background: #80c8f8",
-    ""
-  );
-  </script>
-  <!-- hexo injector body_end end --></body>
+    </body>
 
 </html>

@@ -72,11 +72,8 @@
 <!--        })();-->
 <!--    </script>-->
 
-<!-- hexo injector head_end start -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-shiki-plugin@latest/lib/codeblock.css">
-<style>:root{--hl-color:#abb2bf;--hl-bg:#282c34;--hltools-bg:#21252b;--hltools-color:#bbbbbc;--hlnumber-bg:#282c34;--hlnumber-color:#495162;--hlscrollbar-bg:#373c47;--hlexpand-bg:linear-gradient(180deg,rgba(40,44,52,0.1),rgba(40,44,52,0.9))}</style><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="SKYFAKER" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><link rel="alternate" href="/atom.xml" title="SKYFAKER" type="application/atom+xml">
+</head>
 
     <body>
 
@@ -328,8 +325,8 @@
 
 
 <!-- 3/22: 这里修改了推荐页文章点击进去之后的图片路径 -->
-<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.iohttps://s4.ax1x.com/2022/02/08/HlQ3NT.jpg');"> -->
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://s4.ax1x.com/2022/02/08/HlQ3NT.jpg');">
+<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.iohttps://s4.ax1x.com/2022/02/08/HlQJCF.jpg');"> -->
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://s4.ax1x.com/2022/02/08/HlQJCF.jpg');">
 
     <div class="container">
         <div class="row">
@@ -491,7 +488,7 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    832
+                    842
                 </div>
                 
 
@@ -517,9 +514,9 @@
                 <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>游戏中有N+1座建筑——从0到N编号，从左到右排列。编号为0的建筑高度为0个单位，编号为i的建筑的高度为H(i)个单位。 </p>
 <p>起初， 机器人在编号为0的建筑处。每一步，它跳到下一个（右边）建筑。假设机器人在第k个建筑，且它现在的能量值是E, 下一步它将跳到第个k+1建筑。它将会得到或者失去正比于与$H<em>{k+1}$与E之差的能量。如果$H</em>{k+1}$&gt; E 那么机器人就失去$H<em>{k+1}$- E 的能量值，否则它将得到 E - $H</em>{k+1}$的能量值。</p>
 <p>游戏目标是到达第个N建筑，在这个过程中，能量值不能为负数个单位。现在的问题是机器人以多少能量值开始游戏，才可以保证成功完成游戏？</p>
-<h3 id="输入描述"><a href="#输入描述" class="headerlink" title="输入描述:"></a>输入描述:</h3><figure class="shiki"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #abb2bf">第一行输入，表示一共有 N 组数据.</span></span>
-<span class="line"><span style="color: #abb2bf"></span></span>
-<span class="line"><span style="color: #abb2bf">第二个是 N 个空格分隔的整数，H1, H2, H3, ..., Hn 代表建筑物的高度</span></span></code></pre></div></div></figure>
+<h3 id="输入描述"><a href="#输入描述" class="headerlink" title="输入描述:"></a>输入描述:</h3><pre class="line-numbers language-none"><code class="language-none">第一行输入，表示一共有 N 组数据.
+
+第二个是 N 个空格分隔的整数，H1, H2, H3, ..., Hn 代表建筑物的高度<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><h3 id="公式法"><a href="#公式法" class="headerlink" title="公式法"></a>公式法</h3><p>根据题目描述，我们可以得到一个关于机器人能量值的公式。设机器人跳到第k个建筑时的能量值为$E_k$，则：</p>
 <script type="math/tex; mode=display">
 E_{k+1} = \begin{cases}
@@ -540,25 +537,25 @@ E_n = 2E_{n-1} - H_{n} = 2\times (2E_{n-2} - H_{n-1}) - H_n =……\\
 <h3 id="模拟过程"><a href="#模拟过程" class="headerlink" title="模拟过程"></a>模拟过程</h3><p>还可以直接模拟跳跃过程，搜索最小的$E_0$。搜索过程可以使用二分查找。</p>
 <p>初始的能量只要超过全部建筑高度之和sum，则必定可以跳到最后一个建筑。则可以在 [1, sum] 使用二分查找。</p>
 <p>也可以从1开始，跳跃失败则指数增加，直到跳跃成功，然后在失败的最大值和成功值之间二分查找。例如开始$E_0 = 1$，失败则设置$E_0 = 2$、$E_0 = 4$、$E_0 = 8$，假设$E_0 = 8$成功，则在 [4,8]之间二分查找。</p>
-<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><h3 id="python实现"><a href="#python实现" class="headerlink" title="python实现"></a>python实现</h3><h4 id="公式法-1"><a href="#公式法-1" class="headerlink" title="公式法"></a>公式法</h4><figure class="shiki python"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #ABB2BF">n </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">int</span><span style="color: #ABB2BF">(</span><span style="color: #56B6C2">input</span><span style="color: #ABB2BF">())</span></span>
-<span class="line"><span style="color: #ABB2BF">hight </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> [</span><span style="color: #56B6C2">int</span><span style="color: #ABB2BF">(i) </span><span style="color: #C678DD">for</span><span style="color: #ABB2BF"> i </span><span style="color: #C678DD">in</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">input</span><span style="color: #ABB2BF">().</span><span style="color: #61AFEF">split</span><span style="color: #ABB2BF">()]</span></span>
-<span class="line"></span>
-<span class="line"><span style="color: #ABB2BF">E </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">0</span></span>
-<span class="line"><span style="color: #C678DD">for</span><span style="color: #ABB2BF"> i,v </span><span style="color: #C678DD">in</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">enumerate</span><span style="color: #ABB2BF">(hight):</span></span>
-<span class="line"><span style="color: #ABB2BF">    E</span><span style="color: #56B6C2">+=</span><span style="color: #ABB2BF">(v</span><span style="color: #56B6C2">/</span><span style="color: #D19A66">2</span><span style="color: #56B6C2">**</span><span style="color: #ABB2BF">(i</span><span style="color: #56B6C2">+</span><span style="color: #D19A66">1</span><span style="color: #ABB2BF">))</span></span>
-<span class="line"><span style="color: #ABB2BF">    </span></span>
-<span class="line"><span style="color: #C678DD">import</span><span style="color: #ABB2BF"> math</span></span>
-<span class="line"><span style="color: #56B6C2">print</span><span style="color: #ABB2BF">(math.</span><span style="color: #61AFEF">ceil</span><span style="color: #ABB2BF">(E))</span></span></code></pre></div></div></figure>
-<h4 id="逆推-1"><a href="#逆推-1" class="headerlink" title="逆推"></a>逆推</h4><figure class="shiki python"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #ABB2BF">n </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">int</span><span style="color: #ABB2BF">(</span><span style="color: #56B6C2">input</span><span style="color: #ABB2BF">())</span></span>
-<span class="line"><span style="color: #ABB2BF">hight </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> [</span><span style="color: #56B6C2">int</span><span style="color: #ABB2BF">(i) </span><span style="color: #C678DD">for</span><span style="color: #ABB2BF"> i </span><span style="color: #C678DD">in</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">input</span><span style="color: #ABB2BF">().</span><span style="color: #61AFEF">split</span><span style="color: #ABB2BF">()]</span></span>
-<span class="line"><span style="color: #ABB2BF">hight.</span><span style="color: #61AFEF">reverse</span><span style="color: #ABB2BF">()</span></span>
-<span class="line"></span>
-<span class="line"><span style="color: #C678DD">import</span><span style="color: #ABB2BF"> math</span></span>
-<span class="line"><span style="color: #ABB2BF">E </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">0</span></span>
-<span class="line"><span style="color: #C678DD">for</span><span style="color: #ABB2BF"> v </span><span style="color: #C678DD">in</span><span style="color: #ABB2BF"> hight:</span></span>
-<span class="line"><span style="color: #ABB2BF">    E</span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> math.</span><span style="color: #61AFEF">ceil</span><span style="color: #ABB2BF">((E</span><span style="color: #56B6C2">+</span><span style="color: #ABB2BF">v)</span><span style="color: #56B6C2">/</span><span style="color: #D19A66">2</span><span style="color: #ABB2BF">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color: #56B6C2">print</span><span style="color: #ABB2BF">(math.</span><span style="color: #61AFEF">ceil</span><span style="color: #ABB2BF">(E))</span></span></code></pre></div></div></figure>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><h3 id="python实现"><a href="#python实现" class="headerlink" title="python实现"></a>python实现</h3><h4 id="公式法-1"><a href="#公式法-1" class="headerlink" title="公式法"></a>公式法</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python">n &#x3D; int(input())
+hight &#x3D; [int(i) for i in input().split()]
+
+E &#x3D; 0
+for i,v in enumerate(hight):
+    E+&#x3D;(v&#x2F;2**(i+1))
+    
+import math
+print(math.ceil(E))<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="逆推-1"><a href="#逆推-1" class="headerlink" title="逆推"></a>逆推</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python">n &#x3D; int(input())
+hight &#x3D; [int(i) for i in input().split()]
+hight.reverse()
+
+import math
+E &#x3D; 0
+for v in hight:
+    E&#x3D; math.ceil((E+v)&#x2F;2)
+
+print(math.ceil(E))<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr />
@@ -610,7 +607,7 @@ E_n = 2E_{n-1} - H_{n} = 2\times (2E_{n-2} - H_{n-1}) - H_n =……\\
                                         
 
                                             <!-- 3/22修改： -->
-                                            <img src="https://s4.ax1x.com/2022/02/08/HlQe3Q.jpg" class="responsive-img" alt="MobileNet--准确与速度的均衡">
+                                            <img src="https://s4.ax1x.com/2022/02/08/HlQAN8.jpg" class="responsive-img" alt="MobileNet--准确与速度的均衡">
                                             
                                                 <span class="card-title">MobileNet--准确与速度的均衡</span>
                             </div>
@@ -663,7 +660,7 @@ E_n = 2E_{n-1} - H_{n} = 2\times (2E_{n-2} - H_{n-1}) - H_n =……\\
                                         <div class="card-image">
                                             
                                                     
-                                                        <img src="https://s4.ax1x.com/2022/02/08/HlQ1EV.jpg" class="responsive-img" alt="字节算法题——连续出题问题">
+                                                        <img src="https://s4.ax1x.com/2022/02/08/HlQMBq.jpg" class="responsive-img" alt="字节算法题——连续出题问题">
                                                         
                                                             <span class="card-title">字节算法题——连续出题问题</span>
                                         </div>
@@ -874,7 +871,7 @@ E_n = 2E_{n-1} - H_{n} = 2\times (2E_{n-2} - H_{n-1}) - H_n =……\\
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">87.4k</span>
+                <span class="white-color">91.3k</span>
                 
 
                     <br>
@@ -1063,27 +1060,6 @@ $(function () {
                                                             <!-- 雪花特效 -->
                                                             
 
-    <!-- hexo injector body_end start -->
-  <script>
-  const CODE_CONFIG = {
-    beautify: undefined,
-    highlightCopy: undefined,
-    highlightLang: undefined,
-    highlightHeightLimit: undefined,
-    isHighlightShrink: undefined,
-    copy: {
-      success: 'undefined',
-      error: 'undefined',
-      noSupport: 'undefined',
-    }
-  };
-  console.log(
-    `%c hexo-shiki-plugin %c v1.0.27 %c https://github.com/nova1751/hexo-shiki-plugin`,
-    "color: #fff; background: #5f5f5f",
-    "color: #fff; background: #80c8f8",
-    ""
-  );
-  </script>
-  <!-- hexo injector body_end end --></body>
+    </body>
 
 </html>

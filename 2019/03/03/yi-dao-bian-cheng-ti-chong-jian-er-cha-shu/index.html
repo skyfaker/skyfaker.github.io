@@ -71,11 +71,8 @@
 <!--        })();-->
 <!--    </script>-->
 
-<!-- hexo injector head_end start -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-shiki-plugin@latest/lib/codeblock.css">
-<style>:root{--hl-color:#abb2bf;--hl-bg:#282c34;--hltools-bg:#21252b;--hltools-color:#bbbbbc;--hlnumber-bg:#282c34;--hlnumber-color:#495162;--hlscrollbar-bg:#373c47;--hlexpand-bg:linear-gradient(180deg,rgba(40,44,52,0.1),rgba(40,44,52,0.9))}</style><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="SKYFAKER" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><link rel="alternate" href="/atom.xml" title="SKYFAKER" type="application/atom+xml">
+</head>
 
     <body>
 
@@ -327,8 +324,8 @@
 
 
 <!-- 3/22: 这里修改了推荐页文章点击进去之后的图片路径 -->
-<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.iohttps://s4.ax1x.com/2022/02/08/HlQPBt.jpg');"> -->
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://s4.ax1x.com/2022/02/08/HlQPBt.jpg');">
+<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.iohttps://s4.ax1x.com/2022/02/08/HlQkAf.jpg');"> -->
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://s4.ax1x.com/2022/02/08/HlQkAf.jpg');">
 
     <div class="container">
         <div class="row">
@@ -486,7 +483,7 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    820
+                    863
                 </div>
                 
 
@@ -522,61 +519,61 @@
 <p>接下来，只需要使用递归的方法，对左右子树做同样的操作，就可以重建二叉树了。</p>
 <p>实际上，题目中的二叉树长这样：</p>
 <p><img src="二叉树.png" alt=""></p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><h3 id="python实现"><a href="#python实现" class="headerlink" title="python实现"></a>python实现</h3><figure class="shiki python"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #7F848E; font-style: italic"># -*- coding:utf-8 -*-</span></span>
-<span class="line"><span style="color: #7F848E; font-style: italic"># class TreeNode:</span></span>
-<span class="line"><span style="color: #7F848E; font-style: italic">#     def __init__(self, x):</span></span>
-<span class="line"><span style="color: #7F848E; font-style: italic">#         self.val = x</span></span>
-<span class="line"><span style="color: #7F848E; font-style: italic">#         self.left = None</span></span>
-<span class="line"><span style="color: #7F848E; font-style: italic">#         self.right = None</span></span>
-<span class="line"><span style="color: #C678DD">class</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Solution</span><span style="color: #ABB2BF">:</span></span>
-<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #7F848E; font-style: italic"># 返回构造的TreeNode根节点</span></span>
-<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #C678DD">def</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">reConstructBinaryTree</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B; font-style: italic">self</span><span style="color: #ABB2BF">, </span><span style="color: #D19A66; font-style: italic">pre</span><span style="color: #ABB2BF">, </span><span style="color: #D19A66; font-style: italic">tin</span><span style="color: #ABB2BF">):</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #7F848E; font-style: italic"># write code here</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #7F848E; font-style: italic"># 终止递归的条件</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">if</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">len</span><span style="color: #ABB2BF">(pre) </span><span style="color: #56B6C2">==</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">0</span><span style="color: #ABB2BF">: </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> </span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #7F848E; font-style: italic"># 根节点为前序遍历的第一个节点</span></span>
-<span class="line"><span style="color: #ABB2BF">        root </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">TreeNode</span><span style="color: #ABB2BF">(pre[</span><span style="color: #D19A66">0</span><span style="color: #ABB2BF">])</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #7F848E; font-style: italic"># 因为不含重复的数字，所以可以直接使用列表的index方法</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #7F848E; font-style: italic"># 这里需要注意对于原前序和中序列表的截取</span></span>
-<span class="line"><span style="color: #ABB2BF">        root.left </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">self</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">reConstructBinaryTree</span><span style="color: #ABB2BF">(pre[</span><span style="color: #D19A66">1</span><span style="color: #ABB2BF">:tin.</span><span style="color: #61AFEF">index</span><span style="color: #ABB2BF">(pre[</span><span style="color: #D19A66">0</span><span style="color: #ABB2BF">])</span><span style="color: #56B6C2">+</span><span style="color: #D19A66">1</span><span style="color: #ABB2BF">], tin[:tin.</span><span style="color: #61AFEF">index</span><span style="color: #ABB2BF">(pre[</span><span style="color: #D19A66">0</span><span style="color: #ABB2BF">])])</span></span>
-<span class="line"><span style="color: #ABB2BF">        root.right </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">self</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">reConstructBinaryTree</span><span style="color: #ABB2BF">(pre[tin.</span><span style="color: #61AFEF">index</span><span style="color: #ABB2BF">(pre[</span><span style="color: #D19A66">0</span><span style="color: #ABB2BF">])</span><span style="color: #56B6C2">+</span><span style="color: #D19A66">1</span><span style="color: #ABB2BF">:], tin[tin.</span><span style="color: #61AFEF">index</span><span style="color: #ABB2BF">(pre[</span><span style="color: #D19A66">0</span><span style="color: #ABB2BF">])</span><span style="color: #56B6C2">+</span><span style="color: #D19A66">1</span><span style="color: #ABB2BF">:])</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> root</span></span></code></pre></div></div></figure>
-<h3 id="C-实现"><a href="#C-实现" class="headerlink" title="C++实现"></a>C++实现</h3><figure class="shiki cpp"><div class='codeblock'><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">class</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Solution</span><span style="color: #ABB2BF"> {</span></span>
-<span class="line"><span style="color: #C678DD">public:</span></span>
-<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #E5C07B">TreeNode</span><span style="color: #C678DD">*</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">reConstructBinaryTree</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">vector</span><span style="color: #ABB2BF">&lt;</span><span style="color: #C678DD">int</span><span style="color: #ABB2BF">&gt; </span><span style="color: #E06C75; font-style: italic">pre</span><span style="color: #ABB2BF">,</span><span style="color: #E5C07B">vector</span><span style="color: #ABB2BF">&lt;</span><span style="color: #C678DD">int</span><span style="color: #ABB2BF">&gt; </span><span style="color: #E06C75; font-style: italic">vin</span><span style="color: #ABB2BF">) {</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">int</span><span style="color: #ABB2BF"> p_size </span><span style="color: #C678DD">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">pre</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">size</span><span style="color: #ABB2BF">();</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">if</span><span style="color: #ABB2BF"> (p_size </span><span style="color: #C678DD">==</span><span style="color: #D19A66">0</span><span style="color: #ABB2BF">)</span></span>
-<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">NULL</span><span style="color: #ABB2BF">;</span></span>
-<span class="line"><span style="color: #ABB2BF">        vector</span><span style="color: #C678DD">&lt;int&gt;</span><span style="color: #ABB2BF"> pre_left, pre_right, vin_left, vin_right;</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">int</span><span style="color: #ABB2BF"> val </span><span style="color: #C678DD">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">pre</span><span style="color: #ABB2BF">[</span><span style="color: #D19A66">0</span><span style="color: #ABB2BF">];</span></span>
-<span class="line"><span style="color: #ABB2BF">        TreeNode</span><span style="color: #56B6C2">*</span><span style="color: #ABB2BF"> root </span><span style="color: #C678DD">=</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">TreeNode</span><span style="color: #ABB2BF">(val);</span></span>
-<span class="line"><span style="color: #7F848E; font-style: italic">        // 寻找根节点在中序遍历中的位置</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">int</span><span style="color: #ABB2BF"> p </span><span style="color: #C678DD">=</span><span style="color: #D19A66">0</span><span style="color: #ABB2BF">;</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">for</span><span style="color: #ABB2BF">(p; p </span><span style="color: #C678DD">&lt;</span><span style="color: #ABB2BF"> p_size; p</span><span style="color: #C678DD">++</span><span style="color: #ABB2BF">){</span></span>
-<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #C678DD">if</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">vin</span><span style="color: #ABB2BF">[p] </span><span style="color: #C678DD">==</span><span style="color: #ABB2BF"> val)</span></span>
-<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #C678DD">break</span><span style="color: #ABB2BF">;</span></span>
-<span class="line"><span style="color: #ABB2BF">        }</span></span>
-<span class="line"><span style="color: #7F848E; font-style: italic">        // 根据根节点在中序遍历中的位置，分为左子树和右子树</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">for</span><span style="color: #ABB2BF">(</span><span style="color: #C678DD">int</span><span style="color: #ABB2BF"> i</span><span style="color: #C678DD">=</span><span style="color: #D19A66">0</span><span style="color: #ABB2BF">; i </span><span style="color: #C678DD">&lt;</span><span style="color: #ABB2BF"> p_size; i</span><span style="color: #C678DD">++</span><span style="color: #ABB2BF">){</span></span>
-<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #C678DD">if</span><span style="color: #ABB2BF">(i </span><span style="color: #C678DD">&lt;</span><span style="color: #ABB2BF"> p){ </span></span>
-<span class="line"><span style="color: #7F848E; font-style: italic">                //左子树</span></span>
-<span class="line"><span style="color: #7F848E; font-style: italic">                // 前序遍历的第一个元素是根节点，后面是左子树和右子树，所以从1开始</span></span>
-<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #E5C07B">pre_left</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">push_back</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">pre</span><span style="color: #ABB2BF">[i</span><span style="color: #56B6C2">+</span><span style="color: #D19A66">1</span><span style="color: #ABB2BF">]);</span></span>
-<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #E5C07B">vin_left</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">push_back</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">vin</span><span style="color: #ABB2BF">[i]);</span></span>
-<span class="line"><span style="color: #ABB2BF">            }</span></span>
-<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #C678DD">else</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">if</span><span style="color: #ABB2BF">(i </span><span style="color: #C678DD">&gt;</span><span style="color: #ABB2BF"> p){ </span></span>
-<span class="line"><span style="color: #7F848E; font-style: italic">                //右子树</span></span>
-<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #E5C07B">pre_right</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">push_back</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">pre</span><span style="color: #ABB2BF">[i]);</span></span>
-<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #E5C07B">vin_right</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">push_back</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">vin</span><span style="color: #ABB2BF">[i]);</span></span>
-<span class="line"><span style="color: #ABB2BF">            }</span></span>
-<span class="line"><span style="color: #ABB2BF">        }</span></span>
-<span class="line"><span style="color: #7F848E; font-style: italic">        // 递归左右子树</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">root</span><span style="color: #ABB2BF">-&gt;</span><span style="color: #E06C75">left</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">=</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">reConstructBinaryTree</span><span style="color: #ABB2BF">(pre_left, vin_left);</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">root</span><span style="color: #ABB2BF">-&gt;</span><span style="color: #E06C75">right</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">=</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">reConstructBinaryTree</span><span style="color: #ABB2BF">(pre_right, vin_right);</span></span>
-<span class="line"><span style="color: #ABB2BF">        </span></span>
-<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> root;</span></span>
-<span class="line"><span style="color: #ABB2BF">    }</span></span>
-<span class="line"><span style="color: #ABB2BF">};</span></span></code></pre></div></div></figure>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><h3 id="python实现"><a href="#python实现" class="headerlink" title="python实现"></a>python实现</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"># -*- coding:utf-8 -*-
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val &#x3D; x
+#         self.left &#x3D; None
+#         self.right &#x3D; None
+class Solution:
+    # 返回构造的TreeNode根节点
+    def reConstructBinaryTree(self, pre, tin):
+        # write code here
+        # 终止递归的条件
+        if len(pre) &#x3D;&#x3D; 0: return 
+        # 根节点为前序遍历的第一个节点
+        root &#x3D; TreeNode(pre[0])
+        # 因为不含重复的数字，所以可以直接使用列表的index方法
+        # 这里需要注意对于原前序和中序列表的截取
+        root.left &#x3D; self.reConstructBinaryTree(pre[1:tin.index(pre[0])+1], tin[:tin.index(pre[0])])
+        root.right &#x3D; self.reConstructBinaryTree(pre[tin.index(pre[0])+1:], tin[tin.index(pre[0])+1:])
+        return root<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="C-实现"><a href="#C-实现" class="headerlink" title="C++实现"></a>C++实现</h3><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">class Solution &#123;
+public:
+    TreeNode* reConstructBinaryTree(vector&lt;int&gt; pre,vector&lt;int&gt; vin) &#123;
+        int p_size &#x3D; pre.size();
+        if (p_size &#x3D;&#x3D;0)
+            return NULL;
+        vector&lt;int&gt; pre_left, pre_right, vin_left, vin_right;
+        int val &#x3D; pre[0];
+        TreeNode* root &#x3D; new TreeNode(val);
+        &#x2F;&#x2F; 寻找根节点在中序遍历中的位置
+        int p &#x3D;0;
+        for(p; p &lt; p_size; p++)&#123;
+            if(vin[p] &#x3D;&#x3D; val)
+                break;
+        &#125;
+        &#x2F;&#x2F; 根据根节点在中序遍历中的位置，分为左子树和右子树
+        for(int i&#x3D;0; i &lt; p_size; i++)&#123;
+            if(i &lt; p)&#123; 
+                &#x2F;&#x2F;左子树
+                &#x2F;&#x2F; 前序遍历的第一个元素是根节点，后面是左子树和右子树，所以从1开始
+                pre_left.push_back(pre[i+1]);
+                vin_left.push_back(vin[i]);
+            &#125;
+            else if(i &gt; p)&#123; 
+                &#x2F;&#x2F;右子树
+                pre_right.push_back(pre[i]);
+                vin_right.push_back(vin[i]);
+            &#125;
+        &#125;
+        &#x2F;&#x2F; 递归左右子树
+        root-&gt;left &#x3D; reConstructBinaryTree(pre_left, vin_left);
+        root-&gt;right &#x3D; reConstructBinaryTree(pre_right, vin_right);
+        
+        return root;
+    &#125;
+&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr />
@@ -628,7 +625,7 @@
                                         
 
                                             <!-- 3/22修改： -->
-                                            <img src="https://s4.ax1x.com/2022/02/08/HlQAN8.jpg" class="responsive-img" alt="一道编程题——两个栈实现队列">
+                                            <img src="https://s4.ax1x.com/2022/02/08/HlQe3Q.jpg" class="responsive-img" alt="一道编程题——两个栈实现队列">
                                             
                                                 <span class="card-title">一道编程题——两个栈实现队列</span>
                             </div>
@@ -677,7 +674,7 @@
                                         <div class="card-image">
                                             
                                                     
-                                                        <img src="https://s4.ax1x.com/2022/02/08/HlMXtO.jpg" class="responsive-img" alt="一道编程题——反向打印链表">
+                                                        <img src="https://s4.ax1x.com/2022/02/08/HlMx9e.jpg" class="responsive-img" alt="一道编程题——反向打印链表">
                                                         
                                                             <span class="card-title">一道编程题——反向打印链表</span>
                                         </div>
@@ -865,7 +862,7 @@
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">87.4k</span>
+                <span class="white-color">91.3k</span>
                 
 
                     <br>
@@ -1054,27 +1051,6 @@ $(function () {
                                                             <!-- 雪花特效 -->
                                                             
 
-    <!-- hexo injector body_end start -->
-  <script>
-  const CODE_CONFIG = {
-    beautify: undefined,
-    highlightCopy: undefined,
-    highlightLang: undefined,
-    highlightHeightLimit: undefined,
-    isHighlightShrink: undefined,
-    copy: {
-      success: 'undefined',
-      error: 'undefined',
-      noSupport: 'undefined',
-    }
-  };
-  console.log(
-    `%c hexo-shiki-plugin %c v1.0.27 %c https://github.com/nova1751/hexo-shiki-plugin`,
-    "color: #fff; background: #5f5f5f",
-    "color: #fff; background: #80c8f8",
-    ""
-  );
-  </script>
-  <!-- hexo injector body_end end --></body>
+    </body>
 
 </html>

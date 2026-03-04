@@ -6,7 +6,7 @@
   <link href="https://www.skyfaker.cc/atom.xml" rel="self"/>
   
   <link href="https://www.skyfaker.cc/"/>
-  <updated>2026-03-03T11:32:00.792Z</updated>
+  <updated>2026-03-04T18:15:40.125Z</updated>
   <id>https://www.skyfaker.cc/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>wsl与clash代理</title>
+    <link href="https://www.skyfaker.cc/2025/03/04/wsl-yu-clash-dai-li/"/>
+    <id>https://www.skyfaker.cc/2025/03/04/wsl-yu-clash-dai-li/</id>
+    <published>2025-03-04T12:57:50.000Z</published>
+    <updated>2026-03-04T18:15:40.125Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;这几天重置了网络配置，导致WSL的网络代理出了问题，这里记录一下。&lt;/p&gt;
+&lt;h2 id=&quot;配置与问题表现&quot;&gt;&lt;a href=&quot;#配置与问题表现&quot; class=&quot;headerlink&quot; title=&quot;配置与问题表现&quot;&gt;&lt;/a&gt;配置与问题表现&lt;/h2&gt;&lt;h5</summary>
+        
+      
+    
+    
+    
+    <category term="问题记录" scheme="https://www.skyfaker.cc/categories/%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/"/>
+    
+    
+    <category term="代理" scheme="https://www.skyfaker.cc/tags/%E4%BB%A3%E7%90%86/"/>
+    
+    <category term="proxy" scheme="https://www.skyfaker.cc/tags/proxy/"/>
+    
+    <category term="clash" scheme="https://www.skyfaker.cc/tags/clash/"/>
+    
+    <category term="wsl" scheme="https://www.skyfaker.cc/tags/wsl/"/>
+    
+  </entry>
   
   <entry>
     <title>RAG与长上下文之争</title>
@@ -514,35 +546,6 @@
     <category term="启发式搜索" scheme="https://www.skyfaker.cc/tags/%E5%90%AF%E5%8F%91%E5%BC%8F%E6%90%9C%E7%B4%A2/"/>
     
     <category term="遍历" scheme="https://www.skyfaker.cc/tags/%E9%81%8D%E5%8E%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>搜索算法综述</title>
-    <link href="https://www.skyfaker.cc/2020/10/02/sou-suo-suan-fa-zong-shu/"/>
-    <id>https://www.skyfaker.cc/2020/10/02/sou-suo-suan-fa-zong-shu/</id>
-    <published>2020-10-02T15:31:33.000Z</published>
-    <updated>2021-04-09T14:39:00.982Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h3 id=&quot;启发式搜索&quot;&gt;&lt;a href=&quot;#启发式搜索&quot; class=&quot;headerlink&quot; title=&quot;启发式搜索&quot;&gt;&lt;/a&gt;启发式搜索&lt;/h3&gt;&lt;p&gt;关于搜索算法的具体介绍见 &lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="搜索算法" scheme="https://www.skyfaker.cc/categories/%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95/"/>
-    
-    
-    <category term="搜索求解" scheme="https://www.skyfaker.cc/tags/%E6%90%9C%E7%B4%A2%E6%B1%82%E8%A7%A3/"/>
-    
-    <category term="启发式搜索" scheme="https://www.skyfaker.cc/tags/%E5%90%AF%E5%8F%91%E5%BC%8F%E6%90%9C%E7%B4%A2/"/>
-    
-    <category term="蒙特卡洛树" scheme="https://www.skyfaker.cc/tags/%E8%92%99%E7%89%B9%E5%8D%A1%E6%B4%9B%E6%A0%91/"/>
     
   </entry>
   
