@@ -74,8 +74,8 @@ export hostip&amp;#x3D;$(cat &amp;#x2F;">
 <!--        })();-->
 <!--    </script>-->
 
-<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><link rel="alternate" href="/atom.xml" title="SKYFAKER" type="application/atom+xml">
-</head>
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="SKYFAKER" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
     <body>
 
@@ -498,7 +498,7 @@ export hostip&amp;#x3D;$(cat &amp;#x2F;">
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.7k
+                    2.8k
                 </div>
                 
 
@@ -697,6 +697,8 @@ Set-NetFirewallRule -DisplayName &quot;WSL Proxy Port&quot; -RemoteAddress 172.1
 <li><strong>去程：</strong> <code>WSL</code> $\xrightarrow{7890}$ <code>Clash</code> (加密) $\xrightarrow{12345}$ <code>路由器</code> (NAT) $\xrightarrow{54321}$ <code>代理服务器</code></li>
 <li><strong>回程：</strong> <code>代理服务器</code> $\rightarrow$ <code>路由器</code> (NAT) $\xrightarrow{54321}$ <code>12345</code>端口的<code>Clash</code> (解密) $\xrightarrow{7890}$ <code>WSL</code></li>
 </ul>
+<h4 id="4-clash代理过程"><a href="#4-clash代理过程" class="headerlink" title="4 clash代理过程"></a>4 clash代理过程</h4><p><img src="https://skyfaker-hexo-blog.oss-cn-shanghai.aliyuncs.com/post-image/wsl%E4%B8%8Eclash%E4%BB%A3%E7%90%86/clash.png" style="zoom:50%;" /></p>
+<p>需要说明的是，当 clash 使用系统代理+全局模式时，dns 请求会被 clash 加密并全部发往代理服务器，是让代理服务器的 dns 去解析域名。</p>
 
             </div>
             <hr />
@@ -1022,7 +1024,7 @@ export hostip&#x3D;$(cat &#x2F;
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">91.3k</span>
+                <span class="white-color">91.4k</span>
                 
 
                     <br>
