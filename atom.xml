@@ -6,7 +6,7 @@
   <link href="https://www.skyfaker.cc/atom.xml" rel="self"/>
   
   <link href="https://www.skyfaker.cc/"/>
-  <updated>2026-03-05T00:53:35.006Z</updated>
+  <updated>2026-11-05T09:00:17.702Z</updated>
   <id>https://www.skyfaker.cc/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>从知识库问答到多 Agent 协作：一个知识管理 Agent 的架构实践</title>
+    <link href="https://www.skyfaker.cc/2026/10/05/zhi-shi-guan-li-agent-jia-gou-shi-jian/"/>
+    <id>https://www.skyfaker.cc/2026/10/05/zhi-shi-guan-li-agent-jia-gou-shi-jian/</id>
+    <published>2026-10-04T16:00:00.000Z</published>
+    <updated>2026-11-05T09:00:17.702Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;从知识库问答说起&quot;&gt;&lt;a href=&quot;#从知识库问答说起&quot; class=&quot;headerlink&quot; title=&quot;从知识库问答说起&quot;&gt;&lt;/a&gt;从知识库问答说起&lt;/h2&gt;&lt;p&gt;在上一篇关于 RAG 与长上下文的文章中，我提到 RAG</summary>
+        
+      
+    
+    
+    
+    <category term="AI" scheme="https://www.skyfaker.cc/categories/AI/"/>
+    
+    
+    <category term="RAG" scheme="https://www.skyfaker.cc/tags/RAG/"/>
+    
+    <category term="AI Agent" scheme="https://www.skyfaker.cc/tags/AI-Agent/"/>
+    
+    <category term="LangGraph" scheme="https://www.skyfaker.cc/tags/LangGraph/"/>
+    
+    <category term="知识管理" scheme="https://www.skyfaker.cc/tags/%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/"/>
+    
+  </entry>
   
   <entry>
     <title>wsl与clash代理</title>
@@ -519,33 +550,6 @@
     
     
     <category term="SVM" scheme="https://www.skyfaker.cc/tags/SVM/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>遍历与启发式搜索</title>
-    <link href="https://www.skyfaker.cc/2020/10/06/bian-li-yu-qi-fa-shi-sou-suo/"/>
-    <id>https://www.skyfaker.cc/2020/10/06/bian-li-yu-qi-fa-shi-sou-suo/</id>
-    <published>2020-10-06T09:43:33.000Z</published>
-    <updated>2023-05-06T16:18:03.637Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;遍历算法&quot;&gt;&lt;a href=&quot;#遍历算法&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="搜索算法" scheme="https://www.skyfaker.cc/categories/%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95/"/>
-    
-    
-    <category term="启发式搜索" scheme="https://www.skyfaker.cc/tags/%E5%90%AF%E5%8F%91%E5%BC%8F%E6%90%9C%E7%B4%A2/"/>
-    
-    <category term="遍历" scheme="https://www.skyfaker.cc/tags/%E9%81%8D%E5%8E%86/"/>
     
   </entry>
   
