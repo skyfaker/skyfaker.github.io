@@ -327,8 +327,8 @@ export hostip&amp;#x3D;$(cat &amp;#x2F;">
 
 
 <!-- 3/22: 这里修改了推荐页文章点击进去之后的图片路径 -->
-<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.iohttps://s4.ax1x.com/2022/02/08/HlQnjs.jpg');"> -->
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://s4.ax1x.com/2022/02/08/HlQnjs.jpg');">
+<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skyfaker/skyfaker.github.iohttps://skyfaker-hexo-blog.oss-cn-shanghai.aliyuncs.com/blog-feature/30.jpg');"> -->
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://skyfaker-hexo-blog.oss-cn-shanghai.aliyuncs.com/blog-feature/30.jpg');">
 
     <div class="container">
         <div class="row">
@@ -609,7 +609,7 @@ Set-NetFirewallRule -DisplayName &quot;WSL Proxy Port&quot; -RemoteAddress 172.1
 <p>第二道防线：Windows 防火墙（之前的设置）</p>
 <p>假设你是个硬核用户，直接把网线插在电脑上拨号（拥有公网 IP），或者你在路由器上开了 DMZ/全端口转发，流量终于来到了你的 Windows 门口。</p>
 <p>这时候，<strong>你之前运行的那条命令就成了救命稻草：</strong></p>
-<pre class="line-numbers language-none"><code class="language-none">Set-NetFirewallRule -DisplayName &quot;WSL Proxy Port&quot; -RemoteAddress 172.16.0.0&#x2F;12<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">Set-NetFirewallRule -DisplayName &quot;WSL Proxy Port&quot; -RemoteAddress 172.16.0.0&#x2F;12<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <ul>
 <li><strong>匹配规则：</strong> 防火墙看到请求来自某个互联网 IP（比如 <code>223.x.x.x</code>）。</li>
 <li><strong>检查准入规则：</strong> 它对比你设定的 <code>RemoteAddress</code>。<ul>
@@ -748,7 +748,7 @@ Set-NetFirewallRule -DisplayName &quot;WSL Proxy Port&quot; -RemoteAddress 172.1
                                 <div class="card-image">
                                     
                                             
-                                                <img src="https://s4.ax1x.com/2022/02/08/HlQnjs.jpg" class="responsive-img" alt="wsl与clash代理">
+                                                <img src="https://skyfaker-hexo-blog.oss-cn-shanghai.aliyuncs.com/blog-feature/30.jpg" class="responsive-img" alt="wsl与clash代理">
                                                 
                                                     <span class="card-title">wsl与clash代理</span>
                                 </div>
@@ -813,7 +813,7 @@ export hostip&#x3D;$(cat &#x2F;
                                         <div class="card-image">
                                             
                                                     
-                                                        <img src="https://s4.ax1x.com/2022/02/08/HlQ3NT.jpg" class="responsive-img" alt="RAG与长上下文之争">
+                                                        <img src="https://skyfaker-hexo-blog.oss-cn-shanghai.aliyuncs.com/blog-feature/7.jpg" class="responsive-img" alt="RAG与长上下文之争">
                                                         
                                                             <span class="card-title">RAG与长上下文之争</span>
                                         </div>
